@@ -23,7 +23,7 @@ namespace stateObservation
  * \brief
  *         Description is pending
  *
- *         use getEstimatedState to obtain the state vector
+ *         use estimateState to obtain the state vector
  *         the tilt R.transpose()*e_z is constituted
  *         with the last three components of the state vector.
  *

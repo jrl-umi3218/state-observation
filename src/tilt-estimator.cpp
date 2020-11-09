@@ -28,7 +28,7 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
 
   x1_ = R_S_C_.transpose() * (v_C_ + v_S_C_) + (yg - R_S_C_.transpose() * w_S_C_).cross(R_S_C_.transpose() * p_S_C_);
 
-  ObserverBase::StateVector x_hat = getEstimatedState(k);
+  ObserverBase::StateVector x_hat = estimateState(k);
   x1_hat_ = x_hat.segment<3>(0);
   x2_hat_prime_ = x_hat.segment<3>(3);
   x2_hat_ = x_hat.segment<3>(6);

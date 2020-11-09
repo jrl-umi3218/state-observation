@@ -292,7 +292,7 @@ public:
   virtual StateVector getInnovation();
 
   /// A function that gives the prediction (this is NOT the estimation of the state),
-  /// for the estimation call getEstimateState method
+  /// for the estimation call estimateState() method
   /// it is only an execution of the state synamics with the current state
   /// estimation and the current input value
   inline StateVector updateStatePrediction();

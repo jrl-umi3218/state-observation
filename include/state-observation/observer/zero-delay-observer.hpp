@@ -129,7 +129,7 @@ public:
   /// y_{k_0+1} to y_{k} and u_{k_0} to u_{k-1} (or u_{k} depending on the measure dynamics)
   ///
   /// This method sets the current time to k
-  virtual ObserverBase::StateVector getEstimatedState(TimeIndex k);
+  virtual ObserverBase::StateVector estimateState(TimeIndex k);
 
   /// @brief Get the Current Estimated State
   /// @return ObserverBase::StateVector

@@ -69,8 +69,7 @@ IndexedVectorArray imuMultiplicativeAttitudeReconstruction
     filter.setC(c);
 
     ///get the estimation and give it to the array
-    Vector xhk=filter.getEstimatedState(i);
-
+    Vector xhk = filter.estimateState(i);
 
     //std::cout<<"xh"<< xhk.transpose() <<std::endl;
 

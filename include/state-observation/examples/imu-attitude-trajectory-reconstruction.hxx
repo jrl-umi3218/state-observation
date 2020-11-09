@@ -62,7 +62,7 @@ IndexedVectorArray imuAttitudeTrajectoryReconstruction
         filter.setC(c);
 
         ///get the estimation and give it to the array
-        Vector xhk=filter.getEstimatedState(i);
+        Vector xhk = filter.estimateState(i);
 
         ///regulate the part of orientation vector in the state vector
         xhk.segment(indexes::ori,3)=kine::regulateOrientationVector

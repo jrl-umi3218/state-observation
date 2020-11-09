@@ -384,7 +384,7 @@ void KalmanFilterBase::setMeasureSize(Index m, Index mt)
 
 Vector KalmanFilterBase::getSimulatedMeasurement(TimeIndex k)
 {
-  return simulateSensor_(getEstimatedState(k), k);
+  return simulateSensor_(estimateState(k), k);
 }
 
 Vector KalmanFilterBase::getInnovation()

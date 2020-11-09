@@ -314,7 +314,7 @@ Vector KineticsObserver::update()
       ekf_.setC(computeCMatrix_());
     }
 
-    stateVector_ = ekf_.getEstimatedState(k_data_);
+    stateVector_ = ekf_.estimateState(k_data_);
 
     if(stateVector_.hasNaN())
     {

@@ -108,10 +108,10 @@ const Vector & EKFFlexibilityEstimatorBase::getFlexibilityVector()
         ekf_.setA(ekf_.getAMatrixFD(dx_));
         ekf_.setC(ekf_.getCMatrixFD(dx_));
       }
-      ekf_.getEstimatedState(i);
+      ekf_.estimateState(i);
     }
 
-    Vector x(ekf_.getEstimatedState(k_));
+    Vector x(ekf_.estimateState(k_));
 
     if(x == x) // detect NaN values
     {

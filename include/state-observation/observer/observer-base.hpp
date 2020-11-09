@@ -100,7 +100,7 @@ public:
 
   /// Run the observer loop and gets the state estimation of the state at
   /// instant k
-  virtual StateVector getEstimatedState(TimeIndex k) = 0;
+  virtual StateVector estimateState(TimeIndex k) = 0;
 
   /// Reinitializes the whole observer
   /// default behavior is to call the three "ObserverBase::clear*" methods

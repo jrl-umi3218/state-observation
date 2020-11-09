@@ -368,9 +368,9 @@ const Vector & ModelBaseEKFFlexEstimatorIMU::getFlexibilityVector()
           ekf_.setC(functor_.measureDynamicsJacobian());
         }
 
-        ekf_.getEstimatedState(i);
+        ekf_.estimateState(i);
       }
-      x_ = ekf_.getEstimatedState(k_);
+      x_ = ekf_.estimateState(k_);
 #ifndef EIGEN_VERSION_LESS_THAN_3_2
       if(!x_.hasNaN()) // detect NaN values
       {
