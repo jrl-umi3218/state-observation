@@ -1,0 +1,27 @@
+var a00701 =
+[
+    [ "indexes", "a00701.html#a1ec6ce6fec765197d0b1a09e451d6451", null ],
+    [ "IMUMagnetometerDynamicalSystem", "a00701.html#ae2ef186b4c92eaf59421142b3786a088", null ],
+    [ "~IMUMagnetometerDynamicalSystem", "a00701.html#a16cc37f7d92bd6ac29357933f637a416", null ],
+    [ "computeQuaternion_", "a00701.html#a76797937a4aec152e6e8342f6206fa9c", null ],
+    [ "getInputSize", "a00701.html#a28ed092f2752b99dd55296db86fa1148", null ],
+    [ "getMeasurementNoise", "a00701.html#a97a88275b2407bb1897927f4a784720e", null ],
+    [ "getMeasurementSize", "a00701.html#a03a52eabca771b58dd066771d9f82293", null ],
+    [ "getProcessNoise", "a00701.html#ab5f8da3e86a2362132389aa5037f35fb", null ],
+    [ "getStateSize", "a00701.html#a5d78f6b1ddc6fb372250ef2d9b05d1de", null ],
+    [ "measureDynamics", "a00701.html#a97785ac511307120875aa044b949c1db", null ],
+    [ "resetMeasurementNoise", "a00701.html#aa4c358380bd3522010d5688ccfd462ba", null ],
+    [ "resetProcessNoise", "a00701.html#aca222272ef61908e62aa7b1eadb7320e", null ],
+    [ "setMeasurementNoise", "a00701.html#aa57619daee994b940ea2e2c9216acdb6", null ],
+    [ "setProcessNoise", "a00701.html#ac56845ec6b4efe006f52dd926a080251", null ],
+    [ "setSamplingPeriod", "a00701.html#a2b11d57ad2f80719820ffa0f8a7eff76", null ],
+    [ "stateDynamics", "a00701.html#a9bbf84c3905c5c4ec55d4636400396ca", null ],
+    [ "dt_", "a00701.html#ac519993cce932bb62a78b15ea875b46f", null ],
+    [ "inputSize_", "a00701.html#aa81148d64d67612ae818468b26ad9bd4", null ],
+    [ "measurementSize_", "a00701.html#a9d8c3f48107e48cf93e4ad2cc4e21115", null ],
+    [ "orientationVector_", "a00701.html#a666464fb60121120c73fbb915afe297e", null ],
+    [ "processNoise_", "a00701.html#a53ac12a78c2e2bab9216e9e9ea520ff0", null ],
+    [ "quaternion_", "a00701.html#a5fbc700f95ee99ab49e6cc0389d97684", null ],
+    [ "sensor_", "a00701.html#a986156ffac64b76cd19e574550c63f12", null ],
+    [ "stateSize_", "a00701.html#a776f256daf1d2ead88d6254ba909bf46", null ]
+];
