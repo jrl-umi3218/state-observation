@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::KalmanFilterBase::optimizationContainer Struct Reference</title>
+<title>state-observation: stateObservation::ExtendedKalmanFilter::Optimization Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,138 +71,122 @@ $(document).ready(function(){initNavTree('a00813.html','');});
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="a00810.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::KalmanFilterBase::optimizationContainer Struct Reference</div>  </div>
+<div class="title">stateObservation::ExtendedKalmanFilter::Optimization Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;state-observation/observer/kalman-filter-base.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/observer/extended-kalman-filter.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a95c27464217d6cf927363615209c6a11"><td class="memItemLeft" align="right" valign="top">EIGEN_MAKE_ALIGNED_OPERATOR_NEW <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a95c27464217d6cf927363615209c6a11">pbar</a></td></tr>
-<tr class="separator:a95c27464217d6cf927363615209c6a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b1a903b5421be744ec4ad005522a547"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a6b1a903b5421be744ec4ad005522a547">xhat</a></td></tr>
-<tr class="separator:a6b1a903b5421be744ec4ad005522a547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe91a2cb99eb8e6257375b2983d78ff8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#afe91a2cb99eb8e6257375b2983d78ff8">inoMeas</a></td></tr>
-<tr class="separator:afe91a2cb99eb8e6257375b2983d78ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94ebb13f67c2adcbeed6c9a61c10d396"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a94ebb13f67c2adcbeed6c9a61c10d396">inoMeasCov</a></td></tr>
-<tr class="separator:a94ebb13f67c2adcbeed6c9a61c10d396"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d995b460e6078eb732130ba0f28270f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a4d995b460e6078eb732130ba0f28270f">inoMeasCovInverse</a></td></tr>
-<tr class="separator:a4d995b460e6078eb732130ba0f28270f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13c0b9c004e5d360c4e61fad5accf4de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#afb5af44bd7d9e72904fb6db54eb0574d">LLTPMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a13c0b9c004e5d360c4e61fad5accf4de">inoMeasCovLLT</a></td></tr>
-<tr class="separator:a13c0b9c004e5d360c4e61fad5accf4de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b5ef00b5c828e4795715c3e26c82829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a7b5ef00b5c828e4795715c3e26c82829">kGain</a></td></tr>
-<tr class="separator:a7b5ef00b5c828e4795715c3e26c82829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e862893478a316d37d32c786f88ce53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a7e862893478a316d37d32c786f88ce53">t</a></td></tr>
-<tr class="separator:a7e862893478a316d37d32c786f88ce53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01890ceb77c27585e957944dd847b41"><td class="memItemLeft" align="right" valign="top">EIGEN_MAKE_ALIGNED_OPERATOR_NEW <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#ae01890ceb77c27585e957944dd847b41">u_</a></td></tr>
+<tr class="separator:ae01890ceb77c27585e957944dd847b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae39b1d3c3893c96cfcd0286b6540db5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00817.html#a1adb09e3b7688888ae6346a393b93eaa">KalmanFilterBase::Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#aae39b1d3c3893c96cfcd0286b6540db5">a_</a></td></tr>
+<tr class="separator:aae39b1d3c3893c96cfcd0286b6540db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad43bf99b233b0ad553dd2874912e968a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00817.html#af4a3c075af9f628b96d99f5ac1f9c5a2">KalmanFilterBase::Cmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#ad43bf99b233b0ad553dd2874912e968a">c_</a></td></tr>
+<tr class="separator:ad43bf99b233b0ad553dd2874912e968a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739344546fb08659f35abec2f8b1fca2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a739344546fb08659f35abec2f8b1fca2">x_</a></td></tr>
+<tr class="separator:a739344546fb08659f35abec2f8b1fca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5530e8a1d3337b00b84552438682572d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a5530e8a1d3337b00b84552438682572d">dx_</a></td></tr>
+<tr class="separator:a5530e8a1d3337b00b84552438682572d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b342751706039d369f8536f7b653cc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#a8b342751706039d369f8536f7b653cc1">xp_</a></td></tr>
+<tr class="separator:a8b342751706039d369f8536f7b653cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae100734f224c2b34840e33938749affa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00813.html#ae100734f224c2b34840e33938749affa">yp_</a></td></tr>
+<tr class="separator:ae100734f224c2b34840e33938749affa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="afe91a2cb99eb8e6257375b2983d78ff8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe91a2cb99eb8e6257375b2983d78ff8">&#9670;&nbsp;</a></span>inoMeas</h2>
+<a id="aae39b1d3c3893c96cfcd0286b6540db5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae39b1d3c3893c96cfcd0286b6540db5">&#9670;&nbsp;</a></span>a_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::KalmanFilterBase::optimizationContainer::inoMeas</td>
+          <td class="memname"><a class="el" href="a00817.html#a1adb09e3b7688888ae6346a393b93eaa">KalmanFilterBase::Amatrix</a> stateObservation::ExtendedKalmanFilter::Optimization::a_</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a94ebb13f67c2adcbeed6c9a61c10d396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94ebb13f67c2adcbeed6c9a61c10d396">&#9670;&nbsp;</a></span>inoMeasCov</h2>
+<a id="ad43bf99b233b0ad553dd2874912e968a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad43bf99b233b0ad553dd2874912e968a">&#9670;&nbsp;</a></span>c_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::KalmanFilterBase::optimizationContainer::inoMeasCov</td>
+          <td class="memname"><a class="el" href="a00817.html#af4a3c075af9f628b96d99f5ac1f9c5a2">KalmanFilterBase::Cmatrix</a> stateObservation::ExtendedKalmanFilter::Optimization::c_</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a4d995b460e6078eb732130ba0f28270f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d995b460e6078eb732130ba0f28270f">&#9670;&nbsp;</a></span>inoMeasCovInverse</h2>
+<a id="a5530e8a1d3337b00b84552438682572d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5530e8a1d3337b00b84552438682572d">&#9670;&nbsp;</a></span>dx_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::KalmanFilterBase::optimizationContainer::inoMeasCovInverse</td>
+          <td class="memname"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ExtendedKalmanFilter::Optimization::dx_</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a13c0b9c004e5d360c4e61fad5accf4de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13c0b9c004e5d360c4e61fad5accf4de">&#9670;&nbsp;</a></span>inoMeasCovLLT</h2>
+<a id="ae01890ceb77c27585e957944dd847b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae01890ceb77c27585e957944dd847b41">&#9670;&nbsp;</a></span>u_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00809.html#afb5af44bd7d9e72904fb6db54eb0574d">LLTPMatrix</a> stateObservation::KalmanFilterBase::optimizationContainer::inoMeasCovLLT</td>
+          <td class="memname">EIGEN_MAKE_ALIGNED_OPERATOR_NEW <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> stateObservation::ExtendedKalmanFilter::Optimization::u_</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7b5ef00b5c828e4795715c3e26c82829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b5ef00b5c828e4795715c3e26c82829">&#9670;&nbsp;</a></span>kGain</h2>
+<a id="a739344546fb08659f35abec2f8b1fca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739344546fb08659f35abec2f8b1fca2">&#9670;&nbsp;</a></span>x_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::KalmanFilterBase::optimizationContainer::kGain</td>
+          <td class="memname"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ExtendedKalmanFilter::Optimization::x_</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a95c27464217d6cf927363615209c6a11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95c27464217d6cf927363615209c6a11">&#9670;&nbsp;</a></span>pbar</h2>
+<a id="a8b342751706039d369f8536f7b653cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b342751706039d369f8536f7b653cc1">&#9670;&nbsp;</a></span>xp_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">EIGEN_MAKE_ALIGNED_OPERATOR_NEW <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::KalmanFilterBase::optimizationContainer::pbar</td>
+          <td class="memname"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ExtendedKalmanFilter::Optimization::xp_</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7e862893478a316d37d32c786f88ce53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e862893478a316d37d32c786f88ce53">&#9670;&nbsp;</a></span>t</h2>
+<a id="ae100734f224c2b34840e33938749affa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae100734f224c2b34840e33938749affa">&#9670;&nbsp;</a></span>yp_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::KalmanFilterBase::optimizationContainer::t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6b1a903b5421be744ec4ad005522a547"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b1a903b5421be744ec4ad005522a547">&#9670;&nbsp;</a></span>xhat</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::KalmanFilterBase::optimizationContainer::xhat</td>
+          <td class="memname"><a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> stateObservation::ExtendedKalmanFilter::Optimization::yp_</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -215,8 +199,8 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00809.html">KalmanFilterBase</a></li><li class="navelem"><a class="el" href="a00813.html">optimizationContainer</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00809.html">ExtendedKalmanFilter</a></li><li class="navelem"><a class="el" href="a00813.html">Optimization</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

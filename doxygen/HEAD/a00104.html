@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: definitions.hpp File Reference</title>
+<title>state-observation: sensor-base.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -69,248 +69,42 @@ $(document).ready(function(){initNavTree('a00104.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">definitions.hpp File Reference</div>  </div>
+<div class="title">sensor-base.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Definitions of types and some structures.  
+<p>Implements the base class of all sensors.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;deque&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;boost/assert.hpp&gt;</code><br />
-<code>#include &lt;boost/timer/timer.hpp&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/assert.hpp&gt;</code><br />
 <code>#include &lt;Eigen/Core&gt;</code><br />
-<code>#include &lt;Eigen/Geometry&gt;</code><br />
-<code>#include &lt;boost/math/constants/constants.hpp&gt;</code><br />
 <code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;state-observation/tools/definitions.hxx&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00065.html">state-observation/noise/noise-base.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00861.html">stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug item default value is just a way to give a default value to debug item this was required by a compilation issue on Visual Studio.  <a href="a00861.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00865.html">stateObservation::detail::DebugItemDefaultError&lt; i, dummy &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00869.html">stateObservation::detail::DebugItemDefaultError&lt; message, dummy &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00873.html">stateObservation::detail::DebugItemDefaultError&lt; exception, dummy &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00877.html">stateObservation::detail::DebugItemDefaultError&lt; exceptionAddr, dummy &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html">stateObservation::DebugItem&lt; T, defaultValue, debug &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug item is an item that exists when the debug variable is true, otherwise it is empty and returns only the default value.  <a href="a00881.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html">stateObservation::DebugItem&lt; T, defaultValue, false &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this specialization contains no object  <a href="a00885.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html">stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is simply a structure allowing for automatically verifying that the item has been initialized or not.  <a href="a00889.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00893.html">stateObservation::IndexedMatrixT&lt; MatrixType, lazy &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a structure composed by a matrix of a given size and a time-index parameter.  <a href="a00893.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00897.html">stateObservation::IndexedMatrixArrayT&lt; MatrixType, Allocator &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html">stateObservation::tools::SimplestStopwatch</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00865.html">stateObservation::SensorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class for sensors.  <a href="a00865.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00133"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html">stateObservation::detail</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00134"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html">stateObservation::cst</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00135"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html">stateObservation::tools</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>&#160;&#160;&#160;boost::math::constants::pi&lt;double&gt;()</td></tr>
-<tr class="separator:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:af12c1d00c2ef533fe40f8ceb1b45ef0d"><td class="memItemLeft" align="right" valign="top">typedef Eigen::VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">stateObservation::Vector</a></td></tr>
-<tr class="memdesc:af12c1d00c2ef533fe40f8ceb1b45ef0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic sized scalar vector.  <a href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">More...</a><br /></td></tr>
-<tr class="separator:af12c1d00c2ef533fe40f8ceb1b45ef0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f53d614300b75f8957d902d03a7abab"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a6f53d614300b75f8957d902d03a7abab">stateObservation::Vector1</a></td></tr>
-<tr class="memdesc:a6f53d614300b75f8957d902d03a7abab"><td class="mdescLeft">&#160;</td><td class="mdescRight">1D Vector  <a href="a00129.html#a6f53d614300b75f8957d902d03a7abab">More...</a><br /></td></tr>
-<tr class="separator:a6f53d614300b75f8957d902d03a7abab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae93adff34402470724f4f09bfed6b13b"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 2, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#ae93adff34402470724f4f09bfed6b13b">stateObservation::Vector2</a></td></tr>
-<tr class="memdesc:ae93adff34402470724f4f09bfed6b13b"><td class="mdescLeft">&#160;</td><td class="mdescRight">2d Vector  <a href="a00129.html#ae93adff34402470724f4f09bfed6b13b">More...</a><br /></td></tr>
-<tr class="separator:ae93adff34402470724f4f09bfed6b13b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b631a657b372795575083586eed2b7"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Vector3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">stateObservation::Vector3</a></td></tr>
-<tr class="memdesc:a48b631a657b372795575083586eed2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D vector  <a href="a00129.html#a48b631a657b372795575083586eed2b7">More...</a><br /></td></tr>
-<tr class="separator:a48b631a657b372795575083586eed2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa11e0dcac5d3c2d176a52d62123e7a69"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 3, 1, Eigen::DontAlign &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#aa11e0dcac5d3c2d176a52d62123e7a69">stateObservation::Vector3Unaligned</a></td></tr>
-<tr class="memdesc:aa11e0dcac5d3c2d176a52d62123e7a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D vector unaligned  <a href="a00129.html#aa11e0dcac5d3c2d176a52d62123e7a69">More...</a><br /></td></tr>
-<tr class="separator:aa11e0dcac5d3c2d176a52d62123e7a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a509dae854b3dd8ef8319b659ad6e8a2c"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Vector4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a509dae854b3dd8ef8319b659ad6e8a2c">stateObservation::Vector4</a></td></tr>
-<tr class="memdesc:a509dae854b3dd8ef8319b659ad6e8a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">4D vector  <a href="a00129.html#a509dae854b3dd8ef8319b659ad6e8a2c">More...</a><br /></td></tr>
-<tr class="separator:a509dae854b3dd8ef8319b659ad6e8a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d339a150bf05286eca83bc588349afe"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 6, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a9d339a150bf05286eca83bc588349afe">stateObservation::Vector6</a></td></tr>
-<tr class="memdesc:a9d339a150bf05286eca83bc588349afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">6D vector  <a href="a00129.html#a9d339a150bf05286eca83bc588349afe">More...</a><br /></td></tr>
-<tr class="separator:a9d339a150bf05286eca83bc588349afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8075b3a5e1c85f87c8e5c05b60100f1d"><td class="memItemLeft" align="right" valign="top">typedef Eigen::MatrixXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">stateObservation::Matrix</a></td></tr>
-<tr class="memdesc:a8075b3a5e1c85f87c8e5c05b60100f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic sized Matrix.  <a href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">More...</a><br /></td></tr>
-<tr class="separator:a8075b3a5e1c85f87c8e5c05b60100f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcf925e9d95458823cbfd15f8462e9bd"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 1, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#afcf925e9d95458823cbfd15f8462e9bd">stateObservation::Matrix1</a></td></tr>
-<tr class="memdesc:afcf925e9d95458823cbfd15f8462e9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">1D scalar Matrix  <a href="a00129.html#afcf925e9d95458823cbfd15f8462e9bd">More...</a><br /></td></tr>
-<tr class="separator:afcf925e9d95458823cbfd15f8462e9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d219ee3106305c450f0f33695d030dd"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix2d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a3d219ee3106305c450f0f33695d030dd">stateObservation::Matrix2</a></td></tr>
-<tr class="memdesc:a3d219ee3106305c450f0f33695d030dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D scalar Matrix  <a href="a00129.html#a3d219ee3106305c450f0f33695d030dd">More...</a><br /></td></tr>
-<tr class="separator:a3d219ee3106305c450f0f33695d030dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76df2159abbf28e45b50358d0edab068"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">stateObservation::Matrix3</a></td></tr>
-<tr class="memdesc:a76df2159abbf28e45b50358d0edab068"><td class="mdescLeft">&#160;</td><td class="mdescRight">3x3 Scalar Matrix  <a href="a00129.html#a76df2159abbf28e45b50358d0edab068">More...</a><br /></td></tr>
-<tr class="separator:a76df2159abbf28e45b50358d0edab068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dce08f7e0a9b0dbb41faa88e7394c29"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 3, 3, Eigen::DontAlign &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a2dce08f7e0a9b0dbb41faa88e7394c29">stateObservation::Matrix3Unaligned</a></td></tr>
-<tr class="memdesc:a2dce08f7e0a9b0dbb41faa88e7394c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">3x3 Scalar Matrix Unaligned  <a href="a00129.html#a2dce08f7e0a9b0dbb41faa88e7394c29">More...</a><br /></td></tr>
-<tr class="separator:a2dce08f7e0a9b0dbb41faa88e7394c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a009f7f7e8b38b3cecc561738ad60eb52"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a009f7f7e8b38b3cecc561738ad60eb52">stateObservation::Matrix4</a></td></tr>
-<tr class="memdesc:a009f7f7e8b38b3cecc561738ad60eb52"><td class="mdescLeft">&#160;</td><td class="mdescRight">4x4 Scalar Matrix  <a href="a00129.html#a009f7f7e8b38b3cecc561738ad60eb52">More...</a><br /></td></tr>
-<tr class="separator:a009f7f7e8b38b3cecc561738ad60eb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4856a065f88d780a5c575335fbf81ee"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 6, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#aa4856a065f88d780a5c575335fbf81ee">stateObservation::Matrix6</a></td></tr>
-<tr class="memdesc:aa4856a065f88d780a5c575335fbf81ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">6x6 Scalar Matrix  <a href="a00129.html#aa4856a065f88d780a5c575335fbf81ee">More...</a><br /></td></tr>
-<tr class="separator:aa4856a065f88d780a5c575335fbf81ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace58e23991b2cf49ccb62997ec08aeb2"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 12, 12 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#ace58e23991b2cf49ccb62997ec08aeb2">stateObservation::Matrix12</a></td></tr>
-<tr class="memdesc:ace58e23991b2cf49ccb62997ec08aeb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">12x12 scalar Matrix  <a href="a00129.html#ace58e23991b2cf49ccb62997ec08aeb2">More...</a><br /></td></tr>
-<tr class="separator:ace58e23991b2cf49ccb62997ec08aeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d5e7448fab378f14e92403b1c2ef5b2"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Quaterniond&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a1d5e7448fab378f14e92403b1c2ef5b2">stateObservation::Quaternion</a></td></tr>
-<tr class="memdesc:a1d5e7448fab378f14e92403b1c2ef5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quaternion.  <a href="a00129.html#a1d5e7448fab378f14e92403b1c2ef5b2">More...</a><br /></td></tr>
-<tr class="separator:a1d5e7448fab378f14e92403b1c2ef5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5aa1ced266d05a07805dfa9176dd6b8"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Quaternion&lt; double, Eigen::DontAlign &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#af5aa1ced266d05a07805dfa9176dd6b8">stateObservation::QuaternionUnaligned</a></td></tr>
-<tr class="memdesc:af5aa1ced266d05a07805dfa9176dd6b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quaternion Unaligned.  <a href="a00129.html#af5aa1ced266d05a07805dfa9176dd6b8">More...</a><br /></td></tr>
-<tr class="separator:af5aa1ced266d05a07805dfa9176dd6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a149c9410becb3e78d7b2fa341d04ca4c"><td class="memItemLeft" align="right" valign="top">typedef Eigen::AngleAxis&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a149c9410becb3e78d7b2fa341d04ca4c">stateObservation::AngleAxis</a></td></tr>
-<tr class="memdesc:a149c9410becb3e78d7b2fa341d04ca4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Euler Axis/Angle representation of orientation.  <a href="a00129.html#a149c9410becb3e78d7b2fa341d04ca4c">More...</a><br /></td></tr>
-<tr class="separator:a149c9410becb3e78d7b2fa341d04ca4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac015d2857a6b9b16a16f1376d0df622c"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">stateObservation::Index</a></td></tr>
-<tr class="separator:ac015d2857a6b9b16a16f1376d0df622c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d28b2a56e2f031d42c908ac185542c5"><td class="memItemLeft" align="right" valign="top">typedef long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">stateObservation::TimeIndex</a></td></tr>
-<tr class="separator:a2d28b2a56e2f031d42c908ac185542c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5199554e1288134514be0c55502cb72d"><td class="memItemLeft" align="right" valign="top">typedef Index&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a5199554e1288134514be0c55502cb72d">stateObservation::TimeSize</a></td></tr>
-<tr class="separator:a5199554e1288134514be0c55502cb72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb6dfdac5cd9b966267523389964f47"><td class="memItemLeft" align="right" valign="top">typedef DebugItemDefaultValue&lt; bool, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#a2eb6dfdac5cd9b966267523389964f47">stateObservation::detail::defaultTrue</a></td></tr>
-<tr class="separator:a2eb6dfdac5cd9b966267523389964f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2df386962ec3fd0001208c9eb801c3b"><td class="memItemLeft" align="right" valign="top">typedef DebugItemDefaultError&lt; message &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#ac2df386962ec3fd0001208c9eb801c3b">stateObservation::detail::defaultErrorMSG</a></td></tr>
-<tr class="separator:ac2df386962ec3fd0001208c9eb801c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af67b3e88cf3250ba2420f4bfc017b236"><td class="memItemLeft" align="right" valign="top">typedef DebugItemDefaultError&lt; exception &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#af67b3e88cf3250ba2420f4bfc017b236">stateObservation::detail::defaultException</a></td></tr>
-<tr class="separator:af67b3e88cf3250ba2420f4bfc017b236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a900210535ad9242cb78f3f14e6cb537f"><td class="memItemLeft" align="right" valign="top">typedef DebugItemDefaultError&lt; exceptionAddr &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#a900210535ad9242cb78f3f14e6cb537f">stateObservation::detail::defaultExceptionAddr</a></td></tr>
-<tr class="separator:a900210535ad9242cb78f3f14e6cb537f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63a017136b64195f9dc51a0fc3afbc00"><td class="memItemLeft" align="right" valign="top">typedef CheckedItem&lt; Matrix3, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a63a017136b64195f9dc51a0fc3afbc00">stateObservation::CheckedMatrix3</a></td></tr>
-<tr class="separator:a63a017136b64195f9dc51a0fc3afbc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1a04a4da1d52eecc1941ade109be16f"><td class="memItemLeft" align="right" valign="top">typedef CheckedItem&lt; Matrix6, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#ae1a04a4da1d52eecc1941ade109be16f">stateObservation::CheckedMatrix6</a></td></tr>
-<tr class="separator:ae1a04a4da1d52eecc1941ade109be16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d975775077bb6d31aa43a555636b172"><td class="memItemLeft" align="right" valign="top">typedef CheckedItem&lt; Matrix12, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a2d975775077bb6d31aa43a555636b172">stateObservation::CheckedMatrix12</a></td></tr>
-<tr class="separator:a2d975775077bb6d31aa43a555636b172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af10af27eb55087df9786c0f0c4688fac"><td class="memItemLeft" align="right" valign="top">typedef CheckedItem&lt; Vector3, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#af10af27eb55087df9786c0f0c4688fac">stateObservation::CheckedVector3</a></td></tr>
-<tr class="separator:af10af27eb55087df9786c0f0c4688fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a087bf1641ad9fb513ae1b60eb38b69c0"><td class="memItemLeft" align="right" valign="top">typedef CheckedItem&lt; Vector6, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a087bf1641ad9fb513ae1b60eb38b69c0">stateObservation::CheckedVector6</a></td></tr>
-<tr class="separator:a087bf1641ad9fb513ae1b60eb38b69c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3771fcbd17321c96ddc17e2b1f1a7da"><td class="memItemLeft" align="right" valign="top">typedef CheckedItem&lt; Quaternion, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#aa3771fcbd17321c96ddc17e2b1f1a7da">stateObservation::CheckedQuaternion</a></td></tr>
-<tr class="separator:aa3771fcbd17321c96ddc17e2b1f1a7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26c2c64efe6f012a7b85a9f6892686b2"><td class="memItemLeft" align="right" valign="top">typedef IndexedMatrixT&lt; Matrix &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a26c2c64efe6f012a7b85a9f6892686b2">stateObservation::IndexedMatrix</a></td></tr>
-<tr class="separator:a26c2c64efe6f012a7b85a9f6892686b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecc3c0d59b6a43528535cda30241c60b"><td class="memItemLeft" align="right" valign="top">typedef IndexedMatrixT&lt; Vector &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#aecc3c0d59b6a43528535cda30241c60b">stateObservation::IndexedVector</a></td></tr>
-<tr class="separator:aecc3c0d59b6a43528535cda30241c60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af39a8e5d3c97c8eb21a0c0b7927cd3f3"><td class="memItemLeft" align="right" valign="top">typedef IndexedMatrixT&lt; Vector3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#af39a8e5d3c97c8eb21a0c0b7927cd3f3">stateObservation::IndexedVector3</a></td></tr>
-<tr class="separator:af39a8e5d3c97c8eb21a0c0b7927cd3f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae78b1feb9855ad5095cc7022d16e113e"><td class="memItemLeft" align="right" valign="top">typedef IndexedMatrixT&lt; Matrix3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#ae78b1feb9855ad5095cc7022d16e113e">stateObservation::IndexedMatrix3</a></td></tr>
-<tr class="separator:ae78b1feb9855ad5095cc7022d16e113e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4b880b33f3bc814528573f04fee8ac0"><td class="memItemLeft" align="right" valign="top">typedef IndexedMatrixArrayT&lt; Matrix &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#ac4b880b33f3bc814528573f04fee8ac0">stateObservation::IndexedMatrixArray</a></td></tr>
-<tr class="separator:ac4b880b33f3bc814528573f04fee8ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a733f901496c8fff9609bec77ff52449e"><td class="memItemLeft" align="right" valign="top">typedef IndexedMatrixArrayT&lt; Vector &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a></td></tr>
-<tr class="separator:a733f901496c8fff9609bec77ff52449e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46bb38981df914761d0d3dbab83a0f49"><td class="memItemLeft" align="right" valign="top">typedef boost::timer::auto_cpu_timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a46bb38981df914761d0d3dbab83a0f49">stateObservation::auto_cpu_timer</a></td></tr>
-<tr class="separator:a46bb38981df914761d0d3dbab83a0f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc99a724cfd639f6b63279dc58253946"><td class="memItemLeft" align="right" valign="top">typedef boost::timer::cpu_timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#adc99a724cfd639f6b63279dc58253946">stateObservation::cpu_timer</a></td></tr>
-<tr class="separator:adc99a724cfd639f6b63279dc58253946"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a954c89e76c57fd8b6737e98b5a1751b8"><td class="memItemLeft" align="right" valign="top">typedef boost::timer::cpu_timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a954c89e76c57fd8b6737e98b5a1751b8">stateObservation::cpu_times</a></td></tr>
-<tr class="separator:a954c89e76c57fd8b6737e98b5a1751b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ad190d4c7c4232683d9647ac44eb195d2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#ad190d4c7c4232683d9647ac44eb195d2">stateObservation::detail::errorType</a> { <br />
-&#160;&#160;<a class="el" href="a00133.html#ad190d4c7c4232683d9647ac44eb195d2a8a333557001121ababbf49a4748a21c3">stateObservation::detail::message</a>, 
-<br />
-&#160;&#160;<a class="el" href="a00133.html#ad190d4c7c4232683d9647ac44eb195d2a1d1b1e55680385c752295299c6393833">stateObservation::detail::exception</a>, 
-<br />
-&#160;&#160;<a class="el" href="a00133.html#ad190d4c7c4232683d9647ac44eb195d2a85de210f7611d3a8de56d02fb83a03db">stateObservation::detail::exceptionAddr</a>
-<br />
- }</td></tr>
-<tr class="separator:ad190d4c7c4232683d9647ac44eb195d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a03b2909c21d843ca6363914f8989d52a"><td class="memItemLeft" align="right" valign="top">void STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#a03b2909c21d843ca6363914f8989d52a">stateObservation::detail::defaultSum</a> (const Vector &amp;stateVector, const Vector &amp;tangentVector, Vector &amp;sum)</td></tr>
-<tr class="separator:a03b2909c21d843ca6363914f8989d52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bc44c69f09db5aefccaf6ae66e603d2"><td class="memItemLeft" align="right" valign="top">void STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#a0bc44c69f09db5aefccaf6ae66e603d2">stateObservation::detail::defaultDifference</a> (const Vector &amp;stateVector1, const Vector &amp;stateVector2, Vector &amp;difference)</td></tr>
-<tr class="separator:a0bc44c69f09db5aefccaf6ae66e603d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8ac2aae6e2bc337b16dd55671c74a2c"><td class="memItemLeft" align="right" valign="top">std::string STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#ae8ac2aae6e2bc337b16dd55671c74a2c">stateObservation::tools::matrixToString</a> (const Matrix &amp;mat)</td></tr>
-<tr class="separator:ae8ac2aae6e2bc337b16dd55671c74a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfcd48d12d9f497d58b073e3391a5269"><td class="memItemLeft" align="right" valign="top">std::string STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#adfcd48d12d9f497d58b073e3391a5269">stateObservation::tools::vectorToString</a> (const Vector &amp;v)</td></tr>
-<tr class="separator:adfcd48d12d9f497d58b073e3391a5269"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c69211ffb30e8000ef2ae0924400c8c"><td class="memItemLeft" align="right" valign="top">Matrix STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#a8c69211ffb30e8000ef2ae0924400c8c">stateObservation::tools::stringToMatrix</a> (const std::string &amp;str, Index rows, Index cols)</td></tr>
-<tr class="separator:a8c69211ffb30e8000ef2ae0924400c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74f8a7bd89ff524ef6bb2b2d1e43a3e3"><td class="memItemLeft" align="right" valign="top">Vector STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#a74f8a7bd89ff524ef6bb2b2d1e43a3e3">stateObservation::tools::stringToVector</a> (const std::string &amp;str, Index length)</td></tr>
-<tr class="separator:a74f8a7bd89ff524ef6bb2b2d1e43a3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a468d4476f60840aa7c642c2564f51020"><td class="memItemLeft" align="right" valign="top">Vector STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#a468d4476f60840aa7c642c2564f51020">stateObservation::tools::stringToVector</a> (const std::string &amp;str)</td></tr>
-<tr class="separator:a468d4476f60840aa7c642c2564f51020"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a1538a3edf3e1d134b1a44145951b757d"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html#a1538a3edf3e1d134b1a44145951b757d">stateObservation::isDebug</a> = true</td></tr>
-<tr class="separator:a1538a3edf3e1d134b1a44145951b757d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a177e9790b91fd4af339c9c3c6d076cc0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a177e9790b91fd4af339c9c3c6d076cc0">stateObservation::cst::gravityConstant</a> = 9.8</td></tr>
-<tr class="separator:a177e9790b91fd4af339c9c3c6d076cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73b34c228641cabcb79894e285fd751a"><td class="memItemLeft" align="right" valign="top">const Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a73b34c228641cabcb79894e285fd751a">stateObservation::cst::gravity</a> = gravityConstant * Vector3::UnitZ()</td></tr>
-<tr class="memdesc:a73b34c228641cabcb79894e285fd751a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gravity Vector along Z.  <a href="a00134.html#a73b34c228641cabcb79894e285fd751a">More...</a><br /></td></tr>
-<tr class="separator:a73b34c228641cabcb79894e285fd751a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c627130ec0be695da77a37638d286d4"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a2c627130ec0be695da77a37638d286d4">stateObservation::cst::epsilonAngle</a> = 1e-16</td></tr>
-<tr class="memdesc:a2c627130ec0be695da77a37638d286d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">angles considered Zero  <a href="a00134.html#a2c627130ec0be695da77a37638d286d4">More...</a><br /></td></tr>
-<tr class="separator:a2c627130ec0be695da77a37638d286d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Definitions of types and some structures. </p>
+<div class="textblock"><p>Implements the base class of all sensors. </p>
 <dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ae71449b1cc6e6250b91f539153a7a0d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae71449b1cc6e6250b91f539153a7a0d3">&#9670;&nbsp;</a></span>M_PI</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define M_PI&#160;&#160;&#160;boost::math::constants::pi&lt;double&gt;()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00104.html">definitions.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_2561071a805c5ec499f97a9e3197d13a.html">sensors-simulation</a></li><li class="navelem"><a class="el" href="a00104.html">sensor-base.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

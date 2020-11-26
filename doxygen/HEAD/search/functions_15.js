@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['zerodelayobserver',['ZeroDelayObserver',['../a00829.html#a67290753c4b0c38046c82ee05f25ea4c',1,'stateObservation::ZeroDelayObserver::ZeroDelayObserver(Index n, Index m, Index p=0)'],['../a00829.html#ae113ca300d3c114ff862b801bc797397',1,'stateObservation::ZeroDelayObserver::ZeroDelayObserver()']]],
-  ['zerorotation',['zeroRotation',['../a00933.html#aba2e5f6f33996c68299aca1028b29792',1,'stateObservation::kine::Orientation']]],
-  ['zerorotationquaternion',['zeroRotationQuaternion',['../a00137.html#a4db2235240ade5be2a639ab6abc3ba64',1,'stateObservation::kine']]]
+  ['writeinfile',['writeInFile',['../a00905.html#a7c99770d2859eda028b98da610ffcdc9',1,'stateObservation::IndexedMatrixArrayT::writeInFile(const char *filename, bool clear=false, bool append=false)'],['../a00905.html#a32d80aa3040d26d8aba7b7753e4c2f93',1,'stateObservation::IndexedMatrixArrayT::writeInFile(const std::string &amp;filename, bool clear=false, bool append=false)']]]
 ];

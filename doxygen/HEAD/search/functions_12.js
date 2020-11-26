@@ -1,20 +1,14 @@
 var searchData=
 [
-  ['unmodeledforceindex',['unmodeledForceIndex',['../a00713.html#a44d0824abe09397ab308d803bc6f7923',1,'stateObservation::KineticsObserver']]],
-  ['unmodeledforceindextangent',['unmodeledForceIndexTangent',['../a00713.html#a91659cb31b5b189fa5b528e1dc7c49bc',1,'stateObservation::KineticsObserver']]],
-  ['unmodeledtorqueindex',['unmodeledTorqueIndex',['../a00713.html#aebd963bc6f93f10139b1c889de9bedff',1,'stateObservation::KineticsObserver']]],
-  ['unmodeledtorqueindextangent',['unmodeledTorqueIndexTangent',['../a00713.html#ac22c76c121dae50370ab6b7660c20119',1,'stateObservation::KineticsObserver']]],
-  ['unmodeledwrenchindex',['unmodeledWrenchIndex',['../a00713.html#aa4034a1771e3944e3162061dfde7fac3',1,'stateObservation::KineticsObserver']]],
-  ['unmodeledwrenchindextangent',['unmodeledWrenchIndexTangent',['../a00713.html#a2c67162f444fe582562c608a3850a9db',1,'stateObservation::KineticsObserver']]],
-  ['update',['update',['../a00713.html#a77dd4fabb2c6dedb515f8ef8c45ab283',1,'stateObservation::KineticsObserver::update()'],['../a00737.html#a53e9c68e906b0a1935ca10c2c0683743',1,'stateObservation::LipmDcmBiasEstimator::update()'],['../a00937.html#a5f0fe9f7511635c3b951cee497853d27',1,'stateObservation::kine::Kinematics::update()']]],
-  ['update_5f',['update_',['../a00909.html#a72189cf042e081bc3149e9ebe34bdb12',1,'stateObservation::tools::Logger']]],
-  ['update_5fdeprecated',['update_deprecated',['../a00937.html#a32785d159ad1b72daec6210c878ed298',1,'stateObservation::kine::Kinematics']]],
-  ['updateaddress',['updateAddress',['../a00909.html#af930457b6e7ab52e2438c583739f54bc',1,'stateObservation::tools::Logger']]],
-  ['updatecovariancematrix_5f',['updateCovarianceMatrix_',['../a00745.html#a57f7c965ca495e31c2c893feec0488cd',1,'stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU']]],
-  ['updatekine_5f',['updateKine_',['../a00713.html#afdf8f1ea001fa5e316e242e456fde9e1',1,'stateObservation::KineticsObserver']]],
-  ['updatemeasurementcovariancematrix_5f',['updateMeasurementCovarianceMatrix_',['../a00777.html#a22321b7e3de0f58791bc37a805a3f1e7',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU']]],
-  ['updatemeasurementsize_5f',['updateMeasurementSize_',['../a00753.html#a0d84bd48bd7322a42aeca46648f1967d',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
-  ['updatestateandmeasurementprediction',['updateStateAndMeasurementPrediction',['../a00809.html#adee58617aaacaf92de1ea354f5307b0f',1,'stateObservation::KalmanFilterBase']]],
-  ['updatestateprediction',['updateStatePrediction',['../a00809.html#a995254f995c2727b27fc0ca41c9aee67',1,'stateObservation::KalmanFilterBase']]],
-  ['usefinitedifferencesjacobians',['useFiniteDifferencesJacobians',['../a00713.html#a369298bc2d344452308e0e03803037ee',1,'stateObservation::KineticsObserver::useFiniteDifferencesJacobians()'],['../a00741.html#aaf694318f3349048084c1afbdc62b43e',1,'stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::useFiniteDifferencesJacobians()']]]
+  ['templatesettoproductnoalias_5f',['templateSetToProductNoAlias_',['../a00945.html#a65caf6fd431e723b866875282606fd0a',1,'stateObservation::kine::Kinematics']]],
+  ['test',['test',['../a00761.html#ad87739ea9db5718fcdbcb917656f4e37',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
+  ['tiltestimator',['TiltEstimator',['../a00833.html#a764e43d16527304859315209dd86412a',1,'stateObservation::TiltEstimator']]],
+  ['toangleaxis',['toAngleAxis',['../a00941.html#a0805b24afe9a0dbc05858b1e64afaf9d',1,'stateObservation::kine::Orientation']]],
+  ['torollpitchyaw',['toRollPitchYaw',['../a00941.html#ac7f113b9390689ae3d7675ceb534e57d',1,'stateObservation::kine::Orientation::toRollPitchYaw() const'],['../a00941.html#a5ba3660d5f60c15a88967849565e4ea2',1,'stateObservation::kine::Orientation::toRollPitchYaw()']]],
+  ['torotationvector',['toRotationVector',['../a00941.html#a8c23c0bc1862eabea982e2d84080ee99',1,'stateObservation::kine::Orientation']]],
+  ['tostring',['toString',['../a00138.html#ac3ea701cb1ea4ed3b1ce1fb439addbbe',1,'stateObservation::tools']]],
+  ['tovector',['toVector',['../a00945.html#abe06ae95bbb4310d033fcf8b257b35ab',1,'stateObservation::kine::Kinematics::toVector(Flags::Byte) const'],['../a00945.html#a171c2155c40fce5faefbbe56a46280f3',1,'stateObservation::kine::Kinematics::toVector() const']]],
+  ['tovector4',['toVector4',['../a00941.html#a2feb49c5467ddf8f5a3cc97a8592e088',1,'stateObservation::kine::Orientation::toVector4() const'],['../a00941.html#aaf20589cb5293bcba5f6492657ca528f',1,'stateObservation::kine::Orientation::toVector4()']]],
+  ['truncateafter',['truncateAfter',['../a00905.html#a25206ef06569fb62e2167ece33fa54f8',1,'stateObservation::IndexedMatrixArrayT']]],
+  ['truncatebefore',['truncateBefore',['../a00905.html#a6d526a36540253066edab41a5430e97b',1,'stateObservation::IndexedMatrixArrayT']]]
 ];

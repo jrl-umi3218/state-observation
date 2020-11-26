@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: miscellaneous-algorithms.hpp File Reference</title>
+<title>state-observation: logger.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,62 +68,42 @@ $(document).ready(function(){initNavTree('a00113.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">miscellaneous-algorithms.hpp File Reference</div>  </div>
+<div class="title">logger.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Gathers many kinds of algorithms.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;boost/utility.hpp&gt;</code><br />
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;typeinfo&gt;</code><br />
 <code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00104.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00107.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
+<code>#include &lt;state-observation/tools/logger.hxx&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00917.html">stateObservation::tools::Logger</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00135"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html">stateObservation::tools</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00921.html">stateObservation::tools::Logger::log_s</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:afb78ab184cc498aa2d5c6058daced3ac"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:afb78ab184cc498aa2d5c6058daced3ac"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00135.html#afb78ab184cc498aa2d5c6058daced3ac">stateObservation::tools::square</a> (const T &amp;x)</td></tr>
-<tr class="memdesc:afb78ab184cc498aa2d5c6058daced3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the square of a value of any type  <a href="a00135.html#afb78ab184cc498aa2d5c6058daced3ac">More...</a><br /></td></tr>
-<tr class="separator:afb78ab184cc498aa2d5c6058daced3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1705e5c31fc5add912c2736ac35a8899"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a1705e5c31fc5add912c2736ac35a8899"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00135.html#a1705e5c31fc5add912c2736ac35a8899">stateObservation::tools::derivate</a> (const T &amp;o1, const T &amp;o2, double dt)</td></tr>
-<tr class="memdesc:a1705e5c31fc5add912c2736ac35a8899"><td class="mdescLeft">&#160;</td><td class="mdescRight">derivates any type with finite differences  <a href="a00135.html#a1705e5c31fc5add912c2736ac35a8899">More...</a><br /></td></tr>
-<tr class="separator:a1705e5c31fc5add912c2736ac35a8899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ca4451c967158d629bfef5cc715431d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5ca4451c967158d629bfef5cc715431d"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00135.html#a5ca4451c967158d629bfef5cc715431d">stateObservation::tools::signum</a> (T x)</td></tr>
-<tr class="memdesc:a5ca4451c967158d629bfef5cc715431d"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the sign of a variable (1, 0 or -1)  <a href="a00135.html#a5ca4451c967158d629bfef5cc715431d">More...</a><br /></td></tr>
-<tr class="separator:a5ca4451c967158d629bfef5cc715431d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3ea701cb1ea4ed3b1ce1fb439addbbe"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac3ea701cb1ea4ed3b1ce1fb439addbbe"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00135.html#ac3ea701cb1ea4ed3b1ce1fb439addbbe">stateObservation::tools::toString</a> (T val)</td></tr>
-<tr class="separator:ac3ea701cb1ea4ed3b1ce1fb439addbbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a775c0537bef8c115ee3b650a55f45f74"><td class="memItemLeft" align="right" valign="top">double STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#a775c0537bef8c115ee3b650a55f45f74">stateObservation::tools::finiteTimeAccControl</a> (double x, double xd, double kp=-1, double kv=-1)</td></tr>
-<tr class="memdesc:a775c0537bef8c115ee3b650a55f45f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">provides an acceleration giving a finite time convergence to zero the state is the position x and the derivative xd and the output is the acceleration.  <a href="a00135.html#a775c0537bef8c115ee3b650a55f45f74">More...</a><br /></td></tr>
-<tr class="separator:a775c0537bef8c115ee3b650a55f45f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a593050a1314f244a4e7bc765dbab398a"><td class="memItemLeft" align="right" valign="top">Vector STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html#a593050a1314f244a4e7bc765dbab398a">stateObservation::tools::finiteTimeAccControl</a> (const Vector &amp;x, const Vector &amp;xd, double kp=-1, double kv=-1)</td></tr>
-<tr class="memdesc:a593050a1314f244a4e7bc765dbab398a"><td class="mdescLeft">&#160;</td><td class="mdescRight">sqme as the scalar version but for every member of the vector  <a href="a00135.html#a593050a1314f244a4e7bc765dbab398a">More...</a><br /></td></tr>
-<tr class="separator:a593050a1314f244a4e7bc765dbab398a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00138"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html">stateObservation::tools</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Gathers many kinds of algorithms. </p>
-<dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00113.html">miscellaneous-algorithms.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00113.html">logger.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

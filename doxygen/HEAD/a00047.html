@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: imu-elastic-local-frame-dynamical-system.hpp File Reference</title>
+<title>state-observation: flexibility-estimator-base.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,46 +71,40 @@ $(document).ready(function(){initNavTree('a00047.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">imu-elastic-local-frame-dynamical-system.hpp File Reference</div>  </div>
+<div class="title">flexibility-estimator-base.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00005.html">state-observation/dynamical-system/dynamical-system-functor-base.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00062.html">state-observation/noise/noise-base.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00086.html">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00107.html">state-observation/tools/hrp2.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00119.html">state-observation/tools/rigid-body-kinematics.hpp</a>&gt;</code><br />
-<code>#include &lt;Eigen/Cholesky&gt;</code><br />
+
+<p>Definitions of base class for flexibility estimator.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;state-observation/api.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00107.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00753.html">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00757.html">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00761.html">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::state</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00769.html">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00757.html">stateObservation::flexibilityEstimation::FlexibilityEstimatorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is the base class of the flexibility estimators.  <a href="a00757.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00131"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00131.html">stateObservation::flexibilityEstimation</a></td></tr>
+<tr class="memitem:a00134"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html">stateObservation::flexibilityEstimation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definitions of base class for flexibility estimator. </p>
+<dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_af263ed31e7d5e1974340c16f9c2f8e6.html">flexibility-estimation</a></li><li class="navelem"><a class="el" href="a00047.html">imu-elastic-local-frame-dynamical-system.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_af263ed31e7d5e1974340c16f9c2f8e6.html">flexibility-estimation</a></li><li class="navelem"><a class="el" href="a00047.html">flexibility-estimator-base.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

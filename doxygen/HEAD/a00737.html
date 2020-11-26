@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::LipmDcmBiasEstimator Class Reference</title>
+<title>state-observation: stateObservation::KineticsObserver::Opt Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -69,306 +69,43 @@ $(document).ready(function(){initNavTree('a00737.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="a00734.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::LipmDcmBiasEstimator Class Reference</div>  </div>
+<div class="title">stateObservation::KineticsObserver::Opt Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment point for a linearized inverted pendulum model.  
+<p>a structure to optimize computations  
  <a href="a00737.html#details">More...</a></p>
 
-<p><code>#include &lt;state-observation/dynamics-estimators/lipm-dcm-bias-estimator.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/dynamics-estimators/kinetics-observer.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a22b2ec3f522fb14479eed981effd0cae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a22b2ec3f522fb14479eed981effd0cae">LipmDcmBiasEstimator</a> (double omega_0, double dt=defaultDt_, double biasDriftPerSecondStd=defaultBiasDriftSecond_, double initZMP=0, double initDcm=0, double initBias=0, double zmpMeasureErrorStd=defaultZmpErrorStd_, double dcmMeasureErrorStd=defaultDcmErrorStd_, double initDcmUncertainty=defaultDCMUncertainty, double initBiasUncertainty=defaultBiasUncertainty)</td></tr>
-<tr class="memdesc:a22b2ec3f522fb14479eed981effd0cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Lipm Dcm Bias Estimator object.  <a href="#a22b2ec3f522fb14479eed981effd0cae">More...</a><br /></td></tr>
-<tr class="separator:a22b2ec3f522fb14479eed981effd0cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d95e7e706ea6360709339d1059727ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a5d95e7e706ea6360709339d1059727ad">LipmDcmBiasEstimator</a> (bool measurementIsWithBias, double measuredDcm, double measuredZMP, double omega_0, double dt=defaultDt_, double biasDriftPerSecondStd=defaultBiasDriftSecond_, double zmpMeasureErrorStd=defaultZmpErrorStd_, double dcmMeasureErrorStd=defaultDcmErrorStd_, double initBias=0, double initBiasuncertainty=defaultBiasUncertainty)</td></tr>
-<tr class="memdesc:a5d95e7e706ea6360709339d1059727ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Lipm Dcm Bias Estimator object.  <a href="#a5d95e7e706ea6360709339d1059727ad">More...</a><br /></td></tr>
-<tr class="separator:a5d95e7e706ea6360709339d1059727ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a769569ad40a4605d1af73f3c15c081a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a769569ad40a4605d1af73f3c15c081a3">~LipmDcmBiasEstimator</a> ()</td></tr>
-<tr class="memdesc:a769569ad40a4605d1af73f3c15c081a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Lipm Dcm Bias Estimator object.  <a href="#a769569ad40a4605d1af73f3c15c081a3">More...</a><br /></td></tr>
-<tr class="separator:a769569ad40a4605d1af73f3c15c081a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a268286140e8ee0057fe570ecd1485b7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a268286140e8ee0057fe570ecd1485b7f">setLipmNaturalFrequency</a> (double omega_0)</td></tr>
-<tr class="memdesc:a268286140e8ee0057fe570ecd1485b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Lipm Natural Frequency.  <a href="#a268286140e8ee0057fe570ecd1485b7f">More...</a><br /></td></tr>
-<tr class="separator:a268286140e8ee0057fe570ecd1485b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c894cfc78f2fbe656dd14e17edfebc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a8c894cfc78f2fbe656dd14e17edfebc5">setSamplingTime</a> (double dt)</td></tr>
-<tr class="memdesc:a8c894cfc78f2fbe656dd14e17edfebc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Sampling Time.  <a href="#a8c894cfc78f2fbe656dd14e17edfebc5">More...</a><br /></td></tr>
-<tr class="separator:a8c894cfc78f2fbe656dd14e17edfebc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee88e16f947257d9d6b3a010e28bbee8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#aee88e16f947257d9d6b3a010e28bbee8">setBias</a> (double bias)</td></tr>
-<tr class="memdesc:aee88e16f947257d9d6b3a010e28bbee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias object from a guess.  <a href="#aee88e16f947257d9d6b3a010e28bbee8">More...</a><br /></td></tr>
-<tr class="separator:aee88e16f947257d9d6b3a010e28bbee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad32d3eb5695bc4eab91d0724227fa3a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#ad32d3eb5695bc4eab91d0724227fa3a4">setBias</a> (double bias, double uncertainty)</td></tr>
-<tr class="memdesc:ad32d3eb5695bc4eab91d0724227fa3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias object from a guess.  <a href="#ad32d3eb5695bc4eab91d0724227fa3a4">More...</a><br /></td></tr>
-<tr class="separator:ad32d3eb5695bc4eab91d0724227fa3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56af9f59087a555ec24cc983e5ac8d19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a56af9f59087a555ec24cc983e5ac8d19">setBiasDriftPerSecond</a> (double driftPerSecond)</td></tr>
-<tr class="memdesc:a56af9f59087a555ec24cc983e5ac8d19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias Drift Per Second.  <a href="#a56af9f59087a555ec24cc983e5ac8d19">More...</a><br /></td></tr>
-<tr class="separator:a56af9f59087a555ec24cc983e5ac8d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8de44087f384ea000edf3c20b900f238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a8de44087f384ea000edf3c20b900f238">setDCM</a> (double dcm)</td></tr>
-<tr class="memdesc:a8de44087f384ea000edf3c20b900f238"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#a8de44087f384ea000edf3c20b900f238">More...</a><br /></td></tr>
-<tr class="separator:a8de44087f384ea000edf3c20b900f238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac029562e52397714c44abefa8e4b5768"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#ac029562e52397714c44abefa8e4b5768">setDCM</a> (double dcm, double uncertainty)</td></tr>
-<tr class="memdesc:ac029562e52397714c44abefa8e4b5768"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#ac029562e52397714c44abefa8e4b5768">More...</a><br /></td></tr>
-<tr class="separator:ac029562e52397714c44abefa8e4b5768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73510270415ca177bc1ef4889b45cced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a73510270415ca177bc1ef4889b45cced">setZmpMeasureErrorStd</a> (double)</td></tr>
-<tr class="memdesc:a73510270415ca177bc1ef4889b45cced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Zmp Measurement Error Stamdard devbiation.  <a href="#a73510270415ca177bc1ef4889b45cced">More...</a><br /></td></tr>
-<tr class="separator:a73510270415ca177bc1ef4889b45cced"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93ca1fca12cb13a89d6130302a28d7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#af93ca1fca12cb13a89d6130302a28d7f">setDcmMeasureErrorStd</a> (double)</td></tr>
-<tr class="memdesc:af93ca1fca12cb13a89d6130302a28d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Dcm Measurement Error Standard.  <a href="#af93ca1fca12cb13a89d6130302a28d7f">More...</a><br /></td></tr>
-<tr class="separator:af93ca1fca12cb13a89d6130302a28d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa771bf5ad92966da6cf3eb92877b7a22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#aa771bf5ad92966da6cf3eb92877b7a22">setInputs</a> (double dcm, double zmp)</td></tr>
-<tr class="memdesc:aa771bf5ad92966da6cf3eb92877b7a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#aa771bf5ad92966da6cf3eb92877b7a22">More...</a><br /></td></tr>
-<tr class="separator:aa771bf5ad92966da6cf3eb92877b7a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53e9c68e906b0a1935ca10c2c0683743"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a53e9c68e906b0a1935ca10c2c0683743">update</a> ()</td></tr>
-<tr class="memdesc:a53e9c68e906b0a1935ca10c2c0683743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the estimation.  <a href="#a53e9c68e906b0a1935ca10c2c0683743">More...</a><br /></td></tr>
-<tr class="separator:a53e9c68e906b0a1935ca10c2c0683743"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7daa7dc2692cd885e108a09911137665"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a7daa7dc2692cd885e108a09911137665">getUnbiasedDCM</a> () const</td></tr>
-<tr class="memdesc:a7daa7dc2692cd885e108a09911137665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Unbiased DCM filtered by the estimator.  <a href="#a7daa7dc2692cd885e108a09911137665">More...</a><br /></td></tr>
-<tr class="separator:a7daa7dc2692cd885e108a09911137665"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90a2038bdc4d934578ba54b47acd149e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a90a2038bdc4d934578ba54b47acd149e">getBias</a> () const</td></tr>
-<tr class="memdesc:a90a2038bdc4d934578ba54b47acd149e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the estimated Bias.  <a href="#a90a2038bdc4d934578ba54b47acd149e">More...</a><br /></td></tr>
-<tr class="separator:a90a2038bdc4d934578ba54b47acd149e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4414dc15688f2bfe20ba131aced6008d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00817.html">LinearKalmanFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a4414dc15688f2bfe20ba131aced6008d">getFilter</a> ()</td></tr>
-<tr class="memdesc:a4414dc15688f2bfe20ba131aced6008d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions.  <a href="#a4414dc15688f2bfe20ba131aced6008d">More...</a><br /></td></tr>
-<tr class="separator:a4414dc15688f2bfe20ba131aced6008d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a507dff3f426837886100aa8bef2ffa9b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00817.html">LinearKalmanFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a507dff3f426837886100aa8bef2ffa9b">getFilter</a> () const</td></tr>
-<tr class="memdesc:a507dff3f426837886100aa8bef2ffa9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions.  <a href="#a507dff3f426837886100aa8bef2ffa9b">More...</a><br /></td></tr>
-<tr class="separator:a507dff3f426837886100aa8bef2ffa9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cefc680edfa1f020a4bf8b00b440be7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a4cefc680edfa1f020a4bf8b00b440be7">Opt</a> ()</td></tr>
+<tr class="separator:a4cefc680edfa1f020a4bf8b00b440be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a4da82a2a0bed16e1270569eab0ed81ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00717.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a4da82a2a0bed16e1270569eab0ed81ab">kine1</a></td></tr>
+<tr class="separator:a4da82a2a0bed16e1270569eab0ed81ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7b24f1c27dd240e8274c79edf7f7ee6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00717.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#ab7b24f1c27dd240e8274c79edf7f7ee6">kine2</a></td></tr>
+<tr class="separator:ab7b24f1c27dd240e8274c79edf7f7ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bfc601632bb123de5c5d15303818faf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00717.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a1bfc601632bb123de5c5d15303818faf">kine</a></td></tr>
+<tr class="separator:a1bfc601632bb123de5c5d15303818faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4986f18fcdeaa27c3088a06b6633ee6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00717.html#aad2108adbc5d88fa2f9bd92f165bdc83">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a4986f18fcdeaa27c3088a06b6633ee6f">ori</a></td></tr>
+<tr class="separator:a4986f18fcdeaa27c3088a06b6633ee6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa4466c5cf3d192fdee7ff9f035f5142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00717.html#aad2108adbc5d88fa2f9bd92f165bdc83">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#afa4466c5cf3d192fdee7ff9f035f5142">ori1</a></td></tr>
+<tr class="separator:afa4466c5cf3d192fdee7ff9f035f5142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21dd3adb2c7f9c7b95f955d55a79598f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00717.html#aad2108adbc5d88fa2f9bd92f165bdc83">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00737.html#a21dd3adb2c7f9c7b95f955d55a79598f">ori2</a></td></tr>
+<tr class="separator:a21dd3adb2c7f9c7b95f955d55a79598f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment point for a linearized inverted pendulum model. </p>
-<p>A humanoid robot can be modeled as an inverted pendulum. The dynamics can be linearized to obtain a dynamics with a convergent and a divergent component of motion (DCN). The dynamics of the DCM depends on the Zero Moment Point. The DCM can be measured using the CoM and its velocity, but the CoM position can be biased. This estimator uses Kalman Filtering to estimate this bias in one axis. </p>
+<div class="textblock"><p>a structure to optimize computations </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a22b2ec3f522fb14479eed981effd0cae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22b2ec3f522fb14479eed981effd0cae">&#9670;&nbsp;</a></span>LipmDcmBiasEstimator() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::LipmDcmBiasEstimator::LipmDcmBiasEstimator </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>omega_0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em> = <code>defaultDt_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code>defaultBiasDriftSecond_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initZMP</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initDcm</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initBias</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code>defaultZmpErrorStd_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code>defaultDcmErrorStd_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initDcmUncertainty</em> = <code>defaultDCMUncertainty</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initBiasUncertainty</em> = <code>defaultBiasUncertainty</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a new Lipm Dcm Bias Estimator object. </p>
-<p>Use this if no DCM measurements are available or when a good guess of its unbiased position is available</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">omega_0</td><td>the natural frequency of the DCM (rad/s) </td></tr>
-    <tr><td class="paramname">dt</td><td>the sampling time in seconds </td></tr>
-    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
-    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
-    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
-    <tr><td class="paramname">initDCM</td><td>the initial value of the DCM </td></tr>
-    <tr><td class="paramname">initBias</td><td>the initial value of the bias </td></tr>
-    <tr><td class="paramname">tinitDcmUncertainty</td><td>the uncertainty in the DCM initial value in meters </td></tr>
-    <tr><td class="paramname">initBiasUncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5d95e7e706ea6360709339d1059727ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d95e7e706ea6360709339d1059727ad">&#9670;&nbsp;</a></span>LipmDcmBiasEstimator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::LipmDcmBiasEstimator::LipmDcmBiasEstimator </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>measurementIsWithBias</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>measuredDcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>measuredZMP</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>omega_0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em> = <code>defaultDt_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code>defaultBiasDriftSecond_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code>defaultZmpErrorStd_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code>defaultDcmErrorStd_</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initBias</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>initBiasuncertainty</em> = <code>defaultBiasUncertainty</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a new Lipm Dcm Bias Estimator object. </p>
-<p>Use this when initializing with an available DCM (biased) measurement</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the measurement is with the bias. It is better set to true than trying to remove it beforehand </td></tr>
-    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM </td></tr>
-    <tr><td class="paramname">omega_0</td><td>the natural frequency of the DCM (rad/s) </td></tr>
-    <tr><td class="paramname">dt</td><td>the sampling time in seconds </td></tr>
-    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
-    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
-    <tr><td class="paramname">scmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
-    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
-    <tr><td class="paramname">initBiasUncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a769569ad40a4605d1af73f3c15c081a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a769569ad40a4605d1af73f3c15c081a3">&#9670;&nbsp;</a></span>~LipmDcmBiasEstimator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::LipmDcmBiasEstimator::~LipmDcmBiasEstimator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destroy the Lipm Dcm Bias Estimator object. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a90a2038bdc4d934578ba54b47acd149e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90a2038bdc4d934578ba54b47acd149e">&#9670;&nbsp;</a></span>getBias()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double stateObservation::LipmDcmBiasEstimator::getBias </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the estimated Bias. </p>
-<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-
-</div>
-</div>
-<a id="a4414dc15688f2bfe20ba131aced6008d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4414dc15688f2bfe20ba131aced6008d">&#9670;&nbsp;</a></span>getFilter() <span class="overload">[1/2]</span></h2>
+<a id="a4cefc680edfa1f020a4bf8b00b440be7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cefc680edfa1f020a4bf8b00b440be7">&#9670;&nbsp;</a></span>Opt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,7 +114,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00817.html">LinearKalmanFilter</a>&amp; stateObservation::LipmDcmBiasEstimator::getFilter </td>
+          <td class="memname">stateObservation::KineticsObserver::Opt::Opt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -390,367 +127,90 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00817.html" title="   The class of a Linear Kalman filter ">LinearKalmanFilter</a>&amp; </dd></dl>
-
 </div>
 </div>
-<a id="a507dff3f426837886100aa8bef2ffa9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a507dff3f426837886100aa8bef2ffa9b">&#9670;&nbsp;</a></span>getFilter() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00817.html">LinearKalmanFilter</a>&amp; stateObservation::LipmDcmBiasEstimator::getFilter </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00817.html" title="   The class of a Linear Kalman filter ">LinearKalmanFilter</a>&amp; const version </dd></dl>
-
-</div>
-</div>
-<a id="a7daa7dc2692cd885e108a09911137665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7daa7dc2692cd885e108a09911137665">&#9670;&nbsp;</a></span>getUnbiasedDCM()</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1bfc601632bb123de5c5d15303818faf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bfc601632bb123de5c5d15303818faf">&#9670;&nbsp;</a></span>kine</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double stateObservation::LipmDcmBiasEstimator::getUnbiasedDCM </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname"><a class="el" href="a00717.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a>&amp; stateObservation::KineticsObserver::Opt::kine</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the Unbiased DCM filtered by the estimator. </p>
-<p>This is the recommended output to take </p><dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
-
 </div>
 </div>
-<a id="aee88e16f947257d9d6b3a010e28bbee8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee88e16f947257d9d6b3a010e28bbee8">&#9670;&nbsp;</a></span>setBias() <span class="overload">[1/2]</span></h2>
+<a id="a4da82a2a0bed16e1270569eab0ed81ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da82a2a0bed16e1270569eab0ed81ab">&#9670;&nbsp;</a></span>kine1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setBias </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>bias</em></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00717.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> stateObservation::KineticsObserver::Opt::kine1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the Bias object from a guess. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bias</td><td>guess </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a id="ad32d3eb5695bc4eab91d0724227fa3a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad32d3eb5695bc4eab91d0724227fa3a4">&#9670;&nbsp;</a></span>setBias() <span class="overload">[2/2]</span></h2>
+<a id="ab7b24f1c27dd240e8274c79edf7f7ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b24f1c27dd240e8274c79edf7f7ee6">&#9670;&nbsp;</a></span>kine2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setBias </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>bias</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>uncertainty</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname"><a class="el" href="a00717.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> stateObservation::KineticsObserver::Opt::kine2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the Bias object from a guess. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bias</td><td>guess</td></tr>
-    <tr><td class="paramname">the</td><td>uncertainty you have in this guess in meters </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a id="a56af9f59087a555ec24cc983e5ac8d19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56af9f59087a555ec24cc983e5ac8d19">&#9670;&nbsp;</a></span>setBiasDriftPerSecond()</h2>
+<a id="a4986f18fcdeaa27c3088a06b6633ee6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4986f18fcdeaa27c3088a06b6633ee6f">&#9670;&nbsp;</a></span>ori</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setBiasDriftPerSecond </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>driftPerSecond</em></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00717.html#aad2108adbc5d88fa2f9bd92f165bdc83">Orientation</a>&amp; stateObservation::KineticsObserver::Opt::ori</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the Bias Drift Per Second. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">driftPerSecond</td><td>the standard deviation of the drift (m/s) </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a id="a8de44087f384ea000edf3c20b900f238"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8de44087f384ea000edf3c20b900f238">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[1/2]</span></h2>
+<a id="afa4466c5cf3d192fdee7ff9f035f5142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa4466c5cf3d192fdee7ff9f035f5142">&#9670;&nbsp;</a></span>ori1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setDCM </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcm</em></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00717.html#aad2108adbc5d88fa2f9bd92f165bdc83">Orientation</a>&amp; stateObservation::KineticsObserver::Opt::ori1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>set the real DCM position from a guess </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td>guess </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a id="ac029562e52397714c44abefa8e4b5768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac029562e52397714c44abefa8e4b5768">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[2/2]</span></h2>
+<a id="a21dd3adb2c7f9c7b95f955d55a79598f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21dd3adb2c7f9c7b95f955d55a79598f">&#9670;&nbsp;</a></span>ori2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setDCM </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>uncertainty</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname"><a class="el" href="a00717.html#aad2108adbc5d88fa2f9bd92f165bdc83">Orientation</a>&amp; stateObservation::KineticsObserver::Opt::ori2</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>set the real DCM position from a guess </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td>guess</td></tr>
-    <tr><td class="paramname">dcm</td><td></td></tr>
-    <tr><td class="paramname">uncertainty</td><td>the uncertainty in this guess </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af93ca1fca12cb13a89d6130302a28d7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af93ca1fca12cb13a89d6130302a28d7f">&#9670;&nbsp;</a></span>setDcmMeasureErrorStd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setDcmMeasureErrorStd </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the Dcm Measurement Error Standard. </p>
-
-</div>
-</div>
-<a id="aa771bf5ad92966da6cf3eb92877b7a22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa771bf5ad92966da6cf3eb92877b7a22">&#9670;&nbsp;</a></span>setInputs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setInputs </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the Inputs of the estimator. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td></td></tr>
-    <tr><td class="paramname">zmp</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a268286140e8ee0057fe570ecd1485b7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a268286140e8ee0057fe570ecd1485b7f">&#9670;&nbsp;</a></span>setLipmNaturalFrequency()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setLipmNaturalFrequency </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>omega_0</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the Lipm Natural Frequency. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">omega_0</td><td>is the sampling time in seconds </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8c894cfc78f2fbe656dd14e17edfebc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c894cfc78f2fbe656dd14e17edfebc5">&#9670;&nbsp;</a></span>setSamplingTime()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setSamplingTime </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the Sampling Time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dt</td><td>sampling time </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a73510270415ca177bc1ef4889b45cced"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73510270415ca177bc1ef4889b45cced">&#9670;&nbsp;</a></span>setZmpMeasureErrorStd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmBiasEstimator::setZmpMeasureErrorStd </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the Zmp Measurement Error Stamdard devbiation. </p>
-
-</div>
-</div>
-<a id="a53e9c68e906b0a1935ca10c2c0683743"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53e9c68e906b0a1935ca10c2c0683743">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> stateObservation::LipmDcmBiasEstimator::update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Runs the estimation. </p>
-<p>Needs to be called every timestep</p>
-<dl class="section return"><dt>Returns</dt><dd>Vector2 </dd></dl>
 
 </div>
 </div>
@@ -760,8 +220,8 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00737.html">LipmDcmBiasEstimator</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00717.html">KineticsObserver</a></li><li class="navelem"><a class="el" href="a00737.html">Opt</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

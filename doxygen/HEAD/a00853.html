@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::algorithm::RotationVelocity Class Reference</title>
+<title>state-observation: stateObservation::algorithm::LinearAcceleration Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,39 +71,39 @@ $(document).ready(function(){initNavTree('a00853.html','');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a00850.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::algorithm::RotationVelocity Class Reference</div>  </div>
+<div class="title">stateObservation::algorithm::LinearAcceleration Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implements the gyrometer measurement algorithm.  
+<p>Implements the measurements given by an accelerometer.  
  <a href="a00853.html#details">More...</a></p>
 
-<p><code>#include &lt;state-observation/sensors-simulation/algorithm/rotation-velocity.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/sensors-simulation/algorithm/linear-acceleration.hpp&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stateObservation::algorithm::RotationVelocity:</div>
+Inheritance diagram for stateObservation::algorithm::LinearAcceleration:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="a00853.png" usemap="#stateObservation::algorithm::RotationVelocity_map" alt=""/>
-  <map id="stateObservation::algorithm::RotationVelocity_map" name="stateObservation::algorithm::RotationVelocity_map">
-<area href="a00837.html" title="Implements the accelerometer-gyrometer measurements. " alt="stateObservation::AccelerometerGyrometer" shape="rect" coords="0,56,335,80"/>
-<area href="a00833.html" title="Implements the accelerometer-gyrometer-magnetometer measurements. " alt="stateObservation::AccelerometerGyrometerMagnetometer" shape="rect" coords="345,56,680,80"/>
+  <img src="a00853.png" usemap="#stateObservation::algorithm::LinearAcceleration_map" alt=""/>
+  <map id="stateObservation::algorithm::LinearAcceleration_map" name="stateObservation::algorithm::LinearAcceleration_map">
+<area href="a00845.html" title="Implements the accelerometer-gyrometer measurements. " alt="stateObservation::AccelerometerGyrometer" shape="rect" coords="0,56,335,80"/>
+<area href="a00841.html" title="Implements the accelerometer-gyrometer-magnetometer measurements. " alt="stateObservation::AccelerometerGyrometerMagnetometer" shape="rect" coords="345,56,680,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac808c996a1f4cd4d6750b026589febc1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00853.html#ac808c996a1f4cd4d6750b026589febc1">~RotationVelocity</a> ()</td></tr>
-<tr class="memdesc:ac808c996a1f4cd4d6750b026589febc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="#ac808c996a1f4cd4d6750b026589febc1">More...</a><br /></td></tr>
-<tr class="separator:ac808c996a1f4cd4d6750b026589febc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b2bf5391d5e967ad6901c72a33c7da4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00853.html#a0b2bf5391d5e967ad6901c72a33c7da4">rotationVelocityMeasure</a> (const <a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;angVelocityVector, const <a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation) const</td></tr>
-<tr class="memdesc:a0b2bf5391d5e967ad6901c72a33c7da4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The angular velocity measurement in the local frame represented by the orientation Matrix.  <a href="#a0b2bf5391d5e967ad6901c72a33c7da4">More...</a><br /></td></tr>
-<tr class="separator:a0b2bf5391d5e967ad6901c72a33c7da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeac98b86e1fab664297717e08ac0019"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00853.html#afeac98b86e1fab664297717e08ac0019">~LinearAcceleration</a> ()</td></tr>
+<tr class="memdesc:afeac98b86e1fab664297717e08ac0019"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="#afeac98b86e1fab664297717e08ac0019">More...</a><br /></td></tr>
+<tr class="separator:afeac98b86e1fab664297717e08ac0019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad913b81fe3401bf8c9cec718d49b5d5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00853.html#ad913b81fe3401bf8c9cec718d49b5d5e">accelerationMeasure</a> (const <a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;acceleration, const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation) const</td></tr>
+<tr class="memdesc:ad913b81fe3401bf8c9cec718d49b5d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The acceleration measurement in the local frame represented by the orientation Matrix.  <a href="#ad913b81fe3401bf8c9cec718d49b5d5e">More...</a><br /></td></tr>
+<tr class="separator:ad913b81fe3401bf8c9cec718d49b5d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements the gyrometer measurement algorithm. </p>
+<div class="textblock"><p>Implements the measurements given by an accelerometer. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac808c996a1f4cd4d6750b026589febc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac808c996a1f4cd4d6750b026589febc1">&#9670;&nbsp;</a></span>~RotationVelocity()</h2>
+<a id="afeac98b86e1fab664297717e08ac0019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeac98b86e1fab664297717e08ac0019">&#9670;&nbsp;</a></span>~LinearAcceleration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,7 +112,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stateObservation::algorithm::RotationVelocity::~RotationVelocity </td>
+          <td class="memname">virtual stateObservation::algorithm::LinearAcceleration::~LinearAcceleration </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -130,22 +130,22 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0b2bf5391d5e967ad6901c72a33c7da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b2bf5391d5e967ad6901c72a33c7da4">&#9670;&nbsp;</a></span>rotationVelocityMeasure()</h2>
+<a id="ad913b81fe3401bf8c9cec718d49b5d5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad913b81fe3401bf8c9cec718d49b5d5e">&#9670;&nbsp;</a></span>accelerationMeasure()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::algorithm::RotationVelocity::rotationVelocityMeasure </td>
+          <td class="memname"><a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::algorithm::LinearAcceleration::accelerationMeasure </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;&#160;</td>
-          <td class="paramname"><em>angVelocityVector</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>acceleration</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
           <td class="paramname"><em>orientation</em>&#160;</td>
         </tr>
         <tr>
@@ -156,7 +156,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The angular velocity measurement in the local frame represented by the orientation Matrix. </p>
+<p>The acceleration measurement in the local frame represented by the orientation Matrix. </p>
 
 </div>
 </div>
@@ -166,8 +166,8 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00132.html">algorithm</a></li><li class="navelem"><a class="el" href="a00853.html">RotationVelocity</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00135.html">algorithm</a></li><li class="navelem"><a class="el" href="a00853.html">LinearAcceleration</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

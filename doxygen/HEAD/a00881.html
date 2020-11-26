@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::DebugItem&lt; T, defaultValue, debug &gt; Class Template Reference</title>
+<title>state-observation: stateObservation::detail::DebugItemDefaultError&lt; exception, dummy &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,203 +68,43 @@ $(document).ready(function(){initNavTree('a00881.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a00878.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::DebugItem&lt; T, defaultValue, debug &gt; Class Template Reference</div>  </div>
+<div class="title">stateObservation::detail::DebugItemDefaultError&lt; exception, dummy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Debug item is an item that exists when the debug variable is true, otherwise it is empty and returns only the default value.  
- <a href="a00881.html#details">More...</a></p>
-
 <p><code>#include &lt;state-observation/tools/definitions.hpp&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a7970f5cbd4c2875ceb75b7ac25b25554"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#a7970f5cbd4c2875ceb75b7ac25b25554">DebugItem</a> ()</td></tr>
-<tr class="separator:a7970f5cbd4c2875ceb75b7ac25b25554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac60c720e38bc703afb86cb41461c1240"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#ac60c720e38bc703afb86cb41461c1240">DebugItem</a> (const T &amp;v)</td></tr>
-<tr class="separator:ac60c720e38bc703afb86cb41461c1240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30df311dba6d2912a326e1e61eb695d0"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#a30df311dba6d2912a326e1e61eb695d0">operator=</a> (T v)</td></tr>
-<tr class="separator:a30df311dba6d2912a326e1e61eb695d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f4d6c3f25ed667cb9b98c3d2e45e6dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#a7f4d6c3f25ed667cb9b98c3d2e45e6dd">operator T</a> () const</td></tr>
-<tr class="separator:a7f4d6c3f25ed667cb9b98c3d2e45e6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9102f9d3880b3b49c484eecca1f54ed6"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#a9102f9d3880b3b49c484eecca1f54ed6">set</a> (const T &amp;v)</td></tr>
-<tr class="separator:a9102f9d3880b3b49c484eecca1f54ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6722e1ea8771991c1b8647867f41977"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#ac6722e1ea8771991c1b8647867f41977">get</a> () const</td></tr>
-<tr class="separator:ac6722e1ea8771991c1b8647867f41977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a79f55402adedc6c0326b80e97034eb60"><td class="memItemLeft" align="right" valign="top">static const std::runtime_error&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00881.html#a79f55402adedc6c0326b80e97034eb60">v</a></td></tr>
+<tr class="separator:a79f55402adedc6c0326b80e97034eb60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt;<br />
-class stateObservation::DebugItem&lt; T, defaultValue, debug &gt;</h3>
-
-<p>Debug item is an item that exists when the debug variable is true, otherwise it is empty and returns only the default value. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7970f5cbd4c2875ceb75b7ac25b25554"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7970f5cbd4c2875ceb75b7ac25b25554">&#9670;&nbsp;</a></span>DebugItem() <span class="overload">[1/2]</span></h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a79f55402adedc6c0326b80e97034eb60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f55402adedc6c0326b80e97034eb60">&#9670;&nbsp;</a></span>v</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt; </div>
+template&lt;int dummy&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, debug &gt;::<a class="el" href="a00881.html">DebugItem</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">const std::runtime_error <a class="el" href="a00873.html">stateObservation::detail::DebugItemDefaultError</a>&lt; <a class="el" href="a00136.html#ad190d4c7c4232683d9647ac44eb195d2a1d1b1e55680385c752295299c6393833">exception</a>, dummy &gt;::v</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac60c720e38bc703afb86cb41461c1240"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac60c720e38bc703afb86cb41461c1240">&#9670;&nbsp;</a></span>DebugItem() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, debug &gt;::<a class="el" href="a00881.html">DebugItem</a> </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac6722e1ea8771991c1b8647867f41977"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6722e1ea8771991c1b8647867f41977">&#9670;&nbsp;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, debug &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7f4d6c3f25ed667cb9b98c3d2e45e6dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f4d6c3f25ed667cb9b98c3d2e45e6dd">&#9670;&nbsp;</a></span>operator T()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, debug &gt;::operator T </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a30df311dba6d2912a326e1e61eb695d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30df311dba6d2912a326e1e61eb695d0">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, debug &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9102f9d3880b3b49c484eecca1f54ed6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9102f9d3880b3b49c484eecca1f54ed6">&#9670;&nbsp;</a></span>set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, bool debug = true&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, debug &gt;::set </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">    std::runtime_error(DebugItemDefaultError&lt;message&gt;::v)</div></div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
@@ -273,8 +113,8 @@ template&lt;typename T, typename defaultValue = DebugItemDefaultValue&lt;T&gt;, 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00881.html">DebugItem</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00136.html">detail</a></li><li class="navelem"><a class="el" href="a00881.html">DebugItemDefaultError&lt; exception, dummy &gt;</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

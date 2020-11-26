@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel Struct Reference</title>
+<title>state-observation: stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,7 +71,7 @@ $(document).ready(function(){initNavTree('a00765.html','');});
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a00762.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel Struct Reference</div>  </div>
+<div class="title">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -79,17 +79,41 @@ $(document).ready(function(){initNavTree('a00765.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a5dfb49b2782f2d70c4c65d74f8f5aad2"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a5dfb49b2782f2d70c4c65d74f8f5aad2">elasticContact</a> = 1</td></tr>
-<tr class="memdesc:a5dfb49b2782f2d70c4c65d74f8f5aad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">indices of the different components of a vector of the input state  <a href="#a5dfb49b2782f2d70c4c65d74f8f5aad2">More...</a><br /></td></tr>
-<tr class="separator:a5dfb49b2782f2d70c4c65d74f8f5aad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c009f69a491b028dd125a7d96f3f8ee"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a8c009f69a491b028dd125a7d96f3f8ee">pendulum</a> = 2</td></tr>
-<tr class="separator:a8c009f69a491b028dd125a7d96f3f8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45f8a0fd691206924e20ebb3d3da60fe"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a45f8a0fd691206924e20ebb3d3da60fe">none</a> = 0</td></tr>
-<tr class="separator:a45f8a0fd691206924e20ebb3d3da60fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92e000d14e371c71e451fc7f7ae3416"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#ad92e000d14e371c71e451fc7f7ae3416">posCom</a> = 0</td></tr>
+<tr class="memdesc:ad92e000d14e371c71e451fc7f7ae3416"><td class="mdescLeft">&#160;</td><td class="mdescRight">indices of the different components of a vector of the input state  <a href="#ad92e000d14e371c71e451fc7f7ae3416">More...</a><br /></td></tr>
+<tr class="separator:ad92e000d14e371c71e451fc7f7ae3416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a392e8a96d56ab63fadfebb9a33429c4a"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a392e8a96d56ab63fadfebb9a33429c4a">velCom</a> = 3</td></tr>
+<tr class="separator:a392e8a96d56ab63fadfebb9a33429c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b9a12a12326422e78acb484d752ace"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#ab3b9a12a12326422e78acb484d752ace">accCom</a> = 6</td></tr>
+<tr class="separator:ab3b9a12a12326422e78acb484d752ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4510229a2fc64e6fb6b544561855124e"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a4510229a2fc64e6fb6b544561855124e">inertia</a> = 9</td></tr>
+<tr class="separator:a4510229a2fc64e6fb6b544561855124e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9aa339f27015922516dc5224067a33a"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#ad9aa339f27015922516dc5224067a33a">angMoment</a> = 15</td></tr>
+<tr class="separator:ad9aa339f27015922516dc5224067a33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45930c9b16d184f335c94790e7a68697"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a45930c9b16d184f335c94790e7a68697">dotInertia</a> = 18</td></tr>
+<tr class="separator:a45930c9b16d184f335c94790e7a68697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9b7234f656b9b32216d82c0893d814"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a3d9b7234f656b9b32216d82c0893d814">dotAngMoment</a> = 24</td></tr>
+<tr class="separator:a3d9b7234f656b9b32216d82c0893d814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9298a1b7681c9e1e1f251aab836733e3"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a9298a1b7681c9e1e1f251aab836733e3">posIMU</a> = 27</td></tr>
+<tr class="separator:a9298a1b7681c9e1e1f251aab836733e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b892755d370b0b89290540cefb86c0"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a27b892755d370b0b89290540cefb86c0">oriIMU</a> = 30</td></tr>
+<tr class="separator:a27b892755d370b0b89290540cefb86c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb60e1a4a46aeae00fb927b0d7e835bb"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#abb60e1a4a46aeae00fb927b0d7e835bb">linVelIMU</a> = 33</td></tr>
+<tr class="separator:abb60e1a4a46aeae00fb927b0d7e835bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f0301ba7debf7b6dd580854946eaa11"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a1f0301ba7debf7b6dd580854946eaa11">angVelIMU</a> = 36</td></tr>
+<tr class="separator:a1f0301ba7debf7b6dd580854946eaa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aeb2f0508890223677cb1816f44e142"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a9aeb2f0508890223677cb1816f44e142">linAccIMU</a> = 39</td></tr>
+<tr class="separator:a9aeb2f0508890223677cb1816f44e142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9932cf188470838e8a0ce4c945cf893e"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a9932cf188470838e8a0ce4c945cf893e">additionalForces</a> = 42</td></tr>
+<tr class="separator:a9932cf188470838e8a0ce4c945cf893e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37cb9a2af45562434600d8fb402cd02"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#aa37cb9a2af45562434600d8fb402cd02">contacts</a> = 48</td></tr>
+<tr class="separator:aa37cb9a2af45562434600d8fb402cd02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fcbc122f976c687321ced4ae6548838"><td class="memItemLeft" align="right" valign="top">static constexpr unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00765.html#a0fcbc122f976c687321ced4ae6548838">sizeBase</a> = 48</td></tr>
+<tr class="separator:a0fcbc122f976c687321ced4ae6548838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a5dfb49b2782f2d70c4c65d74f8f5aad2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5dfb49b2782f2d70c4c65d74f8f5aad2">&#9670;&nbsp;</a></span>elasticContact</h2>
+<a id="ab3b9a12a12326422e78acb484d752ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b9a12a12326422e78acb484d752ace">&#9670;&nbsp;</a></span>accCom</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -98,7 +122,249 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel::elasticContact = 1</td>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::accCom = 6</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9932cf188470838e8a0ce4c945cf893e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9932cf188470838e8a0ce4c945cf893e">&#9670;&nbsp;</a></span>additionalForces</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::additionalForces = 42</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9aa339f27015922516dc5224067a33a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9aa339f27015922516dc5224067a33a">&#9670;&nbsp;</a></span>angMoment</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::angMoment = 15</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1f0301ba7debf7b6dd580854946eaa11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f0301ba7debf7b6dd580854946eaa11">&#9670;&nbsp;</a></span>angVelIMU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::angVelIMU = 36</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa37cb9a2af45562434600d8fb402cd02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37cb9a2af45562434600d8fb402cd02">&#9670;&nbsp;</a></span>contacts</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::contacts = 48</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d9b7234f656b9b32216d82c0893d814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9b7234f656b9b32216d82c0893d814">&#9670;&nbsp;</a></span>dotAngMoment</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::dotAngMoment = 24</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45930c9b16d184f335c94790e7a68697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45930c9b16d184f335c94790e7a68697">&#9670;&nbsp;</a></span>dotInertia</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::dotInertia = 18</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4510229a2fc64e6fb6b544561855124e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4510229a2fc64e6fb6b544561855124e">&#9670;&nbsp;</a></span>inertia</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::inertia = 9</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9aeb2f0508890223677cb1816f44e142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aeb2f0508890223677cb1816f44e142">&#9670;&nbsp;</a></span>linAccIMU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::linAccIMU = 39</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb60e1a4a46aeae00fb927b0d7e835bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb60e1a4a46aeae00fb927b0d7e835bb">&#9670;&nbsp;</a></span>linVelIMU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::linVelIMU = 33</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27b892755d370b0b89290540cefb86c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b892755d370b0b89290540cefb86c0">&#9670;&nbsp;</a></span>oriIMU</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::oriIMU = 30</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad92e000d14e371c71e451fc7f7ae3416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92e000d14e371c71e451fc7f7ae3416">&#9670;&nbsp;</a></span>posCom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::posCom = 0</td>
         </tr>
       </table>
   </td>
@@ -112,8 +378,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a45f8a0fd691206924e20ebb3d3da60fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45f8a0fd691206924e20ebb3d3da60fe">&#9670;&nbsp;</a></span>none</h2>
+<a id="a9298a1b7681c9e1e1f251aab836733e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9298a1b7681c9e1e1f251aab836733e3">&#9670;&nbsp;</a></span>posIMU</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -122,7 +388,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel::none = 0</td>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::posIMU = 27</td>
         </tr>
       </table>
   </td>
@@ -134,8 +400,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8c009f69a491b028dd125a7d96f3f8ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c009f69a491b028dd125a7d96f3f8ee">&#9670;&nbsp;</a></span>pendulum</h2>
+<a id="a0fcbc122f976c687321ced4ae6548838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fcbc122f976c687321ced4ae6548838">&#9670;&nbsp;</a></span>sizeBase</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,7 +410,29 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel::pendulum = 2</td>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::sizeBase = 48</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a392e8a96d56ab63fadfebb9a33429c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a392e8a96d56ab63fadfebb9a33429c4a">&#9670;&nbsp;</a></span>velCom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr unsigned stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input::velCom = 3</td>
         </tr>
       </table>
   </td>
@@ -162,8 +450,8 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00131.html">flexibilityEstimation</a></li><li class="navelem"><a class="el" href="a00753.html">IMUElasticLocalFrameDynamicalSystem</a></li><li class="navelem"><a class="el" href="a00765.html">contactModel</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00134.html">flexibilityEstimation</a></li><li class="navelem"><a class="el" href="a00761.html">IMUElasticLocalFrameDynamicalSystem</a></li><li class="navelem"><a class="el" href="a00765.html">input</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

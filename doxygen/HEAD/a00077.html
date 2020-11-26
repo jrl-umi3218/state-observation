@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: tilt-estimator.hpp File Reference</title>
+<title>state-observation: observer-base.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,38 +71,40 @@ $(document).ready(function(){initNavTree('a00077.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">tilt-estimator.hpp File Reference</div>  </div>
+<div class="title">observer-base.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Defines the class for the tilt estimator.  
+<p>Defines the base class of a state observer. The observer is destinated to any dynamical system with a vector state representation The file describes also the used data structures and exceptions of the derivated classes.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00080.html">state-observation/observer/zero-delay-observer.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/assert.hpp&gt;</code><br />
+<code>#include &lt;boost/static_assert.hpp&gt;</code><br />
+<code>#include &lt;state-observation/api.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00107.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00825.html">stateObservation::TiltEstimator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><pre class="fragment">    Description is pending</pre>  <a href="a00825.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html">stateObservation::ObserverBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class for observers.  <a href="a00829.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Defines the class for the tilt estimator. </p>
-<dl class="section author"><dt>Author</dt><dd>Rafael Cisneros, Mehdi Benallegue </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2018 </dd></dl>
+<div class="textblock"><p>Defines the base class of a state observer. The observer is destinated to any dynamical system with a vector state representation The file describes also the used data structures and exceptions of the derivated classes. </p>
+<dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2012 </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_c4c28657b08aec13789223b1c69a0431.html">observer</a></li><li class="navelem"><a class="el" href="a00077.html">tilt-estimator.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_c4c28657b08aec13789223b1c69a0431.html">observer</a></li><li class="navelem"><a class="el" href="a00077.html">observer-base.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

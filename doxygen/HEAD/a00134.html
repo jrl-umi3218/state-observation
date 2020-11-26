@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::cst Namespace Reference</title>
+<title>state-observation: stateObservation::flexibilityEstimation Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,78 +68,42 @@ $(document).ready(function(){initNavTree('a00134.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::cst Namespace Reference</div>  </div>
+<div class="title">stateObservation::flexibilityEstimation Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a177e9790b91fd4af339c9c3c6d076cc0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a177e9790b91fd4af339c9c3c6d076cc0">gravityConstant</a> = 9.8</td></tr>
-<tr class="separator:a177e9790b91fd4af339c9c3c6d076cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73b34c228641cabcb79894e285fd751a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a73b34c228641cabcb79894e285fd751a">gravity</a> = <a class="el" href="a00134.html#a177e9790b91fd4af339c9c3c6d076cc0">gravityConstant</a> * Vector3::UnitZ()</td></tr>
-<tr class="memdesc:a73b34c228641cabcb79894e285fd751a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gravity Vector along Z.  <a href="#a73b34c228641cabcb79894e285fd751a">More...</a><br /></td></tr>
-<tr class="separator:a73b34c228641cabcb79894e285fd751a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c627130ec0be695da77a37638d286d4"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a2c627130ec0be695da77a37638d286d4">epsilonAngle</a> = 1e-16</td></tr>
-<tr class="memdesc:a2c627130ec0be695da77a37638d286d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">angles considered Zero  <a href="#a2c627130ec0be695da77a37638d286d4">More...</a><br /></td></tr>
-<tr class="separator:a2c627130ec0be695da77a37638d286d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00749.html">EKFFlexibilityEstimatorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is the base class of the flexibility estimators that use an extended Kalman Filter.  <a href="a00749.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00753.html">FixedContactEKFFlexEstimatorIMU</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class implements the flexibility estimation of a robot with the hypothesis that the contact positions do not move.  <a href="a00753.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00757.html">FlexibilityEstimatorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class is the base class of the flexibility estimators.  <a href="a00757.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00761.html">IMUElasticLocalFrameDynamicalSystem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00781.html">IMUFixedContactDynamicalSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes the dynamics of a robot's flexibility this dynamics is the simplest possible system, the flexibility is expressed as a rotation against the contact positions with no other hypothesis than that the contact points are at constant position.  <a href="a00781.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00785.html">ModelBaseEKFFlexEstimatorIMU</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class implements the flexibility estimation of a robot with the hypothesis that the contact positions do not move.  <a href="a00785.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00797.html">StableIMUFixedContactDynamicalSystem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a2c627130ec0be695da77a37638d286d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c627130ec0be695da77a37638d286d4">&#9670;&nbsp;</a></span>epsilonAngle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double stateObservation::cst::epsilonAngle = 1e-16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>angles considered Zero </p>
-
-</div>
-</div>
-<a id="a73b34c228641cabcb79894e285fd751a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73b34c228641cabcb79894e285fd751a">&#9670;&nbsp;</a></span>gravity</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::cst::gravity = <a class="el" href="a00134.html#a177e9790b91fd4af339c9c3c6d076cc0">gravityConstant</a> * Vector3::UnitZ()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gravity Vector along Z. </p>
-
-</div>
-</div>
-<a id="a177e9790b91fd4af339c9c3c6d076cc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a177e9790b91fd4af339c9c3c6d076cc0">&#9670;&nbsp;</a></span>gravityConstant</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double stateObservation::cst::gravityConstant = 9.8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00134.html">cst</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00134.html">flexibilityEstimation</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

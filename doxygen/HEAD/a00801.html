@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::ExtendedKalmanFilter Class Reference</title>
+<title>state-observation: stateObservation::GaussianWhiteNoise Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,745 +68,221 @@ $(document).ready(function(){initNavTree('a00801.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00798.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::ExtendedKalmanFilter Class Reference</div>  </div>
+<div class="title">stateObservation::GaussianWhiteNoise Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><pre class="fragment">   The class to intanciate to use an extended Kalman filter.</pre>  
- <a href="a00801.html#details">More...</a></p>
-
-<p><code>#include &lt;state-observation/observer/extended-kalman-filter.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/noise/gaussian-white-noise.hpp&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stateObservation::ExtendedKalmanFilter:</div>
+Inheritance diagram for stateObservation::GaussianWhiteNoise:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="a00801.png" usemap="#stateObservation::ExtendedKalmanFilter_map" alt=""/>
-  <map id="stateObservation::ExtendedKalmanFilter_map" name="stateObservation::ExtendedKalmanFilter_map">
-<area href="a00809.html" title="   It mostly implements the equations of Kalman filtering    It is suitablle by derivation to be used..." alt="stateObservation::KalmanFilterBase" shape="rect" coords="125,112,366,136"/>
-<area href="a00829.html" title="Defines the base class of online zero delay observers. " alt="stateObservation::ZeroDelayObserver" shape="rect" coords="0,56,241,80"/>
-<area href="a00945.html" alt="stateObservation::StateVectorArithmetics" shape="rect" coords="251,56,492,80"/>
-<area href="a00821.html" title="The base class for observers. " alt="stateObservation::ObserverBase" shape="rect" coords="0,0,241,24"/>
+  <img src="a00801.png" usemap="#stateObservation::GaussianWhiteNoise_map" alt=""/>
+  <map id="stateObservation::GaussianWhiteNoise_map" name="stateObservation::GaussianWhiteNoise_map">
+<area href="a00805.html" alt="stateObservation::NoiseBase" shape="rect" coords="0,0,228,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html">Optimization</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aac679ffd2f9e516c7716f76e28c01a46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#aac679ffd2f9e516c7716f76e28c01a46">ExtendedKalmanFilter</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m)</td></tr>
-<tr class="memdesc:aac679ffd2f9e516c7716f76e28c01a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#aac679ffd2f9e516c7716f76e28c01a46">More...</a><br /></td></tr>
-<tr class="separator:aac679ffd2f9e516c7716f76e28c01a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae63c441510987a99a6e99d64813e038e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#ae63c441510987a99a6e99d64813e038e">ExtendedKalmanFilter</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p, bool directInputOutputFeedthrough=true, bool directInputStateProcessFeedthrough=true)</td></tr>
-<tr class="memdesc:ae63c441510987a99a6e99d64813e038e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#ae63c441510987a99a6e99d64813e038e">More...</a><br /></td></tr>
-<tr class="separator:ae63c441510987a99a6e99d64813e038e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc803721dc077bbe532969607bd2f338"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#afc803721dc077bbe532969607bd2f338">ExtendedKalmanFilter</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> nt, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> mt, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p, bool directInputOutputFeedthrough, bool directInputStateProcessFeedthrough)</td></tr>
-<tr class="memdesc:afc803721dc077bbe532969607bd2f338"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#afc803721dc077bbe532969607bd2f338">More...</a><br /></td></tr>
-<tr class="separator:afc803721dc077bbe532969607bd2f338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f5669e7fde3ff8c9e7f179e8e160db4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a0f5669e7fde3ff8c9e7f179e8e160db4">setFunctor</a> (<a class="el" href="a00689.html">DynamicalSystemFunctorBase</a> *f)</td></tr>
-<tr class="memdesc:a0f5669e7fde3ff8c9e7f179e8e160db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a pointer to the functor that defines the dynamics of the states and the measurement the user is responsible for the validity of the pointer during the execution of the kalman filter.  <a href="#a0f5669e7fde3ff8c9e7f179e8e160db4">More...</a><br /></td></tr>
-<tr class="separator:a0f5669e7fde3ff8c9e7f179e8e160db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1207ba0708cde21d2bce3e10889306dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a1207ba0708cde21d2bce3e10889306dd">getFunctor</a> (void) const</td></tr>
-<tr class="separator:a1207ba0708cde21d2bce3e10889306dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8991b2e5493c0ec7785890e337f2740b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a8991b2e5493c0ec7785890e337f2740b">functor</a> () const</td></tr>
-<tr class="memdesc:a8991b2e5493c0ec7785890e337f2740b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the functor.  <a href="#a8991b2e5493c0ec7785890e337f2740b">More...</a><br /></td></tr>
-<tr class="separator:a8991b2e5493c0ec7785890e337f2740b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefa1da472e03447df5ee749d801f8bfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#aefa1da472e03447df5ee749d801f8bfd">clearFunctor</a> ()</td></tr>
-<tr class="memdesc:aefa1da472e03447df5ee749d801f8bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the value of the functor Does not destroy the pointed object.  <a href="#aefa1da472e03447df5ee749d801f8bfd">More...</a><br /></td></tr>
-<tr class="separator:aefa1da472e03447df5ee749d801f8bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe27b5722eb6e958298224177138e005"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#afe27b5722eb6e958298224177138e005">setDirectInputOutputFeedthrough</a> (bool b=true)</td></tr>
-<tr class="memdesc:afe27b5722eb6e958298224177138e005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precise whether (true) or not (false) the measurement y_k requires the input u_k.  <a href="#afe27b5722eb6e958298224177138e005">More...</a><br /></td></tr>
-<tr class="separator:afe27b5722eb6e958298224177138e005"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3200d62f6b843ad513c7c9ab513ea813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a3200d62f6b843ad513c7c9ab513ea813">setDirectInputStateFeedthrough</a> (bool b=true)</td></tr>
-<tr class="memdesc:a3200d62f6b843ad513c7c9ab513ea813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precise whether (true) or not (false) the estimation of the state x_{k+1} requires the input u_k.  <a href="#a3200d62f6b843ad513c7c9ab513ea813">More...</a><br /></td></tr>
-<tr class="separator:a3200d62f6b843ad513c7c9ab513ea813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a665a3d31279160819f385d697a621ca0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a665a3d31279160819f385d697a621ca0">getAMatrixFD</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;dx)</td></tr>
-<tr class="memdesc:a665a3d31279160819f385d697a621ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give an estimation of A matrix using finite difference method (the forward difference method) the parameter dx is the step vector for derivation it must have the size nt (tangent vector)  <a href="#a665a3d31279160819f385d697a621ca0">More...</a><br /></td></tr>
-<tr class="separator:a665a3d31279160819f385d697a621ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15a50463af720f22a3e35adef21480ce"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a15a50463af720f22a3e35adef21480ce">getCMatrixFD</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;dx)</td></tr>
-<tr class="memdesc:a15a50463af720f22a3e35adef21480ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give an estimation of C matrix using finite difference method (the forward difference method) the parameter dx is the step vector for derivation it must have the size nt (tangent vector)  <a href="#a15a50463af720f22a3e35adef21480ce">More...</a><br /></td></tr>
-<tr class="separator:a15a50463af720f22a3e35adef21480ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6762e76a79ad08b64230c73c9873e898"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a6762e76a79ad08b64230c73c9873e898">reset</a> ()</td></tr>
-<tr class="memdesc:a6762e76a79ad08b64230c73c9873e898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the extended kalman filter (call also the reset function of the dynamics functor)  <a href="#a6762e76a79ad08b64230c73c9873e898">More...</a><br /></td></tr>
-<tr class="separator:a6762e76a79ad08b64230c73c9873e898"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00809"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00809')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00809.html">stateObservation::KalmanFilterBase</a></td></tr>
-<tr class="memitem:a3e72944b85832c2891ffc5bdf2b833ce inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a3e72944b85832c2891ffc5bdf2b833ce">KalmanFilterBase</a> ()</td></tr>
-<tr class="memdesc:a3e72944b85832c2891ffc5bdf2b833ce inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="a00809.html#a3e72944b85832c2891ffc5bdf2b833ce">More...</a><br /></td></tr>
-<tr class="separator:a3e72944b85832c2891ffc5bdf2b833ce inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cfaac8bb175b12993815a448f487a85 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a0cfaac8bb175b12993815a448f487a85">KalmanFilterBase</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p=0)</td></tr>
-<tr class="memdesc:a0cfaac8bb175b12993815a448f487a85 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="a00809.html#a0cfaac8bb175b12993815a448f487a85">More...</a><br /></td></tr>
-<tr class="separator:a0cfaac8bb175b12993815a448f487a85 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47922cf0fba31a6ae25f00e79c8b31d3 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a47922cf0fba31a6ae25f00e79c8b31d3">KalmanFilterBase</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> nt, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> mt, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p)</td></tr>
-<tr class="memdesc:a47922cf0fba31a6ae25f00e79c8b31d3 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor to use in case the dimension of the state space is smaller that its vector representation.  <a href="a00809.html#a47922cf0fba31a6ae25f00e79c8b31d3">More...</a><br /></td></tr>
-<tr class="separator:a47922cf0fba31a6ae25f00e79c8b31d3 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff3e3f4640e238240a6431f64b039d99 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aff3e3f4640e238240a6431f64b039d99">setA</a> (const <a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a> &amp;A)</td></tr>
-<tr class="memdesc:aff3e3f4640e238240a6431f64b039d99 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the jacobian df/dx.  <a href="a00809.html#aff3e3f4640e238240a6431f64b039d99">More...</a><br /></td></tr>
-<tr class="separator:aff3e3f4640e238240a6431f64b039d99 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbca488db5af42673b4c31eaae78fa83 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#afbca488db5af42673b4c31eaae78fa83">getA</a> () const</td></tr>
-<tr class="separator:afbca488db5af42673b4c31eaae78fa83 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cb693d47e393755c5cad4ace228c032 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a2cb693d47e393755c5cad4ace228c032">clearA</a> ()</td></tr>
-<tr class="memdesc:a2cb693d47e393755c5cad4ace228c032 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the jacobian df/dx.  <a href="a00809.html#a2cb693d47e393755c5cad4ace228c032">More...</a><br /></td></tr>
-<tr class="separator:a2cb693d47e393755c5cad4ace228c032 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1963c2f35c8d4981ca1781921e05e888 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a1963c2f35c8d4981ca1781921e05e888">setC</a> (const <a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a> &amp;C)</td></tr>
-<tr class="memdesc:a1963c2f35c8d4981ca1781921e05e888 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the Jacobian dh/dx.  <a href="a00809.html#a1963c2f35c8d4981ca1781921e05e888">More...</a><br /></td></tr>
-<tr class="separator:a1963c2f35c8d4981ca1781921e05e888 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c2bcf3baeb1e374073846e5182ad992 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a7c2bcf3baeb1e374073846e5182ad992">getC</a> () const</td></tr>
-<tr class="separator:a7c2bcf3baeb1e374073846e5182ad992 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18cc4b294edffdc5c73449503c31f1c2 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a18cc4b294edffdc5c73449503c31f1c2">clearC</a> ()</td></tr>
-<tr class="memdesc:a18cc4b294edffdc5c73449503c31f1c2 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the jacobian dh/dx.  <a href="a00809.html#a18cc4b294edffdc5c73449503c31f1c2">More...</a><br /></td></tr>
-<tr class="separator:a18cc4b294edffdc5c73449503c31f1c2 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae79ee52bad30c6307f98fb662521ba58 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ae79ee52bad30c6307f98fb662521ba58">setR</a> (const <a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a> &amp;R)</td></tr>
-<tr class="memdesc:ae79ee52bad30c6307f98fb662521ba58 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the measurement noise covariance matrix.  <a href="a00809.html#ae79ee52bad30c6307f98fb662521ba58">More...</a><br /></td></tr>
-<tr class="separator:ae79ee52bad30c6307f98fb662521ba58 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36e5529fc32733d14cb407999ef2278d inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a36e5529fc32733d14cb407999ef2278d">setMeasurementCovariance</a> (const <a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a> &amp;R)</td></tr>
-<tr class="separator:a36e5529fc32733d14cb407999ef2278d inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63f8d435838914f6ccf3efcb06bbbd68 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a63f8d435838914f6ccf3efcb06bbbd68">getR</a> () const</td></tr>
-<tr class="memdesc:a63f8d435838914f6ccf3efcb06bbbd68 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the measurement noise covariance matrix.  <a href="a00809.html#a63f8d435838914f6ccf3efcb06bbbd68">More...</a><br /></td></tr>
-<tr class="separator:a63f8d435838914f6ccf3efcb06bbbd68 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2293573b057fb05bf96e09a95abb2fa7 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a2293573b057fb05bf96e09a95abb2fa7">getMeasurementCovariance</a> () const</td></tr>
-<tr class="separator:a2293573b057fb05bf96e09a95abb2fa7 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae00d034684c0d2616a9153ef46e5d537 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ae00d034684c0d2616a9153ef46e5d537">clearR</a> ()</td></tr>
-<tr class="memdesc:ae00d034684c0d2616a9153ef46e5d537 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the measurement noise covariance matrix.  <a href="a00809.html#ae00d034684c0d2616a9153ef46e5d537">More...</a><br /></td></tr>
-<tr class="separator:ae00d034684c0d2616a9153ef46e5d537 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cb7d4e5098bb81bc982b93ac12b9714 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a4cb7d4e5098bb81bc982b93ac12b9714">setQ</a> (const <a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a> &amp;Q)</td></tr>
-<tr class="memdesc:a4cb7d4e5098bb81bc982b93ac12b9714 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the process noise covariance matrix.  <a href="a00809.html#a4cb7d4e5098bb81bc982b93ac12b9714">More...</a><br /></td></tr>
-<tr class="separator:a4cb7d4e5098bb81bc982b93ac12b9714 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3550267a61d9e2d4d8fd7927cee86ab inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aa3550267a61d9e2d4d8fd7927cee86ab">setProcessCovariance</a> (const <a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a> &amp;Q)</td></tr>
-<tr class="separator:aa3550267a61d9e2d4d8fd7927cee86ab inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5e57259f85d04de8b26e1ff879b9d84 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ab5e57259f85d04de8b26e1ff879b9d84">getQ</a> () const</td></tr>
-<tr class="memdesc:ab5e57259f85d04de8b26e1ff879b9d84 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the process noise covariance matrix.  <a href="a00809.html#ab5e57259f85d04de8b26e1ff879b9d84">More...</a><br /></td></tr>
-<tr class="separator:ab5e57259f85d04de8b26e1ff879b9d84 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6468d8f7e39de77a752678c8b4f0bf99 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a6468d8f7e39de77a752678c8b4f0bf99">getProcessCovariance</a> () const</td></tr>
-<tr class="separator:a6468d8f7e39de77a752678c8b4f0bf99 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1338a40d3a56dd3d0a20f1399e756ae6 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a1338a40d3a56dd3d0a20f1399e756ae6">clearQ</a> ()</td></tr>
-<tr class="memdesc:a1338a40d3a56dd3d0a20f1399e756ae6 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the process noise covariance matrix.  <a href="a00809.html#a1338a40d3a56dd3d0a20f1399e756ae6">More...</a><br /></td></tr>
-<tr class="separator:a1338a40d3a56dd3d0a20f1399e756ae6 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4c715206c39bfe9569b5a4f197f5f8b inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#af4c715206c39bfe9569b5a4f197f5f8b">setStateCovariance</a> (const <a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a> &amp;P)</td></tr>
-<tr class="memdesc:af4c715206c39bfe9569b5a4f197f5f8b inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the covariance matrix of the current time state estimation error.  <a href="a00809.html#af4c715206c39bfe9569b5a4f197f5f8b">More...</a><br /></td></tr>
-<tr class="separator:af4c715206c39bfe9569b5a4f197f5f8b inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9d91f870f6865acefc29b21312fc1a5 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ac9d91f870f6865acefc29b21312fc1a5">clearStates</a> ()</td></tr>
-<tr class="memdesc:ac9d91f870f6865acefc29b21312fc1a5 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears the state and the state covariance  <a href="a00809.html#ac9d91f870f6865acefc29b21312fc1a5">More...</a><br /></td></tr>
-<tr class="separator:ac9d91f870f6865acefc29b21312fc1a5 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a915edad6eb7618a510ea5de299b44702 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a915edad6eb7618a510ea5de299b44702">clearStateCovariance</a> ()</td></tr>
-<tr class="memdesc:a915edad6eb7618a510ea5de299b44702 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the covariace matrix of the current time state estimation error.  <a href="a00809.html#a915edad6eb7618a510ea5de299b44702">More...</a><br /></td></tr>
-<tr class="separator:a915edad6eb7618a510ea5de299b44702 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60f7f18e490e3ac9a868d14decdac68e inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a60f7f18e490e3ac9a868d14decdac68e">getStateCovariance</a> () const</td></tr>
-<tr class="memdesc:a60f7f18e490e3ac9a868d14decdac68e inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the covariance matrix of the current time state estimation.  <a href="a00809.html#a60f7f18e490e3ac9a868d14decdac68e">More...</a><br /></td></tr>
-<tr class="separator:a60f7f18e490e3ac9a868d14decdac68e inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2ee8b440c007184abde0e140c6ec929 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ac2ee8b440c007184abde0e140c6ec929">getAmatrixConstant</a> (double c) const</td></tr>
-<tr class="memdesc:ac2ee8b440c007184abde0e140c6ec929 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the A matrix having "c" values.  <a href="a00809.html#ac2ee8b440c007184abde0e140c6ec929">More...</a><br /></td></tr>
-<tr class="separator:ac2ee8b440c007184abde0e140c6ec929 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6038464e5b22f6970fca7aa5d775949b inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a6038464e5b22f6970fca7aa5d775949b">getAmatrixRandom</a> () const</td></tr>
-<tr class="memdesc:a6038464e5b22f6970fca7aa5d775949b inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the A matrix having random values.  <a href="a00809.html#a6038464e5b22f6970fca7aa5d775949b">More...</a><br /></td></tr>
-<tr class="separator:a6038464e5b22f6970fca7aa5d775949b inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcffc22e238f54b8f42af6b5a7b8a6c0 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#afcffc22e238f54b8f42af6b5a7b8a6c0">getAmatrixZero</a> () const</td></tr>
-<tr class="memdesc:afcffc22e238f54b8f42af6b5a7b8a6c0 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the A matrix having zero values.  <a href="a00809.html#afcffc22e238f54b8f42af6b5a7b8a6c0">More...</a><br /></td></tr>
-<tr class="separator:afcffc22e238f54b8f42af6b5a7b8a6c0 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a981bf9ddb58ff72171d401c80b4ae9ea inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a981bf9ddb58ff72171d401c80b4ae9ea">getAmatrixIdentity</a> () const</td></tr>
-<tr class="memdesc:a981bf9ddb58ff72171d401c80b4ae9ea inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an identity matrix having the size of the A matrix.  <a href="a00809.html#a981bf9ddb58ff72171d401c80b4ae9ea">More...</a><br /></td></tr>
-<tr class="separator:a981bf9ddb58ff72171d401c80b4ae9ea inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad749bbd3bf3671344f33da892fca28ac inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ad749bbd3bf3671344f33da892fca28ac">checkAmatrix</a> (const <a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a> &amp;) const</td></tr>
-<tr class="memdesc:ad749bbd3bf3671344f33da892fca28ac inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether or not a matrix has the dimensions of the A matrix  <a href="a00809.html#ad749bbd3bf3671344f33da892fca28ac">More...</a><br /></td></tr>
-<tr class="separator:ad749bbd3bf3671344f33da892fca28ac inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae141547695b31ff1b46e29fa4f815b78 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ae141547695b31ff1b46e29fa4f815b78">getCmatrixConstant</a> (double c) const</td></tr>
-<tr class="memdesc:ae141547695b31ff1b46e29fa4f815b78 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the C matrix having "c" values.  <a href="a00809.html#ae141547695b31ff1b46e29fa4f815b78">More...</a><br /></td></tr>
-<tr class="separator:ae141547695b31ff1b46e29fa4f815b78 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33b893da46c5229b9f6671ac9bd6cca6 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a33b893da46c5229b9f6671ac9bd6cca6">getCmatrixRandom</a> () const</td></tr>
-<tr class="memdesc:a33b893da46c5229b9f6671ac9bd6cca6 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the C matrix having random values.  <a href="a00809.html#a33b893da46c5229b9f6671ac9bd6cca6">More...</a><br /></td></tr>
-<tr class="separator:a33b893da46c5229b9f6671ac9bd6cca6 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0752ae3b50b70d22544fc52ddc47931a inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a0752ae3b50b70d22544fc52ddc47931a">getCmatrixZero</a> () const</td></tr>
-<tr class="memdesc:a0752ae3b50b70d22544fc52ddc47931a inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the C matrix having zero values.  <a href="a00809.html#a0752ae3b50b70d22544fc52ddc47931a">More...</a><br /></td></tr>
-<tr class="separator:a0752ae3b50b70d22544fc52ddc47931a inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6d764b394c2a92545c10cf6df9f7108 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ab6d764b394c2a92545c10cf6df9f7108">checkCmatrix</a> (const <a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a> &amp;) const</td></tr>
-<tr class="memdesc:ab6d764b394c2a92545c10cf6df9f7108 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether or not a matrix has the dimensions of the C matrix  <a href="a00809.html#ab6d764b394c2a92545c10cf6df9f7108">More...</a><br /></td></tr>
-<tr class="separator:ab6d764b394c2a92545c10cf6df9f7108 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59bc54320449e0793ad400571bbff5d2 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a59bc54320449e0793ad400571bbff5d2">getQmatrixConstant</a> (double c) const</td></tr>
-<tr class="memdesc:a59bc54320449e0793ad400571bbff5d2 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the Q matrix having "c" values.  <a href="a00809.html#a59bc54320449e0793ad400571bbff5d2">More...</a><br /></td></tr>
-<tr class="separator:a59bc54320449e0793ad400571bbff5d2 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e188296d553fbd43cefd204f18e51b3 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a4e188296d553fbd43cefd204f18e51b3">getQmatrixRandom</a> () const</td></tr>
-<tr class="memdesc:a4e188296d553fbd43cefd204f18e51b3 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the Q matrix having random values.  <a href="a00809.html#a4e188296d553fbd43cefd204f18e51b3">More...</a><br /></td></tr>
-<tr class="separator:a4e188296d553fbd43cefd204f18e51b3 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88909154a3083bd6db4154013c7ab224 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a88909154a3083bd6db4154013c7ab224">getQmatrixZero</a> () const</td></tr>
-<tr class="memdesc:a88909154a3083bd6db4154013c7ab224 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the Q matrix having zero values.  <a href="a00809.html#a88909154a3083bd6db4154013c7ab224">More...</a><br /></td></tr>
-<tr class="separator:a88909154a3083bd6db4154013c7ab224 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72e8e96c2057230f9fccdbe90dab21ed inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a72e8e96c2057230f9fccdbe90dab21ed">getQmatrixIdentity</a> () const</td></tr>
-<tr class="memdesc:a72e8e96c2057230f9fccdbe90dab21ed inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an identity matrix having the size of the Q matrix.  <a href="a00809.html#a72e8e96c2057230f9fccdbe90dab21ed">More...</a><br /></td></tr>
-<tr class="separator:a72e8e96c2057230f9fccdbe90dab21ed inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e2832f321f61f2cefea061c41a01af inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a25e2832f321f61f2cefea061c41a01af">checkQmatrix</a> (const <a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a> &amp;) const</td></tr>
-<tr class="memdesc:a25e2832f321f61f2cefea061c41a01af inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether or not a matrix has the dimensions of the Q matrix  <a href="a00809.html#a25e2832f321f61f2cefea061c41a01af">More...</a><br /></td></tr>
-<tr class="separator:a25e2832f321f61f2cefea061c41a01af inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bd829f4f612cf049c1cc4a923df5316 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a2bd829f4f612cf049c1cc4a923df5316">getRmatrixConstant</a> (double c) const</td></tr>
-<tr class="memdesc:a2bd829f4f612cf049c1cc4a923df5316 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the R matrix having "c" values.  <a href="a00809.html#a2bd829f4f612cf049c1cc4a923df5316">More...</a><br /></td></tr>
-<tr class="separator:a2bd829f4f612cf049c1cc4a923df5316 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f70e9b8355148a3305f5405dec8af30 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a7f70e9b8355148a3305f5405dec8af30">getRmatrixRandom</a> () const</td></tr>
-<tr class="memdesc:a7f70e9b8355148a3305f5405dec8af30 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the R matrix having random values.  <a href="a00809.html#a7f70e9b8355148a3305f5405dec8af30">More...</a><br /></td></tr>
-<tr class="separator:a7f70e9b8355148a3305f5405dec8af30 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa78b0340a9868ba216509fa8759637a3 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aa78b0340a9868ba216509fa8759637a3">getRmatrixZero</a> () const</td></tr>
-<tr class="memdesc:aa78b0340a9868ba216509fa8759637a3 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the R matrix having zero values.  <a href="a00809.html#aa78b0340a9868ba216509fa8759637a3">More...</a><br /></td></tr>
-<tr class="separator:aa78b0340a9868ba216509fa8759637a3 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12901744e6a01372dd2ca09000e45f2c inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a12901744e6a01372dd2ca09000e45f2c">getRmatrixIdentity</a> () const</td></tr>
-<tr class="memdesc:a12901744e6a01372dd2ca09000e45f2c inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an identity matrix having the size of the R matrix.  <a href="a00809.html#a12901744e6a01372dd2ca09000e45f2c">More...</a><br /></td></tr>
-<tr class="separator:a12901744e6a01372dd2ca09000e45f2c inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a341ee4ef88eabd6222abbf143c0726b3 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a341ee4ef88eabd6222abbf143c0726b3">checkRmatrix</a> (const <a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a> &amp;) const</td></tr>
-<tr class="memdesc:a341ee4ef88eabd6222abbf143c0726b3 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether or not a matrix has the dimensions of the R matrix  <a href="a00809.html#a341ee4ef88eabd6222abbf143c0726b3">More...</a><br /></td></tr>
-<tr class="separator:a341ee4ef88eabd6222abbf143c0726b3 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d6c8fd73c7c59b845a33dcd5c6cee0 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a75d6c8fd73c7c59b845a33dcd5c6cee0">getPmatrixConstant</a> (double c) const</td></tr>
-<tr class="memdesc:a75d6c8fd73c7c59b845a33dcd5c6cee0 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the P matrix having "c" values.  <a href="a00809.html#a75d6c8fd73c7c59b845a33dcd5c6cee0">More...</a><br /></td></tr>
-<tr class="separator:a75d6c8fd73c7c59b845a33dcd5c6cee0 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a781928e05bebdd45fdecfc7d464b9172 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a781928e05bebdd45fdecfc7d464b9172">getPmatrixRandom</a> () const</td></tr>
-<tr class="memdesc:a781928e05bebdd45fdecfc7d464b9172 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the P matrix having random values.  <a href="a00809.html#a781928e05bebdd45fdecfc7d464b9172">More...</a><br /></td></tr>
-<tr class="separator:a781928e05bebdd45fdecfc7d464b9172 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a024f93a414f6f288d1bafffac6b12be4 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a024f93a414f6f288d1bafffac6b12be4">getPmatrixZero</a> () const</td></tr>
-<tr class="memdesc:a024f93a414f6f288d1bafffac6b12be4 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a matrix having the size of the P matrix having zero values.  <a href="a00809.html#a024f93a414f6f288d1bafffac6b12be4">More...</a><br /></td></tr>
-<tr class="separator:a024f93a414f6f288d1bafffac6b12be4 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787157412c7a1b337a0009303906eb8f inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a787157412c7a1b337a0009303906eb8f">getPmatrixIdentity</a> () const</td></tr>
-<tr class="memdesc:a787157412c7a1b337a0009303906eb8f inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an identity matrix having the size of the P matrix.  <a href="a00809.html#a787157412c7a1b337a0009303906eb8f">More...</a><br /></td></tr>
-<tr class="separator:a787157412c7a1b337a0009303906eb8f inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae813b50e6bd2e7e64f611bc7f5e0da1 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aae813b50e6bd2e7e64f611bc7f5e0da1">checkPmatrix</a> (const <a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a> &amp;) const</td></tr>
-<tr class="memdesc:aae813b50e6bd2e7e64f611bc7f5e0da1 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether or not a matrix has the dimensions of the P matrix.  <a href="a00809.html#aae813b50e6bd2e7e64f611bc7f5e0da1">More...</a><br /></td></tr>
-<tr class="separator:aae813b50e6bd2e7e64f611bc7f5e0da1 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57c4e1eb47da9b5d2ad29f43c2a57ce inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#ac32430cd8d19a118508c90ef0d42e118">StateVectorTan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ad57c4e1eb47da9b5d2ad29f43c2a57ce">stateTangentVectorConstant</a> (double c) const</td></tr>
-<tr class="memdesc:ad57c4e1eb47da9b5d2ad29f43c2a57ce inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state tangent vector size having duplicated "c" value.  <a href="a00809.html#ad57c4e1eb47da9b5d2ad29f43c2a57ce">More...</a><br /></td></tr>
-<tr class="separator:ad57c4e1eb47da9b5d2ad29f43c2a57ce inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6af9e5d7145209b728912c6ae06d093 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#ac32430cd8d19a118508c90ef0d42e118">StateVectorTan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ac6af9e5d7145209b728912c6ae06d093">stateTangentVectorRandom</a> () const</td></tr>
-<tr class="memdesc:ac6af9e5d7145209b728912c6ae06d093 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state tangent vector size having random values.  <a href="a00809.html#ac6af9e5d7145209b728912c6ae06d093">More...</a><br /></td></tr>
-<tr class="separator:ac6af9e5d7145209b728912c6ae06d093 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec620f3312d2789975394d825c9c6405 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#ac32430cd8d19a118508c90ef0d42e118">StateVectorTan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aec620f3312d2789975394d825c9c6405">stateTangentVectorZero</a> () const</td></tr>
-<tr class="memdesc:aec620f3312d2789975394d825c9c6405 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state tangent vector size having zero values.  <a href="a00809.html#aec620f3312d2789975394d825c9c6405">More...</a><br /></td></tr>
-<tr class="separator:aec620f3312d2789975394d825c9c6405 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd507cf3c37af68df1f63630fcd19c7b inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#abd507cf3c37af68df1f63630fcd19c7b">checkStateTangentVector</a> (const <a class="el" href="a00809.html#ac32430cd8d19a118508c90ef0d42e118">StateVectorTan</a> &amp;v) const</td></tr>
-<tr class="memdesc:abd507cf3c37af68df1f63630fcd19c7b inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a state tangent vector.  <a href="a00809.html#abd507cf3c37af68df1f63630fcd19c7b">More...</a><br /></td></tr>
-<tr class="separator:abd507cf3c37af68df1f63630fcd19c7b inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6888cdf4fa0f3ca7ea349bf2e65a462e inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#a7776cbd6a7db09309fde06f1649e0328">MeasureVectorTan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a6888cdf4fa0f3ca7ea349bf2e65a462e">measureTangentVectorConstant</a> (double c) const</td></tr>
-<tr class="memdesc:a6888cdf4fa0f3ca7ea349bf2e65a462e inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement tangent vector size having duplicated "c" value.  <a href="a00809.html#a6888cdf4fa0f3ca7ea349bf2e65a462e">More...</a><br /></td></tr>
-<tr class="separator:a6888cdf4fa0f3ca7ea349bf2e65a462e inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac2130c6d78753c6e798c8f8a1440804 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#a7776cbd6a7db09309fde06f1649e0328">MeasureVectorTan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aac2130c6d78753c6e798c8f8a1440804">measureTangentVectorRandom</a> () const</td></tr>
-<tr class="memdesc:aac2130c6d78753c6e798c8f8a1440804 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement tangent vector size having random values.  <a href="a00809.html#aac2130c6d78753c6e798c8f8a1440804">More...</a><br /></td></tr>
-<tr class="separator:aac2130c6d78753c6e798c8f8a1440804 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f8b7f21d0f34a44ef2410165e865830 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00809.html#a7776cbd6a7db09309fde06f1649e0328">MeasureVectorTan</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a4f8b7f21d0f34a44ef2410165e865830">measureTangentVectorZero</a> () const</td></tr>
-<tr class="memdesc:a4f8b7f21d0f34a44ef2410165e865830 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement tangent vector size having zero values.  <a href="a00809.html#a4f8b7f21d0f34a44ef2410165e865830">More...</a><br /></td></tr>
-<tr class="separator:a4f8b7f21d0f34a44ef2410165e865830 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cba2e5801940ef09fdebd8824b688dd inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a9cba2e5801940ef09fdebd8824b688dd">checkMeasureTangentVector</a> (const <a class="el" href="a00809.html#a7776cbd6a7db09309fde06f1649e0328">MeasureVectorTan</a> &amp;) const</td></tr>
-<tr class="memdesc:a9cba2e5801940ef09fdebd8824b688dd inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a measurement tangent vector.  <a href="a00809.html#a9cba2e5801940ef09fdebd8824b688dd">More...</a><br /></td></tr>
-<tr class="separator:a9cba2e5801940ef09fdebd8824b688dd inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b5b67781fe2dfb3a5ec88d47c61b740 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a5b5b67781fe2dfb3a5ec88d47c61b740">setStateSize</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n)</td></tr>
-<tr class="memdesc:a5b5b67781fe2dfb3a5ec88d47c61b740 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the dimension of the state vector: resets the internal container for the state vector and the containers for the matrices A, C, Q, P.  <a href="a00809.html#a5b5b67781fe2dfb3a5ec88d47c61b740">More...</a><br /></td></tr>
-<tr class="separator:a5b5b67781fe2dfb3a5ec88d47c61b740 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b7b50885eee113e5278f64e862b6139 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a7b7b50885eee113e5278f64e862b6139">setStateSize</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> nt)</td></tr>
-<tr class="memdesc:a7b7b50885eee113e5278f64e862b6139 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the dimension of the state vector: n is the dimension of the state representation and nt is the dimension of the tangent vector representation resets the internal container for the state vector and the containers for the matrices A, C, Q, P.  <a href="a00809.html#a7b7b50885eee113e5278f64e862b6139">More...</a><br /></td></tr>
-<tr class="separator:a7b7b50885eee113e5278f64e862b6139 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab67b5ddb096384082292a5f1971168d0 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ab67b5ddb096384082292a5f1971168d0">setMeasureSize</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m)</td></tr>
-<tr class="memdesc:ab67b5ddb096384082292a5f1971168d0 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the dimension of the measurement vector: resets the internal container for the measurement vectors and the containers for the matrices C, R.  <a href="a00809.html#ab67b5ddb096384082292a5f1971168d0">More...</a><br /></td></tr>
-<tr class="separator:ab67b5ddb096384082292a5f1971168d0 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fded3d59510d27a83bd51b84c521b65 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a5fded3d59510d27a83bd51b84c521b65">setMeasureSize</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> mt)</td></tr>
-<tr class="memdesc:a5fded3d59510d27a83bd51b84c521b65 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the dimension of the measurement vector: m is the size of the measurementVector mt is the dimension of the measurement tangent space resets the internal container for the measurement vectors and the containers for the matrices C, R.  <a href="a00809.html#a5fded3d59510d27a83bd51b84c521b65">More...</a><br /></td></tr>
-<tr class="separator:a5fded3d59510d27a83bd51b84c521b65 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5157dd43cc865c21c758c46c60f8912b inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a5157dd43cc865c21c758c46c60f8912b">getSimulatedMeasurement</a> (<a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:a5157dd43cc865c21c758c46c60f8912b inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get simulation of the measurement y_k using the state estimation.  <a href="a00809.html#a5157dd43cc865c21c758c46c60f8912b">More...</a><br /></td></tr>
-<tr class="separator:a5157dd43cc865c21c758c46c60f8912b inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d01a1588b7f448b99818ac02a8a4bb7 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a3d01a1588b7f448b99818ac02a8a4bb7">getInnovation</a> ()</td></tr>
-<tr class="memdesc:a3d01a1588b7f448b99818ac02a8a4bb7 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last vector of innovation of the Kalman filter.  <a href="a00809.html#a3d01a1588b7f448b99818ac02a8a4bb7">More...</a><br /></td></tr>
-<tr class="separator:a3d01a1588b7f448b99818ac02a8a4bb7 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a995254f995c2727b27fc0ca41c9aee67 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a995254f995c2727b27fc0ca41c9aee67">updateStatePrediction</a> ()</td></tr>
-<tr class="memdesc:a995254f995c2727b27fc0ca41c9aee67 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that gives the prediction (this is NOT the estimation of the state), for the estimation call getEstimateState method it is only an execution of the state synamics with the current state estimation and the current input value.  <a href="a00809.html#a995254f995c2727b27fc0ca41c9aee67">More...</a><br /></td></tr>
-<tr class="separator:a995254f995c2727b27fc0ca41c9aee67 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adee58617aaacaf92de1ea354f5307b0f inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#adee58617aaacaf92de1ea354f5307b0f">updateStateAndMeasurementPrediction</a> ()</td></tr>
-<tr class="memdesc:adee58617aaacaf92de1ea354f5307b0f inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the predicted state, enables to precompute the predicted measurementŔ triggers also Vector <a class="el" href="a00809.html#a995254f995c2727b27fc0ca41c9aee67" title="A function that gives the prediction (this is NOT the estimation of the state), for the estimation ca...">updateStatePrediction()</a> returns the measurement prediction definition in the bottom of this file  <a href="a00809.html#adee58617aaacaf92de1ea354f5307b0f">More...</a><br /></td></tr>
-<tr class="separator:adee58617aaacaf92de1ea354f5307b0f inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3dc2f79152558d81642beecb43e60a8 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#af3dc2f79152558d81642beecb43e60a8">getLastPrediction</a> () const</td></tr>
-<tr class="memdesc:af3dc2f79152558d81642beecb43e60a8 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the last predicted state  <a href="a00809.html#af3dc2f79152558d81642beecb43e60a8">More...</a><br /></td></tr>
-<tr class="separator:af3dc2f79152558d81642beecb43e60a8 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b5c2ed9a4ca76a724d41851f3acdc6e inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a9b5c2ed9a4ca76a724d41851f3acdc6e">getLastPredictedMeasurement</a> () const</td></tr>
-<tr class="memdesc:a9b5c2ed9a4ca76a724d41851f3acdc6e inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the last predicted measurement  <a href="a00809.html#a9b5c2ed9a4ca76a724d41851f3acdc6e">More...</a><br /></td></tr>
-<tr class="separator:a9b5c2ed9a4ca76a724d41851f3acdc6e inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa4ab7d4ee1c787325807a0fcfd1a2a5 inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aaa4ab7d4ee1c787325807a0fcfd1a2a5">getLastGain</a> () const</td></tr>
-<tr class="memdesc:aaa4ab7d4ee1c787325807a0fcfd1a2a5 inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the last Kalman gain matrix  <a href="a00809.html#aaa4ab7d4ee1c787325807a0fcfd1a2a5">More...</a><br /></td></tr>
-<tr class="separator:aaa4ab7d4ee1c787325807a0fcfd1a2a5 inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a662db61eaeec20c77938f9742409499f inherit pub_methods_a00809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a662db61eaeec20c77938f9742409499f">setStateArithmetics</a> (<a class="el" href="a00945.html">StateVectorArithmetics</a> *arith)</td></tr>
-<tr class="memdesc:a662db61eaeec20c77938f9742409499f inherit pub_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">set update functions for sum and difference for the state vector (used for the case of multiplicative Kalman filter)  <a href="a00809.html#a662db61eaeec20c77938f9742409499f">More...</a><br /></td></tr>
-<tr class="separator:a662db61eaeec20c77938f9742409499f inherit pub_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00829"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00829')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00829.html">stateObservation::ZeroDelayObserver</a></td></tr>
-<tr class="memitem:a67290753c4b0c38046c82ee05f25ea4c inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a67290753c4b0c38046c82ee05f25ea4c">ZeroDelayObserver</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p=0)</td></tr>
-<tr class="memdesc:a67290753c4b0c38046c82ee05f25ea4c inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="a00829.html#a67290753c4b0c38046c82ee05f25ea4c">More...</a><br /></td></tr>
-<tr class="separator:a67290753c4b0c38046c82ee05f25ea4c inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae113ca300d3c114ff862b801bc797397 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ae113ca300d3c114ff862b801bc797397">ZeroDelayObserver</a> ()</td></tr>
-<tr class="memdesc:ae113ca300d3c114ff862b801bc797397 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor (default values for n,m,p are zero)  <a href="a00829.html#ae113ca300d3c114ff862b801bc797397">More...</a><br /></td></tr>
-<tr class="separator:ae113ca300d3c114ff862b801bc797397 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd7af6689312c7a0696c4ca39c4aed78 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#acd7af6689312c7a0696c4ca39c4aed78">~ZeroDelayObserver</a> ()</td></tr>
-<tr class="memdesc:acd7af6689312c7a0696c4ca39c4aed78 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="a00829.html#acd7af6689312c7a0696c4ca39c4aed78">More...</a><br /></td></tr>
-<tr class="separator:acd7af6689312c7a0696c4ca39c4aed78 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8247a916d22411cadd69cf6b0c60c87d inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a8247a916d22411cadd69cf6b0c60c87d">setState</a> (const <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> &amp;x_k, <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:a8247a916d22411cadd69cf6b0c60c87d inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the state vector at time index k.  <a href="a00829.html#a8247a916d22411cadd69cf6b0c60c87d">More...</a><br /></td></tr>
-<tr class="separator:a8247a916d22411cadd69cf6b0c60c87d inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b84739bae21890eab25714837b3fd03 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a6b84739bae21890eab25714837b3fd03">setCurrentState</a> (const <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> &amp;x_k)</td></tr>
-<tr class="memdesc:a6b84739bae21890eab25714837b3fd03 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the state vector at the current time.  <a href="a00829.html#a6b84739bae21890eab25714837b3fd03">More...</a><br /></td></tr>
-<tr class="separator:a6b84739bae21890eab25714837b3fd03 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812f3b37b333be2bc9e3dac78e80b241 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a812f3b37b333be2bc9e3dac78e80b241">setMeasurement</a> (const <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> &amp;y_k, <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:a812f3b37b333be2bc9e3dac78e80b241 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the measurements vector at time index k.  <a href="a00829.html#a812f3b37b333be2bc9e3dac78e80b241">More...</a><br /></td></tr>
-<tr class="separator:a812f3b37b333be2bc9e3dac78e80b241 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6bbef08453356a144306e2af73efafd inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ab6bbef08453356a144306e2af73efafd">pushMeasurement</a> (const <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> &amp;y_k)</td></tr>
-<tr class="memdesc:ab6bbef08453356a144306e2af73efafd inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the measurement value at the next time index.  <a href="a00829.html#ab6bbef08453356a144306e2af73efafd">More...</a><br /></td></tr>
-<tr class="separator:ab6bbef08453356a144306e2af73efafd inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae35c495bc1995b239cde4fb20d0b3181 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ae35c495bc1995b239cde4fb20d0b3181">clearMeasurements</a> ()</td></tr>
-<tr class="memdesc:ae35c495bc1995b239cde4fb20d0b3181 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the given values of the measurements.  <a href="a00829.html#ae35c495bc1995b239cde4fb20d0b3181">More...</a><br /></td></tr>
-<tr class="separator:ae35c495bc1995b239cde4fb20d0b3181 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8d5d039dfa067c1be6d1594f0a4d84e inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ab8d5d039dfa067c1be6d1594f0a4d84e">setInput</a> (const <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> &amp;u_k, <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:ab8d5d039dfa067c1be6d1594f0a4d84e inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the input vector at time index k.  <a href="a00829.html#ab8d5d039dfa067c1be6d1594f0a4d84e">More...</a><br /></td></tr>
-<tr class="separator:ab8d5d039dfa067c1be6d1594f0a4d84e inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ccba5bc930793b852967f47978fb540 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a3ccba5bc930793b852967f47978fb540">pushInput</a> (const <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> &amp;u_k)</td></tr>
-<tr class="memdesc:a3ccba5bc930793b852967f47978fb540 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input value at the next time indext.  <a href="a00829.html#a3ccba5bc930793b852967f47978fb540">More...</a><br /></td></tr>
-<tr class="separator:a3ccba5bc930793b852967f47978fb540 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaf69cf480e5392ca50cc030666d3fc2 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#acaf69cf480e5392ca50cc030666d3fc2">clearInputs</a> ()</td></tr>
-<tr class="memdesc:acaf69cf480e5392ca50cc030666d3fc2 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the given values of the inputs If there is no input, this instruction has no effect.  <a href="a00829.html#acaf69cf480e5392ca50cc030666d3fc2">More...</a><br /></td></tr>
-<tr class="separator:acaf69cf480e5392ca50cc030666d3fc2 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6132bc68820990e18610bd6dfcf24d37 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a6132bc68820990e18610bd6dfcf24d37">clearInputsAndMeasurements</a> ()</td></tr>
-<tr class="memdesc:a6132bc68820990e18610bd6dfcf24d37 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the given values of the inputs and measurements.  <a href="a00829.html#a6132bc68820990e18610bd6dfcf24d37">More...</a><br /></td></tr>
-<tr class="separator:a6132bc68820990e18610bd6dfcf24d37 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a9476e99bc788955a66ecb87eca56c2 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a9a9476e99bc788955a66ecb87eca56c2">getEstimatedState</a> (<a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:a9a9476e99bc788955a66ecb87eca56c2 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">estimated State  <a href="a00829.html#a9a9476e99bc788955a66ecb87eca56c2">More...</a><br /></td></tr>
-<tr class="separator:a9a9476e99bc788955a66ecb87eca56c2 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3a61b221fd4eda7a30019205f138e09 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ad3a61b221fd4eda7a30019205f138e09">getCurrentEstimatedState</a> () const</td></tr>
-<tr class="memdesc:ad3a61b221fd4eda7a30019205f138e09 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Current Estimated State.  <a href="a00829.html#ad3a61b221fd4eda7a30019205f138e09">More...</a><br /></td></tr>
-<tr class="separator:ad3a61b221fd4eda7a30019205f138e09 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe08f4022ab1584da59d0acb4abadc3d inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#abe08f4022ab1584da59d0acb4abadc3d">getCurrentTime</a> () const</td></tr>
-<tr class="memdesc:abe08f4022ab1584da59d0acb4abadc3d inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of the time index of the current state estimation.  <a href="a00829.html#abe08f4022ab1584da59d0acb4abadc3d">More...</a><br /></td></tr>
-<tr class="separator:abe08f4022ab1584da59d0acb4abadc3d inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af141608c2857819761637dd236857e30 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#af141608c2857819761637dd236857e30">getInput</a> (<a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k) const</td></tr>
-<tr class="memdesc:af141608c2857819761637dd236857e30 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of the input of the time index k.  <a href="a00829.html#af141608c2857819761637dd236857e30">More...</a><br /></td></tr>
-<tr class="separator:af141608c2857819761637dd236857e30 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2cb6c901cff55a196b187da8bff0ed inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a5199554e1288134514be0c55502cb72d">TimeSize</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a0e2cb6c901cff55a196b187da8bff0ed">getInputsNumber</a> () const</td></tr>
-<tr class="memdesc:a0e2cb6c901cff55a196b187da8bff0ed inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of available inputs.  <a href="a00829.html#a0e2cb6c901cff55a196b187da8bff0ed">More...</a><br /></td></tr>
-<tr class="separator:a0e2cb6c901cff55a196b187da8bff0ed inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55f70e3ee35420852efef749630dfaa6 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a55f70e3ee35420852efef749630dfaa6">getInputTime</a> () const</td></tr>
-<tr class="memdesc:a55f70e3ee35420852efef749630dfaa6 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time index of the last given input.  <a href="a00829.html#a55f70e3ee35420852efef749630dfaa6">More...</a><br /></td></tr>
-<tr class="separator:a55f70e3ee35420852efef749630dfaa6 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4816b197ccfccf2186810321d1ccb845 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a4816b197ccfccf2186810321d1ccb845">getMeasurement</a> (<a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k) const</td></tr>
-<tr class="memdesc:a4816b197ccfccf2186810321d1ccb845 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the measurement of the time index k.  <a href="a00829.html#a4816b197ccfccf2186810321d1ccb845">More...</a><br /></td></tr>
-<tr class="separator:a4816b197ccfccf2186810321d1ccb845 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa48669294dadf74a5aa6a6644ff44bd8 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#aa48669294dadf74a5aa6a6644ff44bd8">getMeasurementTime</a> () const</td></tr>
-<tr class="memdesc:aa48669294dadf74a5aa6a6644ff44bd8 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time index of the last given measurement.  <a href="a00829.html#aa48669294dadf74a5aa6a6644ff44bd8">More...</a><br /></td></tr>
-<tr class="separator:aa48669294dadf74a5aa6a6644ff44bd8 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ae3ebd03bd517d3abca7926beecf65b inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a5199554e1288134514be0c55502cb72d">TimeSize</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a0ae3ebd03bd517d3abca7926beecf65b">getMeasurementsNumber</a> () const</td></tr>
-<tr class="memdesc:a0ae3ebd03bd517d3abca7926beecf65b inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of regitered measurements.  <a href="a00829.html#a0ae3ebd03bd517d3abca7926beecf65b">More...</a><br /></td></tr>
-<tr class="separator:a0ae3ebd03bd517d3abca7926beecf65b inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f96c9bc6577b51e35c520719c5c965b inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a0f96c9bc6577b51e35c520719c5c965b">setInputSize</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p)</td></tr>
-<tr class="memdesc:a0f96c9bc6577b51e35c520719c5c965b inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the size of the input vector: reset the stored input vectors  <a href="a00829.html#a0f96c9bc6577b51e35c520719c5c965b">More...</a><br /></td></tr>
-<tr class="separator:a0f96c9bc6577b51e35c520719c5c965b inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00821"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00821')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00821.html">stateObservation::ObserverBase</a></td></tr>
-<tr class="memitem:aa937a38361b807f4d1fca6d79d9cc73f inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#aa937a38361b807f4d1fca6d79d9cc73f">ObserverBase</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p=0)</td></tr>
-<tr class="memdesc:aa937a38361b807f4d1fca6d79d9cc73f inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="a00821.html#aa937a38361b807f4d1fca6d79d9cc73f">More...</a><br /></td></tr>
-<tr class="separator:aa937a38361b807f4d1fca6d79d9cc73f inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63edca8f6eb7df4af113e0ee534cde94 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a63edca8f6eb7df4af113e0ee534cde94">ObserverBase</a> ()</td></tr>
-<tr class="memdesc:a63edca8f6eb7df4af113e0ee534cde94 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor (default values for n,m,p are zero)  <a href="a00821.html#a63edca8f6eb7df4af113e0ee534cde94">More...</a><br /></td></tr>
-<tr class="separator:a63edca8f6eb7df4af113e0ee534cde94 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e6e83453223086b348fde29cca652ae inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a4e6e83453223086b348fde29cca652ae">~ObserverBase</a> ()</td></tr>
-<tr class="memdesc:a4e6e83453223086b348fde29cca652ae inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="a00821.html#a4e6e83453223086b348fde29cca652ae">More...</a><br /></td></tr>
-<tr class="separator:a4e6e83453223086b348fde29cca652ae inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4615bbfca2ea0291f89581463022777 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#af4615bbfca2ea0291f89581463022777">getStateSize</a> () const</td></tr>
-<tr class="memdesc:af4615bbfca2ea0291f89581463022777 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the state vector  <a href="a00821.html#af4615bbfca2ea0291f89581463022777">More...</a><br /></td></tr>
-<tr class="separator:af4615bbfca2ea0291f89581463022777 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33a84875bcb68696e54130f3a21ccbc3 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a33a84875bcb68696e54130f3a21ccbc3">getMeasureSize</a> () const</td></tr>
-<tr class="memdesc:a33a84875bcb68696e54130f3a21ccbc3 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the measurement vector  <a href="a00821.html#a33a84875bcb68696e54130f3a21ccbc3">More...</a><br /></td></tr>
-<tr class="separator:a33a84875bcb68696e54130f3a21ccbc3 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97bf85204bfd97ffcfd0cac730ca284c inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a97bf85204bfd97ffcfd0cac730ca284c">getInputSize</a> () const</td></tr>
-<tr class="memdesc:a97bf85204bfd97ffcfd0cac730ca284c inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the input vector  <a href="a00821.html#a97bf85204bfd97ffcfd0cac730ca284c">More...</a><br /></td></tr>
-<tr class="separator:a97bf85204bfd97ffcfd0cac730ca284c inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dc5c870bbd655ade60fdd5843e983f7 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a6dc5c870bbd655ade60fdd5843e983f7">stateVectorConstant</a> (double c) const</td></tr>
-<tr class="memdesc:a6dc5c870bbd655ade60fdd5843e983f7 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">These are initializer for vectors We do not use the get prefix to be consistent with eigen initializers Gives a vector of state vector size having duplicated "c" value.  <a href="a00821.html#a6dc5c870bbd655ade60fdd5843e983f7">More...</a><br /></td></tr>
-<tr class="separator:a6dc5c870bbd655ade60fdd5843e983f7 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57784dd6e8312fb2cb32f75eb6139900 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a57784dd6e8312fb2cb32f75eb6139900">stateVectorRandom</a> () const</td></tr>
-<tr class="memdesc:a57784dd6e8312fb2cb32f75eb6139900 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state vector size having random values.  <a href="a00821.html#a57784dd6e8312fb2cb32f75eb6139900">More...</a><br /></td></tr>
-<tr class="separator:a57784dd6e8312fb2cb32f75eb6139900 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a037fa3c55b2976a30a21ceb2327d5e29 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a037fa3c55b2976a30a21ceb2327d5e29">stateVectorZero</a> () const</td></tr>
-<tr class="memdesc:a037fa3c55b2976a30a21ceb2327d5e29 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state vector size having zero values.  <a href="a00821.html#a037fa3c55b2976a30a21ceb2327d5e29">More...</a><br /></td></tr>
-<tr class="separator:a037fa3c55b2976a30a21ceb2327d5e29 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2085a4e7015ae141c82dc17f2dedaf6 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#ab2085a4e7015ae141c82dc17f2dedaf6">checkStateVector</a> (const <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a> &amp;v) const</td></tr>
-<tr class="memdesc:ab2085a4e7015ae141c82dc17f2dedaf6 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a state vector.  <a href="a00821.html#ab2085a4e7015ae141c82dc17f2dedaf6">More...</a><br /></td></tr>
-<tr class="separator:ab2085a4e7015ae141c82dc17f2dedaf6 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb7f162d19c25deb2c408906f476eadd inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#acb7f162d19c25deb2c408906f476eadd">measureVectorConstant</a> (double c) const</td></tr>
-<tr class="memdesc:acb7f162d19c25deb2c408906f476eadd inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement vector size having duplicated "c" value.  <a href="a00821.html#acb7f162d19c25deb2c408906f476eadd">More...</a><br /></td></tr>
-<tr class="separator:acb7f162d19c25deb2c408906f476eadd inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde4d6536411455c7d157fa4af79e888 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#adde4d6536411455c7d157fa4af79e888">measureVectorRandom</a> () const</td></tr>
-<tr class="memdesc:adde4d6536411455c7d157fa4af79e888 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement vector size having random values.  <a href="a00821.html#adde4d6536411455c7d157fa4af79e888">More...</a><br /></td></tr>
-<tr class="separator:adde4d6536411455c7d157fa4af79e888 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ab81f29d82227e9ab412af9073998e3 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a2ab81f29d82227e9ab412af9073998e3">measureVectorZero</a> () const</td></tr>
-<tr class="memdesc:a2ab81f29d82227e9ab412af9073998e3 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement vector size having zero values.  <a href="a00821.html#a2ab81f29d82227e9ab412af9073998e3">More...</a><br /></td></tr>
-<tr class="separator:a2ab81f29d82227e9ab412af9073998e3 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a5ce8acdf83772080fd7929ff53af4 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a93a5ce8acdf83772080fd7929ff53af4">checkMeasureVector</a> (const <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a> &amp;) const</td></tr>
-<tr class="memdesc:a93a5ce8acdf83772080fd7929ff53af4 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a measurement vector.  <a href="a00821.html#a93a5ce8acdf83772080fd7929ff53af4">More...</a><br /></td></tr>
-<tr class="separator:a93a5ce8acdf83772080fd7929ff53af4 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3ddeb50150d36eb99822fcf146d3711 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#aa3ddeb50150d36eb99822fcf146d3711">inputVectorConstant</a> (double c) const</td></tr>
-<tr class="memdesc:aa3ddeb50150d36eb99822fcf146d3711 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of input vector size having duplicated "c" value.  <a href="a00821.html#aa3ddeb50150d36eb99822fcf146d3711">More...</a><br /></td></tr>
-<tr class="separator:aa3ddeb50150d36eb99822fcf146d3711 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a497ad2bde0d0cf65762603ee73195f04 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a497ad2bde0d0cf65762603ee73195f04">inputVectorRandom</a> () const</td></tr>
-<tr class="memdesc:a497ad2bde0d0cf65762603ee73195f04 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of input vector size having random values.  <a href="a00821.html#a497ad2bde0d0cf65762603ee73195f04">More...</a><br /></td></tr>
-<tr class="separator:a497ad2bde0d0cf65762603ee73195f04 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e1c76e1a7bd7a8296e78a6668eb6860 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a8e1c76e1a7bd7a8296e78a6668eb6860">inputVectorZero</a> () const</td></tr>
-<tr class="memdesc:a8e1c76e1a7bd7a8296e78a6668eb6860 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of input vector size having zero values.  <a href="a00821.html#a8e1c76e1a7bd7a8296e78a6668eb6860">More...</a><br /></td></tr>
-<tr class="separator:a8e1c76e1a7bd7a8296e78a6668eb6860 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ca0d6719a6a4056a71c0b73e3c8a383 inherit pub_methods_a00821"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a9ca0d6719a6a4056a71c0b73e3c8a383">checkInputVector</a> (const <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a> &amp;) const</td></tr>
-<tr class="memdesc:a9ca0d6719a6a4056a71c0b73e3c8a383 inherit pub_methods_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a input vector.  <a href="a00821.html#a9ca0d6719a6a4056a71c0b73e3c8a383">More...</a><br /></td></tr>
-<tr class="separator:a9ca0d6719a6a4056a71c0b73e3c8a383 inherit pub_methods_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a677527078f04644ac1c9deb49c583ba5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a677527078f04644ac1c9deb49c583ba5">~GaussianWhiteNoise</a> ()</td></tr>
+<tr class="memdesc:a677527078f04644ac1c9deb49c583ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a677527078f04644ac1c9deb49c583ba5">More...</a><br /></td></tr>
+<tr class="separator:a677527078f04644ac1c9deb49c583ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff582053a444ac5cce0db98a1baea8c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#aff582053a444ac5cce0db98a1baea8c9">GaussianWhiteNoise</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> dimension)</td></tr>
+<tr class="memdesc:aff582053a444ac5cce0db98a1baea8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor that provides the dimension of the noise vector.  <a href="#aff582053a444ac5cce0db98a1baea8c9">More...</a><br /></td></tr>
+<tr class="separator:aff582053a444ac5cce0db98a1baea8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade982d55fc275d50d6625c7475f7229e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#ade982d55fc275d50d6625c7475f7229e">GaussianWhiteNoise</a> ()</td></tr>
+<tr class="memdesc:ade982d55fc275d50d6625c7475f7229e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default constructor.  <a href="#ade982d55fc275d50d6625c7475f7229e">More...</a><br /></td></tr>
+<tr class="separator:ade982d55fc275d50d6625c7475f7229e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a247dab80bd18b0c214007f32a1e3a97f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a247dab80bd18b0c214007f32a1e3a97f">getNoisy</a> (const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;)</td></tr>
+<tr class="memdesc:a247dab80bd18b0c214007f32a1e3a97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the noisy version of a given vector it is only an addition of a given vector and a gaussian white noise  <a href="#a247dab80bd18b0c214007f32a1e3a97f">More...</a><br /></td></tr>
+<tr class="separator:a247dab80bd18b0c214007f32a1e3a97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2675382af4f1af20cf470aa5f005aad0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a2675382af4f1af20cf470aa5f005aad0">setStandardDeviation</a> (const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;std)</td></tr>
+<tr class="memdesc:a2675382af4f1af20cf470aa5f005aad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the standard deviation of the Gaussian white noise.  <a href="#a2675382af4f1af20cf470aa5f005aad0">More...</a><br /></td></tr>
+<tr class="separator:a2675382af4f1af20cf470aa5f005aad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b1ce2a8f22898771166f0dddd5e020b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a7b1ce2a8f22898771166f0dddd5e020b">setCovarianceMatrix</a> (const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;cov)</td></tr>
+<tr class="memdesc:a7b1ce2a8f22898771166f0dddd5e020b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the covariance matrix, the covariance matrix must be positive semi definite.  <a href="#a7b1ce2a8f22898771166f0dddd5e020b">More...</a><br /></td></tr>
+<tr class="separator:a7b1ce2a8f22898771166f0dddd5e020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c8e22f296306fd854f5a6ab67f597b5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a2c8e22f296306fd854f5a6ab67f597b5">setBias</a> (const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;bias)</td></tr>
+<tr class="memdesc:a2c8e22f296306fd854f5a6ab67f597b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the bias of the white noise  <a href="#a2c8e22f296306fd854f5a6ab67f597b5">More...</a><br /></td></tr>
+<tr class="separator:a2c8e22f296306fd854f5a6ab67f597b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781093d8ba196ce7adf1e7819e0882f0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a781093d8ba196ce7adf1e7819e0882f0">setDimension</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> <a class="el" href="a00801.html#a8a5a84c4d83be8abb6508b4a9ceba4ac">dim_</a>)</td></tr>
+<tr class="memdesc:a781093d8ba196ce7adf1e7819e0882f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the dimension of the noise vector  <a href="#a781093d8ba196ce7adf1e7819e0882f0">More...</a><br /></td></tr>
+<tr class="separator:a781093d8ba196ce7adf1e7819e0882f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af915067034cf64ed27f3c3cf96c897be"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#af915067034cf64ed27f3c3cf96c897be">getDimension</a> () const</td></tr>
+<tr class="memdesc:af915067034cf64ed27f3c3cf96c897be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the dimension of the noise vector.  <a href="#af915067034cf64ed27f3c3cf96c897be">More...</a><br /></td></tr>
+<tr class="separator:af915067034cf64ed27f3c3cf96c897be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297e8adc5ab103d78bfb921e5cb9d981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a297e8adc5ab103d78bfb921e5cb9d981">setSumFunction</a> (void(*sum)(const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result))</td></tr>
+<tr class="memdesc:a297e8adc5ab103d78bfb921e5cb9d981"><td class="mdescLeft">&#160;</td><td class="mdescRight">set update functions for sum for a vector (used in case of lie group vectors)  <a href="#a297e8adc5ab103d78bfb921e5cb9d981">More...</a><br /></td></tr>
+<tr class="separator:a297e8adc5ab103d78bfb921e5cb9d981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00805"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00805')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00805.html">stateObservation::NoiseBase</a></td></tr>
+<tr class="memitem:afd47658282dae6265a1ddd41b262b06e inherit pub_methods_a00805"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#afd47658282dae6265a1ddd41b262b06e">~NoiseBase</a> ()</td></tr>
+<tr class="memdesc:afd47658282dae6265a1ddd41b262b06e inherit pub_methods_a00805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="a00805.html#afd47658282dae6265a1ddd41b262b06e">More...</a><br /></td></tr>
+<tr class="separator:afd47658282dae6265a1ddd41b262b06e inherit pub_methods_a00805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac21e3fdf84183555c293fa3e564005be"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#ac21e3fdf84183555c293fa3e564005be">prediction_</a> (<a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:ac21e3fdf84183555c293fa3e564005be"><td class="mdescLeft">&#160;</td><td class="mdescRight">simulate the dynamics of the state using the functor  <a href="#ac21e3fdf84183555c293fa3e564005be">More...</a><br /></td></tr>
-<tr class="separator:ac21e3fdf84183555c293fa3e564005be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa829a793bc5830cc781472bd50c6e3ab"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#aa829a793bc5830cc781472bd50c6e3ab">simulateSensor_</a> (const <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a> &amp;x, <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:aa829a793bc5830cc781472bd50c6e3ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">simulate the dynamic of the measurement using the functor  <a href="#aa829a793bc5830cc781472bd50c6e3ab">More...</a><br /></td></tr>
-<tr class="separator:aa829a793bc5830cc781472bd50c6e3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30c87697356ddf825e5d62290883e6cd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a30c87697356ddf825e5d62290883e6cd">predictSensor_</a> (<a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:a30c87697356ddf825e5d62290883e6cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">predicts the measurement using the functor, assumed that the predicted state is up-to-date  <a href="#a30c87697356ddf825e5d62290883e6cd">More...</a><br /></td></tr>
-<tr class="separator:a30c87697356ddf825e5d62290883e6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00809"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00809')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00809.html">stateObservation::KalmanFilterBase</a></td></tr>
-<tr class="memitem:a4c0c46e521e7c2a91a5c96884d6bbdf4 inherit pro_methods_a00809"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a4c0c46e521e7c2a91a5c96884d6bbdf4">oneStepEstimation_</a> ()</td></tr>
-<tr class="memdesc:a4c0c46e521e7c2a91a5c96884d6bbdf4 inherit pro_methods_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Kalman filter loop.  <a href="a00809.html#a4c0c46e521e7c2a91a5c96884d6bbdf4">More...</a><br /></td></tr>
-<tr class="separator:a4c0c46e521e7c2a91a5c96884d6bbdf4 inherit pro_methods_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00945"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00945')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00945.html">stateObservation::StateVectorArithmetics</a></td></tr>
-<tr class="memitem:af75017eba3b3c71590ed5d112cc483a7 inherit pro_methods_a00945"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00945.html#af75017eba3b3c71590ed5d112cc483a7">stateSum</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;sum)</td></tr>
-<tr class="separator:af75017eba3b3c71590ed5d112cc483a7 inherit pro_methods_a00945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae600a69bfd438dbae7184a0da574cfa5 inherit pro_methods_a00945"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00945.html#ae600a69bfd438dbae7184a0da574cfa5">stateDifference</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector1, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector2, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;difference)</td></tr>
-<tr class="separator:ae600a69bfd438dbae7184a0da574cfa5 inherit pro_methods_a00945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35504d7ac7e16d893ac51ccfd4cf4d51 inherit pro_methods_a00945"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00945.html#a35504d7ac7e16d893ac51ccfd4cf4d51">measurementDifference</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;measureVector1, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;measureVector2, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;difference)</td></tr>
-<tr class="separator:a35504d7ac7e16d893ac51ccfd4cf4d51 inherit pro_methods_a00945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b56fad4e3c50083248f807da7504a5a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a1b56fad4e3c50083248f807da7504a5a">checkMatrix_</a> (const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;m) const</td></tr>
+<tr class="separator:a1b56fad4e3c50083248f807da7504a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b65a48ad83d82704a56e2a2a4683e60"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a2b65a48ad83d82704a56e2a2a4683e60">checkVector_</a> (const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;v) const</td></tr>
+<tr class="separator:a2b65a48ad83d82704a56e2a2a4683e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ab2439e3f77febfb7c61f22ee8bb9c680"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#ab2439e3f77febfb7c61f22ee8bb9c680">directInputOutputFeedthrough_</a></td></tr>
-<tr class="memdesc:ab2439e3f77febfb7c61f22ee8bb9c680"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean that provides if theris a need of not for input for the masurement  <a href="#ab2439e3f77febfb7c61f22ee8bb9c680">More...</a><br /></td></tr>
-<tr class="separator:ab2439e3f77febfb7c61f22ee8bb9c680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0999372f43a667f61ad0e484364b3967"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a0999372f43a667f61ad0e484364b3967">directInputStateProcessFeedthrough_</a></td></tr>
-<tr class="memdesc:a0999372f43a667f61ad0e484364b3967"><td class="mdescLeft">&#160;</td><td class="mdescRight">boolean that provides if theris a need of not for input for the state dynamics  <a href="#a0999372f43a667f61ad0e484364b3967">More...</a><br /></td></tr>
-<tr class="separator:a0999372f43a667f61ad0e484364b3967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e23394bf083b9f960d8317d3b916274"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a3e23394bf083b9f960d8317d3b916274">f_</a></td></tr>
-<tr class="memdesc:a3e23394bf083b9f960d8317d3b916274"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer on the dynamics functor  <a href="#a3e23394bf083b9f960d8317d3b916274">More...</a><br /></td></tr>
-<tr class="separator:a3e23394bf083b9f960d8317d3b916274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a5edce0f7bf65236cbd750307a5384b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="a00805.html">stateObservation::ExtendedKalmanFilter::Optimization</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a8a5edce0f7bf65236cbd750307a5384b">opt</a></td></tr>
-<tr class="separator:a8a5edce0f7bf65236cbd750307a5384b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00809"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00809')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00809.html">stateObservation::KalmanFilterBase</a></td></tr>
-<tr class="memitem:aa249c7136a7b222c84343577c582a9c0 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aa249c7136a7b222c84343577c582a9c0">nt_</a></td></tr>
-<tr class="memdesc:aa249c7136a7b222c84343577c582a9c0 inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">the size of tangent space of the state space  <a href="a00809.html#aa249c7136a7b222c84343577c582a9c0">More...</a><br /></td></tr>
-<tr class="separator:aa249c7136a7b222c84343577c582a9c0 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a17e429884b279a666344c2594d58dd inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a0a17e429884b279a666344c2594d58dd">mt_</a></td></tr>
-<tr class="memdesc:a0a17e429884b279a666344c2594d58dd inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">the size of tangent space of the measurement space  <a href="a00809.html#a0a17e429884b279a666344c2594d58dd">More...</a><br /></td></tr>
-<tr class="separator:a0a17e429884b279a666344c2594d58dd inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa370d2ad78d1011dc57c91f14eeeca66 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aa370d2ad78d1011dc57c91f14eeeca66">a_</a></td></tr>
-<tr class="memdesc:aa370d2ad78d1011dc57c91f14eeeca66 inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Containers for the jacobian matrix of the process.  <a href="a00809.html#aa370d2ad78d1011dc57c91f14eeeca66">More...</a><br /></td></tr>
-<tr class="separator:aa370d2ad78d1011dc57c91f14eeeca66 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a107a753056cab5d90146cd55df1a4033 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a107a753056cab5d90146cd55df1a4033">c_</a></td></tr>
-<tr class="memdesc:a107a753056cab5d90146cd55df1a4033 inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Containers for the jacobian matrix of the measurement.  <a href="a00809.html#a107a753056cab5d90146cd55df1a4033">More...</a><br /></td></tr>
-<tr class="separator:a107a753056cab5d90146cd55df1a4033 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8b4983193507a990ca89f44fcb7cc1a inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#aa8b4983193507a990ca89f44fcb7cc1a">q_</a></td></tr>
-<tr class="memdesc:aa8b4983193507a990ca89f44fcb7cc1a inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the process noise covariance matrice.  <a href="a00809.html#aa8b4983193507a990ca89f44fcb7cc1a">More...</a><br /></td></tr>
-<tr class="separator:aa8b4983193507a990ca89f44fcb7cc1a inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d8da2fc30488c75d8b03eb7f848ca53 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a5d8da2fc30488c75d8b03eb7f848ca53">r_</a></td></tr>
-<tr class="memdesc:a5d8da2fc30488c75d8b03eb7f848ca53 inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the measurement noise covariance matrice.  <a href="a00809.html#a5d8da2fc30488c75d8b03eb7f848ca53">More...</a><br /></td></tr>
-<tr class="separator:a5d8da2fc30488c75d8b03eb7f848ca53 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ec3931cdd8289aff501833debf3d3ed inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a4ec3931cdd8289aff501833debf3d3ed">pr_</a></td></tr>
-<tr class="memdesc:a4ec3931cdd8289aff501833debf3d3ed inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the covariance matrix of the estimation error.  <a href="a00809.html#a4ec3931cdd8289aff501833debf3d3ed">More...</a><br /></td></tr>
-<tr class="separator:a4ec3931cdd8289aff501833debf3d3ed inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a655245a3bce7bc5c8a88bf4d8a391ffb inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#aecc3c0d59b6a43528535cda30241c60b">IndexedVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a655245a3bce7bc5c8a88bf4d8a391ffb">xbar_</a></td></tr>
-<tr class="memdesc:a655245a3bce7bc5c8a88bf4d8a391ffb inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">container for the prediction  <a href="a00809.html#a655245a3bce7bc5c8a88bf4d8a391ffb">More...</a><br /></td></tr>
-<tr class="separator:a655245a3bce7bc5c8a88bf4d8a391ffb inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93641ed97aec1924351d56efc01b0980 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#aecc3c0d59b6a43528535cda30241c60b">IndexedVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a93641ed97aec1924351d56efc01b0980">ybar_</a></td></tr>
-<tr class="memdesc:a93641ed97aec1924351d56efc01b0980 inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">container for the prediction of the sensor  <a href="a00809.html#a93641ed97aec1924351d56efc01b0980">More...</a><br /></td></tr>
-<tr class="separator:a93641ed97aec1924351d56efc01b0980 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6d667dfd080f6bd251660a349a7c22 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a5f6d667dfd080f6bd251660a349a7c22">innovation_</a></td></tr>
-<tr class="memdesc:a5f6d667dfd080f6bd251660a349a7c22 inherit pro_attribs_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector containing the inovation of the Kalman filter.  <a href="a00809.html#a5f6d667dfd080f6bd251660a349a7c22">More...</a><br /></td></tr>
-<tr class="separator:a5f6d667dfd080f6bd251660a349a7c22 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c5a0baa790314878f898c6ed512ca0f inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="a00813.html">stateObservation::KalmanFilterBase::optimizationContainer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a3c5a0baa790314878f898c6ed512ca0f">oc_</a></td></tr>
-<tr class="separator:a3c5a0baa790314878f898c6ed512ca0f inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61f133b95e7bf84f202032c613f398d8 inherit pro_attribs_a00809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00945.html">StateVectorArithmetics</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a61f133b95e7bf84f202032c613f398d8">arithm_</a></td></tr>
-<tr class="separator:a61f133b95e7bf84f202032c613f398d8 inherit pro_attribs_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00829"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00829')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00829.html">stateObservation::ZeroDelayObserver</a></td></tr>
-<tr class="memitem:a8117ab4e9354603b9233fe5c316639b9 inherit pro_attribs_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#aecc3c0d59b6a43528535cda30241c60b">IndexedVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a8117ab4e9354603b9233fe5c316639b9">x_</a></td></tr>
-<tr class="memdesc:a8117ab4e9354603b9233fe5c316639b9 inherit pro_attribs_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">while the measurements and iputs are put in lists  <a href="a00829.html#a8117ab4e9354603b9233fe5c316639b9">More...</a><br /></td></tr>
-<tr class="separator:a8117ab4e9354603b9233fe5c316639b9 inherit pro_attribs_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c19c097d2780bb922eee1da1cd15b35 inherit pro_attribs_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a6c19c097d2780bb922eee1da1cd15b35">y_</a></td></tr>
-<tr class="memdesc:a6c19c097d2780bb922eee1da1cd15b35 inherit pro_attribs_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the measurements.  <a href="a00829.html#a6c19c097d2780bb922eee1da1cd15b35">More...</a><br /></td></tr>
-<tr class="separator:a6c19c097d2780bb922eee1da1cd15b35 inherit pro_attribs_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a586b3f05416f37af3d8604b0e444cded inherit pro_attribs_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a586b3f05416f37af3d8604b0e444cded">u_</a></td></tr>
-<tr class="memdesc:a586b3f05416f37af3d8604b0e444cded inherit pro_attribs_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the inputs.  <a href="a00829.html#a586b3f05416f37af3d8604b0e444cded">More...</a><br /></td></tr>
-<tr class="separator:a586b3f05416f37af3d8604b0e444cded inherit pro_attribs_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00821"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00821')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00821.html">stateObservation::ObserverBase</a></td></tr>
-<tr class="memitem:aaca1412cabd5d5ba82af27a6c11dd785 inherit pro_attribs_a00821"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#aaca1412cabd5d5ba82af27a6c11dd785">n_</a></td></tr>
-<tr class="memdesc:aaca1412cabd5d5ba82af27a6c11dd785 inherit pro_attribs_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">stateSize is the size of the state vector  <a href="a00821.html#aaca1412cabd5d5ba82af27a6c11dd785">More...</a><br /></td></tr>
-<tr class="separator:aaca1412cabd5d5ba82af27a6c11dd785 inherit pro_attribs_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44535d044d6bf6e9637b86c52ab8720 inherit pro_attribs_a00821"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#ad44535d044d6bf6e9637b86c52ab8720">m_</a></td></tr>
-<tr class="memdesc:ad44535d044d6bf6e9637b86c52ab8720 inherit pro_attribs_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">measureSize is the size of measurements vector  <a href="a00821.html#ad44535d044d6bf6e9637b86c52ab8720">More...</a><br /></td></tr>
-<tr class="separator:ad44535d044d6bf6e9637b86c52ab8720 inherit pro_attribs_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ab2de4a694d2ef3e28b687c1a65579b inherit pro_attribs_a00821"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a0ab2de4a694d2ef3e28b687c1a65579b">p_</a></td></tr>
-<tr class="memdesc:a0ab2de4a694d2ef3e28b687c1a65579b inherit pro_attribs_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">inputSize is the size of the input vector  <a href="a00821.html#a0ab2de4a694d2ef3e28b687c1a65579b">More...</a><br /></td></tr>
-<tr class="separator:a0ab2de4a694d2ef3e28b687c1a65579b inherit pro_attribs_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00809"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00809')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="a00809.html">stateObservation::KalmanFilterBase</a></td></tr>
-<tr class="memitem:a1adb09e3b7688888ae6346a393b93eaa inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a></td></tr>
-<tr class="memdesc:a1adb09e3b7688888ae6346a393b93eaa inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the jacobian df/dx.  <a href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">More...</a><br /></td></tr>
-<tr class="separator:a1adb09e3b7688888ae6346a393b93eaa inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4a3c075af9f628b96d99f5ac1f9c5a2 inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a></td></tr>
-<tr class="memdesc:af4a3c075af9f628b96d99f5ac1f9c5a2 inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the jacobian dh/dx.  <a href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">More...</a><br /></td></tr>
-<tr class="separator:af4a3c075af9f628b96d99f5ac1f9c5a2 inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a964adeb5d7b385cdd8f821fa02c6c443 inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">Qmatrix</a></td></tr>
-<tr class="memdesc:a964adeb5d7b385cdd8f821fa02c6c443 inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the covariance matrix of the process noise v.  <a href="a00809.html#a964adeb5d7b385cdd8f821fa02c6c443">More...</a><br /></td></tr>
-<tr class="separator:a964adeb5d7b385cdd8f821fa02c6c443 inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac334ed09e528e39a184cc81369161d7a inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ac334ed09e528e39a184cc81369161d7a">Rmatrix</a></td></tr>
-<tr class="memdesc:ac334ed09e528e39a184cc81369161d7a inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the covariance matrix of the measurement noise w.  <a href="a00809.html#ac334ed09e528e39a184cc81369161d7a">More...</a><br /></td></tr>
-<tr class="separator:ac334ed09e528e39a184cc81369161d7a inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a309c3b0ea98e315825d02cfd08f02d79 inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a></td></tr>
-<tr class="memdesc:a309c3b0ea98e315825d02cfd08f02d79 inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the covariance matrix of the state estimation error.  <a href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">More...</a><br /></td></tr>
-<tr class="separator:a309c3b0ea98e315825d02cfd08f02d79 inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5af44bd7d9e72904fb6db54eb0574d inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef Eigen::LLT&lt; <a class="el" href="a00809.html#a309c3b0ea98e315825d02cfd08f02d79">Pmatrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#afb5af44bd7d9e72904fb6db54eb0574d">LLTPMatrix</a></td></tr>
-<tr class="separator:afb5af44bd7d9e72904fb6db54eb0574d inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac32430cd8d19a118508c90ef0d42e118 inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#ac32430cd8d19a118508c90ef0d42e118">StateVectorTan</a></td></tr>
-<tr class="memdesc:ac32430cd8d19a118508c90ef0d42e118 inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">StateVector is the type of state tangent vector.  <a href="a00809.html#ac32430cd8d19a118508c90ef0d42e118">More...</a><br /></td></tr>
-<tr class="separator:ac32430cd8d19a118508c90ef0d42e118 inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7776cbd6a7db09309fde06f1649e0328 inherit pub_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a7776cbd6a7db09309fde06f1649e0328">MeasureVectorTan</a></td></tr>
-<tr class="memdesc:a7776cbd6a7db09309fde06f1649e0328 inherit pub_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">MeasureVector is the type of measurement tanegnt vector.  <a href="a00809.html#a7776cbd6a7db09309fde06f1649e0328">More...</a><br /></td></tr>
-<tr class="separator:a7776cbd6a7db09309fde06f1649e0328 inherit pub_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_a00821"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00821')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="a00821.html">stateObservation::ObserverBase</a></td></tr>
-<tr class="memitem:a1f4384e4ec12cd4da2dc984688e345c1 inherit pub_types_a00821"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a></td></tr>
-<tr class="memdesc:a1f4384e4ec12cd4da2dc984688e345c1 inherit pub_types_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">StateVector is the type of state vector.  <a href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">More...</a><br /></td></tr>
-<tr class="separator:a1f4384e4ec12cd4da2dc984688e345c1 inherit pub_types_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf28d39d18e070f71bac67695f39e867 inherit pub_types_a00821"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a></td></tr>
-<tr class="memdesc:abf28d39d18e070f71bac67695f39e867 inherit pub_types_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">MeasureVector is the type of measurements vector.  <a href="a00821.html#abf28d39d18e070f71bac67695f39e867">More...</a><br /></td></tr>
-<tr class="separator:abf28d39d18e070f71bac67695f39e867 inherit pub_types_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5149fd55bc16be4b9b8727854940db74 inherit pub_types_a00821"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a></td></tr>
-<tr class="memdesc:a5149fd55bc16be4b9b8727854940db74 inherit pub_types_a00821"><td class="mdescLeft">&#160;</td><td class="mdescRight">InputVector is the type of the input vector.  <a href="a00821.html#a5149fd55bc16be4b9b8727854940db74">More...</a><br /></td></tr>
-<tr class="separator:a5149fd55bc16be4b9b8727854940db74 inherit pub_types_a00821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_types_a00809"><td colspan="2" onclick="javascript:toggleInherit('pro_types_a00809')"><img src="closed.png" alt="-"/>&#160;Protected Types inherited from <a class="el" href="a00809.html">stateObservation::KalmanFilterBase</a></td></tr>
-<tr class="memitem:a89944bb14605d678e0cddc7a5390864f inherit pro_types_a00809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00809.html#a89944bb14605d678e0cddc7a5390864f">Kmatrix</a></td></tr>
-<tr class="memdesc:a89944bb14605d678e0cddc7a5390864f inherit pro_types_a00809"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of Kalman gain matrix.  <a href="a00809.html#a89944bb14605d678e0cddc7a5390864f">More...</a><br /></td></tr>
-<tr class="separator:a89944bb14605d678e0cddc7a5390864f inherit pro_types_a00809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5a84c4d83be8abb6508b4a9ceba4ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a8a5a84c4d83be8abb6508b4a9ceba4ac">dim_</a></td></tr>
+<tr class="separator:a8a5a84c4d83be8abb6508b4a9ceba4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a528194e2fadccbfa220d5e1fce2bdbd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a528194e2fadccbfa220d5e1fce2bdbd8">std_</a></td></tr>
+<tr class="separator:a528194e2fadccbfa220d5e1fce2bdbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ebf7520b205a5821cb1aab570fa0652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a4ebf7520b205a5821cb1aab570fa0652">bias_</a></td></tr>
+<tr class="separator:a4ebf7520b205a5821cb1aab570fa0652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9919888a8e62dadf87b4723953739e96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#a9919888a8e62dadf87b4723953739e96">noisy_</a></td></tr>
+<tr class="separator:a9919888a8e62dadf87b4723953739e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22471b517913388158aa60d63e5892e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00801.html#ad22471b517913388158aa60d63e5892e">sum_</a> )(const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result)</td></tr>
+<tr class="separator:ad22471b517913388158aa60d63e5892e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">   The class to intanciate to use an extended Kalman filter.</pre> <p>To use this class, one needs to provide a pointer on a functor that describes the state dynamics and the measurement dynamics. The functor type needs to be a derived class from the class <a class="el" href="a00949.html" title="   This is the base class of any functor that describes the dynamics    of the state and the measurem...">DynamicsFunctorBase</a>.</p>
-<p>x_{k+1}=f(x_k,u_k)+v_k</p>
-<p>y_k=h(x_k,u_k)+w_k </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aac679ffd2f9e516c7716f76e28c01a46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac679ffd2f9e516c7716f76e28c01a46">&#9670;&nbsp;</a></span>ExtendedKalmanFilter() <span class="overload">[1/3]</span></h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a677527078f04644ac1c9deb49c583ba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677527078f04644ac1c9deb49c583ba5">&#9670;&nbsp;</a></span>~GaussianWhiteNoise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual stateObservation::GaussianWhiteNoise::~GaussianWhiteNoise </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual destructor. </p>
+
+<p class="reference">References <a class="el" href="a00139.html#afdc5caf5cf6fdd7882939586591f8ce8">stateObservation::hrp2::m</a>.</p>
+
+</div>
+</div>
+<a id="aff582053a444ac5cce0db98a1baea8c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff582053a444ac5cce0db98a1baea8c9">&#9670;&nbsp;</a></span>GaussianWhiteNoise() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">stateObservation::ExtendedKalmanFilter::ExtendedKalmanFilter </td>
+          <td class="memname">stateObservation::GaussianWhiteNoise::GaussianWhiteNoise </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>dimension</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>m</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The constructor. </p>
-<ul>
-<li>n : size of the state vector </li>
-<li>m : size of the measurements vector </li>
-</ul>
+<p>The constructor that provides the dimension of the noise vector. </p>
 
 </div>
 </div>
-<a id="ae63c441510987a99a6e99d64813e038e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae63c441510987a99a6e99d64813e038e">&#9670;&nbsp;</a></span>ExtendedKalmanFilter() <span class="overload">[2/3]</span></h2>
+<a id="ade982d55fc275d50d6625c7475f7229e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade982d55fc275d50d6625c7475f7229e">&#9670;&nbsp;</a></span>GaussianWhiteNoise() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">stateObservation::ExtendedKalmanFilter::ExtendedKalmanFilter </td>
+          <td class="memname">stateObservation::GaussianWhiteNoise::GaussianWhiteNoise </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>directInputOutputFeedthrough</em> = <code>true</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>directInputStateProcessFeedthrough</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The constructor. </p>
-<ul>
-<li>n : size of the state vector </li>
-<li>m : size of the measurements vector </li>
-<li>p : size of the input vector </li>
-<li>The parameter directInputOutputFeedthrough defines whether (true) or not (false) the measurement y_k requires the input u_k </li>
-<li>The parameter directInputStateProcessFeedthrough defines whether (true) or not (false) the state x_{k+1} requires the input u_k </li>
-</ul>
-
-</div>
-</div>
-<a id="afc803721dc077bbe532969607bd2f338"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc803721dc077bbe532969607bd2f338">&#9670;&nbsp;</a></span>ExtendedKalmanFilter() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::ExtendedKalmanFilter::ExtendedKalmanFilter </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>nt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>mt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>directInputOutputFeedthrough</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>directInputStateProcessFeedthrough</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The constructor. </p>
-<ul>
-<li>n : size of the state vector </li>
-<li>nt: size of the state tengent vector representation (usually nt&lt;=n) </li>
-<li>m : size of the measurements vector </li>
-<li>p : size of the input vector </li>
-<li>The parameter directInputOutputFeedthrough defines whether (true) or not (false) the measurement y_k requires the input u_k </li>
-<li>The parameter directInputStateProcessFeedthrough defines whether (true) or not (false) the state x_{k+1} requires the input u_k </li>
-</ul>
+<p>The default constructor. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aefa1da472e03447df5ee749d801f8bfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefa1da472e03447df5ee749d801f8bfd">&#9670;&nbsp;</a></span>clearFunctor()</h2>
+<a id="a1b56fad4e3c50083248f807da7504a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b56fad4e3c50083248f807da7504a5a">&#9670;&nbsp;</a></span>checkMatrix_()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::ExtendedKalmanFilter::clearFunctor </td>
+          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::checkMatrix_ </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Clear the value of the functor Does not destroy the pointed object. </p>
-
 </div>
 </div>
-<a id="a8991b2e5493c0ec7785890e337f2740b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8991b2e5493c0ec7785890e337f2740b">&#9670;&nbsp;</a></span>functor()</h2>
+<a id="a2b65a48ad83d82704a56e2a2a4683e60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b65a48ad83d82704a56e2a2a4683e60">&#9670;&nbsp;</a></span>checkVector_()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a>* stateObservation::ExtendedKalmanFilter::functor </td>
+          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::checkVector_ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af915067034cf64ed27f3c3cf96c897be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af915067034cf64ed27f3c3cf96c897be">&#9670;&nbsp;</a></span>getDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::GaussianWhiteNoise::getDimension </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-<p>Gets a pointer to the functor. </p>
-
-</div>
-</div>
-<a id="a665a3d31279160819f385d697a621ca0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a665a3d31279160819f385d697a621ca0">&#9670;&nbsp;</a></span>getAMatrixFD()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">Amatrix</a> stateObservation::ExtendedKalmanFilter::getAMatrixFD </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>dx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
@@ -814,12 +290,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Give an estimation of A matrix using finite difference method (the forward difference method) the parameter dx is the step vector for derivation it must have the size nt (tangent vector) </p>
+<p>Gets the dimension of the noise vector. </p>
 
 </div>
 </div>
-<a id="a15a50463af720f22a3e35adef21480ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a50463af720f22a3e35adef21480ce">&#9670;&nbsp;</a></span>getCMatrixFD()</h2>
+<a id="a247dab80bd18b0c214007f32a1e3a97f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247dab80bd18b0c214007f32a1e3a97f">&#9670;&nbsp;</a></span>getNoisy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -828,114 +304,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">Cmatrix</a> stateObservation::ExtendedKalmanFilter::getCMatrixFD </td>
+          <td class="memname">virtual <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::GaussianWhiteNoise::getNoisy </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>dx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Give an estimation of C matrix using finite difference method (the forward difference method) the parameter dx is the step vector for derivation it must have the size nt (tangent vector) </p>
-
-</div>
-</div>
-<a id="a1207ba0708cde21d2bce3e10889306dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1207ba0708cde21d2bce3e10889306dd">&#9670;&nbsp;</a></span>getFunctor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a>* stateObservation::ExtendedKalmanFilter::getFunctor </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac21e3fdf84183555c293fa3e564005be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac21e3fdf84183555c293fa3e564005be">&#9670;&nbsp;</a></span>prediction_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a> stateObservation::ExtendedKalmanFilter::prediction_ </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
-          <td class="paramname"><em>k</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>simulate the dynamics of the state using the functor </p>
-
-<p>Implements <a class="el" href="a00809.html#a05c83b0e4d0559eee5918a9e9561d03c">stateObservation::KalmanFilterBase</a>.</p>
-
-</div>
-</div>
-<a id="a30c87697356ddf825e5d62290883e6cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30c87697356ddf825e5d62290883e6cd">&#9670;&nbsp;</a></span>predictSensor_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a> stateObservation::ExtendedKalmanFilter::predictSensor_ </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
-          <td class="paramname"><em>k</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>predicts the measurement using the functor, assumed that the predicted state is up-to-date </p>
-
-<p>Reimplemented from <a class="el" href="a00809.html#a0dbaeee02b8486390a45ae9ffa41582e">stateObservation::KalmanFilterBase</a>.</p>
-
-</div>
-</div>
-<a id="a6762e76a79ad08b64230c73c9873e898"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6762e76a79ad08b64230c73c9873e898">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::ExtendedKalmanFilter::reset </td>
-          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -947,74 +318,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reset the extended kalman filter (call also the reset function of the dynamics functor) </p>
+<p>get the noisy version of a given vector it is only an addition of a given vector and a gaussian white noise </p>
 
-<p>Reimplemented from <a class="el" href="a00809.html#a4740b749f1573acfadbf28db8f43d2bd">stateObservation::KalmanFilterBase</a>.</p>
-
-</div>
-</div>
-<a id="afe27b5722eb6e958298224177138e005"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe27b5722eb6e958298224177138e005">&#9670;&nbsp;</a></span>setDirectInputOutputFeedthrough()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::ExtendedKalmanFilter::setDirectInputOutputFeedthrough </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Precise whether (true) or not (false) the measurement y_k requires the input u_k. </p>
+<p>Implements <a class="el" href="a00805.html#a4be13a755c2147e7619e51ee93e6f7d8">stateObservation::NoiseBase</a>.</p>
 
 </div>
 </div>
-<a id="a3200d62f6b843ad513c7c9ab513ea813"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3200d62f6b843ad513c7c9ab513ea813">&#9670;&nbsp;</a></span>setDirectInputStateFeedthrough()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::ExtendedKalmanFilter::setDirectInputStateFeedthrough </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>b</em> = <code>true</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Precise whether (true) or not (false) the estimation of the state x_{k+1} requires the input u_k. </p>
-
-</div>
-</div>
-<a id="a0f5669e7fde3ff8c9e7f179e8e160db4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f5669e7fde3ff8c9e7f179e8e160db4">&#9670;&nbsp;</a></span>setFunctor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::ExtendedKalmanFilter::setFunctor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a> *&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set a pointer to the functor that defines the dynamics of the states and the measurement the user is responsible for the validity of the pointer during the execution of the kalman filter. </p>
-
-</div>
-</div>
-<a id="aa829a793bc5830cc781472bd50c6e3ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa829a793bc5830cc781472bd50c6e3ab">&#9670;&nbsp;</a></span>simulateSensor_()</h2>
+<a id="a2c8e22f296306fd854f5a6ab67f597b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c8e22f296306fd854f5a6ab67f597b5">&#9670;&nbsp;</a></span>setBias()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1023,39 +334,133 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a> stateObservation::ExtendedKalmanFilter::simulateSensor_ </td>
+          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setBias </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
+          <td class="paramname"><em>bias</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>simulate the dynamic of the measurement using the functor </p>
+<p>sets the bias of the white noise </p>
 
-<p>Implements <a class="el" href="a00809.html#a3940901c9b568bf350e90957724c01f9">stateObservation::KalmanFilterBase</a>.</p>
+</div>
+</div>
+<a id="a7b1ce2a8f22898771166f0dddd5e020b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b1ce2a8f22898771166f0dddd5e020b">&#9670;&nbsp;</a></span>setCovarianceMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setCovarianceMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>cov</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the covariance matrix, the covariance matrix must be positive semi definite. </p>
+<p>This method makes a cholesky decomposition to recompute the standard deviation </p>
+
+</div>
+</div>
+<a id="a781093d8ba196ce7adf1e7819e0882f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781093d8ba196ce7adf1e7819e0882f0">&#9670;&nbsp;</a></span>setDimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setDimension </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>dim_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sets the dimension of the noise vector </p>
+
+</div>
+</div>
+<a id="a2675382af4f1af20cf470aa5f005aad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2675382af4f1af20cf470aa5f005aad0">&#9670;&nbsp;</a></span>setStandardDeviation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setStandardDeviation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>std</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the standard deviation of the Gaussian white noise. </p>
+<p>The covariance matrix is then std*std.transpose() </p>
+
+</div>
+</div>
+<a id="a297e8adc5ab103d78bfb921e5cb9d981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297e8adc5ab103d78bfb921e5cb9d981">&#9670;&nbsp;</a></span>setSumFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::GaussianWhiteNoise::setSumFunction </td>
+          <td>(</td>
+          <td class="paramtype">void(*)(const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result)&#160;</td>
+          <td class="paramname"><em>sum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set update functions for sum for a vector (used in case of lie group vectors) </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab2439e3f77febfb7c61f22ee8bb9c680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2439e3f77febfb7c61f22ee8bb9c680">&#9670;&nbsp;</a></span>directInputOutputFeedthrough_</h2>
+<a id="a4ebf7520b205a5821cb1aab570fa0652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ebf7520b205a5821cb1aab570fa0652">&#9670;&nbsp;</a></span>bias_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1064,7 +469,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stateObservation::ExtendedKalmanFilter::directInputOutputFeedthrough_</td>
+          <td class="memname"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::GaussianWhiteNoise::bias_</td>
         </tr>
       </table>
   </td>
@@ -1074,12 +479,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>boolean that provides if theris a need of not for input for the masurement </p>
-
 </div>
 </div>
-<a id="a0999372f43a667f61ad0e484364b3967"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0999372f43a667f61ad0e484364b3967">&#9670;&nbsp;</a></span>directInputStateProcessFeedthrough_</h2>
+<a id="a8a5a84c4d83be8abb6508b4a9ceba4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5a84c4d83be8abb6508b4a9ceba4ac">&#9670;&nbsp;</a></span>dim_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1088,7 +491,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stateObservation::ExtendedKalmanFilter::directInputStateProcessFeedthrough_</td>
+          <td class="memname"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::GaussianWhiteNoise::dim_</td>
         </tr>
       </table>
   </td>
@@ -1098,12 +501,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>boolean that provides if theris a need of not for input for the state dynamics </p>
-
 </div>
 </div>
-<a id="a3e23394bf083b9f960d8317d3b916274"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e23394bf083b9f960d8317d3b916274">&#9670;&nbsp;</a></span>f_</h2>
+<a id="a9919888a8e62dadf87b4723953739e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9919888a8e62dadf87b4723953739e96">&#9670;&nbsp;</a></span>noisy_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1112,7 +513,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00689.html">DynamicalSystemFunctorBase</a>* stateObservation::ExtendedKalmanFilter::f_</td>
+          <td class="memname"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::GaussianWhiteNoise::noisy_</td>
         </tr>
       </table>
   </td>
@@ -1122,12 +523,10 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>pointer on the dynamics functor </p>
-
 </div>
 </div>
-<a id="a8a5edce0f7bf65236cbd750307a5384b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a5edce0f7bf65236cbd750307a5384b">&#9670;&nbsp;</a></span>opt</h2>
+<a id="a528194e2fadccbfa220d5e1fce2bdbd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a528194e2fadccbfa220d5e1fce2bdbd8">&#9670;&nbsp;</a></span>std_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1136,7 +535,29 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="a00805.html">stateObservation::ExtendedKalmanFilter::Optimization</a>  stateObservation::ExtendedKalmanFilter::opt</td>
+          <td class="memname"><a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::GaussianWhiteNoise::std_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad22471b517913388158aa60d63e5892e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad22471b517913388158aa60d63e5892e">&#9670;&nbsp;</a></span>sum_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* stateObservation::GaussianWhiteNoise::sum_) (const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result)</td>
         </tr>
       </table>
   </td>
@@ -1154,8 +575,8 @@ Additional Inherited Members</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00801.html">ExtendedKalmanFilter</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00801.html">GaussianWhiteNoise</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

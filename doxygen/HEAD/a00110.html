@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: logger.hpp File Reference</title>
+<title>state-observation: hrp2.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -69,41 +69,61 @@ $(document).ready(function(){initNavTree('a00110.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">logger.hpp File Reference</div>  </div>
+<div class="title">hrp2.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;map&gt;</code><br />
-<code>#include &lt;stdexcept&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;typeinfo&gt;</code><br />
+
+<p>Definitions of Hrp2 constants.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;deque&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;boost/assert.hpp&gt;</code><br />
+<code>#include &lt;Eigen/Core&gt;</code><br />
+<code>#include &lt;Eigen/Geometry&gt;</code><br />
 <code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00104.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
-<code>#include &lt;state-observation/tools/logger.hxx&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00909.html">stateObservation::tools::Logger</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00913.html">stateObservation::tools::Logger::log_s</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00913.html">stateObservation::hrp2::contact</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00135"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00135.html">stateObservation::tools</a></td></tr>
+<tr class="memitem:a00139"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html">stateObservation::hrp2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:afdc5caf5cf6fdd7882939586591f8ce8"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#afdc5caf5cf6fdd7882939586591f8ce8">stateObservation::hrp2::m</a> = 56.8</td></tr>
+<tr class="memdesc:afdc5caf5cf6fdd7882939586591f8ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">mass of the robot  <a href="a00139.html#afdc5caf5cf6fdd7882939586591f8ce8">More...</a><br /></td></tr>
+<tr class="separator:afdc5caf5cf6fdd7882939586591f8ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2f2bc2cc2c6e1d8eb8bf90bb766b243"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#ad2f2bc2cc2c6e1d8eb8bf90bb766b243">stateObservation::hrp2::linKe</a> = 40000</td></tr>
+<tr class="memdesc:ad2f2bc2cc2c6e1d8eb8bf90bb766b243"><td class="mdescLeft">&#160;</td><td class="mdescRight">stifness and damping  <a href="a00139.html#ad2f2bc2cc2c6e1d8eb8bf90bb766b243">More...</a><br /></td></tr>
+<tr class="separator:ad2f2bc2cc2c6e1d8eb8bf90bb766b243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91cb315eda3bfe61d01387eb385f1572"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a91cb315eda3bfe61d01387eb385f1572">stateObservation::hrp2::angKe</a> = 400</td></tr>
+<tr class="separator:a91cb315eda3bfe61d01387eb385f1572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9bda994349431964f21bf015a2814d"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a7f9bda994349431964f21bf015a2814d">stateObservation::hrp2::linKv</a> = 600</td></tr>
+<tr class="separator:a7f9bda994349431964f21bf015a2814d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad889b64064e98d1f14762382846f32f7"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#ad889b64064e98d1f14762382846f32f7">stateObservation::hrp2::angKv</a> = 10</td></tr>
+<tr class="separator:ad889b64064e98d1f14762382846f32f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Definitions of Hrp2 constants. </p>
+<dl class="section author"><dt>Author</dt><dd>Alexis Mifsud </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2014 </dd></dl>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00110.html">logger.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00110.html">hrp2.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

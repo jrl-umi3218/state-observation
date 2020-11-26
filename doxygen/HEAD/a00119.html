@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: rigid-body-kinematics.hpp File Reference</title>
+<title>state-observation: probability-law-simulation.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -69,241 +69,38 @@ $(document).ready(function(){initNavTree('a00119.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">rigid-body-kinematics.hpp File Reference</div>  </div>
+<div class="title">probability-law-simulation.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Implements integrators for the kinematics, in terms or rotations and translations.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;Eigen/SVD&gt;</code><br />
+<div class="textblock"><code>#include &lt;boost/random.hpp&gt;</code><br />
 <code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00104.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00113.html">state-observation/tools/miscellaneous-algorithms.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00116.html">state-observation/tools/probability-law-simulation.hpp</a>&gt;</code><br />
-<code>#include &lt;state-observation/tools/rigid-body-kinematics.hxx&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00107.html">state-observation/tools/definitions.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00921.html">stateObservation::kine::indexes&lt; rotationType &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html">stateObservation::kine::indexes&lt; rotationVector &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00929.html">stateObservation::kine::indexes&lt; quaternion &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00933.html">stateObservation::kine::Orientation</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00937.html">stateObservation::kine::Kinematics</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00941.html">stateObservation::kine::Kinematics::Flags</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html">stateObservation::tools::ProbabilityLawSimulation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00137"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html">stateObservation::kine</a></td></tr>
+<tr class="memitem:a00138"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html">stateObservation::tools</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a8688916c76bf0a024afc44b41439dbbf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbf">stateObservation::kine::rotationType</a> { <br />
-&#160;&#160;<a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa07fd8d8f98df2e184dd481d467df9006">stateObservation::kine::matrix</a> = 0, 
-<br />
-&#160;&#160;<a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">stateObservation::kine::rotationVector</a> = 1, 
-<br />
-&#160;&#160;<a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfab63f03079ec398f762632495a8544d15">stateObservation::kine::quaternion</a> = 2, 
-<br />
-&#160;&#160;<a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfac8d71bb617c21306a2dac1f69f35630d">stateObservation::kine::angleaxis</a> = 3
-<br />
- }</td></tr>
-<tr class="separator:a8688916c76bf0a024afc44b41439dbbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a748446ce3994ea84c76c7ad506e59313"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a748446ce3994ea84c76c7ad506e59313">stateObservation::kine::integrateKinematics</a> (Vector3 &amp;position, const Vector3 &amp;velocity, double dt)</td></tr>
-<tr class="separator:a748446ce3994ea84c76c7ad506e59313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32eea9cb05c07f738050771f0393b369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a32eea9cb05c07f738050771f0393b369">stateObservation::kine::integrateKinematics</a> (Vector3 &amp;position, Vector3 &amp;velocity, const Vector3 &amp;acceleration, double dt)</td></tr>
-<tr class="separator:a32eea9cb05c07f738050771f0393b369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad61717ca29b713c5b728b20d80471001"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ad61717ca29b713c5b728b20d80471001">stateObservation::kine::integrateKinematics</a> (Matrix3 &amp;orientation, const Vector3 &amp;rotationVelocity, double dt)</td></tr>
-<tr class="separator:ad61717ca29b713c5b728b20d80471001"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0464c93771693abaa5dfe91ed467ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a8e0464c93771693abaa5dfe91ed467ab">stateObservation::kine::integrateKinematics</a> (Matrix3 &amp;orientation, Vector3 &amp;rotationVelocity, const Vector3 &amp;rotationAcceleration, double dt)</td></tr>
-<tr class="separator:a8e0464c93771693abaa5dfe91ed467ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0005b957a28c13b564da78f2608afe6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a0005b957a28c13b564da78f2608afe6a">stateObservation::kine::integrateKinematics</a> (Quaternion &amp;orientation, const Vector3 &amp;rotationVelocity, double dt)</td></tr>
-<tr class="separator:a0005b957a28c13b564da78f2608afe6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21b20d237788a4cd10f216cb1c38aa41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a21b20d237788a4cd10f216cb1c38aa41">stateObservation::kine::integrateKinematics</a> (Quaternion &amp;orientation, Vector3 &amp;rotationVelocity, const Vector3 &amp;rotationAcceleration, double dt)</td></tr>
-<tr class="separator:a21b20d237788a4cd10f216cb1c38aa41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7900c774f9febbdd8257ac66b4429c63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a7900c774f9febbdd8257ac66b4429c63">stateObservation::kine::integrateKinematics</a> (Vector3 &amp;position, Vector3 &amp;velocity, const Vector3 &amp;acceleration, Matrix3 &amp;orientation, Vector3 &amp;rotationVelocity, const Vector3 &amp;rotationAcceleration, double dt)</td></tr>
-<tr class="memdesc:a7900c774f9febbdd8257ac66b4429c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates the position/orientation and their time derivatives, given the accelerations, and initial velocities and positions.  <a href="a00137.html#a7900c774f9febbdd8257ac66b4429c63">More...</a><br /></td></tr>
-<tr class="separator:a7900c774f9febbdd8257ac66b4429c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdbf1354c436808251497fd4e119f0c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#abdbf1354c436808251497fd4e119f0c7">stateObservation::kine::integrateKinematics</a> (Vector3 &amp;position, Vector3 &amp;velocity, const Vector3 &amp;acceleration, Quaternion &amp;orientation, Vector3 &amp;rotationVelocity, const Vector3 &amp;rotationAcceleration, double dt)</td></tr>
-<tr class="memdesc:abdbf1354c436808251497fd4e119f0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates the position/orientation and their time derivatives, given the accelerations, and initial velocities and positions.  <a href="a00137.html#abdbf1354c436808251497fd4e119f0c7">More...</a><br /></td></tr>
-<tr class="separator:abdbf1354c436808251497fd4e119f0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41358ba4d9e47e1d9cb1144dbca65cd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a41358ba4d9e47e1d9cb1144dbca65cd7">stateObservation::kine::integrateKinematics</a> (Vector3 &amp;position, const Vector3 &amp;velocity, Matrix3 &amp;orientation, const Vector3 &amp;rotationVelocity, double dt)</td></tr>
-<tr class="memdesc:a41358ba4d9e47e1d9cb1144dbca65cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates the postition/orientation given the velocities  <a href="a00137.html#a41358ba4d9e47e1d9cb1144dbca65cd7">More...</a><br /></td></tr>
-<tr class="separator:a41358ba4d9e47e1d9cb1144dbca65cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5903ef92774ae389e6a99971d5478047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a5903ef92774ae389e6a99971d5478047">stateObservation::kine::integrateKinematics</a> (Vector3 &amp;position, const Vector3 &amp;velocity, Quaternion &amp;orientation, const Vector3 &amp;rotationVelocity, double dt)</td></tr>
-<tr class="memdesc:a5903ef92774ae389e6a99971d5478047"><td class="mdescLeft">&#160;</td><td class="mdescRight">integrates the postition/orientation given the velocities  <a href="a00137.html#a5903ef92774ae389e6a99971d5478047">More...</a><br /></td></tr>
-<tr class="separator:a5903ef92774ae389e6a99971d5478047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0287a3944705f372e2ac2ac31bac4bb8"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a0287a3944705f372e2ac2ac31bac4bb8">stateObservation::kine::regulateRotationVector</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a0287a3944705f372e2ac2ac31bac4bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts the orientation vector norm between 0 and Pi if it gets close to 2pi.  <a href="a00137.html#a0287a3944705f372e2ac2ac31bac4bb8">More...</a><br /></td></tr>
-<tr class="separator:a0287a3944705f372e2ac2ac31bac4bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="memItemLeft" align="right" valign="top">AngleAxis&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a6df5915c78e5e7d5cf388ca1a299a0e1">stateObservation::kine::rotationVectorToAngleAxis</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform the rotation vector into angle axis.  <a href="a00137.html#a6df5915c78e5e7d5cf388ca1a299a0e1">More...</a><br /></td></tr>
-<tr class="separator:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a863a3b576b3e9f738e4363df6a626417"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a863a3b576b3e9f738e4363df6a626417">stateObservation::kine::rotationVectorToRotationMatrix</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a863a3b576b3e9f738e4363df6a626417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform the rotation vector into rotation matrix.  <a href="a00137.html#a863a3b576b3e9f738e4363df6a626417">More...</a><br /></td></tr>
-<tr class="separator:a863a3b576b3e9f738e4363df6a626417"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f5d46cdaa166617af8af94aa26961ea"><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a1f5d46cdaa166617af8af94aa26961ea">stateObservation::kine::rotationVectorToQuaternion</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a1f5d46cdaa166617af8af94aa26961ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform the rotation vector into quaternion.  <a href="a00137.html#a1f5d46cdaa166617af8af94aa26961ea">More...</a><br /></td></tr>
-<tr class="separator:a1f5d46cdaa166617af8af94aa26961ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a85b273f5ee7241b3632c70f1fc3d76ed">stateObservation::kine::rotationMatrixToRotationVector</a> (const Matrix3 &amp;R)</td></tr>
-<tr class="memdesc:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform the rotation matrix into rotation vector.  <a href="a00137.html#a85b273f5ee7241b3632c70f1fc3d76ed">More...</a><br /></td></tr>
-<tr class="separator:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac19d92086c08887462ed02c7fc6807b9"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ac19d92086c08887462ed02c7fc6807b9">stateObservation::kine::quaternionToRotationVector</a> (const Quaternion &amp;q)</td></tr>
-<tr class="memdesc:ac19d92086c08887462ed02c7fc6807b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform a quaternion into rotation vector.  <a href="a00137.html#ac19d92086c08887462ed02c7fc6807b9">More...</a><br /></td></tr>
-<tr class="separator:ac19d92086c08887462ed02c7fc6807b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#acfd9b69aa25ea3efaf35c7dc20a900b7">stateObservation::kine::quaternionToRotationVector</a> (const Vector4 &amp;v)</td></tr>
-<tr class="memdesc:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform a quaternion into rotation vector.  <a href="a00137.html#acfd9b69aa25ea3efaf35c7dc20a900b7">More...</a><br /></td></tr>
-<tr class="separator:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e5c5e4498da6d68a70a9fb8dfdc8ada"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a9e5c5e4498da6d68a70a9fb8dfdc8ada">stateObservation::kine::scalarComponent</a> (const Quaternion &amp;q)</td></tr>
-<tr class="memdesc:a9e5c5e4498da6d68a70a9fb8dfdc8ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">scalar component of a quaternion  <a href="a00137.html#a9e5c5e4498da6d68a70a9fb8dfdc8ada">More...</a><br /></td></tr>
-<tr class="separator:a9e5c5e4498da6d68a70a9fb8dfdc8ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a842730b6ae85566d0c018c106be4cd68"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a842730b6ae85566d0c018c106be4cd68">stateObservation::kine::vectorComponent</a> (const Quaternion &amp;q)</td></tr>
-<tr class="memdesc:a842730b6ae85566d0c018c106be4cd68"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector part of the quaternion  <a href="a00137.html#a842730b6ae85566d0c018c106be4cd68">More...</a><br /></td></tr>
-<tr class="separator:a842730b6ae85566d0c018c106be4cd68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a302c69d1c0b16d4560d26753266af72a"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a302c69d1c0b16d4560d26753266af72a">stateObservation::kine::rotationMatrixToRollPitchYaw</a> (const Matrix3 &amp;R, Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a302c69d1c0b16d4560d26753266af72a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform the rotation matrix into roll pitch yaw (decompose R into Ry*Rp*Rr)  <a href="a00137.html#a302c69d1c0b16d4560d26753266af72a">More...</a><br /></td></tr>
-<tr class="separator:a302c69d1c0b16d4560d26753266af72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad59c94c9cdc83265dad5bdc1aff8b0a8"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ad59c94c9cdc83265dad5bdc1aff8b0a8">stateObservation::kine::rotationMatrixToRollPitchYaw</a> (const Matrix3 &amp;R)</td></tr>
-<tr class="separator:ad59c94c9cdc83265dad5bdc1aff8b0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a983d44701296f0f0832a0398da5beeb8"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a983d44701296f0f0832a0398da5beeb8">stateObservation::kine::rollPitchYawToRotationMatrix</a> (double roll, double pitch, double yaw)</td></tr>
-<tr class="memdesc:a983d44701296f0f0832a0398da5beeb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform the roll pitch yaw into rotation matrix ( R = Ry*Rp*Rr)  <a href="a00137.html#a983d44701296f0f0832a0398da5beeb8">More...</a><br /></td></tr>
-<tr class="separator:a983d44701296f0f0832a0398da5beeb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0f3927fd65a811d3e41b015b69ba5b9"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ab0f3927fd65a811d3e41b015b69ba5b9">stateObservation::kine::rollPitchYawToRotationMatrix</a> (const Vector3 &amp;rpy)</td></tr>
-<tr class="separator:ab0f3927fd65a811d3e41b015b69ba5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7261575e9d2d887c3843bc952c76f18e"><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a7261575e9d2d887c3843bc952c76f18e">stateObservation::kine::rollPitchYawToQuaternion</a> (double roll, double pitch, double yaw)</td></tr>
-<tr class="memdesc:a7261575e9d2d887c3843bc952c76f18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform the roll pitch yaw into rotation matrix ( R = Ry*Rp*Rr)  <a href="a00137.html#a7261575e9d2d887c3843bc952c76f18e">More...</a><br /></td></tr>
-<tr class="separator:a7261575e9d2d887c3843bc952c76f18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22c75d74e4e5027d41c960888772555d"><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a22c75d74e4e5027d41c960888772555d">stateObservation::kine::rollPitchYawToQuaternion</a> (const Vector3 &amp;rpy)</td></tr>
-<tr class="separator:a22c75d74e4e5027d41c960888772555d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611022db556471cbed21a4eed37355ca"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a611022db556471cbed21a4eed37355ca">stateObservation::kine::orthogonalizeRotationMatrix</a> (const Matrix3 &amp;M)</td></tr>
-<tr class="memdesc:a611022db556471cbed21a4eed37355ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projects the Matrix to so(3)  <a href="a00137.html#a611022db556471cbed21a4eed37355ca">More...</a><br /></td></tr>
-<tr class="separator:a611022db556471cbed21a4eed37355ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aead9f08042fb65071a46407b6dae1357"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#aead9f08042fb65071a46407b6dae1357">stateObservation::kine::skewSymmetric</a> (const Vector3 &amp;v, Matrix3 &amp;R)</td></tr>
-<tr class="memdesc:aead9f08042fb65071a46407b6dae1357"><td class="mdescLeft">&#160;</td><td class="mdescRight">transform a 3d vector into a skew symmetric 3x3 matrix  <a href="a00137.html#aead9f08042fb65071a46407b6dae1357">More...</a><br /></td></tr>
-<tr class="separator:aead9f08042fb65071a46407b6dae1357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab75794873a63e94993198e80b809d133"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ab75794873a63e94993198e80b809d133">stateObservation::kine::skewSymmetric</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:ab75794873a63e94993198e80b809d133"><td class="mdescLeft">&#160;</td><td class="mdescRight">transform a 3d vector into a skew symmetric 3x3 matrix  <a href="a00137.html#ab75794873a63e94993198e80b809d133">More...</a><br /></td></tr>
-<tr class="separator:ab75794873a63e94993198e80b809d133"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34bc4054d2b23ba0e2a5b94bd317563"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ac34bc4054d2b23ba0e2a5b94bd317563">stateObservation::kine::skewSymmetric2</a> (const Vector3 &amp;v, Matrix3 &amp;R)</td></tr>
-<tr class="memdesc:ac34bc4054d2b23ba0e2a5b94bd317563"><td class="mdescLeft">&#160;</td><td class="mdescRight">transform a 3d vector into a squared skew symmetric 3x3 matrix  <a href="a00137.html#ac34bc4054d2b23ba0e2a5b94bd317563">More...</a><br /></td></tr>
-<tr class="separator:ac34bc4054d2b23ba0e2a5b94bd317563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1fa595baef1bf6f4663e205b401b8cc"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ab1fa595baef1bf6f4663e205b401b8cc">stateObservation::kine::skewSymmetric2</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:ab1fa595baef1bf6f4663e205b401b8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">transform a 3d vector into a squared skew symmetric 3x3 matrix  <a href="a00137.html#ab1fa595baef1bf6f4663e205b401b8cc">More...</a><br /></td></tr>
-<tr class="separator:ab1fa595baef1bf6f4663e205b401b8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c27cf34048bb34167cbcc6853f73750"><td class="memItemLeft" align="right" valign="top">Vector6&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a6c27cf34048bb34167cbcc6853f73750">stateObservation::kine::homogeneousMatrixToVector6</a> (const Matrix4 &amp;M)</td></tr>
-<tr class="memdesc:a6c27cf34048bb34167cbcc6853f73750"><td class="mdescLeft">&#160;</td><td class="mdescRight">transforms a homogeneous matrix into 6d vector (position theta mu)  <a href="a00137.html#a6c27cf34048bb34167cbcc6853f73750">More...</a><br /></td></tr>
-<tr class="separator:a6c27cf34048bb34167cbcc6853f73750"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a379f16ace3335a1054eb1d8301cd29bb"><td class="memItemLeft" align="right" valign="top">Matrix4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a379f16ace3335a1054eb1d8301cd29bb">stateObservation::kine::vector6ToHomogeneousMatrix</a> (const Vector6 &amp;v)</td></tr>
-<tr class="memdesc:a379f16ace3335a1054eb1d8301cd29bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">transforms a 6d vector (position theta mu) into a homogeneous matrix  <a href="a00137.html#a379f16ace3335a1054eb1d8301cd29bb">More...</a><br /></td></tr>
-<tr class="separator:a379f16ace3335a1054eb1d8301cd29bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9326b39c32cc4137a3b969af6e827f55"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a9326b39c32cc4137a3b969af6e827f55">stateObservation::kine::mergeTiltWithYaw</a> (const Vector3 &amp;Rtez, const Matrix3 &amp;R2)</td></tr>
-<tr class="memdesc:a9326b39c32cc4137a3b969af6e827f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge the roll and pitch from the tilt (R^T e_z) with the yaw from a rotation matrix (minimizes the deviation of the x axis)  <a href="a00137.html#a9326b39c32cc4137a3b969af6e827f55">More...</a><br /></td></tr>
-<tr class="separator:a9326b39c32cc4137a3b969af6e827f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e20f4c462626d900d8d952514d345d3"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a6e20f4c462626d900d8d952514d345d3">stateObservation::kine::mergeRoll1Pitch1WithYaw2</a> (const Matrix3 &amp;R1, const Matrix3 &amp;R2)</td></tr>
-<tr class="memdesc:a6e20f4c462626d900d8d952514d345d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge the roll pitch from R1 with yaw from R2.  <a href="a00137.html#a6e20f4c462626d900d8d952514d345d3">More...</a><br /></td></tr>
-<tr class="separator:a6e20f4c462626d900d8d952514d345d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4db2235240ade5be2a639ab6abc3ba64"><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a4db2235240ade5be2a639ab6abc3ba64">stateObservation::kine::zeroRotationQuaternion</a> ()</td></tr>
-<tr class="separator:a4db2235240ade5be2a639ab6abc3ba64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2e18d1e45e78b3e2debf1bb616f5f8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ac2e18d1e45e78b3e2debf1bb616f5f8a">stateObservation::kine::fixedPointRotationToTranslation</a> (const Matrix3 &amp;R, const Vector3 &amp;rotationVelocity, const Vector3 &amp;rotationAcceleration, const Vector3 &amp;fixedPoint, Vector3 &amp;outputTranslation, Vector3 &amp;outputLinearVelocity, Vector3 &amp;outputLinearAcceleration)</td></tr>
-<tr class="memdesc:ac2e18d1e45e78b3e2debf1bb616f5f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">transforms a rotation into translation given a constraint of a fixed point  <a href="a00137.html#ac2e18d1e45e78b3e2debf1bb616f5f8a">More...</a><br /></td></tr>
-<tr class="separator:ac2e18d1e45e78b3e2debf1bb616f5f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a381fc6dd3cfe7595e310a32772c5fb00"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a381fc6dd3cfe7595e310a32772c5fb00">stateObservation::kine::derivateRotationFD</a> (const Quaternion &amp;q1, const Quaternion &amp;q2, double dt)</td></tr>
-<tr class="memdesc:a381fc6dd3cfe7595e310a32772c5fb00"><td class="mdescLeft">&#160;</td><td class="mdescRight">derivates a quaternion using finite difference to get a angular velocity vector  <a href="a00137.html#a381fc6dd3cfe7595e310a32772c5fb00">More...</a><br /></td></tr>
-<tr class="separator:a381fc6dd3cfe7595e310a32772c5fb00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a222b976ebbcc0a22d187e4edeadbdc0b"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a222b976ebbcc0a22d187e4edeadbdc0b">stateObservation::kine::derivateRotationFD</a> (const Vector3 &amp;o1, const Vector3 &amp;o2, double dt)</td></tr>
-<tr class="memdesc:a222b976ebbcc0a22d187e4edeadbdc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">derivates a rotation vector using finite difference to get a angular velocity vector  <a href="a00137.html#a222b976ebbcc0a22d187e4edeadbdc0b">More...</a><br /></td></tr>
-<tr class="separator:a222b976ebbcc0a22d187e4edeadbdc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80f4e548724c26787a2d310a3ea5fe16"><td class="memItemLeft" align="right" valign="top">Vector6&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a80f4e548724c26787a2d310a3ea5fe16">stateObservation::kine::derivateHomogeneousMatrixFD</a> (const Matrix4 &amp;m1, const Matrix4 &amp;m2, double dt)</td></tr>
-<tr class="separator:a80f4e548724c26787a2d310a3ea5fe16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59cb89f5c2773fa5bdcf340be74aa33a"><td class="memItemLeft" align="right" valign="top">Vector6&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a59cb89f5c2773fa5bdcf340be74aa33a">stateObservation::kine::derivatePoseThetaUFD</a> (const Vector6 &amp;v1, const Vector6 &amp;v2, double dt)</td></tr>
-<tr class="separator:a59cb89f5c2773fa5bdcf340be74aa33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42bc88c0abeba550aff6c190ccd5445e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a42bc88c0abeba550aff6c190ccd5445e">stateObservation::kine::derivateRotationMultiplicative</a> (const Vector3 &amp;deltaR, Matrix3 &amp;dRdR, Matrix3 &amp;dRddeltaR)</td></tr>
-<tr class="memdesc:a42bc88c0abeba550aff6c190ccd5445e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the "multiplicative Jacobian" for Kalman filtering for example orientation is the current orientation dR is the rotation delta between the current orientation and the orientation at the next step.  <a href="a00137.html#a42bc88c0abeba550aff6c190ccd5445e">More...</a><br /></td></tr>
-<tr class="separator:a42bc88c0abeba550aff6c190ccd5445e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ee76173adad5840dadfb8183242e866"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a3ee76173adad5840dadfb8183242e866">stateObservation::kine::derivateRtvMultiplicative</a> (const Matrix3 &amp;R, const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a3ee76173adad5840dadfb8183242e866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the "multiplicative Jacobian" for a function R^T.v giving a vector v expressed in a local frame with regard to Rotations of this local frame.  <a href="a00137.html#a3ee76173adad5840dadfb8183242e866">More...</a><br /></td></tr>
-<tr class="separator:a3ee76173adad5840dadfb8183242e866"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac78a3aef4a01fb9a9201ff4f0be10beb"><td class="memItemLeft" align="right" valign="top">IndexedVectorArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ac78a3aef4a01fb9a9201ff4f0be10beb">stateObservation::kine::reconstructStateTrajectory</a> (const IndexedVectorArray &amp;positionOrientation, double dt)</td></tr>
-<tr class="memdesc:ac78a3aef4a01fb9a9201ff4f0be10beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses the derivation to reconstruct the velocities and accelerations given trajectories in positions and orientations only  <a href="a00137.html#ac78a3aef4a01fb9a9201ff4f0be10beb">More...</a><br /></td></tr>
-<tr class="separator:ac78a3aef4a01fb9a9201ff4f0be10beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ad7704e68b1852f1b2962e0487d53a9"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a9ad7704e68b1852f1b2962e0487d53a9">stateObservation::kine::invertState</a> (const Vector &amp;state)</td></tr>
-<tr class="separator:a9ad7704e68b1852f1b2962e0487d53a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11103e044b5db4b8ba4857f88ee82504"><td class="memItemLeft" align="right" valign="top">Matrix4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a11103e044b5db4b8ba4857f88ee82504">stateObservation::kine::invertHomoMatrix</a> (const Matrix4 &amp;m)</td></tr>
-<tr class="separator:a11103e044b5db4b8ba4857f88ee82504"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae61601d32684f4f130ec6a54939f27ea"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00119.html#ae61601d32684f4f130ec6a54939f27ea">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="a00937.html">stateObservation::kine::Kinematics</a> &amp;k)</td></tr>
-<tr class="separator:ae61601d32684f4f130ec6a54939f27ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aa01dc4db866cf56126eec454dba6702f"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#aa01dc4db866cf56126eec454dba6702f">stateObservation::kine::quatNormTol</a> = 1e-6</td></tr>
-<tr class="memdesc:aa01dc4db866cf56126eec454dba6702f"><td class="mdescLeft">&#160;</td><td class="mdescRight">relative tolereance to the square of quaternion norm.  <a href="a00137.html#aa01dc4db866cf56126eec454dba6702f">More...</a><br /></td></tr>
-<tr class="separator:aa01dc4db866cf56126eec454dba6702f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements integrators for the kinematics, in terms or rotations and translations. </p>
-<dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae61601d32684f4f130ec6a54939f27ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae61601d32684f4f130ec6a54939f27ea">&#9670;&nbsp;</a></span>operator<<()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00937.html">stateObservation::kine::Kinematics</a> &amp;&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00119.html">rigid-body-kinematics.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_10173d511f8d64922babfe9876d221d4.html">tools</a></li><li class="navelem"><a class="el" href="a00119.html">probability-law-simulation.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

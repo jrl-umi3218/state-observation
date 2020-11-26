@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::kine::indexes&lt; rotationVector &gt; Struct Template Reference</title>
+<title>state-observation: stateObservation::tools::ProbabilityLawSimulation Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,36 +68,118 @@ $(document).ready(function(){initNavTree('a00925.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="a00922.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::kine::indexes&lt; rotationVector &gt; Struct Template Reference</div>  </div>
+<div class="title">stateObservation::tools::ProbabilityLawSimulation Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;state-observation/tools/rigid-body-kinematics.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/tools/probability-law-simulation.hpp&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a89dd2954edc033204b6cf274dfdb7184"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#a89dd2954edc033204b6cf274dfdb7184">pos</a> = 0</td></tr>
-<tr class="memdesc:a89dd2954edc033204b6cf274dfdb7184"><td class="mdescLeft">&#160;</td><td class="mdescRight">indexes of the different components of a vector of the kinematic state when the orientation is represented using a 3D rotation vector  <a href="#a89dd2954edc033204b6cf274dfdb7184">More...</a><br /></td></tr>
-<tr class="separator:a89dd2954edc033204b6cf274dfdb7184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affdcb7feac0bf0f5fe99cdacc0c28fe4"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#affdcb7feac0bf0f5fe99cdacc0c28fe4">ori</a> = 3</td></tr>
-<tr class="separator:affdcb7feac0bf0f5fe99cdacc0c28fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a856a7f5d29a2eb6cd00d20b4734e4eb3"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#a856a7f5d29a2eb6cd00d20b4734e4eb3">linVel</a> = 6</td></tr>
-<tr class="separator:a856a7f5d29a2eb6cd00d20b4734e4eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4ea46e4ffcd9e53f430777a336d11cc"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#aa4ea46e4ffcd9e53f430777a336d11cc">angVel</a> = 9</td></tr>
-<tr class="separator:aa4ea46e4ffcd9e53f430777a336d11cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a261f8d6048b9a703d365e3b69814fc71"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#a261f8d6048b9a703d365e3b69814fc71">linAcc</a> = 12</td></tr>
-<tr class="separator:a261f8d6048b9a703d365e3b69814fc71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59917f3e451d7c1bf26e52f40e0b063b"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#a59917f3e451d7c1bf26e52f40e0b063b">angAcc</a> = 15</td></tr>
-<tr class="separator:a59917f3e451d7c1bf26e52f40e0b063b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeabb040dabe9e0d1e16741f62915a350"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#aeabb040dabe9e0d1e16741f62915a350">size</a> = 18</td></tr>
-<tr class="separator:aeabb040dabe9e0d1e16741f62915a350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa1532f3bf3f0e2b80beb574511c3f23e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#aa1532f3bf3f0e2b80beb574511c3f23e">getGaussianScalar</a> (double std=1, double bias=0)</td></tr>
+<tr class="memdesc:aa1532f3bf3f0e2b80beb574511c3f23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets a scalar Gaussian random variable having a given bias and standard deviation(std) default is the cetered unit Gaussian  <a href="#aa1532f3bf3f0e2b80beb574511c3f23e">More...</a><br /></td></tr>
+<tr class="separator:aa1532f3bf3f0e2b80beb574511c3f23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a922822a79b87b7ce38440c7371742c02"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#a922822a79b87b7ce38440c7371742c02">getGaussianVector</a> (const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;std, const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;bias, <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> rows, <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> cols=1)</td></tr>
+<tr class="memdesc:a922822a79b87b7ce38440c7371742c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets vector Gaussian random variable having a given bias and standard deviation(std)  <a href="#a922822a79b87b7ce38440c7371742c02">More...</a><br /></td></tr>
+<tr class="separator:a922822a79b87b7ce38440c7371742c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a2a17fcb0273124f59341208051d048cf"><td class="memItemLeft" align="right" valign="top">static boost::lagged_fibonacci1279&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00925.html#a2a17fcb0273124f59341208051d048cf">gen_</a></td></tr>
+<tr class="separator:a2a17fcb0273124f59341208051d048cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa1532f3bf3f0e2b80beb574511c3f23e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1532f3bf3f0e2b80beb574511c3f23e">&#9670;&nbsp;</a></span>getGaussianScalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double stateObservation::tools::ProbabilityLawSimulation::getGaussianScalar </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>std</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>bias</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gets a scalar Gaussian random variable having a given bias and standard deviation(std) default is the cetered unit Gaussian </p>
+
+</div>
+</div>
+<a id="a922822a79b87b7ce38440c7371742c02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a922822a79b87b7ce38440c7371742c02">&#9670;&nbsp;</a></span>getGaussianVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::tools::ProbabilityLawSimulation::getGaussianVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>std</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>bias</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>cols</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>gets vector Gaussian random variable having a given bias and standard deviation(std) </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a59917f3e451d7c1bf26e52f40e0b063b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59917f3e451d7c1bf26e52f40e0b063b">&#9670;&nbsp;</a></span>angAcc</h2>
+<a id="a2a17fcb0273124f59341208051d048cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a17fcb0273124f59341208051d048cf">&#9670;&nbsp;</a></span>gen_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -106,146 +188,12 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::angAcc = 15</td>
+          <td class="memname">boost::lagged_fibonacci1279 stateObservation::tools::ProbabilityLawSimulation::gen_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa4ea46e4ffcd9e53f430777a336d11cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4ea46e4ffcd9e53f430777a336d11cc">&#9670;&nbsp;</a></span>angVel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::angVel = 9</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a261f8d6048b9a703d365e3b69814fc71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a261f8d6048b9a703d365e3b69814fc71">&#9670;&nbsp;</a></span>linAcc</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::linAcc = 12</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a856a7f5d29a2eb6cd00d20b4734e4eb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a856a7f5d29a2eb6cd00d20b4734e4eb3">&#9670;&nbsp;</a></span>linVel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::linVel = 6</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="affdcb7feac0bf0f5fe99cdacc0c28fe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affdcb7feac0bf0f5fe99cdacc0c28fe4">&#9670;&nbsp;</a></span>ori</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::ori = 3</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a89dd2954edc033204b6cf274dfdb7184"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89dd2954edc033204b6cf274dfdb7184">&#9670;&nbsp;</a></span>pos</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::pos = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>indexes of the different components of a vector of the kinematic state when the orientation is represented using a 3D rotation vector </p>
-
-</div>
-</div>
-<a id="aeabb040dabe9e0d1e16741f62915a350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeabb040dabe9e0d1e16741f62915a350">&#9670;&nbsp;</a></span>size</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a00921.html">stateObservation::kine::indexes</a>&lt; <a class="el" href="a00137.html#a8688916c76bf0a024afc44b41439dbbfa9bf6c60e237b32fbc72ea7b4a4980aa7">rotationVector</a> &gt;::size = 18</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -258,8 +206,8 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00137.html">kine</a></li><li class="navelem"><a class="el" href="a00925.html">indexes&lt; rotationVector &gt;</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00138.html">tools</a></li><li class="navelem"><a class="el" href="a00925.html">ProbabilityLawSimulation</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

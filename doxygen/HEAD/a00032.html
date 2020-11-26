@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: offline-ekf-flexibility-estimation.hpp File Reference</title>
+<title>state-observation: imu-multiplicative-attitude-reconstruction.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,46 +71,40 @@ $(document).ready(function(){initNavTree('a00032.html','');});
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">offline-ekf-flexibility-estimation.hpp File Reference</div>  </div>
+<div class="title">imu-multiplicative-attitude-reconstruction.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Gives an implementation of flexibility estimation for IMU reconstruction with or without given input using a Kalman filter. The source is in a file imu-attitude-trajectory-reconstruction.hxx.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="a00041.html">state-observation/flexibility-estimation/fixed-contact-ekf-flex-estimator-imu.hpp</a>&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;state-observation/examples/offline-ekf-flexibility-estimation.hxx&gt;</code><br />
+<div class="textblock"><code>#include &lt;state-observation/api.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00008.html">state-observation/dynamical-system/dynamical-system-simulator.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00017.html">state-observation/dynamical-system/imu-mltpctive-dynamical-system.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00068.html">state-observation/observer/extended-kalman-filter.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00116.html">state-observation/tools/miscellaneous-algorithms.hpp</a>&gt;</code><br />
+<code>#include &lt;state-observation/examples/imu-multiplicative-attitude-reconstruction.hxx&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00130"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html">stateObservation::examples</a></td></tr>
+<tr class="memitem:a00133"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html">stateObservation::examples</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2030947ebe32a6e1c1a5bce717ff2c21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a2030947ebe32a6e1c1a5bce717ff2c21">stateObservation::examples::offlineEKFFlexibilityEstimation</a> (const <a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a> &amp;y, const <a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a> &amp;u, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt;&gt; &amp;contactsPositions, double dt, IndexedVectorArray *ino=0x0, IndexedVectorArray *premea=0x0)</td></tr>
-<tr class="separator:a2030947ebe32a6e1c1a5bce717ff2c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f384716061baddce38a912c28a6493e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a7f384716061baddce38a912c28a6493e">stateObservation::examples::offlineEKFFlexibilityEstimation</a> (const <a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a> &amp;y, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt;&gt; &amp;contactsPositions, double dt)</td></tr>
-<tr class="separator:a7f384716061baddce38a912c28a6493e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d6f79c887ecae1b6642083a4ce3dec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a32d6f79c887ecae1b6642083a4ce3dec">stateObservation::examples::offlineEKFFlexibilityEstimation</a> (const <a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a> &amp;y, const <a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a> &amp;u, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt; &gt; &amp;contactsPositions, double dt, IndexedVectorArray *ino, IndexedVectorArray *premea)</td></tr>
-<tr class="separator:a32d6f79c887ecae1b6642083a4ce3dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee0c888ffe25334ae7a0ac2aaace171e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#aee0c888ffe25334ae7a0ac2aaace171e">stateObservation::examples::offlineEKFFlexibilityEstimation</a> (const <a class="el" href="a00129.html#a733f901496c8fff9609bec77ff52449e">stateObservation::IndexedVectorArray</a> &amp;y, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt; &gt; &amp;contactsPositions, double dt)</td></tr>
-<tr class="separator:aee0c888ffe25334ae7a0ac2aaace171e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c59a4bf9cc0402e665e5eb35811642f"><td class="memItemLeft" align="right" valign="top">IndexedVectorArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#a1c59a4bf9cc0402e665e5eb35811642f">stateObservation::examples::imuMultiplicativeAttitudeReconstruction</a> (const IndexedVectorArray &amp;y, const IndexedVectorArray &amp;u, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</td></tr>
+<tr class="memdesc:a1c59a4bf9cc0402e665e5eb35811642f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU and the input (which provides the acceleration/jerk). This method uses multiplicative extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="a00133.html#a1c59a4bf9cc0402e665e5eb35811642f">More...</a><br /></td></tr>
+<tr class="separator:a1c59a4bf9cc0402e665e5eb35811642f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee3a0854187297b681736dfae4f81de"><td class="memItemLeft" align="right" valign="top">IndexedVectorArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html#adee3a0854187297b681736dfae4f81de">stateObservation::examples::imuMultiplicativeAttitudeReconstruction</a> (const IndexedVectorArray &amp;y, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</td></tr>
+<tr class="memdesc:adee3a0854187297b681736dfae4f81de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU without knowing the input. The input is assumed to be zero over the observation. This method uses multiplicative extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="a00133.html#adee3a0854187297b681736dfae4f81de">More...</a><br /></td></tr>
+<tr class="separator:adee3a0854187297b681736dfae4f81de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Gives an implementation of flexibility estimation for IMU reconstruction with or without given input using a Kalman filter. The source is in a file imu-attitude-trajectory-reconstruction.hxx. </p>
-<dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
-</div></div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_f0f17f841abfc01a14216cd450994e91.html">examples</a></li><li class="navelem"><a class="el" href="a00032.html">offline-ekf-flexibility-estimation.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_f0f17f841abfc01a14216cd450994e91.html">examples</a></li><li class="navelem"><a class="el" href="a00032.html">imu-multiplicative-attitude-reconstruction.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

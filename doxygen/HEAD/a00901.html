@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::tools::SimplestStopwatch Struct Reference</title>
+<title>state-observation: stateObservation::IndexedMatrixT&lt; MatrixType, lazy &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,81 +68,295 @@ $(document).ready(function(){initNavTree('a00901.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00898.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::tools::SimplestStopwatch Struct Reference</div>  </div>
+<div class="title">stateObservation::IndexedMatrixT&lt; MatrixType, lazy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>This class describes a structure composed by a matrix of a given size and a time-index parameter.  
+ <a href="a00901.html#details">More...</a></p>
+
 <p><code>#include &lt;state-observation/tools/definitions.hpp&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for stateObservation::IndexedMatrixT&lt; MatrixType, lazy &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="a00901.png" usemap="#stateObservation::IndexedMatrixT_3C_20MatrixType_2C_20lazy_20_3E_map" alt=""/>
+  <map id="stateObservation::IndexedMatrixT_3C_20MatrixType_2C_20lazy_20_3E_map" name="stateObservation::IndexedMatrixT_3C_20MatrixType_2C_20lazy_20_3E_map">
+<area href="a00889.html" alt="stateObservation::DebugItem&lt; bool, detail::defaultTrue, !lazy||isDebug &gt;" shape="rect" coords="0,0,416,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a9e23ff34fdb1a75d7fe4638654618b63"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a9e23ff34fdb1a75d7fe4638654618b63">clock</a> = typename std::conditional&lt; std::chrono::high_resolution_clock::is_steady, std::chrono::high_resolution_clock, std::chrono::steady_clock &gt;::type</td></tr>
-<tr class="memdesc:a9e23ff34fdb1a75d7fe4638654618b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Always pick a steady clock.  <a href="#a9e23ff34fdb1a75d7fe4638654618b63">More...</a><br /></td></tr>
-<tr class="separator:a9e23ff34fdb1a75d7fe4638654618b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39ae46de3a1e332a7e9b8006823debff"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a39ae46de3a1e332a7e9b8006823debff">time_ns</a> = clock::time_point</td></tr>
-<tr class="separator:a39ae46de3a1e332a7e9b8006823debff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9fbd5916dc809b185dc66706a79fe149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a9fbd5916dc809b185dc66706a79fe149">start</a> ()</td></tr>
-<tr class="separator:a9fbd5916dc809b185dc66706a79fe149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a949fe6043c2770ce4902d3e36ebbb7fb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a949fe6043c2770ce4902d3e36ebbb7fb">stop</a> ()</td></tr>
-<tr class="memdesc:a949fe6043c2770ce4902d3e36ebbb7fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">provides the time since the start the value is in nanoseconds  <a href="#a949fe6043c2770ce4902d3e36ebbb7fb">More...</a><br /></td></tr>
-<tr class="separator:a949fe6043c2770ce4902d3e36ebbb7fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe91576eaeeec83c1b6ab11d8045372d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#abe91576eaeeec83c1b6ab11d8045372d">IndexedMatrixT</a> ()</td></tr>
+<tr class="memdesc:abe91576eaeeec83c1b6ab11d8045372d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#abe91576eaeeec83c1b6ab11d8045372d">More...</a><br /></td></tr>
+<tr class="separator:abe91576eaeeec83c1b6ab11d8045372d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39fb39c8f770a98d78e4ac45459ab1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#ab39fb39c8f770a98d78e4ac45459ab1d">IndexedMatrixT</a> (const MatrixType &amp;v, <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memdesc:ab39fb39c8f770a98d78e4ac45459ab1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor with a given matrix value and a time index.  <a href="#ab39fb39c8f770a98d78e4ac45459ab1d">More...</a><br /></td></tr>
+<tr class="separator:ab39fb39c8f770a98d78e4ac45459ab1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebed9811b358344f3750cd83aa635f05"><td class="memItemLeft" align="right" valign="top">MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#aebed9811b358344f3750cd83aa635f05">set</a> (const MatrixType &amp;v, <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memdesc:aebed9811b358344f3750cd83aa635f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the matrix and the time sample.  <a href="#aebed9811b358344f3750cd83aa635f05">More...</a><br /></td></tr>
+<tr class="separator:aebed9811b358344f3750cd83aa635f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb3b8de4e530da1233cdf0c561c9ae5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#afb3b8de4e530da1233cdf0c561c9ae5a">set</a> (bool value=true)</td></tr>
+<tr class="memdesc:afb3b8de4e530da1233cdf0c561c9ae5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch the vector to "initialized" state.  <a href="#afb3b8de4e530da1233cdf0c561c9ae5a">More...</a><br /></td></tr>
+<tr class="separator:afb3b8de4e530da1233cdf0c561c9ae5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51513f77e5d8ad5e8297c28265da38bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a51513f77e5d8ad5e8297c28265da38bf">setIndex</a> (<a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> index)</td></tr>
+<tr class="memdesc:a51513f77e5d8ad5e8297c28265da38bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the index of the matrix  <a href="#a51513f77e5d8ad5e8297c28265da38bf">More...</a><br /></td></tr>
+<tr class="separator:a51513f77e5d8ad5e8297c28265da38bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27fe5405ecd2bacc4ca0702f3c14f4c"><td class="memItemLeft" align="right" valign="top">const MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#af27fe5405ecd2bacc4ca0702f3c14f4c">operator()</a> () const</td></tr>
+<tr class="memdesc:af27fe5405ecd2bacc4ca0702f3c14f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the matrix value (const version)  <a href="#af27fe5405ecd2bacc4ca0702f3c14f4c">More...</a><br /></td></tr>
+<tr class="separator:af27fe5405ecd2bacc4ca0702f3c14f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd740f0aded2fa9bdf0299066d350afa"><td class="memItemLeft" align="right" valign="top">MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#abd740f0aded2fa9bdf0299066d350afa">operator()</a> ()</td></tr>
+<tr class="memdesc:abd740f0aded2fa9bdf0299066d350afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the matrix value.  <a href="#abd740f0aded2fa9bdf0299066d350afa">More...</a><br /></td></tr>
+<tr class="separator:abd740f0aded2fa9bdf0299066d350afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3628505bd04bd81d30254f0f71dcb0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#ac3628505bd04bd81d30254f0f71dcb0f">getTime</a> () const</td></tr>
+<tr class="memdesc:ac3628505bd04bd81d30254f0f71dcb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time index.  <a href="#ac3628505bd04bd81d30254f0f71dcb0f">More...</a><br /></td></tr>
+<tr class="separator:ac3628505bd04bd81d30254f0f71dcb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b032bafa7daf28edc14aa39c96de79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#af2b032bafa7daf28edc14aa39c96de79">isSet</a> () const</td></tr>
+<tr class="memdesc:af2b032bafa7daf28edc14aa39c96de79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Says whether the matrix is initialized or not.  <a href="#af2b032bafa7daf28edc14aa39c96de79">More...</a><br /></td></tr>
+<tr class="separator:af2b032bafa7daf28edc14aa39c96de79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbf9827b912155d6c7b2cd07f570bfd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#adbf9827b912155d6c7b2cd07f570bfd0">reset</a> ()</td></tr>
+<tr class="memdesc:adbf9827b912155d6c7b2cd07f570bfd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch off the initalization flag, the value is no longer accessible.  <a href="#adbf9827b912155d6c7b2cd07f570bfd0">More...</a><br /></td></tr>
+<tr class="separator:adbf9827b912155d6c7b2cd07f570bfd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a4ccf15c119e72f487fbe72fa4f5c6d17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00901.html#a39ae46de3a1e332a7e9b8006823debff">time_ns</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a4ccf15c119e72f487fbe72fa4f5c6d17">startTime</a></td></tr>
-<tr class="separator:a4ccf15c119e72f487fbe72fa4f5c6d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a822e96067f9d354ff6e0465a42fcb55a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a822e96067f9d354ff6e0465a42fcb55a">check_</a> () const</td></tr>
+<tr class="memdesc:a822e96067f9d354ff6e0465a42fcb55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the matrix is set or not (assert) does nothing in release mode.  <a href="#a822e96067f9d354ff6e0465a42fcb55a">More...</a><br /></td></tr>
+<tr class="separator:a822e96067f9d354ff6e0465a42fcb55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00889"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00889')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00889.html">stateObservation::DebugItem&lt; bool, detail::defaultTrue, !lazy||isDebug &gt;</a></td></tr>
+<tr class="memitem:a7970f5cbd4c2875ceb75b7ac25b25554 inherit pro_methods_a00889"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html#a7970f5cbd4c2875ceb75b7ac25b25554">DebugItem</a> ()</td></tr>
+<tr class="separator:a7970f5cbd4c2875ceb75b7ac25b25554 inherit pro_methods_a00889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac60c720e38bc703afb86cb41461c1240 inherit pro_methods_a00889"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html#ac60c720e38bc703afb86cb41461c1240">DebugItem</a> (const bool &amp;v)</td></tr>
+<tr class="separator:ac60c720e38bc703afb86cb41461c1240 inherit pro_methods_a00889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30df311dba6d2912a326e1e61eb695d0 inherit pro_methods_a00889"><td class="memItemLeft" align="right" valign="top">bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html#a30df311dba6d2912a326e1e61eb695d0">operator=</a> (bool v)</td></tr>
+<tr class="separator:a30df311dba6d2912a326e1e61eb695d0 inherit pro_methods_a00889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f4d6c3f25ed667cb9b98c3d2e45e6dd inherit pro_methods_a00889"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html#a7f4d6c3f25ed667cb9b98c3d2e45e6dd">operator bool</a> () const</td></tr>
+<tr class="separator:a7f4d6c3f25ed667cb9b98c3d2e45e6dd inherit pro_methods_a00889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9102f9d3880b3b49c484eecca1f54ed6 inherit pro_methods_a00889"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html#a9102f9d3880b3b49c484eecca1f54ed6">set</a> (const bool &amp;v)</td></tr>
+<tr class="separator:a9102f9d3880b3b49c484eecca1f54ed6 inherit pro_methods_a00889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6722e1ea8771991c1b8647867f41977 inherit pro_methods_a00889"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00889.html#ac6722e1ea8771991c1b8647867f41977">get</a> () const</td></tr>
+<tr class="separator:ac6722e1ea8771991c1b8647867f41977 inherit pro_methods_a00889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a901028aa5c9c31727baf81acd24b323b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a901028aa5c9c31727baf81acd24b323b">k_</a></td></tr>
+<tr class="separator:a901028aa5c9c31727baf81acd24b323b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf6829fc305c19a5a5db865be695662"><td class="memItemLeft" align="right" valign="top">MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html#a4cf6829fc305c19a5a5db865be695662">v_</a></td></tr>
+<tr class="separator:a4cf6829fc305c19a5a5db865be695662"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a9e23ff34fdb1a75d7fe4638654618b63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e23ff34fdb1a75d7fe4638654618b63">&#9670;&nbsp;</a></span>clock</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename MatrixType = Matrix, bool lazy = false&gt;<br />
+class stateObservation::IndexedMatrixT&lt; MatrixType, lazy &gt;</h3>
+
+<p>This class describes a structure composed by a matrix of a given size and a time-index parameter. </p>
+<p>It can tell also if it is initialized or not. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abe91576eaeeec83c1b6ab11d8045372d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe91576eaeeec83c1b6ab11d8045372d">&#9670;&nbsp;</a></span>IndexedMatrixT() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="a00901.html#a9e23ff34fdb1a75d7fe4638654618b63">stateObservation::tools::SimplestStopwatch::clock</a> =  typename std::conditional&lt;std::chrono::high_resolution_clock::is_steady, std::chrono::high_resolution_clock, std::chrono::steady_clock&gt;::type</td>
+          <td class="memname"><a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::<a class="el" href="a00901.html">IndexedMatrixT</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Always pick a steady clock. </p>
+<p>Default constructor. </p>
 
 </div>
 </div>
-<a id="a39ae46de3a1e332a7e9b8006823debff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39ae46de3a1e332a7e9b8006823debff">&#9670;&nbsp;</a></span>time_ns</h2>
+<a id="ab39fb39c8f770a98d78e4ac45459ab1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39fb39c8f770a98d78e4ac45459ab1d">&#9670;&nbsp;</a></span>IndexedMatrixT() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType, bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="a00901.html#a39ae46de3a1e332a7e9b8006823debff">stateObservation::tools::SimplestStopwatch::time_ns</a> =  clock::time_point</td>
+          <td class="memname"><a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::<a class="el" href="a00901.html">IndexedMatrixT</a> </td>
+          <td>(</td>
+          <td class="paramtype">const MatrixType &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>A constructor with a given matrix value and a time index. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9fbd5916dc809b185dc66706a79fe149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fbd5916dc809b185dc66706a79fe149">&#9670;&nbsp;</a></span>start()</h2>
+<a id="a822e96067f9d354ff6e0465a42fcb55a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822e96067f9d354ff6e0465a42fcb55a">&#9670;&nbsp;</a></span>check_()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::tools::SimplestStopwatch::start </td>
+          <td class="memname">bool <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::check_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the matrix is set or not (assert) does nothing in release mode. </p>
+
+</div>
+</div>
+<a id="ac3628505bd04bd81d30254f0f71dcb0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3628505bd04bd81d30254f0f71dcb0f">&#9670;&nbsp;</a></span>getTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::getTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the time index. </p>
+
+</div>
+</div>
+<a id="af2b032bafa7daf28edc14aa39c96de79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b032bafa7daf28edc14aa39c96de79">&#9670;&nbsp;</a></span>isSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::isSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Says whether the matrix is initialized or not. </p>
+
+</div>
+</div>
+<a id="af27fe5405ecd2bacc4ca0702f3c14f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af27fe5405ecd2bacc4ca0702f3c14f4c">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const MatrixType &amp; <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the matrix value (const version) </p>
+<p>Get the matrix value. </p>
+
+</div>
+</div>
+<a id="abd740f0aded2fa9bdf0299066d350afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd740f0aded2fa9bdf0299066d350afa">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MatrixType &amp; <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::operator() </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -155,19 +369,23 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get the matrix value. </p>
+
 </div>
 </div>
-<a id="a949fe6043c2770ce4902d3e36ebbb7fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a949fe6043c2770ce4902d3e36ebbb7fb">&#9670;&nbsp;</a></span>stop()</h2>
+<a id="adbf9827b912155d6c7b2cd07f570bfd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbf9827b912155d6c7b2cd07f570bfd0">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double stateObservation::tools::SimplestStopwatch::stop </td>
+          <td class="memname">void <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -180,21 +398,157 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>provides the time since the start the value is in nanoseconds </p>
+<p>Switch off the initalization flag, the value is no longer accessible. </p>
+<p>Set the value of the matrix and the time sample. </p>
+
+</div>
+</div>
+<a id="aebed9811b358344f3750cd83aa635f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebed9811b358344f3750cd83aa635f05">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType, bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MatrixType <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">const MatrixType &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the value of the matrix and the time sample. </p>
+
+</div>
+</div>
+<a id="afb3b8de4e530da1233cdf0c561c9ae5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb3b8de4e530da1233cdf0c561c9ae5a">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType, bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Switch the vector to "initialized" state. </p>
+<p>Switch the matrix to set. </p>
+
+</div>
+</div>
+<a id="a51513f77e5d8ad5e8297c28265da38bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51513f77e5d8ad5e8297c28265da38bf">&#9670;&nbsp;</a></span>setIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType , bool lazy&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::setIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set the index of the matrix </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4ccf15c119e72f487fbe72fa4f5c6d17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ccf15c119e72f487fbe72fa4f5c6d17">&#9670;&nbsp;</a></span>startTime</h2>
+<a id="a901028aa5c9c31727baf81acd24b323b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901028aa5c9c31727baf81acd24b323b">&#9670;&nbsp;</a></span>k_</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType = Matrix, bool lazy = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00901.html#a39ae46de3a1e332a7e9b8006823debff">time_ns</a> stateObservation::tools::SimplestStopwatch::startTime</td>
+          <td class="memname"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::k_</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cf6829fc305c19a5a5db865be695662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cf6829fc305c19a5a5db865be695662">&#9670;&nbsp;</a></span>v_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename MatrixType = Matrix, bool lazy = false&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">MatrixType <a class="el" href="a00901.html">stateObservation::IndexedMatrixT</a>&lt; MatrixType, lazy &gt;::v_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -205,8 +559,8 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00135.html">tools</a></li><li class="navelem"><a class="el" href="a00901.html">SimplestStopwatch</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00901.html">IndexedMatrixT</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

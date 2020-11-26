@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::ExtendedKalmanFilter::Optimization Struct Reference</title>
+<title>state-observation: stateObservation::NoiseBase Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,128 +68,89 @@ $(document).ready(function(){initNavTree('a00805.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a00802.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::ExtendedKalmanFilter::Optimization Struct Reference</div>  </div>
+<div class="title">stateObservation::NoiseBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;state-observation/observer/extended-kalman-filter.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/noise/noise-base.hpp&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for stateObservation::NoiseBase:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="a00805.png" usemap="#stateObservation::NoiseBase_map" alt=""/>
+  <map id="stateObservation::NoiseBase_map" name="stateObservation::NoiseBase_map">
+<area href="a00801.html" alt="stateObservation::GaussianWhiteNoise" shape="rect" coords="0,56,228,80"/>
+</map>
+ </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ae01890ceb77c27585e957944dd847b41"><td class="memItemLeft" align="right" valign="top">EIGEN_MAKE_ALIGNED_OPERATOR_NEW <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#ae01890ceb77c27585e957944dd847b41">u_</a></td></tr>
-<tr class="separator:ae01890ceb77c27585e957944dd847b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae39b1d3c3893c96cfcd0286b6540db5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">KalmanFilterBase::Amatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#aae39b1d3c3893c96cfcd0286b6540db5">a_</a></td></tr>
-<tr class="separator:aae39b1d3c3893c96cfcd0286b6540db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad43bf99b233b0ad553dd2874912e968a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">KalmanFilterBase::Cmatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#ad43bf99b233b0ad553dd2874912e968a">c_</a></td></tr>
-<tr class="separator:ad43bf99b233b0ad553dd2874912e968a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a739344546fb08659f35abec2f8b1fca2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#a739344546fb08659f35abec2f8b1fca2">x_</a></td></tr>
-<tr class="separator:a739344546fb08659f35abec2f8b1fca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5530e8a1d3337b00b84552438682572d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#a5530e8a1d3337b00b84552438682572d">dx_</a></td></tr>
-<tr class="separator:a5530e8a1d3337b00b84552438682572d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b342751706039d369f8536f7b653cc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#a8b342751706039d369f8536f7b653cc1">xp_</a></td></tr>
-<tr class="separator:a8b342751706039d369f8536f7b653cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae100734f224c2b34840e33938749affa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#ae100734f224c2b34840e33938749affa">yp_</a></td></tr>
-<tr class="separator:ae100734f224c2b34840e33938749affa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afd47658282dae6265a1ddd41b262b06e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#afd47658282dae6265a1ddd41b262b06e">~NoiseBase</a> ()</td></tr>
+<tr class="memdesc:afd47658282dae6265a1ddd41b262b06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#afd47658282dae6265a1ddd41b262b06e">More...</a><br /></td></tr>
+<tr class="separator:afd47658282dae6265a1ddd41b262b06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4be13a755c2147e7619e51ee93e6f7d8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00805.html#a4be13a755c2147e7619e51ee93e6f7d8">getNoisy</a> (const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;)=0</td></tr>
+<tr class="memdesc:a4be13a755c2147e7619e51ee93e6f7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method to overload to produce the noisy version of a given vector.  <a href="#a4be13a755c2147e7619e51ee93e6f7d8">More...</a><br /></td></tr>
+<tr class="separator:a4be13a755c2147e7619e51ee93e6f7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aae39b1d3c3893c96cfcd0286b6540db5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae39b1d3c3893c96cfcd0286b6540db5">&#9670;&nbsp;</a></span>a_</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afd47658282dae6265a1ddd41b262b06e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd47658282dae6265a1ddd41b262b06e">&#9670;&nbsp;</a></span>~NoiseBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00809.html#a1adb09e3b7688888ae6346a393b93eaa">KalmanFilterBase::Amatrix</a> stateObservation::ExtendedKalmanFilter::Optimization::a_</td>
+          <td class="memname">virtual stateObservation::NoiseBase::~NoiseBase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Virtual destructor. </p>
 
 </div>
 </div>
-<a id="ad43bf99b233b0ad553dd2874912e968a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad43bf99b233b0ad553dd2874912e968a">&#9670;&nbsp;</a></span>c_</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4be13a755c2147e7619e51ee93e6f7d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be13a755c2147e7619e51ee93e6f7d8">&#9670;&nbsp;</a></span>getNoisy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00809.html#af4a3c075af9f628b96d99f5ac1f9c5a2">KalmanFilterBase::Cmatrix</a> stateObservation::ExtendedKalmanFilter::Optimization::c_</td>
+          <td class="memname">virtual <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::NoiseBase::getNoisy </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a5530e8a1d3337b00b84552438682572d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5530e8a1d3337b00b84552438682572d">&#9670;&nbsp;</a></span>dx_</h2>
+<p>The method to overload to produce the noisy version of a given vector. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ExtendedKalmanFilter::Optimization::dx_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae01890ceb77c27585e957944dd847b41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae01890ceb77c27585e957944dd847b41">&#9670;&nbsp;</a></span>u_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">EIGEN_MAKE_ALIGNED_OPERATOR_NEW <a class="el" href="a00821.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> stateObservation::ExtendedKalmanFilter::Optimization::u_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a739344546fb08659f35abec2f8b1fca2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a739344546fb08659f35abec2f8b1fca2">&#9670;&nbsp;</a></span>x_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ExtendedKalmanFilter::Optimization::x_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8b342751706039d369f8536f7b653cc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b342751706039d369f8536f7b653cc1">&#9670;&nbsp;</a></span>xp_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00821.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ExtendedKalmanFilter::Optimization::xp_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae100734f224c2b34840e33938749affa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae100734f224c2b34840e33938749affa">&#9670;&nbsp;</a></span>yp_</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00821.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> stateObservation::ExtendedKalmanFilter::Optimization::yp_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Implemented in <a class="el" href="a00801.html#a247dab80bd18b0c214007f32a1e3a97f">stateObservation::GaussianWhiteNoise</a>.</p>
 
 </div>
 </div>
@@ -199,8 +160,8 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00801.html">ExtendedKalmanFilter</a></li><li class="navelem"><a class="el" href="a00805.html">Optimization</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00805.html">NoiseBase</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

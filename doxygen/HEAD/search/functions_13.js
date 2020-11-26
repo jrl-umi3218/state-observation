@@ -1,6 +1,22 @@
 var searchData=
 [
-  ['vector6tohomogeneousmatrix',['vector6ToHomogeneousMatrix',['../a00137.html#a379f16ace3335a1054eb1d8301cd29bb',1,'stateObservation::kine']]],
-  ['vectorcomponent',['vectorComponent',['../a00137.html#a842730b6ae85566d0c018c106be4cd68',1,'stateObservation::kine']]],
-  ['vectortostring',['vectorToString',['../a00135.html#adfcd48d12d9f497d58b073e3391a5269',1,'stateObservation::tools']]]
+  ['unidimlipmdcmestimator',['UnidimLipmDcmEstimator',['../a00745.html#a461cca66639f42d6c048797a7e33fe4a',1,'stateObservation::UnidimLipmDcmEstimator']]],
+  ['unmodeledforceindex',['unmodeledForceIndex',['../a00717.html#a44d0824abe09397ab308d803bc6f7923',1,'stateObservation::KineticsObserver']]],
+  ['unmodeledforceindextangent',['unmodeledForceIndexTangent',['../a00717.html#a91659cb31b5b189fa5b528e1dc7c49bc',1,'stateObservation::KineticsObserver']]],
+  ['unmodeledtorqueindex',['unmodeledTorqueIndex',['../a00717.html#aebd963bc6f93f10139b1c889de9bedff',1,'stateObservation::KineticsObserver']]],
+  ['unmodeledtorqueindextangent',['unmodeledTorqueIndexTangent',['../a00717.html#ac22c76c121dae50370ab6b7660c20119',1,'stateObservation::KineticsObserver']]],
+  ['unmodeledwrenchindex',['unmodeledWrenchIndex',['../a00717.html#aa4034a1771e3944e3162061dfde7fac3',1,'stateObservation::KineticsObserver']]],
+  ['unmodeledwrenchindextangent',['unmodeledWrenchIndexTangent',['../a00717.html#a2c67162f444fe582562c608a3850a9db',1,'stateObservation::KineticsObserver']]],
+  ['update',['update',['../a00717.html#a77dd4fabb2c6dedb515f8ef8c45ab283',1,'stateObservation::KineticsObserver::update()'],['../a00741.html#a7d3fcd850381898ba967c6648c92e331',1,'stateObservation::LipmDcmEstimator::update()'],['../a00745.html#a857806ae805e75c802eec025044e795e',1,'stateObservation::UnidimLipmDcmEstimator::update()'],['../a00945.html#a5f0fe9f7511635c3b951cee497853d27',1,'stateObservation::kine::Kinematics::update()']]],
+  ['update_5f',['update_',['../a00917.html#a72189cf042e081bc3149e9ebe34bdb12',1,'stateObservation::tools::Logger']]],
+  ['update_5fdeprecated',['update_deprecated',['../a00945.html#a32785d159ad1b72daec6210c878ed298',1,'stateObservation::kine::Kinematics']]],
+  ['updateaddress',['updateAddress',['../a00917.html#af930457b6e7ab52e2438c583739f54bc',1,'stateObservation::tools::Logger']]],
+  ['updatecovariancematrix_5f',['updateCovarianceMatrix_',['../a00753.html#a57f7c965ca495e31c2c893feec0488cd',1,'stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU']]],
+  ['updatekine_5f',['updateKine_',['../a00717.html#afdf8f1ea001fa5e316e242e456fde9e1',1,'stateObservation::KineticsObserver']]],
+  ['updatematricesabq_5f',['updateMatricesABQ_',['../a00741.html#a919fae24c0b9d43469933ea38bfb99ad',1,'stateObservation::LipmDcmEstimator']]],
+  ['updatemeasurementcovariancematrix_5f',['updateMeasurementCovarianceMatrix_',['../a00785.html#a22321b7e3de0f58791bc37a805a3f1e7',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU']]],
+  ['updatemeasurementsize_5f',['updateMeasurementSize_',['../a00761.html#a0d84bd48bd7322a42aeca46648f1967d',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
+  ['updatestateandmeasurementprediction',['updateStateAndMeasurementPrediction',['../a00817.html#adee58617aaacaf92de1ea354f5307b0f',1,'stateObservation::KalmanFilterBase']]],
+  ['updatestateprediction',['updateStatePrediction',['../a00817.html#a995254f995c2727b27fc0ca41c9aee67',1,'stateObservation::KalmanFilterBase']]],
+  ['usefinitedifferencesjacobians',['useFiniteDifferencesJacobians',['../a00717.html#a369298bc2d344452308e0e03803037ee',1,'stateObservation::KineticsObserver::useFiniteDifferencesJacobians()'],['../a00749.html#aaf694318f3349048084c1afbdc62b43e',1,'stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::useFiniteDifferencesJacobians()']]]
 ];

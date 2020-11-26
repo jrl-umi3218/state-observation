@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::GaussianWhiteNoise Class Reference</title>
+<title>state-observation: stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,503 +68,47 @@ $(document).ready(function(){initNavTree('a00793.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="a00790.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::GaussianWhiteNoise Class Reference</div>  </div>
+<div class="title">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;state-observation/noise/gaussian-white-noise.hpp&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for stateObservation::GaussianWhiteNoise:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="a00793.png" usemap="#stateObservation::GaussianWhiteNoise_map" alt=""/>
-  <map id="stateObservation::GaussianWhiteNoise_map" name="stateObservation::GaussianWhiteNoise_map">
-<area href="a00797.html" alt="stateObservation::NoiseBase" shape="rect" coords="0,0,228,24"/>
-</map>
- </div></div>
+<p><code>#include &lt;state-observation/flexibility-estimation/model-base-ekf-flex-estimator-imu.hpp&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a677527078f04644ac1c9deb49c583ba5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a677527078f04644ac1c9deb49c583ba5">~GaussianWhiteNoise</a> ()</td></tr>
-<tr class="memdesc:a677527078f04644ac1c9deb49c583ba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a677527078f04644ac1c9deb49c583ba5">More...</a><br /></td></tr>
-<tr class="separator:a677527078f04644ac1c9deb49c583ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff582053a444ac5cce0db98a1baea8c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#aff582053a444ac5cce0db98a1baea8c9">GaussianWhiteNoise</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> dimension)</td></tr>
-<tr class="memdesc:aff582053a444ac5cce0db98a1baea8c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor that provides the dimension of the noise vector.  <a href="#aff582053a444ac5cce0db98a1baea8c9">More...</a><br /></td></tr>
-<tr class="separator:aff582053a444ac5cce0db98a1baea8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade982d55fc275d50d6625c7475f7229e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#ade982d55fc275d50d6625c7475f7229e">GaussianWhiteNoise</a> ()</td></tr>
-<tr class="memdesc:ade982d55fc275d50d6625c7475f7229e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default constructor.  <a href="#ade982d55fc275d50d6625c7475f7229e">More...</a><br /></td></tr>
-<tr class="separator:ade982d55fc275d50d6625c7475f7229e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a247dab80bd18b0c214007f32a1e3a97f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a247dab80bd18b0c214007f32a1e3a97f">getNoisy</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;)</td></tr>
-<tr class="memdesc:a247dab80bd18b0c214007f32a1e3a97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the noisy version of a given vector it is only an addition of a given vector and a gaussian white noise  <a href="#a247dab80bd18b0c214007f32a1e3a97f">More...</a><br /></td></tr>
-<tr class="separator:a247dab80bd18b0c214007f32a1e3a97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2675382af4f1af20cf470aa5f005aad0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a2675382af4f1af20cf470aa5f005aad0">setStandardDeviation</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;std)</td></tr>
-<tr class="memdesc:a2675382af4f1af20cf470aa5f005aad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the standard deviation of the Gaussian white noise.  <a href="#a2675382af4f1af20cf470aa5f005aad0">More...</a><br /></td></tr>
-<tr class="separator:a2675382af4f1af20cf470aa5f005aad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b1ce2a8f22898771166f0dddd5e020b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a7b1ce2a8f22898771166f0dddd5e020b">setCovarianceMatrix</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;cov)</td></tr>
-<tr class="memdesc:a7b1ce2a8f22898771166f0dddd5e020b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the covariance matrix, the covariance matrix must be positive semi definite.  <a href="#a7b1ce2a8f22898771166f0dddd5e020b">More...</a><br /></td></tr>
-<tr class="separator:a7b1ce2a8f22898771166f0dddd5e020b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c8e22f296306fd854f5a6ab67f597b5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a2c8e22f296306fd854f5a6ab67f597b5">setBias</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;bias)</td></tr>
-<tr class="memdesc:a2c8e22f296306fd854f5a6ab67f597b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the bias of the white noise  <a href="#a2c8e22f296306fd854f5a6ab67f597b5">More...</a><br /></td></tr>
-<tr class="separator:a2c8e22f296306fd854f5a6ab67f597b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a781093d8ba196ce7adf1e7819e0882f0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a781093d8ba196ce7adf1e7819e0882f0">setDimension</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> <a class="el" href="a00793.html#a8a5a84c4d83be8abb6508b4a9ceba4ac">dim_</a>)</td></tr>
-<tr class="memdesc:a781093d8ba196ce7adf1e7819e0882f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the dimension of the noise vector  <a href="#a781093d8ba196ce7adf1e7819e0882f0">More...</a><br /></td></tr>
-<tr class="separator:a781093d8ba196ce7adf1e7819e0882f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af915067034cf64ed27f3c3cf96c897be"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#af915067034cf64ed27f3c3cf96c897be">getDimension</a> () const</td></tr>
-<tr class="memdesc:af915067034cf64ed27f3c3cf96c897be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the dimension of the noise vector.  <a href="#af915067034cf64ed27f3c3cf96c897be">More...</a><br /></td></tr>
-<tr class="separator:af915067034cf64ed27f3c3cf96c897be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a297e8adc5ab103d78bfb921e5cb9d981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a297e8adc5ab103d78bfb921e5cb9d981">setSumFunction</a> (void(*sum)(const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result))</td></tr>
-<tr class="memdesc:a297e8adc5ab103d78bfb921e5cb9d981"><td class="mdescLeft">&#160;</td><td class="mdescRight">set update functions for sum for a vector (used in case of lie group vectors)  <a href="#a297e8adc5ab103d78bfb921e5cb9d981">More...</a><br /></td></tr>
-<tr class="separator:a297e8adc5ab103d78bfb921e5cb9d981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00797"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00797')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00797.html">stateObservation::NoiseBase</a></td></tr>
-<tr class="memitem:afd47658282dae6265a1ddd41b262b06e inherit pub_methods_a00797"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00797.html#afd47658282dae6265a1ddd41b262b06e">~NoiseBase</a> ()</td></tr>
-<tr class="memdesc:afd47658282dae6265a1ddd41b262b06e inherit pub_methods_a00797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="a00797.html#afd47658282dae6265a1ddd41b262b06e">More...</a><br /></td></tr>
-<tr class="separator:afd47658282dae6265a1ddd41b262b06e inherit pub_methods_a00797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1b56fad4e3c50083248f807da7504a5a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a1b56fad4e3c50083248f807da7504a5a">checkMatrix_</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;m) const</td></tr>
-<tr class="separator:a1b56fad4e3c50083248f807da7504a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b65a48ad83d82704a56e2a2a4683e60"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a2b65a48ad83d82704a56e2a2a4683e60">checkVector_</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;v) const</td></tr>
-<tr class="separator:a2b65a48ad83d82704a56e2a2a4683e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a8a5a84c4d83be8abb6508b4a9ceba4ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a8a5a84c4d83be8abb6508b4a9ceba4ac">dim_</a></td></tr>
-<tr class="separator:a8a5a84c4d83be8abb6508b4a9ceba4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a528194e2fadccbfa220d5e1fce2bdbd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a528194e2fadccbfa220d5e1fce2bdbd8">std_</a></td></tr>
-<tr class="separator:a528194e2fadccbfa220d5e1fce2bdbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ebf7520b205a5821cb1aab570fa0652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a4ebf7520b205a5821cb1aab570fa0652">bias_</a></td></tr>
-<tr class="separator:a4ebf7520b205a5821cb1aab570fa0652"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9919888a8e62dadf87b4723953739e96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a9919888a8e62dadf87b4723953739e96">noisy_</a></td></tr>
-<tr class="separator:a9919888a8e62dadf87b4723953739e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad22471b517913388158aa60d63e5892e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#ad22471b517913388158aa60d63e5892e">sum_</a> )(const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result)</td></tr>
-<tr class="separator:ad22471b517913388158aa60d63e5892e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ac0d648586befc0c83d72dd8a161d5d00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">stateObservation::Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#ac0d648586befc0c83d72dd8a161d5d00">O</a></td></tr>
+<tr class="separator:ac0d648586befc0c83d72dd8a161d5d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31c259f13d67cbd6a513ef09e19d8257"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">stateObservation::Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00793.html#a31c259f13d67cbd6a513ef09e19d8257">CA</a></td></tr>
+<tr class="separator:a31c259f13d67cbd6a513ef09e19d8257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a677527078f04644ac1c9deb49c583ba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a677527078f04644ac1c9deb49c583ba5">&#9670;&nbsp;</a></span>~GaussianWhiteNoise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual stateObservation::GaussianWhiteNoise::~GaussianWhiteNoise </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Virtual destructor. </p>
-
-<p class="reference">References <a class="el" href="a00136.html#afdc5caf5cf6fdd7882939586591f8ce8">stateObservation::hrp2::m</a>.</p>
-
-</div>
-</div>
-<a id="aff582053a444ac5cce0db98a1baea8c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff582053a444ac5cce0db98a1baea8c9">&#9670;&nbsp;</a></span>GaussianWhiteNoise() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::GaussianWhiteNoise::GaussianWhiteNoise </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>dimension</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The constructor that provides the dimension of the noise vector. </p>
-
-</div>
-</div>
-<a id="ade982d55fc275d50d6625c7475f7229e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade982d55fc275d50d6625c7475f7229e">&#9670;&nbsp;</a></span>GaussianWhiteNoise() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::GaussianWhiteNoise::GaussianWhiteNoise </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The default constructor. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1b56fad4e3c50083248f807da7504a5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b56fad4e3c50083248f807da7504a5a">&#9670;&nbsp;</a></span>checkMatrix_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::checkMatrix_ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2b65a48ad83d82704a56e2a2a4683e60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b65a48ad83d82704a56e2a2a4683e60">&#9670;&nbsp;</a></span>checkVector_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::checkVector_ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af915067034cf64ed27f3c3cf96c897be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af915067034cf64ed27f3c3cf96c897be">&#9670;&nbsp;</a></span>getDimension()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::GaussianWhiteNoise::getDimension </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the dimension of the noise vector. </p>
-
-</div>
-</div>
-<a id="a247dab80bd18b0c214007f32a1e3a97f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a247dab80bd18b0c214007f32a1e3a97f">&#9670;&nbsp;</a></span>getNoisy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::GaussianWhiteNoise::getNoisy </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>get the noisy version of a given vector it is only an addition of a given vector and a gaussian white noise </p>
-
-<p>Implements <a class="el" href="a00797.html#a4be13a755c2147e7619e51ee93e6f7d8">stateObservation::NoiseBase</a>.</p>
-
-</div>
-</div>
-<a id="a2c8e22f296306fd854f5a6ab67f597b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c8e22f296306fd854f5a6ab67f597b5">&#9670;&nbsp;</a></span>setBias()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setBias </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>bias</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>sets the bias of the white noise </p>
-
-</div>
-</div>
-<a id="a7b1ce2a8f22898771166f0dddd5e020b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b1ce2a8f22898771166f0dddd5e020b">&#9670;&nbsp;</a></span>setCovarianceMatrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setCovarianceMatrix </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>cov</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the covariance matrix, the covariance matrix must be positive semi definite. </p>
-<p>This method makes a cholesky decomposition to recompute the standard deviation </p>
-
-</div>
-</div>
-<a id="a781093d8ba196ce7adf1e7819e0882f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a781093d8ba196ce7adf1e7819e0882f0">&#9670;&nbsp;</a></span>setDimension()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setDimension </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>dim_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>sets the dimension of the noise vector </p>
-
-</div>
-</div>
-<a id="a2675382af4f1af20cf470aa5f005aad0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2675382af4f1af20cf470aa5f005aad0">&#9670;&nbsp;</a></span>setStandardDeviation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::GaussianWhiteNoise::setStandardDeviation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>std</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the standard deviation of the Gaussian white noise. </p>
-<p>The covariance matrix is then std*std.transpose() </p>
-
-</div>
-</div>
-<a id="a297e8adc5ab103d78bfb921e5cb9d981"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a297e8adc5ab103d78bfb921e5cb9d981">&#9670;&nbsp;</a></span>setSumFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::GaussianWhiteNoise::setSumFunction </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result)&#160;</td>
-          <td class="paramname"><em>sum</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>set update functions for sum for a vector (used in case of lie group vectors) </p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4ebf7520b205a5821cb1aab570fa0652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ebf7520b205a5821cb1aab570fa0652">&#9670;&nbsp;</a></span>bias_</h2>
+<a id="a31c259f13d67cbd6a513ef09e19d8257"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31c259f13d67cbd6a513ef09e19d8257">&#9670;&nbsp;</a></span>CA</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::GaussianWhiteNoise::bias_</td>
+          <td class="memname"><a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">stateObservation::Matrix</a> stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization::CA</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8a5a84c4d83be8abb6508b4a9ceba4ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a5a84c4d83be8abb6508b4a9ceba4ac">&#9670;&nbsp;</a></span>dim_</h2>
+<a id="ac0d648586befc0c83d72dd8a161d5d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0d648586befc0c83d72dd8a161d5d00">&#9670;&nbsp;</a></span>O</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::GaussianWhiteNoise::dim_</td>
+          <td class="memname"><a class="el" href="a00132.html#a8075b3a5e1c85f87c8e5c05b60100f1d">stateObservation::Matrix</a> stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization::O</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9919888a8e62dadf87b4723953739e96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9919888a8e62dadf87b4723953739e96">&#9670;&nbsp;</a></span>noisy_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::GaussianWhiteNoise::noisy_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a528194e2fadccbfa220d5e1fce2bdbd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a528194e2fadccbfa220d5e1fce2bdbd8">&#9670;&nbsp;</a></span>std_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::GaussianWhiteNoise::std_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad22471b517913388158aa60d63e5892e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad22471b517913388158aa60d63e5892e">&#9670;&nbsp;</a></span>sum_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* stateObservation::GaussianWhiteNoise::sum_) (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;stateVector, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;tangentVector, <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;result)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -575,8 +119,8 @@ Protected Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00793.html">GaussianWhiteNoise</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00134.html">flexibilityEstimation</a></li><li class="navelem"><a class="el" href="a00785.html">ModelBaseEKFFlexEstimatorIMU</a></li><li class="navelem"><a class="el" href="a00793.html">optimization</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

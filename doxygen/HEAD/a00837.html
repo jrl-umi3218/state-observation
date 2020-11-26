@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::AccelerometerGyrometer Class Reference</title>
+<title>state-observation: stateObservation::ZeroDelayObserver Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,184 +71,216 @@ $(document).ready(function(){initNavTree('a00837.html','');});
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
-<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="a00834.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::AccelerometerGyrometer Class Reference</div>  </div>
+<div class="title">stateObservation::ZeroDelayObserver Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implements the accelerometer-gyrometer measurements.  
+<p>Defines the base class of online zero delay observers.  
  <a href="a00837.html#details">More...</a></p>
 
-<p><code>#include &lt;state-observation/sensors-simulation/accelerometer-gyrometer.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/observer/zero-delay-observer.hpp&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stateObservation::AccelerometerGyrometer:</div>
+Inheritance diagram for stateObservation::ZeroDelayObserver:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="a00837.png" usemap="#stateObservation::AccelerometerGyrometer_map" alt=""/>
-  <map id="stateObservation::AccelerometerGyrometer_map" name="stateObservation::AccelerometerGyrometer_map">
-<area href="a00841.html" title="The base class for algebraic sensors. " alt="stateObservation::AlgebraicSensor" shape="rect" coords="0,56,278,80"/>
-<area href="a00845.html" title="Implements the measurements given by an accelerometer. " alt="stateObservation::algorithm::LinearAcceleration" shape="rect" coords="288,56,566,80"/>
-<area href="a00853.html" title="Implements the gyrometer measurement algorithm. " alt="stateObservation::algorithm::RotationVelocity" shape="rect" coords="576,56,854,80"/>
-<area href="a00857.html" title="The base class for sensors. " alt="stateObservation::SensorBase" shape="rect" coords="0,0,278,24"/>
+  <img src="a00837.png" usemap="#stateObservation::ZeroDelayObserver_map" alt=""/>
+  <map id="stateObservation::ZeroDelayObserver_map" name="stateObservation::ZeroDelayObserver_map">
+<area href="a00829.html" title="The base class for observers. " alt="stateObservation::ObserverBase" shape="rect" coords="245,0,480,24"/>
+<area href="a00817.html" title="   It mostly implements the equations of Kalman filtering    It is suitablle by derivation to be used..." alt="stateObservation::KalmanFilterBase" shape="rect" coords="122,112,357,136"/>
+<area href="a00833.html" title="    Description is pending " alt="stateObservation::TiltEstimator" shape="rect" coords="367,112,602,136"/>
+<area href="a00809.html" title="   The class to intanciate to use an extended Kalman filter. " alt="stateObservation::ExtendedKalmanFilter" shape="rect" coords="0,168,235,192"/>
+<area href="a00825.html" title="   The class of a Linear Kalman filter " alt="stateObservation::LinearKalmanFilter" shape="rect" coords="245,168,480,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad5b04f826372a18a9d836d6a8ea04c74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ad5b04f826372a18a9d836d6a8ea04c74">AccelerometerGyrometer</a> ()</td></tr>
-<tr class="separator:ad5b04f826372a18a9d836d6a8ea04c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac6f0f8f1d546b9377005a39e3a83ef7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#aac6f0f8f1d546b9377005a39e3a83ef7">~AccelerometerGyrometer</a> ()</td></tr>
-<tr class="memdesc:aac6f0f8f1d546b9377005a39e3a83ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#aac6f0f8f1d546b9377005a39e3a83ef7">More...</a><br /></td></tr>
-<tr class="separator:aac6f0f8f1d546b9377005a39e3a83ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af82f2263d32f909586880dfcaa9f03af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#af82f2263d32f909586880dfcaa9f03af">setMatrixMode</a> (bool matrixMode)</td></tr>
-<tr class="separator:af82f2263d32f909586880dfcaa9f03af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00841"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00841')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00841.html">stateObservation::AlgebraicSensor</a></td></tr>
-<tr class="memitem:a471573d42df7ebb44d843fdb21cd34f8 inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a471573d42df7ebb44d843fdb21cd34f8">AlgebraicSensor</a> ()</td></tr>
-<tr class="memdesc:a471573d42df7ebb44d843fdb21cd34f8 inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="a00841.html#a471573d42df7ebb44d843fdb21cd34f8">More...</a><br /></td></tr>
-<tr class="separator:a471573d42df7ebb44d843fdb21cd34f8 inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab68bfed0cafacc67d27fdb59faeaaaff inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#ab68bfed0cafacc67d27fdb59faeaaaff">~AlgebraicSensor</a> ()</td></tr>
-<tr class="memdesc:ab68bfed0cafacc67d27fdb59faeaaaff inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="a00841.html#ab68bfed0cafacc67d27fdb59faeaaaff">More...</a><br /></td></tr>
-<tr class="separator:ab68bfed0cafacc67d27fdb59faeaaaff inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1e4246613f525c151b2b4cb33732ec4 inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#ae1e4246613f525c151b2b4cb33732ec4">getMeasurements</a> (bool noisy=true)</td></tr>
-<tr class="memdesc:ae1e4246613f525c151b2b4cb33732ec4 inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the measurement of the current time.  <a href="a00841.html#ae1e4246613f525c151b2b4cb33732ec4">More...</a><br /></td></tr>
-<tr class="separator:ae1e4246613f525c151b2b4cb33732ec4 inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a03e0a847539caa457c8c9e93daecf4 inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a5a03e0a847539caa457c8c9e93daecf4">setState</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;state, <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
-<tr class="memdesc:a5a03e0a847539caa457c8c9e93daecf4 inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the state at instant k.  <a href="a00841.html#a5a03e0a847539caa457c8c9e93daecf4">More...</a><br /></td></tr>
-<tr class="separator:a5a03e0a847539caa457c8c9e93daecf4 inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5d5ea7fce3de8de54c5e111e2077dad inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#ae5d5ea7fce3de8de54c5e111e2077dad">getTime</a> () const</td></tr>
-<tr class="memdesc:ae5d5ea7fce3de8de54c5e111e2077dad inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current time  <a href="a00841.html#ae5d5ea7fce3de8de54c5e111e2077dad">More...</a><br /></td></tr>
-<tr class="separator:ae5d5ea7fce3de8de54c5e111e2077dad inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af605d2135835d0765a2ec90c65ca10f5 inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#af605d2135835d0765a2ec90c65ca10f5">getStateSize</a> () const</td></tr>
-<tr class="memdesc:af605d2135835d0765a2ec90c65ca10f5 inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the state vector size. Pure virtual method.  <a href="a00841.html#af605d2135835d0765a2ec90c65ca10f5">More...</a><br /></td></tr>
-<tr class="separator:af605d2135835d0765a2ec90c65ca10f5 inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac61db371820cace77b59d123c02c0d8 inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#aac61db371820cace77b59d123c02c0d8">getMeasurementSize</a> () const</td></tr>
-<tr class="memdesc:aac61db371820cace77b59d123c02c0d8 inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the size of the measurements. Pure virtual method.  <a href="a00841.html#aac61db371820cace77b59d123c02c0d8">More...</a><br /></td></tr>
-<tr class="separator:aac61db371820cace77b59d123c02c0d8 inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bbb45e72d6f63375883b37e7f066ae9 inherit pub_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a6bbb45e72d6f63375883b37e7f066ae9">concatenateWithInput</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n)</td></tr>
-<tr class="memdesc:a6bbb45e72d6f63375883b37e7f066ae9 inherit pub_methods_a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">concatenates the n last components of the state in the measurement (useful when the measurements are already computed or when they come from external source)  <a href="a00841.html#a6bbb45e72d6f63375883b37e7f066ae9">More...</a><br /></td></tr>
-<tr class="separator:a6bbb45e72d6f63375883b37e7f066ae9 inherit pub_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00857"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00857')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00857.html">stateObservation::SensorBase</a></td></tr>
-<tr class="memitem:ab55880f1e88daaa2c29d3f24001bf4d5 inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#ab55880f1e88daaa2c29d3f24001bf4d5">SensorBase</a> ()</td></tr>
-<tr class="memdesc:ab55880f1e88daaa2c29d3f24001bf4d5 inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor  <a href="a00857.html#ab55880f1e88daaa2c29d3f24001bf4d5">More...</a><br /></td></tr>
-<tr class="separator:ab55880f1e88daaa2c29d3f24001bf4d5 inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96989c38d20f6c62c28a8fb50b373f70 inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a96989c38d20f6c62c28a8fb50b373f70">~SensorBase</a> ()</td></tr>
-<tr class="memdesc:a96989c38d20f6c62c28a8fb50b373f70 inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="a00857.html#a96989c38d20f6c62c28a8fb50b373f70">More...</a><br /></td></tr>
-<tr class="separator:a96989c38d20f6c62c28a8fb50b373f70 inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757c0ad88de20b53a8541a159f176ca9 inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a757c0ad88de20b53a8541a159f176ca9">setNoise</a> (<a class="el" href="a00797.html">NoiseBase</a> *)</td></tr>
-<tr class="memdesc:a757c0ad88de20b53a8541a159f176ca9 inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a pointer on the noise on the measurements.  <a href="a00857.html#a757c0ad88de20b53a8541a159f176ca9">More...</a><br /></td></tr>
-<tr class="separator:a757c0ad88de20b53a8541a159f176ca9 inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee999cbc583f4d8d0d4dffca1f32ac01 inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00797.html">NoiseBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#aee999cbc583f4d8d0d4dffca1f32ac01">getNoise</a> () const</td></tr>
-<tr class="memdesc:aee999cbc583f4d8d0d4dffca1f32ac01 inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the pointer on the measurements noise  <a href="a00857.html#aee999cbc583f4d8d0d4dffca1f32ac01">More...</a><br /></td></tr>
-<tr class="separator:aee999cbc583f4d8d0d4dffca1f32ac01 inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af148ffe92047891e1871efa7cc6225cc inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#af148ffe92047891e1871efa7cc6225cc">resetNoise</a> ()</td></tr>
-<tr class="memdesc:af148ffe92047891e1871efa7cc6225cc inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes the noise  <a href="a00857.html#af148ffe92047891e1871efa7cc6225cc">More...</a><br /></td></tr>
-<tr class="separator:af148ffe92047891e1871efa7cc6225cc inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f641c5d0932f7af8c86d52ed9bac0ff inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a9f641c5d0932f7af8c86d52ed9bac0ff">stateVectorZero</a> () const</td></tr>
-<tr class="memdesc:a9f641c5d0932f7af8c86d52ed9bac0ff inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets a zero vector of the size of a state vector  <a href="a00857.html#a9f641c5d0932f7af8c86d52ed9bac0ff">More...</a><br /></td></tr>
-<tr class="separator:a9f641c5d0932f7af8c86d52ed9bac0ff inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a156904f2a867a1ed0212a5b2f8e2b01a inherit pub_methods_a00857"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a156904f2a867a1ed0212a5b2f8e2b01a">checkStateVector</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;) const</td></tr>
-<tr class="memdesc:a156904f2a867a1ed0212a5b2f8e2b01a inherit pub_methods_a00857"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether a vector is correctly sized or not  <a href="a00857.html#a156904f2a867a1ed0212a5b2f8e2b01a">More...</a><br /></td></tr>
-<tr class="separator:a156904f2a867a1ed0212a5b2f8e2b01a inherit pub_methods_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67290753c4b0c38046c82ee05f25ea4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a67290753c4b0c38046c82ee05f25ea4c">ZeroDelayObserver</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p=0)</td></tr>
+<tr class="memdesc:a67290753c4b0c38046c82ee05f25ea4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a67290753c4b0c38046c82ee05f25ea4c">More...</a><br /></td></tr>
+<tr class="separator:a67290753c4b0c38046c82ee05f25ea4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae113ca300d3c114ff862b801bc797397"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ae113ca300d3c114ff862b801bc797397">ZeroDelayObserver</a> ()</td></tr>
+<tr class="memdesc:ae113ca300d3c114ff862b801bc797397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor (default values for n,m,p are zero)  <a href="#ae113ca300d3c114ff862b801bc797397">More...</a><br /></td></tr>
+<tr class="separator:ae113ca300d3c114ff862b801bc797397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd7af6689312c7a0696c4ca39c4aed78"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#acd7af6689312c7a0696c4ca39c4aed78">~ZeroDelayObserver</a> ()</td></tr>
+<tr class="memdesc:acd7af6689312c7a0696c4ca39c4aed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#acd7af6689312c7a0696c4ca39c4aed78">More...</a><br /></td></tr>
+<tr class="separator:acd7af6689312c7a0696c4ca39c4aed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8247a916d22411cadd69cf6b0c60c87d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a8247a916d22411cadd69cf6b0c60c87d">setState</a> (const <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> &amp;x_k, <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memdesc:a8247a916d22411cadd69cf6b0c60c87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the state vector at time index k.  <a href="#a8247a916d22411cadd69cf6b0c60c87d">More...</a><br /></td></tr>
+<tr class="separator:a8247a916d22411cadd69cf6b0c60c87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b84739bae21890eab25714837b3fd03"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a6b84739bae21890eab25714837b3fd03">setCurrentState</a> (const <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> &amp;x_k)</td></tr>
+<tr class="memdesc:a6b84739bae21890eab25714837b3fd03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the value of the state vector at the current time.  <a href="#a6b84739bae21890eab25714837b3fd03">More...</a><br /></td></tr>
+<tr class="separator:a6b84739bae21890eab25714837b3fd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664dfe33b9771e1245929c0a9e1ba4ff"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a664dfe33b9771e1245929c0a9e1ba4ff">clearStates</a> ()</td></tr>
+<tr class="memdesc:a664dfe33b9771e1245929c0a9e1ba4ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the state estimation.  <a href="#a664dfe33b9771e1245929c0a9e1ba4ff">More...</a><br /></td></tr>
+<tr class="separator:a664dfe33b9771e1245929c0a9e1ba4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a812f3b37b333be2bc9e3dac78e80b241"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a812f3b37b333be2bc9e3dac78e80b241">setMeasurement</a> (const <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> &amp;y_k, <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memdesc:a812f3b37b333be2bc9e3dac78e80b241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the measurements vector at time index k.  <a href="#a812f3b37b333be2bc9e3dac78e80b241">More...</a><br /></td></tr>
+<tr class="separator:a812f3b37b333be2bc9e3dac78e80b241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6bbef08453356a144306e2af73efafd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ab6bbef08453356a144306e2af73efafd">pushMeasurement</a> (const <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> &amp;y_k)</td></tr>
+<tr class="memdesc:ab6bbef08453356a144306e2af73efafd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the measurement value at the next time index.  <a href="#ab6bbef08453356a144306e2af73efafd">More...</a><br /></td></tr>
+<tr class="separator:ab6bbef08453356a144306e2af73efafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae35c495bc1995b239cde4fb20d0b3181"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ae35c495bc1995b239cde4fb20d0b3181">clearMeasurements</a> ()</td></tr>
+<tr class="memdesc:ae35c495bc1995b239cde4fb20d0b3181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the given values of the measurements.  <a href="#ae35c495bc1995b239cde4fb20d0b3181">More...</a><br /></td></tr>
+<tr class="separator:ae35c495bc1995b239cde4fb20d0b3181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d5d039dfa067c1be6d1594f0a4d84e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ab8d5d039dfa067c1be6d1594f0a4d84e">setInput</a> (const <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> &amp;u_k, <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memdesc:ab8d5d039dfa067c1be6d1594f0a4d84e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the input vector at time index k.  <a href="#ab8d5d039dfa067c1be6d1594f0a4d84e">More...</a><br /></td></tr>
+<tr class="separator:ab8d5d039dfa067c1be6d1594f0a4d84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ccba5bc930793b852967f47978fb540"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a3ccba5bc930793b852967f47978fb540">pushInput</a> (const <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> &amp;u_k)</td></tr>
+<tr class="memdesc:a3ccba5bc930793b852967f47978fb540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input value at the next time indext.  <a href="#a3ccba5bc930793b852967f47978fb540">More...</a><br /></td></tr>
+<tr class="separator:a3ccba5bc930793b852967f47978fb540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf69cf480e5392ca50cc030666d3fc2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#acaf69cf480e5392ca50cc030666d3fc2">clearInputs</a> ()</td></tr>
+<tr class="memdesc:acaf69cf480e5392ca50cc030666d3fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the given values of the inputs If there is no input, this instruction has no effect.  <a href="#acaf69cf480e5392ca50cc030666d3fc2">More...</a><br /></td></tr>
+<tr class="separator:acaf69cf480e5392ca50cc030666d3fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6132bc68820990e18610bd6dfcf24d37"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a6132bc68820990e18610bd6dfcf24d37">clearInputsAndMeasurements</a> ()</td></tr>
+<tr class="memdesc:a6132bc68820990e18610bd6dfcf24d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove all the given values of the inputs and measurements.  <a href="#a6132bc68820990e18610bd6dfcf24d37">More...</a><br /></td></tr>
+<tr class="separator:a6132bc68820990e18610bd6dfcf24d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f8fda2f8c75fbca3985d7872a2d93a5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a2f8fda2f8c75fbca3985d7872a2d93a5">estimateState</a> ()</td></tr>
+<tr class="memdesc:a2f8fda2f8c75fbca3985d7872a2d93a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">run the observer until the measurement vector is depleted.  <a href="#a2f8fda2f8c75fbca3985d7872a2d93a5">More...</a><br /></td></tr>
+<tr class="separator:a2f8fda2f8c75fbca3985d7872a2d93a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9476e99bc788955a66ecb87eca56c2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a9a9476e99bc788955a66ecb87eca56c2">getEstimatedState</a> (<a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memdesc:a9a9476e99bc788955a66ecb87eca56c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">getestimated State  <a href="#a9a9476e99bc788955a66ecb87eca56c2">More...</a><br /></td></tr>
+<tr class="separator:a9a9476e99bc788955a66ecb87eca56c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3a61b221fd4eda7a30019205f138e09"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ad3a61b221fd4eda7a30019205f138e09">getCurrentEstimatedState</a> () const</td></tr>
+<tr class="memdesc:ad3a61b221fd4eda7a30019205f138e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Current Estimated State.  <a href="#ad3a61b221fd4eda7a30019205f138e09">More...</a><br /></td></tr>
+<tr class="separator:ad3a61b221fd4eda7a30019205f138e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe08f4022ab1584da59d0acb4abadc3d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#abe08f4022ab1584da59d0acb4abadc3d">getCurrentTime</a> () const</td></tr>
+<tr class="memdesc:abe08f4022ab1584da59d0acb4abadc3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of the time index of the current state estimation.  <a href="#abe08f4022ab1584da59d0acb4abadc3d">More...</a><br /></td></tr>
+<tr class="separator:abe08f4022ab1584da59d0acb4abadc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af141608c2857819761637dd236857e30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#af141608c2857819761637dd236857e30">getInput</a> (<a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k) const</td></tr>
+<tr class="memdesc:af141608c2857819761637dd236857e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the value of the input of the time index k.  <a href="#af141608c2857819761637dd236857e30">More...</a><br /></td></tr>
+<tr class="separator:af141608c2857819761637dd236857e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e2cb6c901cff55a196b187da8bff0ed"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#a5199554e1288134514be0c55502cb72d">TimeSize</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a0e2cb6c901cff55a196b187da8bff0ed">getInputsNumber</a> () const</td></tr>
+<tr class="memdesc:a0e2cb6c901cff55a196b187da8bff0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of available inputs.  <a href="#a0e2cb6c901cff55a196b187da8bff0ed">More...</a><br /></td></tr>
+<tr class="separator:a0e2cb6c901cff55a196b187da8bff0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f70e3ee35420852efef749630dfaa6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a55f70e3ee35420852efef749630dfaa6">getInputTime</a> () const</td></tr>
+<tr class="memdesc:a55f70e3ee35420852efef749630dfaa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time index of the last given input.  <a href="#a55f70e3ee35420852efef749630dfaa6">More...</a><br /></td></tr>
+<tr class="separator:a55f70e3ee35420852efef749630dfaa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4816b197ccfccf2186810321d1ccb845"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a4816b197ccfccf2186810321d1ccb845">getMeasurement</a> (<a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k) const</td></tr>
+<tr class="memdesc:a4816b197ccfccf2186810321d1ccb845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the measurement of the time index k.  <a href="#a4816b197ccfccf2186810321d1ccb845">More...</a><br /></td></tr>
+<tr class="separator:a4816b197ccfccf2186810321d1ccb845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa48669294dadf74a5aa6a6644ff44bd8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#aa48669294dadf74a5aa6a6644ff44bd8">getMeasurementTime</a> () const</td></tr>
+<tr class="memdesc:aa48669294dadf74a5aa6a6644ff44bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time index of the last given measurement.  <a href="#aa48669294dadf74a5aa6a6644ff44bd8">More...</a><br /></td></tr>
+<tr class="separator:aa48669294dadf74a5aa6a6644ff44bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae3ebd03bd517d3abca7926beecf65b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#a5199554e1288134514be0c55502cb72d">TimeSize</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a0ae3ebd03bd517d3abca7926beecf65b">getMeasurementsNumber</a> () const</td></tr>
+<tr class="memdesc:a0ae3ebd03bd517d3abca7926beecf65b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of regitered measurements.  <a href="#a0ae3ebd03bd517d3abca7926beecf65b">More...</a><br /></td></tr>
+<tr class="separator:a0ae3ebd03bd517d3abca7926beecf65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a864b38d88067e8a654e2972d1b8eed02"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a864b38d88067e8a654e2972d1b8eed02">setStateSize</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n)</td></tr>
+<tr class="memdesc:a864b38d88067e8a654e2972d1b8eed02"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the size of the state vector: resets the stored state vector  <a href="#a864b38d88067e8a654e2972d1b8eed02">More...</a><br /></td></tr>
+<tr class="separator:a864b38d88067e8a654e2972d1b8eed02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f6c0b0d107a5eaca46d16db27d6e26"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a46f6c0b0d107a5eaca46d16db27d6e26">setMeasureSize</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m)</td></tr>
+<tr class="memdesc:a46f6c0b0d107a5eaca46d16db27d6e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the size of the measurement vector: reset the stored measurement vectors  <a href="#a46f6c0b0d107a5eaca46d16db27d6e26">More...</a><br /></td></tr>
+<tr class="separator:a46f6c0b0d107a5eaca46d16db27d6e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f96c9bc6577b51e35c520719c5c965b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a0f96c9bc6577b51e35c520719c5c965b">setInputSize</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p)</td></tr>
+<tr class="memdesc:a0f96c9bc6577b51e35c520719c5c965b"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the size of the input vector: reset the stored input vectors  <a href="#a0f96c9bc6577b51e35c520719c5c965b">More...</a><br /></td></tr>
+<tr class="separator:a0f96c9bc6577b51e35c520719c5c965b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00829"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00829')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00829.html">stateObservation::ObserverBase</a></td></tr>
+<tr class="memitem:aa937a38361b807f4d1fca6d79d9cc73f inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#aa937a38361b807f4d1fca6d79d9cc73f">ObserverBase</a> (<a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> n, <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> m, <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> p=0)</td></tr>
+<tr class="memdesc:aa937a38361b807f4d1fca6d79d9cc73f inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="a00829.html#aa937a38361b807f4d1fca6d79d9cc73f">More...</a><br /></td></tr>
+<tr class="separator:aa937a38361b807f4d1fca6d79d9cc73f inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63edca8f6eb7df4af113e0ee534cde94 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a63edca8f6eb7df4af113e0ee534cde94">ObserverBase</a> ()</td></tr>
+<tr class="memdesc:a63edca8f6eb7df4af113e0ee534cde94 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor (default values for n,m,p are zero)  <a href="a00829.html#a63edca8f6eb7df4af113e0ee534cde94">More...</a><br /></td></tr>
+<tr class="separator:a63edca8f6eb7df4af113e0ee534cde94 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6e83453223086b348fde29cca652ae inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a4e6e83453223086b348fde29cca652ae">~ObserverBase</a> ()</td></tr>
+<tr class="memdesc:a4e6e83453223086b348fde29cca652ae inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="a00829.html#a4e6e83453223086b348fde29cca652ae">More...</a><br /></td></tr>
+<tr class="separator:a4e6e83453223086b348fde29cca652ae inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4615bbfca2ea0291f89581463022777 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#af4615bbfca2ea0291f89581463022777">getStateSize</a> () const</td></tr>
+<tr class="memdesc:af4615bbfca2ea0291f89581463022777 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the state vector  <a href="a00829.html#af4615bbfca2ea0291f89581463022777">More...</a><br /></td></tr>
+<tr class="separator:af4615bbfca2ea0291f89581463022777 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33a84875bcb68696e54130f3a21ccbc3 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a33a84875bcb68696e54130f3a21ccbc3">getMeasureSize</a> () const</td></tr>
+<tr class="memdesc:a33a84875bcb68696e54130f3a21ccbc3 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the measurement vector  <a href="a00829.html#a33a84875bcb68696e54130f3a21ccbc3">More...</a><br /></td></tr>
+<tr class="separator:a33a84875bcb68696e54130f3a21ccbc3 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97bf85204bfd97ffcfd0cac730ca284c inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a97bf85204bfd97ffcfd0cac730ca284c">getInputSize</a> () const</td></tr>
+<tr class="memdesc:a97bf85204bfd97ffcfd0cac730ca284c inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the size of the input vector  <a href="a00829.html#a97bf85204bfd97ffcfd0cac730ca284c">More...</a><br /></td></tr>
+<tr class="separator:a97bf85204bfd97ffcfd0cac730ca284c inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f765c9e126e21f14f70f05ab56e02b inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a61f765c9e126e21f14f70f05ab56e02b">reset</a> ()</td></tr>
+<tr class="memdesc:a61f765c9e126e21f14f70f05ab56e02b inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitializes the whole observer default behavior is to call the three "ObserverBase::clear*" methods.  <a href="a00829.html#a61f765c9e126e21f14f70f05ab56e02b">More...</a><br /></td></tr>
+<tr class="separator:a61f765c9e126e21f14f70f05ab56e02b inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc5c870bbd655ade60fdd5843e983f7 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a6dc5c870bbd655ade60fdd5843e983f7">stateVectorConstant</a> (double c) const</td></tr>
+<tr class="memdesc:a6dc5c870bbd655ade60fdd5843e983f7 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">These are initializer for vectors We do not use the get prefix to be consistent with eigen initializers Gives a vector of state vector size having duplicated "c" value.  <a href="a00829.html#a6dc5c870bbd655ade60fdd5843e983f7">More...</a><br /></td></tr>
+<tr class="separator:a6dc5c870bbd655ade60fdd5843e983f7 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57784dd6e8312fb2cb32f75eb6139900 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a57784dd6e8312fb2cb32f75eb6139900">stateVectorRandom</a> () const</td></tr>
+<tr class="memdesc:a57784dd6e8312fb2cb32f75eb6139900 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state vector size having random values.  <a href="a00829.html#a57784dd6e8312fb2cb32f75eb6139900">More...</a><br /></td></tr>
+<tr class="separator:a57784dd6e8312fb2cb32f75eb6139900 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037fa3c55b2976a30a21ceb2327d5e29 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a037fa3c55b2976a30a21ceb2327d5e29">stateVectorZero</a> () const</td></tr>
+<tr class="memdesc:a037fa3c55b2976a30a21ceb2327d5e29 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of state vector size having zero values.  <a href="a00829.html#a037fa3c55b2976a30a21ceb2327d5e29">More...</a><br /></td></tr>
+<tr class="separator:a037fa3c55b2976a30a21ceb2327d5e29 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2085a4e7015ae141c82dc17f2dedaf6 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ab2085a4e7015ae141c82dc17f2dedaf6">checkStateVector</a> (const <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a> &amp;v) const</td></tr>
+<tr class="memdesc:ab2085a4e7015ae141c82dc17f2dedaf6 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a state vector.  <a href="a00829.html#ab2085a4e7015ae141c82dc17f2dedaf6">More...</a><br /></td></tr>
+<tr class="separator:ab2085a4e7015ae141c82dc17f2dedaf6 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7f162d19c25deb2c408906f476eadd inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#acb7f162d19c25deb2c408906f476eadd">measureVectorConstant</a> (double c) const</td></tr>
+<tr class="memdesc:acb7f162d19c25deb2c408906f476eadd inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement vector size having duplicated "c" value.  <a href="a00829.html#acb7f162d19c25deb2c408906f476eadd">More...</a><br /></td></tr>
+<tr class="separator:acb7f162d19c25deb2c408906f476eadd inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde4d6536411455c7d157fa4af79e888 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#adde4d6536411455c7d157fa4af79e888">measureVectorRandom</a> () const</td></tr>
+<tr class="memdesc:adde4d6536411455c7d157fa4af79e888 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement vector size having random values.  <a href="a00829.html#adde4d6536411455c7d157fa4af79e888">More...</a><br /></td></tr>
+<tr class="separator:adde4d6536411455c7d157fa4af79e888 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ab81f29d82227e9ab412af9073998e3 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a2ab81f29d82227e9ab412af9073998e3">measureVectorZero</a> () const</td></tr>
+<tr class="memdesc:a2ab81f29d82227e9ab412af9073998e3 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of measurement vector size having zero values.  <a href="a00829.html#a2ab81f29d82227e9ab412af9073998e3">More...</a><br /></td></tr>
+<tr class="separator:a2ab81f29d82227e9ab412af9073998e3 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a5ce8acdf83772080fd7929ff53af4 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a93a5ce8acdf83772080fd7929ff53af4">checkMeasureVector</a> (const <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a> &amp;) const</td></tr>
+<tr class="memdesc:a93a5ce8acdf83772080fd7929ff53af4 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a measurement vector.  <a href="a00829.html#a93a5ce8acdf83772080fd7929ff53af4">More...</a><br /></td></tr>
+<tr class="separator:a93a5ce8acdf83772080fd7929ff53af4 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ddeb50150d36eb99822fcf146d3711 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#aa3ddeb50150d36eb99822fcf146d3711">inputVectorConstant</a> (double c) const</td></tr>
+<tr class="memdesc:aa3ddeb50150d36eb99822fcf146d3711 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of input vector size having duplicated "c" value.  <a href="a00829.html#aa3ddeb50150d36eb99822fcf146d3711">More...</a><br /></td></tr>
+<tr class="separator:aa3ddeb50150d36eb99822fcf146d3711 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497ad2bde0d0cf65762603ee73195f04 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a497ad2bde0d0cf65762603ee73195f04">inputVectorRandom</a> () const</td></tr>
+<tr class="memdesc:a497ad2bde0d0cf65762603ee73195f04 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of input vector size having random values.  <a href="a00829.html#a497ad2bde0d0cf65762603ee73195f04">More...</a><br /></td></tr>
+<tr class="separator:a497ad2bde0d0cf65762603ee73195f04 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e1c76e1a7bd7a8296e78a6668eb6860 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a8e1c76e1a7bd7a8296e78a6668eb6860">inputVectorZero</a> () const</td></tr>
+<tr class="memdesc:a8e1c76e1a7bd7a8296e78a6668eb6860 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a vector of input vector size having zero values.  <a href="a00829.html#a8e1c76e1a7bd7a8296e78a6668eb6860">More...</a><br /></td></tr>
+<tr class="separator:a8e1c76e1a7bd7a8296e78a6668eb6860 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca0d6719a6a4056a71c0b73e3c8a383 inherit pub_methods_a00829"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a9ca0d6719a6a4056a71c0b73e3c8a383">checkInputVector</a> (const <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a> &amp;) const</td></tr>
+<tr class="memdesc:a9ca0d6719a6a4056a71c0b73e3c8a383 inherit pub_methods_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether or not the vector has the dimensions of a input vector.  <a href="a00829.html#a9ca0d6719a6a4056a71c0b73e3c8a383">More...</a><br /></td></tr>
+<tr class="separator:a9ca0d6719a6a4056a71c0b73e3c8a383 inherit pub_methods_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:acd55b2c1fdab7f25f9b0b4a479d8d726"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#acd55b2c1fdab7f25f9b0b4a479d8d726">getStateSize_</a> () const</td></tr>
-<tr class="memdesc:acd55b2c1fdab7f25f9b0b4a479d8d726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state vector Size.  <a href="#acd55b2c1fdab7f25f9b0b4a479d8d726">More...</a><br /></td></tr>
-<tr class="separator:acd55b2c1fdab7f25f9b0b4a479d8d726"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abac7eab9908b5f9bbb19a36e815fd3a7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#abac7eab9908b5f9bbb19a36e815fd3a7">getMeasurementSize_</a> () const</td></tr>
-<tr class="memdesc:abac7eab9908b5f9bbb19a36e815fd3a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the measurements vector size.  <a href="#abac7eab9908b5f9bbb19a36e815fd3a7">More...</a><br /></td></tr>
-<tr class="separator:abac7eab9908b5f9bbb19a36e815fd3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20c0f4ea8ae8777495a0fd12878e10c1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a20c0f4ea8ae8777495a0fd12878e10c1">computeNoiselessMeasurement_</a> ()</td></tr>
-<tr class="memdesc:a20c0f4ea8ae8777495a0fd12878e10c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the actual algorithm for the computation of the measurements, must be overloaded to implement any sensor  <a href="#a20c0f4ea8ae8777495a0fd12878e10c1">More...</a><br /></td></tr>
-<tr class="separator:a20c0f4ea8ae8777495a0fd12878e10c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00841"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00841')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00841.html">stateObservation::AlgebraicSensor</a></td></tr>
-<tr class="memitem:aee0ab148e8191b672140aeb927862510 inherit pro_methods_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#aee0ab148e8191b672140aeb927862510">computeNoisyMeasurement_</a> ()</td></tr>
-<tr class="separator:aee0ab148e8191b672140aeb927862510 inherit pro_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a52b994235ee626bc4cda79d2408af2 inherit pro_methods_a00841"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a9a52b994235ee626bc4cda79d2408af2">checkState_</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;)</td></tr>
-<tr class="separator:a9a52b994235ee626bc4cda79d2408af2 inherit pro_methods_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00845"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00845')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00845.html">stateObservation::algorithm::LinearAcceleration</a></td></tr>
-<tr class="memitem:afeac98b86e1fab664297717e08ac0019 inherit pro_methods_a00845"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#afeac98b86e1fab664297717e08ac0019">~LinearAcceleration</a> ()</td></tr>
-<tr class="memdesc:afeac98b86e1fab664297717e08ac0019 inherit pro_methods_a00845"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="a00845.html#afeac98b86e1fab664297717e08ac0019">More...</a><br /></td></tr>
-<tr class="separator:afeac98b86e1fab664297717e08ac0019 inherit pro_methods_a00845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad913b81fe3401bf8c9cec718d49b5d5e inherit pro_methods_a00845"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#ad913b81fe3401bf8c9cec718d49b5d5e">accelerationMeasure</a> (const <a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;acceleration, const <a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation) const</td></tr>
-<tr class="memdesc:ad913b81fe3401bf8c9cec718d49b5d5e inherit pro_methods_a00845"><td class="mdescLeft">&#160;</td><td class="mdescRight">The acceleration measurement in the local frame represented by the orientation Matrix.  <a href="a00845.html#ad913b81fe3401bf8c9cec718d49b5d5e">More...</a><br /></td></tr>
-<tr class="separator:ad913b81fe3401bf8c9cec718d49b5d5e inherit pro_methods_a00845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00853"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00853')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00853.html">stateObservation::algorithm::RotationVelocity</a></td></tr>
-<tr class="memitem:ac808c996a1f4cd4d6750b026589febc1 inherit pro_methods_a00853"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00853.html#ac808c996a1f4cd4d6750b026589febc1">~RotationVelocity</a> ()</td></tr>
-<tr class="memdesc:ac808c996a1f4cd4d6750b026589febc1 inherit pro_methods_a00853"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="a00853.html#ac808c996a1f4cd4d6750b026589febc1">More...</a><br /></td></tr>
-<tr class="separator:ac808c996a1f4cd4d6750b026589febc1 inherit pro_methods_a00853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b2bf5391d5e967ad6901c72a33c7da4 inherit pro_methods_a00853"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00853.html#a0b2bf5391d5e967ad6901c72a33c7da4">rotationVelocityMeasure</a> (const <a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;angVelocityVector, const <a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation) const</td></tr>
-<tr class="memdesc:a0b2bf5391d5e967ad6901c72a33c7da4 inherit pro_methods_a00853"><td class="mdescLeft">&#160;</td><td class="mdescRight">The angular velocity measurement in the local frame represented by the orientation Matrix.  <a href="a00853.html#a0b2bf5391d5e967ad6901c72a33c7da4">More...</a><br /></td></tr>
-<tr class="separator:a0b2bf5391d5e967ad6901c72a33c7da4 inherit pro_methods_a00853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119876dcaefcb6061cef80f2353b8ebd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a119876dcaefcb6061cef80f2353b8ebd">oneStepEstimation_</a> ()=0</td></tr>
+<tr class="memdesc:a119876dcaefcb6061cef80f2353b8ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method describes one loop of the observer (from k_0 to k_0+1) it has to be implemented in derived classes.  <a href="#a119876dcaefcb6061cef80f2353b8ebd">More...</a><br /></td></tr>
+<tr class="separator:a119876dcaefcb6061cef80f2353b8ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a7d3852e093efa3f3ddbb7d5ebbac70cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a7d3852e093efa3f3ddbb7d5ebbac70cd">r_</a></td></tr>
-<tr class="separator:a7d3852e093efa3f3ddbb7d5ebbac70cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb4524384007ca7cfb2bd52ac6c8adf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#abb4524384007ca7cfb2bd52ac6c8adf2">acc_</a></td></tr>
-<tr class="separator:abb4524384007ca7cfb2bd52ac6c8adf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b8286d9de8d69fd612c80f536f961d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a1b8286d9de8d69fd612c80f536f961d8">omega_</a></td></tr>
-<tr class="separator:a1b8286d9de8d69fd612c80f536f961d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad659228fe2eeb04323ed8cf8f53e8972"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#ad659228fe2eeb04323ed8cf8f53e8972">output_</a></td></tr>
-<tr class="separator:ad659228fe2eeb04323ed8cf8f53e8972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a477ee1fcc29f77bac83cca4f27c8496e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a477ee1fcc29f77bac83cca4f27c8496e">matrixMode_</a></td></tr>
-<tr class="separator:a477ee1fcc29f77bac83cca4f27c8496e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40a2d19abd031b45e8c099cdb47b244b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a40a2d19abd031b45e8c099cdb47b244b">currentStateSize_</a></td></tr>
-<tr class="separator:a40a2d19abd031b45e8c099cdb47b244b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00841"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00841')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00841.html">stateObservation::AlgebraicSensor</a></td></tr>
-<tr class="memitem:a7b2d955d6df28292c1b6f2e2dae6037e inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a7b2d955d6df28292c1b6f2e2dae6037e">time_</a></td></tr>
-<tr class="separator:a7b2d955d6df28292c1b6f2e2dae6037e inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0f4989bcf2e5e1e07dc5ec3b2aa3482 inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#ac0f4989bcf2e5e1e07dc5ec3b2aa3482">concat_</a></td></tr>
-<tr class="separator:ac0f4989bcf2e5e1e07dc5ec3b2aa3482 inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f7ba6e5b440e632aeccf1bf044208a0 inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a9f7ba6e5b440e632aeccf1bf044208a0">state_</a></td></tr>
-<tr class="separator:a9f7ba6e5b440e632aeccf1bf044208a0 inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2660c6e87ebebad6c8f9424f73311308 inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a2660c6e87ebebad6c8f9424f73311308">directInputToOutput_</a></td></tr>
-<tr class="separator:a2660c6e87ebebad6c8f9424f73311308 inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9df954f5e19b0188cc8a3c6bfea2a641 inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a9df954f5e19b0188cc8a3c6bfea2a641">storedNoisyMeasurement_</a></td></tr>
-<tr class="separator:a9df954f5e19b0188cc8a3c6bfea2a641 inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9170e7cc81cb9ebf5ae93863783ccf8 inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#af9170e7cc81cb9ebf5ae93863783ccf8">noisyMeasurement_</a></td></tr>
-<tr class="separator:af9170e7cc81cb9ebf5ae93863783ccf8 inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a292b2ee676e3e503ac40e9e9c5cde69d inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#a292b2ee676e3e503ac40e9e9c5cde69d">storedNoiselessMeasurement_</a></td></tr>
-<tr class="separator:a292b2ee676e3e503ac40e9e9c5cde69d inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd8b5ae7d875378bd2b889d0ddbfeb9 inherit pro_attribs_a00841"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html#acbd8b5ae7d875378bd2b889d0ddbfeb9">noiselessMeasurement_</a></td></tr>
-<tr class="separator:acbd8b5ae7d875378bd2b889d0ddbfeb9 inherit pro_attribs_a00841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00857"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00857')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00857.html">stateObservation::SensorBase</a></td></tr>
-<tr class="memitem:a2485deaf19c72e5d4b61ec69ad470630 inherit pro_attribs_a00857"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00797.html">NoiseBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a2485deaf19c72e5d4b61ec69ad470630">noise_</a></td></tr>
-<tr class="separator:a2485deaf19c72e5d4b61ec69ad470630 inherit pro_attribs_a00857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8117ab4e9354603b9233fe5c316639b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#aecc3c0d59b6a43528535cda30241c60b">IndexedVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a8117ab4e9354603b9233fe5c316639b9">x_</a></td></tr>
+<tr class="memdesc:a8117ab4e9354603b9233fe5c316639b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">while the measurements and iputs are put in lists  <a href="#a8117ab4e9354603b9233fe5c316639b9">More...</a><br /></td></tr>
+<tr class="separator:a8117ab4e9354603b9233fe5c316639b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c19c097d2780bb922eee1da1cd15b35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a6c19c097d2780bb922eee1da1cd15b35">y_</a></td></tr>
+<tr class="memdesc:a6c19c097d2780bb922eee1da1cd15b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the measurements.  <a href="#a6c19c097d2780bb922eee1da1cd15b35">More...</a><br /></td></tr>
+<tr class="separator:a6c19c097d2780bb922eee1da1cd15b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a586b3f05416f37af3d8604b0e444cded"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a586b3f05416f37af3d8604b0e444cded">u_</a></td></tr>
+<tr class="memdesc:a586b3f05416f37af3d8604b0e444cded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the inputs.  <a href="#a586b3f05416f37af3d8604b0e444cded">More...</a><br /></td></tr>
+<tr class="separator:a586b3f05416f37af3d8604b0e444cded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00829"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00829')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00829.html">stateObservation::ObserverBase</a></td></tr>
+<tr class="memitem:aaca1412cabd5d5ba82af27a6c11dd785 inherit pro_attribs_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#aaca1412cabd5d5ba82af27a6c11dd785">n_</a></td></tr>
+<tr class="memdesc:aaca1412cabd5d5ba82af27a6c11dd785 inherit pro_attribs_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">stateSize is the size of the state vector  <a href="a00829.html#aaca1412cabd5d5ba82af27a6c11dd785">More...</a><br /></td></tr>
+<tr class="separator:aaca1412cabd5d5ba82af27a6c11dd785 inherit pro_attribs_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44535d044d6bf6e9637b86c52ab8720 inherit pro_attribs_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#ad44535d044d6bf6e9637b86c52ab8720">m_</a></td></tr>
+<tr class="memdesc:ad44535d044d6bf6e9637b86c52ab8720 inherit pro_attribs_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">measureSize is the size of measurements vector  <a href="a00829.html#ad44535d044d6bf6e9637b86c52ab8720">More...</a><br /></td></tr>
+<tr class="separator:ad44535d044d6bf6e9637b86c52ab8720 inherit pro_attribs_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ab2de4a694d2ef3e28b687c1a65579b inherit pro_attribs_a00829"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a0ab2de4a694d2ef3e28b687c1a65579b">p_</a></td></tr>
+<tr class="memdesc:a0ab2de4a694d2ef3e28b687c1a65579b inherit pro_attribs_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">inputSize is the size of the input vector  <a href="a00829.html#a0ab2de4a694d2ef3e28b687c1a65579b">More...</a><br /></td></tr>
+<tr class="separator:a0ab2de4a694d2ef3e28b687c1a65579b inherit pro_attribs_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a39e4e95f1d6f0a76bb702142b321fac8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a39e4e95f1d6f0a76bb702142b321fac8">stateSize_</a> = 10</td></tr>
-<tr class="separator:a39e4e95f1d6f0a76bb702142b321fac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0017a3accc95760d29b66668ced0b015"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a0017a3accc95760d29b66668ced0b015">stateSizeMatrix_</a> = 15</td></tr>
-<tr class="separator:a0017a3accc95760d29b66668ced0b015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ff8dddb15c8df3adbe5903aa8838c3c"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00837.html#a3ff8dddb15c8df3adbe5903aa8838c3c">measurementSize_</a> = 6</td></tr>
-<tr class="separator:a3ff8dddb15c8df3adbe5903aa8838c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_a00829"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00829')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="a00829.html">stateObservation::ObserverBase</a></td></tr>
+<tr class="memitem:a1f4384e4ec12cd4da2dc984688e345c1 inherit pub_types_a00829"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a></td></tr>
+<tr class="memdesc:a1f4384e4ec12cd4da2dc984688e345c1 inherit pub_types_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">StateVector is the type of state vector.  <a href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">More...</a><br /></td></tr>
+<tr class="separator:a1f4384e4ec12cd4da2dc984688e345c1 inherit pub_types_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf28d39d18e070f71bac67695f39e867 inherit pub_types_a00829"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">MeasureVector</a></td></tr>
+<tr class="memdesc:abf28d39d18e070f71bac67695f39e867 inherit pub_types_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">MeasureVector is the type of measurements vector.  <a href="a00829.html#abf28d39d18e070f71bac67695f39e867">More...</a><br /></td></tr>
+<tr class="separator:abf28d39d18e070f71bac67695f39e867 inherit pub_types_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5149fd55bc16be4b9b8727854940db74 inherit pub_types_a00829"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">InputVector</a></td></tr>
+<tr class="memdesc:a5149fd55bc16be4b9b8727854940db74 inherit pub_types_a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">InputVector is the type of the input vector.  <a href="a00829.html#a5149fd55bc16be4b9b8727854940db74">More...</a><br /></td></tr>
+<tr class="separator:a5149fd55bc16be4b9b8727854940db74 inherit pub_types_a00829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements the accelerometer-gyrometer measurements. </p>
+<div class="textblock"><p>Defines the base class of online zero delay observers. </p>
+<p>Zero delay observers are the classical state observers where input and state values at instant k and the measurement value at instant k+1 are enough to provide the estimation of the state at instant k+1. This class mostly defines the data structures for storing the vectors, it describes the set routines and the observation loop mechanism. It requires to be derviated to implement the new <a class="el" href="a00837.html#a119876dcaefcb6061cef80f2353b8ebd" title="This method describes one loop of the observer (from k_0 to k_0+1) it has to be implemented in derive...">oneStepEstimation_()</a> method </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad5b04f826372a18a9d836d6a8ea04c74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5b04f826372a18a9d836d6a8ea04c74">&#9670;&nbsp;</a></span>AccelerometerGyrometer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">stateObservation::AccelerometerGyrometer::AccelerometerGyrometer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aac6f0f8f1d546b9377005a39e3a83ef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac6f0f8f1d546b9377005a39e3a83ef7">&#9670;&nbsp;</a></span>~AccelerometerGyrometer()</h2>
+<a id="a67290753c4b0c38046c82ee05f25ea4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67290753c4b0c38046c82ee05f25ea4c">&#9670;&nbsp;</a></span>ZeroDelayObserver() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,7 +289,83 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stateObservation::AccelerometerGyrometer::~AccelerometerGyrometer </td>
+          <td class="memname">stateObservation::ZeroDelayObserver::ZeroDelayObserver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>p</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The constructor. </p>
+<ul>
+<li>n : size of the state vector </li>
+<li>m : size of the measurements vector </li>
+<li>p : size of the input vector </li>
+</ul>
+
+</div>
+</div>
+<a id="ae113ca300d3c114ff862b801bc797397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae113ca300d3c114ff862b801bc797397">&#9670;&nbsp;</a></span>ZeroDelayObserver() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">stateObservation::ZeroDelayObserver::ZeroDelayObserver </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor (default values for n,m,p are zero) </p>
+
+</div>
+</div>
+<a id="acd7af6689312c7a0696c4ca39c4aed78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7af6689312c7a0696c4ca39c4aed78">&#9670;&nbsp;</a></span>~ZeroDelayObserver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual stateObservation::ZeroDelayObserver::~ZeroDelayObserver </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -270,13 +378,15 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Virtual destructor. </p>
+<p>Destructor. </p>
+
+<p class="reference">References <a class="el" href="a00139.html#afdc5caf5cf6fdd7882939586591f8ce8">stateObservation::hrp2::m</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a20c0f4ea8ae8777495a0fd12878e10c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20c0f4ea8ae8777495a0fd12878e10c1">&#9670;&nbsp;</a></span>computeNoiselessMeasurement_()</h2>
+<a id="acaf69cf480e5392ca50cc030666d3fc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaf69cf480e5392ca50cc030666d3fc2">&#9670;&nbsp;</a></span>clearInputs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +395,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::AccelerometerGyrometer::computeNoiselessMeasurement_ </td>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::clearInputs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -293,19 +403,19 @@ Static Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>the actual algorithm for the computation of the measurements, must be overloaded to implement any sensor </p>
+<p>Remove all the given values of the inputs If there is no input, this instruction has no effect. </p>
 
-<p>Implements <a class="el" href="a00841.html#a5a7fe12d4329c1b5740a1e3282ca7f98">stateObservation::AlgebraicSensor</a>.</p>
+<p>Implements <a class="el" href="a00829.html#a19e967116e8f1cd9ecb7fba0b1fe3df8">stateObservation::ObserverBase</a>.</p>
 
 </div>
 </div>
-<a id="abac7eab9908b5f9bbb19a36e815fd3a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abac7eab9908b5f9bbb19a36e815fd3a7">&#9670;&nbsp;</a></span>getMeasurementSize_()</h2>
+<a id="a6132bc68820990e18610bd6dfcf24d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6132bc68820990e18610bd6dfcf24d37">&#9670;&nbsp;</a></span>clearInputsAndMeasurements()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -314,75 +424,718 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::AccelerometerGyrometer::getMeasurementSize_ </td>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::clearInputsAndMeasurements </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the measurements vector size. </p>
-
-<p>Implements <a class="el" href="a00841.html#af7888252c3ed6bb1fb9ae514e7443d87">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="acd55b2c1fdab7f25f9b0b4a479d8d726"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd55b2c1fdab7f25f9b0b4a479d8d726">&#9670;&nbsp;</a></span>getStateSize_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::AccelerometerGyrometer::getStateSize_ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the state vector Size. </p>
-
-<p>Implements <a class="el" href="a00841.html#a464e8c81e9526cb29c416802254fc98a">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="af82f2263d32f909586880dfcaa9f03af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af82f2263d32f909586880dfcaa9f03af">&#9670;&nbsp;</a></span>setMatrixMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::AccelerometerGyrometer::setMatrixMode </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>matrixMode</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Remove all the given values of the inputs and measurements. </p>
+
+<p>Reimplemented from <a class="el" href="a00829.html#adb8cd5d6ccae65ae5ff001666ad1349c">stateObservation::ObserverBase</a>.</p>
+
+</div>
+</div>
+<a id="ae35c495bc1995b239cde4fb20d0b3181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae35c495bc1995b239cde4fb20d0b3181">&#9670;&nbsp;</a></span>clearMeasurements()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::clearMeasurements </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove all the given values of the measurements. </p>
+
+<p>Implements <a class="el" href="a00829.html#a6e6e9eafdab389ce38df62a2117d5971">stateObservation::ObserverBase</a>.</p>
+
+</div>
+</div>
+<a id="a664dfe33b9771e1245929c0a9e1ba4ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664dfe33b9771e1245929c0a9e1ba4ff">&#9670;&nbsp;</a></span>clearStates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::clearStates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the state estimation. </p>
+<p>inherited from <a class="el" href="a00829.html" title="The base class for observers. ">ObserverBase</a> </p>
+
+<p>Implements <a class="el" href="a00829.html#af3bf1ad7553fa8eb65eebdb44094be6a">stateObservation::ObserverBase</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a00817.html#ac9d91f870f6865acefc29b21312fc1a5">stateObservation::KalmanFilterBase</a>.</p>
+
+</div>
+</div>
+<a id="a2f8fda2f8c75fbca3985d7872a2d93a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f8fda2f8c75fbca3985d7872a2d93a5">&#9670;&nbsp;</a></span>estimateState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> stateObservation::ZeroDelayObserver::estimateState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>run the observer until the measurement vector is depleted. </p>
+<p>the observer has to be able to reconstruct all the state values from the current time to the last measurement time. That means all the input values reauired have to be provided before.</p>
+<dl class="section return"><dt>Returns</dt><dd>the current time </dd></dl>
+
+</div>
+</div>
+<a id="ad3a61b221fd4eda7a30019205f138e09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a61b221fd4eda7a30019205f138e09">&#9670;&nbsp;</a></span>getCurrentEstimatedState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ZeroDelayObserver::getCurrentEstimatedState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Current Estimated State. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1" title="StateVector is the type of state vector. ">ObserverBase::StateVector</a> </dd></dl>
+
+</div>
+</div>
+<a id="abe08f4022ab1584da59d0acb4abadc3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe08f4022ab1584da59d0acb4abadc3d">&#9670;&nbsp;</a></span>getCurrentTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> stateObservation::ZeroDelayObserver::getCurrentTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the value of the time index of the current state estimation. </p>
+
+</div>
+</div>
+<a id="a9a9476e99bc788955a66ecb87eca56c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a9476e99bc788955a66ecb87eca56c2">&#9670;&nbsp;</a></span>getEstimatedState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> stateObservation::ZeroDelayObserver::getEstimatedState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>getestimated State </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The time index of the expected state value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1" title="StateVector is the type of state vector. ">ObserverBase::StateVector</a></dd></dl>
+<p>If k is equal to the current time k_0, this will give the value of the last state/estimate.</p>
+<p>If k is larger than the current time k_0, this will run the observer loop and get the state estimation of the state at instant k.</p>
+<p>In order to estimate the state k, two conditions have to be met: </p><ul>
+<li>the time index k must be superior or equal to the current time k_0, the estimator does <em>not</em> record past values of the state and cannot observe past states. </li>
+<li>the observer has to be able to reconstruct all the state values from k_0 to k. That means all the measurements or input values reauired have to be provided before.</li>
+</ul>
+<p>That means generally (for most zero delay observers) that when current time is k_0 (we know an estimation of x_{k_0}) and we want to reconstruct the state at time k&gt;k_0 we need to have the values of y_{k_0+1} to y_{k} and u_{k_0} to u_{k-1} (or u_{k} depending on the measure dynamics)</p>
+<p>This method sets the current time to k </p>
+
+<p>Implements <a class="el" href="a00829.html#ac7225dcb514c42ca51e1af4b71c1cbea">stateObservation::ObserverBase</a>.</p>
+
+</div>
+</div>
+<a id="af141608c2857819761637dd236857e30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af141608c2857819761637dd236857e30">&#9670;&nbsp;</a></span>getInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::ZeroDelayObserver::getInput </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the value of the input of the time index k. </p>
+
+</div>
+</div>
+<a id="a0e2cb6c901cff55a196b187da8bff0ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e2cb6c901cff55a196b187da8bff0ed">&#9670;&nbsp;</a></span>getInputsNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> stateObservation::ZeroDelayObserver::getInputsNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of available inputs. </p>
+
+</div>
+</div>
+<a id="a55f70e3ee35420852efef749630dfaa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55f70e3ee35420852efef749630dfaa6">&#9670;&nbsp;</a></span>getInputTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> stateObservation::ZeroDelayObserver::getInputTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the time index of the last given input. </p>
+
+</div>
+</div>
+<a id="a4816b197ccfccf2186810321d1ccb845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4816b197ccfccf2186810321d1ccb845">&#9670;&nbsp;</a></span>getMeasurement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::ZeroDelayObserver::getMeasurement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the measurement of the time index k. </p>
+
+</div>
+</div>
+<a id="a0ae3ebd03bd517d3abca7926beecf65b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ae3ebd03bd517d3abca7926beecf65b">&#9670;&nbsp;</a></span>getMeasurementsNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> stateObservation::ZeroDelayObserver::getMeasurementsNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of regitered measurements. </p>
+
+</div>
+</div>
+<a id="aa48669294dadf74a5aa6a6644ff44bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa48669294dadf74a5aa6a6644ff44bd8">&#9670;&nbsp;</a></span>getMeasurementTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> stateObservation::ZeroDelayObserver::getMeasurementTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the time index of the last given measurement. </p>
+
+</div>
+</div>
+<a id="a119876dcaefcb6061cef80f2353b8ebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a119876dcaefcb6061cef80f2353b8ebd">&#9670;&nbsp;</a></span>oneStepEstimation_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">StateVector</a> stateObservation::ZeroDelayObserver::oneStepEstimation_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This method describes one loop of the observer (from k_0 to k_0+1) it has to be implemented in derived classes. </p>
+
+<p>Implemented in <a class="el" href="a00817.html#a4c0c46e521e7c2a91a5c96884d6bbdf4">stateObservation::KalmanFilterBase</a>, and <a class="el" href="a00833.html#abfad4ab2ca35f09cab1f16a5b31da482">stateObservation::TiltEstimator</a>.</p>
+
+</div>
+</div>
+<a id="a3ccba5bc930793b852967f47978fb540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ccba5bc930793b852967f47978fb540">&#9670;&nbsp;</a></span>pushInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::pushInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>u_k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the input value at the next time indext. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u_k</td><td>Value of the next input </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab6bbef08453356a144306e2af73efafd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6bbef08453356a144306e2af73efafd">&#9670;&nbsp;</a></span>pushMeasurement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::pushMeasurement </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>y_k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the measurement value at the next time index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">y_k</td><td>Value of the next measurement </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6b84739bae21890eab25714837b3fd03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b84739bae21890eab25714837b3fd03">&#9670;&nbsp;</a></span>setCurrentState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setCurrentState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>x_k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modify the value of the state vector at the current time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x_k</td><td>The new state value</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method should NOT be used for first initialization Use <a class="el" href="a00837.html#a8247a916d22411cadd69cf6b0c60c87d" title="Set the value of the state vector at time index k. ">setState()</a> instead.</p>
+<p>Calling this function will not affect the measurements nor the input vectors. It will only replace the current state/estimate with a new one </p>
+
+</div>
+</div>
+<a id="ab8d5d039dfa067c1be6d1594f0a4d84e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d5d039dfa067c1be6d1594f0a4d84e">&#9670;&nbsp;</a></span>setInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00829.html#a5149fd55bc16be4b9b8727854940db74">ObserverBase::InputVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>u_k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the value of the input vector at time index k. </p>
+<p>The inputs have to be inserted in chronological order without gaps. If there is no input in the system (p==0), this instruction has no effect </p>
+
+<p>Implements <a class="el" href="a00829.html#a68bc8743b35449b8622491ee9cca26a0">stateObservation::ObserverBase</a>.</p>
+
+</div>
+</div>
+<a id="a0f96c9bc6577b51e35c520719c5c965b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f96c9bc6577b51e35c520719c5c965b">&#9670;&nbsp;</a></span>setInputSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setInputSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>changes the size of the input vector: reset the stored input vectors </p>
+
+<p>Reimplemented from <a class="el" href="a00829.html#a7d28f6d0f3fb3d377db32a20b0a2682f">stateObservation::ObserverBase</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a00825.html#aa729d19bdf6ff34ba2e74b0fc8f5f354">stateObservation::LinearKalmanFilter</a>.</p>
+
+</div>
+</div>
+<a id="a812f3b37b333be2bc9e3dac78e80b241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a812f3b37b333be2bc9e3dac78e80b241">&#9670;&nbsp;</a></span>setMeasurement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setMeasurement </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00829.html#abf28d39d18e070f71bac67695f39e867">ObserverBase::MeasureVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>y_k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the value of the measurements vector at time index k. </p>
+<p>The measurements have to be inserted in chronological order without gaps. </p>
+
+<p>Implements <a class="el" href="a00829.html#aa393736477ffce4ef0a9346e9e13f716">stateObservation::ObserverBase</a>.</p>
+
+</div>
+</div>
+<a id="a46f6c0b0d107a5eaca46d16db27d6e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f6c0b0d107a5eaca46d16db27d6e26">&#9670;&nbsp;</a></span>setMeasureSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setMeasureSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>changes the size of the measurement vector: reset the stored measurement vectors </p>
+
+<p>Reimplemented from <a class="el" href="a00829.html#aeb0b07ddd9b801f7586d2b42adab593b">stateObservation::ObserverBase</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a00817.html#ab67b5ddb096384082292a5f1971168d0">stateObservation::KalmanFilterBase</a>, and <a class="el" href="a00825.html#a65e1124224f753231201e938b520620a">stateObservation::LinearKalmanFilter</a>.</p>
+
+</div>
+</div>
+<a id="a8247a916d22411cadd69cf6b0c60c87d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8247a916d22411cadd69cf6b0c60c87d">&#9670;&nbsp;</a></span>setState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00829.html#a1f4384e4ec12cd4da2dc984688e345c1">ObserverBase::StateVector</a> &amp;&#160;</td>
+          <td class="paramname"><em>x_k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00132.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the value of the state vector at time index k. </p>
+<p>Only the value with the highest time-index is kept and others are deleted, the highest index is called the current time k_0 </p>
+
+<p>Implements <a class="el" href="a00829.html#a24848c36ce5ef81cfc41bb73dfc333ed">stateObservation::ObserverBase</a>.</p>
+
+</div>
+</div>
+<a id="a864b38d88067e8a654e2972d1b8eed02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a864b38d88067e8a654e2972d1b8eed02">&#9670;&nbsp;</a></span>setStateSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void stateObservation::ZeroDelayObserver::setStateSize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00132.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>changes the size of the state vector: resets the stored state vector </p>
+
+<p>Reimplemented from <a class="el" href="a00829.html#ad83492986c66c60bb742161d049bc559">stateObservation::ObserverBase</a>.</p>
+
+<p>Reimplemented in <a class="el" href="a00817.html#a5b5b67781fe2dfb3a5ec88d47c61b740">stateObservation::KalmanFilterBase</a>, and <a class="el" href="a00825.html#a8dee6b40f29ebf73d002634808401618">stateObservation::LinearKalmanFilter</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="abb4524384007ca7cfb2bd52ac6c8adf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb4524384007ca7cfb2bd52ac6c8adf2">&#9670;&nbsp;</a></span>acc_</h2>
+<a id="a586b3f05416f37af3d8604b0e444cded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a586b3f05416f37af3d8604b0e444cded">&#9670;&nbsp;</a></span>u_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,7 +1144,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::AccelerometerGyrometer::acc_</td>
+          <td class="memname"><a class="el" href="a00132.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> stateObservation::ZeroDelayObserver::u_</td>
         </tr>
       </table>
   </td>
@@ -401,10 +1154,12 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Container for the inputs. </p>
+
 </div>
 </div>
-<a id="a40a2d19abd031b45e8c099cdb47b244b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40a2d19abd031b45e8c099cdb47b244b">&#9670;&nbsp;</a></span>currentStateSize_</h2>
+<a id="a8117ab4e9354603b9233fe5c316639b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8117ab4e9354603b9233fe5c316639b9">&#9670;&nbsp;</a></span>x_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -413,7 +1168,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::AccelerometerGyrometer::currentStateSize_</td>
+          <td class="memname"><a class="el" href="a00132.html#aecc3c0d59b6a43528535cda30241c60b">IndexedVector</a> stateObservation::ZeroDelayObserver::x_</td>
         </tr>
       </table>
   </td>
@@ -423,10 +1178,13 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>while the measurements and iputs are put in lists </p>
+<p>The state estimation of the observer (only one state is recorded) </p>
+
 </div>
 </div>
-<a id="a477ee1fcc29f77bac83cca4f27c8496e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a477ee1fcc29f77bac83cca4f27c8496e">&#9670;&nbsp;</a></span>matrixMode_</h2>
+<a id="a6c19c097d2780bb922eee1da1cd15b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c19c097d2780bb922eee1da1cd15b35">&#9670;&nbsp;</a></span>y_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -435,7 +1193,7 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stateObservation::AccelerometerGyrometer::matrixMode_</td>
+          <td class="memname"><a class="el" href="a00132.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> stateObservation::ZeroDelayObserver::y_</td>
         </tr>
       </table>
   </td>
@@ -445,137 +1203,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a3ff8dddb15c8df3adbe5903aa8838c3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ff8dddb15c8df3adbe5903aa8838c3c">&#9670;&nbsp;</a></span>measurementSize_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::AccelerometerGyrometer::measurementSize_ = 6</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1b8286d9de8d69fd612c80f536f961d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b8286d9de8d69fd612c80f536f961d8">&#9670;&nbsp;</a></span>omega_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::AccelerometerGyrometer::omega_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad659228fe2eeb04323ed8cf8f53e8972"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad659228fe2eeb04323ed8cf8f53e8972">&#9670;&nbsp;</a></span>output_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::AccelerometerGyrometer::output_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d3852e093efa3f3ddbb7d5ebbac70cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d3852e093efa3f3ddbb7d5ebbac70cd">&#9670;&nbsp;</a></span>r_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00129.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> stateObservation::AccelerometerGyrometer::r_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a39e4e95f1d6f0a76bb702142b321fac8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39e4e95f1d6f0a76bb702142b321fac8">&#9670;&nbsp;</a></span>stateSize_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::AccelerometerGyrometer::stateSize_ = 10</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0017a3accc95760d29b66668ced0b015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0017a3accc95760d29b66668ced0b015">&#9670;&nbsp;</a></span>stateSizeMatrix_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::AccelerometerGyrometer::stateSizeMatrix_ = 15</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Container for the measurements. </p>
 
 </div>
 </div>
@@ -585,8 +1213,8 @@ Static Protected Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00837.html">AccelerometerGyrometer</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00837.html">ZeroDelayObserver</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

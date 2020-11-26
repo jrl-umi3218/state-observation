@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: DynamicsFunctorBase Class Reference</title>
+<title>state-observation: stateObservation::kine::Kinematics::Flags Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -67,27 +67,217 @@ $(document).ready(function(){initNavTree('a00949.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="a00946.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">DynamicsFunctorBase Class Reference</div>  </div>
+<div class="title">stateObservation::kine::Kinematics::Flags Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><pre class="fragment">   This is the base class of any functor that describes the dynamics
-   of the state and the measurement.</pre>  
- <a href="a00949.html#details">More...</a></p>
+<p><code>#include &lt;state-observation/tools/rigid-body-kinematics.hpp&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac72fe189696d37e0d9c52651a24fc8ee"><td class="memItemLeft" align="right" valign="top">typedef unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a></td></tr>
+<tr class="separator:ac72fe189696d37e0d9c52651a24fc8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae90f0816a290c6219be3ba35a0d2bef8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#ae90f0816a290c6219be3ba35a0d2bef8">position</a> = BOOST_BINARY(000001)</td></tr>
+<tr class="separator:ae90f0816a290c6219be3ba35a0d2bef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a714ef29e1fdbf9bdeba284fd14bdf348"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#a714ef29e1fdbf9bdeba284fd14bdf348">orientation</a> = BOOST_BINARY(000010)</td></tr>
+<tr class="separator:a714ef29e1fdbf9bdeba284fd14bdf348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3621075e74f491ee5781c306abe033"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#a1c3621075e74f491ee5781c306abe033">linVel</a> = BOOST_BINARY(000100)</td></tr>
+<tr class="separator:a1c3621075e74f491ee5781c306abe033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3621713f8d8752828e73337be148df55"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#a3621713f8d8752828e73337be148df55">angVel</a> = BOOST_BINARY(001000)</td></tr>
+<tr class="separator:a3621713f8d8752828e73337be148df55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe01fd94aefe689e83fb14d44ce3363"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#acbe01fd94aefe689e83fb14d44ce3363">linAcc</a> = BOOST_BINARY(010000)</td></tr>
+<tr class="separator:acbe01fd94aefe689e83fb14d44ce3363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2df8b3ef79830843136172b6ab4ebf8"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#ac2df8b3ef79830843136172b6ab4ebf8">angAcc</a> = BOOST_BINARY(100000)</td></tr>
+<tr class="separator:ac2df8b3ef79830843136172b6ab4ebf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad73a2552a558da86e8cd4c548b9613f0"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00949.html#ad73a2552a558da86e8cd4c548b9613f0">all</a> = <a class="el" href="a00949.html#ae90f0816a290c6219be3ba35a0d2bef8">position</a> | <a class="el" href="a00949.html#a714ef29e1fdbf9bdeba284fd14bdf348">orientation</a> | <a class="el" href="a00949.html#a1c3621075e74f491ee5781c306abe033">linVel</a> | <a class="el" href="a00949.html#a3621713f8d8752828e73337be148df55">angVel</a> | <a class="el" href="a00949.html#acbe01fd94aefe689e83fb14d44ce3363">linAcc</a> | <a class="el" href="a00949.html#ac2df8b3ef79830843136172b6ab4ebf8">angAcc</a></td></tr>
+<tr class="separator:ad73a2552a558da86e8cd4c548b9613f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ac72fe189696d37e0d9c52651a24fc8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac72fe189696d37e0d9c52651a24fc8ee">&#9670;&nbsp;</a></span>Byte</h2>
 
-<p><code>#include &lt;state-observation/dynamical-system/dynamical-system-functor-base.hpp&gt;</code></p>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">   This is the base class of any functor that describes the dynamics
-   of the state and the measurement.</pre> <p>This class is to be derived in order to be given to the Extended Kalman Filter. </p>
-</div></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned char <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">stateObservation::kine::Kinematics::Flags::Byte</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad73a2552a558da86e8cd4c548b9613f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73a2552a558da86e8cd4c548b9613f0">&#9670;&nbsp;</a></span>all</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::all = <a class="el" href="a00949.html#ae90f0816a290c6219be3ba35a0d2bef8">position</a> | <a class="el" href="a00949.html#a714ef29e1fdbf9bdeba284fd14bdf348">orientation</a> | <a class="el" href="a00949.html#a1c3621075e74f491ee5781c306abe033">linVel</a> | <a class="el" href="a00949.html#a3621713f8d8752828e73337be148df55">angVel</a> | <a class="el" href="a00949.html#acbe01fd94aefe689e83fb14d44ce3363">linAcc</a> | <a class="el" href="a00949.html#ac2df8b3ef79830843136172b6ab4ebf8">angAcc</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac2df8b3ef79830843136172b6ab4ebf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2df8b3ef79830843136172b6ab4ebf8">&#9670;&nbsp;</a></span>angAcc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::angAcc = BOOST_BINARY(100000)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3621713f8d8752828e73337be148df55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3621713f8d8752828e73337be148df55">&#9670;&nbsp;</a></span>angVel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::angVel = BOOST_BINARY(001000)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acbe01fd94aefe689e83fb14d44ce3363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe01fd94aefe689e83fb14d44ce3363">&#9670;&nbsp;</a></span>linAcc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::linAcc = BOOST_BINARY(010000)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1c3621075e74f491ee5781c306abe033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3621075e74f491ee5781c306abe033">&#9670;&nbsp;</a></span>linVel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::linVel = BOOST_BINARY(000100)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a714ef29e1fdbf9bdeba284fd14bdf348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a714ef29e1fdbf9bdeba284fd14bdf348">&#9670;&nbsp;</a></span>orientation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::orientation = BOOST_BINARY(000010)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae90f0816a290c6219be3ba35a0d2bef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae90f0816a290c6219be3ba35a0d2bef8">&#9670;&nbsp;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00949.html#ac72fe189696d37e0d9c52651a24fc8ee">Byte</a> stateObservation::kine::Kinematics::Flags::position = BOOST_BINARY(000001)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00949.html">DynamicsFunctorBase</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00141.html">kine</a></li><li class="navelem"><a class="el" href="a00945.html">Kinematics</a></li><li class="navelem"><a class="el" href="a00949.html">Flags</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

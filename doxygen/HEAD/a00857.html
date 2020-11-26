@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::SensorBase Class Reference</title>
+<title>state-observation: stateObservation::algorithm::MagneticField Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -69,85 +69,48 @@ $(document).ready(function(){initNavTree('a00857.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00854.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::SensorBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stateObservation::algorithm::MagneticField Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The base class for sensors.  
+<p>Implements the measurements given by an magnetometer.  
  <a href="a00857.html#details">More...</a></p>
 
-<p><code>#include &lt;state-observation/sensors-simulation/sensor-base.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/sensors-simulation/algorithm/magnetic-field.hpp&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for stateObservation::SensorBase:</div>
+Inheritance diagram for stateObservation::algorithm::MagneticField:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="a00857.png" usemap="#stateObservation::SensorBase_map" alt=""/>
-  <map id="stateObservation::SensorBase_map" name="stateObservation::SensorBase_map">
-<area href="a00841.html" title="The base class for algebraic sensors. " alt="stateObservation::AlgebraicSensor" shape="rect" coords="172,56,507,80"/>
-<area href="a00837.html" title="Implements the accelerometer-gyrometer measurements. " alt="stateObservation::AccelerometerGyrometer" shape="rect" coords="0,112,335,136"/>
-<area href="a00833.html" title="Implements the accelerometer-gyrometer-magnetometer measurements. " alt="stateObservation::AccelerometerGyrometerMagnetometer" shape="rect" coords="345,112,680,136"/>
+  <img src="a00857.png" usemap="#stateObservation::algorithm::MagneticField_map" alt=""/>
+  <map id="stateObservation::algorithm::MagneticField_map" name="stateObservation::algorithm::MagneticField_map">
+<area href="a00841.html" title="Implements the accelerometer-gyrometer-magnetometer measurements. " alt="stateObservation::AccelerometerGyrometerMagnetometer" shape="rect" coords="0,56,335,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab55880f1e88daaa2c29d3f24001bf4d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#ab55880f1e88daaa2c29d3f24001bf4d5">SensorBase</a> ()</td></tr>
-<tr class="memdesc:ab55880f1e88daaa2c29d3f24001bf4d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor  <a href="#ab55880f1e88daaa2c29d3f24001bf4d5">More...</a><br /></td></tr>
-<tr class="separator:ab55880f1e88daaa2c29d3f24001bf4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96989c38d20f6c62c28a8fb50b373f70"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a96989c38d20f6c62c28a8fb50b373f70">~SensorBase</a> ()</td></tr>
-<tr class="memdesc:a96989c38d20f6c62c28a8fb50b373f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="#a96989c38d20f6c62c28a8fb50b373f70">More...</a><br /></td></tr>
-<tr class="separator:a96989c38d20f6c62c28a8fb50b373f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3">getMeasurements</a> (bool noisy=true)=0</td></tr>
-<tr class="memdesc:a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the measurement of the current time.  <a href="#a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3">More...</a><br /></td></tr>
-<tr class="separator:a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb9f104d97839f31a2f1d116affc9a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a4fb9f104d97839f31a2f1d116affc9a6">setState</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;state, <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)=0</td></tr>
-<tr class="memdesc:a4fb9f104d97839f31a2f1d116affc9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the state at instant k.  <a href="#a4fb9f104d97839f31a2f1d116affc9a6">More...</a><br /></td></tr>
-<tr class="separator:a4fb9f104d97839f31a2f1d116affc9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a757c0ad88de20b53a8541a159f176ca9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a757c0ad88de20b53a8541a159f176ca9">setNoise</a> (<a class="el" href="a00797.html">NoiseBase</a> *)</td></tr>
-<tr class="memdesc:a757c0ad88de20b53a8541a159f176ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a pointer on the noise on the measurements.  <a href="#a757c0ad88de20b53a8541a159f176ca9">More...</a><br /></td></tr>
-<tr class="separator:a757c0ad88de20b53a8541a159f176ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee999cbc583f4d8d0d4dffca1f32ac01"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00797.html">NoiseBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#aee999cbc583f4d8d0d4dffca1f32ac01">getNoise</a> () const</td></tr>
-<tr class="memdesc:aee999cbc583f4d8d0d4dffca1f32ac01"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the pointer on the measurements noise  <a href="#aee999cbc583f4d8d0d4dffca1f32ac01">More...</a><br /></td></tr>
-<tr class="separator:aee999cbc583f4d8d0d4dffca1f32ac01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af148ffe92047891e1871efa7cc6225cc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#af148ffe92047891e1871efa7cc6225cc">resetNoise</a> ()</td></tr>
-<tr class="memdesc:af148ffe92047891e1871efa7cc6225cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes the noise  <a href="#af148ffe92047891e1871efa7cc6225cc">More...</a><br /></td></tr>
-<tr class="separator:af148ffe92047891e1871efa7cc6225cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad58dcd2f5f50a5629a40af3bcab262d1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#ad58dcd2f5f50a5629a40af3bcab262d1">getTime</a> () const =0</td></tr>
-<tr class="memdesc:ad58dcd2f5f50a5629a40af3bcab262d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the current time, pure virtual method  <a href="#ad58dcd2f5f50a5629a40af3bcab262d1">More...</a><br /></td></tr>
-<tr class="separator:ad58dcd2f5f50a5629a40af3bcab262d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78a1a76497eed4c226026a4a6412ddc9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a78a1a76497eed4c226026a4a6412ddc9">getStateSize</a> () const =0</td></tr>
-<tr class="memdesc:a78a1a76497eed4c226026a4a6412ddc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the state vector size. Pure virtual method.  <a href="#a78a1a76497eed4c226026a4a6412ddc9">More...</a><br /></td></tr>
-<tr class="separator:a78a1a76497eed4c226026a4a6412ddc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a725d7f1317d86e578babddf0a0c11f29"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a725d7f1317d86e578babddf0a0c11f29">getMeasurementSize</a> () const =0</td></tr>
-<tr class="memdesc:a725d7f1317d86e578babddf0a0c11f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the size of the measurements. Pure virtual method.  <a href="#a725d7f1317d86e578babddf0a0c11f29">More...</a><br /></td></tr>
-<tr class="separator:a725d7f1317d86e578babddf0a0c11f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f641c5d0932f7af8c86d52ed9bac0ff"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a9f641c5d0932f7af8c86d52ed9bac0ff">stateVectorZero</a> () const</td></tr>
-<tr class="memdesc:a9f641c5d0932f7af8c86d52ed9bac0ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets a zero vector of the size of a state vector  <a href="#a9f641c5d0932f7af8c86d52ed9bac0ff">More...</a><br /></td></tr>
-<tr class="separator:a9f641c5d0932f7af8c86d52ed9bac0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a156904f2a867a1ed0212a5b2f8e2b01a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a156904f2a867a1ed0212a5b2f8e2b01a">checkStateVector</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;) const</td></tr>
-<tr class="memdesc:a156904f2a867a1ed0212a5b2f8e2b01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks whether a vector is correctly sized or not  <a href="#a156904f2a867a1ed0212a5b2f8e2b01a">More...</a><br /></td></tr>
-<tr class="separator:a156904f2a867a1ed0212a5b2f8e2b01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a2485deaf19c72e5d4b61ec69ad470630"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00797.html">NoiseBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a2485deaf19c72e5d4b61ec69ad470630">noise_</a></td></tr>
-<tr class="separator:a2485deaf19c72e5d4b61ec69ad470630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47c35698ff5d6f45835e97fb12060b0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a47c35698ff5d6f45835e97fb12060b0b">MagneticField</a> ()</td></tr>
+<tr class="separator:a47c35698ff5d6f45835e97fb12060b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a378b9f529095319af8d55aadc7cdf319"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a378b9f529095319af8d55aadc7cdf319">~MagneticField</a> ()</td></tr>
+<tr class="memdesc:a378b9f529095319af8d55aadc7cdf319"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="#a378b9f529095319af8d55aadc7cdf319">More...</a><br /></td></tr>
+<tr class="separator:a378b9f529095319af8d55aadc7cdf319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd2cdc1e302cb99e6ca077699d76dbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00857.html#a9fd2cdc1e302cb99e6ca077699d76dbd">magneticFieldMeasure</a> (const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation) const</td></tr>
+<tr class="memdesc:a9fd2cdc1e302cb99e6ca077699d76dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The magnetic field measurement in the local frame represented by the orientation Matrix.  <a href="#a9fd2cdc1e302cb99e6ca077699d76dbd">More...</a><br /></td></tr>
+<tr class="separator:a9fd2cdc1e302cb99e6ca077699d76dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The base class for sensors. </p>
-<p>This must be derived to implement a sensor </p>
+<div class="textblock"><p>Implements the measurements given by an magnetometer. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab55880f1e88daaa2c29d3f24001bf4d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab55880f1e88daaa2c29d3f24001bf4d5">&#9670;&nbsp;</a></span>SensorBase()</h2>
+<a id="a47c35698ff5d6f45835e97fb12060b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47c35698ff5d6f45835e97fb12060b0b">&#9670;&nbsp;</a></span>MagneticField()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">stateObservation::SensorBase::SensorBase </td>
+          <td class="memname">stateObservation::algorithm::MagneticField::MagneticField </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -155,12 +118,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>default constructor </p>
-
 </div>
 </div>
-<a id="a96989c38d20f6c62c28a8fb50b373f70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96989c38d20f6c62c28a8fb50b373f70">&#9670;&nbsp;</a></span>~SensorBase()</h2>
+<a id="a378b9f529095319af8d55aadc7cdf319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a378b9f529095319af8d55aadc7cdf319">&#9670;&nbsp;</a></span>~MagneticField()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +130,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stateObservation::SensorBase::~SensorBase </td>
+          <td class="memname">virtual stateObservation::algorithm::MagneticField::~MagneticField </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -187,322 +148,23 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a156904f2a867a1ed0212a5b2f8e2b01a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a156904f2a867a1ed0212a5b2f8e2b01a">&#9670;&nbsp;</a></span>checkStateVector()</h2>
+<a id="a9fd2cdc1e302cb99e6ca077699d76dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd2cdc1e302cb99e6ca077699d76dbd">&#9670;&nbsp;</a></span>magneticFieldMeasure()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool stateObservation::SensorBase::checkStateVector </td>
+          <td class="memname"><a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::algorithm::MagneticField::magneticFieldMeasure </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramname"><em>orientation</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>checks whether a vector is correctly sized or not </p>
-
-</div>
-</div>
-<a id="a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3">&#9670;&nbsp;</a></span>getMeasurements()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::SensorBase::getMeasurements </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>noisy</em> = <code>true</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gets the measurement of the current time. </p>
-<p>We can choose to consider noise or not (default is noisy) </p>
-
-<p>Implemented in <a class="el" href="a00841.html#ae1e4246613f525c151b2b4cb33732ec4">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="a725d7f1317d86e578babddf0a0c11f29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a725d7f1317d86e578babddf0a0c11f29">&#9670;&nbsp;</a></span>getMeasurementSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::SensorBase::getMeasurementSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>get the size of the measurements. Pure virtual method. </p>
-
-<p>Implemented in <a class="el" href="a00841.html#aac61db371820cace77b59d123c02c0d8">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="aee999cbc583f4d8d0d4dffca1f32ac01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee999cbc583f4d8d0d4dffca1f32ac01">&#9670;&nbsp;</a></span>getNoise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00797.html">NoiseBase</a>* stateObservation::SensorBase::getNoise </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gets the pointer on the measurements noise </p>
-
-</div>
-</div>
-<a id="a78a1a76497eed4c226026a4a6412ddc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78a1a76497eed4c226026a4a6412ddc9">&#9670;&nbsp;</a></span>getStateSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::SensorBase::getStateSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gets the state vector size. Pure virtual method. </p>
-
-<p>Implemented in <a class="el" href="a00841.html#af605d2135835d0765a2ec90c65ca10f5">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="ad58dcd2f5f50a5629a40af3bcab262d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad58dcd2f5f50a5629a40af3bcab262d1">&#9670;&nbsp;</a></span>getTime()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> stateObservation::SensorBase::getTime </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gets the current time, pure virtual method </p>
-
-<p>Implemented in <a class="el" href="a00841.html#ae5d5ea7fce3de8de54c5e111e2077dad">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="af148ffe92047891e1871efa7cc6225cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af148ffe92047891e1871efa7cc6225cc">&#9670;&nbsp;</a></span>resetNoise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::SensorBase::resetNoise </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>removes the noise </p>
-
-</div>
-</div>
-<a id="a757c0ad88de20b53a8541a159f176ca9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a757c0ad88de20b53a8541a159f176ca9">&#9670;&nbsp;</a></span>setNoise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::SensorBase::setNoise </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00797.html">NoiseBase</a> *&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets a pointer on the noise on the measurements. </p>
-<p>The class does NOT destroy the noise when the destructor is called. </p>
-
-</div>
-</div>
-<a id="a4fb9f104d97839f31a2f1d116affc9a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fb9f104d97839f31a2f1d116affc9a6">&#9670;&nbsp;</a></span>setState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::SensorBase::setState </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>state</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
-          <td class="paramname"><em>k</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the value of the state at instant k. </p>
-
-<p>Implemented in <a class="el" href="a00841.html#a5a03e0a847539caa457c8c9e93daecf4">stateObservation::AlgebraicSensor</a>.</p>
-
-</div>
-</div>
-<a id="a9f641c5d0932f7af8c86d52ed9bac0ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f641c5d0932f7af8c86d52ed9bac0ff">&#9670;&nbsp;</a></span>stateVectorZero()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::SensorBase::stateVectorZero </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gets a zero vector of the size of a state vector </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a2485deaf19c72e5d4b61ec69ad470630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2485deaf19c72e5d4b61ec69ad470630">&#9670;&nbsp;</a></span>noise_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00797.html">NoiseBase</a>* stateObservation::SensorBase::noise_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>The magnetic field measurement in the local frame represented by the orientation Matrix. </p>
 
 </div>
 </div>
@@ -512,8 +174,8 @@ Protected Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00857.html">SensorBase</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00135.html">algorithm</a></li><li class="navelem"><a class="el" href="a00857.html">MagneticField</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

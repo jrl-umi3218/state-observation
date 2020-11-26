@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: GaussienWhiteNoise Class Reference</title>
+<title>state-observation: DynamicsFunctorBase Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,24 +68,26 @@ $(document).ready(function(){initNavTree('a00957.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">GaussienWhiteNoise Class Reference</div>  </div>
+<div class="title">DynamicsFunctorBase Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The class derivates the NoiseBase class to implement a gaussian white noise with a given covariance matrix, and bias.  
+<p><pre class="fragment">   This is the base class of any functor that describes the dynamics
+   of the state and the measurement.</pre>  
  <a href="a00957.html#details">More...</a></p>
 
-<p><code>#include &lt;state-observation/noise/gaussian-white-noise.hpp&gt;</code></p>
+<p><code>#include &lt;state-observation/dynamical-system/dynamical-system-functor-base.hpp&gt;</code></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The class derivates the NoiseBase class to implement a gaussian white noise with a given covariance matrix, and bias. </p>
+<div class="textblock"><pre class="fragment">   This is the base class of any functor that describes the dynamics
+   of the state and the measurement.</pre> <p>This class is to be derived in order to be given to the Extended Kalman Filter. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00957.html">GaussienWhiteNoise</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00957.html">DynamicsFunctorBase</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

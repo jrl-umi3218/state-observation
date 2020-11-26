@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase Class Reference</title>
+<title>state-observation: stateObservation::LipmDcmEstimator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -69,177 +69,280 @@ $(document).ready(function(){initNavTree('a00741.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00738.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">stateObservation::LipmDcmEstimator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This class is the base class of the flexibility estimators that use an extended Kalman Filter.  
- <a href="a00741.html#details">More...</a></p>
-
-<p><code>#include &lt;state-observation/flexibility-estimation/ekf-flexibility-estimator-base.hpp&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="a00741.png" usemap="#stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase_map" alt=""/>
-  <map id="stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase_map" name="stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase_map">
-<area href="a00749.html" title="This class is the base class of the flexibility estimators. " alt="stateObservation::flexibilityEstimation::FlexibilityEstimatorBase" shape="rect" coords="214,0,633,24"/>
-<area href="a00745.html" title="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..." alt="stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU" shape="rect" coords="0,112,419,136"/>
-<area href="a00777.html" title="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..." alt="stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU" shape="rect" coords="429,112,848,136"/>
-</map>
- </div></div>
+<p><code>#include &lt;state-observation/dynamics-estimators/lipm-dcm-estimator.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a57bd701cf7b1e71380fe0a91e1fb2b91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a57bd701cf7b1e71380fe0a91e1fb2b91">EKFFlexibilityEstimatorBase</a> (<a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateSize, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> measurementSize, <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> inputSize, const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;dx=Vector::Zero(0))</td></tr>
-<tr class="memdesc:a57bd701cf7b1e71380fe0a91e1fb2b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#a57bd701cf7b1e71380fe0a91e1fb2b91">More...</a><br /></td></tr>
-<tr class="separator:a57bd701cf7b1e71380fe0a91e1fb2b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d51a6b07fe1d2154dd6424016a923fc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a6d51a6b07fe1d2154dd6424016a923fc">~EKFFlexibilityEstimatorBase</a> ()</td></tr>
-<tr class="memdesc:a6d51a6b07fe1d2154dd6424016a923fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="#a6d51a6b07fe1d2154dd6424016a923fc">More...</a><br /></td></tr>
-<tr class="separator:a6d51a6b07fe1d2154dd6424016a923fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25f59bf9ae780f40e7c00540bff2bce5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a25f59bf9ae780f40e7c00540bff2bce5">setFlexibilityGuess</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;)=0</td></tr>
-<tr class="memdesc:a25f59bf9ae780f40e7c00540bff2bce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a value of the flexibility x_k provided from another source can be used for initialization of the estimator This is a pure virtual function that requires to be overloaded in implementation.  <a href="#a25f59bf9ae780f40e7c00540bff2bce5">More...</a><br /></td></tr>
-<tr class="separator:a25f59bf9ae780f40e7c00540bff2bce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae69973109b5ac7976be43beb14744edf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ae69973109b5ac7976be43beb14744edf">setFlexibilityCovariance</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;P)</td></tr>
-<tr class="memdesc:ae69973109b5ac7976be43beb14744edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the covariance matrix of the flexibility Guess.  <a href="#ae69973109b5ac7976be43beb14744edf">More...</a><br /></td></tr>
-<tr class="separator:ae69973109b5ac7976be43beb14744edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cbc8082ee870d2b35176177800b1272"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a9cbc8082ee870d2b35176177800b1272">getFlexibilityCovariance</a> () const</td></tr>
-<tr class="memdesc:a9cbc8082ee870d2b35176177800b1272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the covariance matrix of the flexibility.  <a href="#a9cbc8082ee870d2b35176177800b1272">More...</a><br /></td></tr>
-<tr class="separator:a9cbc8082ee870d2b35176177800b1272"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa39a732073841dc8b7ed868a17d1b671"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aa39a732073841dc8b7ed868a17d1b671">setProcessNoiseCovariance</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;Q)</td></tr>
-<tr class="memdesc:aa39a732073841dc8b7ed868a17d1b671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the covariance matrices for the process noises.  <a href="#aa39a732073841dc8b7ed868a17d1b671">More...</a><br /></td></tr>
-<tr class="separator:aa39a732073841dc8b7ed868a17d1b671"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20b53dfbc4f9688155d5633d696ec2c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a20b53dfbc4f9688155d5633d696ec2c8">setMeasurementNoiseCovariance</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;R)</td></tr>
-<tr class="memdesc:a20b53dfbc4f9688155d5633d696ec2c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the covariance matrices for the sensor noises.  <a href="#a20b53dfbc4f9688155d5633d696ec2c8">More...</a><br /></td></tr>
-<tr class="separator:a20b53dfbc4f9688155d5633d696ec2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dfbc349f2428b6f32b4c8d5bd1a6fc5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a3dfbc349f2428b6f32b4c8d5bd1a6fc5">getProcessNoiseCovariance</a> () const</td></tr>
-<tr class="memdesc:a3dfbc349f2428b6f32b4c8d5bd1a6fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the covariance matrices for the process noises  <a href="#a3dfbc349f2428b6f32b4c8d5bd1a6fc5">More...</a><br /></td></tr>
-<tr class="separator:a3dfbc349f2428b6f32b4c8d5bd1a6fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af501021b695aff014743018ec65ed710"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#af501021b695aff014743018ec65ed710">getMeasurementNoiseCovariance</a> () const</td></tr>
-<tr class="memdesc:af501021b695aff014743018ec65ed710"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the covariance matrices for the sensor noises  <a href="#af501021b695aff014743018ec65ed710">More...</a><br /></td></tr>
-<tr class="separator:af501021b695aff014743018ec65ed710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af29afe44ee2bbed391e5eb90136dda8d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#af29afe44ee2bbed391e5eb90136dda8d">setMeasurement</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;y)</td></tr>
-<tr class="memdesc:af29afe44ee2bbed391e5eb90136dda8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the next sensor measurement y_{k+1}.  <a href="#af29afe44ee2bbed391e5eb90136dda8d">More...</a><br /></td></tr>
-<tr class="separator:af29afe44ee2bbed391e5eb90136dda8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a058ef95644b1ddad79c4df5d1a5e66"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a1a058ef95644b1ddad79c4df5d1a5e66">getMeasurement</a> ()</td></tr>
-<tr class="separator:a1a058ef95644b1ddad79c4df5d1a5e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75ecd41d3950f5f453d3011314dea6ee"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a75ecd41d3950f5f453d3011314dea6ee">setInput</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;u)</td></tr>
-<tr class="memdesc:a75ecd41d3950f5f453d3011314dea6ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the next input for the state process dynamics i.e.  <a href="#a75ecd41d3950f5f453d3011314dea6ee">More...</a><br /></td></tr>
-<tr class="separator:a75ecd41d3950f5f453d3011314dea6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaef07360e95fffcf3750e9cab460f2d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aaaef07360e95fffcf3750e9cab460f2d">setMeasurementInput</a> (const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;u)</td></tr>
-<tr class="memdesc:aaaef07360e95fffcf3750e9cab460f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the next measurement i.e.  <a href="#aaaef07360e95fffcf3750e9cab460f2d">More...</a><br /></td></tr>
-<tr class="separator:aaaef07360e95fffcf3750e9cab460f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4b48fb23d9087f2b6c06400f0d2e248"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aa4b48fb23d9087f2b6c06400f0d2e248">getInput</a> ()</td></tr>
-<tr class="separator:aa4b48fb23d9087f2b6c06400f0d2e248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab79522140d21c90fed967c1e8c299768"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ab79522140d21c90fed967c1e8c299768">getMeasurementInput</a> ()</td></tr>
-<tr class="separator:ab79522140d21c90fed967c1e8c299768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a899f8aa4f2e3920917e0d8b8bd8135c2"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a899f8aa4f2e3920917e0d8b8bd8135c2">getFlexibilityVector</a> ()</td></tr>
-<tr class="memdesc:a899f8aa4f2e3920917e0d8b8bd8135c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an estimation of the flexibility in the form of a state vector {x_{k+1}}.  <a href="#a899f8aa4f2e3920917e0d8b8bd8135c2">More...</a><br /></td></tr>
-<tr class="separator:a899f8aa4f2e3920917e0d8b8bd8135c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d2194dee95a78daba44e7f4e099321a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0d2194dee95a78daba44e7f4e099321a">getFlexibility</a> ()=0</td></tr>
-<tr class="memdesc:a0d2194dee95a78daba44e7f4e099321a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an estimation of the flexibility in the form of a homogeneous matrix.  <a href="#a0d2194dee95a78daba44e7f4e099321a">More...</a><br /></td></tr>
-<tr class="separator:a0d2194dee95a78daba44e7f4e099321a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae362fc399e1694a08ecd900da50e4f01"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="a00801.html">stateObservation::ExtendedKalmanFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ae362fc399e1694a08ecd900da50e4f01">getEKF</a> () const</td></tr>
-<tr class="memdesc:ae362fc399e1694a08ecd900da50e4f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a const reference on the extended Kalman filter.  <a href="#ae362fc399e1694a08ecd900da50e4f01">More...</a><br /></td></tr>
-<tr class="separator:ae362fc399e1694a08ecd900da50e4f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cde435bab52638677406be2d4cc1226"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00801.html">stateObservation::ExtendedKalmanFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a1cde435bab52638677406be2d4cc1226">getEKF</a> ()</td></tr>
-<tr class="memdesc:a1cde435bab52638677406be2d4cc1226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a reference on the extended Kalman filter.  <a href="#a1cde435bab52638677406be2d4cc1226">More...</a><br /></td></tr>
-<tr class="separator:a1cde435bab52638677406be2d4cc1226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f7c91dd885f81fb1f10fd5c42cbf784"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0f7c91dd885f81fb1f10fd5c42cbf784">getStateSize</a> () const =0</td></tr>
-<tr class="memdesc:a0f7c91dd885f81fb1f10fd5c42cbf784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state size this method is pure virtual and reauires to be overloaded in implementation.  <a href="#a0f7c91dd885f81fb1f10fd5c42cbf784">More...</a><br /></td></tr>
-<tr class="separator:a0f7c91dd885f81fb1f10fd5c42cbf784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af68333c27cbe06054113df0b8d47781a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#af68333c27cbe06054113df0b8d47781a">getMeasurementSize</a> () const =0</td></tr>
-<tr class="memdesc:af68333c27cbe06054113df0b8d47781a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the measurements size this method is pure virtual and reauires to be overloaded in implementation.  <a href="#af68333c27cbe06054113df0b8d47781a">More...</a><br /></td></tr>
-<tr class="separator:af68333c27cbe06054113df0b8d47781a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cbbf09a38d5c2a1b7d0d5b984de60fc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a9cbbf09a38d5c2a1b7d0d5b984de60fc">getInputSize</a> () const =0</td></tr>
-<tr class="memdesc:a9cbbf09a38d5c2a1b7d0d5b984de60fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the input size this method is pure virtual and reauires to be overloaded in implementation.  <a href="#a9cbbf09a38d5c2a1b7d0d5b984de60fc">More...</a><br /></td></tr>
-<tr class="separator:a9cbbf09a38d5c2a1b7d0d5b984de60fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad521aa40dae9934b899d1fc3ce5bbd45"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ad521aa40dae9934b899d1fc3ce5bbd45">getSimulatedMeasurement</a> ()</td></tr>
-<tr class="memdesc:ad521aa40dae9934b899d1fc3ce5bbd45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a simulation of the.  <a href="#ad521aa40dae9934b899d1fc3ce5bbd45">More...</a><br /></td></tr>
-<tr class="separator:ad521aa40dae9934b899d1fc3ce5bbd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f16cfd61edc2003055ce19437cc845"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a84f16cfd61edc2003055ce19437cc845">resetCovarianceMatrices</a> ()=0</td></tr>
-<tr class="memdesc:a84f16cfd61edc2003055ce19437cc845"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the covariance matrices to their original values.  <a href="#a84f16cfd61edc2003055ce19437cc845">More...</a><br /></td></tr>
-<tr class="separator:a84f16cfd61edc2003055ce19437cc845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e475b570f045b4de5e5b83e0143408f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a7e475b570f045b4de5e5b83e0143408f">getInnovation</a> ()</td></tr>
-<tr class="memdesc:a7e475b570f045b4de5e5b83e0143408f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last vector of inovation of the Kalman filter.  <a href="#a7e475b570f045b4de5e5b83e0143408f">More...</a><br /></td></tr>
-<tr class="separator:a7e475b570f045b4de5e5b83e0143408f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83889b6ffe872b475e1bd4cccaee3bf3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a83889b6ffe872b475e1bd4cccaee3bf3">getPredictedMeasurement</a> ()</td></tr>
-<tr class="memdesc:a83889b6ffe872b475e1bd4cccaee3bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the simulated measurement of the predicted state.  <a href="#a83889b6ffe872b475e1bd4cccaee3bf3">More...</a><br /></td></tr>
-<tr class="separator:a83889b6ffe872b475e1bd4cccaee3bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acee7618c00d087323bc0f20f49ab7dd8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#acee7618c00d087323bc0f20f49ab7dd8">getPrediction</a> ()</td></tr>
-<tr class="memdesc:acee7618c00d087323bc0f20f49ab7dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the predicted state.  <a href="#acee7618c00d087323bc0f20f49ab7dd8">More...</a><br /></td></tr>
-<tr class="separator:acee7618c00d087323bc0f20f49ab7dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73cb887bdae8c48913a10b047f208779"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a73cb887bdae8c48913a10b047f208779">getLastPredictedMeasurement</a> ()</td></tr>
-<tr class="memdesc:a73cb887bdae8c48913a10b047f208779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last simulated measurement.  <a href="#a73cb887bdae8c48913a10b047f208779">More...</a><br /></td></tr>
-<tr class="separator:a73cb887bdae8c48913a10b047f208779"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb5151175838a2a83ba306b1bbcf048"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aeeb5151175838a2a83ba306b1bbcf048">getLastPrediction</a> ()</td></tr>
-<tr class="memdesc:aeeb5151175838a2a83ba306b1bbcf048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last predicted state.  <a href="#aeeb5151175838a2a83ba306b1bbcf048">More...</a><br /></td></tr>
-<tr class="separator:aeeb5151175838a2a83ba306b1bbcf048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00749"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00749')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00749.html">stateObservation::flexibilityEstimation::FlexibilityEstimatorBase</a></td></tr>
-<tr class="memitem:acd34ef62ef73f7ec393e97b09b294e20 inherit pub_methods_a00749"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00749.html#acd34ef62ef73f7ec393e97b09b294e20">~FlexibilityEstimatorBase</a> ()</td></tr>
-<tr class="memdesc:acd34ef62ef73f7ec393e97b09b294e20 inherit pub_methods_a00749"><td class="mdescLeft">&#160;</td><td class="mdescRight">virtual destructor  <a href="a00749.html#acd34ef62ef73f7ec393e97b09b294e20">More...</a><br /></td></tr>
-<tr class="separator:acd34ef62ef73f7ec393e97b09b294e20 inherit pub_methods_a00749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fb88203bb522c4a9a3d325888bd0966 inherit pub_methods_a00749"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00749.html#a1fb88203bb522c4a9a3d325888bd0966">FlexibilityEstimatorBase</a> ()</td></tr>
-<tr class="memdesc:a1fb88203bb522c4a9a3d325888bd0966 inherit pub_methods_a00749"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="a00749.html#a1fb88203bb522c4a9a3d325888bd0966">More...</a><br /></td></tr>
-<tr class="separator:a1fb88203bb522c4a9a3d325888bd0966 inherit pub_methods_a00749"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada08c3c86037be4b80875f065ebbc2d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ada08c3c86037be4b80875f065ebbc2d2">LipmDcmEstimator</a> (double dt=defaultDt_, double omega_0=defaultOmega_, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initZMP=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initDcm=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Zero(), double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initDcmUncertainty=Vector2::Constant(<a class="el" href="a00741.html#a8ad8886adb2b05e432594cc3b575e9c8">defaultDCMUncertainty</a>), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasUncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:ada08c3c86037be4b80875f065ebbc2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Lipm Dcm Estimator object.  <a href="#ada08c3c86037be4b80875f065ebbc2d2">More...</a><br /></td></tr>
+<tr class="separator:ada08c3c86037be4b80875f065ebbc2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf82909a9991ad16b0d243ccd5d4e790"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#acf82909a9991ad16b0d243ccd5d4e790">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;yaw, bool measurementIsWithBias, double biasDriftPerSecondStd, double dcmMeasureErrorStd, double zmpMeasureErrorStd, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:acf82909a9991ad16b0d243ccd5d4e790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#acf82909a9991ad16b0d243ccd5d4e790">More...</a><br /></td></tr>
+<tr class="separator:acf82909a9991ad16b0d243ccd5d4e790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad7d1818135ddc01c0916f6a1492df9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aad7d1818135ddc01c0916f6a1492df9e">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;yaw=Matrix2::Identity(), bool measurementIsWithBias=true, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:aad7d1818135ddc01c0916f6a1492df9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#aad7d1818135ddc01c0916f6a1492df9e">More...</a><br /></td></tr>
+<tr class="separator:aad7d1818135ddc01c0916f6a1492df9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0f10c0ac1ce80587d90553b4612792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a5b0f10c0ac1ce80587d90553b4612792">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, double yaw, bool measurementIsWithBias=true, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:a5b0f10c0ac1ce80587d90553b4612792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a5b0f10c0ac1ce80587d90553b4612792">More...</a><br /></td></tr>
+<tr class="separator:a5b0f10c0ac1ce80587d90553b4612792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8701ddcb4fb868ce71b7639ee0f2a423"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a8701ddcb4fb868ce71b7639ee0f2a423">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;rotation, bool measurementIsWithBias=true, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:a8701ddcb4fb868ce71b7639ee0f2a423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a8701ddcb4fb868ce71b7639ee0f2a423">More...</a><br /></td></tr>
+<tr class="separator:a8701ddcb4fb868ce71b7639ee0f2a423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aab05e32946eca2e9d1835ed52ad843"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0aab05e32946eca2e9d1835ed52ad843">~LipmDcmEstimator</a> ()</td></tr>
+<tr class="memdesc:a0aab05e32946eca2e9d1835ed52ad843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Lipm Dcm Bias Estimator object.  <a href="#a0aab05e32946eca2e9d1835ed52ad843">More...</a><br /></td></tr>
+<tr class="separator:a0aab05e32946eca2e9d1835ed52ad843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f7c7370e6a59a92523d4702fafc085"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a04f7c7370e6a59a92523d4702fafc085">setLipmNaturalFrequency</a> (double omega_0)</td></tr>
+<tr class="memdesc:a04f7c7370e6a59a92523d4702fafc085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Lipm Natural Frequency.  <a href="#a04f7c7370e6a59a92523d4702fafc085">More...</a><br /></td></tr>
+<tr class="separator:a04f7c7370e6a59a92523d4702fafc085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30095e8f4ae2c5b3f17efd9ea1356518"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a30095e8f4ae2c5b3f17efd9ea1356518">getLipmNaturalFrequency</a> () const</td></tr>
+<tr class="memdesc:a30095e8f4ae2c5b3f17efd9ea1356518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Lipm Natural Frequency.  <a href="#a30095e8f4ae2c5b3f17efd9ea1356518">More...</a><br /></td></tr>
+<tr class="separator:a30095e8f4ae2c5b3f17efd9ea1356518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a6f4ad1b0a200a6d15c90a1571c34c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ad9a6f4ad1b0a200a6d15c90a1571c34c">setSamplingTime</a> (double dt)</td></tr>
+<tr class="memdesc:ad9a6f4ad1b0a200a6d15c90a1571c34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Sampling Time.  <a href="#ad9a6f4ad1b0a200a6d15c90a1571c34c">More...</a><br /></td></tr>
+<tr class="separator:ad9a6f4ad1b0a200a6d15c90a1571c34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b7daae60c99cce87a710f1f709af36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a04b7daae60c99cce87a710f1f709af36">setBias</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;bias)</td></tr>
+<tr class="memdesc:a04b7daae60c99cce87a710f1f709af36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias object from a guess.  <a href="#a04b7daae60c99cce87a710f1f709af36">More...</a><br /></td></tr>
+<tr class="separator:a04b7daae60c99cce87a710f1f709af36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e966c0123c5b43f4cfdde9b2fb54ada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a8e966c0123c5b43f4cfdde9b2fb54ada">setBias</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;bias, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;uncertainty)</td></tr>
+<tr class="separator:a8e966c0123c5b43f4cfdde9b2fb54ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec28cf795e263efa979abcc8a83ffef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aec28cf795e263efa979abcc8a83ffef2">setBiasDriftPerSecond</a> (double driftPerSecond)</td></tr>
+<tr class="memdesc:aec28cf795e263efa979abcc8a83ffef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias Drift Per Second.  <a href="#aec28cf795e263efa979abcc8a83ffef2">More...</a><br /></td></tr>
+<tr class="separator:aec28cf795e263efa979abcc8a83ffef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff8f8ab843df285d0430a46ed791926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aaff8f8ab843df285d0430a46ed791926">setDCM</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm)</td></tr>
+<tr class="memdesc:aaff8f8ab843df285d0430a46ed791926"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#aaff8f8ab843df285d0430a46ed791926">More...</a><br /></td></tr>
+<tr class="separator:aaff8f8ab843df285d0430a46ed791926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c82cb6c8a7b33cbd593386dfd6fa395"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a5c82cb6c8a7b33cbd593386dfd6fa395">setDCM</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;uncertainty)</td></tr>
+<tr class="separator:a5c82cb6c8a7b33cbd593386dfd6fa395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c5b303c5642400fc6e755528b76ff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a04c5b303c5642400fc6e755528b76ff1">setZmpMeasureErrorStd</a> (double)</td></tr>
+<tr class="memdesc:a04c5b303c5642400fc6e755528b76ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Zmp Measurement Error Stamdard devbiation.  <a href="#a04c5b303c5642400fc6e755528b76ff1">More...</a><br /></td></tr>
+<tr class="separator:a04c5b303c5642400fc6e755528b76ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac210d2da44f32fff79a168bdd16f46f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ac210d2da44f32fff79a168bdd16f46f1">setDcmMeasureErrorStd</a> (double)</td></tr>
+<tr class="memdesc:ac210d2da44f32fff79a168bdd16f46f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Dcm Measurement Error Standard.  <a href="#ac210d2da44f32fff79a168bdd16f46f1">More...</a><br /></td></tr>
+<tr class="separator:ac210d2da44f32fff79a168bdd16f46f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1630c4c26133a1ac3cde4c45c333538b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a1630c4c26133a1ac3cde4c45c333538b">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp)</td></tr>
+<tr class="memdesc:a1630c4c26133a1ac3cde4c45c333538b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#a1630c4c26133a1ac3cde4c45c333538b">More...</a><br /></td></tr>
+<tr class="separator:a1630c4c26133a1ac3cde4c45c333538b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a39f5798c227a32d1d3e8b9ee6542f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a6a39f5798c227a32d1d3e8b9ee6542f1">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation)</td></tr>
+<tr class="memdesc:a6a39f5798c227a32d1d3e8b9ee6542f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#a6a39f5798c227a32d1d3e8b9ee6542f1">More...</a><br /></td></tr>
+<tr class="separator:a6a39f5798c227a32d1d3e8b9ee6542f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee01649b9effc170a634567e24f2378c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aee01649b9effc170a634567e24f2378c">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, double yaw)</td></tr>
+<tr class="memdesc:aee01649b9effc170a634567e24f2378c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#aee01649b9effc170a634567e24f2378c">More...</a><br /></td></tr>
+<tr class="separator:aee01649b9effc170a634567e24f2378c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae39c5309f3075fac75a2325d6772d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aae39c5309f3075fac75a2325d6772d25">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;R)</td></tr>
+<tr class="memdesc:aae39c5309f3075fac75a2325d6772d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#aae39c5309f3075fac75a2325d6772d25">More...</a><br /></td></tr>
+<tr class="separator:aae39c5309f3075fac75a2325d6772d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3fcd850381898ba967c6648c92e331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a7d3fcd850381898ba967c6648c92e331">update</a> ()</td></tr>
+<tr class="memdesc:a7d3fcd850381898ba967c6648c92e331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the estimation.  <a href="#a7d3fcd850381898ba967c6648c92e331">More...</a><br /></td></tr>
+<tr class="separator:a7d3fcd850381898ba967c6648c92e331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a611dcf321d538eaff1549ac30d3bfe0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a611dcf321d538eaff1549ac30d3bfe0b">getUnbiasedDCM</a> () const</td></tr>
+<tr class="memdesc:a611dcf321d538eaff1549ac30d3bfe0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Unbiased DCM filtered by the estimator.  <a href="#a611dcf321d538eaff1549ac30d3bfe0b">More...</a><br /></td></tr>
+<tr class="separator:a611dcf321d538eaff1549ac30d3bfe0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94137e160e2982ab585014b72e16dd77"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a94137e160e2982ab585014b72e16dd77">getBias</a> () const</td></tr>
+<tr class="memdesc:a94137e160e2982ab585014b72e16dd77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the estimated Bias.  <a href="#a94137e160e2982ab585014b72e16dd77">More...</a><br /></td></tr>
+<tr class="separator:a94137e160e2982ab585014b72e16dd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4848ed30da6861fce5177cee5cf33fad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a4848ed30da6861fce5177cee5cf33fad">getLocalBias</a> () const</td></tr>
+<tr class="memdesc:a4848ed30da6861fce5177cee5cf33fad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the estimated Bias expressed in the local frame of the robot.  <a href="#a4848ed30da6861fce5177cee5cf33fad">More...</a><br /></td></tr>
+<tr class="separator:a4848ed30da6861fce5177cee5cf33fad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8510d03d76364ef94cf8cebe1675760f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00825.html">LinearKalmanFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a8510d03d76364ef94cf8cebe1675760f">getFilter</a> ()</td></tr>
+<tr class="memdesc:a8510d03d76364ef94cf8cebe1675760f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions.  <a href="#a8510d03d76364ef94cf8cebe1675760f">More...</a><br /></td></tr>
+<tr class="separator:a8510d03d76364ef94cf8cebe1675760f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9502abad4ac3c39c801f73e04bf2bd0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00825.html">LinearKalmanFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ac9502abad4ac3c39c801f73e04bf2bd0">getFilter</a> () const</td></tr>
+<tr class="memdesc:ac9502abad4ac3c39c801f73e04bf2bd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions.  <a href="#ac9502abad4ac3c39c801f73e04bf2bd0">More...</a><br /></td></tr>
+<tr class="separator:ac9502abad4ac3c39c801f73e04bf2bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aca4b8a063ed910dfdd130a8096e6ac48"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a> = 0.002</td></tr>
+<tr class="memdesc:aca4b8a063ed910dfdd130a8096e6ac48"><td class="mdescLeft">&#160;</td><td class="mdescRight">default expected drift of the bias every second  <a href="#aca4b8a063ed910dfdd130a8096e6ac48">More...</a><br /></td></tr>
+<tr class="separator:aca4b8a063ed910dfdd130a8096e6ac48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ff1ef91c85e8e6a19be5a5ccb4efb4"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a> = 0.005</td></tr>
+<tr class="memdesc:a04ff1ef91c85e8e6a19be5a5ccb4efb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">default error in the estimation of the sensors  <a href="#a04ff1ef91c85e8e6a19be5a5ccb4efb4">More...</a><br /></td></tr>
+<tr class="separator:a04ff1ef91c85e8e6a19be5a5ccb4efb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc385cf319b05c342efaecb3a50797ae"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a> = 0.01</td></tr>
+<tr class="separator:acc385cf319b05c342efaecb3a50797ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad8886adb2b05e432594cc3b575e9c8"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a8ad8886adb2b05e432594cc3b575e9c8">defaultDCMUncertainty</a> = 0.01</td></tr>
+<tr class="memdesc:a8ad8886adb2b05e432594cc3b575e9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">default uncertainty in the initial values of DCM and Bias  <a href="#a8ad8886adb2b05e432594cc3b575e9c8">More...</a><br /></td></tr>
+<tr class="separator:a8ad8886adb2b05e432594cc3b575e9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20a867177a0c39d57c05e1a4d44ee8ee"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a> = 0.01</td></tr>
+<tr class="separator:a20a867177a0c39d57c05e1a4d44ee8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a82e718a2bc5fa4a5f6ba12d53511588d"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 4, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a82e718a2bc5fa4a5f6ba12d53511588d">Matrix42</a></td></tr>
+<tr class="separator:a82e718a2bc5fa4a5f6ba12d53511588d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cefb5056fbc51b5c41bcf8d0c4d0343"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 2, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0cefb5056fbc51b5c41bcf8d0c4d0343">Matrix24</a></td></tr>
+<tr class="separator:a0cefb5056fbc51b5c41bcf8d0c4d0343"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a2377236b98e6065314f5174a18d5057f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a2377236b98e6065314f5174a18d5057f">setJacobians</a> (const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;A, const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;C)</td></tr>
-<tr class="separator:a2377236b98e6065314f5174a18d5057f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf694318f3349048084c1afbdc62b43e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aaf694318f3349048084c1afbdc62b43e">useFiniteDifferencesJacobians</a> (<a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> dx)</td></tr>
-<tr class="separator:aaf694318f3349048084c1afbdc62b43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919fae24c0b9d43469933ea38bfb99ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a919fae24c0b9d43469933ea38bfb99ad">updateMatricesABQ_</a> ()</td></tr>
+<tr class="memdesc:a919fae24c0b9d43469933ea38bfb99ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">set Matrices: A, B, Q  <a href="#a919fae24c0b9d43469933ea38bfb99ad">More...</a><br /></td></tr>
+<tr class="separator:a919fae24c0b9d43469933ea38bfb99ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a63208ae7d0437e0ae9035e07c2f272b3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a63208ae7d0437e0ae9035e07c2f272b3">Vec2ToSqDiag</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;v)</td></tr>
+<tr class="memdesc:a63208ae7d0437e0ae9035e07c2f272b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">builds a diagonal out of the square valued of the Vec2  <a href="#a63208ae7d0437e0ae9035e07c2f272b3">More...</a><br /></td></tr>
+<tr class="separator:a63208ae7d0437e0ae9035e07c2f272b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b5b735a67a982dd87a8d4a6a3b11270"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a7b5b735a67a982dd87a8d4a6a3b11270">dblToDiag</a> (const double &amp;d)</td></tr>
+<tr class="memdesc:a7b5b735a67a982dd87a8d4a6a3b11270"><td class="mdescLeft">&#160;</td><td class="mdescRight">builds a constant 2x2 diagonal from a double  <a href="#a7b5b735a67a982dd87a8d4a6a3b11270">More...</a><br /></td></tr>
+<tr class="separator:a7b5b735a67a982dd87a8d4a6a3b11270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab60259ca91c60c13a5dddba52dc18934"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ab60259ca91c60c13a5dddba52dc18934">dblToSqDiag</a> (const double &amp;d)</td></tr>
+<tr class="memdesc:ab60259ca91c60c13a5dddba52dc18934"><td class="mdescLeft">&#160;</td><td class="mdescRight">builds a constant 2x2 diagonal from a square of a double  <a href="#ab60259ca91c60c13a5dddba52dc18934">More...</a><br /></td></tr>
+<tr class="separator:ab60259ca91c60c13a5dddba52dc18934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a1ef5a4511a1e001e4d02908725257911"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00801.html">stateObservation::ExtendedKalmanFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a1ef5a4511a1e001e4d02908725257911">ekf_</a></td></tr>
-<tr class="separator:a1ef5a4511a1e001e4d02908725257911"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa63c4e9128aeb3428f66d7735cd267c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aaa63c4e9128aeb3428f66d7735cd267c">finiteDifferencesJacobians_</a></td></tr>
-<tr class="separator:aaa63c4e9128aeb3428f66d7735cd267c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a505abc5a6738b71f2656bc08f64069f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a505abc5a6738b71f2656bc08f64069f7">dx_</a></td></tr>
-<tr class="separator:a505abc5a6738b71f2656bc08f64069f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c19e20939c70419e62d0cf7ae29c0c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a3c19e20939c70419e62d0cf7ae29c0c8">lastX_</a></td></tr>
-<tr class="separator:a3c19e20939c70419e62d0cf7ae29c0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43ddaf15a021ff89fe5267a77ec55164"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a43ddaf15a021ff89fe5267a77ec55164">k_</a></td></tr>
-<tr class="separator:a43ddaf15a021ff89fe5267a77ec55164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fb32043a1c422f7924e41b7d2355092"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a8fb32043a1c422f7924e41b7d2355092">omega0_</a></td></tr>
+<tr class="separator:a8fb32043a1c422f7924e41b7d2355092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51bf691d586aeb46afe1b31504f2419e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a51bf691d586aeb46afe1b31504f2419e">dt_</a></td></tr>
+<tr class="separator:a51bf691d586aeb46afe1b31504f2419e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad241df8fa0470fc39d845980a5554359"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ad241df8fa0470fc39d845980a5554359">biasDriftStd_</a></td></tr>
+<tr class="separator:ad241df8fa0470fc39d845980a5554359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26ea6c69c201a61985f5c1c987943ee9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a26ea6c69c201a61985f5c1c987943ee9">zmpErrorStd_</a></td></tr>
+<tr class="separator:a26ea6c69c201a61985f5c1c987943ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c3fbd123699e12345f4c99fcb8a29b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a96c3fbd123699e12345f4c99fcb8a29b">previousZmp_</a></td></tr>
+<tr class="separator:a96c3fbd123699e12345f4c99fcb8a29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a34435a159522642f022270139c476"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00825.html">LinearKalmanFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a69a34435a159522642f022270139c476">filter_</a></td></tr>
+<tr class="separator:a69a34435a159522642f022270139c476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f8478729bec86f11978148b5c0581b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a2f8478729bec86f11978148b5c0581b4">A_</a></td></tr>
+<tr class="separator:a2f8478729bec86f11978148b5c0581b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4adb287bfc48e622cebc5eca217833f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00741.html#a82e718a2bc5fa4a5f6ba12d53511588d">Matrix42</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a4adb287bfc48e622cebc5eca217833f4">B_</a></td></tr>
+<tr class="separator:a4adb287bfc48e622cebc5eca217833f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29461894cbc14d7a12fc5a3fb9f6c62f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00741.html#a0cefb5056fbc51b5c41bcf8d0c4d0343">Matrix24</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a29461894cbc14d7a12fc5a3fb9f6c62f">C_</a></td></tr>
+<tr class="memdesc:a29461894cbc14d7a12fc5a3fb9f6c62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">this needs to be transposed  <a href="#a29461894cbc14d7a12fc5a3fb9f6c62f">More...</a><br /></td></tr>
+<tr class="separator:a29461894cbc14d7a12fc5a3fb9f6c62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c4e61184031014b48213abde9f9816"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a96c4e61184031014b48213abde9f9816">R_</a></td></tr>
+<tr class="memdesc:a96c4e61184031014b48213abde9f9816"><td class="mdescLeft">&#160;</td><td class="mdescRight">measurement noise  <a href="#a96c4e61184031014b48213abde9f9816">More...</a><br /></td></tr>
+<tr class="separator:a96c4e61184031014b48213abde9f9816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d37c23836d259b96c1b3a10d313cbcf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a3d37c23836d259b96c1b3a10d313cbcf">Q_</a></td></tr>
+<tr class="memdesc:a3d37c23836d259b96c1b3a10d313cbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">process noise  <a href="#a3d37c23836d259b96c1b3a10d313cbcf">More...</a><br /></td></tr>
+<tr class="separator:a3d37c23836d259b96c1b3a10d313cbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a73d472c1e2a8c9d018fceaf7a5a98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a13a73d472c1e2a8c9d018fceaf7a5a98">previousOrientation_</a></td></tr>
+<tr class="separator:a13a73d472c1e2a8c9d018fceaf7a5a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class is the base class of the flexibility estimators that use an extended Kalman Filter. </p>
-<p>Several methods require to be overloaded to derive an implementation from this base class. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a57bd701cf7b1e71380fe0a91e1fb2b91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57bd701cf7b1e71380fe0a91e1fb2b91">&#9670;&nbsp;</a></span>EKFFlexibilityEstimatorBase()</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a0cefb5056fbc51b5c41bcf8d0c4d0343"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cefb5056fbc51b5c41bcf8d0c4d0343">&#9670;&nbsp;</a></span>Matrix24</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::Matrix&lt;double, 2, 4&gt; <a class="el" href="a00741.html#a0cefb5056fbc51b5c41bcf8d0c4d0343">stateObservation::LipmDcmEstimator::Matrix24</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82e718a2bc5fa4a5f6ba12d53511588d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82e718a2bc5fa4a5f6ba12d53511588d">&#9670;&nbsp;</a></span>Matrix42</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::Matrix&lt;double, 4, 2&gt; <a class="el" href="a00741.html#a82e718a2bc5fa4a5f6ba12d53511588d">stateObservation::LipmDcmEstimator::Matrix42</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ada08c3c86037be4b80875f065ebbc2d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada08c3c86037be4b80875f065ebbc2d2">&#9670;&nbsp;</a></span>LipmDcmEstimator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::EKFFlexibilityEstimatorBase </td>
+          <td class="memname">stateObservation::LipmDcmEstimator::LipmDcmEstimator </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>stateSize</em>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dt</em> = <code>defaultDt_</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>measurementSize</em>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>omega_0</em> = <code>defaultOmega_</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>inputSize</em>, </td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code><a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>dx</em> = <code>Vector::Zero(0)</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initZMP</em> = <code>Vector2::Zero()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initDcm</em> = <code>Vector2::Zero()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBias</em> = <code>Vector2::Zero()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initDcmUncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a8ad8886adb2b05e432594cc3b575e9c8">defaultDCMUncertainty</a>)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBiasUncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -249,46 +352,47 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The constructor. </p>
-<ul>
-<li>stateSize : size of the state vector </li>
-<li>measurementSize : size of the measurements vector </li>
-<li>inputSize : size of the input vector </li>
-<li>dx gives the derivation step for a finite differences derivation method </li>
-</ul>
+<p>Construct a new Lipm Dcm Estimator object. </p>
+<p>Use this if no DCM measurements are available or when a good guess of its unbiased position is available</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>the sampling time in seconds </td></tr>
+    <tr><td class="paramname">omega_0</td><td>the natural frequency of the DCM (rad/s) </td></tr>
+    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
+    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
+    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
+    <tr><td class="paramname">initDCM</td><td>the initial value of the DCM </td></tr>
+    <tr><td class="paramname">initBias</td><td>the initial value of the bias </td></tr>
+    <tr><td class="paramname">tinitDcmUncertainty</td><td>the uncertainty in the DCM initial value in meters </td></tr>
+    <tr><td class="paramname">initBiasUncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a6d51a6b07fe1d2154dd6424016a923fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d51a6b07fe1d2154dd6424016a923fc">&#9670;&nbsp;</a></span>~EKFFlexibilityEstimatorBase()</h2>
+<a id="a0aab05e32946eca2e9d1835ed52ad843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aab05e32946eca2e9d1835ed52ad843">&#9670;&nbsp;</a></span>~LipmDcmEstimator()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::~EKFFlexibilityEstimatorBase </td>
+          <td class="memname">stateObservation::LipmDcmEstimator::~LipmDcmEstimator </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>virtual destructor </p>
+<p>Destroy the Lipm Dcm Bias Estimator object. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae362fc399e1694a08ecd900da50e4f01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae362fc399e1694a08ecd900da50e4f01">&#9670;&nbsp;</a></span>getEKF() <span class="overload">[1/2]</span></h2>
+<a id="a7b5b735a67a982dd87a8d4a6a3b11270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b5b735a67a982dd87a8d4a6a3b11270">&#9670;&nbsp;</a></span>dblToDiag()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +401,111 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="a00801.html">stateObservation::ExtendedKalmanFilter</a>&amp; stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getEKF </td>
+          <td class="memname">static <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> stateObservation::LipmDcmEstimator::dblToDiag </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>builds a constant 2x2 diagonal from a double </p>
+
+</div>
+</div>
+<a id="ab60259ca91c60c13a5dddba52dc18934"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab60259ca91c60c13a5dddba52dc18934">&#9670;&nbsp;</a></span>dblToSqDiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> stateObservation::LipmDcmEstimator::dblToSqDiag </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>builds a constant 2x2 diagonal from a square of a double </p>
+
+</div>
+</div>
+<a id="a94137e160e2982ab585014b72e16dd77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94137e160e2982ab585014b72e16dd77">&#9670;&nbsp;</a></span>getBias()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> stateObservation::LipmDcmEstimator::getBias </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the estimated Bias. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+</div>
+</div>
+<a id="a8510d03d76364ef94cf8cebe1675760f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8510d03d76364ef94cf8cebe1675760f">&#9670;&nbsp;</a></span>getFilter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00825.html">LinearKalmanFilter</a>&amp; stateObservation::LipmDcmEstimator::getFilter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00825.html" title="   The class of a Linear Kalman filter ">LinearKalmanFilter</a>&amp; </dd></dl>
+
+</div>
+</div>
+<a id="ac9502abad4ac3c39c801f73e04bf2bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9502abad4ac3c39c801f73e04bf2bd0">&#9670;&nbsp;</a></span>getFilter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00825.html">LinearKalmanFilter</a>&amp; stateObservation::LipmDcmEstimator::getFilter </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -305,17 +513,18 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets a const reference on the extended Kalman filter. </p>
+<p>Get the Kalman Filter object This can be used to run specific Advanced Kalman filter related funcions. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00825.html" title="   The class of a Linear Kalman filter ">LinearKalmanFilter</a>&amp; const version </dd></dl>
 
 </div>
 </div>
-<a id="a1cde435bab52638677406be2d4cc1226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cde435bab52638677406be2d4cc1226">&#9670;&nbsp;</a></span>getEKF() <span class="overload">[2/2]</span></h2>
+<a id="a30095e8f4ae2c5b3f17efd9ea1356518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30095e8f4ae2c5b3f17efd9ea1356518">&#9670;&nbsp;</a></span>getLipmNaturalFrequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,65 +533,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00801.html">stateObservation::ExtendedKalmanFilter</a>&amp; stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getEKF </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a reference on the extended Kalman filter. </p>
-
-</div>
-</div>
-<a id="a0d2194dee95a78daba44e7f4e099321a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d2194dee95a78daba44e7f4e099321a">&#9670;&nbsp;</a></span>getFlexibility()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getFlexibility </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets an estimation of the flexibility in the form of a homogeneous matrix. </p>
-
-<p>Implements <a class="el" href="a00749.html#ae3b7d0c9da16a16d1772b051023b48ad">stateObservation::flexibilityEstimation::FlexibilityEstimatorBase</a>.</p>
-
-<p>Implemented in <a class="el" href="a00777.html#a2826b03775226cfe28d9f9ca63ca2f2b">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a98cb219cd2a2db079d1310c06cb15218">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="a9cbc8082ee870d2b35176177800b1272"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cbc8082ee870d2b35176177800b1272">&#9670;&nbsp;</a></span>getFlexibilityCovariance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getFlexibilityCovariance </td>
+          <td class="memname">double stateObservation::LipmDcmEstimator::getLipmNaturalFrequency </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -390,17 +541,18 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the covariance matrix of the flexibility. </p>
+<p>Get the Lipm Natural Frequency. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 </div>
 </div>
-<a id="a899f8aa4f2e3920917e0d8b8bd8135c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a899f8aa4f2e3920917e0d8b8bd8135c2">&#9670;&nbsp;</a></span>getFlexibilityVector()</h2>
+<a id="a4848ed30da6861fce5177cee5cf33fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4848ed30da6861fce5177cee5cf33fad">&#9670;&nbsp;</a></span>getLocalBias()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -409,88 +561,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&amp; stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getFlexibilityVector </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets an estimation of the flexibility in the form of a state vector {x_{k+1}}. </p>
-
-<p>Reimplemented in <a class="el" href="a00777.html#a07700504fe6f191a68170d2f2ad57dd8">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a2de82e1db3a9dcb5f52f4e241258271b">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="a7e475b570f045b4de5e5b83e0143408f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e475b570f045b4de5e5b83e0143408f">&#9670;&nbsp;</a></span>getInnovation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getInnovation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the last vector of inovation of the Kalman filter. </p>
-
-</div>
-</div>
-<a id="aa4b48fb23d9087f2b6c06400f0d2e248"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4b48fb23d9087f2b6c06400f0d2e248">&#9670;&nbsp;</a></span>getInput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getInput </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9cbbf09a38d5c2a1b7d0d5b984de60fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cbbf09a38d5c2a1b7d0d5b984de60fc">&#9670;&nbsp;</a></span>getInputSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getInputSize </td>
+          <td class="memname"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> stateObservation::LipmDcmEstimator::getLocalBias </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -498,456 +569,251 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the input size this method is pure virtual and reauires to be overloaded in implementation. </p>
-
-<p>Implemented in <a class="el" href="a00777.html#a532deed3f091df3c7a7f31e2d069bfb2">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#af8c85e9541eed126a1af033fae9fceff">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
+<p>Get the estimated Bias expressed in the local frame of the robot. </p>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 </div>
 </div>
-<a id="a73cb887bdae8c48913a10b047f208779"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73cb887bdae8c48913a10b047f208779">&#9670;&nbsp;</a></span>getLastPredictedMeasurement()</h2>
+<a id="a611dcf321d538eaff1549ac30d3bfe0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a611dcf321d538eaff1549ac30d3bfe0b">&#9670;&nbsp;</a></span>getUnbiasedDCM()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getLastPredictedMeasurement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the last simulated measurement. </p>
-
-</div>
-</div>
-<a id="aeeb5151175838a2a83ba306b1bbcf048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeeb5151175838a2a83ba306b1bbcf048">&#9670;&nbsp;</a></span>getLastPrediction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getLastPrediction </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the last predicted state. </p>
-
-</div>
-</div>
-<a id="a1a058ef95644b1ddad79c4df5d1a5e66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a058ef95644b1ddad79c4df5d1a5e66">&#9670;&nbsp;</a></span>getMeasurement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getMeasurement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab79522140d21c90fed967c1e8c299768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab79522140d21c90fed967c1e8c299768">&#9670;&nbsp;</a></span>getMeasurementInput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getMeasurementInput </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af501021b695aff014743018ec65ed710"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af501021b695aff014743018ec65ed710">&#9670;&nbsp;</a></span>getMeasurementNoiseCovariance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getMeasurementNoiseCovariance </td>
+          <td class="memname"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> stateObservation::LipmDcmEstimator::getUnbiasedDCM </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>gets the covariance matrices for the sensor noises </p>
-
-<p>Reimplemented in <a class="el" href="a00777.html#a769e674b693558aebc32d4337023b5c5">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a18a4d3557b23f96ae076edc022a6c38c">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
+<p>Get the Unbiased DCM filtered by the estimator. </p>
+<p>This is the recommended output to take </p><dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
 </div>
 </div>
-<a id="af68333c27cbe06054113df0b8d47781a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af68333c27cbe06054113df0b8d47781a">&#9670;&nbsp;</a></span>getMeasurementSize()</h2>
+<a id="acf82909a9991ad16b0d243ccd5d4e790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf82909a9991ad16b0d243ccd5d4e790">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getMeasurementSize </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the measurements size this method is pure virtual and reauires to be overloaded in implementation. </p>
-
-<p>Implemented in <a class="el" href="a00777.html#a863cc57db62f3a912241d2bd0e750217">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#ac349a55e96b61d9043fd96e0411588c0">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="a83889b6ffe872b475e1bd4cccaee3bf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83889b6ffe872b475e1bd4cccaee3bf3">&#9670;&nbsp;</a></span>getPredictedMeasurement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getPredictedMeasurement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the simulated measurement of the predicted state. </p>
-
-</div>
-</div>
-<a id="acee7618c00d087323bc0f20f49ab7dd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acee7618c00d087323bc0f20f49ab7dd8">&#9670;&nbsp;</a></span>getPrediction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getPrediction </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the predicted state. </p>
-
-</div>
-</div>
-<a id="a3dfbc349f2428b6f32b4c8d5bd1a6fc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dfbc349f2428b6f32b4c8d5bd1a6fc5">&#9670;&nbsp;</a></span>getProcessNoiseCovariance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getProcessNoiseCovariance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>gets the covariance matrices for the process noises </p>
-
-<p>Reimplemented in <a class="el" href="a00777.html#a62eeac903e5942adeaaf5372df042097">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a3087638102ed8611b1eddd15b9002ec0">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="ad521aa40dae9934b899d1fc3ce5bbd45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad521aa40dae9934b899d1fc3ce5bbd45">&#9670;&nbsp;</a></span>getSimulatedMeasurement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getSimulatedMeasurement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a simulation of the. </p>
-
-</div>
-</div>
-<a id="a0f7c91dd885f81fb1f10fd5c42cbf784"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f7c91dd885f81fb1f10fd5c42cbf784">&#9670;&nbsp;</a></span>getStateSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00129.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::getStateSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the state size this method is pure virtual and reauires to be overloaded in implementation. </p>
-
-<p>Implemented in <a class="el" href="a00777.html#a175fff2fe9c8d5103f7e0442e8fc3f3d">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#ad695568581d813a0e5dd36ba5ea2637b">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="a84f16cfd61edc2003055ce19437cc845"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84f16cfd61edc2003055ce19437cc845">&#9670;&nbsp;</a></span>resetCovarianceMatrices()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::resetCovarianceMatrices </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the covariance matrices to their original values. </p>
-
-<p>Implemented in <a class="el" href="a00777.html#a09a3471e029dbea0b4213db398b3e4f1">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a012fac4f9f1e1d351791166f881ea66b">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="ae69973109b5ac7976be43beb14744edf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae69973109b5ac7976be43beb14744edf">&#9670;&nbsp;</a></span>setFlexibilityCovariance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setFlexibilityCovariance </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>P</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the covariance matrix of the flexibility Guess. </p>
-
-</div>
-</div>
-<a id="a25f59bf9ae780f40e7c00540bff2bce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25f59bf9ae780f40e7c00540bff2bce5">&#9670;&nbsp;</a></span>setFlexibilityGuess()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setFlexibilityGuess </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets a value of the flexibility x_k provided from another source can be used for initialization of the estimator This is a pure virtual function that requires to be overloaded in implementation. </p>
-
-<p>Implements <a class="el" href="a00749.html#acac52cd1d74997c2599c934ea67ce3cb">stateObservation::flexibilityEstimation::FlexibilityEstimatorBase</a>.</p>
-
-<p>Implemented in <a class="el" href="a00777.html#a4893e989477eccddb10bc0d1760802a7">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#af323740e58c1b1c5c9dff80f2b11ec04">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
-
-</div>
-</div>
-<a id="a75ecd41d3950f5f453d3011314dea6ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75ecd41d3950f5f453d3011314dea6ee">&#9670;&nbsp;</a></span>setInput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setInput </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>u</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the value of the next input for the state process dynamics i.e. </p>
-<p>: gives u_k such that x_{k+1} = f(x_k,u_k) </p>
-
-</div>
-</div>
-<a id="a2377236b98e6065314f5174a18d5057f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2377236b98e6065314f5174a18d5057f">&#9670;&nbsp;</a></span>setJacobians()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setJacobians </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredDcm</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>C</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredZMP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;&#160;</td>
+          <td class="paramname"><em>yaw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>measurementIsWithBias</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>biasDriftPerSecondStd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcmMeasureErrorStd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>zmpMeasureErrorStd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the estimator with first measurements. </p>
+<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">yaw</td><td>the initial yaw angle in the form of a rotation matrix </td></tr>
+    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
+    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
+    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
+    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
+    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
+    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aad7d1818135ddc01c0916f6a1492df9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad7d1818135ddc01c0916f6a1492df9e">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredDcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredZMP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;&#160;</td>
+          <td class="paramname"><em>yaw</em> = <code>Matrix2::Identity()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>measurementIsWithBias</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets the estimator with first measurements. </p>
+<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">yaw</td><td>the initial yaw angle in the form of a rotation matrix </td></tr>
+    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
+    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
+    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5b0f10c0ac1ce80587d90553b4612792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b0f10c0ac1ce80587d90553b4612792">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredDcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredZMP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>measurementIsWithBias</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code><a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -957,15 +823,32 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Resets the estimator with first measurements. </p>
+<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">yaw</td><td>the initial yaw angle </td></tr>
+    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
+    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
+    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
+    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
+    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
+    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="af29afe44ee2bbed391e5eb90136dda8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af29afe44ee2bbed391e5eb90136dda8d">&#9670;&nbsp;</a></span>setMeasurement()</h2>
+<a id="a8701ddcb4fb868ce71b7639ee0f2a423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8701ddcb4fb868ce71b7639ee0f2a423">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -974,30 +857,304 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setMeasurement </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>y</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredDcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredZMP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>measurementIsWithBias</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code><a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the next sensor measurement y_{k+1}. </p>
+<p>Resets the estimator with first measurements. </p>
+<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">rotation</td><td>the 3d orientation from which the initial yaw angle will be extracted using the angle agnostic approach. This orientation is from local to global. i.e. bias_global == orientation * bias*local </td></tr>
+    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
+    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
+    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
+    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
+    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
+    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Implements <a class="el" href="a00749.html#adda51d74ab842c74b2eacbd46a9a2477">stateObservation::flexibilityEstimation::FlexibilityEstimatorBase</a>.</p>
-
-<p>Reimplemented in <a class="el" href="a00777.html#ab8d60113a7e1f97431f67e10529f9f1c">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#ad2a91671f1456f75e2b86123760b78d3">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
+<p class="reference">References <a class="el" href="a00141.html#ae154db62e29c0bf232fb2496f91a68b6">stateObservation::kine::rotationMatrixToYawAxisAgnostic()</a>.</p>
 
 </div>
 </div>
-<a id="aaaef07360e95fffcf3750e9cab460f2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaef07360e95fffcf3750e9cab460f2d">&#9670;&nbsp;</a></span>setMeasurementInput()</h2>
+<a id="a04b7daae60c99cce87a710f1f709af36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04b7daae60c99cce87a710f1f709af36">&#9670;&nbsp;</a></span>setBias() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setBias </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>bias</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Bias object from a guess. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bias</td><td>guess </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8e966c0123c5b43f4cfdde9b2fb54ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e966c0123c5b43f4cfdde9b2fb54ada">&#9670;&nbsp;</a></span>setBias() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setBias </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>bias</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>uncertainty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">the</td><td>uncertainty you have in this guess in meters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aec28cf795e263efa979abcc8a83ffef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec28cf795e263efa979abcc8a83ffef2">&#9670;&nbsp;</a></span>setBiasDriftPerSecond()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setBiasDriftPerSecond </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>driftPerSecond</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Bias Drift Per Second. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">driftPerSecond</td><td>the standard deviation of the drift (m/s) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaff8f8ab843df285d0430a46ed791926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaff8f8ab843df285d0430a46ed791926">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setDCM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the real DCM position from a guess </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>guess </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5c82cb6c8a7b33cbd593386dfd6fa395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c82cb6c8a7b33cbd593386dfd6fa395">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setDCM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>uncertainty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td></td></tr>
+    <tr><td class="paramname">uncertainty</td><td>the uncertainty in this guess </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac210d2da44f32fff79a168bdd16f46f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac210d2da44f32fff79a168bdd16f46f1">&#9670;&nbsp;</a></span>setDcmMeasureErrorStd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setDcmMeasureErrorStd </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Dcm Measurement Error Standard. </p>
+
+</div>
+</div>
+<a id="a1630c4c26133a1ac3cde4c45c333538b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1630c4c26133a1ac3cde4c45c333538b">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setInputs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>zmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Inputs of the estimator. </p>
+<p>this version is with no orientation. The orientation will be assumed to be constant foir this sample</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>measurement of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">zmp</td><td>mesaurement of the ZMP in the world frame </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a39f5798c227a32d1d3e8b9ee6542f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a39f5798c227a32d1d3e8b9ee6542f1">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1006,27 +1163,53 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setMeasurementInput </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setInputs </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>u</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>zmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramname"><em>orientation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the next measurement i.e. </p>
-<p>: gives u_{k+1} such that y_{k+1}=h(x_{k+1},u_{k+1}) </p>
+<p>Set the Inputs of the estimator. </p>
+<p>The yaw will be extracted from the orientation using the axis agnostic approach.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>measurement of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">zmp</td><td>mesaurement of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">orientation</td><td>the 3d orientation from which the yaw will be extracted. This orientation is from local to global. i.e. bias_global == orientation * bias*local </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="a00141.html#ae154db62e29c0bf232fb2496f91a68b6">stateObservation::kine::rotationMatrixToYawAxisAgnostic()</a>.</p>
 
 </div>
 </div>
-<a id="a20b53dfbc4f9688155d5633d696ec2c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20b53dfbc4f9688155d5633d696ec2c8">&#9670;&nbsp;</a></span>setMeasurementNoiseCovariance()</h2>
+<a id="aee01649b9effc170a634567e24f2378c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee01649b9effc170a634567e24f2378c">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1035,31 +1218,166 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setMeasurementNoiseCovariance </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setInputs </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>R</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>zmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the covariance matrices for the sensor noises. </p>
-<ul>
-<li>R sensor noise </li>
-</ul>
-
-<p>Reimplemented in <a class="el" href="a00777.html#a6109ee054135ae7bce11f256e5147c3e">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a812404fd46472be9e1be5ca73b9bc044">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
+<p>Set the Inputs of the estimator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>measurement of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">zmp</td><td>mesaurement of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">yaw</td><td>is the yaw angle to be used. This orientation is from local to global. i.e. bias_global == R * bias*local </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="aa39a732073841dc8b7ed868a17d1b671"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa39a732073841dc8b7ed868a17d1b671">&#9670;&nbsp;</a></span>setProcessNoiseCovariance()</h2>
+<a id="aae39c5309f3075fac75a2325d6772d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae39c5309f3075fac75a2325d6772d25">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setInputs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>zmp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;&#160;</td>
+          <td class="paramname"><em>R</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Inputs of the estimator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>measurement of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">zmp</td><td>mesaurement of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">R</td><td>the 2x2 Matrix'representing the yaw angle i.e. bias_global == R * bias*local </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04f7c7370e6a59a92523d4702fafc085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f7c7370e6a59a92523d4702fafc085">&#9670;&nbsp;</a></span>setLipmNaturalFrequency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setLipmNaturalFrequency </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>omega_0</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Lipm Natural Frequency. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">omega_0</td><td>is the sampling time in seconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9a6f4ad1b0a200a6d15c90a1571c34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a6f4ad1b0a200a6d15c90a1571c34c">&#9670;&nbsp;</a></span>setSamplingTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setSamplingTime </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Sampling Time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>sampling time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a04c5b303c5642400fc6e755528b76ff1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c5b303c5642400fc6e755528b76ff1">&#9670;&nbsp;</a></span>setZmpMeasureErrorStd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setZmpMeasureErrorStd </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Zmp Measurement Error Stamdard devbiation. </p>
+
+</div>
+</div>
+<a id="a7d3fcd850381898ba967c6648c92e331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3fcd850381898ba967c6648c92e331">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1068,31 +1386,27 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::setProcessNoiseCovariance </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::update </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00129.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
-          <td class="paramname"><em>Q</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the covariance matrices for the process noises. </p>
-<ul>
-<li>Q process noise </li>
-</ul>
-
-<p>Reimplemented in <a class="el" href="a00777.html#a71e7c12582edcca20853d16c0ca0bcc0">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>, and <a class="el" href="a00745.html#a747572899f9a9f127b413b4e618e601a">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>.</p>
+<p>Runs the estimation. </p>
+<p>Needs to be called every timestep</p>
+<dl class="section return"><dt>Returns</dt><dd>Vector2 </dd></dl>
 
 </div>
 </div>
-<a id="aaf694318f3349048084c1afbdc62b43e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf694318f3349048084c1afbdc62b43e">&#9670;&nbsp;</a></span>useFiniteDifferencesJacobians()</h2>
+<a id="a919fae24c0b9d43469933ea38bfb99ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a919fae24c0b9d43469933ea38bfb99ad">&#9670;&nbsp;</a></span>updateMatricesABQ_()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1101,25 +1415,54 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::useFiniteDifferencesJacobians </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::updateMatricesABQ_ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a>&#160;</td>
-          <td class="paramname"><em>dx</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>set Matrices: A, B, Q </p>
+
+</div>
+</div>
+<a id="a63208ae7d0437e0ae9035e07c2f272b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63208ae7d0437e0ae9035e07c2f272b3">&#9670;&nbsp;</a></span>Vec2ToSqDiag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> stateObservation::LipmDcmEstimator::Vec2ToSqDiag </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>builds a diagonal out of the square valued of the Vec2 </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a505abc5a6738b71f2656bc08f64069f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a505abc5a6738b71f2656bc08f64069f7">&#9670;&nbsp;</a></span>dx_</h2>
+<a id="a2f8478729bec86f11978148b5c0581b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f8478729bec86f11978148b5c0581b4">&#9670;&nbsp;</a></span>A_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1128,7 +1471,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::dx_</td>
+          <td class="memname"><a class="el" href="a00132.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a> stateObservation::LipmDcmEstimator::A_</td>
         </tr>
       </table>
   </td>
@@ -1140,8 +1483,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1ef5a4511a1e001e4d02908725257911"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ef5a4511a1e001e4d02908725257911">&#9670;&nbsp;</a></span>ekf_</h2>
+<a id="a4adb287bfc48e622cebc5eca217833f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4adb287bfc48e622cebc5eca217833f4">&#9670;&nbsp;</a></span>B_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1150,7 +1493,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00801.html">stateObservation::ExtendedKalmanFilter</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::ekf_</td>
+          <td class="memname"><a class="el" href="a00741.html#a82e718a2bc5fa4a5f6ba12d53511588d">Matrix42</a> stateObservation::LipmDcmEstimator::B_</td>
         </tr>
       </table>
   </td>
@@ -1162,8 +1505,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa63c4e9128aeb3428f66d7735cd267c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa63c4e9128aeb3428f66d7735cd267c">&#9670;&nbsp;</a></span>finiteDifferencesJacobians_</h2>
+<a id="ad241df8fa0470fc39d845980a5554359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad241df8fa0470fc39d845980a5554359">&#9670;&nbsp;</a></span>biasDriftStd_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1172,7 +1515,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::finiteDifferencesJacobians_</td>
+          <td class="memname">double stateObservation::LipmDcmEstimator::biasDriftStd_</td>
         </tr>
       </table>
   </td>
@@ -1184,8 +1527,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a43ddaf15a021ff89fe5267a77ec55164"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43ddaf15a021ff89fe5267a77ec55164">&#9670;&nbsp;</a></span>k_</h2>
+<a id="a29461894cbc14d7a12fc5a3fb9f6c62f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29461894cbc14d7a12fc5a3fb9f6c62f">&#9670;&nbsp;</a></span>C_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1194,7 +1537,147 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::k_</td>
+          <td class="memname"><a class="el" href="a00741.html#a0cefb5056fbc51b5c41bcf8d0c4d0343">Matrix24</a> stateObservation::LipmDcmEstimator::C_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this needs to be transposed </p>
+
+</div>
+</div>
+<a id="aca4b8a063ed910dfdd130a8096e6ac48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca4b8a063ed910dfdd130a8096e6ac48">&#9670;&nbsp;</a></span>defaultBiasDriftSecond</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultBiasDriftSecond = 0.002</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>default expected drift of the bias every second </p>
+
+</div>
+</div>
+<a id="a20a867177a0c39d57c05e1a4d44ee8ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a867177a0c39d57c05e1a4d44ee8ee">&#9670;&nbsp;</a></span>defaultBiasUncertainty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultBiasUncertainty = 0.01</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc385cf319b05c342efaecb3a50797ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc385cf319b05c342efaecb3a50797ae">&#9670;&nbsp;</a></span>defaultDcmErrorStd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultDcmErrorStd = 0.01</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8ad8886adb2b05e432594cc3b575e9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad8886adb2b05e432594cc3b575e9c8">&#9670;&nbsp;</a></span>defaultDCMUncertainty</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultDCMUncertainty = 0.01</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>default uncertainty in the initial values of DCM and Bias </p>
+
+</div>
+</div>
+<a id="a04ff1ef91c85e8e6a19be5a5ccb4efb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ff1ef91c85e8e6a19be5a5ccb4efb4">&#9670;&nbsp;</a></span>defaultZmpErrorStd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultZmpErrorStd = 0.005</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>default error in the estimation of the sensors </p>
+
+</div>
+</div>
+<a id="a51bf691d586aeb46afe1b31504f2419e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51bf691d586aeb46afe1b31504f2419e">&#9670;&nbsp;</a></span>dt_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double stateObservation::LipmDcmEstimator::dt_</td>
         </tr>
       </table>
   </td>
@@ -1206,8 +1689,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3c19e20939c70419e62d0cf7ae29c0c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c19e20939c70419e62d0cf7ae29c0c8">&#9670;&nbsp;</a></span>lastX_</h2>
+<a id="a69a34435a159522642f022270139c476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69a34435a159522642f022270139c476">&#9670;&nbsp;</a></span>filter_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1216,7 +1699,143 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00129.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::lastX_</td>
+          <td class="memname"><a class="el" href="a00825.html">LinearKalmanFilter</a> stateObservation::LipmDcmEstimator::filter_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fb32043a1c422f7924e41b7d2355092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fb32043a1c422f7924e41b7d2355092">&#9670;&nbsp;</a></span>omega0_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double stateObservation::LipmDcmEstimator::omega0_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13a73d472c1e2a8c9d018fceaf7a5a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a73d472c1e2a8c9d018fceaf7a5a98">&#9670;&nbsp;</a></span>previousOrientation_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> stateObservation::LipmDcmEstimator::previousOrientation_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96c3fbd123699e12345f4c99fcb8a29b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96c3fbd123699e12345f4c99fcb8a29b">&#9670;&nbsp;</a></span>previousZmp_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> stateObservation::LipmDcmEstimator::previousZmp_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d37c23836d259b96c1b3a10d313cbcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d37c23836d259b96c1b3a10d313cbcf">&#9670;&nbsp;</a></span>Q_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a> stateObservation::LipmDcmEstimator::Q_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>process noise </p>
+
+</div>
+</div>
+<a id="a96c4e61184031014b48213abde9f9816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96c4e61184031014b48213abde9f9816">&#9670;&nbsp;</a></span>R_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> stateObservation::LipmDcmEstimator::R_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>measurement noise </p>
+
+</div>
+</div>
+<a id="a26ea6c69c201a61985f5c1c987943ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ea6c69c201a61985f5c1c987943ee9">&#9670;&nbsp;</a></span>zmpErrorStd_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double stateObservation::LipmDcmEstimator::zmpErrorStd_</td>
         </tr>
       </table>
   </td>
@@ -1234,8 +1853,8 @@ Protected Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00131.html">flexibilityEstimation</a></li><li class="navelem"><a class="el" href="a00741.html">EKFFlexibilityEstimatorBase</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00741.html">LipmDcmEstimator</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: algebraic-sensor.hpp File Reference</title>
+<title>state-observation: accelerometer-gyrometer.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,30 +71,32 @@ $(document).ready(function(){initNavTree('a00089.html','');});
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">algebraic-sensor.hpp File Reference</div>  </div>
+<div class="title">accelerometer-gyrometer.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Gives a base class for algebraic sensors.  
+<p>Implements the accelerometer-gyrometer inertial measuremen.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;boost/assert.hpp&gt;</code><br />
 <code>#include &lt;Eigen/Core&gt;</code><br />
 <code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00101.html">state-observation/sensors-simulation/sensor-base.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00092.html">state-observation/sensors-simulation/algebraic-sensor.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00095.html">state-observation/sensors-simulation/algorithm/linear-acceleration.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00101.html">state-observation/sensors-simulation/algorithm/rotation-velocity.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00841.html">stateObservation::AlgebraicSensor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base class for algebraic sensors.  <a href="a00841.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html">stateObservation::AccelerometerGyrometer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the accelerometer-gyrometer measurements.  <a href="a00845.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Gives a base class for algebraic sensors. </p>
+<div class="textblock"><p>Implements the accelerometer-gyrometer inertial measuremen. </p>
 <dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
 </div></div><!-- contents -->
@@ -103,8 +105,8 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_2561071a805c5ec499f97a9e3197d13a.html">sensors-simulation</a></li><li class="navelem"><a class="el" href="a00089.html">algebraic-sensor.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_2561071a805c5ec499f97a9e3197d13a.html">sensors-simulation</a></li><li class="navelem"><a class="el" href="a00089.html">accelerometer-gyrometer.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:20 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

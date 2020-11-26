@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::detail::DebugItemDefaultError&lt; message, dummy &gt; Class Template Reference</title>
+<title>state-observation: stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -71,31 +71,39 @@ $(document).ready(function(){initNavTree('a00869.html','');});
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a00866.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::detail::DebugItemDefaultError&lt; message, dummy &gt; Class Template Reference</div>  </div>
+<div class="title">stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Debug item default value is just a way to give a default value to debug item this was required by a compilation issue on Visual Studio.  
+ <a href="a00869.html#details">More...</a></p>
 
 <p><code>#include &lt;state-observation/tools/definitions.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4d32e9e01e1060e7b688eb809721ac66"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00869.html#a4d32e9e01e1060e7b688eb809721ac66">v</a></td></tr>
-<tr class="separator:a4d32e9e01e1060e7b688eb809721ac66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2140d65889cda15227ae2b5ee3822ee7"><td class="memItemLeft" align="right" valign="top">static const T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00869.html#a2140d65889cda15227ae2b5ee3822ee7">v</a> = defaultValue</td></tr>
+<tr class="separator:a2140d65889cda15227ae2b5ee3822ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4d32e9e01e1060e7b688eb809721ac66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d32e9e01e1060e7b688eb809721ac66">&#9670;&nbsp;</a></span>v</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T, const T defaultValue = T()&gt;<br />
+class stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt;</h3>
+
+<p>Debug item default value is just a way to give a default value to debug item this was required by a compilation issue on Visual Studio. </p>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2140d65889cda15227ae2b5ee3822ee7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2140d65889cda15227ae2b5ee3822ee7">&#9670;&nbsp;</a></span>v</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dummy&gt; </div>
+template&lt;typename T , const T defaultValue = T()&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * <a class="el" href="a00865.html">stateObservation::detail::DebugItemDefaultError</a>&lt; <a class="el" href="a00133.html#ad190d4c7c4232683d9647ac44eb195d2a8a333557001121ababbf49a4748a21c3">message</a>, dummy &gt;::v</td>
+          <td class="memname">const T <a class="el" href="a00869.html">stateObservation::DebugItemDefaultValue</a>&lt; T, defaultValue &gt;::v = defaultValue</td>
         </tr>
       </table>
   </td>
@@ -104,7 +112,9 @@ template&lt;int dummy&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <span class="stringliteral">&quot;The Object is not initialized. \</span></div><div class="line"><span class="stringliteral">       If this happened during initialization then run command chckitm_set() \</span></div><div class="line"><span class="stringliteral">       to switch it to set. And if the initialization is incomplete, run \</span></div><div class="line"><span class="stringliteral">       chckitm_reset() afterwards.&quot;</span></div></div><!-- fragment -->
+
+<p class="reference">Referenced by <a class="el" href="a00889.html#a30df311dba6d2912a326e1e61eb695d0">stateObservation::DebugItem&lt; bool, detail::defaultTrue, do_check_ &gt;::operator=()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -113,8 +123,8 @@ template&lt;int dummy&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00133.html">detail</a></li><li class="navelem"><a class="el" href="a00869.html">DebugItemDefaultError&lt; message, dummy &gt;</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:55 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00869.html">DebugItemDefaultValue</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

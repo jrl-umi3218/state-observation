@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: stateObservation::DebugItem&lt; T, defaultValue, false &gt; Class Template Reference</title>
+<title>state-observation: stateObservation::detail::DebugItemDefaultError&lt; exceptionAddr, dummy &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,202 +68,39 @@ $(document).ready(function(){initNavTree('a00885.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a00882.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::DebugItem&lt; T, defaultValue, false &gt; Class Template Reference</div>  </div>
+<div class="title">stateObservation::detail::DebugItemDefaultError&lt; exceptionAddr, dummy &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>this specialization contains no object  
- <a href="a00885.html#details">More...</a></p>
-
 <p><code>#include &lt;state-observation/tools/definitions.hpp&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ad151eca97e71f649eb640c534d36ef80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#ad151eca97e71f649eb640c534d36ef80">DebugItem</a> ()</td></tr>
-<tr class="separator:ad151eca97e71f649eb640c534d36ef80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed93d1779583def2cde25d0c2a9b7477"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#aed93d1779583def2cde25d0c2a9b7477">DebugItem</a> (T)</td></tr>
-<tr class="separator:aed93d1779583def2cde25d0c2a9b7477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae164df524d78783c243feb2a4628992b"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#ae164df524d78783c243feb2a4628992b">operator=</a> (T v)</td></tr>
-<tr class="separator:ae164df524d78783c243feb2a4628992b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6de162b1af6f8ebd90873a9f6f69ee00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#a6de162b1af6f8ebd90873a9f6f69ee00">operator T</a> () const</td></tr>
-<tr class="separator:a6de162b1af6f8ebd90873a9f6f69ee00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc0b106a0a35e88ba426d9fa19e7e097"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#abc0b106a0a35e88ba426d9fa19e7e097">set</a> (const T &amp;)</td></tr>
-<tr class="separator:abc0b106a0a35e88ba426d9fa19e7e097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2736ce52ccd3b4511699df238fd1063d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#a2736ce52ccd3b4511699df238fd1063d">get</a> () const</td></tr>
-<tr class="separator:a2736ce52ccd3b4511699df238fd1063d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a4abf210889794f011f83fb13ae97f665"><td class="memItemLeft" align="right" valign="top">static const std::runtime_error *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00885.html#a4abf210889794f011f83fb13ae97f665">v</a> = &amp;<a class="el" href="a00873.html">DebugItemDefaultError</a>&lt;<a class="el" href="a00136.html#ad190d4c7c4232683d9647ac44eb195d2a1d1b1e55680385c752295299c6393833">exception</a>&gt;::v</td></tr>
+<tr class="separator:a4abf210889794f011f83fb13ae97f665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, typename defaultValue&gt;<br />
-class stateObservation::DebugItem&lt; T, defaultValue, false &gt;</h3>
-
-<p>this specialization contains no object </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad151eca97e71f649eb640c534d36ef80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad151eca97e71f649eb640c534d36ef80">&#9670;&nbsp;</a></span>DebugItem() <span class="overload">[1/2]</span></h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4abf210889794f011f83fb13ae97f665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4abf210889794f011f83fb13ae97f665">&#9670;&nbsp;</a></span>v</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename defaultValue &gt; </div>
+template&lt;int dummy&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, false &gt;::<a class="el" href="a00881.html">DebugItem</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">const std::runtime_error * <a class="el" href="a00873.html">stateObservation::detail::DebugItemDefaultError</a>&lt; <a class="el" href="a00136.html#ad190d4c7c4232683d9647ac44eb195d2a85de210f7611d3a8de56d02fb83a03db">exceptionAddr</a>, dummy &gt;::v = &amp;<a class="el" href="a00873.html">DebugItemDefaultError</a>&lt;<a class="el" href="a00136.html#ad190d4c7c4232683d9647ac44eb195d2a1d1b1e55680385c752295299c6393833">exception</a>&gt;::v</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aed93d1779583def2cde25d0c2a9b7477"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed93d1779583def2cde25d0c2a9b7477">&#9670;&nbsp;</a></span>DebugItem() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename defaultValue &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, false &gt;::<a class="el" href="a00881.html">DebugItem</a> </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2736ce52ccd3b4511699df238fd1063d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2736ce52ccd3b4511699df238fd1063d">&#9670;&nbsp;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename defaultValue &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, false &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6de162b1af6f8ebd90873a9f6f69ee00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6de162b1af6f8ebd90873a9f6f69ee00">&#9670;&nbsp;</a></span>operator T()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename defaultValue &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, false &gt;::operator T </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae164df524d78783c243feb2a4628992b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae164df524d78783c243feb2a4628992b">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename defaultValue &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, false &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>I am not sure what is the best behaviour, is it to return v ot defaultValue::v? </p>
-
-<p class="reference">References <a class="el" href="a00861.html#a2140d65889cda15227ae2b5ee3822ee7">stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt;::v</a>.</p>
-
-</div>
-</div>
-<a id="abc0b106a0a35e88ba426d9fa19e7e097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc0b106a0a35e88ba426d9fa19e7e097">&#9670;&nbsp;</a></span>set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename defaultValue &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="a00881.html">stateObservation::DebugItem</a>&lt; T, defaultValue, false &gt;::set </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -276,8 +113,8 @@ template&lt;typename T , typename defaultValue &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00129.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00885.html">DebugItem&lt; T, defaultValue, false &gt;</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00136.html">detail</a></li><li class="navelem"><a class="el" href="a00885.html">DebugItemDefaultError&lt; exceptionAddr, dummy &gt;</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

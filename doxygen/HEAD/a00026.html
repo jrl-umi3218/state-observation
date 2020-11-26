@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
-<title>state-observation: imu-attitude-trajectory-reconstruction.hpp File Reference</title>
+<title>state-observation: unidim-lipm-dcm-estimator.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.js"></script>
@@ -68,50 +68,42 @@ $(document).ready(function(){initNavTree('a00026.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">imu-attitude-trajectory-reconstruction.hpp File Reference</div>  </div>
+<div class="title">unidim-lipm-dcm-estimator.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Gives an implementation of attitude estimation for IMU reconstruction with or without given input. The source is in a file imu-attitude-trajectory-reconstruction.hxx.  
+<p>Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment point for a linearized inverted pendulum model.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;state-observation/api.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00008.html">state-observation/dynamical-system/dynamical-system-simulator.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00011.html">state-observation/dynamical-system/imu-dynamical-system.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00065.html">state-observation/observer/extended-kalman-filter.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00113.html">state-observation/tools/miscellaneous-algorithms.hpp</a>&gt;</code><br />
-<code>#include &lt;state-observation/examples/imu-attitude-trajectory-reconstruction.hxx&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00074.html">state-observation/observer/linear-kalman-filter.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00116.html">state-observation/tools/miscellaneous-algorithms.hpp</a>&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00129"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00129.html">stateObservation</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00130"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html">stateObservation::examples</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html">stateObservation::UnidimLipmDcmEstimator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">1D version of the estimation of a bias betweeen the divergent component of motion and the corresponding zero moment point for a linearized inverted pendulum model.  <a href="a00745.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ac90a22efe8138e9a7a3026e17029b437"><td class="memItemLeft" align="right" valign="top">IndexedVectorArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#ac90a22efe8138e9a7a3026e17029b437">stateObservation::examples::imuAttitudeTrajectoryReconstruction</a> (const IndexedVectorArray &amp;y, const IndexedVectorArray &amp;u, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</td></tr>
-<tr class="memdesc:ac90a22efe8138e9a7a3026e17029b437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU and the input (which provides the acceleration/jerk). This method uses extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="a00130.html#ac90a22efe8138e9a7a3026e17029b437">More...</a><br /></td></tr>
-<tr class="separator:ac90a22efe8138e9a7a3026e17029b437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91786013872d183262fd929e6db56fea"><td class="memItemLeft" align="right" valign="top">IndexedVectorArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a91786013872d183262fd929e6db56fea">stateObservation::examples::imuAttitudeTrajectoryReconstruction</a> (const IndexedVectorArray &amp;y, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</td></tr>
-<tr class="memdesc:a91786013872d183262fd929e6db56fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU without knowing the input. The input is assumed to be zero over the observation. This method uses extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="a00130.html#a91786013872d183262fd929e6db56fea">More...</a><br /></td></tr>
-<tr class="separator:a91786013872d183262fd929e6db56fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00132"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">stateObservation</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Gives an implementation of attitude estimation for IMU reconstruction with or without given input. The source is in a file imu-attitude-trajectory-reconstruction.hxx. </p>
+<div class="textblock"><p>Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment point for a linearized inverted pendulum model. </p>
 <dl class="section author"><dt>Author</dt><dd>Mehdi Benallegue </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2020  </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.6-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_f0f17f841abfc01a14216cd450994e91.html">examples</a></li><li class="navelem"><a class="el" href="a00026.html">imu-attitude-trajectory-reconstruction.hpp</a></li>
-    <li class="footer">Generated on Mon Nov 16 2020 11:49:54 for state-observation by
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_83a5adf5943f4a4b3f547bb1caea8ebc.html">state-observation</a></li><li class="navelem"><a class="el" href="dir_cda5fc5be0e10eb55ab46f5ba25ddf36.html">dynamics-estimators</a></li><li class="navelem"><a class="el" href="a00026.html">unidim-lipm-dcm-estimator.hpp</a></li>
+    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -1,5 +1,5 @@
 var a00853 =
 [
-    [ "~RotationVelocity", "a00853.html#ac808c996a1f4cd4d6750b026589febc1", null ],
-    [ "rotationVelocityMeasure", "a00853.html#a0b2bf5391d5e967ad6901c72a33c7da4", null ]
+    [ "~LinearAcceleration", "a00853.html#afeac98b86e1fab664297717e08ac0019", null ],
+    [ "accelerationMeasure", "a00853.html#ad913b81fe3401bf8c9cec718d49b5d5e", null ]
 ];
