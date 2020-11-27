@@ -10755,6 +10755,13 @@
       <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, double yaw=0, bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>resetWithMeasurements</name>
+      <anchorfile>a00741.html</anchorfile>
+      <anchor>a549d1051089ae5c4a7cea60dd792c6ee</anchor>
+      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, const Matrix3 &amp;rotation=Matrix3::Identity(), bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
+    </member>
+    <member kind="function">
       <type></type>
       <name>~LipmDcmEstimator</name>
       <anchorfile>a00741.html</anchorfile>

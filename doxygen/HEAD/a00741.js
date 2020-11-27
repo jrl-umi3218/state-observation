@@ -14,6 +14,7 @@ var a00741 =
     [ "getUnbiasedDCM", "a00741.html#a611dcf321d538eaff1549ac30d3bfe0b", null ],
     [ "resetWithMeasurements", "a00741.html#aad7d1818135ddc01c0916f6a1492df9e", null ],
     [ "resetWithMeasurements", "a00741.html#a19a7ef4788b0053ef3c0109da2146bd6", null ],
+    [ "resetWithMeasurements", "a00741.html#a549d1051089ae5c4a7cea60dd792c6ee", null ],
     [ "setBias", "a00741.html#a04b7daae60c99cce87a710f1f709af36", null ],
     [ "setBias", "a00741.html#a8e966c0123c5b43f4cfdde9b2fb54ada", null ],
     [ "setBiasDriftPerSecond", "a00741.html#aec28cf795e263efa979abcc8a83ffef2", null ],

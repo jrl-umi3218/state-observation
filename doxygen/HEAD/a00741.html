@@ -93,6 +93,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a19a7ef4788b0053ef3c0109da2146bd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a19a7ef4788b0053ef3c0109da2146bd6">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, double yaw=0, bool measurementIsWithBias=true, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
 <tr class="memdesc:a19a7ef4788b0053ef3c0109da2146bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a19a7ef4788b0053ef3c0109da2146bd6">More...</a><br /></td></tr>
 <tr class="separator:a19a7ef4788b0053ef3c0109da2146bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549d1051089ae5c4a7cea60dd792c6ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a549d1051089ae5c4a7cea60dd792c6ee">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;rotation=Matrix3::Identity(), bool measurementIsWithBias=true, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:a549d1051089ae5c4a7cea60dd792c6ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a549d1051089ae5c4a7cea60dd792c6ee">More...</a><br /></td></tr>
+<tr class="separator:a549d1051089ae5c4a7cea60dd792c6ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aab05e32946eca2e9d1835ed52ad843"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0aab05e32946eca2e9d1835ed52ad843">~LipmDcmEstimator</a> ()</td></tr>
 <tr class="memdesc:a0aab05e32946eca2e9d1835ed52ad843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Lipm Dcm Bias Estimator object.  <a href="#a0aab05e32946eca2e9d1835ed52ad843">More...</a><br /></td></tr>
 <tr class="separator:a0aab05e32946eca2e9d1835ed52ad843"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -607,7 +610,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aad7d1818135ddc01c0916f6a1492df9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad7d1818135ddc01c0916f6a1492df9e">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad7d1818135ddc01c0916f6a1492df9e">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -674,7 +677,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a19a7ef4788b0053ef3c0109da2146bd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19a7ef4788b0053ef3c0109da2146bd6">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a19a7ef4788b0053ef3c0109da2146bd6">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,6 +748,83 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a549d1051089ae5c4a7cea60dd792c6ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a549d1051089ae5c4a7cea60dd792c6ee">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredDcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>measuredZMP</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotation</em> = <code>Matrix3::Identity()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>measurementIsWithBias</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the estimator with first measurements. </p>
+<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
+    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
+    <tr><td class="paramname">rotation</td><td>the 3d orientation from which the initial yaw angle will be extracted using the angle agnostic approach. This orientation is from local to global. i.e. bias_global == orientation * bias*local </td></tr>
+    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
+    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (zero means no limit) </td></tr>
+    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
+    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="a00141.html#ae154db62e29c0bf232fb2496f91a68b6">stateObservation::kine::rotationMatrixToYawAxisAgnostic()</a>.</p>
 
 </div>
 </div>
@@ -1683,7 +1763,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00741.html">LipmDcmEstimator</a></li>
-    <li class="footer">Generated on Fri Nov 27 2020 02:18:03 for state-observation by
+    <li class="footer">Generated on Fri Nov 27 2020 04:57:41 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
