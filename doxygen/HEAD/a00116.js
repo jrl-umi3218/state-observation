@@ -2,6 +2,8 @@ var a00116 =
 [
     [ "checkIfNormalized", "a00116.html#af4a0136c41ba33f3e25ae5aaa0e40072", null ],
     [ "checkIfNormalized", "a00116.html#acbc6716620307adfafa8a79b7fc39a10", null ],
+    [ "clampScalar", "a00116.html#a02f269bf8b3b8348a809e3fce6bab81a", null ],
+    [ "clampScalar", "a00116.html#af9e261cbaa63ece0d040c191ffbac1b8", null ],
     [ "derivate", "a00116.html#a1705e5c31fc5add912c2736ac35a8899", null ],
     [ "finiteTimeAccControl", "a00116.html#a775c0537bef8c115ee3b650a55f45f74", null ],
     [ "finiteTimeAccControl", "a00116.html#a593050a1314f244a4e7bc765dbab398a", null ],

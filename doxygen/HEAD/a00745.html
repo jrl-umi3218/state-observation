@@ -107,12 +107,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae57372bd1d4bbb4be33f02b7ea7ef1d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html#ae57372bd1d4bbb4be33f02b7ea7ef1d6">setBiasDriftPerSecond</a> (double driftPerSecond)</td></tr>
 <tr class="memdesc:ae57372bd1d4bbb4be33f02b7ea7ef1d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias Drift Per Second.  <a href="#ae57372bd1d4bbb4be33f02b7ea7ef1d6">More...</a><br /></td></tr>
 <tr class="separator:ae57372bd1d4bbb4be33f02b7ea7ef1d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a2f7f46f045f16e473f0c764e3d52ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html#a1a2f7f46f045f16e473f0c764e3d52ec">setDCM</a> (double dcm)</td></tr>
-<tr class="memdesc:a1a2f7f46f045f16e473f0c764e3d52ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#a1a2f7f46f045f16e473f0c764e3d52ec">More...</a><br /></td></tr>
-<tr class="separator:a1a2f7f46f045f16e473f0c764e3d52ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adec50020aab3ff2553075fde8d5c9d15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html#adec50020aab3ff2553075fde8d5c9d15">setDCM</a> (double dcm, double uncertainty)</td></tr>
-<tr class="memdesc:adec50020aab3ff2553075fde8d5c9d15"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#adec50020aab3ff2553075fde8d5c9d15">More...</a><br /></td></tr>
-<tr class="separator:adec50020aab3ff2553075fde8d5c9d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438b8d030f142a1849f15ad480466a33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html#a438b8d030f142a1849f15ad480466a33">setUnbiasedDCM</a> (double dcm)</td></tr>
+<tr class="memdesc:a438b8d030f142a1849f15ad480466a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#a438b8d030f142a1849f15ad480466a33">More...</a><br /></td></tr>
+<tr class="separator:a438b8d030f142a1849f15ad480466a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e64a0349e4e47a7e04f917f86dfde4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html#a59e64a0349e4e47a7e04f917f86dfde4">setUnbiasedDCM</a> (double dcm, double uncertainty)</td></tr>
+<tr class="memdesc:a59e64a0349e4e47a7e04f917f86dfde4"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#a59e64a0349e4e47a7e04f917f86dfde4">More...</a><br /></td></tr>
+<tr class="separator:a59e64a0349e4e47a7e04f917f86dfde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcf0db1c6a0a0ec97255bc68a304c860"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html#afcf0db1c6a0a0ec97255bc68a304c860">setZmpMeasureErrorStd</a> (double)</td></tr>
 <tr class="memdesc:afcf0db1c6a0a0ec97255bc68a304c860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Zmp Measurement Error Stamdard devbiation.  <a href="#afcf0db1c6a0a0ec97255bc68a304c860">More...</a><br /></td></tr>
 <tr class="separator:afcf0db1c6a0a0ec97255bc68a304c860"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -545,70 +545,6 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1a2f7f46f045f16e473f0c764e3d52ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a2f7f46f045f16e473f0c764e3d52ec">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::UnidimLipmDcmEstimator::setDCM </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>set the real DCM position from a guess </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td>guess </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="adec50020aab3ff2553075fde8d5c9d15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adec50020aab3ff2553075fde8d5c9d15">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::UnidimLipmDcmEstimator::setDCM </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>uncertainty</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>set the real DCM position from a guess </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td>guess</td></tr>
-    <tr><td class="paramname">dcm</td><td></td></tr>
-    <tr><td class="paramname">uncertainty</td><td>the uncertainty in this guess </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a52f18ac6cdfc04f8882a5eb6f9b3370d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52f18ac6cdfc04f8882a5eb6f9b3370d">&#9670;&nbsp;</a></span>setDcmMeasureErrorStd()</h2>
 
@@ -712,6 +648,70 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dt</td><td>sampling time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a438b8d030f142a1849f15ad480466a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438b8d030f142a1849f15ad480466a33">&#9670;&nbsp;</a></span>setUnbiasedDCM() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::UnidimLipmDcmEstimator::setUnbiasedDCM </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the real DCM position from a guess </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>guess </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a59e64a0349e4e47a7e04f917f86dfde4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59e64a0349e4e47a7e04f917f86dfde4">&#9670;&nbsp;</a></span>setUnbiasedDCM() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::UnidimLipmDcmEstimator::setUnbiasedDCM </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>uncertainty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the real DCM position from a guess </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>guess</td></tr>
+    <tr><td class="paramname">dcm</td><td></td></tr>
+    <tr><td class="paramname">uncertainty</td><td>the uncertainty in this guess </td></tr>
   </table>
   </dd>
 </dl>
@@ -891,7 +891,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00745.html">UnidimLipmDcmEstimator</a></li>
-    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
+    <li class="footer">Generated on Fri Nov 27 2020 02:18:03 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

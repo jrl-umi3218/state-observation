@@ -123,6 +123,14 @@ Functions</h2></td></tr>
 <tr class="memitem:acbc6716620307adfafa8a79b7fc39a10"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#acbc6716620307adfafa8a79b7fc39a10">checkIfNormalized</a> (const <a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;v, double &amp;outputSquaredNorm)</td></tr>
 <tr class="memdesc:acbc6716620307adfafa8a79b7fc39a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the vector is already normalized or not  <a href="#acbc6716620307adfafa8a79b7fc39a10">More...</a><br /></td></tr>
 <tr class="separator:acbc6716620307adfafa8a79b7fc39a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02f269bf8b3b8348a809e3fce6bab81a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a02f269bf8b3b8348a809e3fce6bab81a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00138.html#a02f269bf8b3b8348a809e3fce6bab81a">clampScalar</a> (const T &amp;x, const T &amp;max, const T &amp;min)</td></tr>
+<tr class="memdesc:a02f269bf8b3b8348a809e3fce6bab81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the value clamped between min and max  <a href="#a02f269bf8b3b8348a809e3fce6bab81a">More...</a><br /></td></tr>
+<tr class="separator:a02f269bf8b3b8348a809e3fce6bab81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e261cbaa63ece0d040c191ffbac1b8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af9e261cbaa63ece0d040c191ffbac1b8"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00138.html#af9e261cbaa63ece0d040c191ffbac1b8">clampScalar</a> (const T &amp;x, const T &amp;limit)</td></tr>
+<tr class="memdesc:af9e261cbaa63ece0d040c191ffbac1b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the value clamped between limit and -limit  <a href="#af9e261cbaa63ece0d040c191ffbac1b8">More...</a><br /></td></tr>
+<tr class="separator:af9e261cbaa63ece0d040c191ffbac1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20db4201d4820f97f29dd40047790cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a20db4201d4820f97f29dd40047790cce">normalizedLazy</a> (const <a class="el" href="a00132.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;v)</td></tr>
 <tr class="memdesc:a20db4201d4820f97f29dd40047790cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">normalize the vector only if it is not normalized already.  <a href="#a20db4201d4820f97f29dd40047790cce">More...</a><br /></td></tr>
 <tr class="separator:a20db4201d4820f97f29dd40047790cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +233,125 @@ false The vector is not normalized </dd></dl>
 false The vector is not normalized </dd></dl>
 
 <p class="reference">References <a class="el" href="a00137.html#abfc17bdd160f33df2c6825afc60e4d1d">stateObservation::cst::epsilon1</a>.</p>
+
+</div>
+</div>
+<a id="a02f269bf8b3b8348a809e3fce6bab81a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f269bf8b3b8348a809e3fce6bab81a">&#9670;&nbsp;</a></span>clampScalar() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T stateObservation::tools::clampScalar </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>min</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns the value clamped between min and max </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the scalar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the input value </td></tr>
+    <tr><td class="paramname">max</td><td>the max value </td></tr>
+    <tr><td class="paramname">min</td><td>the min value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T the calmped value </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="a00138.html#af9e261cbaa63ece0d040c191ffbac1b8">clampScalar()</a>.</p>
+
+</div>
+</div>
+<a id="af9e261cbaa63ece0d040c191ffbac1b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e261cbaa63ece0d040c191ffbac1b8">&#9670;&nbsp;</a></span>clampScalar() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T stateObservation::tools::clampScalar </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>limit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns the value clamped between limit and -limit </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the scalar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the input value </td></tr>
+    <tr><td class="paramname">limit</td><td>is the maximum absolute value allowed, has to be positive </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T the clamped value </dd></dl>
+
+<p class="reference">References <a class="el" href="a00138.html#a02f269bf8b3b8348a809e3fce6bab81a">clampScalar()</a>.</p>
 
 </div>
 </div>
@@ -664,7 +791,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00138.html">tools</a></li>
-    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
+    <li class="footer">Generated on Fri Nov 27 2020 02:18:03 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

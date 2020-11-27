@@ -141,6 +141,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="a00741.html#aec28cf795e263efa979abcc8a83ffef2">stateObservation::LipmDcmEstimator</a>
 , <a class="el" href="a00745.html#ae57372bd1d4bbb4be33f02b7ea7ef1d6">stateObservation::UnidimLipmDcmEstimator</a>
 </li>
+<li>setBiasLimit()
+: <a class="el" href="a00741.html#a2bf92e58acf90a4a42586948b38c51ff">stateObservation::LipmDcmEstimator</a>
+</li>
 <li>setC()
 : <a class="el" href="a00817.html#a1963c2f35c8d4981ca1781921e05e888">stateObservation::KalmanFilterBase</a>
 </li>
@@ -195,10 +198,6 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>setD()
 : <a class="el" href="a00825.html#a0c8dbbb69e25ee8855b700abaadbd514">stateObservation::LinearKalmanFilter</a>
-</li>
-<li>setDCM()
-: <a class="el" href="a00741.html#aaff8f8ab843df285d0430a46ed791926">stateObservation::LipmDcmEstimator</a>
-, <a class="el" href="a00745.html#a1a2f7f46f045f16e473f0c764e3d52ec">stateObservation::UnidimLipmDcmEstimator</a>
 </li>
 <li>setDcmMeasureErrorStd()
 : <a class="el" href="a00741.html#ac210d2da44f32fff79a168bdd16f46f1">stateObservation::LipmDcmEstimator</a>
@@ -286,7 +285,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 , <a class="el" href="a00837.html#ab8d5d039dfa067c1be6d1594f0a4d84e">stateObservation::ZeroDelayObserver</a>
 </li>
 <li>setInputs()
-: <a class="el" href="a00741.html#a1630c4c26133a1ac3cde4c45c333538b">stateObservation::LipmDcmEstimator</a>
+: <a class="el" href="a00741.html#a6a39f5798c227a32d1d3e8b9ee6542f1">stateObservation::LipmDcmEstimator</a>
 , <a class="el" href="a00745.html#a6be48c077a4526a6305250f47e080dfc">stateObservation::UnidimLipmDcmEstimator</a>
 </li>
 <li>setInputSize()
@@ -521,6 +520,10 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>setType()
 : <a class="el" href="a00921.html#a2b02286a9d73564916b0f0443d268bfe">stateObservation::tools::Logger::log_s</a>
 </li>
+<li>setUnbiasedDCM()
+: <a class="el" href="a00741.html#a640427fcc761bd0a10589fcfe189f625">stateObservation::LipmDcmEstimator</a>
+, <a class="el" href="a00745.html#a438b8d030f142a1849f15ad480466a33">stateObservation::UnidimLipmDcmEstimator</a>
+</li>
 <li>setUnmodeledForceProcessVariance()
 : <a class="el" href="a00785.html#ae7aba74c1bfde4d00bfb1b2c569e7e98">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>
 </li>
@@ -722,7 +725,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>stateDifference()
 : <a class="el" href="a00709.html#a47db3dc594ade3be50877a10055141f8">stateObservation::IMUMltpctiveDynamicalSystem</a>
-, <a class="el" href="a00717.html#a7d4b85c98cabbd6b950d0b669e554044">stateObservation::KineticsObserver</a>
+, <a class="el" href="a00717.html#a39caef1d9086022659b1419ff4f5e624">stateObservation::KineticsObserver</a>
 , <a class="el" href="a00953.html#ae600a69bfd438dbae7184a0da574cfa5">stateObservation::StateVectorArithmetics</a>
 </li>
 <li>stateDynamics()
@@ -744,6 +747,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>stateIndexTangent
 : <a class="el" href="a00729.html#afa3d3565952ab3938de9a019dd2419c3">stateObservation::KineticsObserver::Contact</a>
+</li>
+<li>stateIsSet()
+: <a class="el" href="a00837.html#a5b01334cf05b2845b46ee758b7a03609">stateObservation::ZeroDelayObserver</a>
 </li>
 <li>stateKinematics_
 : <a class="el" href="a00717.html#a398555f36c8a0fb125a2aeeb9e3ed7b0">stateObservation::KineticsObserver</a>
@@ -881,7 +887,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
+    <li class="footer">Generated on Fri Nov 27 2020 02:18:03 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

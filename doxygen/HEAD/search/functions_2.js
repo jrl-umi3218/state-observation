@@ -22,6 +22,7 @@ var searchData=
   ['checkstatetangentvector',['checkStateTangentVector',['../a00817.html#abd507cf3c37af68df1f63630fcd19c7b',1,'stateObservation::KalmanFilterBase']]],
   ['checkstatevector',['checkStateVector',['../a00693.html#a19cacc00d10142b38482df979978edff',1,'stateObservation::DynamicalSystemFunctorBase::checkStateVector()'],['../a00829.html#ab2085a4e7015ae141c82dc17f2dedaf6',1,'stateObservation::ObserverBase::checkStateVector()'],['../a00865.html#a156904f2a867a1ed0212a5b2f8e2b01a',1,'stateObservation::SensorBase::checkStateVector()']]],
   ['checkvector_5f',['checkVector_',['../a00801.html#a2b65a48ad83d82704a56e2a2a4683e60',1,'stateObservation::GaussianWhiteNoise']]],
+  ['clampscalar',['clampScalar',['../a00138.html#a02f269bf8b3b8348a809e3fce6bab81a',1,'stateObservation::tools::clampScalar(const T &amp;x, const T &amp;max, const T &amp;min)'],['../a00138.html#af9e261cbaa63ece0d040c191ffbac1b8',1,'stateObservation::tools::clampScalar(const T &amp;x, const T &amp;limit)']]],
   ['clear',['clear',['../a00905.html#a6ed7174b079f541e711a1b1a039972c0',1,'stateObservation::IndexedMatrixArrayT']]],
   ['cleara',['clearA',['../a00817.html#a2cb693d47e393755c5cad4ace228c032',1,'stateObservation::KalmanFilterBase']]],
   ['clearb',['clearB',['../a00825.html#a3b37193ee06c7652e79a114d08e3cacd',1,'stateObservation::LinearKalmanFilter']]],

@@ -27,6 +27,7 @@ var a00837 =
     [ "setMeasureSize", "a00837.html#a46f6c0b0d107a5eaca46d16db27d6e26", null ],
     [ "setState", "a00837.html#a8247a916d22411cadd69cf6b0c60c87d", null ],
     [ "setStateSize", "a00837.html#a864b38d88067e8a654e2972d1b8eed02", null ],
+    [ "stateIsSet", "a00837.html#a5b01334cf05b2845b46ee758b7a03609", null ],
     [ "u_", "a00837.html#a586b3f05416f37af3d8604b0e444cded", null ],
     [ "x_", "a00837.html#a8117ab4e9354603b9233fe5c316639b9", null ],
     [ "y_", "a00837.html#a6c19c097d2780bb922eee1da1cd15b35", null ]

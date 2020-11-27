@@ -26,7 +26,7 @@ var searchData=
   ['linvelindextangent',['linVelIndexTangent',['../a00717.html#a77ea1d843e7e1662ab57cb0fb13ee932',1,'stateObservation::KineticsObserver']]],
   ['lipm_2ddcm_2destimator_2ehpp',['lipm-dcm-estimator.hpp',['../a00023.html',1,'']]],
   ['lipmdcmbiasestimator',['LipmDcmBiasEstimator',['../a00961.html',1,'']]],
-  ['lipmdcmestimator',['LipmDcmEstimator',['../a00741.html',1,'stateObservation::LipmDcmEstimator'],['../a00741.html#ada08c3c86037be4b80875f065ebbc2d2',1,'stateObservation::LipmDcmEstimator::LipmDcmEstimator()']]],
+  ['lipmdcmestimator',['LipmDcmEstimator',['../a00741.html',1,'stateObservation::LipmDcmEstimator'],['../a00741.html#a49fafb3c0024689d8e2b1601594bab1b',1,'stateObservation::LipmDcmEstimator::LipmDcmEstimator()']]],
   ['lltmatrix3',['LLTMatrix3',['../a00761.html#a6b5bd1596d5123db7d8a5ad4e0affc88',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['lltpmatrix',['LLTPMatrix',['../a00817.html#afb5af44bd7d9e72904fb6db54eb0574d',1,'stateObservation::KalmanFilterBase']]],
   ['localkine',['localKine',['../a00729.html#ab7d0c212082e31d595d1d94139a1f553',1,'stateObservation::KineticsObserver::Contact']]],

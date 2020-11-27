@@ -807,6 +807,20 @@
       <arglist>(const Vector3 &amp;v, double &amp;outputSquaredNorm)</arglist>
     </member>
     <member kind="function">
+      <type>T</type>
+      <name>clampScalar</name>
+      <anchorfile>a00138.html</anchorfile>
+      <anchor>a02f269bf8b3b8348a809e3fce6bab81a</anchor>
+      <arglist>(const T &amp;x, const T &amp;max, const T &amp;min)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>clampScalar</name>
+      <anchorfile>a00138.html</anchorfile>
+      <anchor>af9e261cbaa63ece0d040c191ffbac1b8</anchor>
+      <arglist>(const T &amp;x, const T &amp;limit)</arglist>
+    </member>
+    <member kind="function">
       <type>Vector3</type>
       <name>normalizedLazy</name>
       <anchorfile>a00138.html</anchorfile>
@@ -10723,15 +10737,8 @@
       <type></type>
       <name>LipmDcmEstimator</name>
       <anchorfile>a00741.html</anchorfile>
-      <anchor>ada08c3c86037be4b80875f065ebbc2d2</anchor>
-      <arglist>(double dt=defaultDt_, double omega_0=defaultOmega_, double biasDriftPerSecondStd=defaultBiasDriftSecond, const Vector2 &amp;initZMP=Vector2::Zero(), const Vector2 &amp;initDcm=Vector2::Zero(), const Vector2 &amp;initBias=Vector2::Zero(), double dcmMeasureErrorStd=defaultDcmErrorStd, double zmpMeasureErrorStd=defaultZmpErrorStd, const Vector2 &amp;initDcmUncertainty=Vector2::Constant(defaultDCMUncertainty), const Vector2 &amp;initBiasUncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetWithMeasurements</name>
-      <anchorfile>a00741.html</anchorfile>
-      <anchor>acf82909a9991ad16b0d243ccd5d4e790</anchor>
-      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, const Matrix2 &amp;yaw, bool measurementIsWithBias, double biasDriftPerSecondStd, double dcmMeasureErrorStd, double zmpMeasureErrorStd, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
+      <anchor>a49fafb3c0024689d8e2b1601594bab1b</anchor>
+      <arglist>(double dt=defaultDt_, double omega_0=defaultOmega_, double biasDriftPerSecondStd=defaultBiasDriftSecond, double dcmMeasureErrorStd=defaultDcmErrorStd, double zmpMeasureErrorStd=defaultZmpErrorStd, const Vector2 &amp;biasLimit=Vector2::Constant(defaultBiasLimit), const Vector2 &amp;initZMP=Vector2::Zero(), const Vector2 &amp;initDcm=Vector2::Zero(), const Vector2 &amp;initBias=Vector2::Zero(), const Vector2 &amp;initDcmUncertainty=Vector2::Constant(defaultDCMUncertainty), const Vector2 &amp;initBiasUncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10744,15 +10751,8 @@
       <type>void</type>
       <name>resetWithMeasurements</name>
       <anchorfile>a00741.html</anchorfile>
-      <anchor>a5b0f10c0ac1ce80587d90553b4612792</anchor>
-      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, double yaw, bool measurementIsWithBias=true, double biasDriftPerSecondStd=defaultBiasDriftSecond, double dcmMeasureErrorStd=defaultDcmErrorStd, double zmpMeasureErrorStd=defaultZmpErrorStd, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetWithMeasurements</name>
-      <anchorfile>a00741.html</anchorfile>
-      <anchor>a8701ddcb4fb868ce71b7639ee0f2a423</anchor>
-      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, const Matrix3 &amp;rotation, bool measurementIsWithBias=true, double biasDriftPerSecondStd=defaultBiasDriftSecond, double zmpMeasureErrorStd=defaultZmpErrorStd, double dcmMeasureErrorStd=defaultDcmErrorStd, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
+      <anchor>a19a7ef4788b0053ef3c0109da2146bd6</anchor>
+      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, double yaw=0, bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -10805,16 +10805,23 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setDCM</name>
+      <name>setBiasLimit</name>
       <anchorfile>a00741.html</anchorfile>
-      <anchor>aaff8f8ab843df285d0430a46ed791926</anchor>
+      <anchor>a2bf92e58acf90a4a42586948b38c51ff</anchor>
+      <arglist>(const Vector2 &amp;biasLimit)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnbiasedDCM</name>
+      <anchorfile>a00741.html</anchorfile>
+      <anchor>a640427fcc761bd0a10589fcfe189f625</anchor>
       <arglist>(const Vector2 &amp;dcm)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setDCM</name>
+      <name>setUnbiasedDCM</name>
       <anchorfile>a00741.html</anchorfile>
-      <anchor>a5c82cb6c8a7b33cbd593386dfd6fa395</anchor>
+      <anchor>aac7867055759498ed18b0f027d28657c</anchor>
       <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;uncertainty)</arglist>
     </member>
     <member kind="function">
@@ -10835,13 +10842,6 @@
       <type>void</type>
       <name>setInputs</name>
       <anchorfile>a00741.html</anchorfile>
-      <anchor>a1630c4c26133a1ac3cde4c45c333538b</anchor>
-      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setInputs</name>
-      <anchorfile>a00741.html</anchorfile>
       <anchor>a6a39f5798c227a32d1d3e8b9ee6542f1</anchor>
       <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix3 &amp;orientation)</arglist>
     </member>
@@ -10856,8 +10856,8 @@
       <type>void</type>
       <name>setInputs</name>
       <anchorfile>a00741.html</anchorfile>
-      <anchor>aae39c5309f3075fac75a2325d6772d25</anchor>
-      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix2 &amp;R)</arglist>
+      <anchor>af9f77ca3d4a24f66ada4d2fce47fc2ff</anchor>
+      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix2 &amp;R=Matrix2::Identity())</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10936,6 +10936,13 @@
       <anchor>a20a867177a0c39d57c05e1a4d44ee8ee</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultBiasLimit</name>
+      <anchorfile>a00741.html</anchorfile>
+      <anchor>a0936bb9cda37ce3ab22d8ac242cfd181</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="typedef" protection="protected">
       <type>Eigen::Matrix&lt; double, 4, 2 &gt;</type>
       <name>Matrix42</name>
@@ -11011,6 +11018,13 @@
       <name>previousZmp_</name>
       <anchorfile>a00741.html</anchorfile>
       <anchor>a96c3fbd123699e12345f4c99fcb8a29b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Vector2</type>
+      <name>biasLimit_</name>
+      <anchorfile>a00741.html</anchorfile>
+      <anchor>a44fe9b76cf5f2f3f0f7eaf16f769c908</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -14351,16 +14365,16 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setDCM</name>
+      <name>setUnbiasedDCM</name>
       <anchorfile>a00745.html</anchorfile>
-      <anchor>a1a2f7f46f045f16e473f0c764e3d52ec</anchor>
+      <anchor>a438b8d030f142a1849f15ad480466a33</anchor>
       <arglist>(double dcm)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setDCM</name>
+      <name>setUnbiasedDCM</name>
       <anchorfile>a00745.html</anchorfile>
-      <anchor>adec50020aab3ff2553075fde8d5c9d15</anchor>
+      <anchor>a59e64a0349e4e47a7e04f917f86dfde4</anchor>
       <arglist>(double dcm, double uncertainty)</arglist>
     </member>
     <member kind="function">
@@ -14500,6 +14514,13 @@
       <anchorfile>a00837.html</anchorfile>
       <anchor>a664dfe33b9771e1245929c0a9e1ba4ff</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>stateIsSet</name>
+      <anchorfile>a00837.html</anchorfile>
+      <anchor>a5b01334cf05b2845b46ee758b7a03609</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -15716,6 +15737,20 @@
       <anchorfile>a00138.html</anchorfile>
       <anchor>acbc6716620307adfafa8a79b7fc39a10</anchor>
       <arglist>(const Vector3 &amp;v, double &amp;outputSquaredNorm)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>clampScalar</name>
+      <anchorfile>a00138.html</anchorfile>
+      <anchor>a02f269bf8b3b8348a809e3fce6bab81a</anchor>
+      <arglist>(const T &amp;x, const T &amp;max, const T &amp;min)</arglist>
+    </member>
+    <member kind="function">
+      <type>T</type>
+      <name>clampScalar</name>
+      <anchorfile>a00138.html</anchorfile>
+      <anchor>af9e261cbaa63ece0d040c191ffbac1b8</anchor>
+      <arglist>(const T &amp;x, const T &amp;limit)</arglist>
     </member>
     <member kind="function">
       <type>Vector3</type>

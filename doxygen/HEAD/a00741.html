@@ -84,21 +84,15 @@ $(document).ready(function(){initNavTree('a00741.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada08c3c86037be4b80875f065ebbc2d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ada08c3c86037be4b80875f065ebbc2d2">LipmDcmEstimator</a> (double dt=defaultDt_, double omega_0=defaultOmega_, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initZMP=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initDcm=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Zero(), double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initDcmUncertainty=Vector2::Constant(<a class="el" href="a00741.html#a8ad8886adb2b05e432594cc3b575e9c8">defaultDCMUncertainty</a>), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasUncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
-<tr class="memdesc:ada08c3c86037be4b80875f065ebbc2d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Lipm Dcm Estimator object.  <a href="#ada08c3c86037be4b80875f065ebbc2d2">More...</a><br /></td></tr>
-<tr class="separator:ada08c3c86037be4b80875f065ebbc2d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf82909a9991ad16b0d243ccd5d4e790"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#acf82909a9991ad16b0d243ccd5d4e790">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;yaw, bool measurementIsWithBias, double biasDriftPerSecondStd, double dcmMeasureErrorStd, double zmpMeasureErrorStd, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
-<tr class="memdesc:acf82909a9991ad16b0d243ccd5d4e790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#acf82909a9991ad16b0d243ccd5d4e790">More...</a><br /></td></tr>
-<tr class="separator:acf82909a9991ad16b0d243ccd5d4e790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fafb3c0024689d8e2b1601594bab1b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a49fafb3c0024689d8e2b1601594bab1b">LipmDcmEstimator</a> (double dt=defaultDt_, double omega_0=defaultOmega_, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;biasLimit=Vector2::Constant(<a class="el" href="a00741.html#a0936bb9cda37ce3ab22d8ac242cfd181">defaultBiasLimit</a>), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initZMP=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initDcm=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Zero(), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initDcmUncertainty=Vector2::Constant(<a class="el" href="a00741.html#a8ad8886adb2b05e432594cc3b575e9c8">defaultDCMUncertainty</a>), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasUncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:a49fafb3c0024689d8e2b1601594bab1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Lipm Dcm Estimator object.  <a href="#a49fafb3c0024689d8e2b1601594bab1b">More...</a><br /></td></tr>
+<tr class="separator:a49fafb3c0024689d8e2b1601594bab1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad7d1818135ddc01c0916f6a1492df9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aad7d1818135ddc01c0916f6a1492df9e">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;yaw=Matrix2::Identity(), bool measurementIsWithBias=true, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
 <tr class="memdesc:aad7d1818135ddc01c0916f6a1492df9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#aad7d1818135ddc01c0916f6a1492df9e">More...</a><br /></td></tr>
 <tr class="separator:aad7d1818135ddc01c0916f6a1492df9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b0f10c0ac1ce80587d90553b4612792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a5b0f10c0ac1ce80587d90553b4612792">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, double yaw, bool measurementIsWithBias=true, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
-<tr class="memdesc:a5b0f10c0ac1ce80587d90553b4612792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a5b0f10c0ac1ce80587d90553b4612792">More...</a><br /></td></tr>
-<tr class="separator:a5b0f10c0ac1ce80587d90553b4612792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8701ddcb4fb868ce71b7639ee0f2a423"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a8701ddcb4fb868ce71b7639ee0f2a423">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;rotation, bool measurementIsWithBias=true, double biasDriftPerSecondStd=<a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a>, double zmpMeasureErrorStd=<a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a>, double dcmMeasureErrorStd=<a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a>, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
-<tr class="memdesc:a8701ddcb4fb868ce71b7639ee0f2a423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a8701ddcb4fb868ce71b7639ee0f2a423">More...</a><br /></td></tr>
-<tr class="separator:a8701ddcb4fb868ce71b7639ee0f2a423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19a7ef4788b0053ef3c0109da2146bd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a19a7ef4788b0053ef3c0109da2146bd6">resetWithMeasurements</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredDcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;measuredZMP, double yaw=0, bool measurementIsWithBias=true, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBias=Vector2::Constant(0), const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;initBiasuncertainty=Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>))</td></tr>
+<tr class="memdesc:a19a7ef4788b0053ef3c0109da2146bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the estimator with first measurements.  <a href="#a19a7ef4788b0053ef3c0109da2146bd6">More...</a><br /></td></tr>
+<tr class="separator:a19a7ef4788b0053ef3c0109da2146bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aab05e32946eca2e9d1835ed52ad843"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0aab05e32946eca2e9d1835ed52ad843">~LipmDcmEstimator</a> ()</td></tr>
 <tr class="memdesc:a0aab05e32946eca2e9d1835ed52ad843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Lipm Dcm Bias Estimator object.  <a href="#a0aab05e32946eca2e9d1835ed52ad843">More...</a><br /></td></tr>
 <tr class="separator:a0aab05e32946eca2e9d1835ed52ad843"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,29 +113,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec28cf795e263efa979abcc8a83ffef2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aec28cf795e263efa979abcc8a83ffef2">setBiasDriftPerSecond</a> (double driftPerSecond)</td></tr>
 <tr class="memdesc:aec28cf795e263efa979abcc8a83ffef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias Drift Per Second.  <a href="#aec28cf795e263efa979abcc8a83ffef2">More...</a><br /></td></tr>
 <tr class="separator:aec28cf795e263efa979abcc8a83ffef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaff8f8ab843df285d0430a46ed791926"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aaff8f8ab843df285d0430a46ed791926">setDCM</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm)</td></tr>
-<tr class="memdesc:aaff8f8ab843df285d0430a46ed791926"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the real DCM position from a guess  <a href="#aaff8f8ab843df285d0430a46ed791926">More...</a><br /></td></tr>
-<tr class="separator:aaff8f8ab843df285d0430a46ed791926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c82cb6c8a7b33cbd593386dfd6fa395"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a5c82cb6c8a7b33cbd593386dfd6fa395">setDCM</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;uncertainty)</td></tr>
-<tr class="separator:a5c82cb6c8a7b33cbd593386dfd6fa395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bf92e58acf90a4a42586948b38c51ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a2bf92e58acf90a4a42586948b38c51ff">setBiasLimit</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;biasLimit)</td></tr>
+<tr class="memdesc:a2bf92e58acf90a4a42586948b38c51ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Bias Limit.  <a href="#a2bf92e58acf90a4a42586948b38c51ff">More...</a><br /></td></tr>
+<tr class="separator:a2bf92e58acf90a4a42586948b38c51ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a640427fcc761bd0a10589fcfe189f625"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a640427fcc761bd0a10589fcfe189f625">setUnbiasedDCM</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm)</td></tr>
+<tr class="memdesc:a640427fcc761bd0a10589fcfe189f625"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the unbiased DCM position from a guess  <a href="#a640427fcc761bd0a10589fcfe189f625">More...</a><br /></td></tr>
+<tr class="separator:a640427fcc761bd0a10589fcfe189f625"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7867055759498ed18b0f027d28657c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aac7867055759498ed18b0f027d28657c">setUnbiasedDCM</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;uncertainty)</td></tr>
+<tr class="separator:aac7867055759498ed18b0f027d28657c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c5b303c5642400fc6e755528b76ff1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a04c5b303c5642400fc6e755528b76ff1">setZmpMeasureErrorStd</a> (double)</td></tr>
 <tr class="memdesc:a04c5b303c5642400fc6e755528b76ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Zmp Measurement Error Stamdard devbiation.  <a href="#a04c5b303c5642400fc6e755528b76ff1">More...</a><br /></td></tr>
 <tr class="separator:a04c5b303c5642400fc6e755528b76ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac210d2da44f32fff79a168bdd16f46f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#ac210d2da44f32fff79a168bdd16f46f1">setDcmMeasureErrorStd</a> (double)</td></tr>
 <tr class="memdesc:ac210d2da44f32fff79a168bdd16f46f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Dcm Measurement Error Standard.  <a href="#ac210d2da44f32fff79a168bdd16f46f1">More...</a><br /></td></tr>
 <tr class="separator:ac210d2da44f32fff79a168bdd16f46f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1630c4c26133a1ac3cde4c45c333538b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a1630c4c26133a1ac3cde4c45c333538b">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp)</td></tr>
-<tr class="memdesc:a1630c4c26133a1ac3cde4c45c333538b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#a1630c4c26133a1ac3cde4c45c333538b">More...</a><br /></td></tr>
-<tr class="separator:a1630c4c26133a1ac3cde4c45c333538b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a39f5798c227a32d1d3e8b9ee6542f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a6a39f5798c227a32d1d3e8b9ee6542f1">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;orientation)</td></tr>
 <tr class="memdesc:a6a39f5798c227a32d1d3e8b9ee6542f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#a6a39f5798c227a32d1d3e8b9ee6542f1">More...</a><br /></td></tr>
 <tr class="separator:a6a39f5798c227a32d1d3e8b9ee6542f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee01649b9effc170a634567e24f2378c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aee01649b9effc170a634567e24f2378c">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, double yaw)</td></tr>
 <tr class="memdesc:aee01649b9effc170a634567e24f2378c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#aee01649b9effc170a634567e24f2378c">More...</a><br /></td></tr>
 <tr class="separator:aee01649b9effc170a634567e24f2378c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae39c5309f3075fac75a2325d6772d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#aae39c5309f3075fac75a2325d6772d25">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;R)</td></tr>
-<tr class="memdesc:aae39c5309f3075fac75a2325d6772d25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#aae39c5309f3075fac75a2325d6772d25">More...</a><br /></td></tr>
-<tr class="separator:aae39c5309f3075fac75a2325d6772d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f77ca3d4a24f66ada4d2fce47fc2ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#af9f77ca3d4a24f66ada4d2fce47fc2ff">setInputs</a> (const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;dcm, const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;zmp, const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;R=Matrix2::Identity())</td></tr>
+<tr class="memdesc:af9f77ca3d4a24f66ada4d2fce47fc2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Inputs of the estimator.  <a href="#af9f77ca3d4a24f66ada4d2fce47fc2ff">More...</a><br /></td></tr>
+<tr class="separator:af9f77ca3d4a24f66ada4d2fce47fc2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d3fcd850381898ba967c6648c92e331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a7d3fcd850381898ba967c6648c92e331">update</a> ()</td></tr>
 <tr class="memdesc:a7d3fcd850381898ba967c6648c92e331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the estimation.  <a href="#a7d3fcd850381898ba967c6648c92e331">More...</a><br /></td></tr>
 <tr class="separator:a7d3fcd850381898ba967c6648c92e331"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +170,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a8ad8886adb2b05e432594cc3b575e9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20a867177a0c39d57c05e1a4d44ee8ee"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a> = 0.01</td></tr>
 <tr class="separator:a20a867177a0c39d57c05e1a4d44ee8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a0936bb9cda37ce3ab22d8ac242cfd181">defaultBiasLimit</a> = 0</td></tr>
+<tr class="memdesc:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="mdescLeft">&#160;</td><td class="mdescRight">default value for Bias limit (0 means limitless)  <a href="#a0936bb9cda37ce3ab22d8ac242cfd181">More...</a><br /></td></tr>
+<tr class="separator:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
@@ -214,6 +211,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a26ea6c69c201a61985f5c1c987943ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96c3fbd123699e12345f4c99fcb8a29b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a96c3fbd123699e12345f4c99fcb8a29b">previousZmp_</a></td></tr>
 <tr class="separator:a96c3fbd123699e12345f4c99fcb8a29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44fe9b76cf5f2f3f0f7eaf16f769c908"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a44fe9b76cf5f2f3f0f7eaf16f769c908">biasLimit_</a></td></tr>
+<tr class="separator:a44fe9b76cf5f2f3f0f7eaf16f769c908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69a34435a159522642f022270139c476"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00825.html">LinearKalmanFilter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a69a34435a159522642f022270139c476">filter_</a></td></tr>
 <tr class="separator:a69a34435a159522642f022270139c476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f8478729bec86f11978148b5c0581b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a2f8478729bec86f11978148b5c0581b4">A_</a></td></tr>
@@ -278,8 +277,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ada08c3c86037be4b80875f065ebbc2d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada08c3c86037be4b80875f065ebbc2d2">&#9670;&nbsp;</a></span>LipmDcmEstimator()</h2>
+<a id="a49fafb3c0024689d8e2b1601594bab1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49fafb3c0024689d8e2b1601594bab1b">&#9670;&nbsp;</a></span>LipmDcmEstimator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,6 +304,24 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>biasLimit</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a0936bb9cda37ce3ab22d8ac242cfd181">defaultBiasLimit</a>)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
           <td class="paramname"><em>initZMP</em> = <code>Vector2::Zero()</code>, </td>
         </tr>
@@ -319,18 +336,6 @@ Protected Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
           <td class="paramname"><em>initBias</em> = <code>Vector2::Zero()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -359,10 +364,12 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">dt</td><td>the sampling time in seconds </td></tr>
     <tr><td class="paramname">omega_0</td><td>the natural frequency of the DCM (rad/s) </td></tr>
     <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
-    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
-    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
+    <tr><td class="paramname">initZMP</td><td>the initial value of the DCM </td></tr>
     <tr><td class="paramname">initDCM</td><td>the initial value of the DCM </td></tr>
     <tr><td class="paramname">initBias</td><td>the initial value of the bias </td></tr>
+    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
+    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
+    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (zero means no limit) </td></tr>
     <tr><td class="paramname">tinitDcmUncertainty</td><td>the uncertainty in the DCM initial value in meters </td></tr>
     <tr><td class="paramname">initBiasUncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
   </table>
@@ -599,95 +606,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acf82909a9991ad16b0d243ccd5d4e790"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf82909a9991ad16b0d243ccd5d4e790">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>measuredDcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>measuredZMP</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;&#160;</td>
-          <td class="paramname"><em>yaw</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>measurementIsWithBias</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>biasDriftPerSecondStd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcmMeasureErrorStd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmpMeasureErrorStd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Resets the estimator with first measurements. </p>
-<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
-    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
-    <tr><td class="paramname">yaw</td><td>the initial yaw angle in the form of a rotation matrix </td></tr>
-    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
-    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
-    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
-    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
-    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
-    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aad7d1818135ddc01c0916f6a1492df9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad7d1818135ddc01c0916f6a1492df9e">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aad7d1818135ddc01c0916f6a1492df9e">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -744,6 +664,7 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
     <tr><td class="paramname">yaw</td><td>the initial yaw angle in the form of a rotation matrix </td></tr>
     <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
+    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (zero means no limit) </td></tr>
     <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
     <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
   </table>
@@ -752,8 +673,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b0f10c0ac1ce80587d90553b4612792"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b0f10c0ac1ce80587d90553b4612792">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[3/4]</span></h2>
+<a id="a19a7ef4788b0053ef3c0109da2146bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19a7ef4788b0053ef3c0109da2146bd6">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -777,31 +698,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>yaw</em>, </td>
+          <td class="paramname"><em>yaw</em> = <code>0</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>measurementIsWithBias</em> = <code>true</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code><a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -836,111 +739,12 @@ Protected Attributes</h2></td></tr>
     <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
     <tr><td class="paramname">yaw</td><td>the initial yaw angle </td></tr>
     <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
-    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
-    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
-    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
+    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (zero means no limit) </td></tr>
     <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
     <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a8701ddcb4fb868ce71b7639ee0f2a423"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8701ddcb4fb868ce71b7639ee0f2a423">&#9670;&nbsp;</a></span>resetWithMeasurements() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmEstimator::resetWithMeasurements </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>measuredDcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>measuredZMP</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>measurementIsWithBias</em> = <code>true</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>biasDriftPerSecondStd</em> = <code><a class="el" href="a00741.html#aca4b8a063ed910dfdd130a8096e6ac48">defaultBiasDriftSecond</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>zmpMeasureErrorStd</em> = <code><a class="el" href="a00741.html#a04ff1ef91c85e8e6a19be5a5ccb4efb4">defaultZmpErrorStd</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dcmMeasureErrorStd</em> = <code><a class="el" href="a00741.html#acc385cf319b05c342efaecb3a50797ae">defaultDcmErrorStd</a></code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>initBias</em> = <code>Vector2::Constant(0)</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>initBiasuncertainty</em> = <code>Vector2::Constant(<a class="el" href="a00741.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a>)</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the estimator with first measurements. </p>
-<p>Use this when initializing with an available DCM (biased / or not) measurement</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">measuredDcm</td><td>the the measured position of the DCM in the world frame </td></tr>
-    <tr><td class="paramname">measuredZMP</td><td>the the measured position of the ZMP in the world frame </td></tr>
-    <tr><td class="paramname">rotation</td><td>the 3d orientation from which the initial yaw angle will be extracted using the angle agnostic approach. This orientation is from local to global. i.e. bias_global == orientation * bias*local </td></tr>
-    <tr><td class="paramname">measurementIsWithBias</td><td>sets if yes or no the first measurement is biased </td></tr>
-    <tr><td class="paramname">biasDriftPerSecondStd</td><td>the standard deviation of the drift (m/s) </td></tr>
-    <tr><td class="paramname">zmpMeasureErrorStd</td><td>the standard deviaiton of the zmp estimation error (m) </td></tr>
-    <tr><td class="paramname">dcmMeasureErrorStd</td><td>the standard deviation of the dcm estimation error, NOT including the bias (m) </td></tr>
-    <tr><td class="paramname">initBias</td><td>the initial value of the drift </td></tr>
-    <tr><td class="paramname">initBiasuncertainty</td><td>the uncertainty in the bias initial value in meters </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="reference">References <a class="el" href="a00141.html#ae154db62e29c0bf232fb2496f91a68b6">stateObservation::kine::rotationMatrixToYawAxisAgnostic()</a>.</p>
 
 </div>
 </div>
@@ -1032,63 +836,26 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aaff8f8ab843df285d0430a46ed791926"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaff8f8ab843df285d0430a46ed791926">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[1/2]</span></h2>
+<a id="a2bf92e58acf90a4a42586948b38c51ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bf92e58acf90a4a42586948b38c51ff">&#9670;&nbsp;</a></span>setBiasLimit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void stateObservation::LipmDcmEstimator::setDCM </td>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setBiasLimit </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>dcm</em></td><td>)</td>
+          <td class="paramname"><em>biasLimit</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>set the real DCM position from a guess </p>
+<p>Set the Bias Limit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dcm</td><td>guess </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5c82cb6c8a7b33cbd593386dfd6fa395"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c82cb6c8a7b33cbd593386dfd6fa395">&#9670;&nbsp;</a></span>setDCM() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmEstimator::setDCM </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>dcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>uncertainty</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p></p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td></td></tr>
-    <tr><td class="paramname">uncertainty</td><td>the uncertainty in this guess </td></tr>
+    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (zero means no limit) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1115,46 +882,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1630c4c26133a1ac3cde4c45c333538b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1630c4c26133a1ac3cde4c45c333538b">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void stateObservation::LipmDcmEstimator::setInputs </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>dcm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
-          <td class="paramname"><em>zmp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the Inputs of the estimator. </p>
-<p>this version is with no orientation. The orientation will be assumed to be constant foir this sample</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dcm</td><td>measurement of the DCM in the world frame </td></tr>
-    <tr><td class="paramname">zmp</td><td>mesaurement of the ZMP in the world frame </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a6a39f5798c227a32d1d3e8b9ee6542f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a39f5798c227a32d1d3e8b9ee6542f1">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a39f5798c227a32d1d3e8b9ee6542f1">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1209,7 +938,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="aee01649b9effc170a634567e24f2378c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee01649b9effc170a634567e24f2378c">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aee01649b9effc170a634567e24f2378c">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1260,8 +989,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aae39c5309f3075fac75a2325d6772d25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae39c5309f3075fac75a2325d6772d25">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[4/4]</span></h2>
+<a id="af9f77ca3d4a24f66ada4d2fce47fc2ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9f77ca3d4a24f66ada4d2fce47fc2ff">&#9670;&nbsp;</a></span>setInputs() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1282,7 +1011,7 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a> &amp;&#160;</td>
-          <td class="paramname"><em>R</em>&#160;</td>
+          <td class="paramname"><em>R</em> = <code>Matrix2::Identity()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1356,6 +1085,68 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a640427fcc761bd0a10589fcfe189f625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a640427fcc761bd0a10589fcfe189f625">&#9670;&nbsp;</a></span>setUnbiasedDCM() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setUnbiasedDCM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the unbiased DCM position from a guess </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dcm</td><td>guess </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac7867055759498ed18b0f027d28657c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac7867055759498ed18b0f027d28657c">&#9670;&nbsp;</a></span>setUnbiasedDCM() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::LipmDcmEstimator::setUnbiasedDCM </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>dcm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> &amp;&#160;</td>
+          <td class="paramname"><em>uncertainty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uncertainty</td><td>the uncertainty in this guess </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a04c5b303c5642400fc6e755528b76ff1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04c5b303c5642400fc6e755528b76ff1">&#9670;&nbsp;</a></span>setZmpMeasureErrorStd()</h2>
 
@@ -1381,9 +1172,6 @@ Protected Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void stateObservation::LipmDcmEstimator::update </td>
@@ -1392,11 +1180,6 @@ Protected Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Runs the estimation. </p>
@@ -1527,6 +1310,28 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a44fe9b76cf5f2f3f0f7eaf16f769c908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44fe9b76cf5f2f3f0f7eaf16f769c908">&#9670;&nbsp;</a></span>biasLimit_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00132.html#ae93adff34402470724f4f09bfed6b13b">Vector2</a> stateObservation::LipmDcmEstimator::biasLimit_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a29461894cbc14d7a12fc5a3fb9f6c62f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29461894cbc14d7a12fc5a3fb9f6c62f">&#9670;&nbsp;</a></span>C_</h2>
 
@@ -1572,6 +1377,30 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>default expected drift of the bias every second </p>
+
+</div>
+</div>
+<a id="a0936bb9cda37ce3ab22d8ac242cfd181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0936bb9cda37ce3ab22d8ac242cfd181">&#9670;&nbsp;</a></span>defaultBiasLimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultBiasLimit = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>default value for Bias limit (0 means limitless) </p>
 
 </div>
 </div>
@@ -1854,7 +1683,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00741.html">LipmDcmEstimator</a></li>
-    <li class="footer">Generated on Thu Nov 26 2020 02:34:21 for state-observation by
+    <li class="footer">Generated on Fri Nov 27 2020 02:18:03 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
