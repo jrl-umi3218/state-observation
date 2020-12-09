@@ -3644,10 +3644,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>DynamicalSystem</name>
-    <filename>a00965.html</filename>
-  </compound>
-  <compound kind="class">
     <name>stateObservation::DynamicalSystemFunctorBase</name>
     <filename>a00693.html</filename>
     <member kind="function">
@@ -3878,10 +3874,6 @@
       <anchor>a94f9a860c47ac02fe6366fa8f45a808b</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>DynamicsFunctorBase</name>
-    <filename>a00957.html</filename>
   </compound>
   <compound kind="class">
     <name>stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase</name>
@@ -4709,10 +4701,6 @@
       <anchor>ad22471b517913388158aa60d63e5892e</anchor>
       <arglist>)(const Vector &amp;stateVector, const Vector &amp;tangentVector, Vector &amp;result)</arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>GaussienWhiteNoise</name>
-    <filename>a00969.html</filename>
   </compound>
   <compound kind="struct">
     <name>stateObservation::KineticsObserver::IMU</name>
@@ -6240,10 +6228,6 @@
       <anchor>af1e91d0ec1de257b1a28a0c6b1845253</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>IndexedMatrixArray</name>
-    <filename>a00973.html</filename>
   </compound>
   <compound kind="class">
     <name>stateObservation::IndexedMatrixArrayT</name>
@@ -10727,10 +10711,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>LipmDcmBiasEstimator</name>
-    <filename>a00961.html</filename>
-  </compound>
-  <compound kind="class">
     <name>stateObservation::LipmDcmEstimator</name>
     <filename>a00741.html</filename>
     <member kind="function">
@@ -12198,6 +12178,59 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::IMUMltpctiveDynamicalSystem::opt</name>
+    <filename>a00713.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>opt</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>afd576eb878cff6e2be56dba84226d34a</anchor>
+      <arglist>(int stateSize, int measurementSize)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix3</type>
+      <name>jRR</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>a29681ae5720fc184b7bad7b79a50bed3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix3</type>
+      <name>jRv</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>a7969dcc078bd88efc93ea7a08cf23133</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Vector3</type>
+      <name>deltaR</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>ae9d481f1ac2ebc1437c27c023c7b3bff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix</type>
+      <name>AJacobian</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>a783ce8d67779ae781e1ec84c19cee37c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix</type>
+      <name>CJacobian</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>ac82a47e51b3bc593c56bb8655af12cb2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix3</type>
+      <name>Rt</name>
+      <anchorfile>a00713.html</anchorfile>
+      <anchor>ad03997b757f7397eaebcf04dc0f93a62</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::KineticsObserver::Opt</name>
     <filename>a00737.html</filename>
     <member kind="function">
@@ -12251,55 +12284,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::IMUMltpctiveDynamicalSystem::opt</name>
-    <filename>a00713.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>opt</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>afd576eb878cff6e2be56dba84226d34a</anchor>
-      <arglist>(int stateSize, int measurementSize)</arglist>
-    </member>
+    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
+    <filename>a00793.html</filename>
     <member kind="variable">
-      <type>Matrix3</type>
-      <name>jRR</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>a29681ae5720fc184b7bad7b79a50bed3</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>O</name>
+      <anchorfile>a00793.html</anchorfile>
+      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>Matrix3</type>
-      <name>jRv</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>a7969dcc078bd88efc93ea7a08cf23133</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Vector3</type>
-      <name>deltaR</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>ae9d481f1ac2ebc1437c27c023c7b3bff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Matrix</type>
-      <name>AJacobian</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>a783ce8d67779ae781e1ec84c19cee37c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Matrix</type>
-      <name>CJacobian</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>ac82a47e51b3bc593c56bb8655af12cb2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Matrix3</type>
-      <name>Rt</name>
-      <anchorfile>a00713.html</anchorfile>
-      <anchor>ad03997b757f7397eaebcf04dc0f93a62</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>CA</name>
+      <anchorfile>a00793.html</anchorfile>
+      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12983,24 +12981,6 @@
       <name>orientationVector3</name>
       <anchorfile>a00777.html</anchorfile>
       <anchor>a071e6280f4de9eccc8c2293449c891cf</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
-    <filename>a00793.html</filename>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>O</name>
-      <anchorfile>a00793.html</anchorfile>
-      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>CA</name>
-      <anchorfile>a00793.html</anchorfile>
-      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -14031,10 +14011,6 @@
       <anchor>af39c8de6974ffab4e8cdf9c9737fa3e4</anchor>
       <arglist></arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>StateArithmetics</name>
-    <filename>a00977.html</filename>
   </compound>
   <compound kind="class">
     <name>stateObservation::StateVectorArithmetics</name>

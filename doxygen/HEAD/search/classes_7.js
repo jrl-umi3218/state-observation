@@ -6,7 +6,6 @@ var searchData=
   ['imufixedcontactdynamicalsystem',['IMUFixedContactDynamicalSystem',['../a00781.html',1,'stateObservation::flexibilityEstimation']]],
   ['imumagnetometerdynamicalsystem',['IMUMagnetometerDynamicalSystem',['../a00705.html',1,'stateObservation']]],
   ['imumltpctivedynamicalsystem',['IMUMltpctiveDynamicalSystem',['../a00709.html',1,'stateObservation']]],
-  ['indexedmatrixarray',['IndexedMatrixArray',['../a00973.html',1,'']]],
   ['indexedmatrixarrayt',['IndexedMatrixArrayT',['../a00905.html',1,'stateObservation']]],
   ['indexedmatrixarrayt_3c_20matrix_20_3e',['IndexedMatrixArrayT&lt; Matrix &gt;',['../a00905.html',1,'stateObservation']]],
   ['indexedmatrixarrayt_3c_20vector_20_3e',['IndexedMatrixArrayT&lt; Vector &gt;',['../a00905.html',1,'stateObservation']]],

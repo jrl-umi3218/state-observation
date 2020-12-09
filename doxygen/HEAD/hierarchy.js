@@ -26,7 +26,6 @@ var hierarchy =
     [ "stateObservation::detail::DebugItemDefaultError< exceptionAddr, dummy >", "a00885.html", null ],
     [ "stateObservation::detail::DebugItemDefaultError< message, dummy >", "a00877.html", null ],
     [ "stateObservation::DebugItemDefaultValue< T, defaultValue >", "a00869.html", null ],
-    [ "DynamicalSystem", "a00965.html", null ],
     [ "stateObservation::DynamicalSystemFunctorBase", "a00693.html", [
       [ "stateObservation::BidimElasticInvPendulum", "a00689.html", null ],
       [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem", "a00761.html", null ],
@@ -38,7 +37,6 @@ var hierarchy =
       [ "stateObservation::KineticsObserver", "a00717.html", null ]
     ] ],
     [ "stateObservation::DynamicalSystemSimulator", "a00697.html", null ],
-    [ "DynamicsFunctorBase", "a00957.html", null ],
     [ "stateObservation::kine::Kinematics::Flags", "a00949.html", null ],
     [ "stateObservation::flexibilityEstimation::FlexibilityEstimatorBase", "a00757.html", [
       [ "stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase", "a00749.html", [
@@ -46,8 +44,6 @@ var hierarchy =
         [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU", "a00785.html", null ]
       ] ]
     ] ],
-    [ "GaussienWhiteNoise", "a00969.html", null ],
-    [ "IndexedMatrixArray", "a00973.html", null ],
     [ "stateObservation::IndexedMatrixArrayT< MatrixType, Allocator >", "a00905.html", null ],
     [ "stateObservation::IndexedMatrixArrayT< Matrix >", "a00905.html", null ],
     [ "stateObservation::IndexedMatrixArrayT< Vector >", "a00905.html", null ],
@@ -60,7 +56,6 @@ var hierarchy =
       [ "stateObservation::AccelerometerGyrometer", "a00845.html", null ],
       [ "stateObservation::AccelerometerGyrometerMagnetometer", "a00841.html", null ]
     ] ],
-    [ "LipmDcmBiasEstimator", "a00961.html", null ],
     [ "stateObservation::LipmDcmEstimator", "a00741.html", null ],
     [ "stateObservation::tools::Logger::log_s", "a00921.html", null ],
     [ "stateObservation::tools::Logger", "a00917.html", null ],
@@ -83,10 +78,10 @@ var hierarchy =
         [ "stateObservation::TiltEstimator", "a00833.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::KineticsObserver::Opt", "a00737.html", null ],
     [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "a00713.html", null ],
-    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "a00777.html", null ],
+    [ "stateObservation::KineticsObserver::Opt", "a00737.html", null ],
     [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "a00793.html", null ],
+    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "a00777.html", null ],
     [ "stateObservation::ExtendedKalmanFilter::Optimization", "a00813.html", null ],
     [ "stateObservation::KalmanFilterBase::optimizationContainer", "a00821.html", null ],
     [ "stateObservation::kine::Orientation", "a00941.html", null ],
@@ -108,7 +103,6 @@ var hierarchy =
     ] ],
     [ "stateObservation::tools::SimplestStopwatch", "a00909.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::state", "a00769.html", null ],
-    [ "StateArithmetics", "a00977.html", null ],
     [ "stateObservation::StateVectorArithmetics", "a00953.html", [
       [ "stateObservation::IMUMltpctiveDynamicalSystem", "a00709.html", null ],
       [ "stateObservation::KalmanFilterBase", "a00817.html", null ],

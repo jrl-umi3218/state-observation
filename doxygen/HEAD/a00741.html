@@ -80,6 +80,9 @@ $(document).ready(function(){initNavTree('a00741.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the corresponding zero moment point for a linearized inverted pendulum model.  
+ <a href="a00741.html#details">More...</a></p>
+
 <p><code>#include &lt;state-observation/dynamics-estimators/lipm-dcm-estimator.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -234,7 +237,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a13a73d472c1e2a8c9d018fceaf7a5a98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html#a3d219ee3106305c450f0f33695d030dd">Matrix2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html#a13a73d472c1e2a8c9d018fceaf7a5a98">previousOrientation_</a></td></tr>
 <tr class="separator:a13a73d472c1e2a8c9d018fceaf7a5a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the corresponding zero moment point for a linearized inverted pendulum model. </p>
+<p>A humanoid robot can be modeled as an inverted pendulum. The dynamics can be linearized to obtain a dynamics with a convergent and a divergent component of motion (DCN). The dynamics of the DCM depends on the Zero Moment Point. The DCM can be measured using the CoM and its velocity, but the CoM position can be biased. This estimator uses Kalman Filtering to estimate this bias and give a delay-free filtering of the DCM. Here are the theorerical details  </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a0cefb5056fbc51b5c41bcf8d0c4d0343"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0cefb5056fbc51b5c41bcf8d0c4d0343">&#9670;&nbsp;</a></span>Matrix24</h2>
 
@@ -1763,7 +1768,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00741.html">LipmDcmEstimator</a></li>
-    <li class="footer">Generated on Fri Nov 27 2020 04:57:41 for state-observation by
+    <li class="footer">Generated on Wed Dec 9 2020 07:38:16 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

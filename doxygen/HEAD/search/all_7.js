@@ -3,7 +3,6 @@ var searchData=
   ['gamma_5f',['gamma_',['../a00833.html#a4de43a4980422b8d75b3d22f807c3186',1,'stateObservation::TiltEstimator']]],
   ['gaussian_2dwhite_2dnoise_2ehpp',['gaussian-white-noise.hpp',['../a00062.html',1,'']]],
   ['gaussianwhitenoise',['GaussianWhiteNoise',['../a00801.html',1,'stateObservation::GaussianWhiteNoise'],['../a00801.html#aff582053a444ac5cce0db98a1baea8c9',1,'stateObservation::GaussianWhiteNoise::GaussianWhiteNoise(Index dimension)'],['../a00801.html#ade982d55fc275d50d6625c7475f7229e',1,'stateObservation::GaussianWhiteNoise::GaussianWhiteNoise()']]],
-  ['gaussienwhitenoise',['GaussienWhiteNoise',['../a00969.html',1,'']]],
   ['gen_5f',['gen_',['../a00925.html#a2a17fcb0273124f59341208051d048cf',1,'stateObservation::tools::ProbabilityLawSimulation']]],
   ['get',['get',['../a00889.html#ac6722e1ea8771991c1b8647867f41977',1,'stateObservation::DebugItem::get()'],['../a00893.html#a2736ce52ccd3b4511699df238fd1063d',1,'stateObservation::DebugItem&lt; T, defaultValue, false &gt;::get()']]],
   ['geta',['getA',['../a00817.html#afbca488db5af42673b4c31eaae78fa83',1,'stateObservation::KalmanFilterBase']]],

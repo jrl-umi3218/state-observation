@@ -5,6 +5,5 @@ var searchData=
   ['simpleststopwatch',['SimplestStopwatch',['../a00909.html',1,'stateObservation::tools']]],
   ['stableimufixedcontactdynamicalsystem',['StableIMUFixedContactDynamicalSystem',['../a00797.html',1,'stateObservation::flexibilityEstimation']]],
   ['state',['state',['../a00769.html',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
-  ['statearithmetics',['StateArithmetics',['../a00977.html',1,'']]],
   ['statevectorarithmetics',['StateVectorArithmetics',['../a00953.html',1,'stateObservation']]]
 ];

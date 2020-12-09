@@ -24,7 +24,7 @@ var searchData=
   ['index_5f',['index_',['../a00761.html#af08e12ba600f18e9e771d8bfad1a4eac',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['indexedmatrix',['IndexedMatrix',['../a00132.html#a26c2c64efe6f012a7b85a9f6892686b2',1,'stateObservation']]],
   ['indexedmatrix3',['IndexedMatrix3',['../a00132.html#ae78b1feb9855ad5095cc7022d16e113e',1,'stateObservation']]],
-  ['indexedmatrixarray',['IndexedMatrixArray',['../a00973.html',1,'IndexedMatrixArray'],['../a00132.html#ac4b880b33f3bc814528573f04fee8ac0',1,'stateObservation::IndexedMatrixArray()']]],
+  ['indexedmatrixarray',['IndexedMatrixArray',['../a00132.html#ac4b880b33f3bc814528573f04fee8ac0',1,'stateObservation']]],
   ['indexedmatrixarrayt',['IndexedMatrixArrayT',['../a00905.html',1,'stateObservation::IndexedMatrixArrayT&lt; MatrixType, Allocator &gt;'],['../a00905.html#acd5dc3f434611e820a948ea64d5665f5',1,'stateObservation::IndexedMatrixArrayT::IndexedMatrixArrayT()'],['../a00905.html#ab704b5753e9ff837e4e65657e24320e6',1,'stateObservation::IndexedMatrixArrayT::IndexedMatrixArrayT(TimeSize size, TimeIndex initTime=0)']]],
   ['indexedmatrixarrayt_3c_20matrix_20_3e',['IndexedMatrixArrayT&lt; Matrix &gt;',['../a00905.html',1,'stateObservation']]],
   ['indexedmatrixarrayt_3c_20vector_20_3e',['IndexedMatrixArrayT&lt; Vector &gt;',['../a00905.html',1,'stateObservation']]],

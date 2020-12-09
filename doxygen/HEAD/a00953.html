@@ -75,6 +75,10 @@ $(document).ready(function(){initNavTree('a00953.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p><pre class="fragment">   This class is used to customize the way the difference between measurements,
+   the state update function and the differentiation are performed.</pre>  
+ <a href="a00953.html#details">More...</a></p>
+
 <p><code>#include &lt;state-observation/tools/state-vector-arithmetics.hpp&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for stateObservation::StateVectorArithmetics:</div>
@@ -82,7 +86,7 @@ Inheritance diagram for stateObservation::StateVectorArithmetics:</div>
  <div class="center">
   <img src="a00953.png" usemap="#stateObservation::StateVectorArithmetics_map" alt=""/>
   <map id="stateObservation::StateVectorArithmetics_map" name="stateObservation::StateVectorArithmetics_map">
-<area href="a00709.html" alt="stateObservation::IMUMltpctiveDynamicalSystem" shape="rect" coords="0,56,285,80"/>
+<area href="a00709.html" title="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..." alt="stateObservation::IMUMltpctiveDynamicalSystem" shape="rect" coords="0,56,285,80"/>
 <area href="a00817.html" title="   It mostly implements the equations of Kalman filtering    It is suitablle by derivation to be used..." alt="stateObservation::KalmanFilterBase" shape="rect" coords="295,56,580,80"/>
 <area href="a00717.html" alt="stateObservation::KineticsObserver" shape="rect" coords="590,56,875,80"/>
 <area href="a00809.html" title="   The class to intanciate to use an extended Kalman filter. " alt="stateObservation::ExtendedKalmanFilter" shape="rect" coords="147,112,432,136"/>
@@ -99,7 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a35504d7ac7e16d893ac51ccfd4cf4d51"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00953.html#a35504d7ac7e16d893ac51ccfd4cf4d51">measurementDifference</a> (const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;measureVector1, const <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;measureVector2, <a class="el" href="a00132.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;difference)</td></tr>
 <tr class="separator:a35504d7ac7e16d893ac51ccfd4cf4d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><pre class="fragment">   This class is used to customize the way the difference between measurements,
+   the state update function and the differentiation are performed.</pre> <p>default is the usual natual arithmetics. overload any ohter one </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a35504d7ac7e16d893ac51ccfd4cf4d51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35504d7ac7e16d893ac51ccfd4cf4d51">&#9670;&nbsp;</a></span>measurementDifference()</h2>
 
@@ -239,7 +246,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00132.html">stateObservation</a></li><li class="navelem"><a class="el" href="a00953.html">StateVectorArithmetics</a></li>
-    <li class="footer">Generated on Fri Nov 27 2020 04:57:41 for state-observation by
+    <li class="footer">Generated on Wed Dec 9 2020 07:38:16 for state-observation by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
