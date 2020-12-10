@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "stateObservation", "a00132.html", "a00132" ]
+    [ "stateObservation", "namespacestateObservation.html", "namespacestateObservation" ]
 ];

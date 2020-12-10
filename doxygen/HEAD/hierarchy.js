@@ -1,112 +1,112 @@
 var hierarchy =
 [
-    [ "stateObservation::CheckedItem< T, lazy, alwaysCheck, assertion, eigenAlignedNew >", "a00897.html", null ],
-    [ "stateObservation::CheckedItem< Matrix3, false, false, true, true >", "a00897.html", null ],
-    [ "stateObservation::CheckedItem< Matrix6, false, false, true, true >", "a00897.html", null ],
-    [ "stateObservation::CheckedItem< Quaternion, false, false, true, true >", "a00897.html", null ],
-    [ "stateObservation::CheckedItem< Vector3, false, false, true, true >", "a00897.html", null ],
-    [ "stateObservation::hrp2::contact", "a00913.html", null ],
-    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel", "a00773.html", null ],
-    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::contactModel", "a00789.html", null ],
-    [ "stateObservation::DebugItem< T, defaultValue, debug >", "a00889.html", null ],
-    [ "stateObservation::DebugItem< bool, detail::defaultTrue, !false||isDebug >", "a00889.html", [
-      [ "stateObservation::IndexedMatrixT< Matrix3 >", "a00901.html", null ],
-      [ "stateObservation::IndexedMatrixT< Vector >", "a00901.html", null ],
-      [ "stateObservation::IndexedMatrixT< Vector3 >", "a00901.html", null ]
+    [ "stateObservation::CheckedItem< T, lazy, alwaysCheck, assertion, eigenAlignedNew >", "classstateObservation_1_1CheckedItem.html", null ],
+    [ "stateObservation::CheckedItem< Matrix3, false, false, true, true >", "classstateObservation_1_1CheckedItem.html", null ],
+    [ "stateObservation::CheckedItem< Matrix6, false, false, true, true >", "classstateObservation_1_1CheckedItem.html", null ],
+    [ "stateObservation::CheckedItem< Quaternion, false, false, true, true >", "classstateObservation_1_1CheckedItem.html", null ],
+    [ "stateObservation::CheckedItem< Vector3, false, false, true, true >", "classstateObservation_1_1CheckedItem.html", null ],
+    [ "stateObservation::hrp2::contact", "structstateObservation_1_1hrp2_1_1contact.html", null ],
+    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1contactModel.html", null ],
+    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::contactModel", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1contactModel.html", null ],
+    [ "stateObservation::DebugItem< T, defaultValue, debug >", "classstateObservation_1_1DebugItem.html", null ],
+    [ "stateObservation::DebugItem< bool, detail::defaultTrue, !false||isDebug >", "classstateObservation_1_1DebugItem.html", [
+      [ "stateObservation::IndexedMatrixT< Matrix3 >", "classstateObservation_1_1IndexedMatrixT.html", null ],
+      [ "stateObservation::IndexedMatrixT< Vector >", "classstateObservation_1_1IndexedMatrixT.html", null ],
+      [ "stateObservation::IndexedMatrixT< Vector3 >", "classstateObservation_1_1IndexedMatrixT.html", null ]
     ] ],
-    [ "stateObservation::DebugItem< bool, detail::defaultTrue, !lazy||isDebug >", "a00889.html", [
-      [ "stateObservation::IndexedMatrixT< MatrixType, lazy >", "a00901.html", null ]
+    [ "stateObservation::DebugItem< bool, detail::defaultTrue, !lazy||isDebug >", "classstateObservation_1_1DebugItem.html", [
+      [ "stateObservation::IndexedMatrixT< MatrixType, lazy >", "classstateObservation_1_1IndexedMatrixT.html", null ]
     ] ],
-    [ "stateObservation::DebugItem< bool, detail::defaultTrue, do_check_ >", "a00889.html", null ],
-    [ "stateObservation::DebugItem< const char *, detail::defaultErrorMSG, do_assert_ >", "a00889.html", null ],
-    [ "stateObservation::DebugItem< const std::exception *, detail::defaultExceptionAddr, do_exception_ >", "a00889.html", null ],
-    [ "stateObservation::DebugItem< T, defaultValue, false >", "a00893.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< i, dummy >", "a00873.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< exception, dummy >", "a00881.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< exceptionAddr, dummy >", "a00885.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< message, dummy >", "a00877.html", null ],
-    [ "stateObservation::DebugItemDefaultValue< T, defaultValue >", "a00869.html", null ],
-    [ "stateObservation::DynamicalSystemFunctorBase", "a00693.html", [
-      [ "stateObservation::BidimElasticInvPendulum", "a00689.html", null ],
-      [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem", "a00761.html", null ],
-      [ "stateObservation::flexibilityEstimation::IMUFixedContactDynamicalSystem", "a00781.html", null ],
-      [ "stateObservation::flexibilityEstimation::StableIMUFixedContactDynamicalSystem", "a00797.html", null ],
-      [ "stateObservation::IMUDynamicalSystem", "a00701.html", null ],
-      [ "stateObservation::IMUMagnetometerDynamicalSystem", "a00705.html", null ],
-      [ "stateObservation::IMUMltpctiveDynamicalSystem", "a00709.html", null ],
-      [ "stateObservation::KineticsObserver", "a00717.html", null ]
+    [ "stateObservation::DebugItem< bool, detail::defaultTrue, do_check_ >", "classstateObservation_1_1DebugItem.html", null ],
+    [ "stateObservation::DebugItem< const char *, detail::defaultErrorMSG, do_assert_ >", "classstateObservation_1_1DebugItem.html", null ],
+    [ "stateObservation::DebugItem< const std::exception *, detail::defaultExceptionAddr, do_exception_ >", "classstateObservation_1_1DebugItem.html", null ],
+    [ "stateObservation::DebugItem< T, defaultValue, false >", "classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError< i, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError< exception, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01exception_00_01dummy_01_4.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError< exceptionAddr, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01exceptionAddr_00_01dummy_01_4.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError< message, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01message_00_01dummy_01_4.html", null ],
+    [ "stateObservation::DebugItemDefaultValue< T, defaultValue >", "classstateObservation_1_1DebugItemDefaultValue.html", null ],
+    [ "stateObservation::DynamicalSystemFunctorBase", "classstateObservation_1_1DynamicalSystemFunctorBase.html", [
+      [ "stateObservation::BidimElasticInvPendulum", "classstateObservation_1_1BidimElasticInvPendulum.html", null ],
+      [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem", "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html", null ],
+      [ "stateObservation::flexibilityEstimation::IMUFixedContactDynamicalSystem", "classstateObservation_1_1flexibilityEstimation_1_1IMUFixedContactDynamicalSystem.html", null ],
+      [ "stateObservation::flexibilityEstimation::StableIMUFixedContactDynamicalSystem", "classstateObservation_1_1flexibilityEstimation_1_1StableIMUFixedContactDynamicalSystem.html", null ],
+      [ "stateObservation::IMUDynamicalSystem", "classstateObservation_1_1IMUDynamicalSystem.html", null ],
+      [ "stateObservation::IMUMagnetometerDynamicalSystem", "classstateObservation_1_1IMUMagnetometerDynamicalSystem.html", null ],
+      [ "stateObservation::IMUMltpctiveDynamicalSystem", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html", null ],
+      [ "stateObservation::KineticsObserver", "classstateObservation_1_1KineticsObserver.html", null ]
     ] ],
-    [ "stateObservation::DynamicalSystemSimulator", "a00697.html", null ],
-    [ "stateObservation::kine::Kinematics::Flags", "a00949.html", null ],
-    [ "stateObservation::flexibilityEstimation::FlexibilityEstimatorBase", "a00757.html", [
-      [ "stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase", "a00749.html", [
-        [ "stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU", "a00753.html", null ],
-        [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU", "a00785.html", null ]
+    [ "stateObservation::DynamicalSystemSimulator", "classstateObservation_1_1DynamicalSystemSimulator.html", null ],
+    [ "stateObservation::kine::Kinematics::Flags", "structstateObservation_1_1kine_1_1Kinematics_1_1Flags.html", null ],
+    [ "stateObservation::flexibilityEstimation::FlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html", [
+      [ "stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html", [
+        [ "stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html", null ],
+        [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::IndexedMatrixArrayT< MatrixType, Allocator >", "a00905.html", null ],
-    [ "stateObservation::IndexedMatrixArrayT< Matrix >", "a00905.html", null ],
-    [ "stateObservation::IndexedMatrixArrayT< Vector >", "a00905.html", null ],
-    [ "stateObservation::kine::indexes< rotationType >", "a00929.html", null ],
-    [ "stateObservation::kine::indexes< quaternion >", "a00937.html", null ],
-    [ "stateObservation::kine::indexes< rotationVector >", "a00933.html", null ],
-    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input", "a00765.html", null ],
-    [ "stateObservation::kine::Kinematics", "a00945.html", null ],
-    [ "stateObservation::algorithm::LinearAcceleration", "a00853.html", [
-      [ "stateObservation::AccelerometerGyrometer", "a00845.html", null ],
-      [ "stateObservation::AccelerometerGyrometerMagnetometer", "a00841.html", null ]
+    [ "stateObservation::IndexedMatrixArrayT< MatrixType, Allocator >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
+    [ "stateObservation::IndexedMatrixArrayT< Matrix >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
+    [ "stateObservation::IndexedMatrixArrayT< Vector >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
+    [ "stateObservation::kine::indexes< rotationType >", "structstateObservation_1_1kine_1_1indexes.html", null ],
+    [ "stateObservation::kine::indexes< quaternion >", "structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html", null ],
+    [ "stateObservation::kine::indexes< rotationVector >", "structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html", null ],
+    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1input.html", null ],
+    [ "stateObservation::kine::Kinematics", "structstateObservation_1_1kine_1_1Kinematics.html", null ],
+    [ "stateObservation::algorithm::LinearAcceleration", "classstateObservation_1_1algorithm_1_1LinearAcceleration.html", [
+      [ "stateObservation::AccelerometerGyrometer", "classstateObservation_1_1AccelerometerGyrometer.html", null ],
+      [ "stateObservation::AccelerometerGyrometerMagnetometer", "classstateObservation_1_1AccelerometerGyrometerMagnetometer.html", null ]
     ] ],
-    [ "stateObservation::LipmDcmEstimator", "a00741.html", null ],
-    [ "stateObservation::tools::Logger::log_s", "a00921.html", null ],
-    [ "stateObservation::tools::Logger", "a00917.html", null ],
-    [ "stateObservation::algorithm::MagneticField", "a00857.html", [
-      [ "stateObservation::AccelerometerGyrometerMagnetometer", "a00841.html", null ]
+    [ "stateObservation::LipmDcmEstimator", "classstateObservation_1_1LipmDcmEstimator.html", null ],
+    [ "stateObservation::tools::Logger::log_s", "structstateObservation_1_1tools_1_1Logger_1_1log__s.html", null ],
+    [ "stateObservation::tools::Logger", "classstateObservation_1_1tools_1_1Logger.html", null ],
+    [ "stateObservation::algorithm::MagneticField", "classstateObservation_1_1algorithm_1_1MagneticField.html", [
+      [ "stateObservation::AccelerometerGyrometerMagnetometer", "classstateObservation_1_1AccelerometerGyrometerMagnetometer.html", null ]
     ] ],
-    [ "stateObservation::NoiseBase", "a00805.html", [
-      [ "stateObservation::GaussianWhiteNoise", "a00801.html", null ]
+    [ "stateObservation::NoiseBase", "classstateObservation_1_1NoiseBase.html", [
+      [ "stateObservation::GaussianWhiteNoise", "classstateObservation_1_1GaussianWhiteNoise.html", null ]
     ] ],
     [ "noncopyable", null, [
-      [ "stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU", "a00753.html", null ],
-      [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU", "a00785.html", null ]
+      [ "stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html", null ],
+      [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html", null ]
     ] ],
-    [ "stateObservation::ObserverBase", "a00829.html", [
-      [ "stateObservation::ZeroDelayObserver", "a00837.html", [
-        [ "stateObservation::KalmanFilterBase", "a00817.html", [
-          [ "stateObservation::ExtendedKalmanFilter", "a00809.html", null ],
-          [ "stateObservation::LinearKalmanFilter", "a00825.html", null ]
+    [ "stateObservation::ObserverBase", "classstateObservation_1_1ObserverBase.html", [
+      [ "stateObservation::ZeroDelayObserver", "classstateObservation_1_1ZeroDelayObserver.html", [
+        [ "stateObservation::KalmanFilterBase", "classstateObservation_1_1KalmanFilterBase.html", [
+          [ "stateObservation::ExtendedKalmanFilter", "classstateObservation_1_1ExtendedKalmanFilter.html", null ],
+          [ "stateObservation::LinearKalmanFilter", "classstateObservation_1_1LinearKalmanFilter.html", null ]
         ] ],
-        [ "stateObservation::TiltEstimator", "a00833.html", null ]
+        [ "stateObservation::TiltEstimator", "classstateObservation_1_1TiltEstimator.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "a00713.html", null ],
-    [ "stateObservation::KineticsObserver::Opt", "a00737.html", null ],
-    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "a00793.html", null ],
-    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "a00777.html", null ],
-    [ "stateObservation::ExtendedKalmanFilter::Optimization", "a00813.html", null ],
-    [ "stateObservation::KalmanFilterBase::optimizationContainer", "a00821.html", null ],
-    [ "stateObservation::kine::Orientation", "a00941.html", null ],
-    [ "stateObservation::tools::ProbabilityLawSimulation", "a00925.html", null ],
-    [ "stateObservation::algorithm::RotationVelocity", "a00861.html", [
-      [ "stateObservation::AccelerometerGyrometer", "a00845.html", null ],
-      [ "stateObservation::AccelerometerGyrometerMagnetometer", "a00841.html", null ]
+    [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
+    [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
+    [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
+    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
+    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
+    [ "stateObservation::KalmanFilterBase::optimizationContainer", "structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html", null ],
+    [ "stateObservation::kine::Orientation", "classstateObservation_1_1kine_1_1Orientation.html", null ],
+    [ "stateObservation::tools::ProbabilityLawSimulation", "classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html", null ],
+    [ "stateObservation::algorithm::RotationVelocity", "classstateObservation_1_1algorithm_1_1RotationVelocity.html", [
+      [ "stateObservation::AccelerometerGyrometer", "classstateObservation_1_1AccelerometerGyrometer.html", null ],
+      [ "stateObservation::AccelerometerGyrometerMagnetometer", "classstateObservation_1_1AccelerometerGyrometerMagnetometer.html", null ]
     ] ],
-    [ "stateObservation::KineticsObserver::Sensor", "a00721.html", [
-      [ "stateObservation::KineticsObserver::AbsolutePoseSensor", "a00733.html", null ],
-      [ "stateObservation::KineticsObserver::Contact", "a00729.html", null ],
-      [ "stateObservation::KineticsObserver::IMU", "a00725.html", null ]
+    [ "stateObservation::KineticsObserver::Sensor", "structstateObservation_1_1KineticsObserver_1_1Sensor.html", [
+      [ "stateObservation::KineticsObserver::AbsolutePoseSensor", "structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor.html", null ],
+      [ "stateObservation::KineticsObserver::Contact", "structstateObservation_1_1KineticsObserver_1_1Contact.html", null ],
+      [ "stateObservation::KineticsObserver::IMU", "structstateObservation_1_1KineticsObserver_1_1IMU.html", null ]
     ] ],
-    [ "stateObservation::SensorBase", "a00865.html", [
-      [ "stateObservation::AlgebraicSensor", "a00849.html", [
-        [ "stateObservation::AccelerometerGyrometer", "a00845.html", null ],
-        [ "stateObservation::AccelerometerGyrometerMagnetometer", "a00841.html", null ]
+    [ "stateObservation::SensorBase", "classstateObservation_1_1SensorBase.html", [
+      [ "stateObservation::AlgebraicSensor", "classstateObservation_1_1AlgebraicSensor.html", [
+        [ "stateObservation::AccelerometerGyrometer", "classstateObservation_1_1AccelerometerGyrometer.html", null ],
+        [ "stateObservation::AccelerometerGyrometerMagnetometer", "classstateObservation_1_1AccelerometerGyrometerMagnetometer.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::tools::SimplestStopwatch", "a00909.html", null ],
-    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::state", "a00769.html", null ],
-    [ "stateObservation::StateVectorArithmetics", "a00953.html", [
-      [ "stateObservation::IMUMltpctiveDynamicalSystem", "a00709.html", null ],
-      [ "stateObservation::KalmanFilterBase", "a00817.html", null ],
-      [ "stateObservation::KineticsObserver", "a00717.html", null ]
+    [ "stateObservation::tools::SimplestStopwatch", "structstateObservation_1_1tools_1_1SimplestStopwatch.html", null ],
+    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::state", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1state.html", null ],
+    [ "stateObservation::StateVectorArithmetics", "classstateObservation_1_1StateVectorArithmetics.html", [
+      [ "stateObservation::IMUMltpctiveDynamicalSystem", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html", null ],
+      [ "stateObservation::KalmanFilterBase", "classstateObservation_1_1KalmanFilterBase.html", null ],
+      [ "stateObservation::KineticsObserver", "classstateObservation_1_1KineticsObserver.html", null ]
     ] ],
-    [ "stateObservation::UnidimLipmDcmEstimator", "a00745.html", null ]
+    [ "stateObservation::UnidimLipmDcmEstimator", "classstateObservation_1_1UnidimLipmDcmEstimator.html", null ]
 ];

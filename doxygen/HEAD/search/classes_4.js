@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ekfflexibilityestimatorbase',['EKFFlexibilityEstimatorBase',['../a00749.html',1,'stateObservation::flexibilityEstimation']]],
-  ['extendedkalmanfilter',['ExtendedKalmanFilter',['../a00809.html',1,'stateObservation']]]
+  ['ekfflexibilityestimatorbase',['EKFFlexibilityEstimatorBase',['../classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html',1,'stateObservation::flexibilityEstimation']]],
+  ['extendedkalmanfilter',['ExtendedKalmanFilter',['../classstateObservation_1_1ExtendedKalmanFilter.html',1,'stateObservation']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['probabilitylawsimulation',['ProbabilityLawSimulation',['../a00925.html',1,'stateObservation::tools']]]
+  ['probabilitylawsimulation',['ProbabilityLawSimulation',['../classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html',1,'stateObservation::tools']]]
 ];

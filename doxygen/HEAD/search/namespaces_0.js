@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['algorithm',['algorithm',['../a00135.html',1,'stateObservation']]],
-  ['cst',['cst',['../a00137.html',1,'stateObservation']]],
-  ['detail',['detail',['../a00136.html',1,'stateObservation::detail'],['../a00140.html',1,'stateObservation::tools::Detail']]],
-  ['examples',['examples',['../a00133.html',1,'stateObservation']]],
-  ['flexibilityestimation',['flexibilityEstimation',['../a00134.html',1,'stateObservation']]],
-  ['hrp2',['hrp2',['../a00139.html',1,'stateObservation']]],
-  ['kine',['kine',['../a00141.html',1,'stateObservation']]],
-  ['stateobservation',['stateObservation',['../a00132.html',1,'']]],
-  ['tools',['tools',['../a00138.html',1,'stateObservation']]]
+  ['algorithm',['algorithm',['../namespacestateObservation_1_1algorithm.html',1,'stateObservation']]],
+  ['cst',['cst',['../namespacestateObservation_1_1cst.html',1,'stateObservation']]],
+  ['detail',['detail',['../namespacestateObservation_1_1detail.html',1,'stateObservation::detail'],['../namespacestateObservation_1_1tools_1_1Detail.html',1,'stateObservation::tools::Detail']]],
+  ['examples',['examples',['../namespacestateObservation_1_1examples.html',1,'stateObservation']]],
+  ['flexibilityestimation',['flexibilityEstimation',['../namespacestateObservation_1_1flexibilityEstimation.html',1,'stateObservation']]],
+  ['hrp2',['hrp2',['../namespacestateObservation_1_1hrp2.html',1,'stateObservation']]],
+  ['kine',['kine',['../namespacestateObservation_1_1kine.html',1,'stateObservation']]],
+  ['stateobservation',['stateObservation',['../namespacestateObservation.html',1,'']]],
+  ['tools',['tools',['../namespacestateObservation_1_1tools.html',1,'stateObservation']]]
 ];

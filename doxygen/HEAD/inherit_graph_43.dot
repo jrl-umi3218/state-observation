@@ -1,0 +1,38 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node51 [label="stateObservation::Dynamical\lSystemFunctorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DynamicalSystemFunctorBase.html",tooltip="This is the base class of any functor that describes the dynamics of the state and the measurement..."];
+  Node51 -> Node52 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node52 [label="stateObservation::BidimElastic\lInvPendulum",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1BidimElasticInvPendulum.html",tooltip="The class is an implementation of the dynamical system defined by a 2D inverted pendulum with an elas..."];
+  Node51 -> Node53 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node53 [label="stateObservation::flexibility\lEstimation::IMUElasticLocalFrame\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html",tooltip="This class describes the dynamics of a robot&#39;s flexibility this dynamics with elastic forces to bring..."];
+  Node51 -> Node54 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node54 [label="stateObservation::flexibility\lEstimation::IMUFixedContactDynamical\lSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1IMUFixedContactDynamicalSystem.html",tooltip="This class describes the dynamics of a robot&#39;s flexibility this dynamics is the simplest possible sys..."];
+  Node51 -> Node55 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node55 [label="stateObservation::flexibility\lEstimation::StableIMUFixedContact\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1StableIMUFixedContactDynamicalSystem.html",tooltip="This class describes the dynamics of a robot&#39;s flexibility this dynamics is the simplest possible sys..."];
+  Node51 -> Node56 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node56 [label="stateObservation::IMUDynamical\lSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IMUDynamicalSystem.html",tooltip="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..."];
+  Node51 -> Node57 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node57 [label="stateObservation::IMUMagnetometer\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IMUMagnetometerDynamicalSystem.html",tooltip="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..."];
+  Node51 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="stateObservation::IMUMltpctive\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IMUMltpctiveDynamicalSystem.html",tooltip="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..."];
+  Node51 -> Node5 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html"];
+  Node26 [label="stateObservation::ObserverBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ObserverBase.html",tooltip="The base class for observers. The observer is destinated to any dynamical system with a vector state ..."];
+  Node26 -> Node27 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node27 [label="stateObservation::ZeroDelay\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ZeroDelayObserver.html",tooltip="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..."];
+  Node27 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stateObservation::Kalman\lFilterBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KalmanFilterBase.html",tooltip="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="stateObservation::Extended\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ExtendedKalmanFilter.html",tooltip="The class to intanciate to use an extended Kalman filter. To use this class, one needs to provide a p..."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="stateObservation::Linear\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1LinearKalmanFilter.html",tooltip="The class of a Linear Kalman filter. "];
+  Node27 -> Node28 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node28 [label="stateObservation::TiltEstimator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1TiltEstimator.html",tooltip="Description is pending. "];
+  Node0 [label="stateObservation::StateVector\lArithmetics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1StateVectorArithmetics.html",tooltip="This class is used to customize the way the difference between measurements, the state update functio..."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 -> Node2 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 -> Node5 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+}

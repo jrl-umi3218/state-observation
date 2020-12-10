@@ -1,6 +1,8 @@
 var NAVTREE =
 [
   [ "state-observation", "index.html", [
+    [ "Table of contents", "toc.html", null ],
+    [ "Theoretical details", "theory.html", "theory" ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -36,14 +38,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a00002.html",
-"a00697.html#a47174f744df1637216f5d41a53b1295c",
-"a00717.html#a83a7502f88a2f70f01d061318a019e46",
-"a00745.html#a59e64a0349e4e47a7e04f917f86dfde4",
-"a00777.html#a4933cb49df65a2d7881c4e70953b8748",
-"a00809.html#a6762e76a79ad08b64230c73c9873e898",
-"a00837.html#af141608c2857819761637dd236857e30",
-"a00941.html#a0d239fecfd67ebee9f13dd2fc4a61730"
+"accelerometer-gyrometer-magnetometer_8hpp.html",
+"classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a5ff989bc802586f378be00f3a3a33ed7",
+"classstateObservation_1_1KineticsObserver.html#a6aafabd875254fad554f4d1082bb56e5",
+"classstateObservation_1_1SensorBase.html#a4fb9f104d97839f31a2f1d116affc9a6",
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aae3b9851fc12b164c4b483af05e0d1a0",
+"classstateObservation_1_1tools_1_1Logger.html#ab1d8704a0442054817aec3e2504fa046",
+"namespacestateObservation_1_1flexibilityEstimation.html",
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#acbbb4c41903c915cdb1a9546eaecfed8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

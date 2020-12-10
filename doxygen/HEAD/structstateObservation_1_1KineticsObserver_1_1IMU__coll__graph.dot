@@ -1,0 +1,21 @@
+digraph "stateObservation::KineticsObserver::IMU"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node2 [label="stateObservation::Kinetics\lObserver::IMU",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="stateObservation::Kinetics\lObserver::Sensor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1KineticsObserver_1_1Sensor.html"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" kinematics" ,fontname="Helvetica"];
+  Node4 [label="stateObservation::kine\l::Kinematics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1kine_1_1Kinematics.html"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" linAcc\nangVel\nposition\nangAcc\nlinVel" ,fontname="Helvetica"];
+  Node5 [label="stateObservation::Checked\lItem\< Vector3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
+  Node6 [label="stateObservation::DebugItem\l\< const std::exception *,\l detail::defaultExceptionAddr,\l do_exception_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];
+  Node7 [label="stateObservation::DebugItem\l\< bool, detail::defaultTrue,\l do_check_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assertMsg_" ,fontname="Helvetica"];
+  Node8 [label="stateObservation::DebugItem\l\< const char *, detail::\ldefaultErrorMSG, do_assert_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node9 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" orientation" ,fontname="Helvetica"];
+  Node9 [label="stateObservation::kine\l::Orientation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1kine_1_1Orientation.html"];
+}

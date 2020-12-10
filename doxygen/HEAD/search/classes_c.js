@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['observerbase',['ObserverBase',['../a00829.html',1,'stateObservation']]],
-  ['opt',['opt',['../a00713.html',1,'stateObservation::IMUMltpctiveDynamicalSystem::opt'],['../a00737.html',1,'stateObservation::KineticsObserver::Opt']]],
-  ['optimization',['optimization',['../a00793.html',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization'],['../a00777.html',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization'],['../a00813.html',1,'stateObservation::ExtendedKalmanFilter::Optimization']]],
-  ['optimizationcontainer',['optimizationContainer',['../a00821.html',1,'stateObservation::KalmanFilterBase']]],
-  ['orientation',['Orientation',['../a00941.html',1,'stateObservation::kine']]]
+  ['observerbase',['ObserverBase',['../classstateObservation_1_1ObserverBase.html',1,'stateObservation']]],
+  ['opt',['Opt',['../structstateObservation_1_1KineticsObserver_1_1Opt.html',1,'stateObservation::KineticsObserver::Opt'],['../structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html',1,'stateObservation::IMUMltpctiveDynamicalSystem::opt']]],
+  ['optimization',['Optimization',['../structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html',1,'stateObservation::ExtendedKalmanFilter::Optimization'],['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization'],['../structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization']]],
+  ['optimizationcontainer',['optimizationContainer',['../structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html',1,'stateObservation::KalmanFilterBase']]],
+  ['orientation',['Orientation',['../classstateObservation_1_1kine_1_1Orientation.html',1,'stateObservation::kine']]]
 ];

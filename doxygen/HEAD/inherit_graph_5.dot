@@ -1,0 +1,13 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="stateObservation::DebugItem\l\< bool, detail::defaultTrue,\l !false\|\|isDebug \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node0 -> Node1 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="stateObservation::Indexed\lMatrixT\< Matrix3 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html"];
+  Node0 -> Node2 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stateObservation::Indexed\lMatrixT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html"];
+  Node0 -> Node3 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="stateObservation::Indexed\lMatrixT\< Vector3 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html"];
+}

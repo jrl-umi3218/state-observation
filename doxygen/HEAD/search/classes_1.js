@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bidimelasticinvpendulum',['BidimElasticInvPendulum',['../a00689.html',1,'stateObservation']]]
+  ['bidimelasticinvpendulum',['BidimElasticInvPendulum',['../classstateObservation_1_1BidimElasticInvPendulum.html',1,'stateObservation']]]
 ];

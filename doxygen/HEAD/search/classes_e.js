@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rotationvelocity',['RotationVelocity',['../a00861.html',1,'stateObservation::algorithm']]]
+  ['rotationvelocity',['RotationVelocity',['../classstateObservation_1_1algorithm_1_1RotationVelocity.html',1,'stateObservation::algorithm']]]
 ];
