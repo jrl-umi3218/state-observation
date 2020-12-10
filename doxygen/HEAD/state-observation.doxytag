@@ -13525,10 +13525,17 @@
       <arglist>(const Matrix &amp;std, const Matrix &amp;bias, Index rows, Index cols=1)</arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
-      <type>static boost::lagged_fibonacci1279</type>
+      <type>static std::random_device</type>
+      <name>rd_</name>
+      <anchorfile>a00925.html</anchorfile>
+      <anchor>a32b5da03e32a303c4cd5676f94298e9b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static std::mt19937</type>
       <name>gen_</name>
       <anchorfile>a00925.html</anchorfile>
-      <anchor>a2a17fcb0273124f59341208051d048cf</anchor>
+      <anchor>a60b17e747f569fe28380fb2f0f627b6f</anchor>
       <arglist></arglist>
     </member>
   </compound>
