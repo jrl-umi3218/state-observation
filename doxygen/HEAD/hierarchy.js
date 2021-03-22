@@ -37,6 +37,13 @@ var hierarchy =
       [ "stateObservation::KineticsObserver", "classstateObservation_1_1KineticsObserver.html", null ]
     ] ],
     [ "stateObservation::DynamicalSystemSimulator", "classstateObservation_1_1DynamicalSystemSimulator.html", null ],
+    [ "enable_if", null, [
+      [ "stateObservation::EigenType< T >", "structstateObservation_1_1EigenType.html", null ],
+      [ "stateObservation::MatrixType< T >", "structstateObservation_1_1MatrixType.html", null ]
+    ] ],
+    [ "false_type", null, [
+      [ "stateObservation::isMatrix< T >", "structstateObservation_1_1isMatrix.html", null ]
+    ] ],
     [ "stateObservation::kine::Kinematics::Flags", "structstateObservation_1_1kine_1_1Kinematics_1_1Flags.html", null ],
     [ "stateObservation::flexibilityEstimation::FlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html", [
       [ "stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html", [
@@ -51,6 +58,7 @@ var hierarchy =
     [ "stateObservation::kine::indexes< quaternion >", "structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html", null ],
     [ "stateObservation::kine::indexes< rotationVector >", "structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1input.html", null ],
+    [ "stateObservation::isEigen< T >", "structstateObservation_1_1isEigen.html", null ],
     [ "stateObservation::kine::Kinematics", "structstateObservation_1_1kine_1_1Kinematics.html", null ],
     [ "stateObservation::algorithm::LinearAcceleration", "classstateObservation_1_1algorithm_1_1LinearAcceleration.html", [
       [ "stateObservation::AccelerometerGyrometer", "classstateObservation_1_1AccelerometerGyrometer.html", null ],
@@ -78,11 +86,11 @@ var hierarchy =
         [ "stateObservation::TiltEstimator", "classstateObservation_1_1TiltEstimator.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
     [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
+    [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
+    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
-    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::KalmanFilterBase::optimizationContainer", "structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html", null ],
     [ "stateObservation::kine::Orientation", "classstateObservation_1_1kine_1_1Orientation.html", null ],
     [ "stateObservation::tools::ProbabilityLawSimulation", "classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html", null ],
@@ -107,6 +115,9 @@ var hierarchy =
       [ "stateObservation::IMUMltpctiveDynamicalSystem", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html", null ],
       [ "stateObservation::KalmanFilterBase", "classstateObservation_1_1KalmanFilterBase.html", null ],
       [ "stateObservation::KineticsObserver", "classstateObservation_1_1KineticsObserver.html", null ]
+    ] ],
+    [ "true_type", null, [
+      [ "stateObservation::isMatrix< Eigen::Matrix< _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols > >", "structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html", null ]
     ] ],
     [ "stateObservation::UnidimLipmDcmEstimator", "classstateObservation_1_1UnidimLipmDcmEstimator.html", null ]
 ];

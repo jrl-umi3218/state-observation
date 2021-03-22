@@ -184,12 +184,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a379f16ace3335a1054eb1d8301cd29bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a379f16ace3335a1054eb1d8301cd29bb">vector6ToHomogeneousMatrix</a> (const <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a> &amp;v)</td></tr>
 <tr class="memdesc:a379f16ace3335a1054eb1d8301cd29bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">transforms a 6d vector (position theta mu) into a homogeneous matrix  <a href="#a379f16ace3335a1054eb1d8301cd29bb">More...</a><br /></td></tr>
 <tr class="separator:a379f16ace3335a1054eb1d8301cd29bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6f88b1583d50a5294862b4c7d981e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#abe6f88b1583d50a5294862b4c7d981e6">twoVectorsToRotationMatrix</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;v1, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> Rv1)</td></tr>
+<tr class="memdesc:abe6f88b1583d50a5294862b4c7d981e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the smallest angle matrix allowing to get from a NORMALIZED vector v1 to its imahe Rv1 This is based on Rodrigues formula.  <a href="#abe6f88b1583d50a5294862b4c7d981e6">More...</a><br /></td></tr>
+<tr class="separator:abe6f88b1583d50a5294862b4c7d981e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8150acf2b58d56d429037b228e4f2e93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a8150acf2b58d56d429037b228e4f2e93">isPureYaw</a> (const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;R)</td></tr>
 <tr class="memdesc:a8150acf2b58d56d429037b228e4f2e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if this matrix is a pure yaw matrix or not  <a href="#a8150acf2b58d56d429037b228e4f2e93">More...</a><br /></td></tr>
 <tr class="separator:a8150acf2b58d56d429037b228e4f2e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b9d2be8872ecd3c3ef2b26dffbb783e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a7b9d2be8872ecd3c3ef2b26dffbb783e">getInvariantHorizontalVector</a> (<a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;R)</td></tr>
-<tr class="memdesc:a7b9d2be8872ecd3c3ef2b26dffbb783e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a vector that remains horizontal with this rotation. This vector is not normalized and if norm == 0 then the rotation is pure yaw and any horizontal vector is a solution.  <a href="#a7b9d2be8872ecd3c3ef2b26dffbb783e">More...</a><br /></td></tr>
-<tr class="separator:a7b9d2be8872ecd3c3ef2b26dffbb783e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ae305ec685249359a0937bc6bd3d6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a72ae305ec685249359a0937bc6bd3d6d">getInvariantHorizontalVector</a> (const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;R)</td></tr>
+<tr class="memdesc:a72ae305ec685249359a0937bc6bd3d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a vector that remains horizontal with this rotation. This vector is NOT normalized.  <a href="#a72ae305ec685249359a0937bc6bd3d6d">More...</a><br /></td></tr>
+<tr class="separator:a72ae305ec685249359a0937bc6bd3d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdef8357e78272632e36f5c641f9b495"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#acdef8357e78272632e36f5c641f9b495">getInvariantOrthogonalVector</a> (const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;Rhat, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;Rtez)</td></tr>
+<tr class="memdesc:acdef8357e78272632e36f5c641f9b495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a vector \(v\) that is orthogonal to \(e_z\) and such that \(\hat{R}^T e_z\) is orthogonal to the tilt \(R^T e_z\). This vector is NOT normalized.  <a href="#acdef8357e78272632e36f5c641f9b495">More...</a><br /></td></tr>
+<tr class="separator:acdef8357e78272632e36f5c641f9b495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a216d5faad57b48d05b29e2fe3d8a8108"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a216d5faad57b48d05b29e2fe3d8a8108">mergeTiltWithYaw</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;Rtez, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;R2, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;v=Vector3::UnitX()) noexcept(false)</td></tr>
 <tr class="memdesc:a216d5faad57b48d05b29e2fe3d8a8108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merge the roll and pitch from the tilt (R^T e_z) with the yaw from a rotation matrix (minimizes the deviation of the v vector)  <a href="#a216d5faad57b48d05b29e2fe3d8a8108">More...</a><br /></td></tr>
 <tr class="separator:a216d5faad57b48d05b29e2fe3d8a8108"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +221,17 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae154db62e29c0bf232fb2496f91a68b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">take 3x3 matrix represeting a rotation and gives a corresponding angle around upward vertical axis  <a href="#ae154db62e29c0bf232fb2496f91a68b6">More...</a><br /></td></tr>
 <tr class="separator:ae154db62e29c0bf232fb2496f91a68b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4db2235240ade5be2a639ab6abc3ba64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a1d5e7448fab378f14e92403b1c2ef5b2">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a4db2235240ade5be2a639ab6abc3ba64">zeroRotationQuaternion</a> ()</td></tr>
+<tr class="memdesc:a4db2235240ade5be2a639ab6abc3ba64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Identity Quaternion.  <a href="#a4db2235240ade5be2a639ab6abc3ba64">More...</a><br /></td></tr>
 <tr class="separator:a4db2235240ade5be2a639ab6abc3ba64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0486776b1a708566a2032afab559974"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a1d5e7448fab378f14e92403b1c2ef5b2">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#ac0486776b1a708566a2032afab559974">randomRotationQuaternion</a> ()</td></tr>
+<tr class="memdesc:ac0486776b1a708566a2032afab559974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a uniformly random Quaternion.  <a href="#ac0486776b1a708566a2032afab559974">More...</a><br /></td></tr>
+<tr class="separator:ac0486776b1a708566a2032afab559974"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f2faa4d2d3e4192a6da1f804b186f4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a85f2faa4d2d3e4192a6da1f804b186f4">randomAngle</a> ()</td></tr>
+<tr class="memdesc:a85f2faa4d2d3e4192a6da1f804b186f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a randomAngle between -pi and pu  <a href="#a85f2faa4d2d3e4192a6da1f804b186f4">More...</a><br /></td></tr>
+<tr class="separator:a85f2faa4d2d3e4192a6da1f804b186f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a079083d3e47c99522590740017a1bf22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a079083d3e47c99522590740017a1bf22">isRotationMatrix</a> (const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;, double precision=2 *<a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">cst::epsilon1</a>)</td></tr>
+<tr class="memdesc:a079083d3e47c99522590740017a1bf22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if it is a rotation matrix (right-hand orthonormal) or not.  <a href="#a079083d3e47c99522590740017a1bf22">More...</a><br /></td></tr>
+<tr class="separator:a079083d3e47c99522590740017a1bf22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2e18d1e45e78b3e2debf1bb616f5f8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#ac2e18d1e45e78b3e2debf1bb616f5f8a">fixedPointRotationToTranslation</a> (const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;R, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;rotationVelocity, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;rotationAcceleration, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;fixedPoint, <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;outputTranslation, <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;outputLinearVelocity, <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;outputLinearAcceleration)</td></tr>
 <tr class="memdesc:ac2e18d1e45e78b3e2debf1bb616f5f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">transforms a rotation into translation given a constraint of a fixed point  <a href="#ac2e18d1e45e78b3e2debf1bb616f5f8a">More...</a><br /></td></tr>
 <tr class="separator:ac2e18d1e45e78b3e2debf1bb616f5f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -588,8 +604,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a7b9d2be8872ecd3c3ef2b26dffbb783e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b9d2be8872ecd3c3ef2b26dffbb783e">&#9670;&nbsp;</a></span>getInvariantHorizontalVector()</h2>
+<a id="a72ae305ec685249359a0937bc6bd3d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ae305ec685249359a0937bc6bd3d6d">&#9670;&nbsp;</a></span>getInvariantHorizontalVector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -600,7 +616,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::kine::getInvariantHorizontalVector </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
           <td class="paramname"><em>R</em></td><td>)</td>
           <td></td>
         </tr>
@@ -612,10 +628,58 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets a vector that remains horizontal with this rotation. This vector is not normalized and if norm == 0 then the rotation is pure yaw and any horizontal vector is a solution. </p>
+<p>Gets a vector that remains horizontal with this rotation. This vector is NOT normalized. </p>
+<p>There is a general version in <a class="el" href="namespacestateObservation_1_1kine.html#acdef8357e78272632e36f5c641f9b495" title="Gets a vector  that is orthogonal to  and such that  is orthogonal to the tilt . This vector is NOT n...">getInvariantOrthogonalVector()</a>. This can be used to extract yaw angle from a rotation matrix without needing to specify an order in the tils (e.g. roll then pich).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">R</td><td>the input rotation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 the output horizontal vector </dd></dl>
+
+</div>
+</div>
+<a id="acdef8357e78272632e36f5c641f9b495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdef8357e78272632e36f5c641f9b495">&#9670;&nbsp;</a></span>getInvariantOrthogonalVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::kine::getInvariantOrthogonalVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Rhat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Rtez</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets a vector \(v\) that is orthogonal to \(e_z\) and such that \(\hat{R}^T e_z\) is orthogonal to the tilt \(R^T e_z\). This vector is NOT normalized. </p>
+<p>This is a generalization of <a class="el" href="namespacestateObservation_1_1kine.html#a72ae305ec685249359a0937bc6bd3d6d" title="Gets a vector that remains horizontal with this rotation. This vector is NOT normalized. ">getInvariantHorizontalVector()</a> which corresponds to no tilt \(\hat{R}^T e_z=e_z\). This function is useful to merge the yaw from the rotation matrix with the tilt.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Rhat</td><td>the input rotation matrix \(\hat{R}^T\) </td></tr>
+    <tr><td class="paramname">Rtez</td><td>the input tilt \(\hat{R}^T e_z\) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1256,6 +1320,53 @@ false is not pure yaw </dd></dl>
 
 </div>
 </div>
+<a id="a079083d3e47c99522590740017a1bf22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a079083d3e47c99522590740017a1bf22">&#9670;&nbsp;</a></span>isRotationMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stateObservation::kine::isRotationMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>precision</em> = <code>2&#160;*<a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">cst::epsilon1</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if it is a rotation matrix (right-hand orthonormal) or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>the absolute precision of the test </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true when it is a rotation matrix </dd>
+<dd>
+false when not </dd></dl>
+
+</div>
+</div>
 <a id="a1df2e7ca40aa60783d30ec3f5569ceee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1df2e7ca40aa60783d30ec3f5569ceee">&#9670;&nbsp;</a></span>mergeRoll1Pitch1WithYaw2()</h2>
 
@@ -1537,6 +1648,62 @@ false is not pure yaw </dd></dl>
 </div><div class="memdoc">
 
 <p>Tranbsform a quaternion into rotation vector. </p>
+
+</div>
+</div>
+<a id="a85f2faa4d2d3e4192a6da1f804b186f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f2faa4d2d3e4192a6da1f804b186f4">&#9670;&nbsp;</a></span>randomAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double stateObservation::kine::randomAngle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get a randomAngle between -pi and pu </p>
+<dl class="section return"><dt>Returns</dt><dd>double the random angle </dd></dl>
+
+</div>
+</div>
+<a id="ac0486776b1a708566a2032afab559974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0486776b1a708566a2032afab559974">&#9670;&nbsp;</a></span>randomRotationQuaternion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a1d5e7448fab378f14e92403b1c2ef5b2">Quaternion</a> stateObservation::kine::randomRotationQuaternion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a uniformly random Quaternion. </p>
+<dl class="section return"><dt>Returns</dt><dd>Quaternion </dd></dl>
 
 </div>
 </div>
@@ -1957,10 +2124,9 @@ false is not pure yaw </dd></dl>
 </div><div class="memdoc">
 
 <p>take 3x3 matrix represeting a rotation and gives the yaw angle from roll pitch yaw representation </p>
-<p>this is a generalization of yaw extraction (yaw is equivalent to v = Matrix3::UnitX()) </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rotation</td><td>The 3x3 rotation matrix </td></tr>
-    <tr><td class="paramname">v</td><td>the rotated vector (expressed in the horizontal plane, must be normalized) </td></tr>
   </table>
   </dd>
 </dl>
@@ -2247,6 +2413,52 @@ false is not pure yaw </dd></dl>
 
 </div>
 </div>
+<a id="abe6f88b1583d50a5294862b4c7d981e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6f88b1583d50a5294862b4c7d981e6">&#9670;&nbsp;</a></span>twoVectorsToRotationMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> stateObservation::kine::twoVectorsToRotationMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td>
+          <td class="paramname"><em>Rv1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Builds the smallest angle matrix allowing to get from a NORMALIZED vector v1 to its imahe Rv1 This is based on Rodrigues formula. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v1</td><td>the NORMALIZED vector </td></tr>
+    <tr><td class="paramname">Rv1</td><td>the NORMALIZED image of this vector by the rotation matrix R </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Matrix3 the rotation matrix R </dd></dl>
+
+</div>
+</div>
 <a id="a379f16ace3335a1054eb1d8301cd29bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a379f16ace3335a1054eb1d8301cd29bb">&#9670;&nbsp;</a></span>vector6ToHomogeneousMatrix()</h2>
 
@@ -2325,6 +2537,9 @@ false is not pure yaw </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Get the Identity Quaternion. </p>
+<dl class="section return"><dt>Returns</dt><dd>Quaternion </dd></dl>
 
 </div>
 </div>

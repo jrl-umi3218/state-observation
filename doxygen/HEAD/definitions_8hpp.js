@@ -1,5 +1,10 @@
 var definitions_8hpp =
 [
+    [ "isEigen", "structstateObservation_1_1isEigen.html", null ],
+    [ "isMatrix", "structstateObservation_1_1isMatrix.html", null ],
+    [ "isMatrix< Eigen::Matrix< _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols > >", "structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html", null ],
+    [ "EigenType", "structstateObservation_1_1EigenType.html", null ],
+    [ "MatrixType", "structstateObservation_1_1MatrixType.html", null ],
     [ "DebugItemDefaultValue", "classstateObservation_1_1DebugItemDefaultValue.html", null ],
     [ "DebugItemDefaultError", "classstateObservation_1_1detail_1_1DebugItemDefaultError.html", null ],
     [ "DebugItemDefaultError< message, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01message_00_01dummy_01_4.html", null ],
@@ -60,6 +65,8 @@ var definitions_8hpp =
     ] ],
     [ "defaultDifference", "definitions_8hpp.html#a0bc44c69f09db5aefccaf6ae66e603d2", null ],
     [ "defaultSum", "definitions_8hpp.html#a03b2909c21d843ca6363914f8989d52a", null ],
+    [ "isApprox", "definitions_8hpp.html#a1ed26cd92da35780dbd4271037b59702", null ],
+    [ "isApproxAbs", "definitions_8hpp.html#a3129c02470e794b1c530f618768cfcfd", null ],
     [ "matrixToString", "definitions_8hpp.html#ae8ac2aae6e2bc337b16dd55671c74a2c", null ],
     [ "stringToMatrix", "definitions_8hpp.html#a8c69211ffb30e8000ef2ae0924400c8c", null ],
     [ "stringToVector", "definitions_8hpp.html#a74f8a7bd89ff524ef6bb2b2d1e43a3e3", null ],

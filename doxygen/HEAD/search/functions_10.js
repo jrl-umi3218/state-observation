@@ -1,6 +1,8 @@
 var searchData=
 [
+  ['randomangle',['randomAngle',['../namespacestateObservation_1_1kine.html#a85f2faa4d2d3e4192a6da1f804b186f4',1,'stateObservation::kine']]],
   ['randomrotation',['randomRotation',['../classstateObservation_1_1kine_1_1Orientation.html#ae52f09b017a281a126720abfce1f186d',1,'stateObservation::kine::Orientation']]],
+  ['randomrotationquaternion',['randomRotationQuaternion',['../namespacestateObservation_1_1kine.html#ac0486776b1a708566a2032afab559974',1,'stateObservation::kine']]],
   ['readfromfile',['readFromFile',['../classstateObservation_1_1IndexedMatrixArrayT.html#ade344bb39104daa655b3d27398f8185f',1,'stateObservation::IndexedMatrixArrayT::readFromFile(const char *filename, Index rows, Index cols=1, bool withTimeStamp=true)'],['../classstateObservation_1_1IndexedMatrixArrayT.html#a91bfdec5167932996d50b8bae559a4c4',1,'stateObservation::IndexedMatrixArrayT::readFromFile(const std::string &amp;filename, Index rows, Index cols=1, bool withTimeStamp=true)']]],
   ['readvectorsfromfile',['readVectorsFromFile',['../classstateObservation_1_1IndexedMatrixArrayT.html#af86aac0166419232e73a6ef6a0130451',1,'stateObservation::IndexedMatrixArrayT::readVectorsFromFile(const std::string &amp;filename, bool withTimeStamp=true)'],['../classstateObservation_1_1IndexedMatrixArrayT.html#a41a795210731181973193b145741b697',1,'stateObservation::IndexedMatrixArrayT::readVectorsFromFile(const char *filename, bool withTimeStamp=true)']]],
   ['reconstructstatetrajectory',['reconstructStateTrajectory',['../namespacestateObservation_1_1kine.html#ac78a3aef4a01fb9a9201ff4f0be10beb',1,'stateObservation::kine']]],

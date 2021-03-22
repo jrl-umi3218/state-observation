@@ -429,6 +429,11 @@
     <name>definitions.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
     <filename>definitions_8hpp</filename>
+    <class kind="struct">stateObservation::isEigen</class>
+    <class kind="struct">stateObservation::isMatrix</class>
+    <class kind="struct">stateObservation::isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</class>
+    <class kind="struct">stateObservation::EigenType</class>
+    <class kind="struct">stateObservation::MatrixType</class>
     <class kind="class">stateObservation::DebugItemDefaultValue</class>
     <class kind="class">stateObservation::detail::DebugItemDefaultError</class>
     <class kind="class">stateObservation::detail::DebugItemDefaultError&lt; message, dummy &gt;</class>
@@ -776,6 +781,20 @@
       <anchorfile>namespacestateObservation_1_1detail.html</anchorfile>
       <anchor>a0bc44c69f09db5aefccaf6ae66e603d2</anchor>
       <arglist>(const Vector &amp;stateVector1, const Vector &amp;stateVector2, Vector &amp;difference)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isApprox</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>a1ed26cd92da35780dbd4271037b59702</anchor>
+      <arglist>(double a, double b, double relativePrecision=cst::epsilon1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isApproxAbs</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>a3129c02470e794b1c530f618768cfcfd</anchor>
+      <arglist>(double a, double b, double absolutePrecision=cst::epsilon1)</arglist>
     </member>
     <member kind="function">
       <type>std::string STATE_OBSERVATION_DLLAPI</type>
@@ -1274,6 +1293,13 @@
       <arglist>(const Vector6 &amp;v)</arglist>
     </member>
     <member kind="function">
+      <type>Matrix3</type>
+      <name>twoVectorsToRotationMatrix</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>abe6f88b1583d50a5294862b4c7d981e6</anchor>
+      <arglist>(const Vector3 &amp;v1, const Vector3 Rv1)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isPureYaw</name>
       <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
@@ -1284,8 +1310,15 @@
       <type>Vector3</type>
       <name>getInvariantHorizontalVector</name>
       <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
-      <anchor>a7b9d2be8872ecd3c3ef2b26dffbb783e</anchor>
-      <arglist>(Matrix3 &amp;R)</arglist>
+      <anchor>a72ae305ec685249359a0937bc6bd3d6d</anchor>
+      <arglist>(const Matrix3 &amp;R)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector3</type>
+      <name>getInvariantOrthogonalVector</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>acdef8357e78272632e36f5c641f9b495</anchor>
+      <arglist>(const Matrix3 &amp;Rhat, const Vector3 &amp;Rtez)</arglist>
     </member>
     <member kind="function">
       <type>Matrix3</type>
@@ -1349,6 +1382,27 @@
       <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
       <anchor>a4db2235240ade5be2a639ab6abc3ba64</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Quaternion</type>
+      <name>randomRotationQuaternion</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>ac0486776b1a708566a2032afab559974</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>randomAngle</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>a85f2faa4d2d3e4192a6da1f804b186f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRotationMatrix</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>a079083d3e47c99522590740017a1bf22</anchor>
+      <arglist>(const Matrix3 &amp;, double precision=2 *cst::epsilon1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3167,13 +3221,6 @@
       <anchor>a1beb03662b412f309972cb8ebc6a773e</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" static="yes">
-      <type>static int</type>
-      <name>numberOfRealSensors</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Contact.html</anchorfile>
-      <anchor>a042f0dc132327518af765c95ecebc420</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="struct">
     <name>stateObservation::hrp2::contact</name>
@@ -3877,6 +3924,11 @@
       <anchor>a94f9a860c47ac02fe6366fa8f45a808b</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="struct">
+    <name>stateObservation::EigenType</name>
+    <filename>structstateObservation_1_1EigenType.html</filename>
+    <templarg></templarg>
   </compound>
   <compound kind="class">
     <name>stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase</name>
@@ -4749,13 +4801,6 @@
       <name>covMatrixGyro</name>
       <anchorfile>structstateObservation_1_1KineticsObserver_1_1IMU.html</anchorfile>
       <anchor>adf8ff5ab5ef3b68f14ba88d7c7c79c5d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static int</type>
-      <name>currentNumber</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1IMU.html</anchorfile>
-      <anchor>af09b20a33b25dc715c34d7bac8172ba1</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -7044,10 +7089,10 @@
       <arglist>(const MatrixType &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
-      <type>MatrixType</type>
+      <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>aebed9811b358344f3750cd83aa635f05</anchor>
+      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
       <arglist>(const MatrixType &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7140,10 +7185,10 @@
       <arglist>(const Matrix3 &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
-      <type>Matrix3</type>
+      <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>aebed9811b358344f3750cd83aa635f05</anchor>
+      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
       <arglist>(const Matrix3 &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7236,10 +7281,10 @@
       <arglist>(const Vector &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
-      <type>Vector</type>
+      <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>aebed9811b358344f3750cd83aa635f05</anchor>
+      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
       <arglist>(const Vector &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7332,10 +7377,10 @@
       <arglist>(const Vector3 &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
-      <type>Vector3</type>
+      <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>aebed9811b358344f3750cd83aa635f05</anchor>
+      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
       <arglist>(const Vector3 &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7628,6 +7673,33 @@
       <anchor>a0fcbc122f976c687321ced4ae6548838</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="struct">
+    <name>stateObservation::isEigen</name>
+    <filename>structstateObservation_1_1isEigen.html</filename>
+    <templarg></templarg>
+    <member kind="variable" static="yes">
+      <type>static constexpr bool</type>
+      <name>value</name>
+      <anchorfile>structstateObservation_1_1isEigen.html</anchorfile>
+      <anchor>aa8abfd6e182a8e8be56b2b43bac05606</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>stateObservation::isMatrix</name>
+    <filename>structstateObservation_1_1isMatrix.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="struct">
+    <name>stateObservation::isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</name>
+    <filename>structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html</filename>
+    <templarg></templarg>
+    <templarg>_Rows</templarg>
+    <templarg>_Cols</templarg>
+    <templarg>_Options</templarg>
+    <templarg>_MaxRows</templarg>
+    <templarg>_MaxCols</templarg>
   </compound>
   <compound kind="class">
     <name>stateObservation::KalmanFilterBase</name>
@@ -8313,27 +8385,6 @@
       <arglist>(const Kinematics &amp;multiplier1, const Kinematics &amp;multiplier2)</arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>Kinematics</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>a9f0ec4f5412a1be07e6dea00d97a57d0</anchor>
-      <arglist>(Kinematics &amp;multiplier1, const Kinematics &amp;multiplier2)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Kinematics</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>ac526b4f9a9ee54e6eece4f1ca2e0ab43</anchor>
-      <arglist>(const Kinematics &amp;multiplier1, Kinematics &amp;multiplier2)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Kinematics</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>a3e351e9896811d26fd01ee2dea03188f</anchor>
-      <arglist>(Kinematics &amp;multiplier1, Kinematics &amp;multiplier2)</arglist>
-    </member>
-    <member kind="function">
       <type>Kinematics &amp;</type>
       <name>fromVector</name>
       <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
@@ -8398,52 +8449,10 @@
     </member>
     <member kind="function">
       <type>Kinematics</type>
-      <name>operator*</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>a43e3d00ca3877f43044056d7b466ffd5</anchor>
-      <arglist>(const Kinematics &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>operator*</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>acb9bd95f9f82e9ce2fc1fb705e6f42ad</anchor>
-      <arglist>(Kinematics &amp;) const</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>operator*</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>ad6483a4a2074dc1860d09a02e3d6cfaf</anchor>
-      <arglist>(Kinematics &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
       <name>setToProductNoAlias</name>
       <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
       <anchor>a70cfd188aa7f51f94685348045f149c1</anchor>
       <arglist>(const Kinematics &amp;operand1, const Kinematics &amp;operand2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>setToProductNoAlias</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>a26a5ed4066fa01dbf33439bf373db859</anchor>
-      <arglist>(const Kinematics &amp;operand1, Kinematics &amp;operand2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>setToProductNoAlias</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>ab6b98859ba1d0b4b956c84c7a91a807a</anchor>
-      <arglist>(Kinematics &amp;operand1, const Kinematics &amp;operand2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>setToProductNoAlias</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>a303cbf8830b0c531ef7b8430c04410ae</anchor>
-      <arglist>(Kinematics &amp;operand1, Kinematics &amp;operand2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8501,13 +8510,6 @@
       <anchor>a32785d159ad1b72daec6210c878ed298</anchor>
       <arglist>(const Kinematics &amp;newValue, double dt, Flags::Byte=Flags::all)</arglist>
     </member>
-    <member kind="function" protection="protected">
-      <type>Kinematics</type>
-      <name>templateSetToProductNoAlias_</name>
-      <anchorfile>structstateObservation_1_1kine_1_1Kinematics.html</anchorfile>
-      <anchor>a65caf6fd431e723b866875282606fd0a</anchor>
-      <arglist>(operand1 &amp;multilplier1, operand2 &amp;multiplier2)</arglist>
-    </member>
     <member kind="variable" protection="protected">
       <type>Vector3</type>
       <name>tempVec_</name>
@@ -8555,20 +8557,6 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Index</type>
-      <name>getStateSize</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a750c98e03356378703614a1ff3ee7a01</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Index</type>
-      <name>getMeasurementSize</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a91fcb39776180723b39584558fbed523</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
       <type>double</type>
       <name>getSamplingTime</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
@@ -8583,25 +8571,221 @@
       <arglist>(double)</arglist>
     </member>
     <member kind="function">
-      <type>Vector</type>
-      <name>update</name>
+      <type>void</type>
+      <name>setWithUnmodeledWrench</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a77dd4fabb2c6dedb515f8ef8c45ab283</anchor>
+      <anchor>ad60981afaa1763ed9bae9a5d55f97324</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithAccelerationEstimation</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7d9d8b542a69720a446d8ea94eb29b2a</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithGyroBias</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a66163ba4361292ed0834277c387f2f4f</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a8550033497c0fab9b369560ff76fc99c</anchor>
+      <arglist>(double)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setIMU</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>adc8e9d45b1d49cab2927a4b449e0fe86</anchor>
+      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Kinematics &amp;localKine, int num=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setIMU</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a9606f2221920f923f92f905a0e019b8e</anchor>
+      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setIMUDefaultCovarianceMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae6427334e2bab3d0fb4e71e4869f8924</anchor>
+      <arglist>(const Matrix3 &amp;acceleroCov, const Matrix3 &amp;gyroCov)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAbsolutePoseSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a6e7319be5ec9c8a0220c9f3988e04c37</anchor>
+      <arglist>(const Kinematics &amp;measurement)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAbsolutePoseSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aab364172525077f784a38da9ceca36fc</anchor>
+      <arglist>(const Kinematics &amp;measurement, const Matrix6 &amp;CovarianceMatrix)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAbsolutePoseSensorDefaultCovarianceMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a6c6ab8c2d69a377aa1d17450a90522dc</anchor>
+      <arglist>(const Matrix6 &amp;covMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addContact</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1c840388c0b19d4675c6c9e4cfdc7ffd</anchor>
+      <arglist>(const Kinematics &amp;pose, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addContact</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ac4b739ac2a286e0d39abb34f856523fe</anchor>
+      <arglist>(const Kinematics &amp;pose, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeContact</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a641f46549197908377f4a99ffbfa222f</anchor>
+      <arglist>(int contactnbr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearContacts</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a74e15a200f6f1ffbdfc98a5b90b5b86d</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>Vector</type>
-      <name>getStateVector</name>
+      <type>Index</type>
+      <name>getNumberOfContacts</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a4ccf9d095365fd1b783a8cde400db451</anchor>
+      <anchor>ae35787d65f5dc05134583e69df5219e2</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>stateObservation::TimeIndex</type>
-      <name>getStateVectorSampleTime</name>
+      <type>std::vector&lt; int &gt;</type>
+      <name>getListOfContacts</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>aec100616a38702682ce3396f982196db</anchor>
+      <anchor>a6a4390efd69d87cfecb902632cbac9a2</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContactWithNoSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a50f01ae14f10b27cb3cedb2fe9fb96e3</anchor>
+      <arglist>(const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContactWithWrenchSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1ccba0bf1c2eee918960f2d84d1660e0</anchor>
+      <arglist>(const Vector6 &amp;wrenchMeasurement, const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContactWithWrenchSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a312fc277c9e3a0691319b2ffba964dd2</anchor>
+      <arglist>(const Vector6 &amp;wrenchMeasurement, const Matrix6 &amp;wrenchCovMatrix, const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactWrenchSensorDefaultCovarianceMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a561e85770d1655172b957e4ca58e5d81</anchor>
+      <arglist>(const Matrix6 &amp;wrenchSensorCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCenterOfMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>af800bd6eb4302dc3e286c230a51f8ae6</anchor>
+      <arglist>(const Vector3 &amp;com, const Vector3 &amp;com_dot, const Vector3 &amp;com_dot_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCenterOfMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2e9816060c9a9f833caf7e8a7a019038</anchor>
+      <arglist>(const Vector3 &amp;com, const Vector3 &amp;com_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCenterOfMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2903a426527b0e5c3fb2172defb2fce4</anchor>
+      <arglist>(const Vector3 &amp;com)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad505de6db32f5b13ebf8f918a417b972</anchor>
+      <arglist>(const Matrix3 &amp;I, const Matrix3 &amp;I_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7922b3e7e7e83fa61d6a315780998104</anchor>
+      <arglist>(const Matrix3 &amp;I)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1862b7b808fd215a51da29cd49f5ec83</anchor>
+      <arglist>(const Vector6 &amp;I, const Vector6 &amp;I_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ada193357139506c3c20ae1282ddbeeb7</anchor>
+      <arglist>(const Vector6 &amp;I)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAngularMomentum</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>abc0b3240acc8a33fb799bf188c3335aa</anchor>
+      <arglist>(const Vector3 &amp;sigma, const Vector3 &amp;sigma_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAngularMomentum</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad4e3e2a4203097b48ffe0e9d1663740d</anchor>
+      <arglist>(const Vector3 &amp;sigma)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAdditionalWrench</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae9432871c1193d4f5a66cf15d57a989d</anchor>
+      <arglist>(const Vector3 &amp;force, const Vector3 &amp;torque)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Vector &amp;</type>
+      <name>update</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a373403115258327bb90292ebef64f826</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Kinematics</type>
@@ -8612,31 +8796,17 @@
     </member>
     <member kind="function">
       <type>Kinematics</type>
+      <name>estimateAccelerations</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a63b05bb6a677a721934ac36482bb06aa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Kinematics</type>
       <name>getKinematicsOf</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
       <anchor>ad4fe22873b11bdd0f58774f6d06f3c27</anchor>
       <arglist>(const Kinematics &amp;localKinematics) const</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>getKinematicsOf</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a2c59c2d9b76e00569dbe9fa2f8a582d4</anchor>
-      <arglist>(const Kinematics &amp;localKinematics)</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>getKinematicsOf</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>aba8f896a9d84e5a4f2d798a3bdd1b27f</anchor>
-      <arglist>(Kinematics &amp;localKinematics) const</arglist>
-    </member>
-    <member kind="function">
-      <type>Kinematics</type>
-      <name>getKinematicsOf</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1e0200a5c08b76b03a901f16c635c541</anchor>
-      <arglist>(Kinematics &amp;localKinematics)</arglist>
     </member>
     <member kind="function">
       <type>Vector6</type>
@@ -8660,18 +8830,11 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>Kinematics</type>
-      <name>estimateAccelerations</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a63b05bb6a677a721934ac36482bb06aa</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>setStateKinematics</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a17f79d47647df6f874f312073036bc01</anchor>
-      <arglist>(const Kinematics &amp;, bool resetContactWrenches=true, bool resetCovariance=true)</arglist>
+      <anchor>aa03c960d6f4ee0b78635ab2378cdf4bd</anchor>
+      <arglist>(const Kinematics &amp;kine, bool resetContactWrenches=true, bool resetCovariance=true)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8689,10 +8852,248 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>resetSensorsDefaultCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ab53a59a4e560de909e0c89202c3ddb47</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetInputs</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a5e066c733993fd2c225d4bb57c23e9a8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKinematicsStateCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae6f6d32dbe766814f5359c74e5bb28f2</anchor>
+      <arglist>(const Matrix &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKinematicsInitCovarianceDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a5a71929f3d6878a1151de07e81987bf6</anchor>
+      <arglist>(const Matrix &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKinematicsProcessCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a914ed34a954e062f75644b109b3fe7d4</anchor>
+      <arglist>(const Matrix &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBiasStateCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a80ed57a9d225e60f78796e4ef0ba1666</anchor>
+      <arglist>(const Matrix3 &amp;covMat, unsigned imuNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBiasInitCovarianceDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a329656db3d8f6d9482fc134f63872a8a</anchor>
+      <arglist>(const Matrix3 &amp;covMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBiasProcessCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2a804750de44046461a36ca0945b6b03</anchor>
+      <arglist>(const Matrix3 &amp;covMat, unsigned imuNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnmodeledWrenchStateCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa1d061385fe31a16d8431cccf4dcb862</anchor>
+      <arglist>(const Matrix6 &amp;newCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnmodeledWrenchInitCovMatDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0fb6210efd7795b903b1239bc025bcf9</anchor>
+      <arglist>(const Matrix6 &amp;initCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnmodeledWrenchProcessCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad57d742346c8cf18f06da7ad7f94215f</anchor>
+      <arglist>(const Matrix6 &amp;processCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactStateCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>afae452ae5dfbcbaf7065c5dac5da39a9</anchor>
+      <arglist>(int contactNbr, const Matrix12 &amp;contactCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactInitCovMatDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad04cec958c6cd4902d19dcc4e165277b</anchor>
+      <arglist>(const Matrix12 &amp;contactCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactProcessCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7b084250f7227a3e8165f8aaeee5d6a7</anchor>
+      <arglist>(int contactNbr, const Matrix12 &amp;contactCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a80e62fdf1546cd38f8b9565df4b23dbb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateKinematicsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ac2b34c985202e867e4c095a77df9bda1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateGyroBiasCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae6e4d0ff3128aabbf2ac9bf5c58d4c4e</anchor>
+      <arglist>(unsigned i)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateUnmodeledWrenchCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a61195b56dc60742a859b085aa602ad02</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateContactsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aee9418c311833165a0a403024f24f235</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateContactCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1ee12fad0d735ea05e786a6c4529ec85</anchor>
+      <arglist>(unsigned contactNbr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a44d8206140b21d6f90d730cecc15d746</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessKinematicsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1591b9c049655186d505f23e5916597f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessGyroBiasCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a132fc40a2b324c7a89d6a36d61d399ee</anchor>
+      <arglist>(unsigned i)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessUnmodeledWrenchCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a45047c8c1338a3a4a5210511ab0337aa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessContactsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aebb78302078e9b6c5407b38ecdb6a3b5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessContactCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1dabb6588ebc226b67d9e3fbf85ec1d3</anchor>
+      <arglist>(unsigned contactNbr)</arglist>
+    </member>
+    <member kind="function">
+      <type>Index</type>
+      <name>getStateSize</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a750c98e03356378703614a1ff3ee7a01</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Index</type>
+      <name>getMeasurementSize</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a91fcb39776180723b39584558fbed523</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Matrix</type>
+      <name>getStateCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa9cdf0d5d21b9c188462b3527ca08d0e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a11453bc8202e3ae279de472db6d8f968</anchor>
+      <arglist>(const Matrix &amp;P)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProcessNoiseCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a8cc674176cad5ff755fbcf2aa14b26eb</anchor>
+      <arglist>(const Matrix &amp;Q)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Vector &amp;</type>
+      <name>getCurrentStateVector</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a45559a8dd5560c1a6ea7020d5b29686a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>TimeIndex</type>
+      <name>getStateVectorTimeIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a79c80955bc7df3f874c210077489f194</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setStateVector</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>acda694300a0f1f32c6167345a8034960</anchor>
-      <arglist>(const Vector &amp;, bool resetCovariance=true)</arglist>
+      <anchor>a0d06e4e8dc9276cb20737b06de36b589</anchor>
+      <arglist>(const Vector &amp;newvalue, bool resetCovariance=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector</type>
+      <name>getMeasurementVector</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0d07b7028dd67f71a91e1d7c83462c5a</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>unsigned</type>
@@ -8933,342 +9334,6 @@
       <arglist>(unsigned contactNbr) const</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>setWithUnmodeledWrench</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad60981afaa1763ed9bae9a5d55f97324</anchor>
-      <arglist>(bool b=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setWithAccelerationEstimation</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a7d9d8b542a69720a446d8ea94eb29b2a</anchor>
-      <arglist>(bool b=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setWithGyroBias</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a66163ba4361292ed0834277c387f2f4f</anchor>
-      <arglist>(bool b=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>setIMU</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>adc8e9d45b1d49cab2927a4b449e0fe86</anchor>
-      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Kinematics &amp;localKine, int num=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>setIMU</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a9606f2221920f923f92f905a0e019b8e</anchor>
-      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setIMUDefaultCovarianceMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae6427334e2bab3d0fb4e71e4869f8924</anchor>
-      <arglist>(const Matrix3 &amp;acceleroCov, const Matrix3 &amp;gyroCov)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactWrenchSensor</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a09b59c5c1e841fae1a2abae134081f47</anchor>
-      <arglist>(const Vector6 &amp;wrenchMeasurement, const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactWrenchSensor</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ab9ad9cf0e1c8302421da5d80163e1313</anchor>
-      <arglist>(const Vector6 &amp;wrenchMeasurement, const Matrix6 &amp;wrenchCovMatrix, const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactWrenchSensorDefaultCovarianceMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a561e85770d1655172b957e4ca58e5d81</anchor>
-      <arglist>(const Matrix6 &amp;wrenchSensorCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactWithNoSensor</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a42ca8a5c095c001972732f14317b068b</anchor>
-      <arglist>(const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAbsolutePoseSensor</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>aaf8e52e5f5638aff9fd04e3497159986</anchor>
-      <arglist>(const Kinematics &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAbsolutePoseSensor</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a359f37f1f40ec87a6b673a153be92eab</anchor>
-      <arglist>(const Kinematics &amp;, const Matrix6 &amp;CovarianceMatrix)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAbsolutePoseSensorDefaultCovarianceMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad9233219f777b67de35f14820ea9314b</anchor>
-      <arglist>(const Matrix6 &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAdditionalWrench</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae9432871c1193d4f5a66cf15d57a989d</anchor>
-      <arglist>(const Vector3 &amp;force, const Vector3 &amp;torque)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setMass</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a8550033497c0fab9b369560ff76fc99c</anchor>
-      <arglist>(double)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setInertiaMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad505de6db32f5b13ebf8f918a417b972</anchor>
-      <arglist>(const Matrix3 &amp;I, const Matrix3 &amp;I_dot)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setInertiaMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a7922b3e7e7e83fa61d6a315780998104</anchor>
-      <arglist>(const Matrix3 &amp;I)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setInertiaMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1862b7b808fd215a51da29cd49f5ec83</anchor>
-      <arglist>(const Vector6 &amp;I, const Vector6 &amp;I_dot)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setInertiaMatrix</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ada193357139506c3c20ae1282ddbeeb7</anchor>
-      <arglist>(const Vector6 &amp;I)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCenterOfMass</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>af800bd6eb4302dc3e286c230a51f8ae6</anchor>
-      <arglist>(const Vector3 &amp;com, const Vector3 &amp;com_dot, const Vector3 &amp;com_dot_dot)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCenterOfMass</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a2e9816060c9a9f833caf7e8a7a019038</anchor>
-      <arglist>(const Vector3 &amp;com, const Vector3 &amp;com_dot)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setCenterOfMass</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a2903a426527b0e5c3fb2172defb2fce4</anchor>
-      <arglist>(const Vector3 &amp;com)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAngularMomentum</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>abc0b3240acc8a33fb799bf188c3335aa</anchor>
-      <arglist>(const Vector3 &amp;sigma, const Vector3 &amp;sigma_dot)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAngularMomentum</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad4e3e2a4203097b48ffe0e9d1663740d</anchor>
-      <arglist>(const Vector3 &amp;sigma)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addContact</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae2751995d55781dacfb854c73fa62caf</anchor>
-      <arglist>(const Kinematics &amp;pose, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, const Matrix3 &amp;linearStiffness, const Matrix3 &amp;linearDamping, const Matrix3 &amp;angularStiffness, const Matrix3 &amp;angularDamping, int contactNumber=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addContact</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a340d68e4a075bfd378860f5dafb9048c</anchor>
-      <arglist>(const Kinematics &amp;pose, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addContact</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a5a140d153652c3603b26a1a4932c31a3</anchor>
-      <arglist>(const Kinematics &amp;pose, const Matrix3 &amp;linearStiffness, const Matrix3 &amp;linearDamping, const Matrix3 &amp;angularStiffness, const Matrix3 &amp;angularDamping, int contactNumber=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>addContact</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae9256e4d2820c0131434803aaeb9d46c</anchor>
-      <arglist>(const Kinematics &amp;pose, int contactNumber=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeContact</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a641f46549197908377f4a99ffbfa222f</anchor>
-      <arglist>(int contactnbr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>clearContacts</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a74e15a200f6f1ffbdfc98a5b90b5b86d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Index</type>
-      <name>getNumberOfContacts</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae35787d65f5dc05134583e69df5219e2</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>std::vector&lt; int &gt;</type>
-      <name>getListOfContacts</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a6a4390efd69d87cfecb902632cbac9a2</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setStateCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad812a7e4d3dc505f63dc2df19b7e7bb2</anchor>
-      <arglist>(const Matrix &amp;P)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setKinematicsStateCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae6f6d32dbe766814f5359c74e5bb28f2</anchor>
-      <arglist>(const Matrix &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setKinematicsInitCovarianceDefault</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a5a71929f3d6878a1151de07e81987bf6</anchor>
-      <arglist>(const Matrix &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setKinematicsProcessCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a914ed34a954e062f75644b109b3fe7d4</anchor>
-      <arglist>(const Matrix &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGyroBiasStateCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a80ed57a9d225e60f78796e4ef0ba1666</anchor>
-      <arglist>(const Matrix3 &amp;covMat, unsigned imuNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGyroBiasInitCovarianceDefault</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a329656db3d8f6d9482fc134f63872a8a</anchor>
-      <arglist>(const Matrix3 &amp;covMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGyroBiasProcessCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a2a804750de44046461a36ca0945b6b03</anchor>
-      <arglist>(const Matrix3 &amp;covMat, unsigned imuNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUnmodeledWrenchStateCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a5e8a342777deb8783468d0062ed063ba</anchor>
-      <arglist>(const Matrix6 &amp;currentCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUnmodeledWrenchIniCovMatDefault</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ac97108ccd7a1c7e7d71ea4b60e5defbe</anchor>
-      <arglist>(const Matrix6 &amp;initCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUnmodeledWrenchProcessCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad57d742346c8cf18f06da7ad7f94215f</anchor>
-      <arglist>(const Matrix6 &amp;processCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactStateCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>afae452ae5dfbcbaf7065c5dac5da39a9</anchor>
-      <arglist>(int contactNbr, const Matrix12 &amp;contactCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactInitCovMatDefault</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ad04cec958c6cd4902d19dcc4e165277b</anchor>
-      <arglist>(const Matrix12 &amp;contactCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setContactProcessCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a7b084250f7227a3e8165f8aaeee5d6a7</anchor>
-      <arglist>(int contactNbr, const Matrix12 &amp;contactCovMat)</arglist>
-    </member>
-    <member kind="function">
-      <type>Matrix</type>
-      <name>getStateCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a669482b7a51cce398979b2550bdbe014</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setProcessNoiseCovariance</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>aa1b402b70a98dc3ae858f4bf88b8cff0</anchor>
-      <arglist>(const Matrix &amp;Q)</arglist>
-    </member>
-    <member kind="function">
-      <type>Vector</type>
-      <name>getMeasurementVector</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a0d07b7028dd67f71a91e1d7c83462c5a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>const ExtendedKalmanFilter &amp;</type>
       <name>getEKF</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
@@ -9283,102 +9348,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>resetStateCovarianceMat</name>
+      <type>Vector</type>
+      <name>stateSum</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a80e62fdf1546cd38f8b9565df4b23dbb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetStateKinematicsCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ac2b34c985202e867e4c095a77df9bda1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetStateGyroBiasCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ae6e4d0ff3128aabbf2ac9bf5c58d4c4e</anchor>
-      <arglist>(unsigned i)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetStateUnmodeledWrenchCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a61195b56dc60742a859b085aa602ad02</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetStateContactsCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>aee9418c311833165a0a403024f24f235</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetStateContactCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1ee12fad0d735ea05e786a6c4529ec85</anchor>
-      <arglist>(unsigned contactNbr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetProcessCovarianceMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a44d8206140b21d6f90d730cecc15d746</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetProcessKinematicsCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1591b9c049655186d505f23e5916597f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetProcessGyroBiasCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a132fc40a2b324c7a89d6a36d61d399ee</anchor>
-      <arglist>(unsigned i)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetProcessUnmodeledWrenchCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a45047c8c1338a3a4a5210511ab0337aa</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetProcessContactsCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>aebb78302078e9b6c5407b38ecdb6a3b5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetProcessContactCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1dabb6588ebc226b67d9e3fbf85ec1d3</anchor>
-      <arglist>(unsigned contactNbr)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetSensorsDefaultCovMat</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ab53a59a4e560de909e0c89202c3ddb47</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetInputs</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a5e066c733993fd2c225d4bb57c23e9a8</anchor>
-      <arglist>()</arglist>
+      <anchor>a4e22520151df3a19b668d5a9df674ec3</anchor>
+      <arglist>(const Vector &amp;stateVector, const Vector &amp;tangentVector)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -9389,10 +9363,10 @@
     </member>
     <member kind="function">
       <type>Vector</type>
-      <name>stateSum</name>
+      <name>stateDifference</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a4e22520151df3a19b668d5a9df674ec3</anchor>
-      <arglist>(const Vector &amp;stateVector, const Vector &amp;tangentVector)</arglist>
+      <anchor>a39caef1d9086022659b1419ff4f5e624</anchor>
+      <arglist>(const Vector &amp;stateVector1, const Vector &amp;stateVector2)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -9400,13 +9374,6 @@
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
       <anchor>a7d4b85c98cabbd6b950d0b669e554044</anchor>
       <arglist>(const Vector &amp;stateVector1, const Vector &amp;stateVector2, Vector &amp;difference)</arglist>
-    </member>
-    <member kind="function">
-      <type>Vector</type>
-      <name>stateDifference</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a39caef1d9086022659b1419ff4f5e624</anchor>
-      <arglist>(const Vector &amp;stateVector1, const Vector &amp;stateVector2)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -9417,17 +9384,17 @@
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
-      <name>setFiniteDifferenceStep</name>
-      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a33d750b5859142bb84a0d31366a90230</anchor>
-      <arglist>(const Vector &amp;dx)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
       <name>useFiniteDifferencesJacobians</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
       <anchor>a369298bc2d344452308e0e03803037ee</anchor>
       <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setFiniteDifferenceStep</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a33d750b5859142bb84a0d31366a90230</anchor>
+      <arglist>(const Vector &amp;dx)</arglist>
     </member>
     <member kind="variable" static="yes">
       <type>static const unsigned</type>
@@ -10319,6 +10286,20 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>numberOfContactRealSensors_</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>afcca520b8bf434a4dfa9df180f2e104d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>int</type>
+      <name>currentIMUSensorNumber_</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a37a5d789a5747334276da790c5bf8c4b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
       <type>Matrix3</type>
       <name>linearStiffnessMatDefault_</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
@@ -10418,9 +10399,9 @@
     </member>
     <member kind="variable" protection="protected">
       <type>Matrix12</type>
-      <name>contactInitCovMat_</name>
+      <name>contactInitCovMatDefault_</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1b57cc0f23adcf6491eaf129aa86784b</anchor>
+      <anchor>aac551a74114eeb14bbe35ffb501d83fd</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -10495,9 +10476,9 @@
     </member>
     <member kind="variable" protection="protected">
       <type>Matrix12</type>
-      <name>contactProcessCovMat_</name>
+      <name>contactProcessCovMatDefault_</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a3654e0f6e14fa442c5f087d64b914f10</anchor>
+      <anchor>a8291a66d40a05afb4faa31b787665ee8</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -10527,6 +10508,860 @@
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
       <anchor>ad44df5789cd1f5ba9e4eeee3f982028e</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>KineticsObserver</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aec7484db4ddd0162eb68859a20f1a262</anchor>
+      <arglist>(unsigned maxContacts=4, unsigned maxNumberOfIMU=1)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~KineticsObserver</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ab40d2d2098265a7290fc07ebbf659999</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplingTime</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>afc8a39279ca77d1fbabacdbd7fdf27e2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSamplingTime</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>abee9ef3ee969c4c798acb1cca89045ee</anchor>
+      <arglist>(double)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithUnmodeledWrench</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad60981afaa1763ed9bae9a5d55f97324</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithAccelerationEstimation</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7d9d8b542a69720a446d8ea94eb29b2a</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithGyroBias</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a66163ba4361292ed0834277c387f2f4f</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a8550033497c0fab9b369560ff76fc99c</anchor>
+      <arglist>(double)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setIMU</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>adc8e9d45b1d49cab2927a4b449e0fe86</anchor>
+      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Kinematics &amp;localKine, int num=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setIMU</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a9606f2221920f923f92f905a0e019b8e</anchor>
+      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setIMUDefaultCovarianceMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae6427334e2bab3d0fb4e71e4869f8924</anchor>
+      <arglist>(const Matrix3 &amp;acceleroCov, const Matrix3 &amp;gyroCov)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAbsolutePoseSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a6e7319be5ec9c8a0220c9f3988e04c37</anchor>
+      <arglist>(const Kinematics &amp;measurement)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAbsolutePoseSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aab364172525077f784a38da9ceca36fc</anchor>
+      <arglist>(const Kinematics &amp;measurement, const Matrix6 &amp;CovarianceMatrix)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAbsolutePoseSensorDefaultCovarianceMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a6c6ab8c2d69a377aa1d17450a90522dc</anchor>
+      <arglist>(const Matrix6 &amp;covMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addContact</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1c840388c0b19d4675c6c9e4cfdc7ffd</anchor>
+      <arglist>(const Kinematics &amp;pose, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addContact</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ac4b739ac2a286e0d39abb34f856523fe</anchor>
+      <arglist>(const Kinematics &amp;pose, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeContact</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a641f46549197908377f4a99ffbfa222f</anchor>
+      <arglist>(int contactnbr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clearContacts</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a74e15a200f6f1ffbdfc98a5b90b5b86d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Index</type>
+      <name>getNumberOfContacts</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae35787d65f5dc05134583e69df5219e2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; int &gt;</type>
+      <name>getListOfContacts</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a6a4390efd69d87cfecb902632cbac9a2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContactWithNoSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a50f01ae14f10b27cb3cedb2fe9fb96e3</anchor>
+      <arglist>(const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContactWithWrenchSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1ccba0bf1c2eee918960f2d84d1660e0</anchor>
+      <arglist>(const Vector6 &amp;wrenchMeasurement, const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updateContactWithWrenchSensor</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a312fc277c9e3a0691319b2ffba964dd2</anchor>
+      <arglist>(const Vector6 &amp;wrenchMeasurement, const Matrix6 &amp;wrenchCovMatrix, const Kinematics &amp;localKine, unsigned contactNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactWrenchSensorDefaultCovarianceMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a561e85770d1655172b957e4ca58e5d81</anchor>
+      <arglist>(const Matrix6 &amp;wrenchSensorCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCenterOfMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>af800bd6eb4302dc3e286c230a51f8ae6</anchor>
+      <arglist>(const Vector3 &amp;com, const Vector3 &amp;com_dot, const Vector3 &amp;com_dot_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCenterOfMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2e9816060c9a9f833caf7e8a7a019038</anchor>
+      <arglist>(const Vector3 &amp;com, const Vector3 &amp;com_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setCenterOfMass</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2903a426527b0e5c3fb2172defb2fce4</anchor>
+      <arglist>(const Vector3 &amp;com)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad505de6db32f5b13ebf8f918a417b972</anchor>
+      <arglist>(const Matrix3 &amp;I, const Matrix3 &amp;I_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7922b3e7e7e83fa61d6a315780998104</anchor>
+      <arglist>(const Matrix3 &amp;I)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1862b7b808fd215a51da29cd49f5ec83</anchor>
+      <arglist>(const Vector6 &amp;I, const Vector6 &amp;I_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInertiaMatrix</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ada193357139506c3c20ae1282ddbeeb7</anchor>
+      <arglist>(const Vector6 &amp;I)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAngularMomentum</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>abc0b3240acc8a33fb799bf188c3335aa</anchor>
+      <arglist>(const Vector3 &amp;sigma, const Vector3 &amp;sigma_dot)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAngularMomentum</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad4e3e2a4203097b48ffe0e9d1663740d</anchor>
+      <arglist>(const Vector3 &amp;sigma)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAdditionalWrench</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae9432871c1193d4f5a66cf15d57a989d</anchor>
+      <arglist>(const Vector3 &amp;force, const Vector3 &amp;torque)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Vector &amp;</type>
+      <name>update</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a373403115258327bb90292ebef64f826</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Kinematics</type>
+      <name>getKinematics</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aaa3d8d81cb5d1fcb229d1ef2b6728cf7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Kinematics</type>
+      <name>estimateAccelerations</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a63b05bb6a677a721934ac36482bb06aa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Kinematics</type>
+      <name>getKinematicsOf</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad4fe22873b11bdd0f58774f6d06f3c27</anchor>
+      <arglist>(const Kinematics &amp;localKinematics) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector6</type>
+      <name>getContactWrench</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a04b06c56803d5bf0c5a04f5098dbee26</anchor>
+      <arglist>(int contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Kinematics</type>
+      <name>getContactPosition</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa8b4a6e675021fe371b74b184bf753d9</anchor>
+      <arglist>(int contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector6</type>
+      <name>getUnmodeledWrench</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a27df12db6e8362ef7cf9b4223392b804</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateKinematics</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa03c960d6f4ee0b78635ab2378cdf4bd</anchor>
+      <arglist>(const Kinematics &amp;kine, bool resetContactWrenches=true, bool resetCovariance=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBias</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a9bd0e12a1a0337aa0ad326460ac26423</anchor>
+      <arglist>(const Vector3 &amp;, unsigned numberOfIMU=1, bool resetCovariance=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateUnmodeledWrench</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a67f1fe20864cdb26fa91ba39d8c577eb</anchor>
+      <arglist>(const Vector6 &amp;, bool resetCovariance=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetSensorsDefaultCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ab53a59a4e560de909e0c89202c3ddb47</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetInputs</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a5e066c733993fd2c225d4bb57c23e9a8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKinematicsStateCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae6f6d32dbe766814f5359c74e5bb28f2</anchor>
+      <arglist>(const Matrix &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKinematicsInitCovarianceDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a5a71929f3d6878a1151de07e81987bf6</anchor>
+      <arglist>(const Matrix &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setKinematicsProcessCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a914ed34a954e062f75644b109b3fe7d4</anchor>
+      <arglist>(const Matrix &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBiasStateCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a80ed57a9d225e60f78796e4ef0ba1666</anchor>
+      <arglist>(const Matrix3 &amp;covMat, unsigned imuNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBiasInitCovarianceDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a329656db3d8f6d9482fc134f63872a8a</anchor>
+      <arglist>(const Matrix3 &amp;covMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGyroBiasProcessCovariance</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2a804750de44046461a36ca0945b6b03</anchor>
+      <arglist>(const Matrix3 &amp;covMat, unsigned imuNumber)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnmodeledWrenchStateCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa1d061385fe31a16d8431cccf4dcb862</anchor>
+      <arglist>(const Matrix6 &amp;newCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnmodeledWrenchInitCovMatDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0fb6210efd7795b903b1239bc025bcf9</anchor>
+      <arglist>(const Matrix6 &amp;initCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnmodeledWrenchProcessCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad57d742346c8cf18f06da7ad7f94215f</anchor>
+      <arglist>(const Matrix6 &amp;processCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactStateCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>afae452ae5dfbcbaf7065c5dac5da39a9</anchor>
+      <arglist>(int contactNbr, const Matrix12 &amp;contactCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactInitCovMatDefault</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad04cec958c6cd4902d19dcc4e165277b</anchor>
+      <arglist>(const Matrix12 &amp;contactCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setContactProcessCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7b084250f7227a3e8165f8aaeee5d6a7</anchor>
+      <arglist>(int contactNbr, const Matrix12 &amp;contactCovMat)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a80e62fdf1546cd38f8b9565df4b23dbb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateKinematicsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ac2b34c985202e867e4c095a77df9bda1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateGyroBiasCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae6e4d0ff3128aabbf2ac9bf5c58d4c4e</anchor>
+      <arglist>(unsigned i)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateUnmodeledWrenchCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a61195b56dc60742a859b085aa602ad02</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateContactsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aee9418c311833165a0a403024f24f235</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetStateContactCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1ee12fad0d735ea05e786a6c4529ec85</anchor>
+      <arglist>(unsigned contactNbr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a44d8206140b21d6f90d730cecc15d746</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessKinematicsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1591b9c049655186d505f23e5916597f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessGyroBiasCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a132fc40a2b324c7a89d6a36d61d399ee</anchor>
+      <arglist>(unsigned i)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessUnmodeledWrenchCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a45047c8c1338a3a4a5210511ab0337aa</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessContactsCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aebb78302078e9b6c5407b38ecdb6a3b5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetProcessContactCovMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1dabb6588ebc226b67d9e3fbf85ec1d3</anchor>
+      <arglist>(unsigned contactNbr)</arglist>
+    </member>
+    <member kind="function">
+      <type>Index</type>
+      <name>getStateSize</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a750c98e03356378703614a1ff3ee7a01</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Index</type>
+      <name>getMeasurementSize</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a91fcb39776180723b39584558fbed523</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Matrix</type>
+      <name>getStateCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa9cdf0d5d21b9c188462b3527ca08d0e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a11453bc8202e3ae279de472db6d8f968</anchor>
+      <arglist>(const Matrix &amp;P)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setProcessNoiseCovarianceMat</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a8cc674176cad5ff755fbcf2aa14b26eb</anchor>
+      <arglist>(const Matrix &amp;Q)</arglist>
+    </member>
+    <member kind="function">
+      <type>const Vector &amp;</type>
+      <name>getCurrentStateVector</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a45559a8dd5560c1a6ea7020d5b29686a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>TimeIndex</type>
+      <name>getStateVectorTimeIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a79c80955bc7df3f874c210077489f194</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateVector</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0d06e4e8dc9276cb20737b06de36b589</anchor>
+      <arglist>(const Vector &amp;newvalue, bool resetCovariance=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector</type>
+      <name>getMeasurementVector</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0d07b7028dd67f71a91e1d7c83462c5a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>kineIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a68016b6606d7d6bccc66eec08a82071d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>posIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a97f5f53c7857d40773c67f40cd23a9ea</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>oriIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a1ba031e18492077f99ea3bb2112093ef</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>linVelIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a86d633eda94e8cdde450a0ccaf62c565</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>angVelIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae3da8fc87ba3fdb4c9c6337b4027b7be</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>gyroBiasIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a823ba5d8e23260e812f3aee65b6b0ff7</anchor>
+      <arglist>(unsigned IMUNumber) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>unmodeledWrenchIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aa4034a1771e3944e3162061dfde7fac3</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>unmodeledForceIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a44d0824abe09397ab308d803bc6f7923</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>unmodeledTorqueIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aebd963bc6f93f10139b1c889de9bedff</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactsIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a44bdb256259ca9b9a76f7e54f62d8961</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a5d0699e6048a1d769c2b4d5fa5da0477</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactKineIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2e19e26e8198c2b299d175514217e5fc</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactPosIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a828939b202bec19028ce517d88a45324</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactOriIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2232d6a2a68e38cdf600edc89fae2208</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactForceIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a65551d416c6a28a9abc8401d71930b65</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactTorqueIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae79e757a6485c6eb0df762c07f99debf</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactWrenchIndex</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad1cbdddb5bd32373df99e9016b991acc</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>kineIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad55aeb5c48e73ce5a3a4041fb6f5407a</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>posIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a8169e8a4d14890cb2c2cc206d717db03</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>oriIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a34ffda7bca35000011c121aa7c7ca278</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>linVelIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a77ea1d843e7e1662ab57cb0fb13ee932</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>angVelIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ab0e4adf1a51b82cacbbba6b0ac9c2e0b</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>gyroBiasIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>aab25bb3fb7e13789bbd10175c857aac1</anchor>
+      <arglist>(unsigned IMUNumber) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>unmodeledWrenchIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a2c67162f444fe582562c608a3850a9db</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>unmodeledForceIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a91659cb31b5b189fa5b528e1dc7c49bc</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>unmodeledTorqueIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ac22c76c121dae50370ab6b7660c20119</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactsIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae53ef37dcaf7bf71a6a4e7c8e54f1500</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a37af9fb41c2fee9a8e2da71b946b416c</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactKineIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a4bd53a90c271869377dc8c75541fc9c0</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactPosIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7993deef757cc35e46d4c8c5b15f55c6</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactOriIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a12aa585f377632fb5d6d7cd7db5f8516</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactForceIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ae13367671655f3545c21c77aa7cf4c37</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactTorqueIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ad4ba6766155aaf367d047212abfda7f9</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>unsigned</type>
+      <name>contactWrenchIndexTangent</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0759fa0b9f877ee44272857328ee03a6</anchor>
+      <arglist>(unsigned contactNbr) const</arglist>
+    </member>
+    <member kind="function">
+      <type>const ExtendedKalmanFilter &amp;</type>
+      <name>getEKF</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a8f214b73b90c5f81cbf5b667d0d21f42</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>ExtendedKalmanFilter &amp;</type>
+      <name>getEKF</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ab10fc6ffe045b8bdc95b77a59c0d1fcd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector</type>
+      <name>stateSum</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a4e22520151df3a19b668d5a9df674ec3</anchor>
+      <arglist>(const Vector &amp;stateVector, const Vector &amp;tangentVector)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>stateSum</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>ac177256e61a9926c1c68d168d0f0479f</anchor>
+      <arglist>(const Vector &amp;stateVector, const Vector &amp;tangentVector, Vector &amp;sum)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector</type>
+      <name>stateDifference</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a39caef1d9086022659b1419ff4f5e624</anchor>
+      <arglist>(const Vector &amp;stateVector1, const Vector &amp;stateVector2)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>stateDifference</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a7d4b85c98cabbd6b950d0b669e554044</anchor>
+      <arglist>(const Vector &amp;stateVector1, const Vector &amp;stateVector2, Vector &amp;difference)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>measurementDifference</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a0149a8911125a13bb659dc9aad4593ee</anchor>
+      <arglist>(const Vector &amp;measureVector1, const Vector &amp;measureVector2, Vector &amp;difference)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>useFiniteDifferencesJacobians</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a369298bc2d344452308e0e03803037ee</anchor>
+      <arglist>(bool b=true)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>setFiniteDifferenceStep</name>
+      <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
+      <anchor>a33d750b5859142bb84a0d31366a90230</anchor>
+      <arglist>(const Vector &amp;dx)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11275,6 +12110,11 @@
       <anchor>a9fd2cdc1e302cb99e6ca077699d76dbd</anchor>
       <arglist>(const Matrix3 &amp;orientation) const</arglist>
     </member>
+  </compound>
+  <compound kind="struct">
+    <name>stateObservation::MatrixType</name>
+    <filename>structstateObservation_1_1MatrixType.html</filename>
+    <templarg></templarg>
   </compound>
   <compound kind="class">
     <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</name>
@@ -12181,6 +13021,59 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::IMUMltpctiveDynamicalSystem::opt</name>
+    <filename>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>opt</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>afd576eb878cff6e2be56dba84226d34a</anchor>
+      <arglist>(int stateSize, int measurementSize)</arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix3</type>
+      <name>jRR</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>a29681ae5720fc184b7bad7b79a50bed3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix3</type>
+      <name>jRv</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>a7969dcc078bd88efc93ea7a08cf23133</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Vector3</type>
+      <name>deltaR</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>ae9d481f1ac2ebc1437c27c023c7b3bff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix</type>
+      <name>AJacobian</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>a783ce8d67779ae781e1ec84c19cee37c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix</type>
+      <name>CJacobian</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>ac82a47e51b3bc593c56bb8655af12cb2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Matrix3</type>
+      <name>Rt</name>
+      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
+      <anchor>ad03997b757f7397eaebcf04dc0f93a62</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::KineticsObserver::Opt</name>
     <filename>structstateObservation_1_1KineticsObserver_1_1Opt.html</filename>
     <member kind="function">
@@ -12234,55 +13127,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::IMUMltpctiveDynamicalSystem::opt</name>
-    <filename>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>opt</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>afd576eb878cff6e2be56dba84226d34a</anchor>
-      <arglist>(int stateSize, int measurementSize)</arglist>
-    </member>
+    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
+    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
     <member kind="variable">
-      <type>Matrix3</type>
-      <name>jRR</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>a29681ae5720fc184b7bad7b79a50bed3</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>O</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>Matrix3</type>
-      <name>jRv</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>a7969dcc078bd88efc93ea7a08cf23133</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Vector3</type>
-      <name>deltaR</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>ae9d481f1ac2ebc1437c27c023c7b3bff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Matrix</type>
-      <name>AJacobian</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>a783ce8d67779ae781e1ec84c19cee37c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Matrix</type>
-      <name>CJacobian</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>ac82a47e51b3bc593c56bb8655af12cb2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Matrix3</type>
-      <name>Rt</name>
-      <anchorfile>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</anchorfile>
-      <anchor>ad03997b757f7397eaebcf04dc0f93a62</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>CA</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -13023,24 +13881,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
-    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>O</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>CA</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>stateObservation::KalmanFilterBase::optimizationContainer</name>
     <filename>structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html</filename>
     <member kind="variable">
@@ -13160,27 +14000,6 @@
       <arglist>(const Orientation &amp;multiplier1, const Orientation &amp;multiplier2)</arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>Orientation</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>af72de3d1a64b1145ffdafa5c103a436b</anchor>
-      <arglist>(Orientation &amp;multiplier1, const Orientation &amp;multiplier2)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Orientation</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a4fe10b414485db2ce1f205ba2c0c3875</anchor>
-      <arglist>(const Orientation &amp;multiplier1, Orientation &amp;multiplier2)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Orientation</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a09c7d6ae6b223582e559291986e48fb4</anchor>
-      <arglist>(Orientation &amp;multiplier1, Orientation &amp;multiplier2)</arglist>
-    </member>
-    <member kind="function">
       <type>Orientation &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
@@ -13245,30 +14064,30 @@
     </member>
     <member kind="function">
       <type>const Matrix3 &amp;</type>
-      <name>matrix3</name>
+      <name>toMatrix3</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a9090df8c733a2ea2fb53fd7ab1061604</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>const Quaternion &amp;</type>
-      <name>quaternion</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a24f6f2b6daab83a0a59993cafec796ba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>const Matrix3 &amp;</type>
-      <name>matrix3</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a40f8e28361bd5a049422734d2cf50608</anchor>
+      <anchor>a379f6965e80ce38659897d674ba873a3</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>const Quaternion &amp;</type>
-      <name>quaternion</name>
+      <name>toQuaternion</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>aeab4c61fb346080a34595973fdd8cbf0</anchor>
+      <anchor>a7d4f47d78aaf897d81a6ec8380100f27</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator const Matrix3 &amp;</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>a48d0c7653345dd36f21c7735b7d27b3d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator const Quaternion &amp;</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>ae527db219a38e8e8d169836d4a0c3d6d</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -13276,41 +14095,6 @@
       <name>toVector4</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
       <anchor>a2feb49c5467ddf8f5a3cc97a8592e088</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Vector4</type>
-      <name>toVector4</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>aaf20589cb5293bcba5f6492657ca528f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>operator Matrix3</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a4be1b34ed1b6b4c183ac787cab5531cb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>operator Quaternion</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>ad26d888e349ceebf6e225e0092814d25</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>operator Matrix3</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>af3c2e50f9929bbb9f19639ec4c7f756e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>operator Quaternion</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>ae80501f77df8e59705dc98b67bab7618</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -13328,13 +14112,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>Vector3</type>
-      <name>toRollPitchYaw</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a5ba3660d5f60c15a88967849565e4ea2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>AngleAxis</type>
       <name>toAngleAxis</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
@@ -13345,56 +14122,14 @@
       <type>Orientation</type>
       <name>operator*</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a5e3729d69a9a4ae0fbd026a91c9ac940</anchor>
-      <arglist>(Orientation &amp;R2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Orientation</type>
-      <name>operator*</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a172ac8a0f0bd5406670849a04ebd7145</anchor>
-      <arglist>(const Orientation &amp;R2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Orientation</type>
-      <name>operator*</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a7f66ad63fb7e252a9903d85c9450133a</anchor>
-      <arglist>(Orientation &amp;R2) const</arglist>
-    </member>
-    <member kind="function">
-      <type>Orientation</type>
-      <name>operator*</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
       <anchor>abb271698d392e67c83213925d49f9d7e</anchor>
       <arglist>(const Orientation &amp;R2) const</arglist>
     </member>
     <member kind="function">
-      <type>Orientation</type>
+      <type>const Orientation &amp;</type>
       <name>setToProductNoAlias</name>
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>afafda9b1a0f03950c6d5d9001f539e5d</anchor>
-      <arglist>(Orientation &amp;R1, Orientation &amp;R2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Orientation</type>
-      <name>setToProductNoAlias</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>acfa655db113e2df5802ad607d61288b1</anchor>
-      <arglist>(Orientation &amp;R1, const Orientation &amp;R2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Orientation</type>
-      <name>setToProductNoAlias</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a9a796039a2cf9dddc300b0479a58f0b5</anchor>
-      <arglist>(const Orientation &amp;R1, Orientation &amp;R2)</arglist>
-    </member>
-    <member kind="function">
-      <type>Orientation</type>
-      <name>setToProductNoAlias</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a0d239fecfd67ebee9f13dd2fc4a61730</anchor>
+      <anchor>a3964043fd4bc3a68b285d4ee1b8467eb</anchor>
       <arglist>(const Orientation &amp;R1, const Orientation &amp;R2)</arglist>
     </member>
     <member kind="function">
@@ -13424,13 +14159,6 @@
       <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
       <anchor>a71c7081947248dcebcd8c4fb47a45269</anchor>
       <arglist>(const Vector3 &amp;v) const</arglist>
-    </member>
-    <member kind="function">
-      <type>Vector3</type>
-      <name>operator*</name>
-      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
-      <anchor>a33e5cba474979fdf218e3f3103a5285a</anchor>
-      <arglist>(const Vector3 &amp;v)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -13513,19 +14241,33 @@
   <compound kind="class">
     <name>stateObservation::tools::ProbabilityLawSimulation</name>
     <filename>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</filename>
-    <member kind="function">
-      <type>double</type>
+    <member kind="function" static="yes">
+      <type>static double</type>
       <name>getGaussianScalar</name>
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
-      <anchor>aa1532f3bf3f0e2b80beb574511c3f23e</anchor>
+      <anchor>a17f714cb58c4db16af1b7658d8ad7908</anchor>
       <arglist>(double std=1, double bias=0)</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static Matrix</type>
+      <type>static MatrixType&lt; ReturnType &gt;::type</type>
       <name>getGaussianVector</name>
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
-      <anchor>a922822a79b87b7ce38440c7371742c02</anchor>
-      <arglist>(const Matrix &amp;std, const Matrix &amp;bias, Index rows, Index cols=1)</arglist>
+      <anchor>a743ee3bdea6c5301f6cec61537d60411</anchor>
+      <arglist>(StdType std, BiasType bias, Index rows=BiasType::RowsAtCompileTime, Index cols=BiasType::ColsAtCompileTime)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static double</type>
+      <name>getUniformScalar</name>
+      <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
+      <anchor>a56ab74d4d8bef9526233baf1452ca7ce</anchor>
+      <arglist>(double min=0., double max=1.)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>ProbabilityLawSimulation</name>
+      <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
+      <anchor>a1628f0868401ecdb5e3b34b71fa4234b</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static std::random_device</type>
@@ -14705,6 +15447,7 @@
     <class kind="class">stateObservation::DebugItemDefaultValue</class>
     <class kind="class">stateObservation::DynamicalSystemFunctorBase</class>
     <class kind="class">stateObservation::DynamicalSystemSimulator</class>
+    <class kind="struct">stateObservation::EigenType</class>
     <class kind="class">stateObservation::ExtendedKalmanFilter</class>
     <class kind="class">stateObservation::GaussianWhiteNoise</class>
     <class kind="class">stateObservation::IMUDynamicalSystem</class>
@@ -14712,10 +15455,14 @@
     <class kind="class">stateObservation::IMUMltpctiveDynamicalSystem</class>
     <class kind="class">stateObservation::IndexedMatrixArrayT</class>
     <class kind="class">stateObservation::IndexedMatrixT</class>
+    <class kind="struct">stateObservation::isEigen</class>
+    <class kind="struct">stateObservation::isMatrix</class>
+    <class kind="struct">stateObservation::isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</class>
     <class kind="class">stateObservation::KalmanFilterBase</class>
     <class kind="class">stateObservation::KineticsObserver</class>
     <class kind="class">stateObservation::LinearKalmanFilter</class>
     <class kind="class">stateObservation::LipmDcmEstimator</class>
+    <class kind="struct">stateObservation::MatrixType</class>
     <class kind="class">stateObservation::NoiseBase</class>
     <class kind="class">stateObservation::ObserverBase</class>
     <class kind="class">stateObservation::SensorBase</class>
@@ -14981,6 +15728,20 @@
       <anchorfile>namespacestateObservation.html</anchorfile>
       <anchor>a954c89e76c57fd8b6737e98b5a1751b8</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isApprox</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>a1ed26cd92da35780dbd4271037b59702</anchor>
+      <arglist>(double a, double b, double relativePrecision=cst::epsilon1)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isApproxAbs</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>a3129c02470e794b1c530f618768cfcfd</anchor>
+      <arglist>(double a, double b, double absolutePrecision=cst::epsilon1)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -15486,6 +16247,13 @@
       <arglist>(const Vector6 &amp;v)</arglist>
     </member>
     <member kind="function">
+      <type>Matrix3</type>
+      <name>twoVectorsToRotationMatrix</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>abe6f88b1583d50a5294862b4c7d981e6</anchor>
+      <arglist>(const Vector3 &amp;v1, const Vector3 Rv1)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isPureYaw</name>
       <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
@@ -15496,8 +16264,15 @@
       <type>Vector3</type>
       <name>getInvariantHorizontalVector</name>
       <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
-      <anchor>a7b9d2be8872ecd3c3ef2b26dffbb783e</anchor>
-      <arglist>(Matrix3 &amp;R)</arglist>
+      <anchor>a72ae305ec685249359a0937bc6bd3d6d</anchor>
+      <arglist>(const Matrix3 &amp;R)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector3</type>
+      <name>getInvariantOrthogonalVector</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>acdef8357e78272632e36f5c641f9b495</anchor>
+      <arglist>(const Matrix3 &amp;Rhat, const Vector3 &amp;Rtez)</arglist>
     </member>
     <member kind="function">
       <type>Matrix3</type>
@@ -15561,6 +16336,27 @@
       <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
       <anchor>a4db2235240ade5be2a639ab6abc3ba64</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Quaternion</type>
+      <name>randomRotationQuaternion</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>ac0486776b1a708566a2032afab559974</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>randomAngle</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>a85f2faa4d2d3e4192a6da1f804b186f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRotationMatrix</name>
+      <anchorfile>namespacestateObservation_1_1kine.html</anchorfile>
+      <anchor>a079083d3e47c99522590740017a1bf22</anchor>
+      <arglist>(const Matrix3 &amp;, double precision=2 *cst::epsilon1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

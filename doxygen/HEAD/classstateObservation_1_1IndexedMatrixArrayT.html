@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('classstateObservation_1_1IndexedMatrix
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a102b2522c94e481765e383d301a913ab"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; MatrixType, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a102b2522c94e481765e383d301a913ab">Array</a></td></tr>
+<tr class="memitem:a102b2522c94e481765e383d301a913ab"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a102b2522c94e481765e383d301a913ab">Array</a></td></tr>
 <tr class="separator:a102b2522c94e481765e383d301a913ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -99,31 +99,31 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab704b5753e9ff837e4e65657e24320e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ab704b5753e9ff837e4e65657e24320e6">IndexedMatrixArrayT</a> (<a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a65bf6262cb760e761164bfd10c449f9c">size</a>, <a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> initTime=0)</td></tr>
 <tr class="memdesc:ab704b5753e9ff837e4e65657e24320e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Indexed Vector Array T with a predifined size.  <a href="#ab704b5753e9ff837e4e65657e24320e6">More...</a><br /></td></tr>
 <tr class="separator:ab704b5753e9ff837e4e65657e24320e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86e31b20982c9e3adcfbd1b6f9a473b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac86e31b20982c9e3adcfbd1b6f9a473b">setValue</a> (const MatrixType &amp;v, <a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
+<tr class="memitem:ac86e31b20982c9e3adcfbd1b6f9a473b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac86e31b20982c9e3adcfbd1b6f9a473b">setValue</a> (const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;v, <a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> k)</td></tr>
 <tr class="memdesc:ac86e31b20982c9e3adcfbd1b6f9a473b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the value of the matrix and the time sample.  <a href="#ac86e31b20982c9e3adcfbd1b6f9a473b">More...</a><br /></td></tr>
 <tr class="separator:ac86e31b20982c9e3adcfbd1b6f9a473b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89f2da478eaa049f663c2ee6a73fdbba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a89f2da478eaa049f663c2ee6a73fdbba">pushBack</a> (const MatrixType &amp;v)</td></tr>
+<tr class="memitem:a89f2da478eaa049f663c2ee6a73fdbba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a89f2da478eaa049f663c2ee6a73fdbba">pushBack</a> (const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;v)</td></tr>
 <tr class="memdesc:a89f2da478eaa049f663c2ee6a73fdbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes back the matrix to the array, the new value will take the next time.  <a href="#a89f2da478eaa049f663c2ee6a73fdbba">More...</a><br /></td></tr>
 <tr class="separator:a89f2da478eaa049f663c2ee6a73fdbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf738b0c25ceafc26a78990fed3bab3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aaf738b0c25ceafc26a78990fed3bab3a">popFront</a> ()</td></tr>
 <tr class="memdesc:aaf738b0c25ceafc26a78990fed3bab3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes the first (oldest) element of the array  <a href="#aaf738b0c25ceafc26a78990fed3bab3a">More...</a><br /></td></tr>
 <tr class="separator:aaf738b0c25ceafc26a78990fed3bab3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4767c3da9bb647b928ed2f87dad7d09"><td class="memItemLeft" align="right" valign="top">MatrixType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aa4767c3da9bb647b928ed2f87dad7d09">operator[]</a> (<a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> index) const</td></tr>
+<tr class="memitem:aa4767c3da9bb647b928ed2f87dad7d09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aa4767c3da9bb647b928ed2f87dad7d09">operator[]</a> (<a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> index) const</td></tr>
 <tr class="memdesc:aa4767c3da9bb647b928ed2f87dad7d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the value with the given time index  <a href="#aa4767c3da9bb647b928ed2f87dad7d09">More...</a><br /></td></tr>
 <tr class="separator:aa4767c3da9bb647b928ed2f87dad7d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af568b5a0c5db0809acb307d5a37d1d4d"><td class="memItemLeft" align="right" valign="top">MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#af568b5a0c5db0809acb307d5a37d1d4d">operator[]</a> (<a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> index)</td></tr>
+<tr class="memitem:af568b5a0c5db0809acb307d5a37d1d4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#af568b5a0c5db0809acb307d5a37d1d4d">operator[]</a> (<a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> index)</td></tr>
 <tr class="memdesc:af568b5a0c5db0809acb307d5a37d1d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the value with the given time index, non const version  <a href="#af568b5a0c5db0809acb307d5a37d1d4d">More...</a><br /></td></tr>
 <tr class="separator:af568b5a0c5db0809acb307d5a37d1d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5e7914b9ce420085b1f3d7cd2f021a3"><td class="memItemLeft" align="right" valign="top">const MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac5e7914b9ce420085b1f3d7cd2f021a3">front</a> () const</td></tr>
+<tr class="memitem:ac5e7914b9ce420085b1f3d7cd2f021a3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac5e7914b9ce420085b1f3d7cd2f021a3">front</a> () const</td></tr>
 <tr class="memdesc:ac5e7914b9ce420085b1f3d7cd2f021a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the first value  <a href="#ac5e7914b9ce420085b1f3d7cd2f021a3">More...</a><br /></td></tr>
 <tr class="separator:ac5e7914b9ce420085b1f3d7cd2f021a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae17070e9e7be52f493e8c0e09285750"><td class="memItemLeft" align="right" valign="top">MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aae17070e9e7be52f493e8c0e09285750">front</a> ()</td></tr>
+<tr class="memitem:aae17070e9e7be52f493e8c0e09285750"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aae17070e9e7be52f493e8c0e09285750">front</a> ()</td></tr>
 <tr class="memdesc:aae17070e9e7be52f493e8c0e09285750"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the first value  <a href="#aae17070e9e7be52f493e8c0e09285750">More...</a><br /></td></tr>
 <tr class="separator:aae17070e9e7be52f493e8c0e09285750"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed75a8dcdc609df4e7e4627d030a0108"><td class="memItemLeft" align="right" valign="top">const MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aed75a8dcdc609df4e7e4627d030a0108">back</a> () const</td></tr>
+<tr class="memitem:aed75a8dcdc609df4e7e4627d030a0108"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aed75a8dcdc609df4e7e4627d030a0108">back</a> () const</td></tr>
 <tr class="memdesc:aed75a8dcdc609df4e7e4627d030a0108"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the last value  <a href="#aed75a8dcdc609df4e7e4627d030a0108">More...</a><br /></td></tr>
 <tr class="separator:aed75a8dcdc609df4e7e4627d030a0108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69a281959dd740c2881b18758b6627b1"><td class="memItemLeft" align="right" valign="top">MatrixType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a69a281959dd740c2881b18758b6627b1">back</a> ()</td></tr>
+<tr class="memitem:a69a281959dd740c2881b18758b6627b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a69a281959dd740c2881b18758b6627b1">back</a> ()</td></tr>
 <tr class="memdesc:a69a281959dd740c2881b18758b6627b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the last value  <a href="#a69a281959dd740c2881b18758b6627b1">More...</a><br /></td></tr>
 <tr class="separator:a69a281959dd740c2881b18758b6627b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25206ef06569fb62e2167ece33fa54f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a25206ef06569fb62e2167ece33fa54f8">truncateAfter</a> (<a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> timeIndex)</td></tr>
@@ -132,7 +132,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6d526a36540253066edab41a5430e97b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a6d526a36540253066edab41a5430e97b">truncateBefore</a> (<a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> timeIndex)</td></tr>
 <tr class="memdesc:a6d526a36540253066edab41a5430e97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes all the elements with smaller indexes than timeIndex  <a href="#a6d526a36540253066edab41a5430e97b">More...</a><br /></td></tr>
 <tr class="separator:a6d526a36540253066edab41a5430e97b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8ed67c9ba7c8556f2b85a2a77f27058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ab8ed67c9ba7c8556f2b85a2a77f27058">resize</a> (<a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> i, const MatrixType &amp;m=MatrixType())</td></tr>
+<tr class="memitem:ab8ed67c9ba7c8556f2b85a2a77f27058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ab8ed67c9ba7c8556f2b85a2a77f27058">resize</a> (<a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> i, const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;m=<a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>())</td></tr>
 <tr class="memdesc:ab8ed67c9ba7c8556f2b85a2a77f27058"><td class="mdescLeft">&#160;</td><td class="mdescRight">resizes the array  <a href="#ab8ed67c9ba7c8556f2b85a2a77f27058">More...</a><br /></td></tr>
 <tr class="separator:ab8ed67c9ba7c8556f2b85a2a77f27058"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee63ca7af2b42efb37ab2fe07c2c5947"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#aee63ca7af2b42efb37ab2fe07c2c5947">getLastIndex</a> () const</td></tr>
@@ -179,7 +179,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:ac04e0711a7f745a92f86c8670660855c"><td class="memItemLeft" align="right" valign="top">typedef std::deque&lt; MatrixType, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac04e0711a7f745a92f86c8670660855c">Deque</a></td></tr>
+<tr class="memitem:ac04e0711a7f745a92f86c8670660855c"><td class="memItemLeft" align="right" valign="top">typedef std::deque&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac04e0711a7f745a92f86c8670660855c">Deque</a></td></tr>
 <tr class="separator:ac04e0711a7f745a92f86c8670660855c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -213,7 +213,7 @@ class stateObservation::IndexedMatrixArrayT&lt; MatrixType, Allocator &gt;</h3>
 template&lt;typename MatrixType = Matrix, typename Allocator = std::allocator&lt;MatrixType&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;MatrixType, Allocator&gt; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a102b2522c94e481765e383d301a913ab">Array</a></td>
+          <td class="memname">typedef std::vector&lt;<a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator&gt; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a102b2522c94e481765e383d301a913ab">Array</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -232,7 +232,7 @@ template&lt;typename MatrixType = Matrix, typename Allocator = std::allocator&lt
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::deque&lt;MatrixType, Allocator&gt; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac04e0711a7f745a92f86c8670660855c">Deque</a></td>
+          <td class="memname">typedef std::deque&lt;<a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator&gt; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac04e0711a7f745a92f86c8670660855c">Deque</a></td>
         </tr>
       </table>
   </td>
@@ -254,7 +254,7 @@ template&lt;typename MatrixType = Matrix, typename Allocator = std::allocator&lt
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">IndexedMatrixArrayT</a> </td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">IndexedMatrixArrayT</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -275,7 +275,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">IndexedMatrixArrayT</a> </td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">IndexedMatrixArrayT</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a>&#160;</td>
           <td class="paramname"><em>size</em>, </td>
@@ -319,7 +319,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const MatrixType &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::back </td>
+          <td class="memname">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::back </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -348,7 +348,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MatrixType &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::back </td>
+          <td class="memname"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::back </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -377,7 +377,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::check_ </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::check_ </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>time</em></td><td>)</td>
@@ -407,7 +407,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::check_ </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::check_ </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -436,7 +436,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::checkIndex </td>
+          <td class="memname">bool <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::checkIndex </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>k</em></td><td>)</td>
@@ -466,7 +466,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::checkNext_ </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::checkNext_ </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>time</em></td><td>)</td>
@@ -495,7 +495,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::clear </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -524,7 +524,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const MatrixType &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::front </td>
+          <td class="memname">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::front </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -553,7 +553,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MatrixType &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::front </td>
+          <td class="memname"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::front </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -579,7 +579,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a102b2522c94e481765e383d301a913ab">Array</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::getArray </td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::<a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#a102b2522c94e481765e383d301a913ab">Array</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::getArray </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -603,7 +603,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::getFirstIndex </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::getFirstIndex </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -632,7 +632,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::getLastIndex </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::getLastIndex </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -661,7 +661,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::getNextIndex </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::getNextIndex </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -691,7 +691,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MatrixType <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::operator[] </td>
+          <td class="memname"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -722,7 +722,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">MatrixType &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::operator[] </td>
+          <td class="memname"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp; <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::operator[] </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -753,7 +753,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::popFront </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::popFront </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -782,9 +782,9 @@ template&lt;typename MatrixType, typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::pushBack </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::pushBack </td>
           <td>(</td>
-          <td class="paramtype">const MatrixType &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
@@ -809,7 +809,7 @@ template&lt;typename MatrixType, typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::readFromFile </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::readFromFile </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -852,7 +852,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::readFromFile </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::readFromFile </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -894,7 +894,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::readVectorsFromFile </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::readVectorsFromFile </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -925,7 +925,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::readVectorsFromFile </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::readVectorsFromFile </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -958,7 +958,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::reset </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -988,7 +988,7 @@ template&lt;typename MatrixType, typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::resize </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::resize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a>&#160;</td>
           <td class="paramname"><em>i</em>, </td>
@@ -996,8 +996,8 @@ template&lt;typename MatrixType, typename Allocator &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const MatrixType &amp;&#160;</td>
-          <td class="paramname"><em>m</em> = <code>MatrixType()</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em> = <code><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1028,7 +1028,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::setFirstIndex </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::setFirstIndex </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -1058,7 +1058,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::setLastIndex </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::setLastIndex </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -1088,9 +1088,9 @@ template&lt;typename MatrixType, typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::setValue </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::setValue </td>
           <td>(</td>
-          <td class="paramtype">const MatrixType &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a> &amp;&#160;</td>
           <td class="paramname"><em>v</em>, </td>
         </tr>
         <tr>
@@ -1129,7 +1129,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::size </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1153,7 +1153,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::truncateAfter </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::truncateAfter </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>timeIndex</em></td><td>)</td>
@@ -1175,7 +1175,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::truncateBefore </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::truncateBefore </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a>&#160;</td>
           <td class="paramname"><em>timeIndex</em></td><td>)</td>
@@ -1197,7 +1197,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::writeInFile </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::writeInFile </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -1234,7 +1234,7 @@ template&lt;typename MatrixType , typename Allocator &gt; </div>
 template&lt;typename MatrixType , typename Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::writeInFile </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::writeInFile </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -1275,7 +1275,7 @@ template&lt;typename MatrixType = Matrix, typename Allocator = std::allocator&lt
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::k_</td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a2d28b2a56e2f031d42c908ac185542c5">TimeIndex</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::k_</td>
         </tr>
       </table>
   </td>
@@ -1299,7 +1299,7 @@ template&lt;typename MatrixType = Matrix, typename Allocator = std::allocator&lt
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac04e0711a7f745a92f86c8670660855c">Deque</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; MatrixType, Allocator &gt;::v_</td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html#ac04e0711a7f745a92f86c8670660855c">Deque</a> <a class="el" href="classstateObservation_1_1IndexedMatrixArrayT.html">stateObservation::IndexedMatrixArrayT</a>&lt; <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>, Allocator &gt;::v_</td>
         </tr>
       </table>
   </td>

@@ -13,5 +13,5 @@ var searchData=
   ['none',['none',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1contactModel.html#a45f8a0fd691206924e20ebb3d3da60fe',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel']]],
   ['normalizedlazy',['normalizedLazy',['../namespacestateObservation_1_1tools.html#a20db4201d4820f97f29dd40047790cce',1,'stateObservation::tools']]],
   ['nt_5f',['nt_',['../classstateObservation_1_1KalmanFilterBase.html#aa249c7136a7b222c84343577c582a9c0',1,'stateObservation::KalmanFilterBase']]],
-  ['numberofrealsensors',['numberOfRealSensors',['../structstateObservation_1_1KineticsObserver_1_1Contact.html#a042f0dc132327518af765c95ecebc420',1,'stateObservation::KineticsObserver::Contact']]]
+  ['numberofcontactrealsensors_5f',['numberOfContactRealSensors_',['../classstateObservation_1_1KineticsObserver.html#afcca520b8bf434a4dfa9df180f2e104d',1,'stateObservation::KineticsObserver']]]
 ];

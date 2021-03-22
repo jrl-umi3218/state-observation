@@ -117,9 +117,11 @@ digraph "include/state-observation/examples/offline-ekf-flexibility-estimation.h
   Node37 [label="random",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node36 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node36 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node32 -> Node38 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node38 [label="state-observation/tools\l/rigid-body-kinematics.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node36 -> Node38 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node38 [label="state-observation/tools\l/probability-law-simulation.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node32 -> Node39 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node39 [label="state-observation/tools\l/rigid-body-kinematics.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node0 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 -> Node39 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node39 [label="state-observation/examples\l/offline-ekf-flexibility\l-estimation.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node0 -> Node40 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node40 [label="state-observation/examples\l/offline-ekf-flexibility\l-estimation.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
 }

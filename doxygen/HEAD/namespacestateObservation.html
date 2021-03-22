@@ -72,7 +72,8 @@ $(document).ready(function(){initNavTree('namespacestateObservation.html','');})
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">stateObservation Namespace Reference</div>  </div>
 </div><!--header-->
@@ -126,6 +127,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1DynamicalSystemSimulator.html">DynamicalSystemSimulator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class gives a small encapsulation of the dynamics functor, which enables the simulation of the dynamics and the storage of states, inputs and measurements.  <a href="classstateObservation_1_1DynamicalSystemSimulator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1EigenType.html">EigenType</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1ExtendedKalmanFilter.html">ExtendedKalmanFilter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class to intanciate to use an extended Kalman filter. To use this class, one needs to provide a pointer on a functor that describes the state dynamics and the measurement dynamics. The functor type needs to be a derived class from the class DynamicsFunctorBase.  <a href="classstateObservation_1_1ExtendedKalmanFilter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,16 +150,27 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IndexedMatrixT.html">IndexedMatrixT</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a structure composed by a matrix of a given size and a time-index parameter. It can tell also if it is initialized or not.  <a href="classstateObservation_1_1IndexedMatrixT.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1isEigen.html">isEigen</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if it is derived from EigenBase (the base class of all dense functions)  <a href="structstateObservation_1_1isEigen.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1isMatrix.html">isMatrix</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a class is a specialization of Eigen::Matrix.  <a href="structstateObservation_1_1isMatrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html">isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KalmanFilterBase.html">KalmanFilterBase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incases of Linear, linearized and extended Kalman filtering. It may be derived to unscented Kalman filtering, but non-straighforwardly because the state vector is modified. This class requires to be derived to overload the update routine and the measurements simulation routine.  <a href="classstateObservation_1_1KalmanFilterBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html">KineticsObserver</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This observer estimated the kinematics and the external forces.  <a href="classstateObservation_1_1KineticsObserver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1LinearKalmanFilter.html">LinearKalmanFilter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class of a Linear Kalman filter.  <a href="classstateObservation_1_1LinearKalmanFilter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1LipmDcmEstimator.html">LipmDcmEstimator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the corresponding zero moment point for a linearized inverted pendulum model.  <a href="classstateObservation_1_1LipmDcmEstimator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1NoiseBase.html">NoiseBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,6 +288,15 @@ Typedefs</h2></td></tr>
 <tr class="separator:adc99a724cfd639f6b63279dc58253946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a954c89e76c57fd8b6737e98b5a1751b8"><td class="memItemLeft" align="right" valign="top">typedef boost::timer::cpu_timer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a954c89e76c57fd8b6737e98b5a1751b8">cpu_times</a></td></tr>
 <tr class="separator:a954c89e76c57fd8b6737e98b5a1751b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1ed26cd92da35780dbd4271037b59702"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a1ed26cd92da35780dbd4271037b59702">isApprox</a> (double a, double b, double relativePrecision=<a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">cst::epsilon1</a>)</td></tr>
+<tr class="memdesc:a1ed26cd92da35780dbd4271037b59702"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if two scalars have approximately the same value up to a given relative precision  <a href="#a1ed26cd92da35780dbd4271037b59702">More...</a><br /></td></tr>
+<tr class="separator:a1ed26cd92da35780dbd4271037b59702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3129c02470e794b1c530f618768cfcfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a3129c02470e794b1c530f618768cfcfd">isApproxAbs</a> (double a, double b, double absolutePrecision=<a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">cst::epsilon1</a>)</td></tr>
+<tr class="memdesc:a3129c02470e794b1c530f618768cfcfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if two scalars have approximately the same value up to a given absolute precision  <a href="#a3129c02470e794b1c530f618768cfcfd">More...</a><br /></td></tr>
+<tr class="separator:a3129c02470e794b1c530f618768cfcfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a149c9410becb3e78d7b2fa341d04ca4c"></a>
@@ -829,6 +852,117 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>6D vector </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a1ed26cd92da35780dbd4271037b59702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed26cd92da35780dbd4271037b59702">&#9670;&nbsp;</a></span>isApprox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stateObservation::isApprox </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>relativePrecision</em> = <code><a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">cst::epsilon1</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>checks if two scalars have approximately the same value up to a given relative precision </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the first scalar </td></tr>
+    <tr><td class="paramname">b</td><td>the second scalar </td></tr>
+    <tr><td class="paramname">relativePrecision</td><td>the relative precision (no need to multiply by the scales of a and b) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true they are equal </dd>
+<dd>
+false they are not </dd></dl>
+
+</div>
+</div>
+<a id="a3129c02470e794b1c530f618768cfcfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3129c02470e794b1c530f618768cfcfd">&#9670;&nbsp;</a></span>isApproxAbs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stateObservation::isApproxAbs </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>absolutePrecision</em> = <code><a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">cst::epsilon1</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>checks if two scalars have approximately the same value up to a given absolute precision </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the first scalar </td></tr>
+    <tr><td class="paramname">b</td><td>the second scalar </td></tr>
+    <tr><td class="paramname">absolutePrecision</td><td>the absoilute precision </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true they are equal </dd>
+<dd>
+false they are not </dd></dl>
 
 </div>
 </div>

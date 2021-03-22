@@ -70,8 +70,8 @@ $(document).ready(function(){initNavTree('classstateObservation_1_1tools_1_1Prob
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -81,15 +81,22 @@ $(document).ready(function(){initNavTree('classstateObservation_1_1tools_1_1Prob
 
 <p><code>#include &lt;<a class="el" href="probability-law-simulation_8hpp_source.html">state-observation/tools/probability-law-simulation.hpp</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aa1532f3bf3f0e2b80beb574511c3f23e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#aa1532f3bf3f0e2b80beb574511c3f23e">getGaussianScalar</a> (double std=1, double bias=0)</td></tr>
-<tr class="separator:aa1532f3bf3f0e2b80beb574511c3f23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a922822a79b87b7ce38440c7371742c02"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a922822a79b87b7ce38440c7371742c02">getGaussianVector</a> (const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;std, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;bias, <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> rows, <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> cols=1)</td></tr>
-<tr class="separator:a922822a79b87b7ce38440c7371742c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17f714cb58c4db16af1b7658d8ad7908"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a17f714cb58c4db16af1b7658d8ad7908">getGaussianScalar</a> (double std=1, double bias=0)</td></tr>
+<tr class="separator:a17f714cb58c4db16af1b7658d8ad7908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743ee3bdea6c5301f6cec61537d60411"><td class="memTemplParams" colspan="2">template&lt;typename ReturnType  = Matrix, typename StdType , typename BiasType &gt; </td></tr>
+<tr class="memitem:a743ee3bdea6c5301f6cec61537d60411"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>&lt; ReturnType &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a743ee3bdea6c5301f6cec61537d60411">getGaussianVector</a> (StdType std, BiasType bias, <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> rows=BiasType::RowsAtCompileTime, <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> cols=BiasType::ColsAtCompileTime)</td></tr>
+<tr class="separator:a743ee3bdea6c5301f6cec61537d60411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ab74d4d8bef9526233baf1452ca7ce"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a56ab74d4d8bef9526233baf1452ca7ce">getUniformScalar</a> (double min=0., double max=1.)</td></tr>
+<tr class="memdesc:a56ab74d4d8bef9526233baf1452ca7ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a scalar following a uniform distribution between min and max.  <a href="#a56ab74d4d8bef9526233baf1452ca7ce">More...</a><br /></td></tr>
+<tr class="separator:a56ab74d4d8bef9526233baf1452ca7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a1628f0868401ecdb5e3b34b71fa4234b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a1628f0868401ecdb5e3b34b71fa4234b">ProbabilityLawSimulation</a> ()</td></tr>
+<tr class="memdesc:a1628f0868401ecdb5e3b34b71fa4234b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private constructor for preventing instanciation of Probability Law Simulation.  <a href="#a1628f0868401ecdb5e3b34b71fa4234b">More...</a><br /></td></tr>
+<tr class="separator:a1628f0868401ecdb5e3b34b71fa4234b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
@@ -98,15 +105,46 @@ Static Protected Attributes</h2></td></tr>
 <tr class="memitem:a60b17e747f569fe28380fb2f0f627b6f"><td class="memItemLeft" align="right" valign="top">static std::mt19937&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a60b17e747f569fe28380fb2f0f627b6f">gen_</a></td></tr>
 <tr class="separator:a60b17e747f569fe28380fb2f0f627b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa1532f3bf3f0e2b80beb574511c3f23e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1532f3bf3f0e2b80beb574511c3f23e">&#9670;&nbsp;</a></span>getGaussianScalar()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1628f0868401ecdb5e3b34b71fa4234b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1628f0868401ecdb5e3b34b71fa4234b">&#9670;&nbsp;</a></span>ProbabilityLawSimulation()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double stateObservation::tools::ProbabilityLawSimulation::getGaussianScalar </td>
+          <td class="memname">stateObservation::tools::ProbabilityLawSimulation::ProbabilityLawSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Private constructor for preventing instanciation of Probability Law Simulation. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a17f714cb58c4db16af1b7658d8ad7908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17f714cb58c4db16af1b7658d8ad7908">&#9670;&nbsp;</a></span>getGaussianScalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double stateObservation::tools::ProbabilityLawSimulation::getGaussianScalar </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>std</em> = <code>1</code>, </td>
@@ -123,43 +161,50 @@ Static Protected Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>gets a scalar Gaussian random variable having a given bias and standard deviation(std) default is the cetered unit Gaussian </p>
 
 </div>
 </div>
-<a id="a922822a79b87b7ce38440c7371742c02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a922822a79b87b7ce38440c7371742c02">&#9670;&nbsp;</a></span>getGaussianVector()</h2>
+<a id="a743ee3bdea6c5301f6cec61537d60411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a743ee3bdea6c5301f6cec61537d60411">&#9670;&nbsp;</a></span>getGaussianVector()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename ReturnType , typename StdType , typename BiasType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> stateObservation::tools::ProbabilityLawSimulation::getGaussianVector </td>
+          <td class="memname"><a class="el" href="structstateObservation_1_1MatrixType.html">MatrixType</a>&lt; ReturnType &gt;::type stateObservation::tools::ProbabilityLawSimulation::getGaussianVector </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramtype">StdType&#160;</td>
           <td class="paramname"><em>std</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;&#160;</td>
+          <td class="paramtype">BiasType&#160;</td>
           <td class="paramname"><em>bias</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>rows</em>, </td>
+          <td class="paramname"><em>rows</em> = <code>BiasType::RowsAtCompileTime</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td>
-          <td class="paramname"><em>cols</em> = <code>1</code>&#160;</td>
+          <td class="paramname"><em>cols</em> = <code>BiasType::ColsAtCompileTime</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -174,6 +219,52 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>gets vector Gaussian random variable having a given bias and standard deviation(std) </p>
+
+</div>
+</div>
+<a id="a56ab74d4d8bef9526233baf1452ca7ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ab74d4d8bef9526233baf1452ca7ce">&#9670;&nbsp;</a></span>getUniformScalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double stateObservation::tools::ProbabilityLawSimulation::getUniformScalar </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>min</em> = <code>0.</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>max</em> = <code>1.</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a scalar following a uniform distribution between min and max. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>the minimal value of the variable </td></tr>
+    <tr><td class="paramname">max</td><td>the maximal value of the variable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double The simulated random variable </dd></dl>
 
 </div>
 </div>

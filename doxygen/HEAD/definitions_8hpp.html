@@ -115,6 +115,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1isEigen.html">stateObservation::isEigen&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if it is derived from EigenBase (the base class of all dense functions)  <a href="structstateObservation_1_1isEigen.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1isMatrix.html">stateObservation::isMatrix&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a class is a specialization of Eigen::Matrix.  <a href="structstateObservation_1_1isMatrix.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html">stateObservation::isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1EigenType.html">stateObservation::EigenType&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1MatrixType.html">stateObservation::MatrixType&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1DebugItemDefaultValue.html">stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1detail_1_1DebugItemDefaultError.html">stateObservation::detail::DebugItemDefaultError&lt; i, dummy &gt;</a></td></tr>
@@ -275,6 +287,12 @@ Functions</h2></td></tr>
 <tr class="separator:a03b2909c21d843ca6363914f8989d52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bc44c69f09db5aefccaf6ae66e603d2"><td class="memItemLeft" align="right" valign="top">void STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1detail.html#a0bc44c69f09db5aefccaf6ae66e603d2">stateObservation::detail::defaultDifference</a> (const Vector &amp;stateVector1, const Vector &amp;stateVector2, Vector &amp;difference)</td></tr>
 <tr class="separator:a0bc44c69f09db5aefccaf6ae66e603d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed26cd92da35780dbd4271037b59702"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a1ed26cd92da35780dbd4271037b59702">stateObservation::isApprox</a> (double a, double b, double relativePrecision=cst::epsilon1)</td></tr>
+<tr class="memdesc:a1ed26cd92da35780dbd4271037b59702"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if two scalars have approximately the same value up to a given relative precision  <a href="namespacestateObservation.html#a1ed26cd92da35780dbd4271037b59702">More...</a><br /></td></tr>
+<tr class="separator:a1ed26cd92da35780dbd4271037b59702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3129c02470e794b1c530f618768cfcfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a3129c02470e794b1c530f618768cfcfd">stateObservation::isApproxAbs</a> (double a, double b, double absolutePrecision=cst::epsilon1)</td></tr>
+<tr class="memdesc:a3129c02470e794b1c530f618768cfcfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if two scalars have approximately the same value up to a given absolute precision  <a href="namespacestateObservation.html#a3129c02470e794b1c530f618768cfcfd">More...</a><br /></td></tr>
+<tr class="separator:a3129c02470e794b1c530f618768cfcfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8ac2aae6e2bc337b16dd55671c74a2c"><td class="memItemLeft" align="right" valign="top">std::string STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1tools.html#ae8ac2aae6e2bc337b16dd55671c74a2c">stateObservation::tools::matrixToString</a> (const Matrix &amp;mat)</td></tr>
 <tr class="separator:ae8ac2aae6e2bc337b16dd55671c74a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfcd48d12d9f497d58b073e3391a5269"><td class="memItemLeft" align="right" valign="top">std::string STATE_OBSERVATION_DLLAPI&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1tools.html#adfcd48d12d9f497d58b073e3391a5269">stateObservation::tools::vectorToString</a> (const Vector &amp;v)</td></tr>
@@ -296,7 +314,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a2c627130ec0be695da77a37638d286d4"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1cst.html#a2c627130ec0be695da77a37638d286d4">stateObservation::cst::epsilonAngle</a> = 1e-16</td></tr>
 <tr class="memdesc:a2c627130ec0be695da77a37638d286d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">angles considered Zero  <a href="namespacestateObservation_1_1cst.html#a2c627130ec0be695da77a37638d286d4">More...</a><br /></td></tr>
 <tr class="separator:a2c627130ec0be695da77a37638d286d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfc17bdd160f33df2c6825afc60e4d1d"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">stateObservation::cst::epsilon1</a> = 1e-14</td></tr>
+<tr class="memitem:abfc17bdd160f33df2c6825afc60e4d1d"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">stateObservation::cst::epsilon1</a> = std::numeric_limits&lt;double&gt;::epsilon()</td></tr>
 <tr class="memdesc:abfc17bdd160f33df2c6825afc60e4d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">number considered zero when compared to 1  <a href="namespacestateObservation_1_1cst.html#abfc17bdd160f33df2c6825afc60e4d1d">More...</a><br /></td></tr>
 <tr class="separator:abfc17bdd160f33df2c6825afc60e4d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

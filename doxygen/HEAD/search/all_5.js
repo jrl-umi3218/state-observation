@@ -1,6 +1,7 @@
 var searchData=
 [
   ['efforts',['efforts',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#ab0fa3984f35bd77d93564543e83b24ff',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization']]],
+  ['eigentype',['EigenType',['../structstateObservation_1_1EigenType.html',1,'stateObservation']]],
   ['ekf_2dflexibility_2destimator_2dbase_2ehpp',['ekf-flexibility-estimator-base.hpp',['../ekf-flexibility-estimator-base_8hpp.html',1,'']]],
   ['ekf_5f',['ekf_',['../classstateObservation_1_1KineticsObserver.html#aab5983c5cadf95f0ab7b57114fcdfc02',1,'stateObservation::KineticsObserver::ekf_()'],['../classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a1ef5a4511a1e001e4d02908725257911',1,'stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::ekf_()']]],
   ['ekfflexibilityestimatorbase',['EKFFlexibilityEstimatorBase',['../classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html',1,'stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase'],['../classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a57bd701cf7b1e71380fe0a91e1fb2b91',1,'stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::EKFFlexibilityEstimatorBase()']]],

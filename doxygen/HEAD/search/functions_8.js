@@ -18,9 +18,12 @@ var searchData=
   ['inverse',['inverse',['../classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2',1,'stateObservation::kine::Orientation']]],
   ['inverthomomatrix',['invertHomoMatrix',['../namespacestateObservation_1_1kine.html#a11103e044b5db4b8ba4857f88ee82504',1,'stateObservation::kine']]],
   ['invertstate',['invertState',['../namespacestateObservation_1_1kine.html#a9ad7704e68b1852f1b2962e0487d53a9',1,'stateObservation::kine']]],
+  ['isapprox',['isApprox',['../namespacestateObservation.html#a1ed26cd92da35780dbd4271037b59702',1,'stateObservation']]],
+  ['isapproxabs',['isApproxAbs',['../namespacestateObservation.html#a3129c02470e794b1c530f618768cfcfd',1,'stateObservation']]],
   ['ismatrixset',['isMatrixSet',['../classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3',1,'stateObservation::kine::Orientation']]],
   ['ispureyaw',['isPureYaw',['../namespacestateObservation_1_1kine.html#a8150acf2b58d56d429037b228e4f2e93',1,'stateObservation::kine']]],
   ['isquaternionset',['isQuaternionSet',['../classstateObservation_1_1kine_1_1Orientation.html#ae77c280eb8b7766267f21b7ebb638245',1,'stateObservation::kine::Orientation']]],
+  ['isrotationmatrix',['isRotationMatrix',['../namespacestateObservation_1_1kine.html#a079083d3e47c99522590740017a1bf22',1,'stateObservation::kine']]],
   ['isset',['isSet',['../classstateObservation_1_1CheckedItem.html#ad5c080e32c963db9a85e437a34b573a5',1,'stateObservation::CheckedItem::isSet()'],['../classstateObservation_1_1IndexedMatrixT.html#af2b032bafa7daf28edc14aa39c96de79',1,'stateObservation::IndexedMatrixT::isSet()'],['../classstateObservation_1_1kine_1_1Orientation.html#a35d453bd78ff88e3fbb99007da56bdd5',1,'stateObservation::kine::Orientation::isSet()']]],
   ['iteratedynamicseuler',['iterateDynamicsEuler',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab876cbd4f9dce72677d0ef1041aecf19',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['iteratedynamicsrk4',['iterateDynamicsRK4',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aec1c97e5a875bb59a0e546fc08bbaace',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]]

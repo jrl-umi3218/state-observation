@@ -126,11 +126,13 @@ digraph "include/state-observation/examples/offline-model-base-flex-estimation.h
   Node38 [label="random",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node37 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node37 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node33 -> Node39 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node39 [label="state-observation/tools\l/rigid-body-kinematics.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node25 -> Node40 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node40 [label="Eigen/Cholesky",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node37 -> Node39 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node39 [label="state-observation/tools\l/probability-law-simulation.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node33 -> Node40 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node40 [label="state-observation/tools\l/rigid-body-kinematics.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node25 -> Node41 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node41 [label="Eigen/Cholesky",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node0 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 -> Node41 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node41 [label="state-observation/examples\l/offline-model-base-flex\l-estimation.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node0 -> Node42 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node42 [label="state-observation/examples\l/offline-model-base-flex\l-estimation.hxx",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
 }

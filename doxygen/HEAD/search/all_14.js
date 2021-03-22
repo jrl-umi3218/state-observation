@@ -2,7 +2,6 @@ var searchData=
 [
   ['t',['t',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#ae0aefcccb0a9b646b5c6f0f43a19811e',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization::t()'],['../structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html#a7e862893478a316d37d32c786f88ce53',1,'stateObservation::KalmanFilterBase::optimizationContainer::t()']]],
   ['tc_5f',['tc_',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ace91b16afde7efe4a3957328b54528d0',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
-  ['templatesettoproductnoalias_5f',['templateSetToProductNoAlias_',['../structstateObservation_1_1kine_1_1Kinematics.html#a65caf6fd431e723b866875282606fd0a',1,'stateObservation::kine::Kinematics']]],
   ['tempvec_5f',['tempVec_',['../structstateObservation_1_1kine_1_1Kinematics.html#a26033f9a5e8d7c656c814bd4136cd00d',1,'stateObservation::kine::Kinematics']]],
   ['test',['test',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ad87739ea9db5718fcdbcb917656f4e37',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['theoretical_20details',['Theoretical details',['../theory.html',1,'']]],
@@ -17,14 +16,17 @@ var searchData=
   ['tmap',['Tmap',['../classstateObservation_1_1tools_1_1Logger.html#a7fa4b3b3d81f26f9c0f4d129ded08577',1,'stateObservation::tools::Logger']]],
   ['toangleaxis',['toAngleAxis',['../classstateObservation_1_1kine_1_1Orientation.html#a0805b24afe9a0dbc05858b1e64afaf9d',1,'stateObservation::kine::Orientation']]],
   ['table_20of_20contents',['Table of contents',['../toc.html',1,'']]],
-  ['torollpitchyaw',['toRollPitchYaw',['../classstateObservation_1_1kine_1_1Orientation.html#ac7f113b9390689ae3d7675ceb534e57d',1,'stateObservation::kine::Orientation::toRollPitchYaw() const'],['../classstateObservation_1_1kine_1_1Orientation.html#a5ba3660d5f60c15a88967849565e4ea2',1,'stateObservation::kine::Orientation::toRollPitchYaw()']]],
+  ['tomatrix3',['toMatrix3',['../classstateObservation_1_1kine_1_1Orientation.html#a379f6965e80ce38659897d674ba873a3',1,'stateObservation::kine::Orientation']]],
+  ['toquaternion',['toQuaternion',['../classstateObservation_1_1kine_1_1Orientation.html#a7d4f47d78aaf897d81a6ec8380100f27',1,'stateObservation::kine::Orientation']]],
+  ['torollpitchyaw',['toRollPitchYaw',['../classstateObservation_1_1kine_1_1Orientation.html#ac7f113b9390689ae3d7675ceb534e57d',1,'stateObservation::kine::Orientation']]],
   ['torotationvector',['toRotationVector',['../classstateObservation_1_1kine_1_1Orientation.html#a8c23c0bc1862eabea982e2d84080ee99',1,'stateObservation::kine::Orientation']]],
   ['torquesensorvariancedefault',['torqueSensorVarianceDefault',['../classstateObservation_1_1KineticsObserver.html#a7143393fbf357b12d55019d7c709e56d',1,'stateObservation::KineticsObserver']]],
   ['tostring',['toString',['../namespacestateObservation_1_1tools.html#ac3ea701cb1ea4ed3b1ce1fb439addbbe',1,'stateObservation::tools']]],
   ['tovector',['toVector',['../structstateObservation_1_1kine_1_1Kinematics.html#abe06ae95bbb4310d033fcf8b257b35ab',1,'stateObservation::kine::Kinematics::toVector(Flags::Byte) const'],['../structstateObservation_1_1kine_1_1Kinematics.html#a171c2155c40fce5faefbbe56a46280f3',1,'stateObservation::kine::Kinematics::toVector() const']]],
-  ['tovector4',['toVector4',['../classstateObservation_1_1kine_1_1Orientation.html#a2feb49c5467ddf8f5a3cc97a8592e088',1,'stateObservation::kine::Orientation::toVector4() const'],['../classstateObservation_1_1kine_1_1Orientation.html#aaf20589cb5293bcba5f6492657ca528f',1,'stateObservation::kine::Orientation::toVector4()']]],
+  ['tovector4',['toVector4',['../classstateObservation_1_1kine_1_1Orientation.html#a2feb49c5467ddf8f5a3cc97a8592e088',1,'stateObservation::kine::Orientation']]],
   ['tpair',['Tpair',['../classstateObservation_1_1tools_1_1Logger.html#a67be233c0640d7fe5403643863390d93',1,'stateObservation::tools::Logger']]],
   ['truncateafter',['truncateAfter',['../classstateObservation_1_1IndexedMatrixArrayT.html#a25206ef06569fb62e2167ece33fa54f8',1,'stateObservation::IndexedMatrixArrayT']]],
   ['truncatebefore',['truncateBefore',['../classstateObservation_1_1IndexedMatrixArrayT.html#a6d526a36540253066edab41a5430e97b',1,'stateObservation::IndexedMatrixArrayT']]],
+  ['twovectorstorotationmatrix',['twoVectorsToRotationMatrix',['../namespacestateObservation_1_1kine.html#abe6f88b1583d50a5294862b4c7d981e6',1,'stateObservation::kine']]],
   ['type',['type',['../structstateObservation_1_1tools_1_1Logger_1_1log__s.html#a049c5a17a77156cf53bbc8a6e4e97be8',1,'stateObservation::tools::Logger::log_s']]]
 ];

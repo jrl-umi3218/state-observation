@@ -1,0 +1,7 @@
+digraph "Graphical Class Hierarchy"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="stateObservation::Unidim\lLipmDcmEstimator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1UnidimLipmDcmEstimator.html",tooltip="1D version of the estimation of a bias betweeen the divergent component of motion and the correspondi..."];
+}
