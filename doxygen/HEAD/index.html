@@ -74,7 +74,11 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a href="https://opensource.org/licenses/BSD-2-Clause"></a> <a href="https://github.com/jrl-umi3218/state-observation/actions?query=workflow%3A%22CI+of+state-observation%22"></a> <a href="https://jrl-umi3218.github.io/state-observation/"></a></p>
-<p>This software provides tools for running state observation for humanoid robots.</p>
+<p>This software provides tools for running state observation. It has three levels of uses:</p><ul>
+<li>The high level users can exploit the developped estimators.</li>
+<li>The intermediate level users can derive these estimators to fit their system.</li>
+<li>The low level users can develop their novel estimators relying on the available tools.</li>
+</ul>
 <h2>Installing </h2>
 <h2>Ubuntu LTS (16.04, 18.04, 20.04)</h2>
 <div class="fragment"><div class="line"># Make sure you have required tools</div><div class="line">sudo apt install apt-transport-https lsb-release</div><div class="line"># Add our key</div><div class="line">sudo apt-key adv --keyserver &#39;hkp://keyserver.ubuntu.com:80&#39; --recv-key 892EA6EE273707C6495A6FB6220D644C64666806</div><div class="line"># Add our repository (stable versions)</div><div class="line">sudo sh -c &#39;echo &quot;deb https://dl.bintray.com/gergondet/multi-contact-release $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/multi-contact.list&#39;</div><div class="line"># Use this to setup the HEAD version</div><div class="line"># sudo sh -c &#39;echo &quot;deb https://dl.bintray.com/gergondet/multi-contact-release $(lsb_release -sc) main&quot; | sudo tee /etc/apt/sources.list.d/multi-contact.list&#39;</div><div class="line"># Update packages list</div><div class="line">sudo apt update</div><div class="line"># Install state-observation packages</div><div class="line">sudo apt install libstate-observation-dev</div><div class="line"># Install documentation</div><div class="line">sudo apt install libstate-observation-doc</div></div><!-- fragment --><h2>Manually build from source</h2>
