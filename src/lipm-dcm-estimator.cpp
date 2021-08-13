@@ -176,15 +176,15 @@ void LipmDcmEstimator::setDcmMeasureErrorStd(double std)
 void LipmDcmEstimator::update()
 {
   filter_.estimateState();
-  if(biasLimit_.x() > 0 || biasLimit_.y() > 0)
+  if(biasLimit_.x() >= 0 || biasLimit_.y() >= 0)
   {
     Vector2 localBias = getLocalBias();
     Vector2 clampedLocalBias;
-    if(biasLimit_.x() > 0)
+    if(biasLimit_.x() >= 0)
     {
       clampedLocalBias.x() = tools::clampScalar(localBias.x(), biasLimit_.x());
     }
-    if(biasLimit_.y() > 0)
+    if(biasLimit_.y() >= 0)
     {
       clampedLocalBias.y() = tools::clampScalar(localBias.y(), biasLimit_.y());
     }

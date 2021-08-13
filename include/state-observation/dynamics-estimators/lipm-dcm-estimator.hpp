@@ -85,8 +85,8 @@ public:
   constexpr static double defaultDCMUncertainty = 0.01;
   constexpr static double defaultBiasUncertainty = 0.01;
 
-  /// default value for Bias limit (0 means limitless)
-  constexpr static double defaultBiasLimit = 0;
+  /// default value for Bias limit (negative means limitless)
+  constexpr static double defaultBiasLimit = -1;
 
   /// @brief Construct a new Lipm Dcm Estimator object
   /// @details Use this if no DCM measurements are available or when a good guess of its unbiased position is
@@ -155,6 +155,7 @@ public:
     resetWithMeasurements(measuredDcm, measuredZMP, Rotation2D(yaw).toRotationMatrix(), measurementIsWithBias, initBias,
                           initBiasuncertainty);
   }
+
   /// @brief Resets the estimator with first measurements
   /// @details Use this when initializing with an available DCM (biased / or not) measurement
   ///
@@ -217,7 +218,7 @@ public:
   /// @brief Set the Bias Limit
   ///
   /// @param biasLimit the X and Y (expressed in local frame) largest accepted
-  ///                   absolute values of the bias (zero means no limit)
+  ///                   absolute values of the bias (negative means there is no limit)
   void setBiasLimit(const Vector2 & biasLimit);
 
   /// @brief set the unbiased DCM position from a guess
