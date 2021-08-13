@@ -185,8 +185,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a8ad8886adb2b05e432594cc3b575e9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20a867177a0c39d57c05e1a4d44ee8ee"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1LipmDcmEstimator.html#a20a867177a0c39d57c05e1a4d44ee8ee">defaultBiasUncertainty</a> = 0.01</td></tr>
 <tr class="separator:a20a867177a0c39d57c05e1a4d44ee8ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1LipmDcmEstimator.html#a0936bb9cda37ce3ab22d8ac242cfd181">defaultBiasLimit</a> = 0</td></tr>
-<tr class="memdesc:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="mdescLeft">&#160;</td><td class="mdescRight">default value for Bias limit (0 means limitless)  <a href="#a0936bb9cda37ce3ab22d8ac242cfd181">More...</a><br /></td></tr>
+<tr class="memitem:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1LipmDcmEstimator.html#a0936bb9cda37ce3ab22d8ac242cfd181">defaultBiasLimit</a> = -1</td></tr>
+<tr class="memdesc:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="mdescLeft">&#160;</td><td class="mdescRight">default value for Bias limit (negative means limitless)  <a href="#a0936bb9cda37ce3ab22d8ac242cfd181">More...</a><br /></td></tr>
 <tr class="separator:a0936bb9cda37ce3ab22d8ac242cfd181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
@@ -988,7 +988,7 @@ Note that besides biaslLimit all the parameters don't change behavior with scali
 <p>Set the Bias Limit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (zero means no limit) </td></tr>
+    <tr><td class="paramname">biasLimit</td><td>the X and Y (expressed in local frame) largest accepted absolute values of the bias (negative means there is no limit) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1520,7 +1520,7 @@ Note that besides biaslLimit all the parameters don't change behavior with scali
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultBiasLimit = 0</td>
+          <td class="memname">constexpr double stateObservation::LipmDcmEstimator::defaultBiasLimit = -1</td>
         </tr>
       </table>
   </td>
@@ -1530,7 +1530,7 @@ Note that besides biaslLimit all the parameters don't change behavior with scali
 </table>
 </div><div class="memdoc">
 
-<p>default value for Bias limit (0 means limitless) </p>
+<p>default value for Bias limit (negative means limitless) </p>
 
 </div>
 </div>
