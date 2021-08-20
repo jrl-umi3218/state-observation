@@ -31,7 +31,7 @@ public:
   /// gets vector Gaussian random variable
   /// having a given bias and standard deviation(std)
   template<typename ReturnType = Matrix, typename StdType, typename BiasType>
-  static typename MatrixType<ReturnType>::type getGaussianVector(StdType std,
+  static typename MatrixType<ReturnType>::type getGaussianMatrix(StdType std,
                                                                  BiasType bias,
                                                                  Index rows = BiasType::RowsAtCompileTime,
                                                                  Index cols = BiasType::ColsAtCompileTime);
@@ -43,7 +43,14 @@ public:
   /// @return double The simulated random variable
   static double getUniformScalar(double min = 0., double max = 1.);
 
+  /// @brief sets the seed to the generator
+  static void setSeed(unsigned int seed);
+
+  /// @brief sets the seed to the generator
+  static void setRandomSeed();
+
 protected:
+  static const int defaultSeed_;
   /// @brief Private constructor for preventing instanciation of Probability Law Simulation
   ProbabilityLawSimulation() {}
   static std::random_device rd_;

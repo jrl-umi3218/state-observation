@@ -1,13 +1,22 @@
 template<typename ReturnType, typename StdType, typename BiasType>
-typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getGaussianVector(StdType std,
+typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getGaussianMatrix(StdType std,
                                                                                   BiasType bias,
                                                                                   Index rows,
                                                                                   Index cols)
 {
   static_assert(isEigen<StdType>::value && isEigen<BiasType>::value,
-                "Standard deviation and bias need to be eigen matrices");
+                "Standard deviation and bias need to be Eigen matrices");
 
   std::normal_distribution<double> g(0, 1);
+
+  if(rows == -1)
+  {
+    rows = bias.rows();
+  }
+  if(cols == -1)
+  {
+    rows = bias.cols();
+  }
 
   ReturnType ret;
 
