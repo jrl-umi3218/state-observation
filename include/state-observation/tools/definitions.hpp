@@ -139,6 +139,70 @@ static const bool isDebug = true;
 static const bool isDebug = false;
 #endif // NDEBUG
 
+template<int compileTimeRows = -1, int compileTimeCols = -1>
+class FixOrDynMatrixToolsBySize
+{
+public:
+  template<typename CustomNullaryOp>
+  static const Eigen::CwiseNullaryOp<CustomNullaryOp, typename Eigen::Matrix<double, compileTimeRows, compileTimeCols>>
+      nullaryExp(const CustomNullaryOp & func, Index rows = compileTimeRows, Index cols = compileTimeCols)
+  {
+    /// Prevent warnings
+    (void)rows;
+    (void)cols;
+
+    return Eigen::Matrix<double, compileTimeRows, compileTimeCols>::NullaryExpr(func);
+  }
+};
+
+template<int compileTimeCols>
+class FixOrDynMatrixToolsBySize<-1, compileTimeCols>
+{
+public:
+  template<typename CustomNullaryOp>
+  static const Eigen::CwiseNullaryOp<CustomNullaryOp, typename Eigen::Matrix<double, -1, compileTimeCols>> nullaryExp(
+      const CustomNullaryOp & func,
+      Index rows = -1,
+      Index cols = compileTimeCols)
+  {
+    return Eigen::Matrix<double, -1, compileTimeCols>::NullaryExpr(rows, cols, func);
+  }
+};
+
+template<int compileTimeRows>
+class FixOrDynMatrixToolsBySize<compileTimeRows, -1>
+{
+public:
+  template<typename CustomNullaryOp>
+  static const Eigen::CwiseNullaryOp<CustomNullaryOp, typename Eigen::Matrix<double, compileTimeRows, -1>> nullaryExp(
+      const CustomNullaryOp & func,
+      Index rows = compileTimeRows,
+      Index cols = -1)
+  {
+    return Eigen::Matrix<double, compileTimeRows, -1>::NullaryExpr(rows, cols, func);
+  }
+};
+
+template<>
+class FixOrDynMatrixToolsBySize<-1, -1>
+{
+public:
+  template<typename CustomNullaryOp>
+  static const Eigen::CwiseNullaryOp<CustomNullaryOp, typename Eigen::Matrix<double, -1, -1>> nullaryExp(
+      const CustomNullaryOp & func,
+      Index rows = -1,
+      Index cols = -1)
+  {
+    return Eigen::Matrix<double, -1, -1>::NullaryExpr(rows, cols, func);
+  }
+};
+
+template<typename MatrixT>
+class FixOrDynMatrixTools : public FixOrDynMatrixToolsBySize<MatrixType<MatrixT>::type::RowsAtCompileTime,
+                                                             MatrixType<MatrixT>::type::ColsAtCompileTime>
+{
+};
+
 /// Debug item default value is just a way to give a default value to debug item
 /// this was required by a compilation issue on Visual Studio
 template<typename T, const T defaultValue = T()>
