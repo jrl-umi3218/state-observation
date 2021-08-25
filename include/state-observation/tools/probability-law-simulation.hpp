@@ -30,18 +30,30 @@ public:
 
   /// gets vector Gaussian random variable
   /// having a given bias and standard deviation(std)
-  template<typename ReturnType = Matrix, typename StdType, typename BiasType>
-  static typename MatrixType<ReturnType>::type getGaussianMatrix(StdType std,
-                                                                 BiasType bias,
-                                                                 Index rows = BiasType::RowsAtCompileTime,
-                                                                 Index cols = BiasType::ColsAtCompileTime);
+  template<typename BiasType,
+           typename StdType = Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::RowsAtCompileTime>>
+  static Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime> getGaussianMatrix(
+      BiasType bias = Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime>::Zero(),
+      StdType std = Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::RowsAtCompileTime>::Identity(),
+      Index rows = Index(EigenType<BiasType>::type::RowsAtCompileTime),
+      Index cols = Index(EigenType<BiasType>::type::ColsAtCompileTime));
 
   /// @brief Get a scalar following a uniform distribution between min and max
   ///
   /// @param min the minimal value of the variable
   /// @param max the maximal value of the variable
   /// @return double The simulated random variable
-  static double getUniformScalar(double min = 0., double max = 1.);
+  static double getUniformScalar(double min = -1., double max = 1.);
+
+  /// @brief Get a Matrix following a uniform distribution between min and max
+  ///
+  /// @param min the minimal value of the variable
+  /// @param max the maximal value of the variable
+  template<typename ReturnType = Matrix>
+  static typename MatrixType<ReturnType>::type getUniformMatrix(Index rows = ReturnType::RowsAtCompileTime,
+                                                                Index cols = ReturnType::ColsAtCompileTime,
+                                                                double min = -1.,
+                                                                double max = 1.);
 
   /// @brief sets the seed to the generator
   static void setSeed(unsigned int seed);

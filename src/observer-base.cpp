@@ -1,4 +1,5 @@
 #include <state-observation/observer/observer-base.hpp>
+#include <state-observation/tools/probability-law-simulation.hpp>
 
 namespace stateObservation
 {
@@ -17,7 +18,7 @@ ObserverBase::StateVector ObserverBase::stateVectorConstant(double c) const
 
 ObserverBase::StateVector ObserverBase::stateVectorRandom() const
 {
-  return StateVector::Random(n_, 1);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<StateVector>(n_);
 }
 
 ObserverBase::StateVector ObserverBase::stateVectorZero() const
@@ -37,7 +38,7 @@ ObserverBase::MeasureVector ObserverBase::measureVectorConstant(double c) const
 
 ObserverBase::MeasureVector ObserverBase::measureVectorRandom() const
 {
-  return MeasureVector::Random(m_, 1);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<MeasureVector>(m_);
 }
 
 ObserverBase::MeasureVector ObserverBase::measureVectorZero() const
@@ -57,7 +58,7 @@ ObserverBase::InputVector ObserverBase::inputVectorConstant(double c) const
 
 ObserverBase::InputVector ObserverBase::inputVectorRandom() const
 {
-  return InputVector::Random(p_, 1);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<InputVector>(p_);
 }
 
 ObserverBase::InputVector ObserverBase::inputVectorZero() const

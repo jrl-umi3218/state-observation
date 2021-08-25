@@ -1,9 +1,9 @@
-template<typename ReturnType, typename StdType, typename BiasType>
-typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getGaussianMatrix(StdType std,
-                                                                                  BiasType bias,
-                                                                                  Index rows,
-                                                                                  Index cols)
+template<typename BiasType, typename StdType>
+Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime>
+    ProbabilityLawSimulation::getGaussianMatrix(BiasType bias, StdType std, Index rows, Index cols)
 {
+  typedef Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime> ReturnType;
+
   static_assert(isEigen<StdType>::value && isEigen<BiasType>::value,
                 "Standard deviation and bias need to be Eigen matrices");
 
@@ -17,26 +17,14 @@ typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getGaussianMatri
   {
     rows = bias.cols();
   }
+  return bias + std * FixOrDynMatrixTools<ReturnType>::nullaryExp([&]() { return getGaussianScalar(); }, rows, cols);
+}
 
-  ReturnType ret;
-
-  if(ReturnType::RowsAtCompileTime == -1 || ReturnType::ColsAtCompileTime == -1) // the matrix is dynamic size
-  {
-    ret = Matrix::Zero(rows, cols);
-  }
-  else
-  {
-    ret.setZero();
-  }
-
-  for(Index i = 0; i < rows; ++i)
-  {
-    for(Index j = 0; j < cols; ++j)
-    {
-      ret(i, j) = g(gen_);
-    }
-  }
-  ret = std * ret + bias;
-
-  return ret;
+template<typename ReturnType>
+typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getUniformMatrix(Index rows,
+                                                                                 Index cols,
+                                                                                 double min,
+                                                                                 double max)
+{
+  return FixOrDynMatrixTools<ReturnType>::nullaryExp([&]() { return getUniformScalar(min, max); }, rows, cols);
 }

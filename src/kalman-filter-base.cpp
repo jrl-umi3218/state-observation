@@ -1,4 +1,5 @@
 #include <state-observation/observer/kalman-filter-base.hpp>
+#include <state-observation/tools/probability-law-simulation.hpp>
 
 #ifndef NDEBUG
 //#define VERBOUS_KALMANFILTER
@@ -189,7 +190,7 @@ KalmanFilterBase::Amatrix KalmanFilterBase::getAmatrixConstant(double c) const
 
 KalmanFilterBase::Amatrix KalmanFilterBase::getAmatrixRandom() const
 {
-  return Amatrix::Random(nt_, nt_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Matrix>(nt_, nt_);
 }
 
 KalmanFilterBase::Amatrix KalmanFilterBase::getAmatrixZero() const
@@ -214,7 +215,7 @@ KalmanFilterBase::Cmatrix KalmanFilterBase::getCmatrixConstant(double c) const
 
 KalmanFilterBase::Cmatrix KalmanFilterBase::getCmatrixRandom() const
 {
-  return Cmatrix::Random(mt_, nt_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Cmatrix>(mt_, nt_);
 }
 
 KalmanFilterBase::Cmatrix KalmanFilterBase::getCmatrixZero() const
@@ -234,7 +235,7 @@ KalmanFilterBase::Qmatrix KalmanFilterBase::getQmatrixConstant(double c) const
 
 KalmanFilterBase::Qmatrix KalmanFilterBase::getQmatrixRandom() const
 {
-  return Qmatrix::Random(nt_, nt_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Qmatrix>(nt_, nt_);
 }
 
 KalmanFilterBase::Qmatrix KalmanFilterBase::getQmatrixZero() const
@@ -259,7 +260,7 @@ KalmanFilterBase::Rmatrix KalmanFilterBase::getRmatrixConstant(double c) const
 
 KalmanFilterBase::Rmatrix KalmanFilterBase::getRmatrixRandom() const
 {
-  return Cmatrix::Random(mt_, mt_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Cmatrix>(mt_, mt_);
 }
 
 KalmanFilterBase::Rmatrix KalmanFilterBase::getRmatrixZero() const
@@ -284,7 +285,7 @@ KalmanFilterBase::Pmatrix KalmanFilterBase::getPmatrixConstant(double c) const
 
 KalmanFilterBase::Pmatrix KalmanFilterBase::getPmatrixRandom() const
 {
-  return Pmatrix::Random(nt_, nt_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Pmatrix>(nt_, nt_);
 }
 
 KalmanFilterBase::Pmatrix KalmanFilterBase::getPmatrixZero() const
@@ -309,7 +310,7 @@ KalmanFilterBase::StateVectorTan KalmanFilterBase::stateTangentVectorConstant(do
 
 KalmanFilterBase::StateVectorTan KalmanFilterBase::stateTangentVectorRandom() const
 {
-  return StateVectorTan::Random(nt_, 1);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<StateVectorTan>(nt_);
 }
 
 KalmanFilterBase::StateVectorTan KalmanFilterBase::stateTangentVectorZero() const
@@ -329,7 +330,7 @@ KalmanFilterBase::MeasureVectorTan KalmanFilterBase::measureTangentVectorConstan
 
 KalmanFilterBase::MeasureVectorTan KalmanFilterBase::measureTangentVectorRandom() const
 {
-  return MeasureVectorTan::Random(mt_, 1);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<MeasureVectorTan>(mt_, 1);
 }
 
 KalmanFilterBase::MeasureVectorTan KalmanFilterBase::measureTangentVectorZero() const

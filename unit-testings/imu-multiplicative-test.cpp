@@ -107,7 +107,7 @@ int test()
   q = q1 * q1.transpose();
 
   /// the initalization of a random estimation of the initial state
-  Vector xh0 = Vector::Random(stateSize, 1) * 3.14;
+  Vector xh0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector>(stateSize) * 3.14;
   xh0.segment<4>(indexes2::ori).normalize();
   //    xh0.segment<4>(indexes2::ori)=Quaternion::Identity().coeffs();
 

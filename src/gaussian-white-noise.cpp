@@ -18,7 +18,7 @@ Vector GaussianWhiteNoise::getNoisy(const Vector & v)
 {
   checkVector_(v);
 
-  sum_(v, tools::ProbabilityLawSimulation::getGaussianMatrix(std_, bias_, dim_), noisy_);
+  sum_(v, tools::ProbabilityLawSimulation::getGaussianMatrix(bias_, std_, dim_), noisy_);
 
   return noisy_;
 }

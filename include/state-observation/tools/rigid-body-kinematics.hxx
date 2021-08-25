@@ -486,8 +486,7 @@ inline Quaternion zeroRotationQuaternion()
 
 inline Quaternion randomRotationQuaternion()
 {
-  return Quaternion(tools::ProbabilityLawSimulation::getGaussianMatrix<Vector4>(Matrix4::Identity(), Vector4::Zero(), 4)
-                        .normalized());
+  return Quaternion(tools::ProbabilityLawSimulation::getGaussianMatrix<Vector4>().normalized());
 }
 
 inline double randomAngle()

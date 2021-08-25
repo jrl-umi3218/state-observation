@@ -17,7 +17,7 @@ int testRotationOperations(int errorCode)
   {
     { /// test isRotation
 
-      Matrix3 R = Matrix3::Random();
+      Matrix3 R = tools::ProbabilityLawSimulation::getUniformMatrix<Matrix3>();
       double testPecision = cst::epsilon1 * 20;
       if(isRotationMatrix(R, testPecision))
       {
@@ -53,8 +53,8 @@ int testRotationOperations(int errorCode)
     }
     {
       /// Test the angle made by one vector by a rotation
-      Vector3 axis = Vector3::Random().normalized();
-      Vector3 v = Vector3::Random().cross(axis).normalized();
+      Vector3 axis = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>().normalized();
+      Vector3 v = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>().cross(axis).normalized();
       double angle = randomAngle();
       Matrix3 m = (AngleAxis(angle, axis)).matrix() * AngleAxis(randomAngle(), v).matrix();
 
@@ -70,7 +70,7 @@ int testRotationOperations(int errorCode)
       /// Test yaw extraction with custom vector
       double angle = randomAngle();
 
-      Vector2 v = Vector2::Random().normalized();
+      Vector2 v = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector2>().normalized();
       Vector3 v3;
       v3 << v, 0;
       Matrix3 m = AngleAxis(angle, Vector3::UnitZ()).matrix() * AngleAxis(randomAngle(), v3).matrix();
@@ -116,7 +116,7 @@ int testRotationOperations(int errorCode)
     {
       /// Test the automatic detection of the vector to use to extract yaw from a rotation matrix
       double angle = randomAngle(); /// random value
-      Vector2 v = Vector2::Random().normalized();
+      Vector2 v = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector2>().normalized();
       Vector3 v3;
       v3 << v, 0;
 
@@ -134,7 +134,7 @@ int testRotationOperations(int errorCode)
     {
       Vector3 horizAxis1;
       horizAxis1(2) = 0;
-      horizAxis1.head<2>() = Vector2::Random().normalized();
+      horizAxis1.head<2>() = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector2>().normalized();
       double tiltAngle1 = randomAngle();
       double yawAngle = randomAngle();
 
@@ -148,11 +148,11 @@ int testRotationOperations(int errorCode)
       /// m sis a random horizontal vector
       Vector3 m;
       m(2) = 0;
-      m.head<2>() = Vector2::Random().normalized();
+      m.head<2>() = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector2>().normalized();
 
       Vector3 ml = initialMatrix.transpose() * m;
 
-      Vector3 newTilt = Vector3::Random();
+      Vector3 newTilt = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
       Matrix3 mTemp1, mTemp2;
 
       mTemp1 << m, m.cross(Vector3::UnitZ().cross(m)).normalized(), m.cross(Vector3::UnitZ()).normalized();
@@ -191,7 +191,7 @@ int testOrientation(int errcode)
   typedef tools::ProbabilityLawSimulation ran;
 
   /// random orientation
-  q_i = ran::getGaussianMatrix(Matrix4::Identity(), Vector4::Zero(), 4);
+  q_i = ran::getGaussianMatrix<Vector4>();
   q_i.normalize();
 
   /// several representations of the orientation
@@ -611,7 +611,7 @@ int testOrientation(int errcode)
   }
 
   {
-    Vector3 v1 = Vector3::Random() * 0.1;
+    Vector3 v1 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>() * 0.1;
     kine::Orientation ori1(M);
     kine::Orientation ori2(ori1);
     ori2.integrate(v1);
@@ -664,19 +664,19 @@ int testKinematics(int errcode)
 
   for(int i = 0; i < count; i++)
   {
-    Vector3 pos0 = Vector3::Random();
+    Vector3 pos0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
     kine::Orientation ori0 = kine::Orientation::randomRotation();
-    Vector3 linvel0 = Vector3::Random();
-    Vector3 angvel0 = Vector3::Random();
-    Vector3 linacc0 = Vector3::Random();
-    Vector3 angacc0 = Vector3::Random();
+    Vector3 linvel0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+    Vector3 angvel0 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
+    Vector3 linacc0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+    Vector3 angacc0 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
 
-    Vector3 pos1 = Vector3::Random();
+    Vector3 pos1 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
     kine::Orientation ori1 = kine::Orientation::randomRotation();
-    Vector3 linvel1 = Vector3::Random();
-    Vector3 angvel1 = Vector3::Random();
-    Vector3 linacc1 = Vector3::Random();
-    Vector3 angacc1 = Vector3::Random();
+    Vector3 linvel1 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+    Vector3 angvel1 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
+    Vector3 linacc1 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+    Vector3 angacc1 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
 
     k0.reset();
     k1.reset();
@@ -785,12 +785,12 @@ int testKinematics(int errcode)
 
   for(int i = 0; i < count; i++)
   {
-    Vector3 pos0 = Vector3::Random();
+    Vector3 pos0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
     kine::Orientation ori0 = kine::Orientation::randomRotation();
-    Vector3 linvel0 = Vector3::Random();
-    Vector3 angvel0 = Vector3::Random();
-    Vector3 linacc0 = Vector3::Random();
-    Vector3 angacc0 = Vector3::Random();
+    Vector3 linvel0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+    Vector3 angvel0 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
+    Vector3 linacc0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+    Vector3 angacc0 = tools::ProbabilityLawSimulation::getGaussianMatrix<Vector3>();
 
     k.reset();
     k.position = pos0;

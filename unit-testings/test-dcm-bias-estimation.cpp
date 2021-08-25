@@ -143,11 +143,11 @@ int testDcmBiasEstimator(int errorCode)
   double lambda = 2;
 
   /// initialize the dcm and localBias to a random value
-  dcm[0] = ran::getGaussianMatrix(Matrix2::Identity() * 2, Vector2::Zero(), 2);
+  dcm[0] = ran::getGaussianMatrix<Vector2>() * 4;
   double initBiasstd = 0.01;
 
-  localBias[0] = ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * 0.01;
-  Vector2 deviation = ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * 0.05;
+  localBias[0] = ran::getGaussianMatrix<Vector2>() * 0.01;
+  Vector2 deviation = ran::getGaussianMatrix<Vector2>() * 0.05;
   zmp[0] = (lambda / w0 + 1) * dcm[0] + deviation;
 
   for(int i = 0; i < signallength - 1; ++i)
@@ -155,12 +155,10 @@ int testDcmBiasEstimator(int errorCode)
     /// dcm dynamics
     dcm[i + 1] = dcm[i] + dt * w0 * (dcm[i] - zmp[i]);
     /// local bias drift
-    localBias[i + 1] =
-        localBias[i] + ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * biasDriftPerSecondStd * dt;
+    localBias[i + 1] = localBias[i] + ran::getGaussianMatrix<Vector2>() * biasDriftPerSecondStd * dt;
     /// set a noisy zmp to create  bounded drift of the DCM
-    deviation += ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * 0.05;
-    zmp[i + 1] =
-        (lambda / w0 + 1) * dcm[i] + ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * 0.05 + deviation;
+    deviation += ran::getGaussianMatrix<Vector2>() * 0.05;
+    zmp[i + 1] = (lambda / w0 + 1) * dcm[i] + ran::getGaussianMatrix<Vector2>() * 0.05 + deviation;
   }
 
   for(int i = 0; i < signallength; ++i)
@@ -178,10 +176,9 @@ int testDcmBiasEstimator(int errorCode)
   for(int i = 0; i < signallength; ++i)
   {
 
-    dcm_m_unbiased[i] =
-        dcm[i] + ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * dcmMeasurementErrorStd;
+    dcm_m_unbiased[i] = dcm[i] + ran::getGaussianMatrix<Vector2>() * dcmMeasurementErrorStd;
     dcm_m[i] = dcm_m_unbiased[i] + bias[i];
-    zmp_m[i] = zmp[i] + ran::getGaussianMatrix(Matrix2::Identity(), Vector2::Zero(), 2) * zmpMeasurementErrorStd;
+    zmp_m[i] = zmp[i] + ran::getGaussianMatrix<Vector2>() * zmpMeasurementErrorStd;
   }
 
   /////////////////////////////////
