@@ -434,6 +434,11 @@
     <class kind="struct">stateObservation::isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</class>
     <class kind="struct">stateObservation::EigenType</class>
     <class kind="struct">stateObservation::MatrixType</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize&lt;-1, compileTimeCols &gt;</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize&lt; compileTimeRows, -1 &gt;</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize&lt;-1, -1 &gt;</class>
+    <class kind="class">stateObservation::FixOrDynMatrixTools</class>
     <class kind="class">stateObservation::DebugItemDefaultValue</class>
     <class kind="class">stateObservation::detail::DebugItemDefaultError</class>
     <class kind="class">stateObservation::detail::DebugItemDefaultError&lt; message, dummy &gt;</class>
@@ -4532,6 +4537,71 @@
       <anchorfile>classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html</anchorfile>
       <anchor>a36cf1b47a2ee4cee3893267a92d2de29</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>stateObservation::FixOrDynMatrixTools</name>
+    <filename>classstateObservation_1_1FixOrDynMatrixTools.html</filename>
+    <templarg></templarg>
+    <base>FixOrDynMatrixToolsBySize&lt; MatrixType&lt; MatrixT &gt;::type::RowsAtCompileTime, MatrixType&lt; MatrixT &gt;::type::ColsAtCompileTime &gt;</base>
+  </compound>
+  <compound kind="class">
+    <name>stateObservation::FixOrDynMatrixToolsBySize</name>
+    <filename>classstateObservation_1_1FixOrDynMatrixToolsBySize.html</filename>
+    <templarg>compileTimeRows</templarg>
+    <templarg>compileTimeCols</templarg>
+    <member kind="function" static="yes">
+      <type>static const Eigen::CwiseNullaryOp&lt; CustomNullaryOp, typename Eigen::Matrix&lt; double, compileTimeRows, compileTimeCols &gt; &gt;</type>
+      <name>nullaryExp</name>
+      <anchorfile>classstateObservation_1_1FixOrDynMatrixToolsBySize.html</anchorfile>
+      <anchor>aa1be0d158a054998e250905619e0ffc4</anchor>
+      <arglist>(const CustomNullaryOp &amp;func, Index rows=compileTimeRows, Index cols=compileTimeCols)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>stateObservation::FixOrDynMatrixToolsBySize&lt; compileTimeRows, -1 &gt;</name>
+    <filename>classstateObservation_1_1FixOrDynMatrixToolsBySize_3_01compileTimeRows_00_01-1_01_4.html</filename>
+    <templarg>compileTimeRows</templarg>
+    <member kind="function" static="yes">
+      <type>static const Eigen::CwiseNullaryOp&lt; CustomNullaryOp, typename Eigen::Matrix&lt; double, compileTimeRows, -1 &gt; &gt;</type>
+      <name>nullaryExp</name>
+      <anchorfile>classstateObservation_1_1FixOrDynMatrixToolsBySize_3_01compileTimeRows_00_01-1_01_4.html</anchorfile>
+      <anchor>aa6a5476b07b3569302c093ab50897a25</anchor>
+      <arglist>(const CustomNullaryOp &amp;func, Index rows=compileTimeRows, Index cols=-1)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>FixOrDynMatrixToolsBySize&lt; MatrixType&lt; MatrixT &gt;::type::RowsAtCompileTime, MatrixType&lt; MatrixT &gt;::type::ColsAtCompileTime &gt;</name>
+    <filename>classstateObservation_1_1FixOrDynMatrixToolsBySize.html</filename>
+    <member kind="function" static="yes">
+      <type>static const Eigen::CwiseNullaryOp&lt; CustomNullaryOp, typename Eigen::Matrix&lt; double, compileTimeRows, compileTimeCols &gt; &gt;</type>
+      <name>nullaryExp</name>
+      <anchorfile>classstateObservation_1_1FixOrDynMatrixToolsBySize.html</anchorfile>
+      <anchor>aa1be0d158a054998e250905619e0ffc4</anchor>
+      <arglist>(const CustomNullaryOp &amp;func, Index rows=compileTimeRows, Index cols=compileTimeCols)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>stateObservation::FixOrDynMatrixToolsBySize&lt;-1, -1 &gt;</name>
+    <filename>classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01-1_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static const Eigen::CwiseNullaryOp&lt; CustomNullaryOp, typename Eigen::Matrix&lt; double, -1, -1 &gt; &gt;</type>
+      <name>nullaryExp</name>
+      <anchorfile>classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01-1_01_4.html</anchorfile>
+      <anchor>a8ce119acbaa07774d20d1876f8e94437</anchor>
+      <arglist>(const CustomNullaryOp &amp;func, Index rows=-1, Index cols=-1)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>stateObservation::FixOrDynMatrixToolsBySize&lt;-1, compileTimeCols &gt;</name>
+    <filename>classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01compileTimeCols_01_4.html</filename>
+    <templarg>compileTimeCols</templarg>
+    <member kind="function" static="yes">
+      <type>static const Eigen::CwiseNullaryOp&lt; CustomNullaryOp, typename Eigen::Matrix&lt; double, -1, compileTimeCols &gt; &gt;</type>
+      <name>nullaryExp</name>
+      <anchorfile>classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01compileTimeCols_01_4.html</anchorfile>
+      <anchor>adc091e6af57b2fd620c508e7461c8b5d</anchor>
+      <arglist>(const CustomNullaryOp &amp;func, Index rows=-1, Index cols=compileTimeCols)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -13127,77 +13197,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
-    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>O</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>CA</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>stateObservation::ExtendedKalmanFilter::Optimization</name>
-    <filename>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</filename>
-    <member kind="variable">
-      <type>EIGEN_MAKE_ALIGNED_OPERATOR_NEW ObserverBase::InputVector</type>
-      <name>u_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ae01890ceb77c27585e957944dd847b41</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>KalmanFilterBase::Amatrix</type>
-      <name>a_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>aae39b1d3c3893c96cfcd0286b6540db5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>KalmanFilterBase::Cmatrix</type>
-      <name>c_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ad43bf99b233b0ad553dd2874912e968a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>x_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a739344546fb08659f35abec2f8b1fca2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>dx_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a5530e8a1d3337b00b84552438682572d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>xp_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a8b342751706039d369f8536f7b653cc1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::MeasureVector</type>
-      <name>yp_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ae100734f224c2b34840e33938749affa</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization</name>
     <filename>structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html</filename>
     <member kind="function">
@@ -13881,6 +13880,77 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::ExtendedKalmanFilter::Optimization</name>
+    <filename>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</filename>
+    <member kind="variable">
+      <type>EIGEN_MAKE_ALIGNED_OPERATOR_NEW ObserverBase::InputVector</type>
+      <name>u_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ae01890ceb77c27585e957944dd847b41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>KalmanFilterBase::Amatrix</type>
+      <name>a_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>aae39b1d3c3893c96cfcd0286b6540db5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>KalmanFilterBase::Cmatrix</type>
+      <name>c_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ad43bf99b233b0ad553dd2874912e968a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>x_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a739344546fb08659f35abec2f8b1fca2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>dx_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a5530e8a1d3337b00b84552438682572d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>xp_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a8b342751706039d369f8536f7b653cc1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::MeasureVector</type>
+      <name>yp_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ae100734f224c2b34840e33938749affa</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
+    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
+    <member kind="variable">
+      <type>stateObservation::Matrix</type>
+      <name>O</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>stateObservation::Matrix</type>
+      <name>CA</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::KalmanFilterBase::optimizationContainer</name>
     <filename>structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html</filename>
     <member kind="variable">
@@ -14249,18 +14319,39 @@
       <arglist>(double std=1, double bias=0)</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static MatrixType&lt; ReturnType &gt;::type</type>
-      <name>getGaussianVector</name>
+      <type>static Eigen::Matrix&lt; double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime &gt;</type>
+      <name>getGaussianMatrix</name>
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
-      <anchor>a743ee3bdea6c5301f6cec61537d60411</anchor>
-      <arglist>(StdType std, BiasType bias, Index rows=BiasType::RowsAtCompileTime, Index cols=BiasType::ColsAtCompileTime)</arglist>
+      <anchor>ae497c622b7d4b3ca3f0351ad3f7a6c65</anchor>
+      <arglist>(BiasType bias=Eigen::Matrix&lt; double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime &gt;::Zero(), StdType std=Eigen::Matrix&lt; double, BiasType::RowsAtCompileTime, BiasType::RowsAtCompileTime &gt;::Identity(), Index rows=Index(EigenType&lt; BiasType &gt;::type::RowsAtCompileTime), Index cols=Index(EigenType&lt; BiasType &gt;::type::ColsAtCompileTime))</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static double</type>
       <name>getUniformScalar</name>
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
-      <anchor>a56ab74d4d8bef9526233baf1452ca7ce</anchor>
-      <arglist>(double min=0., double max=1.)</arglist>
+      <anchor>a12c10b1c2cc7d9c5d54ca557f6b02203</anchor>
+      <arglist>(double min=-1., double max=1.)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static MatrixType&lt; ReturnType &gt;::type</type>
+      <name>getUniformMatrix</name>
+      <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
+      <anchor>aa9ac5e9ca6d8a957eb119a7c6fd66e0b</anchor>
+      <arglist>(Index rows=ReturnType::RowsAtCompileTime, Index cols=ReturnType::ColsAtCompileTime, double min=-1., double max=1.)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setSeed</name>
+      <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
+      <anchor>ab5f568d5391769914d6efd4ed81d0547</anchor>
+      <arglist>(unsigned int seed)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setRandomSeed</name>
+      <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
+      <anchor>a1695817aff578f7e57bfd4da8dfe6e5d</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type></type>
@@ -14268,6 +14359,13 @@
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
       <anchor>a1628f0868401ecdb5e3b34b71fa4234b</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static const int</type>
+      <name>defaultSeed_</name>
+      <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
+      <anchor>adfb2dd2d7dd40ad5f768150b57ba85f8</anchor>
+      <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static std::random_device</type>
@@ -15449,6 +15547,11 @@
     <class kind="class">stateObservation::DynamicalSystemSimulator</class>
     <class kind="struct">stateObservation::EigenType</class>
     <class kind="class">stateObservation::ExtendedKalmanFilter</class>
+    <class kind="class">stateObservation::FixOrDynMatrixTools</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize&lt; compileTimeRows, -1 &gt;</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize&lt;-1, -1 &gt;</class>
+    <class kind="class">stateObservation::FixOrDynMatrixToolsBySize&lt;-1, compileTimeCols &gt;</class>
     <class kind="class">stateObservation::GaussianWhiteNoise</class>
     <class kind="class">stateObservation::IMUDynamicalSystem</class>
     <class kind="class">stateObservation::IMUMagnetometerDynamicalSystem</class>

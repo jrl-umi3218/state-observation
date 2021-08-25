@@ -44,6 +44,13 @@ var hierarchy =
     [ "false_type", null, [
       [ "stateObservation::isMatrix< T >", "structstateObservation_1_1isMatrix.html", null ]
     ] ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize< compileTimeRows, compileTimeCols >", "classstateObservation_1_1FixOrDynMatrixToolsBySize.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize< compileTimeRows, -1 >", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3_01compileTimeRows_00_01-1_01_4.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize< MatrixType< MatrixT >::type::RowsAtCompileTime, MatrixType< MatrixT >::type::ColsAtCompileTime >", "classstateObservation_1_1FixOrDynMatrixToolsBySize.html", [
+      [ "stateObservation::FixOrDynMatrixTools< MatrixT >", "classstateObservation_1_1FixOrDynMatrixTools.html", null ]
+    ] ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize<-1, -1 >", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01-1_01_4.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize<-1, compileTimeCols >", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01compileTimeCols_01_4.html", null ],
     [ "stateObservation::kine::Kinematics::Flags", "structstateObservation_1_1kine_1_1Kinematics_1_1Flags.html", null ],
     [ "stateObservation::flexibilityEstimation::FlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html", [
       [ "stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html", [
@@ -88,9 +95,9 @@ var hierarchy =
     ] ],
     [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
     [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
-    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
-    [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
+    [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
+    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::KalmanFilterBase::optimizationContainer", "structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html", null ],
     [ "stateObservation::kine::Orientation", "classstateObservation_1_1kine_1_1Orientation.html", null ],
     [ "stateObservation::tools::ProbabilityLawSimulation", "classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html", null ],

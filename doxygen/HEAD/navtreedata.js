@@ -39,13 +39,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "accelerometer-gyrometer-magnetometer_8hpp.html",
-"classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a5ff989bc802586f378be00f3a3a33ed7",
-"classstateObservation_1_1KineticsObserver.html#a6ce742fa953a8fd1ae58732f2df3d6f8",
-"classstateObservation_1_1SensorBase.html#a78a1a76497eed4c226026a4a6412ddc9",
-"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab206d5f504aaaef06fca963e2640d84b",
-"definitions_8hpp.html#a2d975775077bb6d31aa43a555636b172",
-"offline-ekf-flexibility-estimation_8hpp_source.html",
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#af7e0eeca1a9350fa7eef2d6839edaa06"
+"classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a47db3dc594ade3be50877a10055141f8",
+"classstateObservation_1_1KineticsObserver.html#a68016b6606d7d6bccc66eec08a82071d",
+"classstateObservation_1_1SensorBase.html#a156904f2a867a1ed0212a5b2f8e2b01a",
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aa50ede49e584ddcbbb58898046d89808",
+"definitions_8hpp.html#a1d5e7448fab378f14e92403b1c2ef5b2",
+"observer-base_8hpp_source.html",
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#add9ae34f53c38188cf4e52aa8174293f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

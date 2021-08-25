@@ -1,5 +1,10 @@
 var NAVTREEINDEX4 =
 {
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aa50ede49e584ddcbbb58898046d89808":[3,0,0,2,3,21],
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aa6c253f4d480dea163affed60a52512a":[3,0,0,2,3,56],
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aae3b9851fc12b164c4b483af05e0d1a0":[3,0,0,2,3,57],
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aaed289221d4ab00cb4239eea46d09cef":[3,0,0,2,3,39],
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab157fa9fa8ff0f9a9f742236173a3970":[3,0,0,2,3,59],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab206d5f504aaaef06fca963e2640d84b":[3,0,0,2,3,35],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab2cf8b61e7d76093c723dc2da8774eba":[3,0,0,2,3,15],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab2ebeaa40accd1f30953f8474a8dcb10":[3,0,0,2,3,95],
@@ -239,15 +244,10 @@ var NAVTREEINDEX4 =
 "classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html":[3,0,0,5,1],
 "classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a1628f0868401ecdb5e3b34b71fa4234b":[3,0,0,5,1,0],
 "definitions_8hpp.html":[4,0,0,0,7,0],
-"definitions_8hpp.html#a009f7f7e8b38b3cecc561738ad60eb52":[4,0,0,0,7,0,44],
-"definitions_8hpp.html#a03b2909c21d843ca6363914f8989d52a":[4,0,0,0,7,0,60],
-"definitions_8hpp.html#a087bf1641ad9fb513ae1b60eb38b69c0":[4,0,0,0,7,0,24],
-"definitions_8hpp.html#a0bc44c69f09db5aefccaf6ae66e603d2":[4,0,0,0,7,0,59],
-"definitions_8hpp.html#a149c9410becb3e78d7b2fa341d04ca4c":[4,0,0,0,7,0,17],
-"definitions_8hpp.html#a177e9790b91fd4af339c9c3c6d076cc0":[4,0,0,0,7,0,71],
-"definitions_8hpp.html#a1d5e7448fab378f14e92403b1c2ef5b2":[4,0,0,0,7,0,46],
-"definitions_8hpp.html#a1ed26cd92da35780dbd4271037b59702":[4,0,0,0,7,0,61],
-"definitions_8hpp.html#a26c2c64efe6f012a7b85a9f6892686b2":[4,0,0,0,7,0,32],
-"definitions_8hpp.html#a2c627130ec0be695da77a37638d286d4":[4,0,0,0,7,0,69],
-"definitions_8hpp.html#a2d28b2a56e2f031d42c908ac185542c5":[4,0,0,0,7,0,49]
+"definitions_8hpp.html#a009f7f7e8b38b3cecc561738ad60eb52":[4,0,0,0,7,0,49],
+"definitions_8hpp.html#a03b2909c21d843ca6363914f8989d52a":[4,0,0,0,7,0,65],
+"definitions_8hpp.html#a087bf1641ad9fb513ae1b60eb38b69c0":[4,0,0,0,7,0,29],
+"definitions_8hpp.html#a0bc44c69f09db5aefccaf6ae66e603d2":[4,0,0,0,7,0,64],
+"definitions_8hpp.html#a149c9410becb3e78d7b2fa341d04ca4c":[4,0,0,0,7,0,22],
+"definitions_8hpp.html#a177e9790b91fd4af339c9c3c6d076cc0":[4,0,0,0,7,0,76]
 };

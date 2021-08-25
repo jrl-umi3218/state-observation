@@ -3,5 +3,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::hrp2\l::contact",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1hrp2_1_1contact.html"];
+  Node0 [label="stateObservation::flexibility\lEstimation::IMUElasticLocalFrame\lDynamicalSystem::input",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1input.html"];
 }
