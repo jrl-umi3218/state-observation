@@ -17,7 +17,7 @@ Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime>
   {
     rows = bias.cols();
   }
-  return bias + std * FixOrDynMatrixTools<ReturnType>::nullaryExp([&]() { return getGaussianScalar(); }, rows, cols);
+  return bias + std * FixOrDynMatrixTools<ReturnType>::nullaryExp([&](Index) { return getGaussianScalar(); }, rows, cols);
 }
 
 template<typename ReturnType>
@@ -26,5 +26,5 @@ typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getUniformMatrix
                                                                                  double min,
                                                                                  double max)
 {
-  return FixOrDynMatrixTools<ReturnType>::nullaryExp([&]() { return getUniformScalar(min, max); }, rows, cols);
+  return FixOrDynMatrixTools<ReturnType>::nullaryExp([&](Index) { return getUniformScalar(min, max); }, rows, cols);
 }
