@@ -1,33 +1,30 @@
-template<typename ReturnType, typename StdType, typename BiasType>
-typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getGaussianVector(StdType std,
-                                                                                  BiasType bias,
-                                                                                  Index rows,
-                                                                                  Index cols)
+template<typename BiasType, typename StdType>
+Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime>
+    ProbabilityLawSimulation::getGaussianMatrix(BiasType bias, StdType std, Index rows, Index cols)
 {
+  typedef Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime> ReturnType;
+
   static_assert(isEigen<StdType>::value && isEigen<BiasType>::value,
-                "Standard deviation and bias need to be eigen matrices");
+                "Standard deviation and bias need to be Eigen matrices");
 
   std::normal_distribution<double> g(0, 1);
 
-  ReturnType ret;
-
-  if(ReturnType::RowsAtCompileTime == -1 || ReturnType::ColsAtCompileTime == -1) // the matrix is dynamic size
+  if(rows == -1)
   {
-    ret = Matrix::Zero(rows, cols);
+    rows = bias.rows();
   }
-  else
+  if(cols == -1)
   {
-    ret.setZero();
+    rows = bias.cols();
   }
+  return bias + std * FixOrDynMatrixTools<ReturnType>::nullaryExp([&](Index) { return getGaussianScalar(); }, rows, cols);
+}
 
-  for(Index i = 0; i < rows; ++i)
-  {
-    for(Index j = 0; j < cols; ++j)
-    {
-      ret(i, j) = g(gen_);
-    }
-  }
-  ret = std * ret + bias;
-
-  return ret;
+template<typename ReturnType>
+typename MatrixType<ReturnType>::type ProbabilityLawSimulation::getUniformMatrix(Index rows,
+                                                                                 Index cols,
+                                                                                 double min,
+                                                                                 double max)
+{
+  return FixOrDynMatrixTools<ReturnType>::nullaryExp([&](Index) { return getUniformScalar(min, max); }, rows, cols);
 }

@@ -105,7 +105,7 @@ int test()
   Matrix q;
   Matrix r;
 
-  Vector3 contact(Vector3::Random());
+  Vector3 contact(tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>());
 
   {
     /// simulation of the signal

@@ -99,7 +99,7 @@ int test()
   ExtendedKalmanFilter filter(stateSize, measurementSize, measurementSize, false);
 
   /// the initalization of a random estimation of the initial state
-  Vector xh0 = Vector::Random(stateSize, 1) * 3.14;
+  Vector xh0 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector>(stateSize) * 3.14;
   xh0[indexes::ori] = 3.14;
 
   /// computation and initialization of the covariance matrix of the initial state

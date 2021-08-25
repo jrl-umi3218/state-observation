@@ -43,7 +43,7 @@ int homoMatrixDerivationTestFromFile(char * homo, char * vel, const std::string 
 
 int invertMatrixTest() // tested OK
 {
-  stateObservation::Quaternion q(stateObservation::Vector4::Random());
+  stateObservation::Quaternion q(tools::ProbabilityLawSimulation::getUniformMatrix<Vector4>());
 
   q.normalize();
 
@@ -52,7 +52,7 @@ int invertMatrixTest() // tested OK
   Matrix4 h(Matrix4::Identity());
 
   h.block(0, 0, 3, 3) = R1;
-  h.block(0, 3, 3, 1) = Vector3::Random();
+  h.block(0, 3, 3, 1) = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
 
   Matrix4 hi = kine::invertHomoMatrix(h);
 
@@ -66,7 +66,7 @@ int invertMatrixTest() // tested OK
 int transformationTest() // tested ok
 {
 
-  Vector6 v2 = Vector6::Random();
+  Vector6 v2 = tools::ProbabilityLawSimulation::getUniformMatrix<Vector6>();
   Matrix4 m = kine::vector6ToHomogeneousMatrix(v2);
 
   std::cout << v2.transpose() << std::endl << std::endl;
@@ -79,10 +79,10 @@ int transformationTest() // tested ok
 
 int testHomoDerivation()
 {
-  Vector6 p = Vector6::Random();
+  Vector6 p = tools::ProbabilityLawSimulation::getUniformMatrix<Vector6>();
   Matrix4 m = kine::vector6ToHomogeneousMatrix(p);
 
-  Vector6 v = Vector6::Random();
+  Vector6 v = tools::ProbabilityLawSimulation::getUniformMatrix<Vector6>();
 
   Vector6 p2;
 
@@ -102,10 +102,10 @@ int testHomoDerivation()
 
 int testVector6Derivation()
 {
-  Vector6 p = Vector6::Random();
+  Vector6 p = tools::ProbabilityLawSimulation::getUniformMatrix<Vector6>();
   Matrix4 m = kine::vector6ToHomogeneousMatrix(p);
 
-  Vector6 v = Vector6::Random();
+  Vector6 v = tools::ProbabilityLawSimulation::getUniformMatrix<Vector6>();
 
   Vector6 p2;
 

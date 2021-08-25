@@ -1,5 +1,5 @@
 #include <state-observation/observer/linear-kalman-filter.hpp>
-
+#include <state-observation/tools/probability-law-simulation.hpp>
 namespace stateObservation
 {
 
@@ -77,7 +77,7 @@ LinearKalmanFilter::Bmatrix LinearKalmanFilter::getBmatrixConstant(double c) con
 
 LinearKalmanFilter::Bmatrix LinearKalmanFilter::getBmatrixRandom() const
 {
-  return Bmatrix::Random(n_, p_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Bmatrix>(n_, p_);
 }
 
 LinearKalmanFilter::Bmatrix LinearKalmanFilter::getBmatrixZero() const
@@ -97,7 +97,7 @@ LinearKalmanFilter::Dmatrix LinearKalmanFilter::getDmatrixConstant(double c) con
 
 LinearKalmanFilter::Dmatrix LinearKalmanFilter::getDmatrixRandom() const
 {
-  return Dmatrix::Random(m_, p_);
+  return tools::ProbabilityLawSimulation::getUniformMatrix<Dmatrix>(m_, p_);
 }
 
 LinearKalmanFilter::Dmatrix LinearKalmanFilter::getDmatrixZero() const
