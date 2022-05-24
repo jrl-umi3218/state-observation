@@ -472,9 +472,11 @@ inline double rotationMatrixToYawAxisAgnostic(const Matrix3 & rotation)
   }
   else
   { /// this is the case where there are non-yaw rotations (roll & pitch)
-    /// v is the vector that stays horizontal by rotation
+    /// v is a vector that stays horizontal by rotation
     Vector2 v = getInvariantHorizontalVector(rotation).head<2>();
     Vector2 rotV = (rotation.topLeftCorner<2, 2>() * v);
+    /// Here we get the yaw angle, and there is no need to normalize the vector
+    /// since both parameters of atan2 are multplied with the same factor
     return atan2(v.x() * rotV.y() - v.y() * rotV.x(), v.dot(rotV));
   }
 }
