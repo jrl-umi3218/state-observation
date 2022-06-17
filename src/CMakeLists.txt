@@ -57,6 +57,7 @@ set(HEADERS
     ${PROJECT_INCLUDE_DIR}/dynamics-estimators/kinetics-observer.hxx
     ${PROJECT_INCLUDE_DIR}/dynamics-estimators/lipm-dcm-estimator.hpp
     ${PROJECT_INCLUDE_DIR}/dynamics-estimators/unidim-lipm-dcm-estimator.hpp
+    ${PROJECT_INCLUDE_DIR}/dynamics-estimators/zmp-tracking-gain-estimator.hpp
     ${PROJECT_INCLUDE_DIR}/examples/imu-attitude-trajectory-reconstruction.hpp
     ${PROJECT_INCLUDE_DIR}/examples/imu-attitude-trajectory-reconstruction.hxx
     ${PROJECT_INCLUDE_DIR}/examples/imu-multiplicative-attitude-reconstruction.hpp
@@ -100,7 +101,8 @@ set(SRC
     bidim-elastic-inv-pendulum-dyn-sys.cpp
     kinetics-observer.cpp
     lipm-dcm-estimator.cpp
-    unidim-lipm-dcm-estimator.cpp)
+    unidim-lipm-dcm-estimator.cpp
+    zmp-tracking-gain-estimator.cpp)
 
 set(LIBRARY_NAME ${PROJECT_NAME})
 add_library(${LIBRARY_NAME} SHARED ${SRC} ${HEADERS})
