@@ -4,7 +4,7 @@ inline unsigned KineticsObserver::kineIndex() const
 }
 inline unsigned KineticsObserver::posIndex() const
 {
-  return 0;
+  return kineIndex();
 }
 inline unsigned KineticsObserver::oriIndex() const
 {
@@ -32,13 +32,13 @@ inline unsigned KineticsObserver::unmodeledForceIndex() const
 {
   return unmodeledWrenchIndex();
 }
-inline unsigned KineticsObserver::contactsIndex() const
-{
-  return unmodeledWrenchIndex()+sizeWrench;
-}
 inline unsigned KineticsObserver::unmodeledTorqueIndex() const
 {
-  return unmodeledForceIndex()+sizeForce;
+  return unmodeledForceIndex() + sizeForce;
+}
+inline unsigned KineticsObserver::contactsIndex() const
+{
+  return unmodeledWrenchIndex() + sizeWrench;
 }
 inline unsigned KineticsObserver::contactIndex(unsigned contactNbr) const
 {
