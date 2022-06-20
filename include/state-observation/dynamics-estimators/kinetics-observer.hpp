@@ -191,52 +191,60 @@ public:
 
   /// @brief Set a new contact with the environment
   ///
-  /// @param pose  is the initial guess on the position of the contact. Only position and orientation are enough
-  /// @param initialCovarianceMatrix is the covariance matrix expressing the uncertainty of the initial guess (if no
-  /// good initial guess is available give a rough position with a high initial covariance matrix, if the position is
-  /// certain, set it to zero)
+  /// @param pose  is the initial guess on the position of the contact. Only position and orientation are enough. If the
+  /// contact is compliant, you need to set the "rest" pose of the contact (i.e. the pose that gives zero reaction
+  /// force)
+  /// @param contactWrench  is the initial wrench on the contact expressed in the local frame of the contact frame
+  /// (e.g. the force-sensor measurement)
+  /// @param initialCovarianceMatrix is the covariance matrix expressing the uncertainty in the pose of the initial
+  /// guess in the 6x6 upper left corner ( if no good initial guess is available give a rough position with a high
+  /// initial covariance matrix, if the position is certain, set it to zero.) and the initial wrench in the 6x6 lower
+  /// right corner.
   /// @param processCovarianceMatrix is the covariance matrix expressing the rate at which the contact slides or drifts
-  /// (set to zero for no sliding)
+  /// in the 6x6 upper left corner (set to zero for no sliding) and the certainty in the reaction force model
+  /// (viscoelastic) in the prediction of the contact force
   /// @param contactNumber the number id of the contact to add. If no predefined id, use -1 (default) in order to set
   /// the number automatically
-  /// @param linearStiffness the linear stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Zero()
-  /// (default) to use the default one
-  /// @param linearDamping  the linear damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero()
-  /// (default) to use the default one
+  /// @param linearStiffness the linear stiffness of the contact viscoelastic model, if unknown, set to
+  /// Matrix3::Constant(-1) (default) to use the default one
+  /// @param linearDamping  the linear damping of the contact viscoelastic model, if unknown, set to
+  /// Matrix3::Constant(-1) (default) to use the default one
   /// @param angularStiffness the angular stiffness of the contact viscoelastic model, if unknown, set to
-  /// Matrix3::Zero() (default) to use the default one
-  /// @param angularDamping the angular damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero()
-  /// (default) to use the default one
+  /// Matrix3::Constant(-1) (default) to use the default one
+  /// @param angularDamping the angular damping of the contact viscoelastic model, if unknown, set to
+  /// Matrix3::Constant(-1) (default) to use the default one
   /// @return int the id number of the contact just added (returns contactNumber if it is positive)
   int addContact(const Kinematics & pose,
+                 const Vector6 & contactWrench,
                  const Matrix12 & initialCovarianceMatrix,
                  const Matrix12 & processCovarianceMatrix,
                  int contactNumber = -1,
-                 const Matrix3 & linearStiffness = Matrix3::Zero(),
-                 const Matrix3 & linearDamping = Matrix3::Zero(),
-                 const Matrix3 & angularStiffness = Matrix3::Zero(),
-                 const Matrix3 & angularDamping = Matrix3::Zero());
+                 const Matrix3 & linearStiffness = Matrix3::Constant(-1),
+                 const Matrix3 & linearDamping = Matrix3::Constant(-1),
+                 const Matrix3 & angularStiffness = Matrix3::Constant(-1),
+                 const Matrix3 & angularDamping = Matrix3::Constant(-1));
 
   /// @brief Set a new contact with the environment (use default covariance matrices)
   ///
   /// @param pose  is the initial guess on the position of the contact. Only position and orientation are enough
   /// @param contactNumber the number id of the contact to add. If no predefined id, use -1 (default) in order to set
   /// the number automatically
-  /// @param linearStiffness the linear stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Zero()
-  /// (default) to use the default one
-  /// @param linearDamping  the linear damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero()
-  /// (default) to use the default one
+  /// @param linearStiffness the linear stiffness of the contact viscoelastic model, if unknown, set to
+  /// Matrix3::Constant(-1) (default) to use the default one
+  /// @param linearDamping  the linear damping of the contact viscoelastic model, if unknown, set to
+  /// Matrix3::Constant(-1) (default) to use the default one
   /// @param angularStiffness the angular stiffness of the contact viscoelastic model, if unknown, set to
-  /// Matrix3::Zero() (default) to use the default one
-  /// @param angularDamping the angular damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero()
-  /// (default) to use the default one
+  /// Matrix3::Constant(-1) (default) to use the default one
+  /// @param angularDamping the angular damping of the contact viscoelastic model, if unknown, set to
+  /// Matrix3:::Constant(-1) (default) to use the default one
   /// @return int the id number of the contact just added (returns contactNumber if it is positive)
   int addContact(const Kinematics & pose,
+                 const Vector6 & contactWrench = Vector6::Zero(),
                  int contactNumber = -1,
-                 const Matrix3 & linearStiffness = Matrix3::Zero(),
-                 const Matrix3 & linearDamping = Matrix3::Zero(),
-                 const Matrix3 & angularStiffness = Matrix3::Zero(),
-                 const Matrix3 & angularDamping = Matrix3::Zero());
+                 const Matrix3 & linearStiffness = Matrix3::Constant(-1),
+                 const Matrix3 & linearDamping = Matrix3::Constant(-1),
+                 const Matrix3 & angularStiffness = Matrix3::Constant(-1),
+                 const Matrix3 & angularDamping = Matrix3::Constant(-1));
 
   /// @brief Remove a contact
   ///

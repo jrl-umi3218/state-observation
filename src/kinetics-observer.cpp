@@ -855,6 +855,7 @@ void KineticsObserver::setAngularMomentum(const Vector3 & sigma)
 }
 
 int KineticsObserver::addContact(const Kinematics & pose,
+                                 const Vector6 & contactWrench,
                                  const Matrix12 & initialCovarianceMatrix,
                                  const Matrix12 & processCovarianceMatrix,
                                  int contactNumber,
@@ -897,8 +898,9 @@ int KineticsObserver::addContact(const Kinematics & pose,
   contact.stateIndexTangent = contactsIndexTangent() + contactNumber * sizeContactTangent;
 
   contact.absPose = pose;
+  contact.wrench = contactWrench;
 
-  if(linearDamping != Matrix3::Zero())
+  if(linearDamping != Matrix3::Constant(-1))
   {
     contact.linearStiffness = linearStiffness;
   }
@@ -907,7 +909,7 @@ int KineticsObserver::addContact(const Kinematics & pose,
     contact.linearStiffness = linearStiffnessMatDefault_;
   }
 
-  if(linearDamping != Matrix3::Zero())
+  if(linearDamping != Matrix3::Constant(-1))
   {
     contact.linearDamping = linearDamping;
   }
@@ -916,7 +918,7 @@ int KineticsObserver::addContact(const Kinematics & pose,
     contact.linearDamping = linearDampingMatDefault_;
   }
 
-  if(angularStiffness != Matrix3::Zero())
+  if(angularStiffness != Matrix3::Constant(-1))
   {
     contact.angularStiffness = angularStiffness;
   }
@@ -925,7 +927,7 @@ int KineticsObserver::addContact(const Kinematics & pose,
     contact.angularStiffness = angularStiffnessMatDefault_;
   }
 
-  if(angularDamping != Matrix3::Zero())
+  if(angularDamping != Matrix3::Constant(-1))
   {
     contact.angularDamping = angularDamping;
   }
@@ -952,14 +954,15 @@ int KineticsObserver::addContact(const Kinematics & pose,
 
 /// version when the contact position is perfectly known
 int KineticsObserver::addContact(const Kinematics & pose,
+                                 const Vector6 & contactWrench,
                                  int contactNumber,
                                  const Matrix3 & linearStiffness,
                                  const Matrix3 & linearDamping,
                                  const Matrix3 & angularStiffness,
                                  const Matrix3 & angularDamping)
 {
-  return addContact(pose, contactInitCovMatDefault_, contactProcessCovMatDefault_, contactNumber, linearStiffness,
-                    linearDamping, angularStiffness, angularDamping);
+  return addContact(pose, contactWrench, contactInitCovMatDefault_, contactProcessCovMatDefault_, contactNumber,
+                    linearStiffness, linearDamping, angularStiffness, angularDamping);
 }
 
 void KineticsObserver::removeContact(int contactNbr)
