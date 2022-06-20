@@ -556,7 +556,7 @@ int KineticsObserver::setIMU(const Vector3 & accelero, const Vector3 & gyrometer
 int KineticsObserver::setIMU(const Vector3 & accelero,
                              const Vector3 & gyrometer,
                              const Matrix3 & acceleroCov,
-                             const Matrix3 gyroCov,
+                             const Matrix3 & gyroCov,
                              const Kinematics & localKine,
                              int num)
 {
