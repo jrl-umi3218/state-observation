@@ -114,7 +114,7 @@ public:
   /// @name Setting kinematic sensors
   /// These are the methods to be called at each iteration to give the control
   /// inputs and the sensor measurement for IMUs and absolute pose sensors.
-  // //////////////////////////////////////////////////////////
+  /// //////////////////////////////////////////////////////////
 
   /// @{
 
@@ -303,7 +303,7 @@ public:
   // /////////////////////////////////////////////
   /// @name Setting additional inputs to the dynamical system
   /// @details It is highly recommended to set these inputs at each iteration
-  // ////////////////////////////////////////////////
+  /// ////////////////////////////////////////////////
 
   /// @{
   /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
@@ -377,7 +377,7 @@ public:
 
   // ///////////////////////////////////////////////////////////
   /// @name Running and getting the estimations
-  // //////////////////////////////////////////////////////////
+  /// /////////////////////////////////////////////////////////
   /// @{
 
   /// @brief Runs the estimation.
@@ -440,7 +440,7 @@ public:
   Vector6 getUnmodeledWrench() const;
   /// @}
 
-  // ////////////////////////////////////////////////////////////
+  /// ///////////////////////////////////////////////////////////
   /// @name Set values for state components
   /// These methods allow to update some parts of the state of the system based on guesses obtained independently
   // /////////////////////////////////////////////////////////
@@ -730,7 +730,7 @@ public:
 
   // ///////////////////////////////////////////////////////////
   /// Getters for the indexes of the tangent state Vector
-  // //////////////////////////////////////////////////////////
+  /// //////////////////////////////////////////////////////////
 
   /// @brief Get the kinematics index of the tangent state vector
   ///
@@ -842,9 +842,10 @@ public:
 protected:
   struct Sensor
   {
-    Sensor(int signalSize) : size(signalSize), time(0) {}
+    Sensor(int signalSize) : measIndex(-1), measIndexTangent(-1), size(signalSize), time(0) {}
     virtual ~Sensor() {}
     int measIndex;
+    int measIndexTangent;
     int size;
     TimeIndex time;
 
@@ -906,6 +907,7 @@ protected:
     AbsolutePoseSensor() : Sensor(sizePose) {}
 
     Kinematics pose;
+    static const Kinematics::Flags::Byte poseFlags = Kinematics::Flags::position | Kinematics::Flags::orientation;
     CheckedMatrix6 covMatrix;
   };
 
