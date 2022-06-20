@@ -454,7 +454,7 @@ public:
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
-private:
+protected:
   void check_() const;
 
   inline const Matrix3 & quaternionToMatrix_() const;
