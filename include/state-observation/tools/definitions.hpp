@@ -331,7 +331,8 @@ public:
   }
 
 private:
-  /// no object
+  /// This object is not used but it is still declared to keep the same signature
+  T b_;
 };
 
 /// this is simply a structure allowing for automatically verifying that
