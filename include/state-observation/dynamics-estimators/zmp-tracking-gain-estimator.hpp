@@ -34,8 +34,11 @@ public:
   /// default expected drift of the bias every second
   constexpr static double defaultGainDriftSecond = 0.002;
 
-  /// default error in the measurements of the sensor
-  constexpr static double defaultZmpErrorStd = 0.005;
+  /// default error in the process linear dynamics of the zmp (in meters)
+  constexpr static double defaultZmpProcessErrorStd = 0.005;
+
+  /// default error in the measurements of the zmp
+  constexpr static double defaultZmpMeasurementErrorStd = 0.005;
 
   /// default value for gain minimum, the gain has to be a positive definite matrix with the smallest eigenvalue bigger
   /// than this value
@@ -50,8 +53,10 @@ public:
   /// @brief Construct a new ZMP Gain Estimator object
   ///
   /// @param dt                     the sampling time in seconds
-  /// @param gainDriftPerSecond     the standard deviation of the gain drift (1/s)
   /// @param zmpMeasureErrorStd     the standard deviation of the zmp estimation error (m)
+  /// @param gainDriftPerSecond     the standard deviation of the gain drift (1/s). The components of this vetor
+  /// represent respectively the diagonal components then the nondiagonal one
+  /// @param zmpProcessErrorStd     the standard deviation of the process linear dynamics of the zmp (m)
   /// @param minimumGain            minimum, the gain has to be a positive definite matrix with the smallest
   /// eigenvalue bigger than this value
   /// @param initZMP                the initial value of the ZMP (m)
@@ -62,8 +67,9 @@ public:
   /// @param initZMPUncertainty     the uncertainty in the ZMP initial value in meters
   /// @param initGainUncertainty    the uncertainty in the Gain initial value in (1/s)
   ZmpTrackingGainEstimator(double dt = defaultDt_,
-                           double gainDriftPerSecond = defaultGainDriftSecond,
-                           double zmpMeasureErrorStd = defaultZmpErrorStd,
+                           const Vector2 & zmpMeasureErrorStd = Vector2::Constant(defaultZmpMeasurementErrorStd),
+                           const Vector3 & gainDriftPerSecond = Vector3::Constant(defaultGainDriftSecond),
+                           const Vector2 & zmpProcessErrorStd = Vector2::Constant(defaultZmpProcessErrorStd),
                            double minimumGain = defaultGainMinimum,
                            const Vector2 & initZMP = Vector2::Zero(),
                            const Vector3 & initGain = Vector3::Zero(),
@@ -126,7 +132,7 @@ public:
   }
 
   ///@brief Destroy the Lipm Dcm Bias Estimator object
-  ~ZmpTrackingGainEstimator();
+  ~ZmpTrackingGainEstimator() {}
 
   ///@brief Set the Sampling Time
   ///
@@ -135,27 +141,34 @@ public:
 
   ///@brief Set the Gain from a guess
   ///
-  ///@param bias guess
-  void setGain(const Vector2 & bias);
+  ///@param gain guess in the world frame. The two first components are the diagonal ones and the last one is the non
+  /// diagonal scalar
+  void setGain(const Vector3 & gain);
 
-  ///@copydoc setGain(double bias)
+  ///@copydoc setGain(const Vector3& bias)
   ///
   ///@param the uncertainty you have in this guess in meters
-  void setGain(const Vector2 & bias, const Vector2 & uncertainty);
+  void setGain(const Vector3 & gain, const Vector3 & uncertainty);
 
   /// @brief Set the Gain Drift Per Second
   ///
-  /// @param driftPerSecond the standard deviation of the gain
-  void setGainDriftPerSecond(double driftPerSecond);
+  /// @param driftPerSecond the expectation of the drift of the gain per second. The components of this vetor represent
+  /// respectively the diagonal components then the nondiagonal one
+  void setGainDriftPerSecond(const Vector3 &);
 
   /// @brief Set the Gain Limit
   ///
   /// @param minGain the minimal value of the gain
   void setMinimumGain(const double & minGain);
 
+  /// @brief Set the covariance of the zmp process linear dynamics error
+  ///
+  /// @param processErrorStd the standard deviation of the process dynamcis error
+  void setZMPProcesError(const Vector2 &);
+
   /// @brief Set the Zmp Measurement Error Stamdard deviation
   ///
-  void setZmpMeasureErrorStd(double);
+  void setZmpMeasureErrorStd(const Vector2 &);
 
   /// @brief Set the Inputs of the estimator.
   /// @details The yaw will be extracted from the orientation using the axis agnostic
@@ -227,50 +240,55 @@ public:
   }
 
 protected:
-  typedef Eigen::Matrix<double, 4, 2> Matrix42;
-  typedef Eigen::Matrix<double, 2, 4> Matrix24;
+  typedef Eigen::Matrix<double, 2, 5> Matrix25;
+  typedef Eigen::Matrix<double, 2, 3> Matrix23;
 
-  /// @brief set Matrices: A, B, Q
-  void updateMatricesABQ_();
-
-  double omega0_;
   double dt_;
-  double biasDriftStd_;
-  double zmpErrorStd_;
 
-  Vector2 previousZmp_;
+  double minimumGain_;
 
-  Vector2 biasLimit_;
+  Vector2 zmpMeasureErrorstd_;
+  Vector3 gainDriftPerSecondStd_;
+  Vector2 zmpProcessErrorStd_;
+
+  Matrix2 yaw_;
 
   LinearKalmanFilter filter_;
   Matrix4 A_;
-  Matrix42 B_;
-  /// this needs to be transposed
-  Matrix24 C_;
+  /// The B matrix is zero
+  Matrix25 C_;
+
   /// measurement noise
   Matrix2 R_;
 
   /// process noise
-  Matrix4 Q_;
+  Matrix5 Q_;
 
   Matrix2 previousOrientation_;
 
   /// @brief builds a diagonal out of the square valued of the Vec2
-  inline static Matrix2 Vec2ToSqDiag(const Vector2 & v)
+  inline static Matrix2 Vec2ToSqDiag_(const Vector2 & v)
   {
     return Vector2(v.array().square()).asDiagonal();
   }
 
-  /// @brief builds a constant 2x2 diagonal from a double
-  inline static Matrix2 dblToDiag(const double & d)
+  /// @brief builds a diagonal out of the square valued of the Vec3
+  inline static Matrix3 Vec3ToSqDiag_(const Vector3 & v)
   {
-    return Vector2::Constant(d).asDiagonal();
+    return Vector3(v.array().square()).asDiagonal();
   }
 
-  /// @brief builds a constant 2x2 diagonal from a square of a double
-  inline static Matrix2 dblToSqDiag(const double & d)
+  inline void updateR_()
   {
-    return dblToDiag(d * d);
+    R_ = Vec2ToSqDiag_(zmpMeasureErrorstd_);
+    filter_.setMeasurementCovariance(R_);
+  }
+
+  inline void updateQ_()
+  {
+    Q_.topLeftCorner<2, 2>() = Vec2ToSqDiag_(zmpProcessErrorStd_);
+    Q_.bottomRightCorner<3, 3>() = Vec3ToSqDiag_(gainDriftPerSecondStd_);
+    filter_.setProcessCovariance(Q_);
   }
 
 public:
