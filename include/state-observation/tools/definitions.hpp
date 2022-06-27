@@ -90,6 +90,9 @@ typedef Eigen::Matrix<double, 3, 1, Eigen::DontAlign> Vector3Unaligned;
 /// 4D vector
 typedef Eigen::Vector4d Vector4;
 
+/// 5D vector
+typedef Eigen::Matrix<double, 5, 1> Vector5;
+
 /// 6D vector
 typedef Eigen::Matrix<double, 6, 1> Vector6;
 
@@ -110,6 +113,9 @@ typedef Eigen::Matrix<double, 3, 3, Eigen::DontAlign> Matrix3Unaligned;
 
 /// 4x4 Scalar Matrix
 typedef Eigen::Matrix4d Matrix4;
+
+/// 5x5 Scalar Matrix
+typedef Eigen::Matrix<double, 5, 5> Matrix5;
 
 /// 6x6 Scalar Matrix
 typedef Eigen::Matrix<double, 6, 6> Matrix6;
