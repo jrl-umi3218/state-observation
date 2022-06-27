@@ -20,6 +20,7 @@ constexpr double LipmDcmEstimator::defaultDcmErrorStd;
 constexpr double LipmDcmEstimator::defaultBiasLimit;
 
 using namespace tools;
+
 LipmDcmEstimator::LipmDcmEstimator(double dt,
                                    double omega_0,
                                    double biasDriftStd,
@@ -32,11 +33,12 @@ LipmDcmEstimator::LipmDcmEstimator(double dt,
                                    const Vector2 & initDcmUncertainty,
                                    const Vector2 & initBiasUncertainty)
 : omega0_(omega_0), dt_(dt), biasDriftStd_(biasDriftStd), zmpErrorStd_(zmpMeasureErrorStd), previousZmp_(initZMP),
-  biasLimit_(biasLimit), filter_(4, 2, 2), A_(Matrix4::Identity()), previousOrientation_(Matrix2::Identity())
+  biasLimit_(biasLimit), filter_(4, 2, 2), previousOrientation_(Matrix2::Identity())
 {
+  A_.setIdentity();
   updateMatricesABQ_();
   C_ << Matrix2::Identity(), Matrix2::Identity();
-  R_ = dblToSqDiag(dcmMeasureErrorStd);
+  R_ = dblToSqDiag_(dcmMeasureErrorStd);
   filter_.setC(C_);
   filter_.setMeasurementCovariance(R_);
   Vector4 x;
@@ -44,8 +46,8 @@ LipmDcmEstimator::LipmDcmEstimator(double dt,
   filter_.setState(x, 0);
   Matrix4 P;
   // clang-format off
-  P<< Vec2ToSqDiag(initDcmUncertainty),  Matrix2::Zero(),
-      Matrix2::Zero(),                   Vec2ToSqDiag(initBiasUncertainty);
+  P<< Vec2ToSqDiag_(initDcmUncertainty),  Matrix2::Zero(),
+      Matrix2::Zero(),                   Vec2ToSqDiag_(initBiasUncertainty);
   // clang-format on
   filter_.setStateCovariance(P);
 }
@@ -79,7 +81,7 @@ void LipmDcmEstimator::resetWithMeasurements(const Vector2 & measuredDcm,
 
   if(measurementIsWithBias)
   {
-    Matrix2 initBiasCov = Vec2ToSqDiag(initBiasuncertainty);
+    Matrix2 initBiasCov = Vec2ToSqDiag_(initBiasuncertainty);
     /// The state and the
     // clang-format off
     P<< initBiasCov+R_, -initBiasCov,
@@ -90,7 +92,7 @@ void LipmDcmEstimator::resetWithMeasurements(const Vector2 & measuredDcm,
   {
     // clang-format off
     P<< R_,               Matrix2::Zero(),
-        Matrix2::Zero(),  Vec2ToSqDiag(initBiasuncertainty);
+        Matrix2::Zero(),  Vec2ToSqDiag_(initBiasuncertainty);
     // clang-format on
   }
 
@@ -126,14 +128,14 @@ void LipmDcmEstimator::setBias(const Vector2 & bias, const Vector2 & uncertainty
   /// resetting the non diagonal parts
   P.topRightCorner<2, 2>().setZero();
   P.bottomLeftCorner<2, 2>().setZero();
-  P.bottomRightCorner<2, 2>() = Vec2ToSqDiag(uncertainty);
+  P.bottomRightCorner<2, 2>() = Vec2ToSqDiag_(uncertainty);
   filter_.setStateCovariance(P);
 }
 
 void LipmDcmEstimator::setBiasDriftPerSecond(double driftPerSecond)
 {
   /// update the corresponding part in the process noise matrix
-  Q_.bottomRightCorner<2, 2>() = dblToSqDiag(driftPerSecond);
+  Q_.bottomRightCorner<2, 2>() = dblToSqDiag_(driftPerSecond);
   filter_.setProcessCovariance(Q_);
 }
 
@@ -157,7 +159,7 @@ void LipmDcmEstimator::setUnbiasedDCM(const Vector2 & dcm, const Vector2 & uncer
   /// resetting the non diagonal parts
   P.topRightCorner<2, 2>().setZero();
   P.bottomLeftCorner<2, 2>().setZero();
-  P.topLeftCorner<2, 2>() = Vec2ToSqDiag(uncertainty);
+  P.topLeftCorner<2, 2>() = Vec2ToSqDiag_(uncertainty);
   filter_.setStateCovariance(P);
 }
 
@@ -170,7 +172,7 @@ void LipmDcmEstimator::setZmpMeasureErrorStd(double std)
 void LipmDcmEstimator::setDcmMeasureErrorStd(double std)
 {
   Matrix2 R;
-  R = dblToSqDiag(std);
+  R = dblToSqDiag_(std);
 }
 
 void LipmDcmEstimator::update()
@@ -237,16 +239,15 @@ Vector2 LipmDcmEstimator::getBias() const
 
 void LipmDcmEstimator::updateMatricesABQ_()
 {
-  // clang-format off
-
   ///We only modify a corner to avoid resetting the orientation
-  A_.topLeftCorner<2,2>() = dblToDiag(1 + omega0_ * dt_);
+  A_.topLeftCorner<2, 2>() = dblToDiag_(1 + omega0_ * dt_);
 
-  B_ << dblToDiag(-omega0_ * dt_),
+  // clang-format off
+  B_ << dblToDiag_(-omega0_ * dt_),
         Matrix2::Zero();
 
-  Q_ << dblToSqDiag(omega0_* dt_ * zmpErrorStd_), Matrix2::Zero(),
-         Matrix2::Zero(),                         dblToSqDiag(biasDriftStd_*dt_);
+  Q_ << dblToSqDiag_(omega0_* dt_ * zmpErrorStd_), Matrix2::Zero(),
+         Matrix2::Zero(),                         dblToSqDiag_(biasDriftStd_*dt_);
   // clang-format on
 
   filter_.setA(A_);

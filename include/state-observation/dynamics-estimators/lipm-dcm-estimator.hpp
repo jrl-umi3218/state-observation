@@ -205,7 +205,7 @@ public:
   ///@param bias guess
   void setBias(const Vector2 & bias);
 
-  ///@copydoc setBias(double bias)
+  ///@copydoc setBias(const Vector2 & bias)
   ///
   ///@param the uncertainty you have in this guess in meters
   void setBias(const Vector2 & bias, const Vector2 & uncertainty);
@@ -340,21 +340,21 @@ protected:
   Matrix2 previousOrientation_;
 
   /// @brief builds a diagonal out of the square valued of the Vec2
-  inline static Matrix2 Vec2ToSqDiag(const Vector2 & v)
+  inline static Matrix2 Vec2ToSqDiag_(const Vector2 & v)
   {
     return Vector2(v.array().square()).asDiagonal();
   }
 
   /// @brief builds a constant 2x2 diagonal from a double
-  inline static Matrix2 dblToDiag(const double & d)
+  inline static Matrix2 dblToDiag_(const double & d)
   {
     return Vector2::Constant(d).asDiagonal();
   }
 
   /// @brief builds a constant 2x2 diagonal from a square of a double
-  inline static Matrix2 dblToSqDiag(const double & d)
+  inline static Matrix2 dblToSqDiag_(const double & d)
   {
-    return dblToDiag(d * d);
+    return dblToDiag_(d * d);
   }
 
 public:
