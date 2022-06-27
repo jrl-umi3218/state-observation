@@ -96,10 +96,17 @@ void ZmpTrackingGainEstimator::setZMPProcesError(const Vector2 & zmpprocesserror
 ///
 void ZmpTrackingGainEstimator::setZmpMeasureErrorStd(const Vector2 &) {}
 
-/// @brief Get the estimated Bias expressed in the local frame of the robot
-///
-/// @return double
-Matrix2 ZmpTrackingGainEstimator::getEstimatedLocalGain() const {}
+Matrix2 ZmpTrackingGainEstimator::getEstimatedLocalGain() const
+{
+  Vector5 x = filter_.getCurrentEstimatedState();
+  Matrix2 K;
+
+  // clang-format off
+  K<<x(2),x(4),
+     x(4),x(3);
+  // clang-format on
+  return K;
+}
 
 /// @brief Set the Inputs of the estimator.
 ///
