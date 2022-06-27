@@ -239,7 +239,7 @@ Vector2 LipmDcmEstimator::getBias() const
 
 void LipmDcmEstimator::updateMatricesABQ_()
 {
-  ///We only modify a corner to avoid resetting the orientation
+  /// We only modify a corner to avoid resetting the orientation
   A_.topLeftCorner<2, 2>() = dblToDiag_(1 + omega0_ * dt_);
 
   // clang-format off
