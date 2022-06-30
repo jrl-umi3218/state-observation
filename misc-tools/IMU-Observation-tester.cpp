@@ -66,7 +66,7 @@ int test(const IndexedVectorArray & y)
   Matrix q = Matrix::Identity(stateSize, stateSize) * 0.01;
   Matrix r = Matrix::Identity(measurementSize, measurementSize) * 100;
 
-  IndexedVectorArray xh = examples::imuAttitudeTrajectoryReconstruction(y, xh0, p, q, r, dt);
+  IndexedVectorArray xh = examples::imuAttitudeTrajectoryReconstruction(y, xh0, p, q, r, dt, false);
 
   /// file of output
   std::ofstream f;
