@@ -35,12 +35,28 @@ class STATE_OBSERVATION_DLLAPI AccelerometerGyrometer : public AlgebraicSensor,
                                                         protected algorithm::RotationVelocity
 {
 public:
-  AccelerometerGyrometer();
+  AccelerometerGyrometer(bool matrixMode = false, bool withAcceleroBias = false, bool withGyroBias = false);
 
   /// Virtual destructor
   virtual ~AccelerometerGyrometer() {}
 
-  void setMatrixMode(bool matrixMode);
+  void setMatrixMode(bool matrixMode)
+  {
+    matrixMode_ = matrixMode;
+    updateStateSize_();
+  }
+
+  void setWithGyroBias(bool withGyroBias)
+  {
+    withGyroBias_ = withGyroBias;
+    updateStateSize_();
+  }
+
+  void setWithAcceleroBias(bool withAcceleroBias)
+  {
+    withAcceleroBias_ = withAcceleroBias;
+    updateStateSize_();
+  }
 
 protected:
   /// Gets the state vector Size
@@ -51,16 +67,20 @@ protected:
 
   virtual Vector computeNoiselessMeasurement_();
 
+  void updateStateSize_();
+
   Matrix3 r_;
   Vector3 acc_;
   Vector3 omega_;
   Vector output_;
 
+  bool withGyroBias_;
+  bool withAcceleroBias_;
+
   bool matrixMode_;
 
   static const Index stateSize_ = 10;
   static const Index stateSizeMatrix_ = 15;
-
   static const Index measurementSize_ = 6;
 
   Index currentStateSize_;

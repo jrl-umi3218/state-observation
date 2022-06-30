@@ -35,7 +35,7 @@ class STATE_OBSERVATION_DLLAPI IMUDynamicalSystem : public DynamicalSystemFuncto
 {
 public:
   /// The constructor
-  IMUDynamicalSystem();
+  IMUDynamicalSystem(bool withGyroBias = false);
 
   /// The virtual destructor
   virtual ~IMUDynamicalSystem();
@@ -84,9 +84,15 @@ protected:
 
   Quaternion computeQuaternion_(const Vector3 & x);
 
-  static const Index stateSize_ = 18;
+  static const Index stateSizeBase_ = 18; /// the state size may be bigger if the bias is considered
+  Index statesize_;
   static const Index inputSize_ = 6;
   static const Index measurementSize_ = 6;
+
+  bool withGyroBias_;
+
+  /// the factor that approximate the "one" to avoid drifting of unobservable values
+  static constexpr double one_ = 0.9999;
 
 private:
 public:

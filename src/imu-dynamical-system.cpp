@@ -5,13 +5,25 @@
 namespace stateObservation
 {
 
-IMUDynamicalSystem::IMUDynamicalSystem()
-: processNoise_(0x0), dt_(1), orientationVector_(Vector3::Zero()), quaternion_(Quaternion::Identity())
+constexpr double IMUDynamicalSystem::one_;
+
+IMUDynamicalSystem::IMUDynamicalSystem(bool withGyroBias)
+: processNoise_(0x0), dt_(1), orientationVector_(Vector3::Zero()), quaternion_(Quaternion::Identity()),
+  withGyroBias_(withGyroBias)
 {
 #ifdef STATEOBSERVATION_VERBOUS_CONSTRUCTORS
   std::cout << std::endl << "IMUFixedContactDynamicalSystem Constructor" << std::endl;
 #endif // STATEOBSERVATION_VERBOUS_CONSTRUCTOR
        // ctor
+  sensor_.setWithGyroBias(withGyroBias);
+  if(withGyroBias)
+  {
+    statesize_ = stateSizeBase_ + 3;
+  }
+  else
+  {
+    statesize_ = stateSizeBase_;
+  }
 }
 
 IMUDynamicalSystem::~IMUDynamicalSystem()
@@ -24,37 +36,48 @@ Vector IMUDynamicalSystem::stateDynamics(const Vector & x, const Vector & u, Tim
   assertStateVector_(x);
   assertInputVector_(u);
 
-  Vector3 position = x.segment(indexes::pos, 3);
-  Vector3 velocity = x.segment(indexes::linVel, 3);
-  Vector3 acceleration = x.segment(indexes::linAcc, 3);
+  Vector3 position = x.segment<3>(indexes::pos);
+  Vector3 velocity = x.segment<3>(indexes::linVel);
+  Vector3 acceleration = x.segment<3>(indexes::linAcc);
 
-  Vector3 orientationV = x.segment(indexes::ori, 3);
-  Vector3 angularVelocity = x.segment(indexes::angVel, 3);
-  Vector3 angularAcceleration = x.segment(indexes::angAcc, 3);
+  Vector3 orientationV = x.segment<3>(indexes::ori);
+  Vector3 angularVelocity = x.segment<3>(indexes::angVel);
+  Vector3 angularAcceleration = x.segment<3>(indexes::angAcc);
+
+  Vector3 gyroBias;
+  if(withGyroBias_)
+  {
+    gyroBias = x.segment<3>(indexes::angAcc + 3);
+  }
 
   Quaternion orientation = computeQuaternion_(orientationV);
 
   kine::integrateKinematics(position, velocity, acceleration, orientation, angularVelocity, angularAcceleration, dt_);
 
   // x_{k+1}
-  Vector xk1 = Vector::Zero(18, 1);
+  Vector xk1 = Vector::Zero(getStateSize(), 1);
 
-  xk1.segment(indexes::pos, 3) = position;
-  xk1.segment(indexes::linVel, 3) = velocity;
+  xk1.segment<3>(indexes::pos) = position;
+  xk1.segment<3>(indexes::linVel) = velocity;
 
   AngleAxis orientationAA(orientation);
 
   orientationV = orientationAA.angle() * orientationAA.axis();
 
-  xk1.segment(indexes::ori, 3) = orientationV;
-  xk1.segment(indexes::angVel, 3) = angularVelocity;
+  xk1.segment<3>(indexes::ori) = orientationV;
+  xk1.segment<3>(indexes::angVel) = angularVelocity;
 
   // inputs
-  Vector3 accelerationInput = u.head(3);
-  Vector3 angularAccelerationInput = u.tail(3);
+  Vector3 accelerationInput = u.head<3>();
+  Vector3 angularAccelerationInput = u.tail<3>();
 
-  xk1.segment(indexes::linAcc, 3) += accelerationInput;
-  xk1.segment(indexes::angAcc, 3) += angularAccelerationInput;
+  xk1.segment<3>(indexes::linAcc) += accelerationInput;
+  xk1.segment<3>(indexes::angAcc) += angularAccelerationInput;
+
+  if(withGyroBias_)
+  {
+    xk1.segment<3>(indexes::angAcc + 3) = gyroBias * one_;
+  }
 
   if(processNoise_ != 0x0)
     return processNoise_->getNoisy(xk1);
@@ -77,19 +100,33 @@ Vector IMUDynamicalSystem::measureDynamics(const Vector & x, const Vector &, Tim
 {
   assertStateVector_(x);
 
-  Vector3 acceleration = x.segment(indexes::linAcc, 3);
+  Vector3 acceleration = x.segment<3>(indexes::linAcc);
 
-  Vector3 orientationV = x.segment(indexes::ori, 3);
-  Vector3 angularVelocity = x.segment(indexes::angVel, 3);
+  Vector3 orientationV = x.segment<3>(indexes::ori);
+  Vector3 angularVelocity = x.segment<3>(indexes::angVel);
 
   Quaternion q = computeQuaternion_(orientationV);
 
-  Vector v = Vector::Zero(10, 1);
+  Vector v;
+
+  if(withGyroBias_)
+  {
+    v = Vector::Zero(13, 1);
+  }
+  else
+  {
+    v = Vector::Zero(10, 1);
+  }
 
   v.head<4>() = q.coeffs();
 
-  v.segment(4, 3) = acceleration;
-  v.tail(3) = angularVelocity;
+  v.segment<3>(4) = acceleration;
+  v.segment<3>(7) = angularVelocity;
+
+  if(withGyroBias_)
+  {
+    v.segment<3>(10) = x.segment<3>(indexes::angAcc + 3);
+  }
 
   sensor_.setState(v, k);
 
@@ -122,7 +159,7 @@ void IMUDynamicalSystem::setSamplingPeriod(double dt)
 
 Index IMUDynamicalSystem::getStateSize() const
 {
-  return stateSize_;
+  return statesize_;
 }
 
 Index IMUDynamicalSystem::getInputSize() const
