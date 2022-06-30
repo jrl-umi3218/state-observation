@@ -50,6 +50,7 @@ namespace examples
  *  \param q the covariance matrix of the process noise (state perturbation)
  *  \param r the covariance matrix of the measurement noise
  *  \param dt the time discretization period
+ *  \param withGyroBias sets if the gyro was estimated
  */
 
 IndexedVectorArray imuAttitudeTrajectoryReconstruction(const IndexedVectorArray & y,
@@ -58,7 +59,8 @@ IndexedVectorArray imuAttitudeTrajectoryReconstruction(const IndexedVectorArray 
                                                        const Matrix & p,
                                                        const Matrix & q,
                                                        const Matrix & r,
-                                                       double dt);
+                                                       double dt,
+                                                       bool withGyroBias);
 
 /*! \fn IndexedVectorArray imuAttitudeTrajectoryReconstruction(
  *   const IndexedVectorArray & y,
@@ -89,7 +91,8 @@ IndexedVectorArray imuAttitudeTrajectoryReconstruction(const IndexedVectorArray 
                                                        const Matrix & p,
                                                        const Matrix & q,
                                                        const Matrix & r,
-                                                       double dt);
+                                                       double dt,
+                                                       bool withGyroBias);
 
 #include <state-observation/examples/imu-attitude-trajectory-reconstruction.hxx>
 

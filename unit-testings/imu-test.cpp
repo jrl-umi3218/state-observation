@@ -8,7 +8,7 @@ using namespace stateObservation;
 
 typedef kine::indexes<kine::rotationVector> indexes;
 
-int test()
+int test(bool withGyroBias)
 {
   /// The number of samples
   const Index kmax = 10000;
@@ -17,7 +17,15 @@ int test()
   const double dt = 1e-3;
 
   /// Sizes of the states for the state, the measurement, and the input vector
-  const unsigned stateSize = 18;
+  unsigned stateSize;
+  if(withGyroBias)
+  {
+    stateSize = 21;
+  }
+  else
+  {
+    stateSize = 18;
+  }
   const unsigned measurementSize = 6;
   // const unsigned inputSize=6;
 
@@ -33,7 +41,7 @@ int test()
   {
     /// simulation of the signal
     /// the IMU dynamical system functor
-    IMUDynamicalSystem imu;
+    IMUDynamicalSystem imu(withGyroBias);
 
     /// The process noise initialization
     Matrix q1 = Matrix::Identity(stateSize, stateSize) * 0.001;
@@ -113,13 +121,15 @@ int test()
   tools::SimplestStopwatch timer;
   timer.start();
 
-  IndexedVectorArray xh = examples::imuAttitudeTrajectoryReconstruction(y, u, xh0, p, q, r, dt);
+  IndexedVectorArray xh = examples::imuAttitudeTrajectoryReconstruction(y, u, xh0, p, q, r, dt, withGyroBias);
 
   double duration = timer.stop();
 
+#ifdef OUTPUT_TRAJECTORY_FILE
   /// file of output
   std::ofstream f;
   f.open("trajectory.dat");
+#endif
 
   double dx = 0;
 
@@ -154,7 +164,9 @@ int test()
 
     dx = acos(double(g.transpose() * gh));
 
+#ifdef OUTPUT_TRAJECTORY_FILE
     f << i << " \t " << dx * 180 / M_PI << " \t\t\t " << g.transpose() << " \t\t\t " << gh.transpose() << std::endl;
+#endif
   }
 
   std::cout << "computation time: " << duration / kmax << ". ";
@@ -174,5 +186,5 @@ int test()
 
 int main()
 {
-  return test();
+  return test(false) || test(true);
 }

@@ -1,15 +1,22 @@
-IndexedVectorArray imuAttitudeTrajectoryReconstruction
-    (
-    const IndexedVectorArray & y,
-    const IndexedVectorArray & u,
-    const Vector & xh0,
-    const Matrix & p,
-    const Matrix & q,
-    const Matrix & r,
-    double dt)
+IndexedVectorArray imuAttitudeTrajectoryReconstruction(const IndexedVectorArray & y,
+                                                       const IndexedVectorArray & u,
+                                                       const Vector & xh0,
+                                                       const Matrix & p,
+                                                       const Matrix & q,
+                                                       const Matrix & r,
+                                                       double dt,
+                                                       bool withGyroBias)
 {
     ///Sizes of the states for the state, the measurement, and the input vector
-    const Index stateSize=18;
+    Index stateSize;
+    if(withGyroBias)
+    {
+      stateSize = 21;
+    }
+    else
+    {
+      stateSize = 18;
+    }
     const Index measurementSize=6;
     const Index inputSize=6;
 
@@ -19,7 +26,7 @@ IndexedVectorArray imuAttitudeTrajectoryReconstruction
     ExtendedKalmanFilter filter(stateSize, measurementSize, inputSize, false);
 
     ///initalization of the functor
-    IMUDynamicalSystem imuFunctor;
+    IMUDynamicalSystem imuFunctor(withGyroBias);
     imuFunctor.setSamplingPeriod(dt);
     filter.setFunctor(& imuFunctor);
 
@@ -79,13 +86,13 @@ IndexedVectorArray imuAttitudeTrajectoryReconstruction
     return xh;
 }
 
-IndexedVectorArray imuAttitudeTrajectoryReconstruction(
-    const IndexedVectorArray & y,
-    const Vector & xh0,
-    const Matrix & p,
-    const Matrix & q,
-    const Matrix & r,
-    double dt)
+IndexedVectorArray imuAttitudeTrajectoryReconstruction(const IndexedVectorArray & y,
+                                                       const Vector & xh0,
+                                                       const Matrix & p,
+                                                       const Matrix & q,
+                                                       const Matrix & r,
+                                                       double dt,
+                                                       bool withGyroBias)
 {
     const Index inputSize=6;
 
@@ -96,5 +103,5 @@ IndexedVectorArray imuAttitudeTrajectoryReconstruction(
         u.setValue(Vector::Zero(inputSize,1),k);
     }
 
-    return imuAttitudeTrajectoryReconstruction (y, u, xh0, p, q, r, dt);
+    return imuAttitudeTrajectoryReconstruction(y, u, xh0, p, q, r, dt, withGyroBias);
 }
