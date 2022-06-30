@@ -50,6 +50,7 @@ var definitions_8hpp =
     [ "Matrix3", "definitions_8hpp.html#a76df2159abbf28e45b50358d0edab068", null ],
     [ "Matrix3Unaligned", "definitions_8hpp.html#a2dce08f7e0a9b0dbb41faa88e7394c29", null ],
     [ "Matrix4", "definitions_8hpp.html#a009f7f7e8b38b3cecc561738ad60eb52", null ],
+    [ "Matrix5", "definitions_8hpp.html#ac93c756df12b231075cc01963aeed10a", null ],
     [ "Matrix6", "definitions_8hpp.html#aa4856a065f88d780a5c575335fbf81ee", null ],
     [ "Quaternion", "definitions_8hpp.html#a1d5e7448fab378f14e92403b1c2ef5b2", null ],
     [ "QuaternionUnaligned", "definitions_8hpp.html#af5aa1ced266d05a07805dfa9176dd6b8", null ],
@@ -62,6 +63,7 @@ var definitions_8hpp =
     [ "Vector3", "definitions_8hpp.html#a48b631a657b372795575083586eed2b7", null ],
     [ "Vector3Unaligned", "definitions_8hpp.html#aa11e0dcac5d3c2d176a52d62123e7a69", null ],
     [ "Vector4", "definitions_8hpp.html#a509dae854b3dd8ef8319b659ad6e8a2c", null ],
+    [ "Vector5", "definitions_8hpp.html#a84272627c22ea78705ea6db0461fe215", null ],
     [ "Vector6", "definitions_8hpp.html#a9d339a150bf05286eca83bc588349afe", null ],
     [ "errorType", "definitions_8hpp.html#ad190d4c7c4232683d9647ac44eb195d2", [
       [ "message", "definitions_8hpp.html#ad190d4c7c4232683d9647ac44eb195d2a8a333557001121ababbf49a4748a21c3", null ],

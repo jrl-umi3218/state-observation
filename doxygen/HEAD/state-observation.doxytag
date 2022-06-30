@@ -104,6 +104,16 @@
     <namespace>stateObservation</namespace>
   </compound>
   <compound kind="file">
+    <name>zmp-tracking-gain-estimator.hpp</name>
+    <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamics-estimators/</path>
+    <filename>zmp-tracking-gain-estimator_8hpp</filename>
+    <includes id="linear-kalman-filter_8hpp" name="linear-kalman-filter.hpp" local="no" imported="no">state-observation/observer/linear-kalman-filter.hpp</includes>
+    <includes id="miscellaneous-algorithms_8hpp" name="miscellaneous-algorithms.hpp" local="no" imported="no">state-observation/tools/miscellaneous-algorithms.hpp</includes>
+    <includes id="rigid-body-kinematics_8hpp" name="rigid-body-kinematics.hpp" local="no" imported="no">state-observation/tools/rigid-body-kinematics.hpp</includes>
+    <class kind="class">stateObservation::ZmpTrackingGainEstimator</class>
+    <namespace>stateObservation</namespace>
+  </compound>
+  <compound kind="file">
     <name>imu-attitude-trajectory-reconstruction.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/examples/</path>
     <filename>imu-attitude-trajectory-reconstruction_8hpp</filename>
@@ -117,15 +127,15 @@
       <type>IndexedVectorArray</type>
       <name>imuAttitudeTrajectoryReconstruction</name>
       <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>ac90a22efe8138e9a7a3026e17029b437</anchor>
-      <arglist>(const IndexedVectorArray &amp;y, const IndexedVectorArray &amp;u, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</arglist>
+      <anchor>a4eed802cc3be2d6b7632aae7655a1663</anchor>
+      <arglist>(const IndexedVectorArray &amp;y, const IndexedVectorArray &amp;u, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt, bool withGyroBias)</arglist>
     </member>
     <member kind="function">
       <type>IndexedVectorArray</type>
       <name>imuAttitudeTrajectoryReconstruction</name>
       <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>a91786013872d183262fd929e6db56fea</anchor>
-      <arglist>(const IndexedVectorArray &amp;y, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</arglist>
+      <anchor>ae097f2efc30e8ba3b2d2aa2fa6bfccb7</anchor>
+      <arglist>(const IndexedVectorArray &amp;y, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt, bool withGyroBias)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -504,6 +514,13 @@
       <arglist></arglist>
     </member>
     <member kind="typedef">
+      <type>Eigen::Matrix&lt; double, 5, 1 &gt;</type>
+      <name>Vector5</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>a84272627c22ea78705ea6db0461fe215</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
       <type>Eigen::Matrix&lt; double, 6, 1 &gt;</type>
       <name>Vector6</name>
       <anchorfile>namespacestateObservation.html</anchorfile>
@@ -550,6 +567,13 @@
       <name>Matrix4</name>
       <anchorfile>namespacestateObservation.html</anchorfile>
       <anchor>a009f7f7e8b38b3cecc561738ad60eb52</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Eigen::Matrix&lt; double, 5, 5 &gt;</type>
+      <name>Matrix5</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>ac93c756df12b231075cc01963aeed10a</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -1547,6 +1571,13 @@
       <anchor>a8a2f4d4ea9a957bbd50463c88c782014</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" static="yes">
+      <type>static const Kinematics::Flags::Byte</type>
+      <name>poseFlags</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor.html</anchorfile>
+      <anchor>ab42476a216bc452806447c020252ac6b</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>stateObservation::AccelerometerGyrometer</name>
@@ -1558,8 +1589,8 @@
       <type></type>
       <name>AccelerometerGyrometer</name>
       <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
-      <anchor>ad5b04f826372a18a9d836d6a8ea04c74</anchor>
-      <arglist>()</arglist>
+      <anchor>affc2a7b349e93c1f81c2ccc7d7673053</anchor>
+      <arglist>(bool matrixMode=false, bool withAcceleroBias=false, bool withGyroBias=false)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -1574,6 +1605,20 @@
       <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
       <anchor>af82f2263d32f909586880dfcaa9f03af</anchor>
       <arglist>(bool matrixMode)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithGyroBias</name>
+      <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
+      <anchor>ab8f4eb4a9577f491de343f4c0fb68e43</anchor>
+      <arglist>(bool withGyroBias)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithAcceleroBias</name>
+      <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
+      <anchor>a848dd7d3f963365acddd0a9825e123ca</anchor>
+      <arglist>(bool withAcceleroBias)</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
       <type>virtual Index</type>
@@ -1594,6 +1639,13 @@
       <name>computeNoiselessMeasurement_</name>
       <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
       <anchor>a20c0f4ea8ae8777495a0fd12878e10c1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>updateStateSize_</name>
+      <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
+      <anchor>aadda42216173c1aa6c9cf5541d520bdd</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -1622,6 +1674,20 @@
       <name>output_</name>
       <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
       <anchor>ad659228fe2eeb04323ed8cf8f53e8972</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>withGyroBias_</name>
+      <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
+      <anchor>adae4429f0ec1e63fdaea73f4818b83ab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>withAcceleroBias_</name>
+      <anchorfile>classstateObservation_1_1AccelerometerGyrometer.html</anchorfile>
+      <anchor>ae277c683166c5f84dcf2d34842299d30</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -3118,6 +3184,52 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::hrp2::contact</name>
+    <filename>structstateObservation_1_1hrp2_1_1contact.html</filename>
+    <member kind="variable" static="yes">
+      <type>static const unsigned</type>
+      <name>nbMax</name>
+      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
+      <anchor>a5ba717f9e2dc4bc181b76fc62a01bf6e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const unsigned</type>
+      <name>nbModeledMax</name>
+      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
+      <anchor>a19b7ca7aafe83ae0413c4872e7f9b03e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const unsigned</type>
+      <name>lf</name>
+      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
+      <anchor>a396235a98b97e548dc2fb6507c980128</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const unsigned</type>
+      <name>rf</name>
+      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
+      <anchor>a4f2b798ad3f03b8a8e95ec7c20c6ed7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const unsigned</type>
+      <name>lh</name>
+      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
+      <anchor>a86428ce394b977f7e656d8ee72043c8b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static const unsigned</type>
+      <name>rh</name>
+      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
+      <anchor>aa2bb60c59dfbee7d16d1abee27ac4351</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::KineticsObserver::Contact</name>
     <filename>structstateObservation_1_1KineticsObserver_1_1Contact.html</filename>
     <base>stateObservation::KineticsObserver::Sensor</base>
@@ -3224,52 +3336,6 @@
       <name>localKineFlags</name>
       <anchorfile>structstateObservation_1_1KineticsObserver_1_1Contact.html</anchorfile>
       <anchor>a1beb03662b412f309972cb8ebc6a773e</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>stateObservation::hrp2::contact</name>
-    <filename>structstateObservation_1_1hrp2_1_1contact.html</filename>
-    <member kind="variable" static="yes">
-      <type>static const unsigned</type>
-      <name>nbMax</name>
-      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
-      <anchor>a5ba717f9e2dc4bc181b76fc62a01bf6e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const unsigned</type>
-      <name>nbModeledMax</name>
-      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
-      <anchor>a19b7ca7aafe83ae0413c4872e7f9b03e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const unsigned</type>
-      <name>lf</name>
-      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
-      <anchor>a396235a98b97e548dc2fb6507c980128</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const unsigned</type>
-      <name>rf</name>
-      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
-      <anchor>a4f2b798ad3f03b8a8e95ec7c20c6ed7f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const unsigned</type>
-      <name>lh</name>
-      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
-      <anchor>a86428ce394b977f7e656d8ee72043c8b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" static="yes">
-      <type>static const unsigned</type>
-      <name>rh</name>
-      <anchorfile>structstateObservation_1_1hrp2_1_1contact.html</anchorfile>
-      <anchor>aa2bb60c59dfbee7d16d1abee27ac4351</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4882,8 +4948,8 @@
       <type></type>
       <name>IMUDynamicalSystem</name>
       <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
-      <anchor>ab115be081a87ae4d16c702430a359f92</anchor>
-      <arglist>()</arglist>
+      <anchor>afef992cbd1b88ae165b7c88f82de02e7</anchor>
+      <arglist>(bool withGyroBias=false)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -5025,11 +5091,25 @@
       <anchor>a7c06f3466c65beff06ccb04784737263</anchor>
       <arglist></arglist>
     </member>
+    <member kind="variable" protection="protected">
+      <type>Index</type>
+      <name>statesize_</name>
+      <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
+      <anchor>aa9caedac0665e63874280de99dac11f8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>withGyroBias_</name>
+      <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
+      <anchor>a01e008fbb4ef4c60d250cf0c0751601d</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="variable" protection="protected" static="yes">
       <type>static const Index</type>
-      <name>stateSize_</name>
+      <name>stateSizeBase_</name>
       <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
-      <anchor>a8ed80ab31e260ccbe49763d071574f3d</anchor>
+      <anchor>a1b49a873995dafe38a92fca5e70908b6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -5044,6 +5124,13 @@
       <name>measurementSize_</name>
       <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
       <anchor>aab3accee9830d683c2bb8721d5a2a105</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected" static="yes">
+      <type>static constexpr double</type>
+      <name>one_</name>
+      <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
+      <anchor>a2a12e938759f8f64c5e62623f54c4121</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -8679,8 +8766,8 @@
       <type>int</type>
       <name>setIMU</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a9606f2221920f923f92f905a0e019b8e</anchor>
-      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
+      <anchor>aff77c307b4406539fe6d428a0368d3c9</anchor>
+      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 &amp;gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8714,15 +8801,15 @@
       <type>int</type>
       <name>addContact</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1c840388c0b19d4675c6c9e4cfdc7ffd</anchor>
-      <arglist>(const Kinematics &amp;pose, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+      <anchor>a49ae40515187bfd3e499d1874a217e78</anchor>
+      <arglist>(const Kinematics &amp;pose, const Vector6 &amp;contactWrench, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Constant(-1), const Matrix3 &amp;linearDamping=Matrix3::Constant(-1), const Matrix3 &amp;angularStiffness=Matrix3::Constant(-1), const Matrix3 &amp;angularDamping=Matrix3::Constant(-1))</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addContact</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ac4b739ac2a286e0d39abb34f856523fe</anchor>
-      <arglist>(const Kinematics &amp;pose, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+      <anchor>a2a4947ab391d218df4b3d1a83ff0c514</anchor>
+      <arglist>(const Kinematics &amp;pose, const Vector6 &amp;contactWrench=Vector6::Zero(), int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Constant(-1), const Matrix3 &amp;linearDamping=Matrix3::Constant(-1), const Matrix3 &amp;angularStiffness=Matrix3::Constant(-1), const Matrix3 &amp;angularDamping=Matrix3::Constant(-1))</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10646,8 +10733,8 @@
       <type>int</type>
       <name>setIMU</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a9606f2221920f923f92f905a0e019b8e</anchor>
-      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
+      <anchor>aff77c307b4406539fe6d428a0368d3c9</anchor>
+      <arglist>(const Vector3 &amp;accelero, const Vector3 &amp;gyrometer, const Matrix3 &amp;acceleroCov, const Matrix3 &amp;gyroCov, const Kinematics &amp;localKine, int num=-1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10681,15 +10768,15 @@
       <type>int</type>
       <name>addContact</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>a1c840388c0b19d4675c6c9e4cfdc7ffd</anchor>
-      <arglist>(const Kinematics &amp;pose, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+      <anchor>a49ae40515187bfd3e499d1874a217e78</anchor>
+      <arglist>(const Kinematics &amp;pose, const Vector6 &amp;contactWrench, const Matrix12 &amp;initialCovarianceMatrix, const Matrix12 &amp;processCovarianceMatrix, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Constant(-1), const Matrix3 &amp;linearDamping=Matrix3::Constant(-1), const Matrix3 &amp;angularStiffness=Matrix3::Constant(-1), const Matrix3 &amp;angularDamping=Matrix3::Constant(-1))</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>addContact</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>ac4b739ac2a286e0d39abb34f856523fe</anchor>
-      <arglist>(const Kinematics &amp;pose, int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Zero(), const Matrix3 &amp;linearDamping=Matrix3::Zero(), const Matrix3 &amp;angularStiffness=Matrix3::Zero(), const Matrix3 &amp;angularDamping=Matrix3::Zero())</arglist>
+      <anchor>a2a4947ab391d218df4b3d1a83ff0c514</anchor>
+      <arglist>(const Kinematics &amp;pose, const Vector6 &amp;contactWrench=Vector6::Zero(), int contactNumber=-1, const Matrix3 &amp;linearStiffness=Matrix3::Constant(-1), const Matrix3 &amp;linearDamping=Matrix3::Constant(-1), const Matrix3 &amp;angularStiffness=Matrix3::Constant(-1), const Matrix3 &amp;angularDamping=Matrix3::Constant(-1))</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -11861,23 +11948,23 @@
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static Matrix2</type>
-      <name>Vec2ToSqDiag</name>
+      <name>Vec2ToSqDiag_</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a63208ae7d0437e0ae9035e07c2f272b3</anchor>
+      <anchor>a8535bd156c5c32fde6b275b418d793e4</anchor>
       <arglist>(const Vector2 &amp;v)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static Matrix2</type>
-      <name>dblToDiag</name>
+      <name>dblToDiag_</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a7b5b735a67a982dd87a8d4a6a3b11270</anchor>
+      <anchor>a4b8961666c025882c63aa22e355230b1</anchor>
       <arglist>(const double &amp;d)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static Matrix2</type>
-      <name>dblToSqDiag</name>
+      <name>dblToSqDiag_</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>ab60259ca91c60c13a5dddba52dc18934</anchor>
+      <anchor>a1a7758e6421ecec4814d0440c9117f77</anchor>
       <arglist>(const double &amp;d)</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -13091,6 +13178,59 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::KineticsObserver::Opt</name>
+    <filename>structstateObservation_1_1KineticsObserver_1_1Opt.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Opt</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a4cefc680edfa1f020a4bf8b00b440be7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>Kinematics</type>
+      <name>kine1</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a4da82a2a0bed16e1270569eab0ed81ab</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Kinematics</type>
+      <name>kine2</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>ab7b24f1c27dd240e8274c79edf7f7ee6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Kinematics &amp;</type>
+      <name>kine</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a1bfc601632bb123de5c5d15303818faf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Orientation &amp;</type>
+      <name>ori</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a4986f18fcdeaa27c3088a06b6633ee6f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Orientation &amp;</type>
+      <name>ori1</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>afa4466c5cf3d192fdee7ff9f035f5142</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>Orientation &amp;</type>
+      <name>ori2</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a21dd3adb2c7f9c7b95f955d55a79598f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::IMUMltpctiveDynamicalSystem::opt</name>
     <filename>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</filename>
     <member kind="function">
@@ -13144,55 +13284,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::KineticsObserver::Opt</name>
-    <filename>structstateObservation_1_1KineticsObserver_1_1Opt.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Opt</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a4cefc680edfa1f020a4bf8b00b440be7</anchor>
-      <arglist>()</arglist>
-    </member>
+    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
+    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
     <member kind="variable">
-      <type>Kinematics</type>
-      <name>kine1</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a4da82a2a0bed16e1270569eab0ed81ab</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>O</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>Kinematics</type>
-      <name>kine2</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>ab7b24f1c27dd240e8274c79edf7f7ee6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Kinematics &amp;</type>
-      <name>kine</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a1bfc601632bb123de5c5d15303818faf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Orientation &amp;</type>
-      <name>ori</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a4986f18fcdeaa27c3088a06b6633ee6f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Orientation &amp;</type>
-      <name>ori1</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>afa4466c5cf3d192fdee7ff9f035f5142</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Orientation &amp;</type>
-      <name>ori2</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a21dd3adb2c7f9c7b95f955d55a79598f</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>CA</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -13933,24 +14038,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
-    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>O</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>CA</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>stateObservation::KalmanFilterBase::optimizationContainer</name>
     <filename>structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html</filename>
     <member kind="variable">
@@ -14009,6 +14096,10 @@
       <anchor>a7e862893478a316d37d32c786f88ce53</anchor>
       <arglist></arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>order1</name>
+    <filename>classorder1.html</filename>
   </compound>
   <compound kind="class">
     <name>stateObservation::kine::Orientation</name>
@@ -14307,6 +14398,41 @@
       <anchor>ae52f09b017a281a126720abfce1f186d</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>check_</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>a2e105d1e4de06465bfdf8345b3155bcd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Matrix3 &amp;</type>
+      <name>quaternionToMatrix_</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>aea621d175055a5d3b05ca7af9446d6c2</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Quaternion &amp;</type>
+      <name>matrixToQuaternion_</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>ac08b4961fa135489dac9d5871fd26ace</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>CheckedQuaternion</type>
+      <name>q_</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>a496f9b46c94c0da2d948f06887a16f2e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>CheckedMatrix3</type>
+      <name>m_</name>
+      <anchorfile>classstateObservation_1_1kine_1_1Orientation.html</anchorfile>
+      <anchor>afc5d2e99b7aa0f80112664b8565abc8a</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>stateObservation::tools::ProbabilityLawSimulation</name>
@@ -14429,6 +14555,13 @@
       <name>measIndex</name>
       <anchorfile>structstateObservation_1_1KineticsObserver_1_1Sensor.html</anchorfile>
       <anchor>a73e44654b04fdb0718dda24fea6f1c9c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>measIndexTangent</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Sensor.html</anchorfile>
+      <anchor>a8c2c4effc58877d38a55e9f0a961f86a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -15524,6 +15657,318 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>stateObservation::ZmpTrackingGainEstimator</name>
+    <filename>classstateObservation_1_1ZmpTrackingGainEstimator.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ZmpTrackingGainEstimator</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>aab29586b2a6ff07dee183913c209901b</anchor>
+      <arglist>(double dt=defaultDt_, const Vector2 &amp;zmpMeasureErrorStd=Vector2::Constant(defaultZmpMeasurementErrorStd), const Vector3 &amp;gainDriftPerSecond=Vector3::Constant(defaultGainDriftSecond), const Vector2 &amp;zmpProcessErrorStd=Vector2::Constant(defaultZmpProcessErrorStd), double minimumGain=defaultGainMinimum, const Vector2 &amp;initZMP=Vector2::Zero(), const Vector3 &amp;initGain=Vector3::Zero(), const Vector2 &amp;initZMPUncertainty=Vector2::Constant(defaultZmpUncertainty), const Vector3 &amp;initGainUncertainty=Vector3::Constant(defaultGainUncertainty))</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetWithMeasurements</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a6ec2231df94b2ed62dccee5275ae6896</anchor>
+      <arglist>(const Vector2 &amp;initZMP=Vector2::Zero(), const Vector3 &amp;initGain=Vector3::Zero(), const Matrix2 &amp;yaw=Matrix2::Identity(), const Vector2 &amp;initZMPUncertainty=Vector2::Constant(defaultZmpUncertainty), const Vector3 &amp;initGainUncertainty=Vector3::Constant(defaultGainUncertainty))</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetWithMeasurements</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a9d686dc731a46ec2f1579266248e3453</anchor>
+      <arglist>(const Vector2 &amp;initZMP, const Vector3 &amp;initGain, double yaw, const Vector2 &amp;initZMPUncertainty=Vector2::Constant(defaultZmpUncertainty), const Vector3 &amp;initGainUncertainty=Vector3::Constant(defaultGainUncertainty))</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resetWithMeasurements</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>adcc91ef0da3797381fcc28bf806a0c4f</anchor>
+      <arglist>(const Vector2 &amp;initZMP, const Vector3 &amp;initGain, const Matrix3 &amp;rotation, const Vector2 &amp;initZMPUncertainty=Vector2::Constant(defaultZmpUncertainty), const Vector3 &amp;initGainUncertainty=Vector3::Constant(defaultGainUncertainty))</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ZmpTrackingGainEstimator</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a0cc6e48ee3344d17e54fbf543bb91c13</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSamplingTime</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a9f4f8441b8aa5a79db44acb8804840a4</anchor>
+      <arglist>(double dt)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGain</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a7d288653ffc6a5254ea3cab2d435fb36</anchor>
+      <arglist>(const Vector3 &amp;gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGain</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a15c08242d6538d828ee8263b5f346486</anchor>
+      <arglist>(const Vector3 &amp;gain, const Vector3 &amp;uncertainty)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setGainDriftPerSecond</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a44ff94618833d595fb70d085debbd886</anchor>
+      <arglist>(const Vector3 &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMinimumGain</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a931c7cfdf41d36441ad299064bd40302</anchor>
+      <arglist>(const double &amp;minGain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setZMPProcesError</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a880e7873258266a62b389014c0393e4f</anchor>
+      <arglist>(const Vector2 &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setZmpMeasureErrorStd</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>addab97b19ca8cdd1677bed502dc24e2c</anchor>
+      <arglist>(const Vector2 &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInputs</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ab30bd4a3920684aeedf5d7a96e3f0238</anchor>
+      <arglist>(const Vector2 &amp;zmpErr, const Vector2 &amp;zmp, const Matrix3 &amp;orientation)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInputs</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ae190385fa3be27e75499c45924e03f74</anchor>
+      <arglist>(const Vector2 &amp;zmpErr, const Vector2 &amp;zmp, double yaw)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setInputs</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a28cf067cba8ec170d8a8557605058471</anchor>
+      <arglist>(const Vector2 &amp;zmpErr, const Vector2 &amp;zmp, const Matrix2 &amp;R=Matrix2::Identity())</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>update</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a576a6ce1bcedfa73adfd3800cd8f0ffc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Matrix2</type>
+      <name>getEstimatedGain</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a80029598cfd600cf2aeb21247ae85a1e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Matrix2</type>
+      <name>getEstimatedLocalGain</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>aa928c21f91ba7591bed690fcfdf00fea</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>LinearKalmanFilter &amp;</type>
+      <name>getFilter</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a4b1061ea8f2f5bb2a9a7db1da3e745b1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const LinearKalmanFilter &amp;</type>
+      <name>getFilter</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>aa3f96812ab391a894d257d79f6435552</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultGainDriftSecond</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a93caa8e41ae31832d4248bcba21bba9e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultZmpProcessErrorStd</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ac57344012006c3b3d505f8618e726714</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultZmpMeasurementErrorStd</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a501e5b3aa97e918d151770bd0003b7f5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultGainMinimum</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a4de4dcda15caa67eed1d992c89c8991f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultZmpUncertainty</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a8cdd339bed9adef9a8d45f1e467cb93a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" static="yes">
+      <type>static constexpr double</type>
+      <name>defaultGainUncertainty</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a5a779e911022e818a4040aa3f9eac9b1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef" protection="protected">
+      <type>Eigen::Matrix&lt; double, 2, 5 &gt;</type>
+      <name>Matrix25</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a131fd4c2534cfda870ba3b4eb43414f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef" protection="protected">
+      <type>Eigen::Matrix&lt; double, 2, 3 &gt;</type>
+      <name>Matrix23</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ac597d2e0f9e3e35639fd33a3fea688d6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>updateR_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a0d8fff407d28a6ea64885ecdd1c5ad45</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>updateQ_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ae3aa200614d1d1df6ec728c8012dbe9e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static Matrix2</type>
+      <name>Vec2ToSqDiag_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ae851c9d2040da6241fd938dd7cd83e43</anchor>
+      <arglist>(const Vector2 &amp;v)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static Matrix3</type>
+      <name>Vec3ToSqDiag_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>ad27e3170d2318c805f0374da714e5e17</anchor>
+      <arglist>(const Vector3 &amp;v)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>dt_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>abb85124623ccebf84e2c6bcba173ce94</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>minimumGain_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a11ac171a8a71f77b7c8f6ec2e3ce16d9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Vector2</type>
+      <name>zmpMeasureErrorstd_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a133d7d15420eb379ab52e0e6e15644d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Vector3</type>
+      <name>gainDriftPerSecondStd_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a675e0e313b1213f2b76e4514b7eb6a8d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Vector2</type>
+      <name>zmpProcessErrorStd_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a7675a091454228b33f4528ea3a4310c6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Matrix2</type>
+      <name>yaw_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a5c531edcf132b9efc6c0b3020f4c5957</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>LinearKalmanFilter</type>
+      <name>filter_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a25b34969ef53efadad03e448f89cf152</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Matrix4</type>
+      <name>A_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a28054bb0136c6f35333bcdd03c8593ce</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Matrix25</type>
+      <name>C_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a9618dbda385cec4555e33366594cca29</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Matrix2</type>
+      <name>R_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a6cf4a7e67521480963b4e9db9ca9124a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Matrix5</type>
+      <name>Q_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a99d7b88c046a2e1aa2297e27161033f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Matrix2</type>
+      <name>previousOrientation_</name>
+      <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
+      <anchor>a4f4cd53ba93bfd458199c9d474e6cab5</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="namespace">
     <name>stateObservation</name>
     <filename>namespacestateObservation.html</filename>
@@ -15573,6 +16018,7 @@
     <class kind="class">stateObservation::TiltEstimator</class>
     <class kind="class">stateObservation::UnidimLipmDcmEstimator</class>
     <class kind="class">stateObservation::ZeroDelayObserver</class>
+    <class kind="class">stateObservation::ZmpTrackingGainEstimator</class>
     <member kind="typedef">
       <type>Eigen::VectorXd</type>
       <name>Vector</name>
@@ -15613,6 +16059,13 @@
       <name>Vector4</name>
       <anchorfile>namespacestateObservation.html</anchorfile>
       <anchor>a509dae854b3dd8ef8319b659ad6e8a2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Eigen::Matrix&lt; double, 5, 1 &gt;</type>
+      <name>Vector5</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>a84272627c22ea78705ea6db0461fe215</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -15662,6 +16115,13 @@
       <name>Matrix4</name>
       <anchorfile>namespacestateObservation.html</anchorfile>
       <anchor>a009f7f7e8b38b3cecc561738ad60eb52</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>Eigen::Matrix&lt; double, 5, 5 &gt;</type>
+      <name>Matrix5</name>
+      <anchorfile>namespacestateObservation.html</anchorfile>
+      <anchor>ac93c756df12b231075cc01963aeed10a</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -15975,15 +16435,15 @@
       <type>IndexedVectorArray</type>
       <name>imuAttitudeTrajectoryReconstruction</name>
       <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>ac90a22efe8138e9a7a3026e17029b437</anchor>
-      <arglist>(const IndexedVectorArray &amp;y, const IndexedVectorArray &amp;u, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</arglist>
+      <anchor>a4eed802cc3be2d6b7632aae7655a1663</anchor>
+      <arglist>(const IndexedVectorArray &amp;y, const IndexedVectorArray &amp;u, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt, bool withGyroBias)</arglist>
     </member>
     <member kind="function">
       <type>IndexedVectorArray</type>
       <name>imuAttitudeTrajectoryReconstruction</name>
       <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>a91786013872d183262fd929e6db56fea</anchor>
-      <arglist>(const IndexedVectorArray &amp;y, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt)</arglist>
+      <anchor>ae097f2efc30e8ba3b2d2aa2fa6bfccb7</anchor>
+      <arglist>(const IndexedVectorArray &amp;y, const Vector &amp;xh0, const Matrix &amp;p, const Matrix &amp;q, const Matrix &amp;r, double dt, bool withGyroBias)</arglist>
     </member>
     <member kind="function">
       <type>IndexedVectorArray</type>

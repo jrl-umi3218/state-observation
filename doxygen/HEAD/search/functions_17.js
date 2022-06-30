@@ -31,5 +31,6 @@ var searchData=
   ['_7esensorbase',['~SensorBase',['../classstateObservation_1_1SensorBase.html#a96989c38d20f6c62c28a8fb50b373f70',1,'stateObservation::SensorBase']]],
   ['_7estableimufixedcontactdynamicalsystem',['~StableIMUFixedContactDynamicalSystem',['../classstateObservation_1_1flexibilityEstimation_1_1StableIMUFixedContactDynamicalSystem.html#a98fa23a9e58eefd21648f60b992ea8bf',1,'stateObservation::flexibilityEstimation::StableIMUFixedContactDynamicalSystem']]],
   ['_7eunidimlipmdcmestimator',['~UnidimLipmDcmEstimator',['../classstateObservation_1_1UnidimLipmDcmEstimator.html#a08dfe5cffbdb5d3c834aa0811ca79ce9',1,'stateObservation::UnidimLipmDcmEstimator']]],
-  ['_7ezerodelayobserver',['~ZeroDelayObserver',['../classstateObservation_1_1ZeroDelayObserver.html#acd7af6689312c7a0696c4ca39c4aed78',1,'stateObservation::ZeroDelayObserver']]]
+  ['_7ezerodelayobserver',['~ZeroDelayObserver',['../classstateObservation_1_1ZeroDelayObserver.html#acd7af6689312c7a0696c4ca39c4aed78',1,'stateObservation::ZeroDelayObserver']]],
+  ['_7ezmptrackinggainestimator',['~ZmpTrackingGainEstimator',['../classstateObservation_1_1ZmpTrackingGainEstimator.html#a0cc6e48ee3344d17e54fbf543bb91c13',1,'stateObservation::ZmpTrackingGainEstimator']]]
 ];

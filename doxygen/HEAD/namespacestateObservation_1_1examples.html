@@ -84,12 +84,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac90a22efe8138e9a7a3026e17029b437"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1examples.html#ac90a22efe8138e9a7a3026e17029b437">imuAttitudeTrajectoryReconstruction</a> (const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;y, const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;u, const <a class="el" href="namespacestateObservation.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;xh0, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;p, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;q, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;r, double dt)</td></tr>
-<tr class="memdesc:ac90a22efe8138e9a7a3026e17029b437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU and the input (which provides the acceleration/jerk). This method uses extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="#ac90a22efe8138e9a7a3026e17029b437">More...</a><br /></td></tr>
-<tr class="separator:ac90a22efe8138e9a7a3026e17029b437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91786013872d183262fd929e6db56fea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1examples.html#a91786013872d183262fd929e6db56fea">imuAttitudeTrajectoryReconstruction</a> (const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;y, const <a class="el" href="namespacestateObservation.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;xh0, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;p, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;q, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;r, double dt)</td></tr>
-<tr class="memdesc:a91786013872d183262fd929e6db56fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU without knowing the input. The input is assumed to be zero over the observation. This method uses extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="#a91786013872d183262fd929e6db56fea">More...</a><br /></td></tr>
-<tr class="separator:a91786013872d183262fd929e6db56fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eed802cc3be2d6b7632aae7655a1663"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1examples.html#a4eed802cc3be2d6b7632aae7655a1663">imuAttitudeTrajectoryReconstruction</a> (const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;y, const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;u, const <a class="el" href="namespacestateObservation.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;xh0, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;p, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;q, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;r, double dt, bool withGyroBias)</td></tr>
+<tr class="separator:a4eed802cc3be2d6b7632aae7655a1663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae097f2efc30e8ba3b2d2aa2fa6bfccb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1examples.html#ae097f2efc30e8ba3b2d2aa2fa6bfccb7">imuAttitudeTrajectoryReconstruction</a> (const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;y, const <a class="el" href="namespacestateObservation.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;xh0, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;p, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;q, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;r, double dt, bool withGyroBias)</td></tr>
+<tr class="separator:ae097f2efc30e8ba3b2d2aa2fa6bfccb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c59a4bf9cc0402e665e5eb35811642f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1examples.html#a1c59a4bf9cc0402e665e5eb35811642f">imuMultiplicativeAttitudeReconstruction</a> (const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;y, const <a class="el" href="namespacestateObservation.html#a733f901496c8fff9609bec77ff52449e">IndexedVectorArray</a> &amp;u, const <a class="el" href="namespacestateObservation.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;xh0, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;p, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;q, const <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &amp;r, double dt)</td></tr>
 <tr class="memdesc:a1c59a4bf9cc0402e665e5eb35811642f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU and the input (which provides the acceleration/jerk). This method uses multiplicative extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises.  <a href="#a1c59a4bf9cc0402e665e5eb35811642f">More...</a><br /></td></tr>
 <tr class="separator:a1c59a4bf9cc0402e665e5eb35811642f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,8 +121,8 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac90a22efe8138e9a7a3026e17029b437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90a22efe8138e9a7a3026e17029b437">&#9670;&nbsp;</a></span>imuAttitudeTrajectoryReconstruction() <span class="overload">[1/2]</span></h2>
+<a id="a4eed802cc3be2d6b7632aae7655a1663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eed802cc3be2d6b7632aae7655a1663">&#9670;&nbsp;</a></span>imuAttitudeTrajectoryReconstruction() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +167,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>withGyroBias</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -178,20 +182,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU and the input (which provides the acceleration/jerk). This method uses extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>IMU measurements </td></tr>
-    <tr><td class="paramname">u</td><td>the inputs of the dynamical system </td></tr>
-    <tr><td class="paramname">xh0</td><td>an initial guess of the state </td></tr>
-    <tr><td class="paramname">p</td><td>the covariance matrix of the error of the initial guess </td></tr>
-    <tr><td class="paramname">q</td><td>the covariance matrix of the process noise (state perturbation) </td></tr>
-    <tr><td class="paramname">r</td><td>the covariance matrix of the measurement noise </td></tr>
-    <tr><td class="paramname">dt</td><td>the time discretization period </td></tr>
-  </table>
-  </dd>
-</dl>
 <p>Sizes of the states for the state, the measurement, and the input vector</p>
 <p>initialization of the extended Kalman filter</p>
 <p>initalization of the functor</p>
@@ -227,8 +217,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a91786013872d183262fd929e6db56fea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91786013872d183262fd929e6db56fea">&#9670;&nbsp;</a></span>imuAttitudeTrajectoryReconstruction() <span class="overload">[2/2]</span></h2>
+<a id="ae097f2efc30e8ba3b2d2aa2fa6bfccb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae097f2efc30e8ba3b2d2aa2fa6bfccb7">&#9670;&nbsp;</a></span>imuAttitudeTrajectoryReconstruction() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,7 +257,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dt</em>&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>withGyroBias</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -276,19 +272,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Provides the estimation of the state (mostly attitude) of an IMU, given the measurements of the IMU without knowing the input. The input is assumed to be zero over the observation. This method uses extended Kalman filtering, we need to provide it with an initial guess, a covariance matrix of this initial guess and covariance matrices of the state perturbations and measurement noises. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>IMU measurements </td></tr>
-    <tr><td class="paramname">xh0</td><td>an initial guess of the state </td></tr>
-    <tr><td class="paramname">p</td><td>the covariance matrix of the error of the initial guess </td></tr>
-    <tr><td class="paramname">q</td><td>the covariance matrix of the process noise (state perturbation) </td></tr>
-    <tr><td class="paramname">r</td><td>the covariance matrix of the measurement noise </td></tr>
-    <tr><td class="paramname">dt</td><td>the time discretization period </td></tr>
-  </table>
-  </dd>
-</dl>
 <p>initialization of a zero input</p>
 <p>initialization of a zero input </p>
 

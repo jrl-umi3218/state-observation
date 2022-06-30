@@ -202,6 +202,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1ZeroDelayObserver.html">ZeroDelayObserver</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the base class of online zero delay observers. Zero delay observers are the classical state observers where input and state values at instant k and the measurement value at instant k+1 are enough to provide the estimation of the state at instant k+1. This class mostly defines the data structures for storing the vectors, it describes the set routines and the observation loop mechanism. It requires to be derviated to implement the new <a class="el" href="classstateObservation_1_1ZeroDelayObserver.html#a119876dcaefcb6061cef80f2353b8ebd">oneStepEstimation_()</a> method.  <a href="classstateObservation_1_1ZeroDelayObserver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html">ZmpTrackingGainEstimator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -223,6 +225,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a509dae854b3dd8ef8319b659ad6e8a2c"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Vector4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a509dae854b3dd8ef8319b659ad6e8a2c">Vector4</a></td></tr>
 <tr class="memdesc:a509dae854b3dd8ef8319b659ad6e8a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">4D vector  <a href="#a509dae854b3dd8ef8319b659ad6e8a2c">More...</a><br /></td></tr>
 <tr class="separator:a509dae854b3dd8ef8319b659ad6e8a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84272627c22ea78705ea6db0461fe215"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 5, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a84272627c22ea78705ea6db0461fe215">Vector5</a></td></tr>
+<tr class="memdesc:a84272627c22ea78705ea6db0461fe215"><td class="mdescLeft">&#160;</td><td class="mdescRight">5D vector  <a href="#a84272627c22ea78705ea6db0461fe215">More...</a><br /></td></tr>
+<tr class="separator:a84272627c22ea78705ea6db0461fe215"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d339a150bf05286eca83bc588349afe"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 6, 1 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a></td></tr>
 <tr class="memdesc:a9d339a150bf05286eca83bc588349afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">6D vector  <a href="#a9d339a150bf05286eca83bc588349afe">More...</a><br /></td></tr>
 <tr class="separator:a9d339a150bf05286eca83bc588349afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,6 +249,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a009f7f7e8b38b3cecc561738ad60eb52"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix4d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a009f7f7e8b38b3cecc561738ad60eb52">Matrix4</a></td></tr>
 <tr class="memdesc:a009f7f7e8b38b3cecc561738ad60eb52"><td class="mdescLeft">&#160;</td><td class="mdescRight">4x4 Scalar Matrix  <a href="#a009f7f7e8b38b3cecc561738ad60eb52">More...</a><br /></td></tr>
 <tr class="separator:a009f7f7e8b38b3cecc561738ad60eb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac93c756df12b231075cc01963aeed10a"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 5, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#ac93c756df12b231075cc01963aeed10a">Matrix5</a></td></tr>
+<tr class="memdesc:ac93c756df12b231075cc01963aeed10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">5x5 Scalar Matrix  <a href="#ac93c756df12b231075cc01963aeed10a">More...</a><br /></td></tr>
+<tr class="separator:ac93c756df12b231075cc01963aeed10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4856a065f88d780a5c575335fbf81ee"><td class="memItemLeft" align="right" valign="top">typedef Eigen::Matrix&lt; double, 6, 6 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#aa4856a065f88d780a5c575335fbf81ee">Matrix6</a></td></tr>
 <tr class="memdesc:aa4856a065f88d780a5c575335fbf81ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">6x6 Scalar Matrix  <a href="#aa4856a065f88d780a5c575335fbf81ee">More...</a><br /></td></tr>
 <tr class="separator:aa4856a065f88d780a5c575335fbf81ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -661,6 +669,22 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac93c756df12b231075cc01963aeed10a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac93c756df12b231075cc01963aeed10a">&#9670;&nbsp;</a></span>Matrix5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::Matrix&lt;double, 5, 5&gt; <a class="el" href="namespacestateObservation.html#ac93c756df12b231075cc01963aeed10a">stateObservation::Matrix5</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>5x5 Scalar Matrix </p>
+
+</div>
+</div>
 <a id="aa4856a065f88d780a5c575335fbf81ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4856a065f88d780a5c575335fbf81ee">&#9670;&nbsp;</a></span>Matrix6</h2>
 
@@ -846,6 +870,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>4D vector </p>
+
+</div>
+</div>
+<a id="a84272627c22ea78705ea6db0461fe215"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84272627c22ea78705ea6db0461fe215">&#9670;&nbsp;</a></span>Vector5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Eigen::Matrix&lt;double, 5, 1&gt; <a class="el" href="namespacestateObservation.html#a84272627c22ea78705ea6db0461fe215">stateObservation::Vector5</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>5D vector </p>
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['gaindriftpersecondstd_5f',['gainDriftPerSecondStd_',['../classstateObservation_1_1ZmpTrackingGainEstimator.html#a675e0e313b1213f2b76e4514b7eb6a8d',1,'stateObservation::ZmpTrackingGainEstimator']]],
   ['gamma_5f',['gamma_',['../classstateObservation_1_1TiltEstimator.html#a4de43a4980422b8d75b3d22f807c3186',1,'stateObservation::TiltEstimator']]],
   ['gen_5f',['gen_',['../classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a60b17e747f569fe28380fb2f0f627b6f',1,'stateObservation::tools::ProbabilityLawSimulation']]],
   ['globalcontactpos',['globalContactPos',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#ae0d23d733c2aa5aa4994fecd909c5a54',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization']]],

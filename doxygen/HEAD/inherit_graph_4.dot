@@ -3,5 +3,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::Checked\lItem\< Vector3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node0 [label="stateObservation::Checked\lItem\< T, lazy, alwaysCheck,\l assertion, eigenAlignedNew \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
 }

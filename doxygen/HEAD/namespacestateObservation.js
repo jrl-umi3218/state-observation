@@ -43,5 +43,6 @@ var namespacestateObservation =
     [ "StateVectorArithmetics", "classstateObservation_1_1StateVectorArithmetics.html", "classstateObservation_1_1StateVectorArithmetics" ],
     [ "TiltEstimator", "classstateObservation_1_1TiltEstimator.html", "classstateObservation_1_1TiltEstimator" ],
     [ "UnidimLipmDcmEstimator", "classstateObservation_1_1UnidimLipmDcmEstimator.html", "classstateObservation_1_1UnidimLipmDcmEstimator" ],
-    [ "ZeroDelayObserver", "classstateObservation_1_1ZeroDelayObserver.html", "classstateObservation_1_1ZeroDelayObserver" ]
+    [ "ZeroDelayObserver", "classstateObservation_1_1ZeroDelayObserver.html", "classstateObservation_1_1ZeroDelayObserver" ],
+    [ "ZmpTrackingGainEstimator", "classstateObservation_1_1ZmpTrackingGainEstimator.html", "classstateObservation_1_1ZmpTrackingGainEstimator" ]
 ];

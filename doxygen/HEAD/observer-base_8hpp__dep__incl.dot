@@ -31,6 +31,8 @@ digraph "include/state-observation/observer/observer-base.hpp"
   Node28 [label="include/state-observation\l/dynamics-estimators/lipm\l-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lipm-dcm-estimator_8hpp.html",tooltip="Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the co..."];
   Node27 -> Node29 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node29 [label="include/state-observation\l/dynamics-estimators/unidim\l-lipm-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unidim-lipm-dcm-estimator_8hpp.html",tooltip="Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment poi..."];
-  Node16 -> Node30 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node30 [label="include/state-observation\l/observer/tilt-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tilt-estimator_8hpp.html",tooltip="Defines the class for the tilt estimator. "];
+  Node27 -> Node30 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node30 [label="include/state-observation\l/dynamics-estimators/zmp\l-tracking-gain-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$zmp-tracking-gain-estimator_8hpp.html"];
+  Node16 -> Node31 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node31 [label="include/state-observation\l/observer/tilt-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tilt-estimator_8hpp.html",tooltip="Defines the class for the tilt estimator. "];
 }

@@ -3,9 +3,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node61 [label="enable_if",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node61 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 [label="stateObservation::EigenType\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1EigenType.html"];
-  Node61 -> Node63 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node63 [label="stateObservation::Matrix\lType\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1MatrixType.html"];
+  Node0 [label="stateObservation::Dynamical\lSystemSimulator",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DynamicalSystemSimulator.html",tooltip="The class gives a small encapsulation of the dynamics functor, which enables the simulation of the dy..."];
 }

@@ -102,9 +102,9 @@ Collaboration diagram for stateObservation::IMUDynamicalSystem:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab115be081a87ae4d16c702430a359f92"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#ab115be081a87ae4d16c702430a359f92">IMUDynamicalSystem</a> ()</td></tr>
-<tr class="memdesc:ab115be081a87ae4d16c702430a359f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#ab115be081a87ae4d16c702430a359f92">More...</a><br /></td></tr>
-<tr class="separator:ab115be081a87ae4d16c702430a359f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef992cbd1b88ae165b7c88f82de02e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#afef992cbd1b88ae165b7c88f82de02e7">IMUDynamicalSystem</a> (bool withGyroBias=false)</td></tr>
+<tr class="memdesc:afef992cbd1b88ae165b7c88f82de02e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor.  <a href="#afef992cbd1b88ae165b7c88f82de02e7">More...</a><br /></td></tr>
+<tr class="separator:afef992cbd1b88ae165b7c88f82de02e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb4a99e04eda8901e0e1ec63d3c76ec5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#acb4a99e04eda8901e0e1ec63d3c76ec5">~IMUDynamicalSystem</a> ()</td></tr>
 <tr class="memdesc:acb4a99e04eda8901e0e1ec63d3c76ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The virtual destructor.  <a href="#acb4a99e04eda8901e0e1ec63d3c76ec5">More...</a><br /></td></tr>
 <tr class="separator:acb4a99e04eda8901e0e1ec63d3c76ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,15 +185,23 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ac29e38aa44a26ac877a002ab02e0983c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c06f3466c65beff06ccb04784737263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#af5aa1ced266d05a07805dfa9176dd6b8">QuaternionUnaligned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a7c06f3466c65beff06ccb04784737263">quaternion_</a></td></tr>
 <tr class="separator:a7c06f3466c65beff06ccb04784737263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9caedac0665e63874280de99dac11f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#aa9caedac0665e63874280de99dac11f8">statesize_</a></td></tr>
+<tr class="memdesc:aa9caedac0665e63874280de99dac11f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">the state size may be bigger if the bias is considered  <a href="#aa9caedac0665e63874280de99dac11f8">More...</a><br /></td></tr>
+<tr class="separator:aa9caedac0665e63874280de99dac11f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e008fbb4ef4c60d250cf0c0751601d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a01e008fbb4ef4c60d250cf0c0751601d">withGyroBias_</a></td></tr>
+<tr class="separator:a01e008fbb4ef4c60d250cf0c0751601d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a8ed80ab31e260ccbe49763d071574f3d"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a8ed80ab31e260ccbe49763d071574f3d">stateSize_</a> = 18</td></tr>
-<tr class="separator:a8ed80ab31e260ccbe49763d071574f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b49a873995dafe38a92fca5e70908b6"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a1b49a873995dafe38a92fca5e70908b6">stateSizeBase_</a> = 18</td></tr>
+<tr class="separator:a1b49a873995dafe38a92fca5e70908b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6036ad24a2a8272d2677bf10584b2286"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a6036ad24a2a8272d2677bf10584b2286">inputSize_</a> = 6</td></tr>
 <tr class="separator:a6036ad24a2a8272d2677bf10584b2286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab3accee9830d683c2bb8721d5a2a105"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#aab3accee9830d683c2bb8721d5a2a105">measurementSize_</a> = 6</td></tr>
 <tr class="separator:aab3accee9830d683c2bb8721d5a2a105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a12e938759f8f64c5e62623f54c4121"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a2a12e938759f8f64c5e62623f54c4121">one_</a> = 0.9999</td></tr>
+<tr class="memdesc:a2a12e938759f8f64c5e62623f54c4121"><td class="mdescLeft">&#160;</td><td class="mdescRight">the factor that approximate the "one" to avoid drifting of unobservable values  <a href="#a2a12e938759f8f64c5e62623f54c4121">More...</a><br /></td></tr>
+<tr class="separator:a2a12e938759f8f64c5e62623f54c4121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) fixed on a rigid body. The state is the position velocity and acceleration and the orientaion and rotation velocity and acceleration. The sensors are the accelerometer and the gyrometer. </p>
@@ -221,8 +229,8 @@ Static Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab115be081a87ae4d16c702430a359f92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab115be081a87ae4d16c702430a359f92">&#9670;&nbsp;</a></span>IMUDynamicalSystem()</h2>
+<a id="afef992cbd1b88ae165b7c88f82de02e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef992cbd1b88ae165b7c88f82de02e7">&#9670;&nbsp;</a></span>IMUDynamicalSystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,7 +238,8 @@ Static Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">stateObservation::IMUDynamicalSystem::IMUDynamicalSystem </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>withGyroBias</em> = <code>false</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -732,6 +741,30 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a2a12e938759f8f64c5e62623f54c4121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a12e938759f8f64c5e62623f54c4121">&#9670;&nbsp;</a></span>one_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double stateObservation::IMUDynamicalSystem::one_ = 0.9999</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the factor that approximate the "one" to avoid drifting of unobservable values </p>
+
+</div>
+</div>
 <a id="ac29e38aa44a26ac877a002ab02e0983c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac29e38aa44a26ac877a002ab02e0983c">&#9670;&nbsp;</a></span>orientationVector_</h2>
 
@@ -820,8 +853,8 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8ed80ab31e260ccbe49763d071574f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ed80ab31e260ccbe49763d071574f3d">&#9670;&nbsp;</a></span>stateSize_</h2>
+<a id="aa9caedac0665e63874280de99dac11f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9caedac0665e63874280de99dac11f8">&#9670;&nbsp;</a></span>statesize_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -830,12 +863,58 @@ Static Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::IMUDynamicalSystem::stateSize_ = 18</td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::IMUDynamicalSystem::statesize_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the state size may be bigger if the bias is considered </p>
+
+</div>
+</div>
+<a id="a1b49a873995dafe38a92fca5e70908b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b49a873995dafe38a92fca5e70908b6">&#9670;&nbsp;</a></span>stateSizeBase_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a> stateObservation::IMUDynamicalSystem::stateSizeBase_ = 18</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01e008fbb4ef4c60d250cf0c0751601d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e008fbb4ef4c60d250cf0c0751601d">&#9670;&nbsp;</a></span>withGyroBias_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool stateObservation::IMUDynamicalSystem::withGyroBias_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

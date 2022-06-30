@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['dbltodiag',['dblToDiag',['../classstateObservation_1_1LipmDcmEstimator.html#a7b5b735a67a982dd87a8d4a6a3b11270',1,'stateObservation::LipmDcmEstimator']]],
-  ['dbltosqdiag',['dblToSqDiag',['../classstateObservation_1_1LipmDcmEstimator.html#ab60259ca91c60c13a5dddba52dc18934',1,'stateObservation::LipmDcmEstimator']]],
+  ['dbltodiag_5f',['dblToDiag_',['../classstateObservation_1_1LipmDcmEstimator.html#a4b8961666c025882c63aa22e355230b1',1,'stateObservation::LipmDcmEstimator']]],
+  ['dbltosqdiag_5f',['dblToSqDiag_',['../classstateObservation_1_1LipmDcmEstimator.html#a1a7758e6421ecec4814d0440c9117f77',1,'stateObservation::LipmDcmEstimator']]],
   ['debugitem',['DebugItem',['../classstateObservation_1_1DebugItem.html#a7970f5cbd4c2875ceb75b7ac25b25554',1,'stateObservation::DebugItem::DebugItem()'],['../classstateObservation_1_1DebugItem.html#ac60c720e38bc703afb86cb41461c1240',1,'stateObservation::DebugItem::DebugItem(const T &amp;v)'],['../classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html#ad151eca97e71f649eb640c534d36ef80',1,'stateObservation::DebugItem&lt; T, defaultValue, false &gt;::DebugItem()'],['../classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html#aed93d1779583def2cde25d0c2a9b7477',1,'stateObservation::DebugItem&lt; T, defaultValue, false &gt;::DebugItem(T)']]],
   ['defaultdifference',['defaultDifference',['../namespacestateObservation_1_1detail.html#a0bc44c69f09db5aefccaf6ae66e603d2',1,'stateObservation::detail']]],
   ['defaultsum',['defaultSum',['../namespacestateObservation_1_1detail.html#a03b2909c21d843ca6363914f8989d52a',1,'stateObservation::detail']]],

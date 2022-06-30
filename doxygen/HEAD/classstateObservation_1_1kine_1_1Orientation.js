@@ -8,6 +8,7 @@ var classstateObservation_1_1kine_1_1Orientation =
     [ "Orientation", "classstateObservation_1_1kine_1_1Orientation.html#a161df6c11cbff56c2442e2860f59fc65", null ],
     [ "Orientation", "classstateObservation_1_1kine_1_1Orientation.html#ac41023e87d944e552b86e9b5c2dc79bb", null ],
     [ "Orientation", "classstateObservation_1_1kine_1_1Orientation.html#adc0c2d72ab3f47ab16c1ad3287b8b344", null ],
+    [ "check_", "classstateObservation_1_1kine_1_1Orientation.html#a2e105d1e4de06465bfdf8345b3155bcd", null ],
     [ "differentiate", "classstateObservation_1_1kine_1_1Orientation.html#ab13ad728aa393e8b0e9169e716a7cd7b", null ],
     [ "fromVector4", "classstateObservation_1_1kine_1_1Orientation.html#a2b7268a380f3abcbae274b4d7e89ded2", null ],
     [ "getMatrixRefUnsafe", "classstateObservation_1_1kine_1_1Orientation.html#a1b4e887b17e8ad5f2bfdcd2c80f4c045", null ],
@@ -17,6 +18,7 @@ var classstateObservation_1_1kine_1_1Orientation =
     [ "isMatrixSet", "classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3", null ],
     [ "isQuaternionSet", "classstateObservation_1_1kine_1_1Orientation.html#ae77c280eb8b7766267f21b7ebb638245", null ],
     [ "isSet", "classstateObservation_1_1kine_1_1Orientation.html#a35d453bd78ff88e3fbb99007da56bdd5", null ],
+    [ "matrixToQuaternion_", "classstateObservation_1_1kine_1_1Orientation.html#ac08b4961fa135489dac9d5871fd26ace", null ],
     [ "operator const Matrix3 &", "classstateObservation_1_1kine_1_1Orientation.html#a48d0c7653345dd36f21c7735b7d27b3d", null ],
     [ "operator const Quaternion &", "classstateObservation_1_1kine_1_1Orientation.html#ae527db219a38e8e8d169836d4a0c3d6d", null ],
     [ "operator*", "classstateObservation_1_1kine_1_1Orientation.html#abb271698d392e67c83213925d49f9d7e", null ],
@@ -25,6 +27,7 @@ var classstateObservation_1_1kine_1_1Orientation =
     [ "operator=", "classstateObservation_1_1kine_1_1Orientation.html#a6145c3e71ce330b105725b0357cb2ef0", null ],
     [ "operator=", "classstateObservation_1_1kine_1_1Orientation.html#a4d9aa40ff415c789c71258abcfe2f794", null ],
     [ "operator=", "classstateObservation_1_1kine_1_1Orientation.html#a974108303911db42ce72d772d4c1bc30", null ],
+    [ "quaternionToMatrix_", "classstateObservation_1_1kine_1_1Orientation.html#aea621d175055a5d3b05ca7af9446d6c2", null ],
     [ "reset", "classstateObservation_1_1kine_1_1Orientation.html#a28915092485c252bacf8859646d26ea0", null ],
     [ "setMatrix", "classstateObservation_1_1kine_1_1Orientation.html#a271765bcecc81357dbaa358faf5bd824", null ],
     [ "setQuaternion", "classstateObservation_1_1kine_1_1Orientation.html#a3e3e79e808dba3844bf7d0740114dfd2", null ],
@@ -39,5 +42,7 @@ var classstateObservation_1_1kine_1_1Orientation =
     [ "toQuaternion", "classstateObservation_1_1kine_1_1Orientation.html#a7d4f47d78aaf897d81a6ec8380100f27", null ],
     [ "toRollPitchYaw", "classstateObservation_1_1kine_1_1Orientation.html#ac7f113b9390689ae3d7675ceb534e57d", null ],
     [ "toRotationVector", "classstateObservation_1_1kine_1_1Orientation.html#a8c23c0bc1862eabea982e2d84080ee99", null ],
-    [ "toVector4", "classstateObservation_1_1kine_1_1Orientation.html#a2feb49c5467ddf8f5a3cc97a8592e088", null ]
+    [ "toVector4", "classstateObservation_1_1kine_1_1Orientation.html#a2feb49c5467ddf8f5a3cc97a8592e088", null ],
+    [ "m_", "classstateObservation_1_1kine_1_1Orientation.html#afc5d2e99b7aa0f80112664b8565abc8a", null ],
+    [ "q_", "classstateObservation_1_1kine_1_1Orientation.html#a496f9b46c94c0da2d948f06887a16f2e", null ]
 ];

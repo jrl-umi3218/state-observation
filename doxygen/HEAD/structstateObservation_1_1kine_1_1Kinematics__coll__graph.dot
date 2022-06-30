@@ -14,4 +14,14 @@ digraph "stateObservation::kine::Kinematics"
   Node5 [label="stateObservation::DebugItem\l\< const char *, detail::\ldefaultErrorMSG, do_assert_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
   Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" orientation" ,fontname="Helvetica"];
   Node6 [label="stateObservation::kine\l::Orientation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1kine_1_1Orientation.html"];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_" ,fontname="Helvetica"];
+  Node7 [label="stateObservation::Checked\lItem\< Matrix3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node3 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
+  Node4 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];
+  Node5 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assertMsg_" ,fontname="Helvetica"];
+  Node8 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" q_" ,fontname="Helvetica"];
+  Node8 [label="stateObservation::Checked\lItem\< Quaternion, false,\l false, true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node3 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
+  Node4 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];
+  Node5 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assertMsg_" ,fontname="Helvetica"];
 }

@@ -13,5 +13,8 @@ var dir_cda5fc5be0e10eb55ab46f5ba25ddf36 =
     ] ],
     [ "unidim-lipm-dcm-estimator.hpp", "unidim-lipm-dcm-estimator_8hpp.html", [
       [ "UnidimLipmDcmEstimator", "classstateObservation_1_1UnidimLipmDcmEstimator.html", "classstateObservation_1_1UnidimLipmDcmEstimator" ]
+    ] ],
+    [ "zmp-tracking-gain-estimator.hpp", "zmp-tracking-gain-estimator_8hpp.html", [
+      [ "ZmpTrackingGainEstimator", "classstateObservation_1_1ZmpTrackingGainEstimator.html", "classstateObservation_1_1ZmpTrackingGainEstimator" ]
     ] ]
 ];

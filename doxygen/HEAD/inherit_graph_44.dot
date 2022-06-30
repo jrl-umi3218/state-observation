@@ -3,5 +3,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::kine\l::Kinematics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1kine_1_1Kinematics.html"];
+  Node0 [label="stateObservation::kine\l::indexes\< rotationVector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html"];
 }

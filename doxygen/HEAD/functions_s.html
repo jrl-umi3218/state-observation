@@ -244,6 +244,12 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>setFunctor()
 : <a class="el" href="classstateObservation_1_1ExtendedKalmanFilter.html#a0f5669e7fde3ff8c9e7f179e8e160db4">stateObservation::ExtendedKalmanFilter</a>
 </li>
+<li>setGain()
+: <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#a7d288653ffc6a5254ea3cab2d435fb36">stateObservation::ZmpTrackingGainEstimator</a>
+</li>
+<li>setGainDriftPerSecond()
+: <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#a44ff94618833d595fb70d085debbd886">stateObservation::ZmpTrackingGainEstimator</a>
+</li>
 <li>setGamma()
 : <a class="el" href="classstateObservation_1_1TiltEstimator.html#a49fd789d325d86bb3e8b6e9beb9a42f7">stateObservation::TiltEstimator</a>
 </li>
@@ -283,6 +289,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>setInputs()
 : <a class="el" href="classstateObservation_1_1LipmDcmEstimator.html#a6a39f5798c227a32d1d3e8b9ee6542f1">stateObservation::LipmDcmEstimator</a>
 , <a class="el" href="classstateObservation_1_1UnidimLipmDcmEstimator.html#a6be48c077a4526a6305250f47e080dfc">stateObservation::UnidimLipmDcmEstimator</a>
+, <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#ab30bd4a3920684aeedf5d7a96e3f0238">stateObservation::ZmpTrackingGainEstimator</a>
 </li>
 <li>setInputSize()
 : <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a72db9b513794c5a3ad80d4fea3f10c25">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem</a>
@@ -391,6 +398,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 , <a class="el" href="classstateObservation_1_1ObserverBase.html#aeb0b07ddd9b801f7586d2b42adab593b">stateObservation::ObserverBase</a>
 , <a class="el" href="classstateObservation_1_1ZeroDelayObserver.html#a46f6c0b0d107a5eaca46d16db27d6e26">stateObservation::ZeroDelayObserver</a>
 </li>
+<li>setMinimumGain()
+: <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#a931c7cfdf41d36441ad299064bd40302">stateObservation::ZmpTrackingGainEstimator</a>
+</li>
 <li>setNoise()
 : <a class="el" href="classstateObservation_1_1SensorBase.html#a757c0ad88de20b53a8541a159f176ca9">stateObservation::SensorBase</a>
 </li>
@@ -463,6 +473,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 , <a class="el" href="classstateObservation_1_1LipmDcmEstimator.html#ad9a6f4ad1b0a200a6d15c90a1571c34c">stateObservation::LipmDcmEstimator</a>
 , <a class="el" href="classstateObservation_1_1TiltEstimator.html#a139a168126159cbc438e0375eb8e0d5b">stateObservation::TiltEstimator</a>
 , <a class="el" href="classstateObservation_1_1UnidimLipmDcmEstimator.html#a4b4eb906eb7216219618daaaba5b5e40">stateObservation::UnidimLipmDcmEstimator</a>
+, <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#a9f4f8441b8aa5a79db44acb8804840a4">stateObservation::ZmpTrackingGainEstimator</a>
 </li>
 <li>setSeed()
 : <a class="el" href="classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#ab5f568d5391769914d6efd4ed81d0547">stateObservation::tools::ProbabilityLawSimulation</a>
@@ -561,6 +572,9 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 <li>setWithAccelerationEstimation()
 : <a class="el" href="classstateObservation_1_1KineticsObserver.html#a7d9d8b542a69720a446d8ea94eb29b2a">stateObservation::KineticsObserver</a>
 </li>
+<li>setWithAcceleroBias()
+: <a class="el" href="classstateObservation_1_1AccelerometerGyrometer.html#a848dd7d3f963365acddd0a9825e123ca">stateObservation::AccelerometerGyrometer</a>
+</li>
 <li>setWithComBias()
 : <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#ab157fa9fa8ff0f9a9f742236173a3970">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem</a>
 , <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#a4540302ec4af496197da81949814e48f">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>
@@ -572,7 +586,8 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#a9f1a09aa13a83bce77a21bebc26b4ae8">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>
 </li>
 <li>setWithGyroBias()
-: <a class="el" href="classstateObservation_1_1KineticsObserver.html#a66163ba4361292ed0834277c387f2f4f">stateObservation::KineticsObserver</a>
+: <a class="el" href="classstateObservation_1_1AccelerometerGyrometer.html#ab8f4eb4a9577f491de343f4c0fb68e43">stateObservation::AccelerometerGyrometer</a>
+, <a class="el" href="classstateObservation_1_1KineticsObserver.html#a66163ba4361292ed0834277c387f2f4f">stateObservation::KineticsObserver</a>
 </li>
 <li>setWithUnmodeledForces()
 : <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#adb08eea01104b91ce0e91fa73e0d0e32">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem</a>
@@ -585,11 +600,15 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 : <a class="el" href="structstateObservation_1_1kine_1_1Kinematics.html#a1dad8fd93c13685bbc871b6a32493aaf">stateObservation::kine::Kinematics</a>
 </li>
 <li>setZeroRotation()
-: <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ada01e21079c6c974cb66c1a93975a2fa">stateObservation::kine::Orientation</a>
+: <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ab2ddd1129cd514fff97b8afa60db7e3e">stateObservation::kine::Orientation</a>
 </li>
 <li>setZmpMeasureErrorStd()
 : <a class="el" href="classstateObservation_1_1LipmDcmEstimator.html#a04c5b303c5642400fc6e755528b76ff1">stateObservation::LipmDcmEstimator</a>
 , <a class="el" href="classstateObservation_1_1UnidimLipmDcmEstimator.html#afcf0db1c6a0a0ec97255bc68a304c860">stateObservation::UnidimLipmDcmEstimator</a>
+, <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#addab97b19ca8cdd1677bed502dc24e2c">stateObservation::ZmpTrackingGainEstimator</a>
+</li>
+<li>setZMPProcesError()
+: <a class="el" href="classstateObservation_1_1ZmpTrackingGainEstimator.html#a880e7873258266a62b389014c0393e4f">stateObservation::ZmpTrackingGainEstimator</a>
 </li>
 <li>sigma_
 : <a class="el" href="classstateObservation_1_1KineticsObserver.html#afbe07cb91817ef5ee5b04b8b3e895557">stateObservation::KineticsObserver</a>
@@ -746,7 +765,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 , <a class="el" href="classstateObservation_1_1KineticsObserver.html#aa79a80f857783a725b23f531e195dc5c">stateObservation::KineticsObserver</a>
 </li>
 <li>stateDynamicsJacobian()
-: <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a1012b2c102100ddc750ad022131d4223">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem</a>
+: <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a39668f909b635d13f9ed4de0bfaff3f6">stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem</a>
 </li>
 <li>stateIndex
 : <a class="el" href="structstateObservation_1_1KineticsObserver_1_1Contact.html#a8eafd28bd101e4ee6f275871002a7499">stateObservation::KineticsObserver::Contact</a>
@@ -813,10 +832,17 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 , <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1IMUFixedContactDynamicalSystem.html#a3c618cd6c9e2cf6f45b4192ff83483ad">stateObservation::flexibilityEstimation::IMUFixedContactDynamicalSystem</a>
 , <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#a303bb4aaf30a0a12e75fcf8892c64588">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</a>
 , <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1StableIMUFixedContactDynamicalSystem.html#a55b2352f95f71d4628e88f03e942b304">stateObservation::flexibilityEstimation::StableIMUFixedContactDynamicalSystem</a>
-, <a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a8ed80ab31e260ccbe49763d071574f3d">stateObservation::IMUDynamicalSystem</a>
-, <a class="el" href="classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#a776f256daf1d2ead88d6254ba909bf46">stateObservation::IMUMagnetometerDynamicalSystem</a>
+</li>
+<li>statesize_
+: <a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#aa9caedac0665e63874280de99dac11f8">stateObservation::IMUDynamicalSystem</a>
+</li>
+<li>stateSize_
+: <a class="el" href="classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#a776f256daf1d2ead88d6254ba909bf46">stateObservation::IMUMagnetometerDynamicalSystem</a>
 , <a class="el" href="classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a0a08487a297b68a53bcc39f56f73ab1a">stateObservation::IMUMltpctiveDynamicalSystem</a>
 , <a class="el" href="classstateObservation_1_1KineticsObserver.html#a7586f3fbeddad6bf765b74560cc95420">stateObservation::KineticsObserver</a>
+</li>
+<li>stateSizeBase_
+: <a class="el" href="classstateObservation_1_1IMUDynamicalSystem.html#a1b49a873995dafe38a92fca5e70908b6">stateObservation::IMUDynamicalSystem</a>
 </li>
 <li>stateSizeConst_
 : <a class="el" href="classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a4f8a008115fda1f35f03023a55e47cd2">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</a>
@@ -827,7 +853,7 @@ $(document).ready(function(){initNavTree('functions_s.html','');});
 </li>
 <li>stateSum()
 : <a class="el" href="classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a8cf57a82f96f18751021af889c5347b4">stateObservation::IMUMltpctiveDynamicalSystem</a>
-, <a class="el" href="classstateObservation_1_1KineticsObserver.html#a4e22520151df3a19b668d5a9df674ec3">stateObservation::KineticsObserver</a>
+, <a class="el" href="classstateObservation_1_1KineticsObserver.html#ac177256e61a9926c1c68d168d0f0479f">stateObservation::KineticsObserver</a>
 , <a class="el" href="classstateObservation_1_1StateVectorArithmetics.html#af75017eba3b3c71590ed5d112cc483a7">stateObservation::StateVectorArithmetics</a>
 </li>
 <li>stateTangentSize_

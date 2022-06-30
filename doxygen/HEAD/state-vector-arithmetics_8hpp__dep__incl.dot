@@ -32,5 +32,7 @@ digraph "include/state-observation/tools/state-vector-arithmetics.hpp"
   Node27 [label="include/state-observation\l/dynamics-estimators/lipm\l-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lipm-dcm-estimator_8hpp.html",tooltip="Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the co..."];
   Node26 -> Node28 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node28 [label="include/state-observation\l/dynamics-estimators/unidim\l-lipm-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unidim-lipm-dcm-estimator_8hpp.html",tooltip="Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment poi..."];
+  Node26 -> Node29 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node29 [label="include/state-observation\l/dynamics-estimators/zmp\l-tracking-gain-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$zmp-tracking-gain-estimator_8hpp.html"];
   Node14 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

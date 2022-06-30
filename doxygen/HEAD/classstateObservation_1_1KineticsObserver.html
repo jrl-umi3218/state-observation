@@ -154,14 +154,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8550033497c0fab9b369560ff76fc99c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the total mass of the robot. This can be changed online.  <a href="#a8550033497c0fab9b369560ff76fc99c">More...</a><br /></td></tr>
 <tr class="separator:a8550033497c0fab9b369560ff76fc99c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Setting kinematic sensors</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>These are the methods to be called at each iteration to give the control inputs and the sensor measurement for IMUs and absolute pose sensors. </p>
+<tr><td colspan="2"><div class="groupText"><p>These are the methods to be called at each iteration to give the control inputs and the sensor measurement for IMUs and absolute pose sensors. ////////////////////////////////////////////////////////// </p>
 </div></td></tr>
 <tr class="memitem:adc8e9d45b1d49cab2927a4b449e0fe86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#adc8e9d45b1d49cab2927a4b449e0fe86">setIMU</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;accelero, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;gyrometer, const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;localKine, int num=-1)</td></tr>
 <tr class="memdesc:adc8e9d45b1d49cab2927a4b449e0fe86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the measurements of an <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a> and give the Kinematic of the <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a>.  <a href="#adc8e9d45b1d49cab2927a4b449e0fe86">More...</a><br /></td></tr>
 <tr class="separator:adc8e9d45b1d49cab2927a4b449e0fe86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9606f2221920f923f92f905a0e019b8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a9606f2221920f923f92f905a0e019b8e">setIMU</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;accelero, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;gyrometer, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;acceleroCov, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> gyroCov, const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;localKine, int num=-1)</td></tr>
-<tr class="memdesc:a9606f2221920f923f92f905a0e019b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the measurements of an <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a> and give the Kinematic of the <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a>. Provides also the associated covariance matrices  <a href="#a9606f2221920f923f92f905a0e019b8e">More...</a><br /></td></tr>
-<tr class="separator:a9606f2221920f923f92f905a0e019b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff77c307b4406539fe6d428a0368d3c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#aff77c307b4406539fe6d428a0368d3c9">setIMU</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;accelero, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;gyrometer, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;acceleroCov, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;gyroCov, const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;localKine, int num=-1)</td></tr>
+<tr class="memdesc:aff77c307b4406539fe6d428a0368d3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the measurements of an <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a> and give the Kinematic of the <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a>. Provides also the associated covariance matrices  <a href="#aff77c307b4406539fe6d428a0368d3c9">More...</a><br /></td></tr>
+<tr class="separator:aff77c307b4406539fe6d428a0368d3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6427334e2bab3d0fb4e71e4869f8924"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#ae6427334e2bab3d0fb4e71e4869f8924">setIMUDefaultCovarianceMatrix</a> (const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;acceleroCov, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;gyroCov)</td></tr>
 <tr class="memdesc:ae6427334e2bab3d0fb4e71e4869f8924"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the default covariance matrix for <a class="el" href="structstateObservation_1_1KineticsObserver_1_1IMU.html">IMU</a>.  <a href="#ae6427334e2bab3d0fb4e71e4869f8924">More...</a><br /></td></tr>
 <tr class="separator:ae6427334e2bab3d0fb4e71e4869f8924"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,12 +177,12 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Adding, managing and deleting contacts</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>This class does NOT detect new contacts with the environment. Use these classes instead. Call these only when a new contact is created or removed from the environment, otherwise the contacts will remain the same at each new iteration. </p>
 </div></td></tr>
-<tr class="memitem:a1c840388c0b19d4675c6c9e4cfdc7ffd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a1c840388c0b19d4675c6c9e4cfdc7ffd">addContact</a> (const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;pose, const <a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a> &amp;initialCovarianceMatrix, const <a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a> &amp;processCovarianceMatrix, int contactNumber=-1, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearStiffness=Matrix3::Zero(), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearDamping=Matrix3::Zero(), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularStiffness=Matrix3::Zero(), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularDamping=Matrix3::Zero())</td></tr>
-<tr class="memdesc:a1c840388c0b19d4675c6c9e4cfdc7ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new contact with the environment.  <a href="#a1c840388c0b19d4675c6c9e4cfdc7ffd">More...</a><br /></td></tr>
-<tr class="separator:a1c840388c0b19d4675c6c9e4cfdc7ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4b739ac2a286e0d39abb34f856523fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#ac4b739ac2a286e0d39abb34f856523fe">addContact</a> (const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;pose, int contactNumber=-1, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearStiffness=Matrix3::Zero(), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearDamping=Matrix3::Zero(), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularStiffness=Matrix3::Zero(), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularDamping=Matrix3::Zero())</td></tr>
-<tr class="memdesc:ac4b739ac2a286e0d39abb34f856523fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new contact with the environment (use default covariance matrices)  <a href="#ac4b739ac2a286e0d39abb34f856523fe">More...</a><br /></td></tr>
-<tr class="separator:ac4b739ac2a286e0d39abb34f856523fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ae40515187bfd3e499d1874a217e78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a49ae40515187bfd3e499d1874a217e78">addContact</a> (const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;pose, const <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a> &amp;contactWrench, const <a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a> &amp;initialCovarianceMatrix, const <a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a> &amp;processCovarianceMatrix, int contactNumber=-1, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearStiffness=Matrix3::Constant(-1), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearDamping=Matrix3::Constant(-1), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularStiffness=Matrix3::Constant(-1), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularDamping=Matrix3::Constant(-1))</td></tr>
+<tr class="memdesc:a49ae40515187bfd3e499d1874a217e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new contact with the environment.  <a href="#a49ae40515187bfd3e499d1874a217e78">More...</a><br /></td></tr>
+<tr class="separator:a49ae40515187bfd3e499d1874a217e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4947ab391d218df4b3d1a83ff0c514"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a2a4947ab391d218df4b3d1a83ff0c514">addContact</a> (const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;pose, const <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a> &amp;contactWrench=Vector6::Zero(), int contactNumber=-1, const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearStiffness=Matrix3::Constant(-1), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;linearDamping=Matrix3::Constant(-1), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularStiffness=Matrix3::Constant(-1), const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;angularDamping=Matrix3::Constant(-1))</td></tr>
+<tr class="memdesc:a2a4947ab391d218df4b3d1a83ff0c514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a new contact with the environment (use default covariance matrices)  <a href="#a2a4947ab391d218df4b3d1a83ff0c514">More...</a><br /></td></tr>
+<tr class="separator:a2a4947ab391d218df4b3d1a83ff0c514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a641f46549197908377f4a99ffbfa222f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a641f46549197908377f4a99ffbfa222f">removeContact</a> (int contactnbr)</td></tr>
 <tr class="memdesc:a641f46549197908377f4a99ffbfa222f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a contact.  <a href="#a641f46549197908377f4a99ffbfa222f">More...</a><br /></td></tr>
 <tr class="separator:a641f46549197908377f4a99ffbfa222f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +215,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a561e85770d1655172b957e4ca58e5d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the <a class="el" href="structstateObservation_1_1KineticsObserver_1_1Contact.html">Contact</a> Wrench <a class="el" href="structstateObservation_1_1KineticsObserver_1_1Sensor.html">Sensor</a> Default Covariance Matrix.  <a href="#a561e85770d1655172b957e4ca58e5d81">More...</a><br /></td></tr>
 <tr class="separator:a561e85770d1655172b957e4ca58e5d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Setting additional inputs to the dynamical system</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>It is highly recommended to set these inputs at each iteration </p>
+<tr><td colspan="2"><div class="groupText"><p>It is highly recommended to set these inputs at each iteration //////////////////////////////////////////////// </p>
 </div></td></tr>
 <tr class="memitem:af800bd6eb4302dc3e286c230a51f8ae6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#af800bd6eb4302dc3e286c230a51f8ae6">setCenterOfMass</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;com, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;com_dot, const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;com_dot_dot)</td></tr>
 <tr class="memdesc:af800bd6eb4302dc3e286c230a51f8ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Center Of Mass kinematics expressed in the local estimated frame.  <a href="#af800bd6eb4302dc3e286c230a51f8ae6">More...</a><br /></td></tr>
@@ -248,6 +248,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae9432871c1193d4f5a66cf15d57a989d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set any Additional resultant known wrench (e.g. measured external forces and moments but no contact ones) expressed in the local estimated frame.  <a href="#ae9432871c1193d4f5a66cf15d57a989d">More...</a><br /></td></tr>
 <tr class="separator:ae9432871c1193d4f5a66cf15d57a989d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Running and getting the estimations</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>///////////////////////////////////////////////////////// </p>
+</div></td></tr>
 <tr class="memitem:a373403115258327bb90292ebef64f826"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacestateObservation.html#af12c1d00c2ef533fe40f8ceb1b45ef0d">Vector</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a373403115258327bb90292ebef64f826">update</a> ()</td></tr>
 <tr class="memdesc:a373403115258327bb90292ebef64f826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the estimation.  <a href="#a373403115258327bb90292ebef64f826">More...</a><br /></td></tr>
 <tr class="separator:a373403115258327bb90292ebef64f826"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,7 +272,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a27df12db6e8362ef7cf9b4223392b804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Unmodeled External Wrench (requires <a class="el" href="classstateObservation_1_1KineticsObserver.html#ad60981afaa1763ed9bae9a5d55f97324" title="Set if the unmodeled and unmeasured external wrench should be estimated. ">setWithUnmodeledWrench()</a> to true before to <a class="el" href="classstateObservation_1_1KineticsObserver.html#a373403115258327bb90292ebef64f826" title="Runs the estimation. ">update()</a>)  <a href="#a27df12db6e8362ef7cf9b4223392b804">More...</a><br /></td></tr>
 <tr class="separator:a27df12db6e8362ef7cf9b4223392b804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Set values for state components</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>These methods allow to update some parts of the state of the system based on guesses obtained independently </p>
+<tr><td colspan="2"><div class="groupText"><p>///////////////////////////////////////////////////////////</p>
+<p>These methods allow to update some parts of the state of the system based on guesses obtained independently </p>
 </div></td></tr>
 <tr class="memitem:aa03c960d6f4ee0b78635ab2378cdf4bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#aa03c960d6f4ee0b78635ab2378cdf4bd">setStateKinematics</a> (const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;kine, bool resetContactWrenches=true, bool resetCovariance=true)</td></tr>
 <tr class="memdesc:aa03c960d6f4ee0b78635ab2378cdf4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the State Kinematics.  <a href="#aa03c960d6f4ee0b78635ab2378cdf4bd">More...</a><br /></td></tr>
@@ -356,7 +359,7 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>this is constituted with</p><ul>
 <li>Getters and setters for the state vector (from <a class="el" href="classstateObservation_1_1KineticsObserver.html#a750c98e03356378703614a1ff3ee7a01" title="Get the State Vector Size. ">getStateSize()</a> to <a class="el" href="classstateObservation_1_1KineticsObserver.html#a0d06e4e8dc9276cb20737b06de36b589" title="Set a value of the state x_k provided from another source. ">setStateVector()</a>)</li>
 <li>Getters for the indexes of the state Vector (from <a class="el" href="classstateObservation_1_1KineticsObserver.html#a68016b6606d7d6bccc66eec08a82071d" title="Get the kinematics index of the state vector. ">kineIndex()</a> to <a class="el" href="classstateObservation_1_1KineticsObserver.html#ad1cbdddb5bd32373df99e9016b991acc" title="Get the index of the wrench of a specific contact in the sate vector. ">contactWrenchIndex()</a>)</li>
-<li>Getters for the indexes of the tangent state Vector (from <a class="el" href="classstateObservation_1_1KineticsObserver.html#ad55aeb5c48e73ce5a3a4041fb6f5407a" title="Getters for the indexes of the tangent state Vector. ">kineIndexTangent()</a> to contactWrenchIndextangent()) </li>
+<li>Getters for the indexes of the tangent state Vector (from <a class="el" href="classstateObservation_1_1KineticsObserver.html#ad55aeb5c48e73ce5a3a4041fb6f5407a" title="Get the kinematics index of the tangent state vector. ">kineIndexTangent()</a> to contactWrenchIndextangent()) </li>
 </ul>
 </div></td></tr>
 <tr class="memitem:a750c98e03356378703614a1ff3ee7a01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a750c98e03356378703614a1ff3ee7a01">getStateSize</a> () const</td></tr>
@@ -438,7 +441,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad1cbdddb5bd32373df99e9016b991acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the index of the wrench of a specific contact in the sate vector.  <a href="#ad1cbdddb5bd32373df99e9016b991acc">More...</a><br /></td></tr>
 <tr class="separator:ad1cbdddb5bd32373df99e9016b991acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55aeb5c48e73ce5a3a4041fb6f5407a"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#ad55aeb5c48e73ce5a3a4041fb6f5407a">kineIndexTangent</a> () const</td></tr>
-<tr class="memdesc:ad55aeb5c48e73ce5a3a4041fb6f5407a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getters for the indexes of the tangent state Vector.  <a href="#ad55aeb5c48e73ce5a3a4041fb6f5407a">More...</a><br /></td></tr>
+<tr class="memdesc:ad55aeb5c48e73ce5a3a4041fb6f5407a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the kinematics index of the tangent state vector.  <a href="#ad55aeb5c48e73ce5a3a4041fb6f5407a">More...</a><br /></td></tr>
 <tr class="separator:ad55aeb5c48e73ce5a3a4041fb6f5407a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8169e8a4d14890cb2c2cc206d717db03"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html#a8169e8a4d14890cb2c2cc206d717db03">posIndexTangent</a> () const</td></tr>
 <tr class="memdesc:a8169e8a4d14890cb2c2cc206d717db03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the position index of the tangent state vector.  <a href="#a8169e8a4d14890cb2c2cc206d717db03">More...</a><br /></td></tr>
@@ -1112,8 +1115,8 @@ Static Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1c840388c0b19d4675c6c9e4cfdc7ffd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c840388c0b19d4675c6c9e4cfdc7ffd">&#9670;&nbsp;</a></span>addContact() <span class="overload">[1/2]</span></h2>
+<a id="a49ae40515187bfd3e499d1874a217e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ae40515187bfd3e499d1874a217e78">&#9670;&nbsp;</a></span>addContact() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1123,6 +1126,12 @@ Static Protected Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classstateObservation_1_1KineticsObserver.html#aab93d59d57726e3ab9566e9cb605f98e">Kinematics</a> &amp;&#160;</td>
           <td class="paramname"><em>pose</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a> &amp;&#160;</td>
+          <td class="paramname"><em>contactWrench</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1146,25 +1155,25 @@ Static Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>linearStiffness</em> = <code>Matrix3::Zero()</code>, </td>
+          <td class="paramname"><em>linearStiffness</em> = <code>Matrix3::Constant(-1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>linearDamping</em> = <code>Matrix3::Zero()</code>, </td>
+          <td class="paramname"><em>linearDamping</em> = <code>Matrix3::Constant(-1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>angularStiffness</em> = <code>Matrix3::Zero()</code>, </td>
+          <td class="paramname"><em>angularStiffness</em> = <code>Matrix3::Constant(-1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>angularDamping</em> = <code>Matrix3::Zero()</code>&#160;</td>
+          <td class="paramname"><em>angularDamping</em> = <code>Matrix3::Constant(-1)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1177,14 +1186,15 @@ Static Protected Attributes</h2></td></tr>
 <p>Set a new contact with the environment. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pose</td><td>is the initial guess on the position of the contact. Only position and orientation are enough </td></tr>
-    <tr><td class="paramname">initialCovarianceMatrix</td><td>is the covariance matrix expressing the uncertainty of the initial guess (if no good initial guess is available give a rough position with a high initial covariance matrix, if the position is certain, set it to zero) </td></tr>
-    <tr><td class="paramname">processCovarianceMatrix</td><td>is the covariance matrix expressing the rate at which the contact slides or drifts (set to zero for no sliding) </td></tr>
+    <tr><td class="paramname">pose</td><td>is the initial guess on the position of the contact. Only position and orientation are enough. If the contact is compliant, you need to set the "rest" pose of the contact (i.e. the pose that gives zero reaction force) </td></tr>
+    <tr><td class="paramname">contactWrench</td><td>is the initial wrench on the contact expressed in the local frame of the contact frame (e.g. the force-sensor measurement) </td></tr>
+    <tr><td class="paramname">initialCovarianceMatrix</td><td>is the covariance matrix expressing the uncertainty in the pose of the initial guess in the 6x6 upper left corner ( if no good initial guess is available give a rough position with a high initial covariance matrix, if the position is certain, set it to zero.) and the initial wrench in the 6x6 lower right corner. </td></tr>
+    <tr><td class="paramname">processCovarianceMatrix</td><td>is the covariance matrix expressing the rate at which the contact slides or drifts in the 6x6 upper left corner (set to zero for no sliding) and the certainty in the reaction force model (viscoelastic) in the prediction of the contact force </td></tr>
     <tr><td class="paramname">contactNumber</td><td>the number id of the contact to add. If no predefined id, use -1 (default) in order to set the number automatically </td></tr>
-    <tr><td class="paramname">linearStiffness</td><td>the linear stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
-    <tr><td class="paramname">linearDamping</td><td>the linear damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
-    <tr><td class="paramname">angularStiffness</td><td>the angular stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
-    <tr><td class="paramname">angularDamping</td><td>the angular damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
+    <tr><td class="paramname">linearStiffness</td><td>the linear stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
+    <tr><td class="paramname">linearDamping</td><td>the linear damping of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
+    <tr><td class="paramname">angularStiffness</td><td>the angular stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
+    <tr><td class="paramname">angularDamping</td><td>the angular damping of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
   </table>
   </dd>
 </dl>
@@ -1192,8 +1202,8 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac4b739ac2a286e0d39abb34f856523fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4b739ac2a286e0d39abb34f856523fe">&#9670;&nbsp;</a></span>addContact() <span class="overload">[2/2]</span></h2>
+<a id="a2a4947ab391d218df4b3d1a83ff0c514"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4947ab391d218df4b3d1a83ff0c514">&#9670;&nbsp;</a></span>addContact() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1207,6 +1217,12 @@ Static Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a> &amp;&#160;</td>
+          <td class="paramname"><em>contactWrench</em> = <code>Vector6::Zero()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>contactNumber</em> = <code>-1</code>, </td>
         </tr>
@@ -1214,25 +1230,25 @@ Static Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>linearStiffness</em> = <code>Matrix3::Zero()</code>, </td>
+          <td class="paramname"><em>linearStiffness</em> = <code>Matrix3::Constant(-1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>linearDamping</em> = <code>Matrix3::Zero()</code>, </td>
+          <td class="paramname"><em>linearDamping</em> = <code>Matrix3::Constant(-1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>angularStiffness</em> = <code>Matrix3::Zero()</code>, </td>
+          <td class="paramname"><em>angularStiffness</em> = <code>Matrix3::Constant(-1)</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
-          <td class="paramname"><em>angularDamping</em> = <code>Matrix3::Zero()</code>&#160;</td>
+          <td class="paramname"><em>angularDamping</em> = <code>Matrix3::Constant(-1)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1247,10 +1263,10 @@ Static Protected Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">pose</td><td>is the initial guess on the position of the contact. Only position and orientation are enough </td></tr>
     <tr><td class="paramname">contactNumber</td><td>the number id of the contact to add. If no predefined id, use -1 (default) in order to set the number automatically </td></tr>
-    <tr><td class="paramname">linearStiffness</td><td>the linear stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
-    <tr><td class="paramname">linearDamping</td><td>the linear damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
-    <tr><td class="paramname">angularStiffness</td><td>the angular stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
-    <tr><td class="paramname">angularDamping</td><td>the angular damping of the contact viscoelastic model, if unknown, set to Matrix3::Zero() (default) to use the default one </td></tr>
+    <tr><td class="paramname">linearStiffness</td><td>the linear stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
+    <tr><td class="paramname">linearDamping</td><td>the linear damping of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
+    <tr><td class="paramname">angularStiffness</td><td>the angular stiffness of the contact viscoelastic model, if unknown, set to Matrix3::Constant(-1) (default) to use the default one </td></tr>
+    <tr><td class="paramname">angularDamping</td><td>the angular damping of the contact viscoelastic model, if unknown, set to Matrix3:::Constant(-1) (default) to use the default one </td></tr>
   </table>
   </dd>
 </dl>
@@ -3024,9 +3040,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Getters for the indexes of the tangent state Vector. </p>
-<p>Get the kinematics index of the tangent state vector</p>
-<dl class="section return"><dt>Returns</dt><dd>unsigned </dd></dl>
+<p>Get the kinematics index of the tangent state vector. </p>
+<p>Getters for the indexes of the tangent state Vector //////////////////////////////////////////////////////////</p><dl class="section return"><dt>Returns</dt><dd>unsigned </dd></dl>
 
 </div>
 </div>
@@ -4279,8 +4294,8 @@ Static Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9606f2221920f923f92f905a0e019b8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9606f2221920f923f92f905a0e019b8e">&#9670;&nbsp;</a></span>setIMU() <span class="overload">[2/2]</span></h2>
+<a id="aff77c307b4406539fe6d428a0368d3c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff77c307b4406539fe6d428a0368d3c9">&#9670;&nbsp;</a></span>setIMU() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4306,7 +4321,7 @@ Static Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td>
           <td class="paramname"><em>gyroCov</em>, </td>
         </tr>
         <tr>

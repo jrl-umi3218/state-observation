@@ -72,6 +72,8 @@ $(document).ready(function(){initNavTree('classstateObservation_1_1kine_1_1Orien
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classstateObservation_1_1kine_1_1Orientation-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">stateObservation::kine::Orientation Class Reference</div>  </div>
@@ -79,6 +81,13 @@ $(document).ready(function(){initNavTree('classstateObservation_1_1kine_1_1Orien
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="rigid-body-kinematics_8hpp_source.html">state-observation/tools/rigid-body-kinematics.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for stateObservation::kine::Orientation:</div>
+<div class="dyncontent">
+<div class="center"><img src="classstateObservation_1_1kine_1_1Orientation__coll__graph.png" border="0" usemap="#stateObservation_1_1kine_1_1Orientation_coll__map" alt="Collaboration graph"/></div>
+<map name="stateObservation_1_1kine_1_1Orientation_coll__map" id="stateObservation_1_1kine_1_1Orientation_coll__map">
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -178,6 +187,22 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae52f09b017a281a126720abfce1f186d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ae52f09b017a281a126720abfce1f186d">randomRotation</a> ()</td></tr>
 <tr class="memdesc:ae52f09b017a281a126720abfce1f186d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a uniformly distributed random rotation.  <a href="#ae52f09b017a281a126720abfce1f186d">More...</a><br /></td></tr>
 <tr class="separator:ae52f09b017a281a126720abfce1f186d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a2e105d1e4de06465bfdf8345b3155bcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a2e105d1e4de06465bfdf8345b3155bcd">check_</a> () const</td></tr>
+<tr class="separator:a2e105d1e4de06465bfdf8345b3155bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea621d175055a5d3b05ca7af9446d6c2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#aea621d175055a5d3b05ca7af9446d6c2">quaternionToMatrix_</a> () const</td></tr>
+<tr class="separator:aea621d175055a5d3b05ca7af9446d6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac08b4961fa135489dac9d5871fd26ace"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacestateObservation.html#a1d5e7448fab378f14e92403b1c2ef5b2">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ac08b4961fa135489dac9d5871fd26ace">matrixToQuaternion_</a> () const</td></tr>
+<tr class="separator:ac08b4961fa135489dac9d5871fd26ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a496f9b46c94c0da2d948f06887a16f2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#aa3771fcbd17321c96ddc17e2b1f1a7da">CheckedQuaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a496f9b46c94c0da2d948f06887a16f2e">q_</a></td></tr>
+<tr class="separator:a496f9b46c94c0da2d948f06887a16f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc5d2e99b7aa0f80112664b8565abc8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#afc5d2e99b7aa0f80112664b8565abc8a">m_</a></td></tr>
+<tr class="separator:afc5d2e99b7aa0f80112664b8565abc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0b47730588e42010059ddc6c04e8f522"></a>
@@ -404,6 +429,31 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2e105d1e4de06465bfdf8345b3155bcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e105d1e4de06465bfdf8345b3155bcd">&#9670;&nbsp;</a></span>check_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stateObservation::kine::Orientation::check_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab13ad728aa393e8b0e9169e716a7cd7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab13ad728aa393e8b0e9169e716a7cd7b">&#9670;&nbsp;</a></span>differentiate()</h2>
 
@@ -636,6 +686,31 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac08b4961fa135489dac9d5871fd26ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac08b4961fa135489dac9d5871fd26ace">&#9670;&nbsp;</a></span>matrixToQuaternion_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacestateObservation.html#a1d5e7448fab378f14e92403b1c2ef5b2">Quaternion</a>&amp; stateObservation::kine::Orientation::matrixToQuaternion_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a48d0c7653345dd36f21c7735b7d27b3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48d0c7653345dd36f21c7735b7d27b3d">&#9670;&nbsp;</a></span>operator const Matrix3 &()</h2>
 
@@ -839,6 +914,31 @@ Static Public Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea621d175055a5d3b05ca7af9446d6c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea621d175055a5d3b05ca7af9446d6c2">&#9670;&nbsp;</a></span>quaternionToMatrix_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>&amp; stateObservation::kine::Orientation::quaternionToMatrix_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1304,6 +1404,51 @@ template&lt;typename t &gt; </div>
 </div><div class="memdoc">
 
 <p>retruns a zero rotation </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="afc5d2e99b7aa0f80112664b8565abc8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc5d2e99b7aa0f80112664b8565abc8a">&#9670;&nbsp;</a></span>m_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a> stateObservation::kine::Orientation::m_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a496f9b46c94c0da2d948f06887a16f2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496f9b46c94c0da2d948f06887a16f2e">&#9670;&nbsp;</a></span>q_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#aa3771fcbd17321c96ddc17e2b1f1a7da">CheckedQuaternion</a> stateObservation::kine::Orientation::q_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">mutable</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

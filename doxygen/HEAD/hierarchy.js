@@ -93,12 +93,13 @@ var hierarchy =
         [ "stateObservation::TiltEstimator", "classstateObservation_1_1TiltEstimator.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
     [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
+    [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
+    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
     [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
-    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::KalmanFilterBase::optimizationContainer", "structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html", null ],
+    [ "order1", "classorder1.html", null ],
     [ "stateObservation::kine::Orientation", "classstateObservation_1_1kine_1_1Orientation.html", null ],
     [ "stateObservation::tools::ProbabilityLawSimulation", "classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html", null ],
     [ "stateObservation::algorithm::RotationVelocity", "classstateObservation_1_1algorithm_1_1RotationVelocity.html", [
@@ -126,5 +127,6 @@ var hierarchy =
     [ "true_type", null, [
       [ "stateObservation::isMatrix< Eigen::Matrix< _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols > >", "structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html", null ]
     ] ],
-    [ "stateObservation::UnidimLipmDcmEstimator", "classstateObservation_1_1UnidimLipmDcmEstimator.html", null ]
+    [ "stateObservation::UnidimLipmDcmEstimator", "classstateObservation_1_1UnidimLipmDcmEstimator.html", null ],
+    [ "stateObservation::ZmpTrackingGainEstimator", "classstateObservation_1_1ZmpTrackingGainEstimator.html", null ]
 ];
