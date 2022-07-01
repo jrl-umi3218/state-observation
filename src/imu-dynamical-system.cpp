@@ -16,14 +16,7 @@ IMUDynamicalSystem::IMUDynamicalSystem(bool withGyroBias)
 #endif // STATEOBSERVATION_VERBOUS_CONSTRUCTOR
        // ctor
   sensor_.setWithGyroBias(withGyroBias);
-  if(withGyroBias)
-  {
-    statesize_ = stateSizeBase_ + 3;
-  }
-  else
-  {
-    statesize_ = stateSizeBase_;
-  }
+  updatestatesize();
 }
 
 IMUDynamicalSystem::~IMUDynamicalSystem()
@@ -180,5 +173,12 @@ NoiseBase * IMUDynamicalSystem::getProcessNoise() const
 NoiseBase * IMUDynamicalSystem::getMeasurementNoise() const
 {
   return sensor_.getNoise();
+}
+
+void IMUDynamicalSystem::setWithGyroBias(bool withGyroBias)
+{
+  withGyroBias_ = withGyroBias;
+  sensor_.setWithGyroBias(withGyroBias);
+  updatestatesize();
 }
 } // namespace stateObservation

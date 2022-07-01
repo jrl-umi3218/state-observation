@@ -70,6 +70,21 @@ public:
   /// Gets the measurement size
   virtual Index getMeasurementSize() const;
 
+  /// @brief Set whether we use Gyro Bias
+  void setWithGyroBias(bool);
+
+  void updatestatesize()
+  {
+    if(withGyroBias_)
+    {
+      statesize_ = stateSizeBase_ + 3;
+    }
+    else
+    {
+      statesize_ = stateSizeBase_;
+    }
+  }
+
 protected:
   typedef kine::indexes<kine::rotationVector> indexes;
 

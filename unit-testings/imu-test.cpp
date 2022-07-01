@@ -26,6 +26,7 @@ int test(bool withGyroBias)
   {
     stateSize = 18;
   }
+
   const unsigned measurementSize = 6;
   // const unsigned inputSize=6;
 
@@ -41,7 +42,11 @@ int test(bool withGyroBias)
   {
     /// simulation of the signal
     /// the IMU dynamical system functor
-    IMUDynamicalSystem imu(withGyroBias);
+    /// (we set it to the wrong value to test the setter function)
+    IMUDynamicalSystem imu(!withGyroBias);
+
+    /// set it to the correct version
+    imu.setWithGyroBias(withGyroBias);
 
     /// The process noise initialization
     Matrix q1 = Matrix::Identity(stateSize, stateSize) * 0.001;
