@@ -40,7 +40,7 @@ Vector IMUDynamicalSystem::stateDynamics(const Vector & x, const Vector & u, Tim
   Vector3 gyroBias;
   if(withGyroBias_)
   {
-    gyroBias = x.segment<3>(indexes::angAcc + 3);
+    gyroBias = x.segment<3>(indexes::gyroBias);
   }
 
   Quaternion orientation = computeQuaternion_(orientationV);
@@ -69,7 +69,7 @@ Vector IMUDynamicalSystem::stateDynamics(const Vector & x, const Vector & u, Tim
 
   if(withGyroBias_)
   {
-    xk1.segment<3>(indexes::angAcc + 3) = gyroBias * one_;
+    xk1.segment<3>(indexes::gyroBias) = gyroBias * one_;
   }
 
   if(processNoise_ != 0x0)
@@ -118,7 +118,7 @@ Vector IMUDynamicalSystem::measureDynamics(const Vector & x, const Vector &, Tim
 
   if(withGyroBias_)
   {
-    v.segment<3>(10) = x.segment<3>(indexes::angAcc + 3);
+    v.segment<3>(10) = x.segment<3>(indexes::gyroBias);
   }
 
   sensor_.setState(v, k);

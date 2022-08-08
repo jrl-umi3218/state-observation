@@ -85,6 +85,11 @@ public:
     }
   }
 
+  struct indexes : public kine::indexes<kine::rotationVector>
+  {
+    static const Index gyroBias = 18;
+  };
+
 protected:
   typedef kine::indexes<kine::rotationVector> indexes;
 
