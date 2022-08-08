@@ -34,6 +34,7 @@ int test(bool withGyroBias)
   IndexedVectorArray x;
   IndexedVectorArray y;
   IndexedVectorArray u;
+  Vector3 gyroBias = Vector3::Zero();
 
   /// The covariance matrix of the process noise and the measurement noise
   Matrix q;
@@ -111,11 +112,11 @@ int test(bool withGyroBias)
 
     if(withGyroBias)
     {
-      Vector3 bias;
-      bias << 2, 2, 3;
+
+      gyroBias = (Vector3::Random() - Vector3::Constant(0.5)) * 3; /// random (time-constant) value of bias
       for(Index i = y.getFirstIndex(); i < y.getNextIndex(); ++i)
       {
-        y[i].tail<3>() += bias;
+        y[i].tail<3>() += gyroBias;
       }
     }
 
@@ -190,7 +191,8 @@ int test(bool withGyroBias)
 
   if(withGyroBias)
   {
-    std::cout << "Bias Estimation " << xh.back().transpose() << "\n";
+    std::cout << "Bias Estimation " << xh.back().tail<3>().transpose() << "real value  " << gyroBias.transpose()
+              << "\n";
   }
 
   std::cout << "computation time: " << duration / kmax << ". ";
