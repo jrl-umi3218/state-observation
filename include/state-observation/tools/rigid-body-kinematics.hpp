@@ -325,13 +325,13 @@ struct indexes<rotationVector>
 {
   /// indexes of the different components of a vector of the kinematic state
   /// when the orientation is represented using a 3D rotation vector
-  static const unsigned pos = 0;
-  static const unsigned ori = 3;
-  static const unsigned linVel = 6;
-  static const unsigned angVel = 9;
-  static const unsigned linAcc = 12;
-  static const unsigned angAcc = 15;
-  static const unsigned size = 18;
+  static const Index pos = 0;
+  static const Index ori = 3;
+  static const Index linVel = 6;
+  static const Index angVel = 9;
+  static const Index linAcc = 12;
+  static const Index angAcc = 15;
+  static const Index size = 18;
 };
 
 template<>
@@ -339,13 +339,13 @@ struct indexes<quaternion>
 {
   /// indexes of the different components of a vector of the kinematic state
   /// when the orientation is represented using a quaternion
-  static const unsigned pos = 0;
-  static const unsigned ori = 3;
-  static const unsigned linVel = 7;
-  static const unsigned angVel = 10;
-  static const unsigned linAcc = 13;
-  static const unsigned angAcc = 16;
-  static const unsigned size = 19;
+  static const Index pos = 0;
+  static const Index ori = 3;
+  static const Index linVel = 7;
+  static const Index angVel = 10;
+  static const Index linAcc = 13;
+  static const Index angAcc = 16;
+  static const Index size = 19;
 };
 
 /// relative tolereance to the square of quaternion norm.

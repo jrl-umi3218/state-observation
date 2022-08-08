@@ -70,9 +70,27 @@ public:
   /// Gets the measurement size
   virtual Index getMeasurementSize() const;
 
-protected:
-  typedef kine::indexes<kine::rotationVector> indexes;
+  /// @brief Set whether we use Gyro Bias
+  void setWithGyroBias(bool);
 
+  void updatestatesize()
+  {
+    if(withGyroBias_)
+    {
+      statesize_ = stateSizeBase_ + 3;
+    }
+    else
+    {
+      statesize_ = stateSizeBase_;
+    }
+  }
+
+  struct indexes : public kine::indexes<kine::rotationVector>
+  {
+    static const Index gyroBias = 18;
+  };
+
+protected:
   AccelerometerGyrometer sensor_;
 
   NoiseBase * processNoise_;

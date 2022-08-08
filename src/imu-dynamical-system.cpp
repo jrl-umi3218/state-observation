@@ -16,14 +16,7 @@ IMUDynamicalSystem::IMUDynamicalSystem(bool withGyroBias)
 #endif // STATEOBSERVATION_VERBOUS_CONSTRUCTOR
        // ctor
   sensor_.setWithGyroBias(withGyroBias);
-  if(withGyroBias)
-  {
-    statesize_ = stateSizeBase_ + 3;
-  }
-  else
-  {
-    statesize_ = stateSizeBase_;
-  }
+  updatestatesize();
 }
 
 IMUDynamicalSystem::~IMUDynamicalSystem()
@@ -47,7 +40,7 @@ Vector IMUDynamicalSystem::stateDynamics(const Vector & x, const Vector & u, Tim
   Vector3 gyroBias;
   if(withGyroBias_)
   {
-    gyroBias = x.segment<3>(indexes::angAcc + 3);
+    gyroBias = x.segment<3>(indexes::gyroBias);
   }
 
   Quaternion orientation = computeQuaternion_(orientationV);
@@ -76,7 +69,7 @@ Vector IMUDynamicalSystem::stateDynamics(const Vector & x, const Vector & u, Tim
 
   if(withGyroBias_)
   {
-    xk1.segment<3>(indexes::angAcc + 3) = gyroBias * one_;
+    xk1.segment<3>(indexes::gyroBias) = gyroBias * one_;
   }
 
   if(processNoise_ != 0x0)
@@ -125,7 +118,7 @@ Vector IMUDynamicalSystem::measureDynamics(const Vector & x, const Vector &, Tim
 
   if(withGyroBias_)
   {
-    v.segment<3>(10) = x.segment<3>(indexes::angAcc + 3);
+    v.segment<3>(10) = x.segment<3>(indexes::gyroBias);
   }
 
   sensor_.setState(v, k);
@@ -180,5 +173,12 @@ NoiseBase * IMUDynamicalSystem::getProcessNoise() const
 NoiseBase * IMUDynamicalSystem::getMeasurementNoise() const
 {
   return sensor_.getNoise();
+}
+
+void IMUDynamicalSystem::setWithGyroBias(bool withGyroBias)
+{
+  withGyroBias_ = withGyroBias;
+  sensor_.setWithGyroBias(withGyroBias);
+  updatestatesize();
 }
 } // namespace stateObservation
