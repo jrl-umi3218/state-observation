@@ -69,7 +69,7 @@ int test(bool withGyroBias)
     sim.setDynamicsFunctor(&imuSimulation);
 
     /// initialization of the state vector
-    Vector x0 = Vector::Zero(imuSimulation.getInputSize(), 1);
+    Vector x0 = Vector::Zero(imuSimulation.getStateSize(), 1);
     sim.setState(x0, 0);
 
     /// construction of the input
