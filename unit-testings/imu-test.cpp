@@ -113,7 +113,7 @@ int test(bool withGyroBias)
     {
       Vector3 bias;
       bias << 2, 2, 3;
-      for(int i = y.getFirstIndex(); i < y.getNextIndex(); ++i)
+      for(Index i = y.getFirstIndex(); i < y.getNextIndex(); ++i)
       {
         y[i].tail<3>() += bias;
       }
