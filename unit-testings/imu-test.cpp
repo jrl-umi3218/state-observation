@@ -44,37 +44,39 @@ int test(bool withGyroBias)
     /// the IMU dynamical system functor
     /// (we set it to the wrong value to test the setter function)
     IMUDynamicalSystem imu(!withGyroBias);
+    IMUDynamicalSystem imuSimulation;
 
     /// set it to the correct version
     imu.setWithGyroBias(withGyroBias);
 
     /// The process noise initialization
+    Matrix q1Simu = Matrix::Identity(imuSimulation.getStateSize(), imuSimulation.getStateSize()) * 0.001;
     Matrix q1 = Matrix::Identity(stateSize, stateSize) * 0.001;
-    GaussianWhiteNoise processNoise(imu.getStateSize());
-    processNoise.setStandardDeviation(q1);
-    imu.setProcessNoise(&processNoise);
+    GaussianWhiteNoise processNoise(imuSimulation.getStateSize());
+    processNoise.setStandardDeviation(q1Simu);
+    imuSimulation.setProcessNoise(&processNoise);
     q = q1 * q1.transpose();
 
     /// The measurement noise initialization
     Matrix r1 = Matrix::Identity(measurementSize, measurementSize) * 0.01;
-    GaussianWhiteNoise MeasurementNoise(imu.getMeasurementSize());
+    GaussianWhiteNoise MeasurementNoise(imuSimulation.getMeasurementSize());
     MeasurementNoise.setStandardDeviation(r1);
-    imu.setMeasurementNoise(&MeasurementNoise);
+    imuSimulation.setMeasurementNoise(&MeasurementNoise);
     r = r1 * r1.transpose();
 
     /// the simulator initalization
     DynamicalSystemSimulator sim;
-    sim.setDynamicsFunctor(&imu);
+    sim.setDynamicsFunctor(&imuSimulation);
 
     /// initialization of the state vector
-    Vector x0 = Vector::Zero(stateSize, 1);
+    Vector x0 = Vector::Zero(imuSimulation.getInputSize(), 1);
     sim.setState(x0, 0);
 
     /// construction of the input
     /// the input is constant over 10 time samples
     for(Index i = 0; i < kmax / 10; ++i)
     {
-      Vector uk = Vector::Zero(imu.getInputSize(), 1);
+      Vector uk = Vector::Zero(imuSimulation.getInputSize(), 1);
       double id = double(i);
 
       uk[0] = 0.4 * sin(M_PI / 10 * id);
@@ -99,12 +101,24 @@ int test(bool withGyroBias)
 
     /// set the sampling perdiod to the functor
     imu.setSamplingPeriod(dt);
+    imuSimulation.setSamplingPeriod(dt);
 
     /// launched the simulation to the time kmax+1
     sim.simulateDynamicsTo(kmax + 1);
 
     /// extract the array of measurements and states
     y = sim.getMeasurementArray(1, kmax);
+
+    if(withGyroBias)
+    {
+      Vector3 bias;
+      bias << 2, 2, 3;
+      for(int i = y.getFirstIndex(); i < y.getNextIndex(); ++i)
+      {
+        y[i].tail<3>() += bias;
+      }
+    }
+
     x = sim.getStateArray(1, kmax);
   }
 
@@ -172,6 +186,11 @@ int test(bool withGyroBias)
 #ifdef OUTPUT_TRAJECTORY_FILE
     f << i << " \t " << dx * 180 / M_PI << " \t\t\t " << g.transpose() << " \t\t\t " << gh.transpose() << std::endl;
 #endif
+  }
+
+  if(withGyroBias)
+  {
+    std::cout << "Bias Estimation " << xh.back().transpose() << "\n";
   }
 
   std::cout << "computation time: " << duration / kmax << ". ";
