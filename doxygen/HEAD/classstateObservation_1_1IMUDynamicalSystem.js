@@ -1,6 +1,6 @@
 var classstateObservation_1_1IMUDynamicalSystem =
 [
-    [ "indexes", "classstateObservation_1_1IMUDynamicalSystem.html#a6acc1cc25a6d6c0fa743e1619e3454e4", null ],
+    [ "indexes", "structstateObservation_1_1IMUDynamicalSystem_1_1indexes.html", null ],
     [ "IMUDynamicalSystem", "classstateObservation_1_1IMUDynamicalSystem.html#afef992cbd1b88ae165b7c88f82de02e7", null ],
     [ "~IMUDynamicalSystem", "classstateObservation_1_1IMUDynamicalSystem.html#acb4a99e04eda8901e0e1ec63d3c76ec5", null ],
     [ "computeQuaternion_", "classstateObservation_1_1IMUDynamicalSystem.html#a4daee413e9b3a37f51c3f5f3d1afa920", null ],
@@ -15,7 +15,9 @@ var classstateObservation_1_1IMUDynamicalSystem =
     [ "setMeasurementNoise", "classstateObservation_1_1IMUDynamicalSystem.html#a0f931ca93217e1421ff16e4023ded6e1", null ],
     [ "setProcessNoise", "classstateObservation_1_1IMUDynamicalSystem.html#ab205812c74d2a92d61feb1a1af15a327", null ],
     [ "setSamplingPeriod", "classstateObservation_1_1IMUDynamicalSystem.html#ab6d35048e837b53ec3a9ace3a10d0de6", null ],
+    [ "setWithGyroBias", "classstateObservation_1_1IMUDynamicalSystem.html#a9d78c645091f23b29e49ee9a768b6288", null ],
     [ "stateDynamics", "classstateObservation_1_1IMUDynamicalSystem.html#a27d05b0af6a9611d9474cdda0e9abb39", null ],
+    [ "updatestatesize", "classstateObservation_1_1IMUDynamicalSystem.html#ad109f642c83aac225bb55a063c0a4f6c", null ],
     [ "dt_", "classstateObservation_1_1IMUDynamicalSystem.html#a06cf3cd18ed0352677da7783ea7f3e46", null ],
     [ "orientationVector_", "classstateObservation_1_1IMUDynamicalSystem.html#ac29e38aa44a26ac877a002ab02e0983c", null ],
     [ "processNoise_", "classstateObservation_1_1IMUDynamicalSystem.html#a939f07b64a3b9eca1401dc731057d665", null ],

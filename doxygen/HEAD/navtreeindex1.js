@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#ac56845ec6b4efe006f52dd926a080251":[3,0,0,25,13],
 "classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#aca222272ef61908e62aa7b1eadb7320e":[3,0,0,25,11],
 "classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#ae2ef186b4c92eaf59421142b3786a088":[3,0,0,25,1],
 "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html":[3,0,0,26],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "classstateObservation_1_1KineticsObserver.html#a5a71929f3d6878a1151de07e81987bf6":[3,0,0,33,129],
 "classstateObservation_1_1KineticsObserver.html#a5cd8f59782c211bce00fbd183b891015":[3,0,0,33,182],
 "classstateObservation_1_1KineticsObserver.html#a5d0699e6048a1d769c2b4d5fa5da0477":[3,0,0,33,29],
-"classstateObservation_1_1KineticsObserver.html#a5db9f347e19b2a7a26c9db988e03cc42":[3,0,0,33,204],
-"classstateObservation_1_1KineticsObserver.html#a5e066c733993fd2c225d4bb57c23e9a8":[3,0,0,33,88]
+"classstateObservation_1_1KineticsObserver.html#a5db9f347e19b2a7a26c9db988e03cc42":[3,0,0,33,204]
 };

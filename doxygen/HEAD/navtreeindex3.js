@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"classstateObservation_1_1ObserverBase.html#acb7f162d19c25deb2c408906f476eadd":[3,0,0,38,20],
 "classstateObservation_1_1ObserverBase.html#ad44535d044d6bf6e9637b86c52ab8720":[3,0,0,38,33],
 "classstateObservation_1_1ObserverBase.html#ad83492986c66c60bb742161d049bc559":[3,0,0,38,29],
 "classstateObservation_1_1ObserverBase.html#adb8cd5d6ccae65ae5ff001666ad1349c":[3,0,0,38,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a206ec640dc3d0ca7faceba992f980edc":[3,0,0,2,3,17],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a23069971df1d5c994dff2f0e53a9caa4":[3,0,0,2,3,41],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a24a1749be94437e4519b8dfccaaf0df7":[3,0,0,2,3,91],
-"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a25e0f7e1812fc31919c1b7c562bccda1":[3,0,0,2,3,23],
-"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a28070cbb750b534de6c514147927c80f":[3,0,0,2,3,62]
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a25e0f7e1812fc31919c1b7c562bccda1":[3,0,0,2,3,23]
 };

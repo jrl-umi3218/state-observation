@@ -148,6 +148,7 @@ var searchData=
   ['globalcontactpos',['globalContactPos',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#ae0d23d733c2aa5aa4994fecd909c5a54',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization']]],
   ['gravity',['gravity',['../namespacestateObservation_1_1cst.html#a73b34c228641cabcb79894e285fd751a',1,'stateObservation::cst']]],
   ['gravityconstant',['gravityConstant',['../namespacestateObservation_1_1cst.html#a177e9790b91fd4af339c9c3c6d076cc0',1,'stateObservation::cst']]],
+  ['gyrobias',['gyroBias',['../structstateObservation_1_1IMUDynamicalSystem_1_1indexes.html#a897b79ee99e1c58224b58e6cb1129163',1,'stateObservation::IMUDynamicalSystem::indexes']]],
   ['gyrobiasindex',['gyroBiasIndex',['../classstateObservation_1_1KineticsObserver.html#a823ba5d8e23260e812f3aee65b6b0ff7',1,'stateObservation::KineticsObserver']]],
   ['gyrobiasindextangent',['gyroBiasIndexTangent',['../classstateObservation_1_1KineticsObserver.html#aab25bb3fb7e13789bbd10175c857aac1',1,'stateObservation::KineticsObserver']]],
   ['gyrobiasinitcovmat_5f',['gyroBiasInitCovMat_',['../classstateObservation_1_1KineticsObserver.html#a14b6ffb580f7ec956aab2ba3bea88823',1,'stateObservation::KineticsObserver']]],

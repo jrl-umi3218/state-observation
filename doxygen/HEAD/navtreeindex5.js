@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"classstateObservation_1_1kine_1_1Orientation.html#a7d4f47d78aaf897d81a6ec8380100f27":[3,0,0,4,4,39],
 "classstateObservation_1_1kine_1_1Orientation.html#a8c23c0bc1862eabea982e2d84080ee99":[3,0,0,4,4,41],
 "classstateObservation_1_1kine_1_1Orientation.html#a974108303911db42ce72d772d4c1bc30":[3,0,0,4,4,26],
 "classstateObservation_1_1kine_1_1Orientation.html#aa6086d1c76532450603e70d0ebe6e1f5":[3,0,0,4,4,12],
@@ -130,8 +131,8 @@ var NAVTREEINDEX5 =
 "fixed-contact-ekf-flex-estimator-imu_8hpp_source.html":[4,0,0,0,3,1],
 "flexibility-estimator-base_8hpp.html":[4,0,0,0,3,2],
 "flexibility-estimator-base_8hpp_source.html":[4,0,0,0,3,2],
-"functions.html":[3,3,0,0],
 "functions.html":[3,3,0],
+"functions.html":[3,3,0,0],
 "functions_0x7e.html":[3,3,0,27],
 "functions_a.html":[3,3,0,1],
 "functions_b.html":[3,3,0,2],
@@ -139,8 +140,8 @@ var NAVTREEINDEX5 =
 "functions_d.html":[3,3,0,4],
 "functions_e.html":[3,3,0,5],
 "functions_f.html":[3,3,0,6],
-"functions_func.html":[3,3,1],
 "functions_func.html":[3,3,1,0],
+"functions_func.html":[3,3,1],
 "functions_func_0x7e.html":[3,3,1,22],
 "functions_func_b.html":[3,3,1,1],
 "functions_func_c.html":[3,3,1,2],
@@ -180,8 +181,8 @@ var NAVTREEINDEX5 =
 "functions_type.html":[3,3,3],
 "functions_u.html":[3,3,0,21],
 "functions_v.html":[3,3,0,22],
-"functions_vars.html":[3,3,2],
 "functions_vars.html":[3,3,2,0],
+"functions_vars.html":[3,3,2],
 "functions_vars_a.html":[3,3,2,1],
 "functions_vars_b.html":[3,3,2,2],
 "functions_vars_c.html":[3,3,2,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "kalman-filter-base_8hpp_source.html":[4,0,0,0,5,1],
 "kinetics-observer_8hpp.html":[4,0,0,0,1,0],
 "kinetics-observer_8hpp_source.html":[4,0,0,0,1,0],
-"linear-acceleration_8hpp.html":[4,0,0,0,6,0,0],
-"linear-acceleration_8hpp_source.html":[4,0,0,0,6,0,0]
+"linear-acceleration_8hpp.html":[4,0,0,0,6,0,0]
 };

@@ -39,6 +39,7 @@
     <includes id="accelerometer-gyrometer_8hpp" name="accelerometer-gyrometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</includes>
     <includes id="rigid-body-kinematics_8hpp" name="rigid-body-kinematics.hpp" local="no" imported="no">state-observation/tools/rigid-body-kinematics.hpp</includes>
     <class kind="class">stateObservation::IMUDynamicalSystem</class>
+    <class kind="struct">stateObservation::IMUDynamicalSystem::indexes</class>
     <namespace>stateObservation</namespace>
   </compound>
   <compound kind="file">
@@ -4944,6 +4945,7 @@
     <name>stateObservation::IMUDynamicalSystem</name>
     <filename>classstateObservation_1_1IMUDynamicalSystem.html</filename>
     <base>stateObservation::DynamicalSystemFunctorBase</base>
+    <class kind="struct">stateObservation::IMUDynamicalSystem::indexes</class>
     <member kind="function">
       <type></type>
       <name>IMUDynamicalSystem</name>
@@ -5042,12 +5044,19 @@
       <anchor>acf59951650a3535538588568c010a186</anchor>
       <arglist>() const</arglist>
     </member>
-    <member kind="typedef" protection="protected">
-      <type>kine::indexes&lt; kine::rotationVector &gt;</type>
-      <name>indexes</name>
+    <member kind="function">
+      <type>void</type>
+      <name>setWithGyroBias</name>
       <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
-      <anchor>a6acc1cc25a6d6c0fa743e1619e3454e4</anchor>
-      <arglist></arglist>
+      <anchor>a9d78c645091f23b29e49ee9a768b6288</anchor>
+      <arglist>(bool)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>updatestatesize</name>
+      <anchorfile>classstateObservation_1_1IMUDynamicalSystem.html</anchorfile>
+      <anchor>ad109f642c83aac225bb55a063c0a4f6c</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>Quaternion</type>
@@ -7617,55 +7626,71 @@
     <templarg></templarg>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::IMUDynamicalSystem::indexes</name>
+    <filename>structstateObservation_1_1IMUDynamicalSystem_1_1indexes.html</filename>
+    <base>indexes&lt; kine::rotationVector &gt;</base>
+    <member kind="variable" static="yes">
+      <type>static const Index</type>
+      <name>gyroBias</name>
+      <anchorfile>structstateObservation_1_1IMUDynamicalSystem_1_1indexes.html</anchorfile>
+      <anchor>a897b79ee99e1c58224b58e6cb1129163</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>indexes&lt; kine::rotationVector &gt;</name>
+    <filename>structstateObservation_1_1kine_1_1indexes.html</filename>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::kine::indexes&lt; quaternion &gt;</name>
     <filename>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</filename>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>pos</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>aa03569ed92d596aeb59784ae570ce56c</anchor>
+      <anchor>af4f8c00f73ba2022f29d825228038107</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>ori</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>ab67db3791206a8ea00389cade98dcf0f</anchor>
+      <anchor>ad23acee19de8fdf1e0f83864a092836f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>linVel</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>a8f82460627879661cea24f559f9fee3b</anchor>
+      <anchor>a27eeaf8fc4c1a30018b4efacab0e44c0</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>angVel</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>aaaf20840675efc41319af4b074b50704</anchor>
+      <anchor>a508802fc6014568b48c3e80a6c394514</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>linAcc</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>a089d6e787a9fb4821cb17d86d5f103fe</anchor>
+      <anchor>a52351f2f6ffb6ff958f0b11e815812e9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>angAcc</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>a1e7ef32c7d7658733ef44382d7ece71f</anchor>
+      <anchor>a3a07cd3ea5eb60e8c5a8815e5446d989</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>size</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html</anchorfile>
-      <anchor>abaf31964b27326986d223e3cf44b0aa3</anchor>
+      <anchor>ac1982367f3306be5b6dc8948d73268df</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -7673,52 +7698,52 @@
     <name>stateObservation::kine::indexes&lt; rotationVector &gt;</name>
     <filename>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</filename>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>pos</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>a89dd2954edc033204b6cf274dfdb7184</anchor>
+      <anchor>a66b7b1537a07402f5eee6ebcaab71036</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>ori</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>affdcb7feac0bf0f5fe99cdacc0c28fe4</anchor>
+      <anchor>a4954cf476a923c604b5756cb30da0294</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>linVel</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>a856a7f5d29a2eb6cd00d20b4734e4eb3</anchor>
+      <anchor>aae6805ecc13911041e948409c8932f4e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>angVel</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>aa4ea46e4ffcd9e53f430777a336d11cc</anchor>
+      <anchor>aa06e839b65b854a4394ba2106aad0d07</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>linAcc</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>a261f8d6048b9a703d365e3b69814fc71</anchor>
+      <anchor>afd49aaf1dde3c3d05ec3f7f8f28f5647</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>angAcc</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>a59917f3e451d7c1bf26e52f40e0b063b</anchor>
+      <anchor>a21b28ae891ca5583e20be6f1126de17a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static const unsigned</type>
+      <type>static const Index</type>
       <name>size</name>
       <anchorfile>structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html</anchorfile>
-      <anchor>aeabb040dabe9e0d1e16741f62915a350</anchor>
+      <anchor>a90286cca9853dd41dd883a23121ee271</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -13284,20 +13309,55 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
-    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
+    <name>stateObservation::ExtendedKalmanFilter::Optimization</name>
+    <filename>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</filename>
     <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>O</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
+      <type>EIGEN_MAKE_ALIGNED_OPERATOR_NEW ObserverBase::InputVector</type>
+      <name>u_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ae01890ceb77c27585e957944dd847b41</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>stateObservation::Matrix</type>
-      <name>CA</name>
-      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
-      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
+      <type>KalmanFilterBase::Amatrix</type>
+      <name>a_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>aae39b1d3c3893c96cfcd0286b6540db5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>KalmanFilterBase::Cmatrix</type>
+      <name>c_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ad43bf99b233b0ad553dd2874912e968a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>x_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a739344546fb08659f35abec2f8b1fca2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>dx_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a5530e8a1d3337b00b84552438682572d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>xp_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a8b342751706039d369f8536f7b653cc1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::MeasureVector</type>
+      <name>yp_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ae100734f224c2b34840e33938749affa</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -13985,55 +14045,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::ExtendedKalmanFilter::Optimization</name>
-    <filename>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</filename>
+    <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
+    <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
     <member kind="variable">
-      <type>EIGEN_MAKE_ALIGNED_OPERATOR_NEW ObserverBase::InputVector</type>
-      <name>u_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ae01890ceb77c27585e957944dd847b41</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>O</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>ac0d648586befc0c83d72dd8a161d5d00</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>KalmanFilterBase::Amatrix</type>
-      <name>a_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>aae39b1d3c3893c96cfcd0286b6540db5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>KalmanFilterBase::Cmatrix</type>
-      <name>c_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ad43bf99b233b0ad553dd2874912e968a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>x_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a739344546fb08659f35abec2f8b1fca2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>dx_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a5530e8a1d3337b00b84552438682572d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>xp_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a8b342751706039d369f8536f7b653cc1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::MeasureVector</type>
-      <name>yp_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ae100734f224c2b34840e33938749affa</anchor>
+      <type>stateObservation::Matrix</type>
+      <name>CA</name>
+      <anchorfile>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</anchorfile>
+      <anchor>a31c259f13d67cbd6a513ef09e19d8257</anchor>
       <arglist></arglist>
     </member>
   </compound>

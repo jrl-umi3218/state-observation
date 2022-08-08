@@ -62,6 +62,9 @@ var hierarchy =
     [ "stateObservation::IndexedMatrixArrayT< Matrix >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
     [ "stateObservation::IndexedMatrixArrayT< Vector >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
     [ "stateObservation::kine::indexes< rotationType >", "structstateObservation_1_1kine_1_1indexes.html", null ],
+    [ "stateObservation::kine::indexes< kine::rotationVector >", "structstateObservation_1_1kine_1_1indexes.html", [
+      [ "stateObservation::IMUDynamicalSystem::indexes", "structstateObservation_1_1IMUDynamicalSystem_1_1indexes.html", null ]
+    ] ],
     [ "stateObservation::kine::indexes< quaternion >", "structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html", null ],
     [ "stateObservation::kine::indexes< rotationVector >", "structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1input.html", null ],
@@ -95,9 +98,9 @@ var hierarchy =
     ] ],
     [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
     [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
-    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
-    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
     [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
+    [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
+    [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::KalmanFilterBase::optimizationContainer", "structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html", null ],
     [ "order1", "classorder1.html", null ],
     [ "stateObservation::kine::Orientation", "classstateObservation_1_1kine_1_1Orientation.html", null ],

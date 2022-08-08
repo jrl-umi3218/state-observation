@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a28070cbb750b534de6c514147927c80f":[3,0,0,2,3,62],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a2928b596ffe5eff0f0d5a6dfb9c22630":[3,0,0,2,3,94],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a2adf2b65b5bc4331dd6ba21041f2fd4e":[3,0,0,2,3,9],
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a2d393436c6d9a91f11026dd838de9203":[3,0,0,2,3,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "classstateObservation_1_1kine_1_1Orientation.html#a6dd8a977a014d6931480672c67bd4a0a":[3,0,0,4,4,1],
 "classstateObservation_1_1kine_1_1Orientation.html#a71c7081947248dcebcd8c4fb47a45269":[3,0,0,4,4,22],
 "classstateObservation_1_1kine_1_1Orientation.html#a7264fb8bc4eb37a6284c2a5b78b991f0":[3,0,0,4,4,36],
-"classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3":[3,0,0,4,4,15],
-"classstateObservation_1_1kine_1_1Orientation.html#a7d4f47d78aaf897d81a6ec8380100f27":[3,0,0,4,4,39]
+"classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3":[3,0,0,4,4,15]
 };

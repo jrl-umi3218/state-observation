@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a49bc8aea418acf15b483a90708d17480":[3,0,0,2,3,2,78],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4c50a80a4ab5eb63ed27c41981262b8f":[3,0,0,2,3,2,77],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4d05dd6f4c9a776f21dfa83475fb8082":[3,0,0,2,3,2,13],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4f62ee5d59438553fa3cb29d84c12bce":[3,0,0,2,3,2,44],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a549580231e1f6b6221e8b623d0672573":[3,0,0,2,3,2,47],

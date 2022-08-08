@@ -22,6 +22,7 @@ var searchData=
   ['updater_5f',['updateR_',['../classstateObservation_1_1ZmpTrackingGainEstimator.html#a0d8fff407d28a6ea64885ecdd1c5ad45',1,'stateObservation::ZmpTrackingGainEstimator']]],
   ['updatestateandmeasurementprediction',['updateStateAndMeasurementPrediction',['../classstateObservation_1_1KalmanFilterBase.html#adee58617aaacaf92de1ea354f5307b0f',1,'stateObservation::KalmanFilterBase']]],
   ['updatestateprediction',['updateStatePrediction',['../classstateObservation_1_1KalmanFilterBase.html#a995254f995c2727b27fc0ca41c9aee67',1,'stateObservation::KalmanFilterBase']]],
+  ['updatestatesize',['updatestatesize',['../classstateObservation_1_1IMUDynamicalSystem.html#ad109f642c83aac225bb55a063c0a4f6c',1,'stateObservation::IMUDynamicalSystem']]],
   ['updatestatesize_5f',['updateStateSize_',['../classstateObservation_1_1AccelerometerGyrometer.html#aadda42216173c1aa6c9cf5541d520bdd',1,'stateObservation::AccelerometerGyrometer']]],
   ['usefinitedifferencesjacobians',['useFiniteDifferencesJacobians',['../classstateObservation_1_1KineticsObserver.html#a369298bc2d344452308e0e03803037ee',1,'stateObservation::KineticsObserver::useFiniteDifferencesJacobians()'],['../classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#aaf694318f3349048084c1afbdc62b43e',1,'stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase::useFiniteDifferencesJacobians()']]]
 ];
