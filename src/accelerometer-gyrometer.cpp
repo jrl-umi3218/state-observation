@@ -49,13 +49,13 @@ Vector AccelerometerGyrometer::computeNoiselessMeasurement_()
   output_.tail<3>() = rotationVelocityMeasure(omega_, r_);
 
   /// Add a bias
-  if(withGyroBias_)
+  if(withAcceleroBias_)
   {
     output_.head<3>().noalias() += state_.segment<3>(biasIndex);
     biasIndex += 3;
   }
 
-  if(withAcceleroBias_)
+  if(withGyroBias_)
   {
     output_.tail<3>().noalias() += state_.segment<3>(biasIndex);
   }
