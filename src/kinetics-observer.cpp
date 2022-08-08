@@ -1344,8 +1344,8 @@ void KineticsObserver::updateKine_()
 
 void KineticsObserver::addUnmodeledAndContactWrench_(const Vector & stateVector, Vector3 & force, Vector3 & torque)
 {
-  force += stateVector.segment<sizeForce>(unmodeledWrenchIndex());
-  torque += stateVector.segment<sizeForce>(unmodeledTorqueIndex());
+  force += stateVector.segment<sizeForce>(unmodeledForceIndex());
+  torque += stateVector.segment<sizeTorque>(unmodeledTorqueIndex());
 
   for(VectorContactIterator i = contacts_.begin(); i != contacts_.end(); ++i)
   {
