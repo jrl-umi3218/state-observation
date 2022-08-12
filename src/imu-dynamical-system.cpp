@@ -61,11 +61,11 @@ Vector IMUDynamicalSystem::stateDynamics(const Vector & x, const Vector & u, Tim
   xk1.segment<3>(indexes::angVel) = angularVelocity;
 
   // inputs
-  Vector3 accelerationInput = u.head<3>();
-  Vector3 angularAccelerationInput = u.tail<3>();
+  Vector3 linearJerkInput = u.head<3>();
+  Vector3 angularJerkInput = u.tail<3>();
 
-  xk1.segment<3>(indexes::linAcc) += accelerationInput;
-  xk1.segment<3>(indexes::angAcc) += angularAccelerationInput;
+  xk1.segment<3>(indexes::linAcc) += linearJerkInput * dt_;
+  xk1.segment<3>(indexes::angAcc) += angularJerkInput * dt_;
 
   if(withGyroBias_)
   {
