@@ -52,11 +52,11 @@ Vector IMUMltpctiveDynamicalSystem::stateDynamics(const Vector & x, const Vector
   xk1.segment(indexes::angVel, 3) = angularVelocity;
 
   // inputs
-  Vector3 accelerationInput = u.head(3);
-  Vector3 angularAccelerationInput = u.tail(3);
+  Vector3 jerkInput = u.head(3);
+  Vector3 angularjerkInput = u.tail(3);
 
-  xk1.segment<3>(indexes::linAcc) = accelerationInput;
-  xk1.segment<3>(indexes::angAcc) = angularAccelerationInput;
+  xk1.segment<3>(indexes::linAcc) += jerkInput * dt_;
+  xk1.segment<3>(indexes::angAcc) += angularjerkInput * dt_;
 
   if(processNoise_ != 0x0)
     return processNoise_->getNoisy(xk1);
