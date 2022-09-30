@@ -1,4 +1,5 @@
 build/
+build-dbg/
 .vs
 CMakeSettings.json
 build
