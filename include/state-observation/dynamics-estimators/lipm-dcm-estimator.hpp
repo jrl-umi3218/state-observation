@@ -148,7 +148,7 @@ public:
   /// @param initBiasuncertainty    the uncertainty in the bias initial value in meters
   inline void resetWithMeasurements(const Vector2 & measuredDcm,
                                     const Vector2 & measuredZMP,
-                                    double yaw = 0,
+                                    double yaw,
                                     bool measurementIsWithBias = true,
                                     const Vector2 & initBias = Vector2::Constant(0),
                                     const Vector2 & initBiasuncertainty = Vector2::Constant(defaultBiasUncertainty))
@@ -171,7 +171,7 @@ public:
   /// @param initBiasuncertainty    the uncertainty in the bias initial value in meters
   inline void resetWithMeasurements(const Vector2 & measuredDcm,
                                     const Vector2 & measuredZMP,
-                                    const Matrix3 & rotation = Matrix3::Identity(),
+                                    const Matrix3 & rotation,
                                     bool measurementIsWithBias = true,
                                     const Vector2 & initBias = Vector2::Constant(0),
                                     const Vector2 & initBiasuncertainty = Vector2::Constant(defaultBiasUncertainty))
