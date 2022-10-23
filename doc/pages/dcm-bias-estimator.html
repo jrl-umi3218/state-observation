@@ -2050,6 +2050,207 @@ Which gives
 <div class="Indented">
 Note that in this case we consider that the rotation signal <span class="formula"><i>R</i></span> is noiseless.
 </div>
+<h2 class="Section">
+<a class="toc" name="toc-Section-2.6">2.6</a> Consider CoM offset and ZMP coefficient
+</h2>
+<div class="Unindented">
+What if we can measure in the DCM dynamics an offset on the CoM and a coefficient to the ZMP ? In other words the dynamics of the DCM becomes <div class="formula">
+<a class="eqnumber" name="eq-2.15">(2.15) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>ξ̇</i>
+</span>
+<span class="arraycell align-l">
+ = <i>ω</i><sub>0</sub>(<i>ξ</i> − <i>κ</i><i>z</i> + <i>γ</i>)
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+<div class="Indented">
+wherev <span class="formula"><i>α</i></span> is the CoM offset and \strikeout off\xout off\uuline off\uwave off<span class="formula"><i>κ</i></span> is the ZMP coefficient, they are considered known. This may happen in the presence of planned or measured contact forces (see equation (8) in <span class="bibcites">[<a class="bibliocite" name="cite-1" href="#biblio-1"><span class="bib-index">1</span></a>]</span>).
+</div>
+<div class="Indented">
+This can be discretized as <div class="formula">
+<a class="eqnumber" name="eq-2.16">(2.16) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<i>ξ</i><sub><i>k</i> + 1</sub>
+</span>
+<span class="arraycell align-l">
+ = <i>ξ</i><sub><i>k</i></sub> + <i>ω</i><sub>0</sub><i>T</i>(<i>ξ</i><sub><i>k</i></sub> − <i>κ</i><i>z</i><sub><i>k</i></sub> + <i>γ</i>)
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+<div class="Indented">
+Which gives
+</div>
+<div class="Indented">
+<div class="formula">
+<a class="eqnumber" name="eq-2.17">(2.17) </a><span class="environment"><span class="arrayrow">
+<span class="arraycell align-r">
+<span class="array"><span class="arrayrow"><span class="bracket align-left">⎛</span></span><span class="arrayrow"><span class="bracket align-left">⎜</span></span><span class="arrayrow"><span class="bracket align-left">⎝</span></span></span><span class="array"><span class="arrayrow">
+<span class="arraycell align-c">
+<i>ξ</i><sub><i>k</i> + 1</sub>
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+<i>b</i><sub><i>k</i> + 1</sub>
+</span>
+
+</span>
+</span><span class="array"><span class="arrayrow"><span class="bracket align-right">⎞</span></span><span class="arrayrow"><span class="bracket align-right">⎟</span></span><span class="arrayrow"><span class="bracket align-right">⎠</span></span></span>
+</span>
+<span class="arraycell align-l">
+ = <span class="array"><span class="arrayrow"><span class="bracket align-left">⎛</span></span><span class="arrayrow"><span class="bracket align-left">⎜</span></span><span class="arrayrow"><span class="bracket align-left">⎝</span></span></span><span class="array"><span class="arrayrow">
+<span class="arraycell align-c">
+<span class="symbol">(</span>1 + <i>ω</i><sub>0</sub><i>T</i><span class="symbol">)</span><i>I</i><sub>2 × 2</sub>
+</span>
+<span class="arraycell align-c">
+0
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+ 
+</span>
+<span class="arraycell align-c">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+0
+</span>
+<span class="arraycell align-c">
+<i>R</i><sub><i>k</i> + 1</sub><i>R</i><span class="scripts"><sup class="script"><i>T</i></sup><sub class="script"><i>k</i></sub></span>
+</span>
+
+</span>
+</span><span class="array"><span class="arrayrow"><span class="bracket align-right">⎞</span></span><span class="arrayrow"><span class="bracket align-right">⎟</span></span><span class="arrayrow"><span class="bracket align-right">⎠</span></span></span><span class="array"><span class="arrayrow"><span class="bracket align-left">⎛</span></span><span class="arrayrow"><span class="bracket align-left">⎜</span></span><span class="arrayrow"><span class="bracket align-left">⎝</span></span></span><span class="array"><span class="arrayrow">
+<span class="arraycell align-c">
+<i>ξ</i><sub><i>k</i></sub>
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+<i>b</i><sub><i>k</i></sub>
+</span>
+
+</span>
+</span><span class="array"><span class="arrayrow"><span class="bracket align-right">⎞</span></span><span class="arrayrow"><span class="bracket align-right">⎟</span></span><span class="arrayrow"><span class="bracket align-right">⎠</span></span></span> + <span class="array"><span class="arrayrow"><span class="bracket align-left">⎛</span></span><span class="arrayrow"><span class="bracket align-left">⎜</span></span><span class="arrayrow"><span class="bracket align-left">⎝</span></span></span><span class="array"><span class="arrayrow">
+<span class="arraycell align-c">
+ − <i>ω</i><sub>0</sub><i>T</i><i>κ</i><i>I</i><sub>2 × 2</sub>
+</span>
+<span class="arraycell align-c">
+
+</span>
+<span class="arraycell align-c">
+<i>ω</i><sub>0</sub><i>TI</i><sub>2 × 2</sub>
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+ 
+</span>
+<span class="arraycell align-c">
+ 
+</span>
+<span class="arraycell align-c">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+0
+</span>
+<span class="arraycell align-c">
+
+</span>
+<span class="arraycell align-c">
+0
+</span>
+
+</span>
+</span><span class="array"><span class="arrayrow"><span class="bracket align-right">⎞</span></span><span class="arrayrow"><span class="bracket align-right">⎟</span></span><span class="arrayrow"><span class="bracket align-right">⎠</span></span></span><span class="array"><span class="arrayrow"><span class="bracket align-left">⎛</span></span><span class="arrayrow"><span class="bracket align-left">⎜</span></span><span class="arrayrow"><span class="bracket align-left">⎝</span></span></span><span class="array"><span class="arrayrow">
+<span class="arraycell align-c">
+<i>ẑ</i><sub><i>k</i></sub>
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+<i>γ</i>
+</span>
+
+</span>
+</span><span class="array"><span class="arrayrow"><span class="bracket align-right">⎞</span></span><span class="arrayrow"><span class="bracket align-right">⎟</span></span><span class="arrayrow"><span class="bracket align-right">⎠</span></span></span> + <span class="array"><span class="arrayrow"><span class="bracket align-left">⎛</span></span><span class="arrayrow"><span class="bracket align-left">⎜</span></span><span class="arrayrow"><span class="bracket align-left">⎝</span></span></span><span class="array"><span class="arrayrow">
+<span class="arraycell align-c">
+<i>ω</i><sub>0</sub><i>Tw</i><sup><i>z</i></sup>
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+ 
+</span>
+
+</span>
+<span class="arrayrow">
+<span class="arraycell align-c">
+<i>v</i><sub><i>k</i></sub>
+</span>
+
+</span>
+</span><span class="array"><span class="arrayrow"><span class="bracket align-right">⎞</span></span><span class="arrayrow"><span class="bracket align-right">⎟</span></span><span class="arrayrow"><span class="bracket align-right">⎠</span></span></span>
+</span>
+
+</span>
+</span>
+</div>
+
+</div>
+<div class="Indented">
+Which is implemented in the code
+</div>
+<div class="Indented">
+\strikeout off\xout off\uuline off\uwave off<h1 class="biblio">
+Bibliography
+</h1>
+<p class="biblio">
+<span class="entry">[<a class="biblioentry" name="biblio-1"><span class="bib-index">1</span></a>] </span> <span class="bib-authors">Masaki Murooka, Kevin Chappellet, Arnaud Tanguy, Mehdi Benallegue, Iori Kumagai, Mitsuharu Morisawa, Fumio Kanehiro, Abderrahmane Kheddar</span>. <span class="bib-title">Humanoid Loco-Manipulations Pattern Generation and Stabilization Control</span>. <i><span class="bib-journal">IEEE Robotics and Automation Letters</span></i>, <span class="bib-volume">6</span>(<span class="bib-number">3</span>):<span class="bib-pages">5597—5604</span>, <span class="bib-year">2021</span>.
+</p>
+
+</div>
 <h1 class="Chapter">
 <a class="toc" name="toc-Appendix-A">A</a> Unit-testing code
 </h1>
@@ -2108,6 +2309,10 @@ We wish to generate a random trajectory for the dcm but with bounded values. Let
 
 </div>
 
+<hr class="footer"/>
+<div class="footer" id="generated-by">
+Document generated by <a href="http://elyxer.nongnu.org/">eLyXer 1.2.5 (2013-03-10)</a> on <span class="create-date">2022-10-22T18:01:32.718000</span>
+</div>
 </div>
 </body>
 </html>

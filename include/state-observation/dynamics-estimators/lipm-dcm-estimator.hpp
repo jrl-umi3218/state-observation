@@ -30,8 +30,9 @@ namespace stateObservation
 /// The dynamics of the DCM depends on the Zero Moment Point.
 /// The DCM can be measured using the CoM and its velocity, but the CoM position can be biased.
 /// For instance if the measurement of the CoM is biased, or in presence of an external force
-/// the dynamics of the DCM is biased \f$\dot{\hat{\xi}} & =\omega_{0}(\hat{\xi}-z-b)\f$ where \f$\hat{\xi}$\f$ is the
-/// measured dcm and \f$b$\f$ is the bias. Also the measurement of the DCM can be noisy (since it uses CoM velocity
+/// the dynamics of the DCM is biased \f$\dot{\hat{\xi}} & =\omega_{0}(\hat{\xi}-\kappa z+\detla-b)\f$ where
+/// \f$\hat{\xi}$\f$ is the measured dcm, and \f$\gamma$\f$ and \f$\kappa$\f$ are known CoM offset and ZMP coefficient,
+/// and \f$b$\f$ is the unknown bias. Also the measurement of the DCM can be noisy (since it uses CoM velocity
 /// estimation).
 ///
 /// This estimator uses Kalman Filtering to estimate this bias and give a delay-free filtering of the DCM.
@@ -147,7 +148,7 @@ public:
   /// @param initBiasuncertainty    the uncertainty in the bias initial value in meters
   inline void resetWithMeasurements(const Vector2 & measuredDcm,
                                     const Vector2 & measuredZMP,
-                                    double yaw = 0,
+                                    double yaw,
                                     bool measurementIsWithBias = true,
                                     const Vector2 & initBias = Vector2::Constant(0),
                                     const Vector2 & initBiasuncertainty = Vector2::Constant(defaultBiasUncertainty))
@@ -170,7 +171,7 @@ public:
   /// @param initBiasuncertainty    the uncertainty in the bias initial value in meters
   inline void resetWithMeasurements(const Vector2 & measuredDcm,
                                     const Vector2 & measuredZMP,
-                                    const Matrix3 & rotation = Matrix3::Identity(),
+                                    const Matrix3 & rotation,
                                     bool measurementIsWithBias = true,
                                     const Vector2 & initBias = Vector2::Constant(0),
                                     const Vector2 & initBiasuncertainty = Vector2::Constant(defaultBiasUncertainty))
@@ -193,6 +194,34 @@ public:
   inline double getLipmNaturalFrequency() const
   {
     return omega0_;
+  }
+
+  /// @brief Set an offset on the CoM dynamics
+  /// @details This is an offset that adds to the CoM and the bias in definin the DCM dynamics, it has the same effect
+  /// on the dynamics as manually modifying the estimated bias, but it does not need to interfer with the estimation,
+  /// especially when this offset is obtained from a different independent source (e.g. external force sensor).
+  ///
+  /// @param offset in meters
+  void setUnbiasedCoMOffset(const Vector2 & gamma);
+
+  /// @brief Get the ubiased offset on the CoM dynamics
+  /// @details gets the value set by setUnbiasedCoMOffset
+  ///
+  /// @return Vector2
+  Vector2 getUnbiasedCoMOffset() const
+  {
+    return gamma_;
+  }
+
+  /// @brief Set the ZMP oefficient
+  /// @param kappa is the zmp coefficient (no unit)
+  void setZMPCoef(double kappa);
+
+  /// @brief get the ZMP Coefficient
+  /// @return double
+  double getZMPCoef() const
+  {
+    return kappa_;
   }
 
   ///@brief Set the Sampling Time
@@ -247,10 +276,15 @@ public:
   /// @param zmp         mesaurement of the ZMP in the world frame
   /// @param orientation the 3d orientation from which the yaw will be extracted. This orientation is from local to
   /// global. i.e. bias_global == orientation * bias*local
-  ///
-  inline void setInputs(const Vector2 & dcm, const Vector2 & zmp, const Matrix3 & orientation)
+  /// @param CoMOffset_gamma is the unbiased CoM offset in the dynamics of the DCM (see setUnbiasedCoMOffset)
+  /// @param ZMPCoef_kappa is the coefficient multiplied by the ZMP in the DCM dynamics (see setZMPCoef)
+  inline void setInputs(const Vector2 & dcm,
+                        const Vector2 & zmp,
+                        const Matrix3 & orientation,
+                        const Vector2 & CoMOffset_gamma = Vector2::Zero(),
+                        const double ZMPCoef_kappa = 1)
   {
-    setInputs(dcm, zmp, kine::rotationMatrixToYawAxisAgnostic(orientation));
+    setInputs(dcm, zmp, kine::rotationMatrixToYawAxisAgnostic(orientation), CoMOffset_gamma, ZMPCoef_kappa);
   }
 
   /// @brief Set the Inputs of the estimator.
@@ -259,9 +293,15 @@ public:
   /// @param zmp mesaurement of the ZMP in the world frame
   /// @param yaw is the yaw angle to be used. This orientation is from local to global. i.e. bias_global == R *
   /// bias*local
-  inline void setInputs(const Vector2 & dcm, const Vector2 & zmp, double yaw)
+  /// @param CoMOffset_gamma is the unbiased CoM offset in the dynamics of the DCM (see setUnbiasedCoMOffset)
+  /// @param ZMPCoef_kappa is the coefficient multiplied by the ZMP in the DCM dynamics (see setZMPCoef)
+  inline void setInputs(const Vector2 & dcm,
+                        const Vector2 & zmp,
+                        double yaw,
+                        const Vector2 & CoMOffset_gamma = Vector2::Zero(),
+                        const double ZMPCoef_kappa = 1)
   {
-    setInputs(dcm, zmp, Rotation2D(yaw).toRotationMatrix());
+    setInputs(dcm, zmp, Rotation2D(yaw).toRotationMatrix(), CoMOffset_gamma, ZMPCoef_kappa);
   }
 
   /// @brief Set the Inputs of the estimator.
@@ -269,7 +309,13 @@ public:
   /// @param dcm  measurement of the DCM in the world frame
   /// @param zmp  mesaurement of the ZMP in the world frame
   /// @param R    the 2x2 Matrix'representing the yaw angle i.e. bias_global == R * bias*local
-  void setInputs(const Vector2 & dcm, const Vector2 & zmp, const Matrix2 & R = Matrix2::Identity());
+  /// @param CoMOffset_gamma is the unbiased CoM offset in the dynamics of the DCM (see setUnbiasedCoMOffset)
+  /// @param ZMPCoef_kappa is the coefficient multiplied by the ZMP in the DCM dynamics (see setZMPCoef)
+  void setInputs(const Vector2 & dcm,
+                 const Vector2 & zmp,
+                 const Matrix2 & R = Matrix2::Identity(),
+                 const Vector2 & CoMOffset_gamma = Vector2::Zero(),
+                 const double ZMPCoef_kappa = 1);
 
   /// @brief Runs the estimation. Needs to be called every timestep
   ///
@@ -318,9 +364,13 @@ protected:
   void updateMatricesABQ_();
 
   double omega0_;
+  Vector2 gamma_ = Vector2::Zero();
+  double kappa_ = 1;
   double dt_;
   double biasDriftStd_;
   double zmpErrorStd_;
+
+  bool needUpdateMatrices_ = true;
 
   Vector2 previousZmp_;
 
@@ -328,12 +378,11 @@ protected:
 
   LinearKalmanFilter filter_;
   Matrix4 A_;
-  Matrix42 B_;
+  Matrix4 B_;
   /// this needs to be transposed
   Matrix24 C_;
   /// measurement noise
   Matrix2 R_;
-
   /// process noise
   Matrix4 Q_;
 

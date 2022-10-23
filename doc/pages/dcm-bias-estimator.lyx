@@ -1,5 +1,5 @@
 #LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 544
+\lyxformat 600
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -9,11 +9,11 @@
 \usepackage{hyperref}
 \end_preamble
 \use_default_options true
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language american
 \language_package default
 \inputencoding utf8
-\fontencoding global
+\fontencoding auto
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -21,7 +21,9 @@
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -56,6 +58,7 @@
 \justification true
 \use_refstyle 1
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #b5bd68
@@ -71,11 +74,15 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
 \end_header
 
 \begin_body
@@ -95,6 +102,7 @@ Definitions
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status open
@@ -664,6 +672,7 @@ Variable definition
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status open
@@ -1072,6 +1081,7 @@ s and
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status open
@@ -1641,6 +1651,7 @@ Variable definition
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status open
@@ -2117,6 +2128,131 @@ Note that in this case we consider that the rotation signal
  is noiseless.
 \end_layout
 
+\begin_layout Section
+Consider CoM offset and ZMP coefficient
+\end_layout
+
+\begin_layout Standard
+What if we can measure in the DCM dynamics an offset on the CoM and a coefficien
+t to the ZMP ? In other words the dynamics of the DCM becomes 
+\begin_inset Formula 
+\begin{align}
+\dot{\xi} & =\omega_{0}(\xi-\kappa z+\gamma)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wherev 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the CoM offset and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\kappa$
+\end_inset
+
+ is the ZMP coefficient, they are considered known.
+ This may happen in the presence of planned or measured contact forces (see
+ equation (8) in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "murooka2021humanoid"
+literal "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+This can be discretized as 
+\begin_inset Formula 
+\begin{align}
+\xi_{k+1} & =\xi_{k}+\omega_{0}T(\xi_{k}-\kappa z_{k}+\gamma)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which gives
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\left(\begin{array}{c}
+\xi_{k+1}\\
+b_{k+1}
+\end{array}\right) & =\left(\begin{matrix}\left(1+\omega_{0}T\right)I_{2\times2} & 0\\
+0 & R_{k+1}R_{k}^{T}
+\end{matrix}\right)\left(\begin{array}{c}
+\xi_{k}\\
+b_{k}
+\end{array}\right)+\left(\begin{matrix}-\omega_{0}T\kappa I_{2\times2} &  & \omega_{0}TI_{2\times2}\\
+0 &  & 0
+\end{matrix}\right)\left(\begin{matrix}\hat{z}_{k}\\
+\gamma
+\end{matrix}\right)+\left(\begin{matrix}\omega_{0}Tw^{z}\\
+v_{k}
+\end{matrix}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which is implemented in the code
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\nospellcheck off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "biblio"
+options "plain"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 \start_of_appendix
 Unit-testing code
@@ -2132,8 +2268,8 @@ We wish to generate a random trajectory for the dcm but with bounded values.
 \begin_inset Formula 
 \begin{align}
 \dot{\xi}^{d} & =-\lambda\xi\\
-\omega_{0}\left(\xi-z^{d}\right) & =-\lambda\xi\\
-z^{d} & =\left(\frac{\lambda}{\omega_{0}}+1\right)\xi
+\omega_{0}(\xi-\kappa z+\gamma) & =-\lambda\xi\\
+z^{d} & =\frac{1}{\kappa}\left(\left(\frac{\lambda}{\omega_{0}}+1\right)\xi+\gamma\right)
 \end{align}
 
 \end_inset

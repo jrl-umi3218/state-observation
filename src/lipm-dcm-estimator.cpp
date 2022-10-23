@@ -33,9 +33,11 @@ LipmDcmEstimator::LipmDcmEstimator(double dt,
                                    const Vector2 & initDcmUncertainty,
                                    const Vector2 & initBiasUncertainty)
 : omega0_(omega_0), dt_(dt), biasDriftStd_(biasDriftStd), zmpErrorStd_(zmpMeasureErrorStd), previousZmp_(initZMP),
-  biasLimit_(biasLimit), filter_(4, 2, 2), previousOrientation_(Matrix2::Identity())
+  biasLimit_(biasLimit), filter_(4, 2, 4), previousOrientation_(Matrix2::Identity())
 {
   A_.setIdentity();
+  B_.setZero();
+  Q_.setIdentity();
   updateMatricesABQ_();
   C_ << Matrix2::Identity(), Matrix2::Identity();
   R_ = dblToSqDiag_(dcmMeasureErrorStd);
@@ -104,13 +106,31 @@ LipmDcmEstimator::~LipmDcmEstimator() {}
 void LipmDcmEstimator::setLipmNaturalFrequency(double omega_0)
 {
   omega0_ = omega_0;
-  updateMatricesABQ_();
+  needUpdateMatrices_ = true;
+}
+
+void LipmDcmEstimator::setUnbiasedCoMOffset(const Vector2 & gamma)
+{
+  if(gamma != gamma_) /// this test is because many expected calls to this function are with the default value
+  {
+    gamma_ = gamma;
+    needUpdateMatrices_ = true;
+  }
+}
+
+void LipmDcmEstimator::setZMPCoef(double kappa)
+{
+  if(kappa != kappa_) /// this test is because many expected calls to this function are with the default value
+  {
+    kappa_ = kappa;
+    needUpdateMatrices_ = true;
+  }
 }
 
 void LipmDcmEstimator::setSamplingTime(double dt)
 {
   dt_ = dt;
-  updateMatricesABQ_();
+  needUpdateMatrices_ = true;
 }
 
 void LipmDcmEstimator::setBias(const Vector2 & bias)
@@ -166,7 +186,7 @@ void LipmDcmEstimator::setUnbiasedDCM(const Vector2 & dcm, const Vector2 & uncer
 void LipmDcmEstimator::setZmpMeasureErrorStd(double std)
 {
   zmpErrorStd_ = std;
-  updateMatricesABQ_();
+  needUpdateMatrices_ = true;
 }
 
 void LipmDcmEstimator::setDcmMeasureErrorStd(double std)
@@ -177,6 +197,7 @@ void LipmDcmEstimator::setDcmMeasureErrorStd(double std)
 
 void LipmDcmEstimator::update()
 {
+  updateMatricesABQ_();
   filter_.estimateState();
   if(biasLimit_.x() >= 0 || biasLimit_.y() >= 0)
   {
@@ -196,8 +217,14 @@ void LipmDcmEstimator::update()
   }
 }
 
-void LipmDcmEstimator::setInputs(const Vector2 & dcm, const Vector2 & zmp, const Matrix2 & orientation)
+void LipmDcmEstimator::setInputs(const Vector2 & dcm,
+                                 const Vector2 & zmp,
+                                 const Matrix2 & orientation,
+                                 const Vector2 & CoMOffset_gamma,
+                                 const double ZMPCoef_kappa)
 {
+  setUnbiasedCoMOffset(CoMOffset_gamma);
+  setZMPCoef(ZMPCoef_kappa);
   if(filter_.stateIsSet())
   {
     if(filter_.getMeasurementsNumber() > 1)
@@ -205,13 +232,13 @@ void LipmDcmEstimator::setInputs(const Vector2 & dcm, const Vector2 & zmp, const
       update(); /// update the estimation of the state to synchronize with the measurements
     }
 
-    Vector2 u;
+    Vector4 u;
     Vector2 y;
 
     y = dcm;
 
     /// The prediction of the state depends on the previous value of the ZMP
-    u = previousZmp_;
+    u << previousZmp_, gamma_;
     previousZmp_ = zmp;
 
     filter_.pushMeasurement(y);
@@ -239,20 +266,22 @@ Vector2 LipmDcmEstimator::getBias() const
 
 void LipmDcmEstimator::updateMatricesABQ_()
 {
-  /// We only modify a corner to avoid resetting the orientation
-  A_.topLeftCorner<2, 2>() = dblToDiag_(1 + omega0_ * dt_);
+  if(needUpdateMatrices_)
+  {
+    /// We only modify a corner to avoid resetting the orientation
+    A_.diagonal().head<2>().setConstant(1 + omega0_ * dt_);
 
-  // clang-format off
-  B_ << dblToDiag_(-omega0_ * dt_),
-        Matrix2::Zero();
+    B_.topLeftCorner<2, 2>().diagonal().setConstant(-omega0_ * dt_ * kappa_);
+    B_.topRightCorner<2, 2>().diagonal().setConstant(omega0_ * dt_);
 
-  Q_ << dblToSqDiag_(omega0_* dt_ * zmpErrorStd_), Matrix2::Zero(),
-         Matrix2::Zero(),                         dblToSqDiag_(biasDriftStd_*dt_);
-  // clang-format on
+    Q_.diagonal().head<2>().setConstant(square(omega0_ * dt_ * zmpErrorStd_));
+    Q_.diagonal().tail<2>().setConstant(square(biasDriftStd_ * dt_));
 
-  filter_.setA(A_);
-  filter_.setB(B_);
-  filter_.setProcessCovariance(Q_);
+    /// no need to perform filter_.setA(A_) since it is done in setInputs
+    filter_.setB(B_);
+    filter_.setProcessCovariance(Q_);
+    needUpdateMatrices_ = false;
+  }
 }
 
 } // namespace stateObservation
