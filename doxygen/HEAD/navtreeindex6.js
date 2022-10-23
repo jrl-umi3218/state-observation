@@ -1,5 +1,12 @@
 var NAVTREEINDEX6 =
 {
+"imu-multiplicative-attitude-reconstruction_8hpp_source.html":[4,0,0,0,2,1],
+"index.html":[],
+"kalman-filter-base_8hpp.html":[4,0,0,0,5,1],
+"kalman-filter-base_8hpp_source.html":[4,0,0,0,5,1],
+"kinetics-observer_8hpp.html":[4,0,0,0,1,0],
+"kinetics-observer_8hpp_source.html":[4,0,0,0,1,0],
+"linear-acceleration_8hpp.html":[4,0,0,0,6,0,0],
 "linear-acceleration_8hpp_source.html":[4,0,0,0,6,0,0],
 "linear-kalman-filter_8hpp.html":[4,0,0,0,5,2],
 "linear-kalman-filter_8hpp_source.html":[4,0,0,0,5,2],
@@ -42,8 +49,8 @@ var NAVTREEINDEX6 =
 "namespacestateObservation_1_1detail.html":[2,0,0,2],
 "namespacestateObservation_1_1detail.html":[3,0,0,1],
 "namespacestateObservation_1_1examples.html":[2,0,0,3],
-"namespacestateObservation_1_1flexibilityEstimation.html":[2,0,0,4],
 "namespacestateObservation_1_1flexibilityEstimation.html":[3,0,0,2],
+"namespacestateObservation_1_1flexibilityEstimation.html":[2,0,0,4],
 "namespacestateObservation_1_1hrp2.html":[2,0,0,5],
 "namespacestateObservation_1_1hrp2.html":[3,0,0,3],
 "namespacestateObservation_1_1kine.html":[2,0,0,6],
@@ -242,12 +249,5 @@ var NAVTREEINDEX6 =
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a31f50b7fb2b6ca979350e46d7c567292":[3,0,0,2,3,2,48],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3284f832edb1db7899717a6cb9b3f352":[3,0,0,2,3,2,28],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3315dc4a3b2d5ca9321230798975292d":[3,0,0,2,3,2,24],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a339dae2b92e7ebf3d63aa689acf95fa8":[3,0,0,2,3,2,8],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3522c0a7afdc4f6727da13d218cf3f90":[3,0,0,2,3,2,11],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a35b84f846bfa4ad2525b58353b93df8c":[3,0,0,2,3,2,73],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a385e0791680aaecd447cc5e71a079b0d":[3,0,0,2,3,2,74],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3a79c3212d214295890d6977f7308630":[3,0,0,2,3,2,42],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3d5dff09dde957d0a23dfa93ae9662f4":[3,0,0,2,3,2,54],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a46ba4e9a8401577d9dfee0b2619b341a":[3,0,0,2,3,2,15],
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4933cb49df65a2d7881c4e70953b8748":[3,0,0,2,3,2,80]
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a339dae2b92e7ebf3d63aa689acf95fa8":[3,0,0,2,3,2,8]
 };

@@ -4,6 +4,7 @@ var searchData=
   ['k_5fdata_5f',['k_data_',['../classstateObservation_1_1KineticsObserver.html#a6aafabd875254fad554f4d1082bb56e5',1,'stateObservation::KineticsObserver']]],
   ['k_5fest_5f',['k_est_',['../classstateObservation_1_1KineticsObserver.html#a926b86ec877e92d0e1444e7308b3f4b9',1,'stateObservation::KineticsObserver']]],
   ['k_5ffory',['k_fory',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a8513e8b79d349b1d69a4a9196618e111',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization']]],
+  ['kappa_5f',['kappa_',['../classstateObservation_1_1LipmDcmEstimator.html#a04009aa29e64ee8f3d23de20e6a20dd0',1,'stateObservation::LipmDcmEstimator']]],
   ['kcurrent_5f',['kcurrent_',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aa04bb7e77e5edd20593926f847300191',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['kfe_5f',['Kfe_',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a8f5c514c9bfd51da4d0095f42bb3ba3d',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['kferopes_5f',['KfeRopes_',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#aa1b47e69b95483da2e7c853a8f1d0a91',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],

@@ -4,6 +4,7 @@ var searchData=
   ['nbcontacts_5f',['nbContacts_',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a34adb37cc75693dc4de508d1c7c54cc1',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['nbmax',['nbMax',['../structstateObservation_1_1hrp2_1_1contact.html#a5ba717f9e2dc4bc181b76fc62a01bf6e',1,'stateObservation::hrp2::contact']]],
   ['nbmodeledmax',['nbModeledMax',['../structstateObservation_1_1hrp2_1_1contact.html#a19b7ca7aafe83ae0413c4872e7f9b03e',1,'stateObservation::hrp2::contact']]],
+  ['needupdatematrices_5f',['needUpdateMatrices_',['../classstateObservation_1_1LipmDcmEstimator.html#ade9dcb63f4ddd6f939b9d334f7fcaf6f',1,'stateObservation::LipmDcmEstimator']]],
   ['noise_5f',['noise_',['../classstateObservation_1_1SensorBase.html#a2485deaf19c72e5d4b61ec69ad470630',1,'stateObservation::SensorBase']]],
   ['noiselessmeasurement_5f',['noiselessMeasurement_',['../classstateObservation_1_1AlgebraicSensor.html#acbd8b5ae7d875378bd2b889d0ddbfeb9',1,'stateObservation::AlgebraicSensor']]],
   ['noisy_5f',['noisy_',['../classstateObservation_1_1GaussianWhiteNoise.html#a9919888a8e62dadf87b4723953739e96',1,'stateObservation::GaussianWhiteNoise']]],

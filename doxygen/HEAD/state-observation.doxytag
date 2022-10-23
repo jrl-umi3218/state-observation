@@ -11751,15 +11751,15 @@
       <type>void</type>
       <name>resetWithMeasurements</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a19a7ef4788b0053ef3c0109da2146bd6</anchor>
-      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, double yaw=0, bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
+      <anchor>a9b28ffd37b028fc26cd33cd6e661a8ad</anchor>
+      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, double yaw, bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>resetWithMeasurements</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a549d1051089ae5c4a7cea60dd792c6ee</anchor>
-      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, const Matrix3 &amp;rotation=Matrix3::Identity(), bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
+      <anchor>ac5ae5ccf5d203c3b99008cdc637133d1</anchor>
+      <arglist>(const Vector2 &amp;measuredDcm, const Vector2 &amp;measuredZMP, const Matrix3 &amp;rotation, bool measurementIsWithBias=true, const Vector2 &amp;initBias=Vector2::Constant(0), const Vector2 &amp;initBiasuncertainty=Vector2::Constant(defaultBiasUncertainty))</arglist>
     </member>
     <member kind="function">
       <type></type>
@@ -11780,6 +11780,34 @@
       <name>getLipmNaturalFrequency</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
       <anchor>a30095e8f4ae2c5b3f17efd9ea1356518</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUnbiasedCoMOffset</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>a739f395949840c09318ec24f3c22d5be</anchor>
+      <arglist>(const Vector2 &amp;gamma)</arglist>
+    </member>
+    <member kind="function">
+      <type>Vector2</type>
+      <name>getUnbiasedCoMOffset</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>aa5b11efd9788caaac8ac20d1af71dfb0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setZMPCoef</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>a04ac603418f6da8552c8f05df5eef413</anchor>
+      <arglist>(double kappa)</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getZMPCoef</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>a06bf1566704bcbba1c1677c5e08b63e4</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -11849,22 +11877,22 @@
       <type>void</type>
       <name>setInputs</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a6a39f5798c227a32d1d3e8b9ee6542f1</anchor>
-      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix3 &amp;orientation)</arglist>
+      <anchor>a7f092dd4ae696d4e3a344e067336196c</anchor>
+      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix3 &amp;orientation, const Vector2 &amp;CoMOffset_gamma=Vector2::Zero(), const double ZMPCoef_kappa=1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setInputs</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>aee01649b9effc170a634567e24f2378c</anchor>
-      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, double yaw)</arglist>
+      <anchor>abd0fab3cc5fca877122a9bf4c11f93a3</anchor>
+      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, double yaw, const Vector2 &amp;CoMOffset_gamma=Vector2::Zero(), const double ZMPCoef_kappa=1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setInputs</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>af9f77ca3d4a24f66ada4d2fce47fc2ff</anchor>
-      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix2 &amp;R=Matrix2::Identity())</arglist>
+      <anchor>a8fae6224af93798fa61e20cd9dda040f</anchor>
+      <arglist>(const Vector2 &amp;dcm, const Vector2 &amp;zmp, const Matrix2 &amp;R=Matrix2::Identity(), const Vector2 &amp;CoMOffset_gamma=Vector2::Zero(), const double ZMPCoef_kappa=1)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12000,6 +12028,20 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
+      <type>Vector2</type>
+      <name>gamma_</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>a105a8a51115bdd9eac8f906f77fce786</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>double</type>
+      <name>kappa_</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>a04009aa29e64ee8f3d23de20e6a20dd0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
       <type>double</type>
       <name>dt_</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
@@ -12018,6 +12060,13 @@
       <name>zmpErrorStd_</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
       <anchor>a26ea6c69c201a61985f5c1c987943ee9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>needUpdateMatrices_</name>
+      <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
+      <anchor>ade9dcb63f4ddd6f939b9d334f7fcaf6f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -12049,10 +12098,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>Matrix42</type>
+      <type>Matrix4</type>
       <name>B_</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a4adb287bfc48e622cebc5eca217833f4</anchor>
+      <anchor>af725f41070c6cf7ee0130e20c74da50a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">

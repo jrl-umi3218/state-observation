@@ -1,7 +1,7 @@
 var searchData=
 [
   ['gaindriftpersecondstd_5f',['gainDriftPerSecondStd_',['../classstateObservation_1_1ZmpTrackingGainEstimator.html#a675e0e313b1213f2b76e4514b7eb6a8d',1,'stateObservation::ZmpTrackingGainEstimator']]],
-  ['gamma_5f',['gamma_',['../classstateObservation_1_1TiltEstimator.html#a4de43a4980422b8d75b3d22f807c3186',1,'stateObservation::TiltEstimator']]],
+  ['gamma_5f',['gamma_',['../classstateObservation_1_1LipmDcmEstimator.html#a105a8a51115bdd9eac8f906f77fce786',1,'stateObservation::LipmDcmEstimator::gamma_()'],['../classstateObservation_1_1TiltEstimator.html#a4de43a4980422b8d75b3d22f807c3186',1,'stateObservation::TiltEstimator::gamma_()']]],
   ['gaussian_2dwhite_2dnoise_2ehpp',['gaussian-white-noise.hpp',['../gaussian-white-noise_8hpp.html',1,'']]],
   ['gaussianwhitenoise',['GaussianWhiteNoise',['../classstateObservation_1_1GaussianWhiteNoise.html',1,'stateObservation::GaussianWhiteNoise'],['../classstateObservation_1_1GaussianWhiteNoise.html#aff582053a444ac5cce0db98a1baea8c9',1,'stateObservation::GaussianWhiteNoise::GaussianWhiteNoise(Index dimension)'],['../classstateObservation_1_1GaussianWhiteNoise.html#ade982d55fc275d50d6625c7475f7229e',1,'stateObservation::GaussianWhiteNoise::GaussianWhiteNoise()']]],
   ['gen_5f',['gen_',['../classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a60b17e747f569fe28380fb2f0f627b6f',1,'stateObservation::tools::ProbabilityLawSimulation']]],
@@ -134,6 +134,7 @@ var searchData=
   ['getstatevectortimeindex',['getStateVectorTimeIndex',['../classstateObservation_1_1KineticsObserver.html#a79c80955bc7df3f874c210077489f194',1,'stateObservation::KineticsObserver']]],
   ['gettime',['getTime',['../classstateObservation_1_1AlgebraicSensor.html#ae5d5ea7fce3de8de54c5e111e2077dad',1,'stateObservation::AlgebraicSensor::getTime()'],['../classstateObservation_1_1SensorBase.html#ad58dcd2f5f50a5629a40af3bcab262d1',1,'stateObservation::SensorBase::getTime()'],['../classstateObservation_1_1IndexedMatrixT.html#ac3628505bd04bd81d30254f0f71dcb0f',1,'stateObservation::IndexedMatrixT::getTime()']]],
   ['gettorqueslimit',['getTorquesLimit',['../classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#a445d5093216b7c74b7cd5af0633943c7',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU']]],
+  ['getunbiasedcomoffset',['getUnbiasedCoMOffset',['../classstateObservation_1_1LipmDcmEstimator.html#aa5b11efd9788caaac8ac20d1af71dfb0',1,'stateObservation::LipmDcmEstimator']]],
   ['getunbiaseddcm',['getUnbiasedDCM',['../classstateObservation_1_1LipmDcmEstimator.html#a611dcf321d538eaff1549ac30d3bfe0b',1,'stateObservation::LipmDcmEstimator::getUnbiasedDCM()'],['../classstateObservation_1_1UnidimLipmDcmEstimator.html#a1e7dd1c1fb7bf658c3410dee60cbf1e0',1,'stateObservation::UnidimLipmDcmEstimator::getUnbiasedDCM()']]],
   ['getuniformmatrix',['getUniformMatrix',['../classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#aa9ac5e9ca6d8a957eb119a7c6fd66e0b',1,'stateObservation::tools::ProbabilityLawSimulation']]],
   ['getuniformscalar',['getUniformScalar',['../classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html#a12c10b1c2cc7d9c5d54ca557f6b02203',1,'stateObservation::tools::ProbabilityLawSimulation']]],
@@ -145,6 +146,7 @@ var searchData=
   ['getwithforcemeasurements',['getWithForceMeasurements',['../classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a375ab9caf171695d15977a4e0ff9ea86',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem']]],
   ['getwithforcesmeasurements',['getWithForcesMeasurements',['../classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#aa33d896f12092fc5552f722b6a82e8d4',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU']]],
   ['getwithunmodeledforces',['getWithUnmodeledForces',['../classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#a52d15dbd194dbd6f5318aee5ffe1af4e',1,'stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU']]],
+  ['getzmpcoef',['getZMPCoef',['../classstateObservation_1_1LipmDcmEstimator.html#a06bf1566704bcbba1c1677c5e08b63e4',1,'stateObservation::LipmDcmEstimator']]],
   ['globalcontactpos',['globalContactPos',['../structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#ae0d23d733c2aa5aa4994fecd909c5a54',1,'stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization']]],
   ['gravity',['gravity',['../namespacestateObservation_1_1cst.html#a73b34c228641cabcb79894e285fd751a',1,'stateObservation::cst']]],
   ['gravityconstant',['gravityConstant',['../namespacestateObservation_1_1cst.html#a177e9790b91fd4af339c9c3c6d076cc0',1,'stateObservation::cst']]],

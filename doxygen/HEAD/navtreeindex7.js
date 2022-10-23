@@ -1,5 +1,12 @@
 var NAVTREEINDEX7 =
 {
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3522c0a7afdc4f6727da13d218cf3f90":[3,0,0,2,3,2,11],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a35b84f846bfa4ad2525b58353b93df8c":[3,0,0,2,3,2,73],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a385e0791680aaecd447cc5e71a079b0d":[3,0,0,2,3,2,74],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3a79c3212d214295890d6977f7308630":[3,0,0,2,3,2,42],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3d5dff09dde957d0a23dfa93ae9662f4":[3,0,0,2,3,2,54],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a46ba4e9a8401577d9dfee0b2619b341a":[3,0,0,2,3,2,15],
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4933cb49df65a2d7881c4e70953b8748":[3,0,0,2,3,2,80],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a49bc8aea418acf15b483a90708d17480":[3,0,0,2,3,2,78],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4c50a80a4ab5eb63ed27c41981262b8f":[3,0,0,2,3,2,77],
 "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4d05dd6f4c9a776f21dfa83475fb8082":[3,0,0,2,3,2,13],

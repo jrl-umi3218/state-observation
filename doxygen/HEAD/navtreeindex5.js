@@ -1,5 +1,12 @@
 var NAVTREEINDEX5 =
 {
+"classstateObservation_1_1kine_1_1Orientation.html#a542e5c23cb070dfc1a43f099ab2a0c0f":[3,0,0,4,4,4],
+"classstateObservation_1_1kine_1_1Orientation.html#a6145c3e71ce330b105725b0357cb2ef0":[3,0,0,4,4,24],
+"classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2":[3,0,0,4,4,14],
+"classstateObservation_1_1kine_1_1Orientation.html#a6dd8a977a014d6931480672c67bd4a0a":[3,0,0,4,4,1],
+"classstateObservation_1_1kine_1_1Orientation.html#a71c7081947248dcebcd8c4fb47a45269":[3,0,0,4,4,22],
+"classstateObservation_1_1kine_1_1Orientation.html#a7264fb8bc4eb37a6284c2a5b78b991f0":[3,0,0,4,4,36],
+"classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3":[3,0,0,4,4,15],
 "classstateObservation_1_1kine_1_1Orientation.html#a7d4f47d78aaf897d81a6ec8380100f27":[3,0,0,4,4,39],
 "classstateObservation_1_1kine_1_1Orientation.html#a8c23c0bc1862eabea982e2d84080ee99":[3,0,0,4,4,41],
 "classstateObservation_1_1kine_1_1Orientation.html#a974108303911db42ce72d772d4c1bc30":[3,0,0,4,4,26],
@@ -140,8 +147,8 @@ var NAVTREEINDEX5 =
 "functions_d.html":[3,3,0,4],
 "functions_e.html":[3,3,0,5],
 "functions_f.html":[3,3,0,6],
-"functions_func.html":[3,3,1,0],
 "functions_func.html":[3,3,1],
+"functions_func.html":[3,3,1,0],
 "functions_func_0x7e.html":[3,3,1,22],
 "functions_func_b.html":[3,3,1,1],
 "functions_func_c.html":[3,3,1,2],
@@ -242,12 +249,5 @@ var NAVTREEINDEX5 =
 "imu-mltpctive-dynamical-system_8hpp_source.html":[4,0,0,0,0,5],
 "imu-multiplicative-attitude-reconstruction_8hpp.html":[4,0,0,0,2,1],
 "imu-multiplicative-attitude-reconstruction_8hpp.html#a1c59a4bf9cc0402e665e5eb35811642f":[4,0,0,0,2,1,0],
-"imu-multiplicative-attitude-reconstruction_8hpp.html#adee3a0854187297b681736dfae4f81de":[4,0,0,0,2,1,1],
-"imu-multiplicative-attitude-reconstruction_8hpp_source.html":[4,0,0,0,2,1],
-"index.html":[],
-"kalman-filter-base_8hpp.html":[4,0,0,0,5,1],
-"kalman-filter-base_8hpp_source.html":[4,0,0,0,5,1],
-"kinetics-observer_8hpp.html":[4,0,0,0,1,0],
-"kinetics-observer_8hpp_source.html":[4,0,0,0,1,0],
-"linear-acceleration_8hpp.html":[4,0,0,0,6,0,0]
+"imu-multiplicative-attitude-reconstruction_8hpp.html#adee3a0854187297b681736dfae4f81de":[4,0,0,0,2,1,1]
 };
