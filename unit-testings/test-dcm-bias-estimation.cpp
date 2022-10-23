@@ -136,8 +136,9 @@ int testDcmBiasEstimator(int errorCode)
   /// Build the ground truth signals
   ///////////////////////////////////////
   typedef tools::ProbabilityLawSimulation ran;
-  IndexedVectorArray dcm(signallength), localBias(signallength), bias(signallength), zmp(signallength);
-  std::vector<double> yaw(signallength);
+  IndexedVectorArray dcm(signallength), localBias(signallength), bias(signallength), zmp(signallength),
+      gamma(signallength);
+  std::vector<double> yaw(signallength), kappa(signallength);
 
   /// set the desired exponential convergence of the DCM
   double lambda = 2;
@@ -152,13 +153,16 @@ int testDcmBiasEstimator(int errorCode)
 
   for(int i = 0; i < signallength - 1; ++i)
   {
+    gamma[i] = ran::getGaussianMatrix<Vector2>();
+    kappa[i] = ran::getUniformScalar(0.5, 1.5);
     /// dcm dynamics
-    dcm[i + 1] = dcm[i] + dt * w0 * (dcm[i] - zmp[i]);
+    dcm[i + 1] = dcm[i] + dt * w0 * (dcm[i] - kappa[i] * zmp[i] + gamma[i]);
     /// local bias drift
     localBias[i + 1] = localBias[i] + ran::getGaussianMatrix<Vector2>() * biasDriftPerSecondStd * dt;
     /// set a noisy zmp to create  bounded drift of the DCM
     deviation += ran::getGaussianMatrix<Vector2>() * 0.05;
-    zmp[i + 1] = (lambda / w0 + 1) * dcm[i] + ran::getGaussianMatrix<Vector2>() * 0.05 + deviation;
+    zmp[i + 1] = (1. / kappa[i]) * ((lambda / w0 + 1) * dcm[i] + gamma[i]) + ran::getGaussianMatrix<Vector2>() * 0.05
+                 + deviation;
   }
 
   for(int i = 0; i < signallength; ++i)
@@ -196,7 +200,7 @@ int testDcmBiasEstimator(int errorCode)
 
   for(int i = 1; i < signallength; i++)
   {
-    est.setInputs(dcm_m[i], zmp_m[i], yaw[i]);
+    est.setInputs(dcm_m[i], zmp_m[i], yaw[i], gamma[i - 1], kappa[i - 1]);
     est.update();
     bias_hat[i] = est.getBias();
     dcm_hat[i] = est.getUnbiasedDCM();
