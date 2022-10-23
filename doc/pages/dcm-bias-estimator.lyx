@@ -2268,8 +2268,8 @@ We wish to generate a random trajectory for the dcm but with bounded values.
 \begin_inset Formula 
 \begin{align}
 \dot{\xi}^{d} & =-\lambda\xi\\
-\omega_{0}\left(\xi-z^{d}\right) & =-\lambda\xi\\
-z^{d} & =\left(\frac{\lambda}{\omega_{0}}+1\right)\xi
+\omega_{0}(\xi-\kappa z+\gamma) & =-\lambda\xi\\
+z^{d} & =\frac{1}{\kappa}\left(\left(\frac{\lambda}{\omega_{0}}+1\right)\xi+\gamma\right)
 \end{align}
 
 \end_inset
