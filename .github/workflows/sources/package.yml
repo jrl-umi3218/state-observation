@@ -42,7 +42,7 @@ jobs:
   #
   # This job does not run on the master branch
   check-tag:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
       with:
@@ -91,7 +91,7 @@ jobs:
         exclude:
           - dist: focal
             arch: i386
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
       with:
@@ -152,7 +152,7 @@ jobs:
       max-parallel: 1
       fail-fast: false
       matrix: *package-matrix
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
       with:
@@ -171,4 +171,49 @@ jobs:
         repo: ${{ env.CLOUDSMITH_REPO }}
         path: packages-${{ matrix.dist }}-${{ matrix.arch }}
         CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_API_KEY }}
+      if: env.PACKAGE_UPLOAD == 'true'
+  mirror-sync-and-trigger:
+    needs: upload-packages
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Choose extra mirror
+      run: |
+        # We upload in all conditions except when building on PR or branch other than master
+        export PACKAGE_UPLOAD=true
+        if ${{ startsWith(github.ref, 'refs/tags/') }}
+        then
+          export USE_HEAD=false
+        elif [ "${{ github.event.action }}" == "package-master" ]
+        then
+          export USE_HEAD=true
+        elif [ "${{ github.event.action }}" == "package-release" ]
+        then
+          export USE_HEAD=false
+          export REF=`git tag --sort=committerdate --list 'v[0-9]*'|tail -1`
+          git checkout $REF
+          git submodule sync && git submodule update
+        else
+          export REF=`echo ${{ github.ref }} | sed -e 's@refs/[a-z]*/@@'`
+          export USE_HEAD=true
+          if [ $REF != "master" ]
+          then
+            export PACKAGE_UPLOAD=false
+          fi
+        fi
+        if $USE_HEAD
+        then
+          echo "CLOUDSMITH_REPO=mc-rtc/head" >> $GITHUB_ENV
+          echo "PACKAGE_JOB=package-master" >> $GITHUB_ENV
+        else
+          echo "CLOUDSMITH_REPO=mc-rtc/stable" >> $GITHUB_ENV
+          echo "PACKAGE_JOB=package-release" >> $GITHUB_ENV
+        fi
+        echo "PACKAGE_UPLOAD=${PACKAGE_UPLOAD}" >> $GITHUB_ENV
+    - name: Trigger dependents rebuild
+      run: 'curl -H "Accept: application/vnd.github.everest-preview+json" -H "Authorization: token ${{ secrets.GH_PAGES_TOKEN }}" --request POST --data "{\"event_type\": \"${PACKAGE_JOB}\"}" https://api.github.com/repos/jrl-umi3218/mc_rtc/dispatches
+
+'
       if: env.PACKAGE_UPLOAD == 'true'
