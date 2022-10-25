@@ -1,17 +1,18 @@
 digraph "stateObservation::StateVectorArithmetics"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::StateVector\lArithmetics",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 [label="stateObservation::IMUMltpctive\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IMUMltpctiveDynamicalSystem.html",tooltip="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..."];
-  Node0 -> Node2 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="stateObservation::Kalman\lFilterBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KalmanFilterBase.html",tooltip="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..."];
-  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="stateObservation::Extended\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ExtendedKalmanFilter.html",tooltip="The class to intanciate to use an extended Kalman filter. To use this class, one needs to provide a p..."];
-  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="stateObservation::Linear\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1LinearKalmanFilter.html",tooltip="The class of a Linear Kalman filter. "];
-  Node0 -> Node5 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html",tooltip="This observer estimated the kinematics and the external forces. "];
+  Node1 [label="stateObservation::StateVector\lArithmetics",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This class is used to customize the way the difference between measurements, the state update functio..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stateObservation::IMUMltpctive\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IMUMltpctiveDynamicalSystem.html",tooltip="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..."];
+  Node1 -> Node3 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="stateObservation::Kalman\lFilterBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KalmanFilterBase.html",tooltip="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="stateObservation::Extended\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ExtendedKalmanFilter.html",tooltip=" "];
+  Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="stateObservation::Linear\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1LinearKalmanFilter.html",tooltip="The class of a Linear Kalman filter."];
+  Node1 -> Node6 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html",tooltip="This observer estimated the kinematics and the external forces."];
 }

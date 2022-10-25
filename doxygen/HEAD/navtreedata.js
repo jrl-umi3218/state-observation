@@ -1,10 +1,37 @@
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this file.
+
+Copyright (C) 1997-2019 by Dimitri van Heesch
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of version 2 of the GNU General Public License as published by
+the Free Software Foundation
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+@licend  The above is the entire license notice
+for the JavaScript code in this file
+*/
 var NAVTREE =
 [
   [ "state-observation", "index.html", [
+    [ "Installing", "index.html#autotoc_md0", null ],
+    [ "Ubuntu LTS (16.04, 18.04, 20.04)", "index.html#autotoc_md1", null ],
+    [ "Manually build from source", "index.html#autotoc_md2", [
+      [ "Building", "index.html#autotoc_md3", null ]
+    ] ],
     [ "Table of contents", "toc.html", null ],
     [ "Theoretical details", "theory.html", "theory" ],
-    [ "Namespaces", null, [
-      [ "Namespace List", "namespaces.html", "namespaces" ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
@@ -25,8 +52,8 @@ var NAVTREE =
         [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
-    [ "Files", null, [
-      [ "File List", "files.html", "files" ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
@@ -44,8 +71,8 @@ var NAVTREEINDEX =
 "classstateObservation_1_1ObserverBase.html#aa393736477ffce4ef0a9346e9e13f716",
 "classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a17993408f08ef4411ad2a7da058a5696",
 "classstateObservation_1_1kine_1_1Orientation.html#a542e5c23cb070dfc1a43f099ab2a0c0f",
-"imu-multiplicative-attitude-reconstruction_8hpp_source.html",
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3522c0a7afdc4f6727da13d218cf3f90"
+"imu-multiplicative-attitude-reconstruction_8hpp.html#a1c59a4bf9cc0402e665e5eb35811642f",
+"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3284f832edb1db7899717a6cb9b3f352"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

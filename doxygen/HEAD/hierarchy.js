@@ -12,9 +12,7 @@ var hierarchy =
     [ "stateObservation::DebugItem< bool, detail::defaultTrue, !false||isDebug >", "classstateObservation_1_1DebugItem.html", [
       [ "stateObservation::IndexedMatrixT< Matrix3 >", "classstateObservation_1_1IndexedMatrixT.html", null ],
       [ "stateObservation::IndexedMatrixT< Vector >", "classstateObservation_1_1IndexedMatrixT.html", null ],
-      [ "stateObservation::IndexedMatrixT< Vector3 >", "classstateObservation_1_1IndexedMatrixT.html", null ]
-    ] ],
-    [ "stateObservation::DebugItem< bool, detail::defaultTrue, !lazy||isDebug >", "classstateObservation_1_1DebugItem.html", [
+      [ "stateObservation::IndexedMatrixT< Vector3 >", "classstateObservation_1_1IndexedMatrixT.html", null ],
       [ "stateObservation::IndexedMatrixT< MatrixType, lazy >", "classstateObservation_1_1IndexedMatrixT.html", null ]
     ] ],
     [ "stateObservation::DebugItem< bool, detail::defaultTrue, do_check_ >", "classstateObservation_1_1DebugItem.html", null ],
@@ -96,10 +94,10 @@ var hierarchy =
         [ "stateObservation::TiltEstimator", "classstateObservation_1_1TiltEstimator.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
     [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
-    [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
+    [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
+    [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
     [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],
     [ "stateObservation::KalmanFilterBase::optimizationContainer", "structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html", null ],
     [ "order1", "classorder1.html", null ],

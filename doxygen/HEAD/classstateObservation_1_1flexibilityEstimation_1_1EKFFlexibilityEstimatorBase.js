@@ -2,8 +2,8 @@ var classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBas
 [
     [ "EKFFlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a57bd701cf7b1e71380fe0a91e1fb2b91", null ],
     [ "~EKFFlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a6d51a6b07fe1d2154dd6424016a923fc", null ],
-    [ "getEKF", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#ae362fc399e1694a08ecd900da50e4f01", null ],
     [ "getEKF", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a1cde435bab52638677406be2d4cc1226", null ],
+    [ "getEKF", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#ae362fc399e1694a08ecd900da50e4f01", null ],
     [ "getFlexibility", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a0d2194dee95a78daba44e7f4e099321a", null ],
     [ "getFlexibilityCovariance", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a9cbc8082ee870d2b35176177800b1272", null ],
     [ "getFlexibilityVector", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a899f8aa4f2e3920917e0d8b8bd8135c2", null ],

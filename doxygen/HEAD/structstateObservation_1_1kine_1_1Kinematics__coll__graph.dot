@@ -1,26 +1,27 @@
 digraph "stateObservation::kine::Kinematics"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node1 [label="stateObservation::kine\l::Kinematics",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 [label="stateObservation::kine\l::Kinematics",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" linAcc\nangVel\nposition\nangAcc\nlinVel" ,fontname="Helvetica"];
-  Node2 [label="stateObservation::Checked\lItem\< Vector3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node2 [label="stateObservation::Checked\lItem\< Vector3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip=" "];
   Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
-  Node3 [label="stateObservation::DebugItem\l\< const std::exception *,\l detail::defaultExceptionAddr,\l do_exception_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node3 [label="stateObservation::DebugItem\l\< const std::exception *,\l detail::defaultExceptionAddr,\l do_exception_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
   Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];
-  Node4 [label="stateObservation::DebugItem\l\< bool, detail::defaultTrue,\l do_check_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node4 [label="stateObservation::DebugItem\l\< bool, detail::defaultTrue,\l do_check_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
   Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assertMsg_" ,fontname="Helvetica"];
-  Node5 [label="stateObservation::DebugItem\l\< const char *, detail::\ldefaultErrorMSG, do_assert_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node5 [label="stateObservation::DebugItem\l\< const char *, detail::\ldefaultErrorMSG, do_assert_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
   Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" orientation" ,fontname="Helvetica"];
-  Node6 [label="stateObservation::kine\l::Orientation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1kine_1_1Orientation.html"];
+  Node6 [label="stateObservation::kine\l::Orientation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1kine_1_1Orientation.html",tooltip=" "];
   Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_" ,fontname="Helvetica"];
-  Node7 [label="stateObservation::Checked\lItem\< Matrix3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node7 [label="stateObservation::Checked\lItem\< Matrix3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip=" "];
   Node3 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
   Node4 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];
   Node5 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assertMsg_" ,fontname="Helvetica"];
   Node8 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" q_" ,fontname="Helvetica"];
-  Node8 [label="stateObservation::Checked\lItem\< Quaternion, false,\l false, true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html"];
+  Node8 [label="stateObservation::Checked\lItem\< Quaternion, false,\l false, true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip=" "];
   Node3 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
   Node4 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];
   Node5 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" assertMsg_" ,fontname="Helvetica"];

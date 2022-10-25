@@ -1,12 +1,13 @@
 digraph "include/state-observation/observer/linear-kalman-filter.hpp"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node19 [label="include/state-observation\l/observer/linear-kalman\l-filter.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node19 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node20 [label="include/state-observation\l/dynamics-estimators/lipm\l-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lipm-dcm-estimator_8hpp.html",tooltip="Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the co..."];
-  Node19 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node21 [label="include/state-observation\l/dynamics-estimators/unidim\l-lipm-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unidim-lipm-dcm-estimator_8hpp.html",tooltip="Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment poi..."];
-  Node19 -> Node22 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node22 [label="include/state-observation\l/dynamics-estimators/zmp\l-tracking-gain-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$zmp-tracking-gain-estimator_8hpp.html"];
+  Node1 [label="include/state-observation\l/observer/linear-kalman\l-filter.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Defines the class of a Linear Kalman filter."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="include/state-observation\l/dynamics-estimators/lipm\l-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lipm-dcm-estimator_8hpp.html",tooltip="Filtering of divergent component of motion (DCM) and estimation of a bias betweeen the DCM and the co..."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="include/state-observation\l/dynamics-estimators/unidim\l-lipm-dcm-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$unidim-lipm-dcm-estimator_8hpp.html",tooltip="Estimation of a bias betweeen the divergent component of motion and the corresponding zero moment poi..."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="include/state-observation\l/dynamics-estimators/zmp\l-tracking-gain-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$zmp-tracking-gain-estimator_8hpp.html",tooltip=" "];
 }

@@ -1,17 +1,18 @@
 digraph "stateObservation::TiltEstimator"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node3 [label="stateObservation::TiltEstimator",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="stateObservation::ZeroDelay\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ZeroDelayObserver.html",tooltip="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..."];
-  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="stateObservation::ObserverBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ObserverBase.html",tooltip="The base class for observers. The observer is destinated to any dynamical system with a vector state ..."];
-  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" y_\nu_" ,fontname="Helvetica"];
-  Node6 [label="stateObservation::Indexed\lMatrixArrayT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixArrayT.html"];
-  Node7 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x_" ,fontname="Helvetica"];
-  Node7 [label="stateObservation::Indexed\lMatrixT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html"];
-  Node8 -> Node7 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="stateObservation::DebugItem\l\< bool, detail::defaultTrue,\l !false\|\|isDebug \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html"];
+  Node1 [label="stateObservation::TiltEstimator",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Description is pending."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stateObservation::ZeroDelay\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ZeroDelayObserver.html",tooltip="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..."];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="stateObservation::ObserverBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1ObserverBase.html",tooltip="The base class for observers. The observer is destinated to any dynamical system with a vector state ..."];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" y_\nu_" ,fontname="Helvetica"];
+  Node4 [label="stateObservation::Indexed\lMatrixArrayT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixArrayT.html",tooltip=" "];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x_" ,fontname="Helvetica"];
+  Node5 [label="stateObservation::Indexed\lMatrixT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html",tooltip=" "];
+  Node6 -> Node5 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="stateObservation::DebugItem\l\< bool, detail::defaultTrue,\l !false\|\|isDebug \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
 }

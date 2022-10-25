@@ -1,8 +1,9 @@
 digraph "stateObservation::GaussianWhiteNoise"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node2 [label="stateObservation::Gaussian\lWhiteNoise",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="stateObservation::NoiseBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1NoiseBase.html"];
+  Node1 [label="stateObservation::Gaussian\lWhiteNoise",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="The class derivates the NoiseBase class to implement a gaussian white noise with a given covariance m..."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stateObservation::NoiseBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1NoiseBase.html",tooltip=" "];
 }

@@ -3,12 +3,12 @@
   <compound kind="file">
     <name>pages.dox</name>
     <path>/home/runner/work/state-observation/state-observation/doc/pages/</path>
-    <filename>pages_8dox</filename>
+    <filename>pages_8dox.html</filename>
   </compound>
   <compound kind="file">
     <name>bidim-elastic-inv-pendulum-dyn-sys.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamical-system/</path>
-    <filename>bidim-elastic-inv-pendulum-dyn-sys_8hpp</filename>
+    <filename>bidim-elastic-inv-pendulum-dyn-sys_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <class kind="class">stateObservation::BidimElasticInvPendulum</class>
@@ -17,7 +17,7 @@
   <compound kind="file">
     <name>dynamical-system-functor-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamical-system/</path>
-    <filename>dynamical-system-functor-base_8hpp</filename>
+    <filename>dynamical-system-functor-base_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::DynamicalSystemFunctorBase</class>
     <namespace>stateObservation</namespace>
@@ -25,7 +25,7 @@
   <compound kind="file">
     <name>dynamical-system-simulator.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamical-system/</path>
-    <filename>dynamical-system-simulator_8hpp</filename>
+    <filename>dynamical-system-simulator_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <class kind="class">stateObservation::DynamicalSystemSimulator</class>
     <namespace>stateObservation</namespace>
@@ -33,7 +33,7 @@
   <compound kind="file">
     <name>imu-dynamical-system.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamical-system/</path>
-    <filename>imu-dynamical-system_8hpp</filename>
+    <filename>imu-dynamical-system_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="accelerometer-gyrometer_8hpp" name="accelerometer-gyrometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</includes>
@@ -45,7 +45,7 @@
   <compound kind="file">
     <name>imu-magnetometer-dynamical-system.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamical-system/</path>
-    <filename>imu-magnetometer-dynamical-system_8hpp</filename>
+    <filename>imu-magnetometer-dynamical-system_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="accelerometer-gyrometer-magnetometer_8hpp" name="accelerometer-gyrometer-magnetometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer-magnetometer.hpp</includes>
@@ -56,7 +56,7 @@
   <compound kind="file">
     <name>imu-mltpctive-dynamical-system.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamical-system/</path>
-    <filename>imu-mltpctive-dynamical-system_8hpp</filename>
+    <filename>imu-mltpctive-dynamical-system_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="accelerometer-gyrometer_8hpp" name="accelerometer-gyrometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</includes>
@@ -69,7 +69,7 @@
   <compound kind="file">
     <name>kinetics-observer.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamics-estimators/</path>
-    <filename>kinetics-observer_8hpp</filename>
+    <filename>kinetics-observer_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="extended-kalman-filter_8hpp" name="extended-kalman-filter.hpp" local="no" imported="no">state-observation/observer/extended-kalman-filter.hpp</includes>
@@ -88,7 +88,7 @@
   <compound kind="file">
     <name>lipm-dcm-estimator.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamics-estimators/</path>
-    <filename>lipm-dcm-estimator_8hpp</filename>
+    <filename>lipm-dcm-estimator_8hpp.html</filename>
     <includes id="linear-kalman-filter_8hpp" name="linear-kalman-filter.hpp" local="no" imported="no">state-observation/observer/linear-kalman-filter.hpp</includes>
     <includes id="miscellaneous-algorithms_8hpp" name="miscellaneous-algorithms.hpp" local="no" imported="no">state-observation/tools/miscellaneous-algorithms.hpp</includes>
     <includes id="rigid-body-kinematics_8hpp" name="rigid-body-kinematics.hpp" local="no" imported="no">state-observation/tools/rigid-body-kinematics.hpp</includes>
@@ -98,7 +98,7 @@
   <compound kind="file">
     <name>unidim-lipm-dcm-estimator.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamics-estimators/</path>
-    <filename>unidim-lipm-dcm-estimator_8hpp</filename>
+    <filename>unidim-lipm-dcm-estimator_8hpp.html</filename>
     <includes id="linear-kalman-filter_8hpp" name="linear-kalman-filter.hpp" local="no" imported="no">state-observation/observer/linear-kalman-filter.hpp</includes>
     <includes id="miscellaneous-algorithms_8hpp" name="miscellaneous-algorithms.hpp" local="no" imported="no">state-observation/tools/miscellaneous-algorithms.hpp</includes>
     <class kind="class">stateObservation::UnidimLipmDcmEstimator</class>
@@ -107,7 +107,7 @@
   <compound kind="file">
     <name>zmp-tracking-gain-estimator.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/dynamics-estimators/</path>
-    <filename>zmp-tracking-gain-estimator_8hpp</filename>
+    <filename>zmp-tracking-gain-estimator_8hpp.html</filename>
     <includes id="linear-kalman-filter_8hpp" name="linear-kalman-filter.hpp" local="no" imported="no">state-observation/observer/linear-kalman-filter.hpp</includes>
     <includes id="miscellaneous-algorithms_8hpp" name="miscellaneous-algorithms.hpp" local="no" imported="no">state-observation/tools/miscellaneous-algorithms.hpp</includes>
     <includes id="rigid-body-kinematics_8hpp" name="rigid-body-kinematics.hpp" local="no" imported="no">state-observation/tools/rigid-body-kinematics.hpp</includes>
@@ -117,7 +117,7 @@
   <compound kind="file">
     <name>imu-attitude-trajectory-reconstruction.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/examples/</path>
-    <filename>imu-attitude-trajectory-reconstruction_8hpp</filename>
+    <filename>imu-attitude-trajectory-reconstruction_8hpp.html</filename>
     <includes id="dynamical-system-simulator_8hpp" name="dynamical-system-simulator.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-simulator.hpp</includes>
     <includes id="imu-dynamical-system_8hpp" name="imu-dynamical-system.hpp" local="no" imported="no">state-observation/dynamical-system/imu-dynamical-system.hpp</includes>
     <includes id="extended-kalman-filter_8hpp" name="extended-kalman-filter.hpp" local="no" imported="no">state-observation/observer/extended-kalman-filter.hpp</includes>
@@ -142,7 +142,7 @@
   <compound kind="file">
     <name>imu-multiplicative-attitude-reconstruction.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/examples/</path>
-    <filename>imu-multiplicative-attitude-reconstruction_8hpp</filename>
+    <filename>imu-multiplicative-attitude-reconstruction_8hpp.html</filename>
     <includes id="dynamical-system-simulator_8hpp" name="dynamical-system-simulator.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-simulator.hpp</includes>
     <includes id="imu-mltpctive-dynamical-system_8hpp" name="imu-mltpctive-dynamical-system.hpp" local="no" imported="no">state-observation/dynamical-system/imu-mltpctive-dynamical-system.hpp</includes>
     <includes id="extended-kalman-filter_8hpp" name="extended-kalman-filter.hpp" local="no" imported="no">state-observation/observer/extended-kalman-filter.hpp</includes>
@@ -167,7 +167,7 @@
   <compound kind="file">
     <name>offline-ekf-flexibility-estimation.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/examples/</path>
-    <filename>offline-ekf-flexibility-estimation_8hpp</filename>
+    <filename>offline-ekf-flexibility-estimation_8hpp.html</filename>
     <includes id="fixed-contact-ekf-flex-estimator-imu_8hpp" name="fixed-contact-ekf-flex-estimator-imu.hpp" local="no" imported="no">state-observation/flexibility-estimation/fixed-contact-ekf-flex-estimator-imu.hpp</includes>
     <namespace>stateObservation</namespace>
     <namespace>stateObservation::examples</namespace>
@@ -185,35 +185,14 @@
       <anchor>a7f384716061baddce38a912c28a6493e</anchor>
       <arglist>(const stateObservation::IndexedVectorArray &amp;y, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt;&gt; &amp;contactsPositions, double dt)</arglist>
     </member>
-    <member kind="function">
-      <type>stateObservation::IndexedVectorArray</type>
-      <name>offlineEKFFlexibilityEstimation</name>
-      <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>a32d6f79c887ecae1b6642083a4ce3dec</anchor>
-      <arglist>(const stateObservation::IndexedVectorArray &amp;y, const stateObservation::IndexedVectorArray &amp;u, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt; &gt; &amp;contactsPositions, double dt, IndexedVectorArray *ino, IndexedVectorArray *premea)</arglist>
-    </member>
-    <member kind="function">
-      <type>stateObservation::IndexedVectorArray</type>
-      <name>offlineEKFFlexibilityEstimation</name>
-      <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>aee0c888ffe25334ae7a0ac2aaace171e</anchor>
-      <arglist>(const stateObservation::IndexedVectorArray &amp;y, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt; &gt; &amp;contactsPositions, double dt)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>offline-model-base-flex-estimation.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/examples/</path>
-    <filename>offline-model-base-flex-estimation_8hpp</filename>
+    <filename>offline-model-base-flex-estimation_8hpp.html</filename>
     <includes id="model-base-ekf-flex-estimator-imu_8hpp" name="model-base-ekf-flex-estimator-imu.hpp" local="no" imported="no">state-observation/flexibility-estimation/model-base-ekf-flex-estimator-imu.hpp</includes>
     <namespace>stateObservation</namespace>
     <namespace>stateObservation::examples</namespace>
-    <member kind="typedef">
-      <type>flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::state</type>
-      <name>state</name>
-      <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>a32510182b45fc220f4ce11484e878cd8</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type>stateObservation::IndexedVectorArray</type>
       <name>offlineModelBaseFlexEstimation</name>
@@ -225,7 +204,7 @@
   <compound kind="file">
     <name>ekf-flexibility-estimator-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>ekf-flexibility-estimator-base_8hpp</filename>
+    <filename>ekf-flexibility-estimator-base_8hpp.html</filename>
     <includes id="extended-kalman-filter_8hpp" name="extended-kalman-filter.hpp" local="no" imported="no">state-observation/observer/extended-kalman-filter.hpp</includes>
     <includes id="flexibility-estimator-base_8hpp" name="flexibility-estimator-base.hpp" local="no" imported="no">state-observation/flexibility-estimation/flexibility-estimator-base.hpp</includes>
     <class kind="class">stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase</class>
@@ -235,7 +214,7 @@
   <compound kind="file">
     <name>fixed-contact-ekf-flex-estimator-imu.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>fixed-contact-ekf-flex-estimator-imu_8hpp</filename>
+    <filename>fixed-contact-ekf-flex-estimator-imu_8hpp.html</filename>
     <includes id="ekf-flexibility-estimator-base_8hpp" name="ekf-flexibility-estimator-base.hpp" local="no" imported="no">state-observation/flexibility-estimation/ekf-flexibility-estimator-base.hpp</includes>
     <includes id="imu-fixed-contact-dynamical-system_8hpp" name="imu-fixed-contact-dynamical-system.hpp" local="no" imported="no">state-observation/flexibility-estimation/imu-fixed-contact-dynamical-system.hpp</includes>
     <class kind="class">stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU</class>
@@ -245,7 +224,7 @@
   <compound kind="file">
     <name>flexibility-estimator-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>flexibility-estimator-base_8hpp</filename>
+    <filename>flexibility-estimator-base_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::flexibilityEstimation::FlexibilityEstimatorBase</class>
     <namespace>stateObservation</namespace>
@@ -254,7 +233,7 @@
   <compound kind="file">
     <name>imu-elastic-local-frame-dynamical-system.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>imu-elastic-local-frame-dynamical-system_8hpp</filename>
+    <filename>imu-elastic-local-frame-dynamical-system_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="accelerometer-gyrometer_8hpp" name="accelerometer-gyrometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</includes>
@@ -271,7 +250,7 @@
   <compound kind="file">
     <name>imu-fixed-contact-dynamical-system.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>imu-fixed-contact-dynamical-system_8hpp</filename>
+    <filename>imu-fixed-contact-dynamical-system_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="accelerometer-gyrometer_8hpp" name="accelerometer-gyrometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</includes>
@@ -283,7 +262,7 @@
   <compound kind="file">
     <name>model-base-ekf-flex-estimator-imu.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>model-base-ekf-flex-estimator-imu_8hpp</filename>
+    <filename>model-base-ekf-flex-estimator-imu_8hpp.html</filename>
     <includes id="ekf-flexibility-estimator-base_8hpp" name="ekf-flexibility-estimator-base.hpp" local="no" imported="no">state-observation/flexibility-estimation/ekf-flexibility-estimator-base.hpp</includes>
     <includes id="imu-elastic-local-frame-dynamical-system_8hpp" name="imu-elastic-local-frame-dynamical-system.hpp" local="no" imported="no">state-observation/flexibility-estimation/imu-elastic-local-frame-dynamical-system.hpp</includes>
     <class kind="class">stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU</class>
@@ -295,7 +274,7 @@
   <compound kind="file">
     <name>stable-imu-fixed-contact-dynamical-system.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/flexibility-estimation/</path>
-    <filename>stable-imu-fixed-contact-dynamical-system_8hpp</filename>
+    <filename>stable-imu-fixed-contact-dynamical-system_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <includes id="accelerometer-gyrometer_8hpp" name="accelerometer-gyrometer.hpp" local="no" imported="no">state-observation/sensors-simulation/accelerometer-gyrometer.hpp</includes>
@@ -307,7 +286,7 @@
   <compound kind="file">
     <name>gaussian-white-noise.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/noise/</path>
-    <filename>gaussian-white-noise_8hpp</filename>
+    <filename>gaussian-white-noise_8hpp.html</filename>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <class kind="class">stateObservation::GaussianWhiteNoise</class>
     <namespace>stateObservation</namespace>
@@ -315,7 +294,7 @@
   <compound kind="file">
     <name>noise-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/noise/</path>
-    <filename>noise-base_8hpp</filename>
+    <filename>noise-base_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::NoiseBase</class>
     <namespace>stateObservation</namespace>
@@ -323,7 +302,7 @@
   <compound kind="file">
     <name>extended-kalman-filter.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/observer/</path>
-    <filename>extended-kalman-filter_8hpp</filename>
+    <filename>extended-kalman-filter_8hpp.html</filename>
     <includes id="dynamical-system-functor-base_8hpp" name="dynamical-system-functor-base.hpp" local="no" imported="no">state-observation/dynamical-system/dynamical-system-functor-base.hpp</includes>
     <includes id="kalman-filter-base_8hpp" name="kalman-filter-base.hpp" local="no" imported="no">state-observation/observer/kalman-filter-base.hpp</includes>
     <class kind="class">stateObservation::ExtendedKalmanFilter</class>
@@ -333,7 +312,7 @@
   <compound kind="file">
     <name>kalman-filter-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/observer/</path>
-    <filename>kalman-filter-base_8hpp</filename>
+    <filename>kalman-filter-base_8hpp.html</filename>
     <includes id="zero-delay-observer_8hpp" name="zero-delay-observer.hpp" local="no" imported="no">state-observation/observer/zero-delay-observer.hpp</includes>
     <includes id="state-vector-arithmetics_8hpp" name="state-vector-arithmetics.hpp" local="no" imported="no">state-observation/tools/state-vector-arithmetics.hpp</includes>
     <class kind="class">stateObservation::KalmanFilterBase</class>
@@ -343,7 +322,7 @@
   <compound kind="file">
     <name>linear-kalman-filter.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/observer/</path>
-    <filename>linear-kalman-filter_8hpp</filename>
+    <filename>linear-kalman-filter_8hpp.html</filename>
     <includes id="kalman-filter-base_8hpp" name="kalman-filter-base.hpp" local="no" imported="no">state-observation/observer/kalman-filter-base.hpp</includes>
     <class kind="class">stateObservation::LinearKalmanFilter</class>
     <namespace>stateObservation</namespace>
@@ -351,7 +330,7 @@
   <compound kind="file">
     <name>observer-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/observer/</path>
-    <filename>observer-base_8hpp</filename>
+    <filename>observer-base_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::ObserverBase</class>
     <namespace>stateObservation</namespace>
@@ -359,7 +338,7 @@
   <compound kind="file">
     <name>tilt-estimator.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/observer/</path>
-    <filename>tilt-estimator_8hpp</filename>
+    <filename>tilt-estimator_8hpp.html</filename>
     <includes id="zero-delay-observer_8hpp" name="zero-delay-observer.hpp" local="no" imported="no">state-observation/observer/zero-delay-observer.hpp</includes>
     <class kind="class">stateObservation::TiltEstimator</class>
     <namespace>stateObservation</namespace>
@@ -367,7 +346,7 @@
   <compound kind="file">
     <name>zero-delay-observer.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/observer/</path>
-    <filename>zero-delay-observer_8hpp</filename>
+    <filename>zero-delay-observer_8hpp.html</filename>
     <includes id="observer-base_8hpp" name="observer-base.hpp" local="no" imported="no">state-observation/observer/observer-base.hpp</includes>
     <class kind="class">stateObservation::ZeroDelayObserver</class>
     <namespace>stateObservation</namespace>
@@ -375,7 +354,7 @@
   <compound kind="file">
     <name>accelerometer-gyrometer-magnetometer.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/</path>
-    <filename>accelerometer-gyrometer-magnetometer_8hpp</filename>
+    <filename>accelerometer-gyrometer-magnetometer_8hpp.html</filename>
     <includes id="algebraic-sensor_8hpp" name="algebraic-sensor.hpp" local="no" imported="no">state-observation/sensors-simulation/algebraic-sensor.hpp</includes>
     <includes id="linear-acceleration_8hpp" name="linear-acceleration.hpp" local="no" imported="no">state-observation/sensors-simulation/algorithm/linear-acceleration.hpp</includes>
     <includes id="magnetic-field_8hpp" name="magnetic-field.hpp" local="no" imported="no">state-observation/sensors-simulation/algorithm/magnetic-field.hpp</includes>
@@ -386,7 +365,7 @@
   <compound kind="file">
     <name>accelerometer-gyrometer.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/</path>
-    <filename>accelerometer-gyrometer_8hpp</filename>
+    <filename>accelerometer-gyrometer_8hpp.html</filename>
     <includes id="algebraic-sensor_8hpp" name="algebraic-sensor.hpp" local="no" imported="no">state-observation/sensors-simulation/algebraic-sensor.hpp</includes>
     <includes id="linear-acceleration_8hpp" name="linear-acceleration.hpp" local="no" imported="no">state-observation/sensors-simulation/algorithm/linear-acceleration.hpp</includes>
     <includes id="rotation-velocity_8hpp" name="rotation-velocity.hpp" local="no" imported="no">state-observation/sensors-simulation/algorithm/rotation-velocity.hpp</includes>
@@ -396,7 +375,7 @@
   <compound kind="file">
     <name>algebraic-sensor.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/</path>
-    <filename>algebraic-sensor_8hpp</filename>
+    <filename>algebraic-sensor_8hpp.html</filename>
     <includes id="sensor-base_8hpp" name="sensor-base.hpp" local="no" imported="no">state-observation/sensors-simulation/sensor-base.hpp</includes>
     <class kind="class">stateObservation::AlgebraicSensor</class>
     <namespace>stateObservation</namespace>
@@ -404,7 +383,7 @@
   <compound kind="file">
     <name>linear-acceleration.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/algorithm/</path>
-    <filename>linear-acceleration_8hpp</filename>
+    <filename>linear-acceleration_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::algorithm::LinearAcceleration</class>
     <namespace>stateObservation</namespace>
@@ -413,7 +392,7 @@
   <compound kind="file">
     <name>magnetic-field.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/algorithm/</path>
-    <filename>magnetic-field_8hpp</filename>
+    <filename>magnetic-field_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::algorithm::MagneticField</class>
     <namespace>stateObservation</namespace>
@@ -422,7 +401,7 @@
   <compound kind="file">
     <name>rotation-velocity.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/algorithm/</path>
-    <filename>rotation-velocity_8hpp</filename>
+    <filename>rotation-velocity_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::algorithm::RotationVelocity</class>
     <namespace>stateObservation</namespace>
@@ -431,7 +410,7 @@
   <compound kind="file">
     <name>sensor-base.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/sensors-simulation/</path>
-    <filename>sensor-base_8hpp</filename>
+    <filename>sensor-base_8hpp.html</filename>
     <includes id="noise-base_8hpp" name="noise-base.hpp" local="no" imported="no">state-observation/noise/noise-base.hpp</includes>
     <class kind="class">stateObservation::SensorBase</class>
     <namespace>stateObservation</namespace>
@@ -439,7 +418,7 @@
   <compound kind="file">
     <name>definitions.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>definitions_8hpp</filename>
+    <filename>definitions_8hpp.html</filename>
     <class kind="struct">stateObservation::isEigen</class>
     <class kind="struct">stateObservation::isMatrix</class>
     <class kind="struct">stateObservation::isMatrix&lt; Eigen::Matrix&lt; _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols &gt; &gt;</class>
@@ -893,7 +872,7 @@
   <compound kind="file">
     <name>hrp2.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>hrp2_8hpp</filename>
+    <filename>hrp2_8hpp.html</filename>
     <class kind="struct">stateObservation::hrp2::contact</class>
     <namespace>stateObservation</namespace>
     <namespace>stateObservation::hrp2</namespace>
@@ -936,7 +915,7 @@
   <compound kind="file">
     <name>logger.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>logger_8hpp</filename>
+    <filename>logger_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::tools::Logger</class>
     <class kind="struct">stateObservation::tools::Logger::log_s</class>
@@ -946,7 +925,7 @@
   <compound kind="file">
     <name>miscellaneous-algorithms.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>miscellaneous-algorithms_8hpp</filename>
+    <filename>miscellaneous-algorithms_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <namespace>stateObservation</namespace>
     <namespace>stateObservation::tools</namespace>
@@ -1029,24 +1008,24 @@
       <arglist>(const Vector &amp;x, const Vector &amp;xd, double kp=-1, double kv=-1)</arglist>
     </member>
     <member kind="function">
-      <type>double constexpr</type>
+      <type>constexpr double</type>
       <name>sqrtNewtonRaphson</name>
       <anchorfile>namespacestateObservation_1_1tools_1_1Detail.html</anchorfile>
-      <anchor>a991167aefd5a767c8946f84a8158b699</anchor>
+      <anchor>a13dac97fc67b707058810bb260581840</anchor>
       <arglist>(double x, double curr, double prev)</arglist>
     </member>
     <member kind="function">
-      <type>double constexpr</type>
+      <type>constexpr double</type>
       <name>sqrt</name>
       <anchorfile>namespacestateObservation_1_1tools.html</anchorfile>
-      <anchor>a00e4ac40ec193298c29e83b9473f1511</anchor>
+      <anchor>a9c8876dd95e6c5e1ba3285c5b840c343</anchor>
       <arglist>(double x)</arglist>
     </member>
   </compound>
   <compound kind="file">
     <name>probability-law-simulation.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>probability-law-simulation_8hpp</filename>
+    <filename>probability-law-simulation_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::tools::ProbabilityLawSimulation</class>
     <namespace>stateObservation</namespace>
@@ -1055,7 +1034,7 @@
   <compound kind="file">
     <name>rigid-body-kinematics.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>rigid-body-kinematics_8hpp</filename>
+    <filename>rigid-body-kinematics_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <includes id="miscellaneous-algorithms_8hpp" name="miscellaneous-algorithms.hpp" local="no" imported="no">state-observation/tools/miscellaneous-algorithms.hpp</includes>
     <includes id="probability-law-simulation_8hpp" name="probability-law-simulation.hpp" local="no" imported="no">state-observation/tools/probability-law-simulation.hpp</includes>
@@ -1522,7 +1501,7 @@
   <compound kind="file">
     <name>state-vector-arithmetics.hpp</name>
     <path>/home/runner/work/state-observation/state-observation/include/state-observation/tools/</path>
-    <filename>state-vector-arithmetics_8hpp</filename>
+    <filename>state-vector-arithmetics_8hpp.html</filename>
     <includes id="definitions_8hpp" name="definitions.hpp" local="no" imported="no">state-observation/tools/definitions.hpp</includes>
     <class kind="class">stateObservation::StateVectorArithmetics</class>
     <namespace>stateObservation</namespace>
@@ -1545,7 +1524,7 @@
   <compound kind="file">
     <name>README.md</name>
     <path>/home/runner/work/state-observation/state-observation/</path>
-    <filename>README_8md</filename>
+    <filename>README_8md.html</filename>
   </compound>
   <compound kind="struct">
     <name>stateObservation::KineticsObserver::AbsolutePoseSensor</name>
@@ -2182,7 +2161,7 @@
   <compound kind="class">
     <name>stateObservation::CheckedItem</name>
     <filename>classstateObservation_1_1CheckedItem.html</filename>
-    <templarg>T</templarg>
+    <templarg></templarg>
     <templarg>lazy</templarg>
     <templarg>alwaysCheck</templarg>
     <templarg>assertion</templarg>
@@ -2219,14 +2198,14 @@
       <type>CheckedItem &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a60857f01aeec2e0a9ae78a864f386515</anchor>
+      <anchor>a281fc028eb3ad1b0dd8b3ed63df68700</anchor>
       <arglist>(const CheckedItem &amp;)</arglist>
     </member>
     <member kind="function">
       <type>T &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad9745c08f24174d1778c17b9a0571bc0</anchor>
+      <anchor>aaa28bd184628a8dd3f5ee9a2c4c3063f</anchor>
       <arglist>(const T &amp;)</arglist>
     </member>
     <member kind="function">
@@ -2254,14 +2233,14 @@
       <type>T &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a1c21e12526f61687287565673359b050</anchor>
+      <anchor>a0c163b6634806f484344936026040d44</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const T &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>aa8061e9072a022e11dd9bc3ebbc42507</anchor>
+      <anchor>ab957732a108376eac60d28bb4bc30bfa</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2303,7 +2282,7 @@
       <type>T &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad24a7416be304c90706ab83d4a93a009</anchor>
+      <anchor>a9eb20a621e732465dac4e11de094c7c5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="typedef" protection="protected">
@@ -2419,14 +2398,14 @@
       <type>CheckedItem &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a60857f01aeec2e0a9ae78a864f386515</anchor>
+      <anchor>a281fc028eb3ad1b0dd8b3ed63df68700</anchor>
       <arglist>(const CheckedItem &amp;)</arglist>
     </member>
     <member kind="function">
       <type>Matrix3 &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad9745c08f24174d1778c17b9a0571bc0</anchor>
+      <anchor>aaa28bd184628a8dd3f5ee9a2c4c3063f</anchor>
       <arglist>(const Matrix3 &amp;)</arglist>
     </member>
     <member kind="function">
@@ -2454,14 +2433,14 @@
       <type>Matrix3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a1c21e12526f61687287565673359b050</anchor>
+      <anchor>a0c163b6634806f484344936026040d44</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Matrix3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>aa8061e9072a022e11dd9bc3ebbc42507</anchor>
+      <anchor>ab957732a108376eac60d28bb4bc30bfa</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2489,7 +2468,7 @@
       <type>Matrix3 &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad24a7416be304c90706ab83d4a93a009</anchor>
+      <anchor>a9eb20a621e732465dac4e11de094c7c5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -2619,14 +2598,14 @@
       <type>CheckedItem &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a60857f01aeec2e0a9ae78a864f386515</anchor>
+      <anchor>a281fc028eb3ad1b0dd8b3ed63df68700</anchor>
       <arglist>(const CheckedItem &amp;)</arglist>
     </member>
     <member kind="function">
       <type>Matrix6 &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad9745c08f24174d1778c17b9a0571bc0</anchor>
+      <anchor>aaa28bd184628a8dd3f5ee9a2c4c3063f</anchor>
       <arglist>(const Matrix6 &amp;)</arglist>
     </member>
     <member kind="function">
@@ -2654,14 +2633,14 @@
       <type>Matrix6 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a1c21e12526f61687287565673359b050</anchor>
+      <anchor>a0c163b6634806f484344936026040d44</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Matrix6 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>aa8061e9072a022e11dd9bc3ebbc42507</anchor>
+      <anchor>ab957732a108376eac60d28bb4bc30bfa</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2689,7 +2668,7 @@
       <type>Matrix6 &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad24a7416be304c90706ab83d4a93a009</anchor>
+      <anchor>a9eb20a621e732465dac4e11de094c7c5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -2819,14 +2798,14 @@
       <type>CheckedItem &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a60857f01aeec2e0a9ae78a864f386515</anchor>
+      <anchor>a281fc028eb3ad1b0dd8b3ed63df68700</anchor>
       <arglist>(const CheckedItem &amp;)</arglist>
     </member>
     <member kind="function">
       <type>Quaternion &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad9745c08f24174d1778c17b9a0571bc0</anchor>
+      <anchor>aaa28bd184628a8dd3f5ee9a2c4c3063f</anchor>
       <arglist>(const Quaternion &amp;)</arglist>
     </member>
     <member kind="function">
@@ -2854,14 +2833,14 @@
       <type>Quaternion &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a1c21e12526f61687287565673359b050</anchor>
+      <anchor>a0c163b6634806f484344936026040d44</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Quaternion &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>aa8061e9072a022e11dd9bc3ebbc42507</anchor>
+      <anchor>ab957732a108376eac60d28bb4bc30bfa</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -2889,7 +2868,7 @@
       <type>Quaternion &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad24a7416be304c90706ab83d4a93a009</anchor>
+      <anchor>a9eb20a621e732465dac4e11de094c7c5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -3019,14 +2998,14 @@
       <type>CheckedItem &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a60857f01aeec2e0a9ae78a864f386515</anchor>
+      <anchor>a281fc028eb3ad1b0dd8b3ed63df68700</anchor>
       <arglist>(const CheckedItem &amp;)</arglist>
     </member>
     <member kind="function">
       <type>Vector3 &amp;</type>
       <name>operator=</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad9745c08f24174d1778c17b9a0571bc0</anchor>
+      <anchor>aaa28bd184628a8dd3f5ee9a2c4c3063f</anchor>
       <arglist>(const Vector3 &amp;)</arglist>
     </member>
     <member kind="function">
@@ -3054,14 +3033,14 @@
       <type>Vector3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>a1c21e12526f61687287565673359b050</anchor>
+      <anchor>a0c163b6634806f484344936026040d44</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Vector3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>aa8061e9072a022e11dd9bc3ebbc42507</anchor>
+      <anchor>ab957732a108376eac60d28bb4bc30bfa</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -3089,7 +3068,7 @@
       <type>Vector3 &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1CheckedItem.html</anchorfile>
-      <anchor>ad24a7416be304c90706ab83d4a93a009</anchor>
+      <anchor>a9eb20a621e732465dac4e11de094c7c5</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -3386,8 +3365,8 @@
   <compound kind="class">
     <name>stateObservation::DebugItem</name>
     <filename>classstateObservation_1_1DebugItem.html</filename>
-    <templarg>T</templarg>
-    <templarg>defaultValue</templarg>
+    <templarg></templarg>
+    <templarg></templarg>
     <templarg>debug</templarg>
     <member kind="function">
       <type></type>
@@ -3434,52 +3413,6 @@
   </compound>
   <compound kind="class">
     <name>DebugItem&lt; bool, detail::defaultTrue, !false||isDebug &gt;</name>
-    <filename>classstateObservation_1_1DebugItem.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>DebugItem</name>
-      <anchorfile>classstateObservation_1_1DebugItem.html</anchorfile>
-      <anchor>a7970f5cbd4c2875ceb75b7ac25b25554</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>DebugItem</name>
-      <anchorfile>classstateObservation_1_1DebugItem.html</anchorfile>
-      <anchor>ac60c720e38bc703afb86cb41461c1240</anchor>
-      <arglist>(const bool &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool &amp;</type>
-      <name>operator=</name>
-      <anchorfile>classstateObservation_1_1DebugItem.html</anchorfile>
-      <anchor>a30df311dba6d2912a326e1e61eb695d0</anchor>
-      <arglist>(bool v)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>operator bool</name>
-      <anchorfile>classstateObservation_1_1DebugItem.html</anchorfile>
-      <anchor>a7f4d6c3f25ed667cb9b98c3d2e45e6dd</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>set</name>
-      <anchorfile>classstateObservation_1_1DebugItem.html</anchorfile>
-      <anchor>a9102f9d3880b3b49c484eecca1f54ed6</anchor>
-      <arglist>(const bool &amp;v)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>get</name>
-      <anchorfile>classstateObservation_1_1DebugItem.html</anchorfile>
-      <anchor>ac6722e1ea8771991c1b8647867f41977</anchor>
-      <arglist>() const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>DebugItem&lt; bool, detail::defaultTrue, !lazy||isDebug &gt;</name>
     <filename>classstateObservation_1_1DebugItem.html</filename>
     <member kind="function">
       <type></type>
@@ -4394,7 +4327,7 @@
       <type>struct stateObservation::ExtendedKalmanFilter::Optimization</type>
       <name>opt</name>
       <anchorfile>classstateObservation_1_1ExtendedKalmanFilter.html</anchorfile>
-      <anchor>a8a5edce0f7bf65236cbd750307a5384b</anchor>
+      <anchor>a674a98534e4401c5db376f452e4f5888</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5848,7 +5781,7 @@
       <type>struct stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization</type>
       <name>op_</name>
       <anchorfile>classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html</anchorfile>
-      <anchor>a886f2d8e351943feb35a339c757eb32b</anchor>
+      <anchor>ab69a2bfa92f7f5efb87e2cd4b7b49b6c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -6390,7 +6323,7 @@
       <type>struct stateObservation::IMUMltpctiveDynamicalSystem::opt</type>
       <name>opt_</name>
       <anchorfile>classstateObservation_1_1IMUMltpctiveDynamicalSystem.html</anchorfile>
-      <anchor>ae8b1fec53d8314ce2e82e32f043a1518</anchor>
+      <anchor>ac870e016061298201559f613e524da76</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -6446,8 +6379,8 @@
   <compound kind="class">
     <name>stateObservation::IndexedMatrixArrayT</name>
     <filename>classstateObservation_1_1IndexedMatrixArrayT.html</filename>
-    <templarg>MatrixType</templarg>
-    <templarg>Allocator</templarg>
+    <templarg></templarg>
+    <templarg></templarg>
     <member kind="typedef">
       <type>std::vector&lt; MatrixType, Allocator &gt;</type>
       <name>Array</name>
@@ -6501,35 +6434,35 @@
       <type>MatrixType &amp;</type>
       <name>operator[]</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>af568b5a0c5db0809acb307d5a37d1d4d</anchor>
+      <anchor>aef076ffef19112827b50729a8cb89e50</anchor>
       <arglist>(TimeIndex index)</arglist>
     </member>
     <member kind="function">
       <type>const MatrixType &amp;</type>
       <name>front</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>ac5e7914b9ce420085b1f3d7cd2f021a3</anchor>
+      <anchor>ad1fe64de98c8af46d5dd126c0b0957f7</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>MatrixType &amp;</type>
       <name>front</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>aae17070e9e7be52f493e8c0e09285750</anchor>
+      <anchor>ae17dc0a08cfadf701bb947e4cfe97873</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const MatrixType &amp;</type>
       <name>back</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>aed75a8dcdc609df4e7e4627d030a0108</anchor>
+      <anchor>a2e6b67c2a66e61d81cbe3020551dab43</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>MatrixType &amp;</type>
       <name>back</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>a69a281959dd740c2881b18758b6627b1</anchor>
+      <anchor>a97a5fa39da2c0f4ab83d35b2b34dd377</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -6613,7 +6546,7 @@
       <type>Array</type>
       <name>getArray</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>a342e4dbc6093d7d086820a509ef7cd56</anchor>
+      <anchor>afab93ed701fa4e2ae9a425a8bb555b63</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -6764,35 +6697,35 @@
       <type>Matrix &amp;</type>
       <name>operator[]</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>af568b5a0c5db0809acb307d5a37d1d4d</anchor>
+      <anchor>aef076ffef19112827b50729a8cb89e50</anchor>
       <arglist>(TimeIndex index)</arglist>
     </member>
     <member kind="function">
       <type>const Matrix &amp;</type>
       <name>front</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>ac5e7914b9ce420085b1f3d7cd2f021a3</anchor>
+      <anchor>ad1fe64de98c8af46d5dd126c0b0957f7</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Matrix &amp;</type>
       <name>front</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>aae17070e9e7be52f493e8c0e09285750</anchor>
+      <anchor>ae17dc0a08cfadf701bb947e4cfe97873</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Matrix &amp;</type>
       <name>back</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>aed75a8dcdc609df4e7e4627d030a0108</anchor>
+      <anchor>a2e6b67c2a66e61d81cbe3020551dab43</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Matrix &amp;</type>
       <name>back</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>a69a281959dd740c2881b18758b6627b1</anchor>
+      <anchor>a97a5fa39da2c0f4ab83d35b2b34dd377</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -6876,7 +6809,7 @@
       <type>Array</type>
       <name>getArray</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>a342e4dbc6093d7d086820a509ef7cd56</anchor>
+      <anchor>afab93ed701fa4e2ae9a425a8bb555b63</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -7027,35 +6960,35 @@
       <type>Vector &amp;</type>
       <name>operator[]</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>af568b5a0c5db0809acb307d5a37d1d4d</anchor>
+      <anchor>aef076ffef19112827b50729a8cb89e50</anchor>
       <arglist>(TimeIndex index)</arglist>
     </member>
     <member kind="function">
       <type>const Vector &amp;</type>
       <name>front</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>ac5e7914b9ce420085b1f3d7cd2f021a3</anchor>
+      <anchor>ad1fe64de98c8af46d5dd126c0b0957f7</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Vector &amp;</type>
       <name>front</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>aae17070e9e7be52f493e8c0e09285750</anchor>
+      <anchor>ae17dc0a08cfadf701bb947e4cfe97873</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const Vector &amp;</type>
       <name>back</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>aed75a8dcdc609df4e7e4627d030a0108</anchor>
+      <anchor>a2e6b67c2a66e61d81cbe3020551dab43</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Vector &amp;</type>
       <name>back</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>a69a281959dd740c2881b18758b6627b1</anchor>
+      <anchor>a97a5fa39da2c0f4ab83d35b2b34dd377</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7139,7 +7072,7 @@
       <type>Array</type>
       <name>getArray</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixArrayT.html</anchorfile>
-      <anchor>a342e4dbc6093d7d086820a509ef7cd56</anchor>
+      <anchor>afab93ed701fa4e2ae9a425a8bb555b63</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -7237,9 +7170,9 @@
   <compound kind="class">
     <name>stateObservation::IndexedMatrixT</name>
     <filename>classstateObservation_1_1IndexedMatrixT.html</filename>
-    <templarg>MatrixType</templarg>
+    <templarg></templarg>
     <templarg>lazy</templarg>
-    <base protection="protected">DebugItem&lt; bool, detail::defaultTrue, !lazy||isDebug &gt;</base>
+    <base protection="protected">DebugItem&lt; bool, detail::defaultTrue, !false||isDebug &gt;</base>
     <member kind="function">
       <type></type>
       <name>IndexedMatrixT</name>
@@ -7258,7 +7191,7 @@
       <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
+      <anchor>a43c540d1a0249b87fa9e6d460d635b1f</anchor>
       <arglist>(const MatrixType &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7279,14 +7212,14 @@
       <type>const MatrixType &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>af27fe5405ecd2bacc4ca0702f3c14f4c</anchor>
+      <anchor>aa08dc7b8ba73af4b2ac41f38c7caf82b</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>MatrixType &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>abd740f0aded2fa9bdf0299066d350afa</anchor>
+      <anchor>a9c4ab0b2f517e6692f7b1887436a08f2</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7354,7 +7287,7 @@
       <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
+      <anchor>a43c540d1a0249b87fa9e6d460d635b1f</anchor>
       <arglist>(const Matrix3 &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7375,14 +7308,14 @@
       <type>const Matrix3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>af27fe5405ecd2bacc4ca0702f3c14f4c</anchor>
+      <anchor>aa08dc7b8ba73af4b2ac41f38c7caf82b</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Matrix3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>abd740f0aded2fa9bdf0299066d350afa</anchor>
+      <anchor>a9c4ab0b2f517e6692f7b1887436a08f2</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7450,7 +7383,7 @@
       <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
+      <anchor>a43c540d1a0249b87fa9e6d460d635b1f</anchor>
       <arglist>(const Vector &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7471,14 +7404,14 @@
       <type>const Vector &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>af27fe5405ecd2bacc4ca0702f3c14f4c</anchor>
+      <anchor>aa08dc7b8ba73af4b2ac41f38c7caf82b</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Vector &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>abd740f0aded2fa9bdf0299066d350afa</anchor>
+      <anchor>a9c4ab0b2f517e6692f7b1887436a08f2</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7546,7 +7479,7 @@
       <type>IndexedMatrixT &amp;</type>
       <name>set</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>a2f77d4b70e927abf20e9395c79861799</anchor>
+      <anchor>a43c540d1a0249b87fa9e6d460d635b1f</anchor>
       <arglist>(const Vector3 &amp;v, TimeIndex k)</arglist>
     </member>
     <member kind="function">
@@ -7567,14 +7500,14 @@
       <type>const Vector3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>af27fe5405ecd2bacc4ca0702f3c14f4c</anchor>
+      <anchor>aa08dc7b8ba73af4b2ac41f38c7caf82b</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Vector3 &amp;</type>
       <name>operator()</name>
       <anchorfile>classstateObservation_1_1IndexedMatrixT.html</anchorfile>
-      <anchor>abd740f0aded2fa9bdf0299066d350afa</anchor>
+      <anchor>a9c4ab0b2f517e6692f7b1887436a08f2</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -8530,7 +8463,7 @@
       <type>struct stateObservation::KalmanFilterBase::optimizationContainer</type>
       <name>oc_</name>
       <anchorfile>classstateObservation_1_1KalmanFilterBase.html</anchorfile>
-      <anchor>a3c5a0baa790314878f898c6ed512ca0f</anchor>
+      <anchor>a26396d2014ebf68d28a642de71f4dfa5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -10681,7 +10614,7 @@
       <type>struct stateObservation::KineticsObserver::Opt</type>
       <name>opt_</name>
       <anchorfile>classstateObservation_1_1KineticsObserver.html</anchorfile>
-      <anchor>af4cc1ff1bf561dcd3a360fb69d9a7826</anchor>
+      <anchor>a6eff752e08d366f7bfff952284be4dd5</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -11937,45 +11870,45 @@
       <arglist>() const</arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultBiasDriftSecond</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>aca4b8a063ed910dfdd130a8096e6ac48</anchor>
+      <anchor>aeae191826a2a737f5f006617a5445f19</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultZmpErrorStd</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a04ff1ef91c85e8e6a19be5a5ccb4efb4</anchor>
+      <anchor>a6079b2daa64f2f53ca36d20221ef0063</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultDcmErrorStd</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>acc385cf319b05c342efaecb3a50797ae</anchor>
+      <anchor>ad68f198704c28a841d9db217b327c30e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultDCMUncertainty</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a8ad8886adb2b05e432594cc3b575e9c8</anchor>
+      <anchor>aeeb9fcdc6e5afc4a74ed10f2c2bef54e</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultBiasUncertainty</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a20a867177a0c39d57c05e1a4d44ee8ee</anchor>
+      <anchor>a756669ca29f7f767392da72ab06fc04c</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultBiasLimit</name>
       <anchorfile>classstateObservation_1_1LipmDcmEstimator.html</anchorfile>
-      <anchor>a0936bb9cda37ce3ab22d8ac242cfd181</anchor>
+      <anchor>ac48ed3b32e7f4fa6898ed846755661c2</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef" protection="protected">
@@ -12959,7 +12892,7 @@
       <type>struct stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</type>
       <name>op_</name>
       <anchorfile>classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html</anchorfile>
-      <anchor>a5cb585d474f5bf176e8500cfb6a31d6d</anchor>
+      <anchor>aa24745c30d482e7e85c69e75bb064810</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected" static="yes">
@@ -13252,59 +13185,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::KineticsObserver::Opt</name>
-    <filename>structstateObservation_1_1KineticsObserver_1_1Opt.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Opt</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a4cefc680edfa1f020a4bf8b00b440be7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>Kinematics</type>
-      <name>kine1</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a4da82a2a0bed16e1270569eab0ed81ab</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Kinematics</type>
-      <name>kine2</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>ab7b24f1c27dd240e8274c79edf7f7ee6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Kinematics &amp;</type>
-      <name>kine</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a1bfc601632bb123de5c5d15303818faf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Orientation &amp;</type>
-      <name>ori</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a4986f18fcdeaa27c3088a06b6633ee6f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Orientation &amp;</type>
-      <name>ori1</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>afa4466c5cf3d192fdee7ff9f035f5142</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Orientation &amp;</type>
-      <name>ori2</name>
-      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
-      <anchor>a21dd3adb2c7f9c7b95f955d55a79598f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>stateObservation::IMUMltpctiveDynamicalSystem::opt</name>
     <filename>structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html</filename>
     <member kind="function">
@@ -13358,55 +13238,55 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>stateObservation::ExtendedKalmanFilter::Optimization</name>
-    <filename>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</filename>
+    <name>stateObservation::KineticsObserver::Opt</name>
+    <filename>structstateObservation_1_1KineticsObserver_1_1Opt.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Opt</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a4cefc680edfa1f020a4bf8b00b440be7</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="variable">
-      <type>EIGEN_MAKE_ALIGNED_OPERATOR_NEW ObserverBase::InputVector</type>
-      <name>u_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ae01890ceb77c27585e957944dd847b41</anchor>
+      <type>Kinematics</type>
+      <name>kine1</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a4da82a2a0bed16e1270569eab0ed81ab</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>KalmanFilterBase::Amatrix</type>
-      <name>a_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>aae39b1d3c3893c96cfcd0286b6540db5</anchor>
+      <type>Kinematics</type>
+      <name>kine2</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>ab7b24f1c27dd240e8274c79edf7f7ee6</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>KalmanFilterBase::Cmatrix</type>
-      <name>c_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ad43bf99b233b0ad553dd2874912e968a</anchor>
+      <type>Kinematics &amp;</type>
+      <name>kine</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a1bfc601632bb123de5c5d15303818faf</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>x_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a739344546fb08659f35abec2f8b1fca2</anchor>
+      <type>Orientation &amp;</type>
+      <name>ori</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a4986f18fcdeaa27c3088a06b6633ee6f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>dx_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a5530e8a1d3337b00b84552438682572d</anchor>
+      <type>Orientation &amp;</type>
+      <name>ori1</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>afa4466c5cf3d192fdee7ff9f035f5142</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>ObserverBase::StateVector</type>
-      <name>xp_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>a8b342751706039d369f8536f7b653cc1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ObserverBase::MeasureVector</type>
-      <name>yp_</name>
-      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
-      <anchor>ae100734f224c2b34840e33938749affa</anchor>
+      <type>Orientation &amp;</type>
+      <name>ori2</name>
+      <anchorfile>structstateObservation_1_1KineticsObserver_1_1Opt.html</anchorfile>
+      <anchor>a21dd3adb2c7f9c7b95f955d55a79598f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -14094,6 +13974,59 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>stateObservation::ExtendedKalmanFilter::Optimization</name>
+    <filename>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</filename>
+    <member kind="variable">
+      <type>EIGEN_MAKE_ALIGNED_OPERATOR_NEW ObserverBase::InputVector</type>
+      <name>u_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ae01890ceb77c27585e957944dd847b41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>KalmanFilterBase::Amatrix</type>
+      <name>a_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>aae39b1d3c3893c96cfcd0286b6540db5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>KalmanFilterBase::Cmatrix</type>
+      <name>c_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ad43bf99b233b0ad553dd2874912e968a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>x_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a739344546fb08659f35abec2f8b1fca2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>dx_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a5530e8a1d3337b00b84552438682572d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::StateVector</type>
+      <name>xp_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>a8b342751706039d369f8536f7b653cc1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ObserverBase::MeasureVector</type>
+      <name>yp_</name>
+      <anchorfile>structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html</anchorfile>
+      <anchor>ae100734f224c2b34840e33938749affa</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization</name>
     <filename>structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html</filename>
     <member kind="variable">
@@ -14522,7 +14455,7 @@
       <type>static Eigen::Matrix&lt; double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime &gt;</type>
       <name>getGaussianMatrix</name>
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
-      <anchor>ae497c622b7d4b3ca3f0351ad3f7a6c65</anchor>
+      <anchor>a0db39c4b875ee05ad839b54ce19b3ffd</anchor>
       <arglist>(BiasType bias=Eigen::Matrix&lt; double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime &gt;::Zero(), StdType std=Eigen::Matrix&lt; double, BiasType::RowsAtCompileTime, BiasType::RowsAtCompileTime &gt;::Identity(), Index rows=Index(EigenType&lt; BiasType &gt;::type::RowsAtCompileTime), Index cols=Index(EigenType&lt; BiasType &gt;::type::ColsAtCompileTime))</arglist>
     </member>
     <member kind="function" static="yes">
@@ -14536,7 +14469,7 @@
       <type>static MatrixType&lt; ReturnType &gt;::type</type>
       <name>getUniformMatrix</name>
       <anchorfile>classstateObservation_1_1tools_1_1ProbabilityLawSimulation.html</anchorfile>
-      <anchor>aa9ac5e9ca6d8a957eb119a7c6fd66e0b</anchor>
+      <anchor>a3550ef2fb4aa3b1c65b9d8db77e644b4</anchor>
       <arglist>(Index rows=ReturnType::RowsAtCompileTime, Index cols=ReturnType::ColsAtCompileTime, double min=-1., double max=1.)</arglist>
     </member>
     <member kind="function" static="yes">
@@ -15474,38 +15407,38 @@
       <arglist>() const</arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultBiasDriftSecond</name>
       <anchorfile>classstateObservation_1_1UnidimLipmDcmEstimator.html</anchorfile>
-      <anchor>a020374a457ea44a05e96650db1303b68</anchor>
+      <anchor>a47aa336fdf242b5bfb9d59a863a4b589</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultZmpErrorStd</name>
       <anchorfile>classstateObservation_1_1UnidimLipmDcmEstimator.html</anchorfile>
-      <anchor>a676f0f92bdc63f9c2d47db22d4479f9f</anchor>
+      <anchor>a5015f3da1bf8f654860c89c0e1d3af92</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultDcmErrorStd</name>
       <anchorfile>classstateObservation_1_1UnidimLipmDcmEstimator.html</anchorfile>
-      <anchor>a20728a0bab9eea5897b55f7077ebd7f3</anchor>
+      <anchor>a207b5b956d079d7732a2dde47a348719</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultDCMUncertainty</name>
       <anchorfile>classstateObservation_1_1UnidimLipmDcmEstimator.html</anchorfile>
-      <anchor>a20c374e0313f043529d678c5b3cb1900</anchor>
+      <anchor>a7ff6e0ca8fabbf1852ec3c57cb104f2a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultBiasUncertainty</name>
       <anchorfile>classstateObservation_1_1UnidimLipmDcmEstimator.html</anchorfile>
-      <anchor>a0b83b18cd6481ccff7674a64d5038c75</anchor>
+      <anchor>ad3254db6abb9d2a2e66e128a4a3da6e0</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -15875,45 +15808,45 @@
       <arglist>() const</arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultGainDriftSecond</name>
       <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
-      <anchor>a93caa8e41ae31832d4248bcba21bba9e</anchor>
+      <anchor>aadf5e9984860fb906c6d33e09f065f09</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultZmpProcessErrorStd</name>
       <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
-      <anchor>ac57344012006c3b3d505f8618e726714</anchor>
+      <anchor>a04161d9ba5eb069b9e876f4265e471a7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultZmpMeasurementErrorStd</name>
       <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
-      <anchor>a501e5b3aa97e918d151770bd0003b7f5</anchor>
+      <anchor>ae5eae8911175d489aab19a83bfa69cb3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultGainMinimum</name>
       <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
-      <anchor>a4de4dcda15caa67eed1d992c89c8991f</anchor>
+      <anchor>abb9eb755abc61434bba0f0ece64234a3</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultZmpUncertainty</name>
       <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
-      <anchor>a8cdd339bed9adef9a8d45f1e467cb93a</anchor>
+      <anchor>adc48657e691e47bd62d963de0bdde1b9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" static="yes">
-      <type>static constexpr double</type>
+      <type>constexpr static double</type>
       <name>defaultGainUncertainty</name>
       <anchorfile>classstateObservation_1_1ZmpTrackingGainEstimator.html</anchorfile>
-      <anchor>a5a779e911022e818a4040aa3f9eac9b1</anchor>
+      <anchor>ad17d4faeb7e7d4de9cb4dfe7abccc4a6</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef" protection="protected">
@@ -16498,13 +16431,6 @@
   <compound kind="namespace">
     <name>stateObservation::examples</name>
     <filename>namespacestateObservation_1_1examples.html</filename>
-    <member kind="typedef">
-      <type>flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::state</type>
-      <name>state</name>
-      <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>a32510182b45fc220f4ce11484e878cd8</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type>IndexedVectorArray</type>
       <name>imuAttitudeTrajectoryReconstruction</name>
@@ -16546,20 +16472,6 @@
       <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
       <anchor>a7f384716061baddce38a912c28a6493e</anchor>
       <arglist>(const stateObservation::IndexedVectorArray &amp;y, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt;&gt; &amp;contactsPositions, double dt)</arglist>
-    </member>
-    <member kind="function">
-      <type>stateObservation::IndexedVectorArray</type>
-      <name>offlineEKFFlexibilityEstimation</name>
-      <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>a32d6f79c887ecae1b6642083a4ce3dec</anchor>
-      <arglist>(const stateObservation::IndexedVectorArray &amp;y, const stateObservation::IndexedVectorArray &amp;u, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt; &gt; &amp;contactsPositions, double dt, IndexedVectorArray *ino, IndexedVectorArray *premea)</arglist>
-    </member>
-    <member kind="function">
-      <type>stateObservation::IndexedVectorArray</type>
-      <name>offlineEKFFlexibilityEstimation</name>
-      <anchorfile>namespacestateObservation_1_1examples.html</anchorfile>
-      <anchor>aee0c888ffe25334ae7a0ac2aaace171e</anchor>
-      <arglist>(const stateObservation::IndexedVectorArray &amp;y, const Vector &amp;xh0, unsigned numberOfContacts, const std::vector&lt; Vector3, Eigen::aligned_allocator&lt; Vector3 &gt; &gt; &amp;contactsPositions, double dt)</arglist>
     </member>
     <member kind="function">
       <type>stateObservation::IndexedVectorArray</type>
@@ -17193,10 +17105,10 @@
       <arglist>(const Vector &amp;x, const Vector &amp;xd, double kp=-1, double kv=-1)</arglist>
     </member>
     <member kind="function">
-      <type>double constexpr</type>
+      <type>constexpr double</type>
       <name>sqrt</name>
       <anchorfile>namespacestateObservation_1_1tools.html</anchorfile>
-      <anchor>a00e4ac40ec193298c29e83b9473f1511</anchor>
+      <anchor>a9c8876dd95e6c5e1ba3285c5b840c343</anchor>
       <arglist>(double x)</arglist>
     </member>
   </compound>
@@ -17204,10 +17116,10 @@
     <name>stateObservation::tools::Detail</name>
     <filename>namespacestateObservation_1_1tools_1_1Detail.html</filename>
     <member kind="function">
-      <type>double constexpr</type>
+      <type>constexpr double</type>
       <name>sqrtNewtonRaphson</name>
       <anchorfile>namespacestateObservation_1_1tools_1_1Detail.html</anchorfile>
-      <anchor>a991167aefd5a767c8946f84a8158b699</anchor>
+      <anchor>a13dac97fc67b707058810bb260581840</anchor>
       <arglist>(double x, double curr, double prev)</arglist>
     </member>
   </compound>

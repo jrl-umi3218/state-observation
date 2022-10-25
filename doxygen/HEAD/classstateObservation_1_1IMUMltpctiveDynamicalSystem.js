@@ -22,7 +22,7 @@ var classstateObservation_1_1IMUMltpctiveDynamicalSystem =
     [ "stateDynamics", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a1c4139939ecb3a487e2ced1e82118287", null ],
     [ "stateSum", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a8cf57a82f96f18751021af889c5347b4", null ],
     [ "dt_", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#aa63962cff60d457b75bf6df9af29e428", null ],
-    [ "opt_", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#ae8b1fec53d8314ce2e82e32f043a1518", null ],
+    [ "opt_", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#ac870e016061298201559f613e524da76", null ],
     [ "processNoise_", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a5ff989bc802586f378be00f3a3a33ed7", null ],
     [ "sensor_", "classstateObservation_1_1IMUMltpctiveDynamicalSystem.html#a91d5b12fd704a30716196dd87dc3c491", null ]
 ];

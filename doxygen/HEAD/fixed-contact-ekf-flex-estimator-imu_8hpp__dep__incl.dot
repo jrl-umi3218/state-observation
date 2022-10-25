@@ -1,8 +1,9 @@
 digraph "include/state-observation/flexibility-estimation/fixed-contact-ekf-flex-estimator-imu.hpp"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node39 [label="include/state-observation\l/flexibility-estimation\l/fixed-contact-ekf-flex\l-estimator-imu.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node39 -> Node40 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node40 [label="include/state-observation\l/examples/offline-ekf-flexibility\l-estimation.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$offline-ekf-flexibility-estimation_8hpp.html",tooltip="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..."];
+  Node1 [label="include/state-observation\l/flexibility-estimation\l/fixed-contact-ekf-flex\l-estimator-imu.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="include/state-observation\l/examples/offline-ekf-flexibility\l-estimation.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$offline-ekf-flexibility-estimation_8hpp.html",tooltip="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..."];
 }

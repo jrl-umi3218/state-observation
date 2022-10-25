@@ -19,5 +19,5 @@ var classstateObservation_1_1ExtendedKalmanFilter =
     [ "directInputOutputFeedthrough_", "classstateObservation_1_1ExtendedKalmanFilter.html#ab2439e3f77febfb7c61f22ee8bb9c680", null ],
     [ "directInputStateProcessFeedthrough_", "classstateObservation_1_1ExtendedKalmanFilter.html#a0999372f43a667f61ad0e484364b3967", null ],
     [ "f_", "classstateObservation_1_1ExtendedKalmanFilter.html#a3e23394bf083b9f960d8317d3b916274", null ],
-    [ "opt", "classstateObservation_1_1ExtendedKalmanFilter.html#a8a5edce0f7bf65236cbd750307a5384b", null ]
+    [ "opt", "classstateObservation_1_1ExtendedKalmanFilter.html#a674a98534e4401c5db376f452e4f5888", null ]
 ];

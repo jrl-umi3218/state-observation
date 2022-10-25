@@ -1,26 +1,27 @@
 digraph "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem"
 {
+ // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node2 [label="stateObservation::flexibility\lEstimation::IMUElasticLocalFrame\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="stateObservation::Dynamical\lSystemFunctorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DynamicalSystemFunctorBase.html",tooltip="This is the base class of any functor that describes the dynamics of the state and the measurement..."];
-  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sensor_" ,fontname="Helvetica"];
-  Node4 [label="stateObservation::Accelerometer\lGyrometer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1AccelerometerGyrometer.html",tooltip="Implements the accelerometer-gyrometer measurements. "];
+  Node1 [label="stateObservation::flexibility\lEstimation::IMUElasticLocalFrame\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This class describes the dynamics of a robot's flexibility this dynamics with elastic forces to bring..."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="stateObservation::Dynamical\lSystemFunctorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DynamicalSystemFunctorBase.html",tooltip="This is the base class of any functor that describes the dynamics of the state and the measurement...."];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" sensor_" ,fontname="Helvetica"];
+  Node3 [label="stateObservation::Accelerometer\lGyrometer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1AccelerometerGyrometer.html",tooltip="Implements the accelerometer-gyrometer measurements."];
+  Node4 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="stateObservation::Algebraic\lSensor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1AlgebraicSensor.html",tooltip="The base class for algebraic sensors. Algebraic sensors are sensors which depend only on the state va..."];
   Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="stateObservation::Algebraic\lSensor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1AlgebraicSensor.html",tooltip="The base class for algebraic sensors. Algebraic sensors are sensors which depend only on the state va..."];
-  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="stateObservation::SensorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1SensorBase.html",tooltip="The base class for sensors. This must be derived to implement a sensor. "];
-  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" noise_" ,fontname="Helvetica"];
-  Node7 [label="stateObservation::NoiseBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1NoiseBase.html"];
-  Node8 -> Node4 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="stateObservation::algorithm\l::LinearAcceleration",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1algorithm_1_1LinearAcceleration.html",tooltip="Implements the measurements given by an accelerometer. "];
-  Node9 -> Node4 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="stateObservation::algorithm\l::RotationVelocity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1algorithm_1_1RotationVelocity.html",tooltip="Implements the gyrometer measurement algorithm. "];
-  Node7 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" processNoise_" ,fontname="Helvetica"];
-  Node10 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" op_" ,fontname="Helvetica"];
-  Node10 [label="stateObservation::flexibility\lEstimation::IMUElasticLocalFrame\lDynamicalSystem::Optimization",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html"];
-  Node11 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" contactPosV\nefforts\ncontactAngVelArray\ncontactOriV\ncontactVelArray" ,fontname="Helvetica"];
-  Node11 [label="stateObservation::Indexed\lMatrixArrayT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixArrayT.html"];
+  Node5 [label="stateObservation::SensorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1SensorBase.html",tooltip="The base class for sensors. This must be derived to implement a sensor."];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" noise_" ,fontname="Helvetica"];
+  Node6 [label="stateObservation::NoiseBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1NoiseBase.html",tooltip=" "];
+  Node7 -> Node3 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="stateObservation::algorithm\l::LinearAcceleration",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1algorithm_1_1LinearAcceleration.html",tooltip="Implements the measurements given by an accelerometer."];
+  Node8 -> Node3 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="stateObservation::algorithm\l::RotationVelocity",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1algorithm_1_1RotationVelocity.html",tooltip="Implements the gyrometer measurement algorithm."];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" processNoise_" ,fontname="Helvetica"];
+  Node9 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" op_" ,fontname="Helvetica"];
+  Node9 [label="stateObservation::flexibility\lEstimation::IMUElasticLocalFrame\lDynamicalSystem::Optimization",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html",tooltip=" "];
+  Node10 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" contactPosV\nefforts\ncontactAngVelArray\ncontactOriV\ncontactVelArray" ,fontname="Helvetica"];
+  Node10 [label="stateObservation::Indexed\lMatrixArrayT\< Vector \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixArrayT.html",tooltip=" "];
 }
