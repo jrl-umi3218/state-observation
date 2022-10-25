@@ -10,7 +10,7 @@ on:
 
 jobs:
   cmake-format:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: Install cmakelang
@@ -21,15 +21,13 @@ jobs:
         ./.cmake-format-check.sh
   clang-format:
     needs: cmake-format
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    - name: Install clang-format-6.0
+    - name: Install clang-format-10
       run: |
-        sudo rm -f /etc/apt/sources.list.d/dotnetdev.list /etc/apt/sources.list.d/microsoft-prod.list
         sudo apt-get -qq update
-        sudo apt-get -qq remove clang-6.0 libclang1-6.0 libclang-common-6.0-dev libllvm6.0
-        sudo apt-get -qq install clang-format-6.0 clang-format
+        sudo apt-get -qq install clang-format-10
     - name: Run clang-format-check
       run: |
         ./.clang-format-check.sh
@@ -38,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04, macos-latest, windows-latest]
+        os: [ubuntu-20.04, macos-latest, windows-latest]
         build-type: [Debug, RelWithDebInfo, script]
         compiler: [gcc, clang]
         exclude:
@@ -47,13 +45,10 @@ jobs:
             compiler: clang
           - os: windows-latest
             compiler: clang
-          - os: ubuntu-16.04
-            build-type: script
-          - os: ubuntu-18.04
+          - os: ubuntu-20.04
             build-type: script
           - os: macos-latest
             build-type: script
-
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
@@ -97,7 +92,7 @@ jobs:
         fi
     - name: Upload documentation
       # Only run on master branch and for one configuration
-      if: matrix.os == 'ubuntu-18.04' && matrix.build-type == 'RelWithDebInfo' && matrix.compiler == 'gcc' && github.ref == 'refs/heads/master'
+      if: matrix.os == 'ubuntu-20.04' && matrix.build-type == 'RelWithDebInfo' && matrix.compiler == 'gcc' && github.ref == 'refs/heads/master'
       uses: jrl-umi3218/github-actions/upload-documentation@master
       with:
         GH_USER: gergondet
@@ -109,4 +104,4 @@ jobs:
         slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_TOKEN }}
         slack-channel: '#ci'
         slack-text: >
-          [mc_rtc] Build *${{ matrix.os }}/${{ matrix.build-type }} (${{ matrix.compiler }})* failed on ${{ github.ref }}
+          [state-observation] Build *${{ matrix.os }}/${{ matrix.build-type }} (${{ matrix.compiler }})* failed on ${{ github.ref }}
