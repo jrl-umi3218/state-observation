@@ -768,7 +768,7 @@ int testKinematics(int errcode)
     }
   }
 
-  std::cout << "Error 1 : " << err << std::endl;
+  std::cout << "Error 1 " << err << std::endl;
 
   if(err > threshold)
   {
@@ -954,7 +954,7 @@ int testKinematics(int errcode)
     }
   }
 
-  std::cout << "Error 2 : " << err << std::endl;
+  std::cout << "Error 2 " << err << std::endl;
 
   if(err > threshold)
   {
