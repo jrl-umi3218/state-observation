@@ -616,7 +616,7 @@ typedef IndexedMatrixArrayT<Vector> IndexedVectorArray;
 
 namespace cst
 {
-constexpr double gravityConstant = 9.8;
+constexpr double gravityConstant = 9.80665;
 
 /// Gravity Vector along Z
 const Vector gravity = gravityConstant * Vector3::UnitZ();
