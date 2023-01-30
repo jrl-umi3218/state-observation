@@ -71,8 +71,9 @@ inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator c
   return (*this)();
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline T CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::chckitm_getValue() const
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline const T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::chckitm_getValue()
+    const
 {
   return (*this)();
 }
@@ -91,12 +92,26 @@ inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operat
   return v_;
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::chckitm_check_() const
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline const T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::getRefUnchecked()
+    const
+{
+  return v_;
+}
+
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::getRefUnchecked()
+{
+  return v_;
+}
+
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::chckitm_check_() const
 {
   if(assertion)
   {
-    BOOST_ASSERT_MSG(isSet(), assertMsg_.get());
+    BOOST_ASSERT_MSG(isSet(),assertMsg_.get());
+    additionalChecker::checkAssert(v_);
   }
 
   if(alwaysCheck || isDebug)
@@ -194,7 +209,15 @@ inline bool IndexedMatrixT<MatrixType, lazy>::check_() const
 {
   BOOST_ASSERT(isSet() && "Error: Matrix not initialized, if you are initializing it, \
                             use set() function.");
-  return isSet();
+    if(isSet())
+    {
+    BOOST_ASSERT(!v_.hasNaN() && "Error: Matrix has NaN.");
+    return !v_.hasNaN(); // returns false if v has a NaN : test failed
+    }
+    else
+    {
+    return isSet();
+    }
 }
 
 template<typename MatrixType, bool lazy>
