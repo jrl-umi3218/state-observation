@@ -1,5 +1,9 @@
 build/
 build-dbg/
+build-debug/
+build-none/
+build-release/
+build-relWithDebInfo/
 .vs
 CMakeSettings.json
 build
