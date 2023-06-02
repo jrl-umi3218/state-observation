@@ -48,7 +48,7 @@ void ZmpTrackingGainEstimator::resetWithMeasurements(const Vector2 & initZMP,
 
   Matrix5 P;
   // clang-format off
-  P << Vec2ToSqDiag_(initZMPUncertainty),  Matrix23::Zero(), 
+  P << Vec2ToSqDiag_(initZMPUncertainty),  Matrix23::Zero(),
        Matrix23::Zero().transpose(),       Vec3ToSqDiag_(initGainUncertainty);
   // clang-format on
   filter_.setStateCovariance(P);

@@ -17,7 +17,8 @@ Eigen::Matrix<double, BiasType::RowsAtCompileTime, BiasType::ColsAtCompileTime>
   {
     rows = bias.cols();
   }
-  return bias + std * FixOrDynMatrixTools<ReturnType>::nullaryExp([&](Index) { return getGaussianScalar(); }, rows, cols);
+  return bias
+         + std * FixOrDynMatrixTools<ReturnType>::nullaryExp([&](Index) { return getGaussianScalar(); }, rows, cols);
 }
 
 template<typename ReturnType>

@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: state-observation 
+Upstream-Name: state-observation
 Source: https://github.com/jrl-umi3218/state-observation
 
 Files: *

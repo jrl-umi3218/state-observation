@@ -322,7 +322,7 @@ inline Matrix3 twoVectorsToRotationMatrix(const Vector3 & v1, const Vector3 Rv1)
   }
   else if(1 + v1dotRv1 < cst::epsilon1)
   {
-    ///it is a singularity
+    /// it is a singularity
     throw std::invalid_argument("twoVectorsToRotationMatrix Vectors are opposite: there is an infinity of rotation "
                                 "matrices with minimal angle between them");
   }
@@ -354,7 +354,7 @@ inline Vector3 getInvariantHorizontalVector(const Matrix3 & R)
 inline Vector3 getInvariantOrthogonalVector(const Matrix3 & Rhat, const Vector3 & Rtez)
 {
   Vector3 Rhat_Rtez = Rhat * Rtez;
-  if (Rhat_Rtez.head<2>().isZero(cst::epsilon1))
+  if(Rhat_Rtez.head<2>().isZero(cst::epsilon1))
   { /// any vector is a solution
     return Vector3::UnitX();
   }
@@ -392,7 +392,7 @@ inline Matrix3 mergeTiltWithYaw(const Vector3 & Rtez, const Matrix3 & R2, const 
     mlxv1 /= sqrt(n2);
 
     // clang-format off
-        R_temp2 << mlxv1.transpose(), 
+        R_temp2 << mlxv1.transpose(),
                    v1.cross(mlxv1).transpose(),
                    v1.transpose();
     // clang-format on

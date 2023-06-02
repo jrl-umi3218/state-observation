@@ -95,7 +95,7 @@ markup:
 lint:
   # a list of lint codes to disable
   disabled_codes:
-    - C0111 # Allow missing docstring on function or macro eclaration 
+    - C0111 # Allow missing docstring on function or macro eclaration
     - C0113 # Missing comment in statement which allows it
   # regular expression pattern describing valid function names
   function_pattern: '[0-9a-z_]+'

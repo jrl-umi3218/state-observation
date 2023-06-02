@@ -60,7 +60,6 @@ else()
   add_project_dependency(Eigen3 MODULE REQUIRED)
 endif()
 
-
 set(TEST_COMPUTATION_TIME "OFF")
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/include/state-observation/config.h.in"
                "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_BUILD_TYPE}/include/state-observation/config.h.in" @ONLY)
@@ -73,7 +72,6 @@ install(FILES "${CMAKE_BINARY_DIR}/$<CONFIG>/include/state-observation/config.h"
         DESTINATION ${INCLUDE_INSTALL_DESTINATION})
 
 add_subdirectory(src)
-
 
 if(BUILD_TESTING)
   add_subdirectory(unit-testings)

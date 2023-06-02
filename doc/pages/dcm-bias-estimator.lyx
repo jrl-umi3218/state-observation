@@ -291,7 +291,7 @@ biased DCM
 \begin_inset Text
 
 \begin_layout Plain Layout
-Measured 
+Measured
 \begin_inset Formula $z$
 \end_inset
 
@@ -330,7 +330,7 @@ Measured
 \begin_inset Text
 
 \begin_layout Plain Layout
-Measured 
+Measured
 \begin_inset Formula $\xi^{b}$
 \end_inset
 
@@ -465,7 +465,7 @@ Brownian motion noise in the bias
 \begin_inset Text
 
 \begin_layout Plain Layout
-measurement noise in 
+measurement noise in
 \begin_inset Formula $\hat{z}$
 \end_inset
 
@@ -512,7 +512,7 @@ This covariance could be overestimated to take into account the modeling
 \begin_inset Text
 
 \begin_layout Plain Layout
-measurement noise in 
+measurement noise in
 \begin_inset Formula $\hat{\xi}^{b}$
 \end_inset
 
@@ -548,7 +548,7 @@ measurement noise in
 \begin_inset Text
 
 \begin_layout Plain Layout
-standard deviation of 
+standard deviation of
 \begin_inset Formula $w^{b}$
 \end_inset
 
@@ -584,7 +584,7 @@ standard deviation of
 \begin_inset Text
 
 \begin_layout Plain Layout
-standard deviation of 
+standard deviation of
 \begin_inset Formula $w^{z}$
 \end_inset
 
@@ -620,7 +620,7 @@ standard deviation of
 \begin_inset Text
 
 \begin_layout Plain Layout
-standard deviation of 
+standard deviation of
 \begin_inset Formula $w^{\xi}$
 \end_inset
 
@@ -741,7 +741,7 @@ Parameters
 \begin_inset Formula $\xi$
 \end_inset
 
-, 
+,
 \begin_inset Formula $b$
 \end_inset
 
@@ -781,11 +781,11 @@ Parameters
 \begin_inset Formula $\kappa^{b}$
 \end_inset
 
-, 
+,
 \begin_inset Formula $\kappa^{z}$
 \end_inset
 
-, 
+,
 \begin_inset Formula $\kappa^{\xi}$
 \end_inset
 
@@ -801,7 +801,7 @@ Parameters
 \begin_inset Formula $\omega_{0}$
 \end_inset
 
-, 
+,
 \begin_inset Formula $T$
 \end_inset
 
@@ -825,7 +825,7 @@ name "tab:State-Signals"
 
 \end_inset
 
-State definion and use of available signals in the Kalman filter 
+State definion and use of available signals in the Kalman filter
 \end_layout
 
 \end_inset
@@ -847,19 +847,19 @@ Dynamics
 \end_layout
 
 \begin_layout Standard
-The dynamics of the DCM is 
-\begin_inset Formula 
+The dynamics of the DCM is
+\begin_inset Formula
 \begin{align}
 \dot{\xi} & =\omega_{0}(\xi-z)
 \end{align}
 
 \end_inset
 
-This can be discetized to 
+This can be discetized to
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \xi_{k+1} & =\xi_{k}+\omega_{0}T(\xi_{k}-z_{k})\\
  & =(1+\omega_{0}T)\xi_{k}-\omega_{0}Tz_{k}\\
@@ -873,15 +873,15 @@ This can be discetized to
 \end_layout
 
 \begin_layout Standard
-And the dynamics of 
+And the dynamics of
 \begin_inset Formula $b$
 \end_inset
 
- is 
+ is
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 b_{k+1} & =b_{k}+v_{k}
 \end{align}
@@ -893,7 +893,7 @@ b_{k+1} & =b_{k}+v_{k}
 
 \begin_layout Standard
 Giving this dynamics
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \left(\begin{array}{c}
 \xi_{k+1}\\
@@ -916,8 +916,8 @@ v_{k}
 \end_layout
 
 \begin_layout Standard
-This means that the process covariance matrix is of the form 
-\begin_inset Formula 
+This means that the process covariance matrix is of the form
+\begin_inset Formula
 \begin{align}
 Q & =\left(\begin{matrix}\left(\omega_{0}T\kappa^{z}\right)^{2} & 0\\
 0 & \kappa_{v}^{2}
@@ -930,11 +930,11 @@ Q & =\left(\begin{matrix}\left(\omega_{0}T\kappa^{z}\right)^{2} & 0\\
 \end_layout
 
 \begin_layout Standard
-The measurement dynamics model is simply 
+The measurement dynamics model is simply
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \hat{\xi}_{k}^{b} & =\xi_{k}+b_{k}+w^{\xi}\\
  & =\left(\begin{matrix}1 & 1\end{matrix}\right)\left(\begin{array}{c}
@@ -953,7 +953,7 @@ Giving this covariance matrix
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 R= & \left(\begin{matrix}\left(\kappa^{\xi}\right)^{2}\end{matrix}\right)
 \end{align}
@@ -969,7 +969,7 @@ Observability
 
 \begin_layout Standard
 Let's analyze the observability
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 O= & \left(\begin{matrix}\left(\begin{matrix}1 & 1\end{matrix}\right)\\
 \left(\begin{matrix}1 & 1\end{matrix}\right)\left(\begin{matrix}1+\omega_{0}T & 0\\
@@ -992,7 +992,7 @@ Which is full rank.
 \end_layout
 
 \begin_layout Section
-Initializing 
+Initializing
 \begin_inset Formula $\hat{\xi}$
 \end_inset
 
@@ -1000,12 +1000,12 @@ Initializing
 \end_layout
 
 \begin_layout Standard
-if we initialize 
+if we initialize
 \begin_inset Formula $\hat{\xi}_{0}=\hat{\xi}_{k}^{b}-\hat{b}_{0}$
 \end_inset
 
- the we have the state 
-\begin_inset Formula 
+ the we have the state
+\begin_inset Formula
 \begin{align}
 \left(\begin{array}{c}
 \hat{\xi}_{0}\\
@@ -1036,7 +1036,7 @@ Giving the initial error covariance matrix
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 P_{0}= & \left(\begin{matrix}\left(\kappa^{\xi}\right)^{2}+\left(\kappa^{b_{0}}\right)^{2} & -\left(\kappa^{b_{0}}\right)^{2}\\
 -\left(\kappa^{b_{0}}\right)^{2} & \left(\kappa^{b_{0}}\right)^{2}
@@ -1053,7 +1053,7 @@ P_{0}= & \left(\begin{matrix}\left(\kappa^{\xi}\right)^{2}+\left(\kappa^{b_{0}}\
 \end_layout
 
 \begin_layout Standard
-This chapter is essentially a copy paste of the pervious one but 
+This chapter is essentially a copy paste of the pervious one but
 \end_layout
 
 \begin_layout Itemize
@@ -1070,7 +1070,7 @@ Definitions
 
 \begin_layout Standard
 These are the same except that 2d vectors replace states, inputs and measurement
-s and 
+s and
 \begin_inset Formula $2\times2$
 \end_inset
 
@@ -1270,7 +1270,7 @@ biased DCM
 \begin_inset Text
 
 \begin_layout Plain Layout
-Measured 
+Measured
 \begin_inset Formula $z$
 \end_inset
 
@@ -1309,7 +1309,7 @@ Measured
 \begin_inset Text
 
 \begin_layout Plain Layout
-Measured 
+Measured
 \begin_inset Formula $\xi^{b}$
 \end_inset
 
@@ -1444,7 +1444,7 @@ Brownian motion noise in the bias
 \begin_inset Text
 
 \begin_layout Plain Layout
-measurement noise in 
+measurement noise in
 \begin_inset Formula $\hat{z}$
 \end_inset
 
@@ -1491,7 +1491,7 @@ This covariance could be overestimated to take into account the modeling
 \begin_inset Text
 
 \begin_layout Plain Layout
-measurement noise in 
+measurement noise in
 \begin_inset Formula $\hat{\xi}^{b}$
 \end_inset
 
@@ -1527,7 +1527,7 @@ measurement noise in
 \begin_inset Text
 
 \begin_layout Plain Layout
-standard deviation of 
+standard deviation of
 \begin_inset Formula $w^{b}$
 \end_inset
 
@@ -1563,7 +1563,7 @@ standard deviation of
 \begin_inset Text
 
 \begin_layout Plain Layout
-standard deviation of 
+standard deviation of
 \begin_inset Formula $w^{z}$
 \end_inset
 
@@ -1599,7 +1599,7 @@ standard deviation of
 \begin_inset Text
 
 \begin_layout Plain Layout
-standard deviation of 
+standard deviation of
 \begin_inset Formula $w^{\xi}$
 \end_inset
 
@@ -1720,7 +1720,7 @@ Parameters
 \begin_inset Formula $\xi$
 \end_inset
 
-, 
+,
 \begin_inset Formula $b$
 \end_inset
 
@@ -1760,11 +1760,11 @@ Parameters
 \begin_inset Formula $\kappa^{b}$
 \end_inset
 
-, 
+,
 \begin_inset Formula $\kappa^{z}$
 \end_inset
 
-, 
+,
 \begin_inset Formula $\kappa^{\xi}$
 \end_inset
 
@@ -1780,7 +1780,7 @@ Parameters
 \begin_inset Formula $\omega_{0}$
 \end_inset
 
-, 
+,
 \begin_inset Formula $T$
 \end_inset
 
@@ -1822,19 +1822,19 @@ Dynamics
 \end_layout
 
 \begin_layout Standard
-The dynamics of the DCM is 
-\begin_inset Formula 
+The dynamics of the DCM is
+\begin_inset Formula
 \begin{align}
 \dot{\xi} & =\omega_{0}(\xi-z)
 \end{align}
 
 \end_inset
 
-This can be discetized to 
+This can be discetized to
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \xi_{k+1} & =\xi_{k}+\omega_{0}T(\xi_{k}-z_{k})\\
  & =(1+\omega_{0}T)\xi_{k}-\omega_{0}Tz_{k}\\
@@ -1848,15 +1848,15 @@ This can be discetized to
 \end_layout
 
 \begin_layout Standard
-And the dynamics of 
+And the dynamics of
 \begin_inset Formula $b$
 \end_inset
 
- is 
+ is
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 b_{k+1} & =b_{k}+v_{k}
 \end{align}
@@ -1868,7 +1868,7 @@ b_{k+1} & =b_{k}+v_{k}
 
 \begin_layout Standard
 Giving this dynamics
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \left(\begin{array}{c}
 \xi_{k+1}\\
@@ -1891,8 +1891,8 @@ v_{k}
 \end_layout
 
 \begin_layout Standard
-This means that the process covariance matrix is of the form 
-\begin_inset Formula 
+This means that the process covariance matrix is of the form
+\begin_inset Formula
 \begin{align}
 Q & =\left(\begin{matrix}\left(\omega_{0}T\kappa^{z}\right)\left(\omega_{0}T\kappa^{z}\right)^{T} & 0\\
 0 & \kappa_{v}\kappa_{v}^{^{T}}
@@ -1905,11 +1905,11 @@ Q & =\left(\begin{matrix}\left(\omega_{0}T\kappa^{z}\right)\left(\omega_{0}T\kap
 \end_layout
 
 \begin_layout Standard
-The measurement dynamics model is simply 
+The measurement dynamics model is simply
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \hat{\xi}_{k}^{b} & =\xi_{k}+b_{k}+w^{\xi}\\
  & =\left(\begin{matrix}I_{2\times2} & I_{2\times2}\end{matrix}\right)\left(\begin{array}{c}
@@ -1928,7 +1928,7 @@ Giving this covariance matrix
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 R= & \left(\begin{matrix}\kappa^{\xi}\kappa^{\xi}{}^{T}\end{matrix}\right)
 \end{align}
@@ -1944,7 +1944,7 @@ Observability
 
 \begin_layout Standard
 Let's analyze the observability
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 O= & \left(\begin{matrix}\left(\begin{matrix}I_{2\times2} & I_{2\times2}\end{matrix}\right)\\
 \left(\begin{matrix}I_{2\times2} & I_{2\times2}\end{matrix}\right)\left(\begin{matrix}\left(1+\omega_{0}T\right)I_{2\times2} & 0\\
@@ -1967,7 +1967,7 @@ Which is full rank.
 \end_layout
 
 \begin_layout Section
-Initializing 
+Initializing
 \begin_inset Formula $\hat{\xi}$
 \end_inset
 
@@ -1975,12 +1975,12 @@ Initializing
 \end_layout
 
 \begin_layout Standard
-if we initialize 
+if we initialize
 \begin_inset Formula $\hat{\xi}_{0}=\hat{\xi}_{k}^{b}-\hat{b}_{0}$
 \end_inset
 
- the we have the state 
-\begin_inset Formula 
+ the we have the state
+\begin_inset Formula
 \begin{align}
 \left(\begin{array}{c}
 \hat{\xi}_{0}\\
@@ -2011,7 +2011,7 @@ Giving the initial error covariance matrix
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 P_{0}= & \left(\begin{matrix}\kappa^{\xi}\kappa^{\xi T}+\kappa^{b_{0}}\kappa^{b_{0}T} & -\kappa^{b_{0}}\kappa^{b_{0}T}\\
 -\kappa^{b_{0}}\kappa^{b_{0}T} & \kappa^{b_{0}}\kappa^{b_{0}T}
@@ -2029,8 +2029,8 @@ Include rotations
 
 \begin_layout Standard
 What if the bias is actually linked to the orientation of the base? In other
- words, 
-\begin_inset Formula 
+ words,
+\begin_inset Formula
 \begin{align}
 b_{k} & =R_{k}b_{l,k}
 \end{align}
@@ -2041,18 +2041,18 @@ b_{k} & =R_{k}b_{l,k}
 \end_layout
 
 \begin_layout Standard
-where 
+where
 \begin_inset Formula $R$
 \end_inset
 
- is the orientation of the robot in 2D amd 
+ is the orientation of the robot in 2D amd
 \begin_inset Formula $b_{l}$
 \end_inset
 
  is the local drift.
  We model the local drift to be constant, i.e.
- 
-\begin_inset Formula 
+
+\begin_inset Formula
 \begin{align*}
 b_{l,k+1} & =b_{l,k}+v_{k}
 \end{align*}
@@ -2063,11 +2063,11 @@ b_{l,k+1} & =b_{l,k}+v_{k}
 \end_layout
 
 \begin_layout Standard
-In this case the update is then 
+In this case the update is then
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 b_{k+1} & =R_{k+1}R_{k}^{T}b_{k}+R_{k+1}R_{k}^{T}v_{k}
 \end{align}
@@ -2078,12 +2078,12 @@ b_{k+1} & =R_{k+1}R_{k}^{T}b_{k}+R_{k+1}R_{k}^{T}v_{k}
 \end_layout
 
 \begin_layout Standard
-By assuming that 
+By assuming that
 \begin_inset Formula $v_{k}$
 \end_inset
 
  is an isotropic noise we end up with this model
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align*}
 b_{k+1} & =R_{k}R_{k-1}^{T}b_{k}+v_{k}
 \end{align*}
@@ -2098,7 +2098,7 @@ Which gives
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \left(\begin{array}{c}
 \xi_{k+1}\\
@@ -2121,7 +2121,7 @@ v_{k}
 \end_layout
 
 \begin_layout Standard
-Note that in this case we consider that the rotation signal 
+Note that in this case we consider that the rotation signal
 \begin_inset Formula $R$
 \end_inset
 
@@ -2134,8 +2134,8 @@ Consider CoM offset and ZMP coefficient
 
 \begin_layout Standard
 What if we can measure in the DCM dynamics an offset on the CoM and a coefficien
-t to the ZMP ? In other words the dynamics of the DCM becomes 
-\begin_inset Formula 
+t to the ZMP ? In other words the dynamics of the DCM becomes
+\begin_inset Formula
 \begin{align}
 \dot{\xi} & =\omega_{0}(\xi-\kappa z+\gamma)
 \end{align}
@@ -2146,11 +2146,11 @@ t to the ZMP ? In other words the dynamics of the DCM becomes
 \end_layout
 
 \begin_layout Standard
-wherev 
+wherev
 \begin_inset Formula $\alpha$
 \end_inset
 
- is the CoM offset and 
+ is the CoM offset and
 \family roman
 \series medium
 \shape up
@@ -2170,7 +2170,7 @@ wherev
 
  is the ZMP coefficient, they are considered known.
  This may happen in the presence of planned or measured contact forces (see
- equation (8) in 
+ equation (8) in
 \begin_inset CommandInset citation
 LatexCommand cite
 key "murooka2021humanoid"
@@ -2182,8 +2182,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-This can be discretized as 
-\begin_inset Formula 
+This can be discretized as
+\begin_inset Formula
 \begin{align}
 \xi_{k+1} & =\xi_{k}+\omega_{0}T(\xi_{k}-\kappa z_{k}+\gamma)
 \end{align}
@@ -2198,7 +2198,7 @@ Which gives
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \left(\begin{array}{c}
 \xi_{k+1}\\
@@ -2261,11 +2261,11 @@ Unit-testing code
 \begin_layout Standard
 We wish to generate a random trajectory for the dcm but with bounded values.
  Lets compute a stable desired derivative for the dcm and the corresponding
- desired zmp 
+ desired zmp
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
+\begin_inset Formula
 \begin{align}
 \dot{\xi}^{d} & =-\lambda\xi\\
 \omega_{0}(\xi-\kappa z+\gamma) & =-\lambda\xi\\

@@ -12,7 +12,7 @@
 #ifndef HRP2CONSTANTS
 #define HRP2CONSTANTS
 
-//#define STATEOBSERVATION_VERBOUS_CONSTRUCTORS
+// #define STATEOBSERVATION_VERBOUS_CONSTRUCTORS
 
 #include <deque>
 #include <vector>
