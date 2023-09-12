@@ -407,7 +407,7 @@ inline Matrix3 mergeTiltWithYaw(const Vector3 & Rtez, const Matrix3 & R2, const 
   }
 }
 
-inline Matrix3 mergeRoll1Pitch1WithYaw2(const Matrix3 & R1, const Matrix3 & R2, const Vector3 v)
+inline Matrix3 mergeRoll1Pitch1WithYaw2(const Matrix3 & R1, const Matrix3 & R2, const Vector3 & v)
 {
   return mergeTiltWithYaw(R1.transpose() * Vector3::UnitZ(), R2, v);
 }
