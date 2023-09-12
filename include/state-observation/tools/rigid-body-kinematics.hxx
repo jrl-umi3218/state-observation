@@ -871,7 +871,6 @@ inline const Orientation & Orientation::setToProductNoAlias(const Orientation & 
   {
     if(R1.isMatrixSet() && R2.isMatrixSet())
     {
-      m_.set(true); /// we set the matrix as initialized before giving the value
       m_.set().noalias() = R1.m_() * R2.m_();
     }
     else
@@ -882,18 +881,17 @@ inline const Orientation & Orientation::setToProductNoAlias(const Orientation & 
   }
   else
   {
-    m_.set(true); /// we set the matrix as initialized before giving the value
     if(!R1.isMatrixSet())
     {
-      m_.getRefUnchecked().noalias() = R1.quaternionToMatrix_() * R2.m_();
+      m_.set().noalias() = R1.quaternionToMatrix_() * R2.m_();
     }
     else if(!R2.isMatrixSet())
     {
-      m_.getRefUnchecked().noalias() = R1.m_() * R2.quaternionToMatrix_();
+      m_.set().noalias() = R1.m_() * R2.quaternionToMatrix_();
     }
     else
     {
-      m_.getRefUnchecked().noalias() = R1.m_() * R2.m_();
+      m_.set().noalias() = R1.m_() * R2.m_();
     }
     q_.reset();
   }
@@ -1818,8 +1816,7 @@ inline Kinematics Kinematics::setToProductNoAlias(const Kinematics & multiplier1
 
   if(multiplier2.position.isSet())
   {
-    position.set(true);
-    Vector3 & R1p2 = position.getRefUnchecked(); /// reference ( Vector3&  )
+    Vector3 & R1p2 = position.set(); /// reference ( Vector3&  )
     R1p2.noalias() = multiplier1.orientation * multiplier2.position();
 
     if(multiplier2.linVel.isSet() && multiplier1.linVel.isSet() && multiplier1.angVel.isSet())
@@ -1827,8 +1824,7 @@ inline Kinematics Kinematics::setToProductNoAlias(const Kinematics & multiplier1
       Vector3 & R1p2d = tempVec_; /// reference
       R1p2d.noalias() = multiplier1.orientation * multiplier2.linVel();
 
-      linVel.set(true);
-      Vector3 & w1xR1p2 = linVel.getRefUnchecked(); /// reference
+      Vector3 & w1xR1p2 = linVel.set(); /// reference
       w1xR1p2.noalias() = multiplier1.angVel().cross(R1p2);
 
       Vector3 & w1xR1p2_R1p2d = w1xR1p2; ///  reference ( =linVel() )
@@ -1836,8 +1832,7 @@ inline Kinematics Kinematics::setToProductNoAlias(const Kinematics & multiplier1
 
       if(multiplier2.linAcc.isSet() && multiplier1.linAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        linAcc.set(true);
-        linAcc.getRefUnchecked().noalias() = multiplier1.orientation * multiplier2.linAcc();
+        linAcc.set().noalias() = multiplier1.orientation * multiplier2.linAcc();
         linAcc().noalias() += multiplier1.angAcc().cross(R1p2);
         linAcc().noalias() += multiplier1.angVel().cross(w1xR1p2_R1p2d + R1p2d);
         linAcc() += multiplier1.linAcc();
@@ -1876,14 +1871,12 @@ inline Kinematics Kinematics::setToProductNoAlias(const Kinematics & multiplier1
 
     if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
     {
-      angVel.set(true);
-      Vector3 & R1w2 = angVel.getRefUnchecked(); /// reference
+      Vector3 & R1w2 = angVel.set(); /// reference
       R1w2.noalias() = multiplier1.orientation * multiplier2.angVel();
 
       if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        angAcc.set(true);
-        angAcc.getRefUnchecked().noalias() = multiplier1.orientation * multiplier2.angAcc();
+        angAcc.set().noalias() = multiplier1.orientation * multiplier2.angAcc();
         angAcc().noalias() += multiplier1.angVel().cross(R1w2);
         angAcc() += multiplier1.angAcc();
       }
@@ -1931,8 +1924,7 @@ inline Kinematics Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, c
   Orientation R2t = multiplier2.orientation.inverse();
   if(multiplier2.position.isSet() && multiplier1.position.isSet())
   {
-    position.set(true);
-    Vector3 & R1p2 = position(); /// reference ( Vector3&  )
+    Vector3 & R1p2 = position.set(); /// reference ( Vector3&  )
     R1p2.noalias() = -(
         multiplier1.orientation
         * (R2t
@@ -1950,8 +1942,7 @@ inline Kinematics Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, c
                 - multiplier2.linVel())); // R2t * (multiplier2.angVel().cross(multiplier2.position()) -
                                           // multiplier2.linVel()) is the inverse of the linear velocity of multiplier 2
 
-      linVel.set(true);
-      Vector3 & w1xR1p2 = linVel(); /// reference
+      Vector3 & w1xR1p2 = linVel.set(); /// reference
       w1xR1p2.noalias() = multiplier1.angVel().cross(R1p2);
 
       Vector3 & w1xR1p2_R1p2d = w1xR1p2; ///  reference ( =linVel() )
@@ -1960,12 +1951,10 @@ inline Kinematics Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, c
       if(multiplier2.linAcc.isSet() && multiplier1.linAcc.isSet() && multiplier1.angAcc.isSet()
          && multiplier2.angAcc.isSet())
       {
-        linAcc.set(true);
-
-        linAcc().noalias() = multiplier1.orientation
-                             * (R2t
-                                * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2)
-                                   - multiplier2.linAcc() + multiplier2.angAcc().cross(multiplier2.position())));
+        linAcc.set().noalias() = multiplier1.orientation
+                                 * (R2t
+                                    * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2)
+                                       - multiplier2.linAcc() + multiplier2.angAcc().cross(multiplier2.position())));
         // R2t * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2) - multiplier2.linAcc() +
         // multiplier2.angAcc().cross(multiplier2.position())) is the inverse of the linear velocity of multiplier 2
         linAcc().noalias() += multiplier1.angAcc().cross(R1p2);
@@ -2000,16 +1989,15 @@ inline Kinematics Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, c
 
     if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
     {
-      angVel.set(true);
-      Vector3 & R1w2 = angVel(); /// reference
+      Vector3 & R1w2 = angVel.set(); /// reference
       R1w2.noalias() = -(multiplier1.orientation * (R2t * multiplier2.angVel()));
 
       if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        angAcc.set(true);
-        angAcc().noalias() = -(multiplier1.orientation * (R2t * multiplier2.angAcc()));
-        angAcc().noalias() += multiplier1.angVel().cross(R1w2);
-        angAcc() += multiplier1.angAcc();
+        auto & aAcc = angAcc.set();
+        aAcc.noalias() = -(multiplier1.orientation * (R2t * multiplier2.angAcc()));
+        aAcc.noalias() += multiplier1.angVel().cross(R1w2);
+        aAcc += multiplier1.angAcc();
       }
       else
       {
@@ -3599,8 +3587,7 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
 
   if(multiplier2.position.isSet() && multiplier1.position.isSet())
   {
-    position.set(true);
-    Vector3 & R2tp1 = position.getRefUnchecked(); /// reference ( Vector3&  )
+    Vector3 & R2tp1 = position.set(); /// reference ( Vector3&  )
     R2tp1.noalias() = R2t * multiplier1.position();
 
     if(multiplier2.linVel.isSet() && multiplier1.linVel.isSet() && multiplier1.angVel.isSet())
@@ -3611,9 +3598,7 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
       Vector3 & R2tw1 = tempVec_2; /// reference
       R2tw1.noalias() = R2t * multiplier1.angVel();
 
-      linVel.set(true);
-
-      Vector3 & R2tw1p2 = linVel.getRefUnchecked(); /// reference
+      Vector3 & R2tw1p2 = linVel.set(); /// reference
       R2tw1p2.noalias() = R2tw1.cross(multiplier2.position());
 
       Vector3 & R2tw1p2_p2d = R2tw1p2; ///  reference ( =linVel() )
@@ -3621,8 +3606,7 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
 
       if(multiplier2.linAcc.isSet() && multiplier1.linAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        linAcc.set(true);
-        linAcc.getRefUnchecked().noalias() = R2t * multiplier1.linAcc();
+        linAcc.set().noalias() = R2t * multiplier1.linAcc();
         linAcc().noalias() += (R2t * multiplier1.angAcc()).cross(multiplier2.position());
         linAcc().noalias() += R2tw1.cross(R2tw1p2_p2d + multiplier2.linVel());
         linAcc() += multiplier2.linAcc();
@@ -3655,14 +3639,12 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
 
     if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
     {
-      angVel.set(true);
-      Vector3 & R2tw1 = angVel.getRefUnchecked(); /// reference
+      Vector3 & R2tw1 = angVel.set(); /// reference
       R2tw1.noalias() = R2t * multiplier1.angVel();
 
       if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        angAcc.set(true);
-        angAcc.getRefUnchecked().noalias() = R2t * multiplier1.angAcc();
+        angAcc.set().noalias() = R2t * multiplier1.angAcc();
         angAcc().noalias() += R2tw1.cross(multiplier2.angVel());
         angAcc() += multiplier2.angAcc();
       }
@@ -3705,8 +3687,7 @@ inline LocalKinematics LocalKinematics::setToDiffNoAlias(const LocalKinematics &
 
   if(multiplier2.position.isSet() && multiplier1.position.isSet())
   {
-    position.set(true);
-    Vector3 & R2tp1 = position.getRefUnchecked(); /// reference ( Vector3&  )
+    Vector3 & R2tp1 = position.set(); /// reference ( Vector3&  )
 
     Vector3 & inv_pos2 = tempVec_3; // inversed position of multiplier 2
     inv_pos2.noalias() = -(multiplier2.orientation * multiplier2.position());
@@ -3721,9 +3702,7 @@ inline LocalKinematics LocalKinematics::setToDiffNoAlias(const LocalKinematics &
       Vector3 & R2tw1 = tempVec_2; /// reference
       R2tw1.noalias() = R2t * multiplier1.angVel();
 
-      linVel.set(true);
-
-      Vector3 & R2tw1p2 = linVel.getRefUnchecked(); /// reference
+      Vector3 & R2tw1p2 = linVel.set(); /// reference
       R2tw1p2.noalias() = R2tw1.cross(inv_pos2);
 
       Vector3 & R2tw1p2_p2d = R2tw1p2; ///  reference ( =linVel() )
@@ -3737,8 +3716,7 @@ inline LocalKinematics LocalKinematics::setToDiffNoAlias(const LocalKinematics &
       if(multiplier1.linAcc.isSet() && multiplier2.linAcc.isSet() && multiplier1.angAcc.isSet()
          && multiplier2.angAcc.isSet())
       {
-        linAcc.set(true);
-        linAcc.getRefUnchecked().noalias() = R2t * multiplier1.linAcc();
+        linAcc.set().noalias() = R2t * multiplier1.linAcc();
         linAcc().noalias() += (R2t * multiplier1.angAcc()).cross(inv_pos2);
         linAcc().noalias() += R2tw1.cross(R2tw1p2_p2d + inv_linVel2);
 
@@ -3778,14 +3756,12 @@ inline LocalKinematics LocalKinematics::setToDiffNoAlias(const LocalKinematics &
 
     if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
     {
-      angVel.set(true);
-      Vector3 & R2tw1 = angVel.getRefUnchecked(); /// reference
+      Vector3 & R2tw1 = angVel.set(); /// reference
       R2tw1.noalias() = R2t * multiplier1.angVel();
 
       if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        angAcc.set(true);
-        angAcc.getRefUnchecked().noalias() = R2t * multiplier1.angAcc();
+        angAcc.set().noalias() = R2t * multiplier1.angAcc();
         angAcc().noalias() -= R2tw1.cross(
             multiplier2.orientation * multiplier2.angVel()); // multiplier2.orientation * multiplier2.angVel() is the
                                                              // inverse of the angular velocity of multiplier 2
