@@ -116,21 +116,21 @@ public:
 
   double getMass() const;
 
-  const IndexedMatrix3 & getInertiaMatrix() const;
+  IndexedMatrix3 getInertiaMatrix() const;
 
-  const IndexedMatrix3 & getInertiaMatrixDot() const;
+  IndexedMatrix3 getInertiaMatrixDot() const;
 
-  const IndexedVector3 & getAngularMomentum() const;
+  IndexedVector3 getAngularMomentum() const;
 
-  const IndexedVector3 & getAngularMomentumDot() const;
+  IndexedVector3 getAngularMomentumDot() const;
 
-  const IndexedVector3 & getCenterOfMass() const;
+  IndexedVector3 getCenterOfMass() const;
 
-  const IndexedVector3 & getCenterOfMassDot() const;
+  IndexedVector3 getCenterOfMassDot() const;
 
-  const IndexedVector3 & getCenterOfMassDotDot() const;
+  IndexedVector3 getCenterOfMassDotDot() const;
 
-  const Vector6 getAdditionalWrench() const;
+  Vector6 getAdditionalWrench() const;
 
   /// @}
 
@@ -716,7 +716,7 @@ public:
   /// This is for advanced use but may be used to check how many states have been estimated up to now
   ///
   /// @return TimeIndex
-  const TimeIndex getStateVectorTimeIndex() const;
+  TimeIndex getStateVectorTimeIndex() const;
 
   /// @brief Set a value of the state x_k provided from another source
   /// @details can be used for initialization of the estimator
@@ -989,7 +989,6 @@ protected:
     Temp temp;
 
     Kinematics worldRestPose; // the rest pose of the contact in the world frame
-    Kinematics worldRefPose_DEBUG; // the input rest pose of the contact in the world frame
 
     Vector6 wrenchMeasurement; /// Describes the measured wrench (forces + torques) at the contact in the sensor's frame
     CheckedMatrix6 sensorCovMatrix;
@@ -1128,29 +1127,37 @@ protected:
 
 public:
   /// @{
-  const Vector6 getWorldContactWrench(const int & numContact) const;
+  /// @brief Returns the wrench exerted at the contact, expressed in the frame of the centroid
+  /// @return Vector6
+  Vector6 getCentroidContactWrench(const int & numContact) const;
 
-  const Vector6 getCentroidContactWrench(const int & numContact) const;
+  /// @brief Returns the pose of the contact in the centroid frame, given as an input when updating the contact
+  /// (obtained from its pose in the user frame).
+  /// @return Kinematics
+  Kinematics getCentroidContactInputPose(const int & numContact) const;
 
-  const Kinematics getCentroidContactInputPose(const int & numContact) const;
+  /// @brief Returns the pose of the contact in the world frame, obtained from the state pose of the centroid in the
+  /// world frame.
+  /// @return Kinematics
+  Kinematics getWorldContactPoseFromCentroid(const int & numContact) const;
 
-  const Kinematics getWorldContactInputRefPose(const int & numContact) const;
+  /// @brief Returns the estimated rest pose of the contact in the world frame.
+  /// @return Kinematics
+  Kinematics getContactStateRestKinematics(const int & numContact) const;
 
-  const Kinematics getWorldContactPose(const int & numContact) const;
-
-  const Kinematics & getContactStateRestKinematics(const int & numContact) const;
-
-  const Kinematics getUserContactInputPose(const int & numContact) const;
+  /// @brief Returns the pose of the contact in the user frame, given as an input when updating the contact.
+  /// @return Kinematics
+  Kinematics getUserContactInputPose(const int & numContact) const;
 
   /// @brief Get the measurement index of the required IMU : allows to access its corresponding measurements in the
   /// measurement vector for example
   ///
   /// @return const int &
-  const int getIMUMeasIndexByNum(const int & num) const;
+  int getIMUMeasIndexByNum(const int & num) const;
 
-  const int getContactMeasIndexByNum(const int & num) const;
+  int getContactMeasIndexByNum(const int & num) const;
 
-  const bool getContactIsSetByNum(const int & num) const;
+  bool getContactIsSetByNum(const int & num) const;
 
   ///////////////////////////////////////////////////////////////
   /// @name State vector representation arithmetics and derivation (advanced use)

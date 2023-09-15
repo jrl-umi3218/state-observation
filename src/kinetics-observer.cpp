@@ -364,7 +364,7 @@ const Vector & KineticsObserver::getCurrentStateVector() const
   return worldCentroidStateVector_;
 }
 
-const stateObservation::TimeIndex KineticsObserver::getStateVectorTimeIndex() const
+stateObservation::TimeIndex KineticsObserver::getStateVectorTimeIndex() const
 {
   return ekf_.getCurrentTime();
 }
@@ -1013,7 +1013,6 @@ int KineticsObserver::addContact(const Kinematics & worldContactRefKine,
   contact.stateIndex = contactsIndex() + contactNumber * sizeContact;
   contact.stateIndexTangent = contactsIndexTangent() + contactNumber * sizeContactTangent;
   contact.worldRestPose = worldContactRefKine;
-  contact.worldRefPose_DEBUG = worldContactRefKine;
 
   if(linearDamping != Matrix3::Constant(-1))
   {
@@ -2466,7 +2465,7 @@ void KineticsObserver::setAllCovariances(const Matrix3 & statePositionInitCovari
   resetProcessCovarianceMat();
 }
 
-const Vector6 KineticsObserver::getCentroidContactWrench(const int & numContact) const
+Vector6 KineticsObserver::getCentroidContactWrench(const int & numContact) const
 {
   Vector6 centroidContactWrench;
   centroidContactWrench.segment<sizeForce>(0) =
@@ -2481,17 +2480,12 @@ const Vector6 KineticsObserver::getCentroidContactWrench(const int & numContact)
   return centroidContactWrench;
 }
 
-const kine::Kinematics KineticsObserver::getCentroidContactInputPose(const int & numContact) const
+kine::Kinematics KineticsObserver::getCentroidContactInputPose(const int & numContact) const
 {
   return contacts_.at(numContact).centroidContactKine;
 }
 
-const kine::Kinematics KineticsObserver::getWorldContactInputRefPose(const int & numContact) const
-{
-  return contacts_.at(numContact).worldRefPose_DEBUG;
-}
-
-const kine::Kinematics KineticsObserver::getWorldContactPose(const int & numContact) const
+kine::Kinematics KineticsObserver::getWorldContactPoseFromCentroid(const int & numContact) const
 {
   Kinematics worldContactPose;
   worldContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics_),
@@ -2499,46 +2493,27 @@ const kine::Kinematics KineticsObserver::getWorldContactPose(const int & numCont
   return worldContactPose;
 }
 
-const kine::Kinematics & KineticsObserver::getContactStateRestKinematics(const int & numContact) const
+kine::Kinematics KineticsObserver::getContactStateRestKinematics(const int & numContact) const
 {
   return contacts_.at(numContact).worldRestPose;
 }
 
-const kine::Kinematics KineticsObserver::getUserContactInputPose(const int & numContact) const
+kine::Kinematics KineticsObserver::getUserContactInputPose(const int & numContact) const
 {
   return contacts_.at(numContact).userContactKine;
 }
 
-const Vector6 KineticsObserver::getWorldContactWrench(const int & numContact) const
-{
-  Vector6 worldContactWrench;
-  worldContactWrench.segment<sizeForce>(0) =
-      worldCentroidStateKinematics_.orientation.toMatrix3()
-      * contacts_.at(numContact).centroidContactKine.orientation.toMatrix3()
-      * worldCentroidStateVector_.segment<sizeForce>(contactForceIndex(numContact));
-
-  Kinematics worldContactKine;
-  worldContactKine.setToProductNoAlias(Kinematics(worldCentroidStateKinematics_),
-                                       contacts_.at(numContact).centroidContactKine);
-  worldContactWrench.segment<sizeTorque>(sizeForce) =
-      worldContactKine.orientation.toMatrix3()
-          * worldCentroidStateVector_.segment<sizeTorque>(contactTorqueIndex(numContact))
-      + worldContactKine.position().cross(worldContactWrench.segment<sizeForce>(0));
-
-  return worldContactWrench;
-}
-
-const int KineticsObserver::getIMUMeasIndexByNum(const int & num) const
+int KineticsObserver::getIMUMeasIndexByNum(const int & num) const
 {
   return imuSensors_[num].measIndex;
 }
 
-const int KineticsObserver::getContactMeasIndexByNum(const int & num) const
+int KineticsObserver::getContactMeasIndexByNum(const int & num) const
 {
   return contacts_[num].measIndex;
 }
 
-const bool KineticsObserver::getContactIsSetByNum(const int & num) const
+bool KineticsObserver::getContactIsSetByNum(const int & num) const
 {
   if(num >= contacts_.size() || contacts_.size() == 0)
   {
@@ -2555,42 +2530,42 @@ double KineticsObserver::getMass() const
   return mass_;
 }
 
-const IndexedMatrix3 & KineticsObserver::getInertiaMatrix() const
+IndexedMatrix3 KineticsObserver::getInertiaMatrix() const
 {
   return I_;
 }
 
-const IndexedMatrix3 & KineticsObserver::getInertiaMatrixDot() const
+IndexedMatrix3 KineticsObserver::getInertiaMatrixDot() const
 {
   return Id_;
 }
 
-const IndexedVector3 & KineticsObserver::getAngularMomentum() const
+IndexedVector3 KineticsObserver::getAngularMomentum() const
 {
   return sigma_;
 }
 
-const IndexedVector3 & KineticsObserver::getAngularMomentumDot() const
+IndexedVector3 KineticsObserver::getAngularMomentumDot() const
 {
   return sigmad_;
 }
 
-const IndexedVector3 & KineticsObserver::getCenterOfMass() const
+IndexedVector3 KineticsObserver::getCenterOfMass() const
 {
   return com_;
 }
 
-const IndexedVector3 & KineticsObserver::getCenterOfMassDot() const
+IndexedVector3 KineticsObserver::getCenterOfMassDot() const
 {
   return comd_;
 }
 
-const IndexedVector3 & KineticsObserver::getCenterOfMassDotDot() const
+IndexedVector3 KineticsObserver::getCenterOfMassDotDot() const
 {
   return comdd_;
 }
 
-const Vector6 KineticsObserver::getAdditionalWrench() const
+Vector6 KineticsObserver::getAdditionalWrench() const
 {
   Vector6 additionalWrench;
   additionalWrench.segment<sizeForce>(0) = additionalForce_;
