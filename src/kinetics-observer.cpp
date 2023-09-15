@@ -374,9 +374,24 @@ kine::LocalKinematics KineticsObserver::getLocalCentroidKinematics() const
   return worldCentroidStateKinematics_;
 }
 
-kine::LocalKinematics KineticsObserver::getLocalKinematicsOf(const LocalKinematics & locKin) const
+kine::LocalKinematics KineticsObserver::getLocalKinematicsOf(Kinematics userBodyKine)
 {
-  return LocalKinematics(worldCentroidStateKinematics_, locKin); /// product of the kinematics
+  Kinematics centroidBodyKine = userBodyKine;
+  if(centroidBodyKine.position.isSet())
+  {
+    centroidBodyKine.position() -= com_();
+  }
+  if(centroidBodyKine.linVel.isSet())
+  {
+    centroidBodyKine.linVel() -= comd_();
+  }
+  if(centroidBodyKine.linAcc.isSet())
+  {
+    centroidBodyKine.linAcc() -= comdd_();
+  }
+  LocalKinematics localCentroidBodyKine = LocalKinematics(centroidBodyKine);
+
+  return localCentroidBodyKine; /// product of the kinematics
 }
 
 /* Care : unsafe access, for the moment the global kinematics are updated only after the update, so don't call this
@@ -386,7 +401,7 @@ kine::Kinematics KineticsObserver::getGlobalCentroidKinematics() const
   return worldCentroidKinematics_;
 }
 
-kine::Kinematics KineticsObserver::getGlobalKinematicsOf(const Kinematics & userBodyKin) const
+kine::Kinematics KineticsObserver::getGlobalKinematicsOf(Kinematics userBodyKin) const
 {
   Kinematics centroidBodyKine = userBodyKin;
   if(centroidBodyKine.position.isSet())

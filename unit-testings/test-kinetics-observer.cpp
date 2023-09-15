@@ -89,10 +89,6 @@ int testKineticsObserverCodeAccessor(int errorcode)
 
   std::cout << k;
 
-  LocalKinematics l = o.getLocalKinematicsOf(k);
-
-  std::cout << l;
-
   std::cout << o.kineIndex() << " " << o.posIndex() << " " << o.oriIndex() << " " << o.linVelIndex() << " "
             << o.angVelIndex() << " " << o.gyroBiasIndex(0) << " " << o.gyroBiasIndex(1) << " "
             << o.unmodeledWrenchIndex() << " " << o.unmodeledForceIndex() << " " << o.unmodeledTorqueIndex() << " "

@@ -481,18 +481,18 @@ public:
   /// @return Kinematics
   LocalKinematics estimateAccelerations();
 
-  /// @brief Get the global-frame kinematics of a local-frame defined kinematics
-  /// @details The kinematics are linear and angular positions, velocities and optionally accalerations. This method
-  /// translates these kinematics from the local frame to the global frame.
-  /// To enable accelerations, run estimateAccelerations() beforehand.
+  /// @brief Get the local kinematics of a given frame (in the user frame) in the centroid frame.
+  /// @details The kinematics are linear and angular positions, velocities and optionally accelerations.
+  /// @param userBodyKine
+  /// @return LocalKinematics
+  LocalKinematics getLocalKinematicsOf(Kinematics userBodyKine);
+
+  /// @brief Get the global kinematics of a given frame (in the user frame) in the centroid frame.
+  /// @details The kinematics are linear and angular positions, velocities and optionally accelerations.
   ///
-  /// @param localKinematics
+  /// @param kine
   /// @return Kinematics
-  LocalKinematics getLocalKinematicsOf(const LocalKinematics & localKinematics) const;
-  /*
-  Kinematics getGlobalKinematicsOf(const LocalKinematics & localKinematics) const;
-  */
-  Kinematics getGlobalKinematicsOf(const Kinematics & kin) const;
+  Kinematics getGlobalKinematicsOf(Kinematics kine) const;
 
   /// get the contact force provided by the estimator
   /// which is different from a contact sensor measurement
@@ -1219,7 +1219,7 @@ public:
 
   virtual Matrix computeCMatrix();
 
-  /// @brief computes the local acceleration from a the state vector
+  /// @brief computes the local acceleration from the given state vector
   void computeLocalAccelerations(const Vector & x, Vector & acceleration);
 
   /// @brief Comparison between the Jacobians of the linear and angular accelerations with respect to the state,
