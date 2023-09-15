@@ -229,6 +229,7 @@ int testAccelerationsJacobians(KineticsObserver & ko_,
   {
     return errcode;
   }
+  return 0;
 }
 
 int testOrientationsJacobians(KineticsObserver & ko_, int errcode, double relativeErrorThreshold, double threshold) // 2
@@ -316,6 +317,7 @@ int testOrientationsJacobians(KineticsObserver & ko_, int errcode, double relati
   {
     return errcode;
   }
+  return 0;
 }
 
 int testAnalyticalAJacobianVsFD(KineticsObserver & ko_,
@@ -371,6 +373,7 @@ int testAnalyticalAJacobianVsFD(KineticsObserver & ko_,
   {
     return errcode;
   }
+  return 0;
 }
 
 int testAnalyticalCJacobianVsFD(KineticsObserver & ko_,
@@ -426,6 +429,7 @@ int testAnalyticalCJacobianVsFD(KineticsObserver & ko_,
   {
     return errcode;
   }
+  return 0;
 }
 
 } // end namespace stateObservation
