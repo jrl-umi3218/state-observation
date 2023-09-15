@@ -94,7 +94,7 @@ KineticsObserver::KineticsObserver(unsigned maxContacts, unsigned maxNumberOfIMU
   worldCentroidStateVectorDx_(stateTangentSize_), oldWorldCentroidStateVector_(stateSize_),
   additionalForce_(Vector3::Zero()), additionalTorque_(Vector3::Zero()),
   ekf_(stateSize_, stateTangentSize_, measurementSizeBase, measurementSizeBase, inputSize, false, false),
-  finiteDifferencesJacobians_(true), withRungeKutta_(false), withGyroBias_(false), withUnmodeledWrench_(false),
+  finiteDifferencesJacobians_(true), withGyroBias_(false), withUnmodeledWrench_(false),
   withAccelerationEstimation_(false), k_est_(0), k_data_(0), mass_(defaultMass), dt_(defaultdx), processNoise_(0x0),
   measurementNoise_(0x0), numberOfContactRealSensors_(0), currentIMUSensorNumber_(0),
   linearStiffnessMatDefault_(Matrix3::Identity() * linearStiffnessDefault),
@@ -565,11 +565,6 @@ void KineticsObserver::setWithUnmodeledWrench(bool b)
 void KineticsObserver::setWithAccelerationEstimation(bool b)
 {
   withAccelerationEstimation_ = b;
-}
-
-void KineticsObserver::useRungeKutta(bool b)
-{
-  withRungeKutta_ = b;
 }
 
 bool KineticsObserver::getWithAccelerationEstimation() const
@@ -2069,75 +2064,6 @@ void KineticsObserver::computeLocalAccelerations(const Vector & x, Vector & acce
          - worldCentroidStateKinematics.angVel().cross(I_() * worldCentroidStateKinematics.angVel() + sigma_()));
 }
 
-void KineticsObserver::computeRecursiveGlobalAccelerations_(
-    Kinematics & predictedWorldCentroidKinematics) // used in the Runge-Kutta integration
-{
-  BOOST_ASSERT(false && "this function must be checked");
-  Vector3 predictedVEContactForces = Vector3::Zero();
-  Vector3 predictedVEContactTorques = Vector3::Zero();
-
-  LocalKinematics predictedLocalWorldCentroidKinematics(predictedWorldCentroidKinematics);
-
-  computeContactForces_(predictedLocalWorldCentroidKinematics, predictedVEContactForces, predictedVEContactTorques);
-
-  // increment of force occuring during the current integration step of the rungeKutta
-  Vector3 diffForces = predictedVEContactForces - initialVEContactForces_;
-  Vector3 diffTorques = predictedVEContactTorques - initialVEContactTorques_;
-
-  Vector3 & currentStepContactForces = diffForces;
-  Vector3 & currentStepContactTorques = diffTorques;
-
-  // Corresponds to the increment contactForce
-  currentStepContactForces += initTotalCentroidForce_;
-  currentStepContactTorques += initTotalCentroidTorque_;
-
-  predictedLocalWorldCentroidKinematics.linAcc =
-      predictedLocalWorldCentroidKinematics.orientation * (currentStepContactForces / mass_) - cst::gravity;
-
-  predictedLocalWorldCentroidKinematics.angAcc =
-      predictedLocalWorldCentroidKinematics.orientation.toMatrix3() * I_().inverse()
-      * (currentStepContactTorques
-         - Id_() * predictedLocalWorldCentroidKinematics.orientation.toMatrix3().transpose()
-               * predictedLocalWorldCentroidKinematics.angVel()
-         - sigmad_()
-         - (predictedLocalWorldCentroidKinematics.orientation.toMatrix3().transpose()
-            * predictedLocalWorldCentroidKinematics.angVel())
-               .cross(I_() * predictedLocalWorldCentroidKinematics.orientation.toMatrix3().transpose()
-                          * predictedLocalWorldCentroidKinematics.angVel()
-                      + sigma_()));
-}
-
-void KineticsObserver::computeRecursiveLocalAccelerations_(
-    LocalKinematics & predictedWorldCentroidKinematics) // used in the Runge-Kutta integration
-{
-  Kinematics globWorldCentroidStateKinematics(predictedWorldCentroidKinematics);
-
-  Vector3 predictedVEContactForces = Vector3::Zero();
-  Vector3 predictedVEContactTorques = Vector3::Zero();
-
-  computeContactForces_(predictedWorldCentroidKinematics, predictedVEContactForces, predictedVEContactTorques);
-
-  // computing the increment of force occuring during the current integration step of the rungeKutta
-  Vector3 diffForces = predictedVEContactForces - initialVEContactForces_;
-  Vector3 diffTorques = predictedVEContactTorques - initialVEContactTorques_;
-
-  Vector3 & currentStepContactForces = diffForces;
-  Vector3 & currentStepContactTorques = diffTorques;
-
-  // Corresponds to the increment contactForce
-  currentStepContactForces += initTotalCentroidForce_;
-  currentStepContactTorques += initTotalCentroidTorque_;
-
-  predictedWorldCentroidKinematics.linAcc =
-      (currentStepContactForces / mass_)
-      - predictedWorldCentroidKinematics.orientation.toMatrix3().transpose() * cst::gravity;
-  predictedWorldCentroidKinematics.angAcc =
-      I_().inverse()
-      * (currentStepContactTorques - Id_() * predictedWorldCentroidKinematics.angVel() - sigmad_()
-         - predictedWorldCentroidKinematics.angVel().cross(I_() * predictedWorldCentroidKinematics.angVel()
-                                                           + sigma_()));
-}
-
 void KineticsObserver::computeContactForce_(VectorContactIterator i,
                                             LocalKinematics & worldCentroidStateKinematics,
                                             Kinematics & worldRestContactPose,
@@ -2341,18 +2267,7 @@ Vector KineticsObserver::stateDynamics(const Vector & xInput, const Vector & /*u
   computeLocalAccelerations_(worldCentroidStateKinematics, initTotalCentroidForce_, initTotalCentroidTorque_, linacc,
                              angacc);
 
-  if(withRungeKutta_)
-  {
-    initialVEContactForces_ = Vector3::Zero();
-    initialVEContactTorques_ = Vector3::Zero();
-    computeContactForces_(worldCentroidStateKinematics, initialVEContactForces_, initialVEContactTorques_);
-
-    worldCentroidStateKinematics.integrateRungeKutta4(dt_, *this);
-  }
-  else
-  {
-    worldCentroidStateKinematics.integrate(dt_);
-  }
+  worldCentroidStateKinematics.integrate(dt_);
 
   x.segment<sizeStateKine>(kineIndex()) = worldCentroidStateKinematics.toVector(flagsStateKine);
 

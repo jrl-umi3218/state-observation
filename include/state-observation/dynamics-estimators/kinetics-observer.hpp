@@ -38,10 +38,7 @@ namespace stateObservation
 /// assumption of viscoelastic contacts and using three kinds of measurements: IMUs, Force/Torque measurements (contact
 /// and other ones) and any absolute position measurements.
 ///
-class STATE_OBSERVATION_DLLAPI KineticsObserver : protected DynamicalSystemFunctorBase,
-                                                  protected kine::Kinematics::RecursiveAccelerationFunctorBase,
-                                                  protected kine::LocalKinematics::RecursiveAccelerationFunctorBase,
-                                                  protected StateVectorArithmetics
+class STATE_OBSERVATION_DLLAPI KineticsObserver : protected DynamicalSystemFunctorBase, protected StateVectorArithmetics
 {
 public:
   typedef kine::Kinematics Kinematics;
@@ -1086,19 +1083,6 @@ protected:
                                   Vector3 & linAcc,
                                   Vector3 & angAcc);
 
-  /// @brief Computes the accelerations of the centroid in the world frame after a small increment of the kinematics.
-  /// @details Uses the predicted kinematics in the visco-elastic model to obtain an estimate of the contact
-  /// forces.These forces replace the contact forces of the previously know state to compute the accelerations. Used to
-  /// compute the acceleration of the centroid in the world frame over the steps of the Runge-Kutta intergation.
-  /// @param predictedWorldCentroidKinematics Newly predicted kinematics of the centroid in the world frame.
-  virtual void computeRecursiveGlobalAccelerations_(Kinematics & predictedWorldCentroidKinematics);
-
-  /// @brief @copybrief computeLocalAccelerations_(LocalKinematics & localStateKine, const Vector3 & totalForceLocal,
-  /// const Vector3 & totalMomentLocal, Vector3 & linAcc, Vector3 & angAcc). Version adapted to local kinematics.
-  /// @details @copydetails computeLocalAccelerations_(LocalKinematics & localStateKine, const Vector3 &
-  /// totalForceLocal, const Vector3 & totalMomentLocal, Vector3 & linAcc, Vector3 & angAcc)
-  virtual void computeRecursiveLocalAccelerations_(LocalKinematics & predictedWorldCentroidKinematics);
-
   /// @brief Computes the force exerted at a contact using the visco-elastic model on the given state vector.
   /// @param i Contact to estimate
   /// @param worldCentroidStateKinematics State vector used in the visco-elastic model
@@ -1215,11 +1199,6 @@ public:
   /// @param dx the timestep
   virtual void setFiniteDifferenceStep(const Vector & dx);
 
-  /// @brief Define if we use the Runge-Kutta approximation method or not
-  ///
-  /// @param b true means we use finite differences
-  virtual void useRungeKutta(bool b = true);
-
   virtual Matrix computeAMatrix();
 
   virtual Matrix computeCMatrix();
@@ -1288,13 +1267,8 @@ protected:
   Vector3 additionalForce_;
   Vector3 additionalTorque_;
 
-  Vector3 initTotalCentroidForce_; // Initial total force used in the Runge-Kutta integration, coming from the current
-                                   // state's variables
-  Vector3 initTotalCentroidTorque_;
-
-  Vector3 initialVEContactForces_; // Initial contact forces used in the Runge-Kutta integration, coming from the
-                                   // visco-elastic model used on the state's kinematics.
-  Vector3 initialVEContactTorques_;
+  Vector3 initTotalCentroidForce_; // Initial total force used in the state prediction
+  Vector3 initTotalCentroidTorque_; // Initial total torque used in the state prediction
 
   Vector measurementVector_;
   Matrix measurementCovMatrix_;
@@ -1304,8 +1278,6 @@ protected:
   bool withGyroBias_;
   bool withUnmodeledWrench_;
   bool withAccelerationEstimation_;
-
-  bool withRungeKutta_; // defines whether to use the Runge-Kutta approximation method or not
 
   IndexedVector3 com_, comd_, comdd_;
   IndexedVector3 sigma_, sigmad_;
