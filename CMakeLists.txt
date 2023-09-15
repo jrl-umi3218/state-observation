@@ -44,7 +44,7 @@ project(
 set(DOXYGEN_USE_MATHJAX "YES")
 set(DOXYGEN_EXAMPLE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/doc")
 
-option(BUILD_STATE_OBSERVATION_BENCHMARKS "Build state-observation tools" OFF)
+option(BUILD_STATE_OBSERVATION_BENCHMARKS "Build state-observation benchmarks" OFF)
 option(BUILD_STATE_OBSERVATION_TOOLS "Build state-observation tools" ON)
 
 # For MSVC, set local environment variable to enable finding the built dll
