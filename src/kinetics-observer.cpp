@@ -2550,7 +2550,7 @@ const bool KineticsObserver::getContactIsSetByNum(const int & num) const
   }
 }
 
-const double & KineticsObserver::getMass() const
+const double KineticsObserver::getMass() const
 {
   return mass_;
 }
