@@ -98,6 +98,9 @@ public:
   /// @param b
   void setWithAccelerationEstimation(bool b = true);
 
+  /// @brief Returns if the estimation computes also the accelerations
+  ///
+  /// @return True if the acceleration is also estimated. Returns false otherwise.
   bool getWithAccelerationEstimation() const;
 
   /// @brief Set if the gyrometers bias is computed or not.
