@@ -153,11 +153,9 @@ public:
   /// @return the number of the IMU (useful in case there are several ones)
   /// @param accelero measured value
   /// @param gyrometer measured gyro value
-  /// @param centroidImuKinematics sets the kinematics of the IMU in the user's
-  /// frame, expressed in the user's frame. The best is to provide the position, the orientation,
-  /// the angular and linear velocities and the linear acceleration
-  /// Nevertheless if velocities or accelerations are not available they will be
-  /// automatically computed through finite differences
+  /// @param userImuKinematics sets the kinematics of the IMU in the user frame. The best is to provide the position,
+  /// the orientation, the angular and linear velocities and the linear acceleration Nevertheless if velocities or
+  /// accelerations are not available they will be automatically computed through finite differences
   /// @param num the number of the IMU (useful in case there are several ones).
   ///           If not set it will be generated automatically.
   int setIMU(const Vector3 & accelero, const Vector3 & gyrometer, const Kinematics & userImuKinematics, int num = -1);
@@ -331,6 +329,8 @@ public:
   /// @param wrenchSensorCovMat the new default covariance matrix
   void setContactWrenchSensorDefaultCovarianceMatrix(const Matrix6 & wrenchSensorCovMat);
 
+  /// @brief Initializes the state vector.
+  /// @param initStateVector the initial state vector.
   void setInitWorldCentroidStateVector(const Vector & initStateVector);
 
   void setAllCovariances(const Matrix3 & statePositionInitCovariance,
@@ -457,15 +457,21 @@ public:
                                        Vector3 & forceCentroidFrame,
                                        Vector3 & momentCentroidFrame);
 
-  /// @brief Get the Kinematics of the observed local frame
+  /// @brief Get the estimated local Kinematics of the centroid frame in the world frame (local, so expressed in the
+  /// centroid frame).
   /// @details the kinematics are the main output of this observer. It includes the linear and angular position and
   /// velocity but not the accelerations by default. To get the acceleration call estimateAccelerations(). This
   /// method does NOT update the estimation, for this use update().
   ///
   /// @return Kinematics
-
   LocalKinematics getLocalCentroidKinematics() const;
 
+  /// @brief Get the estimated Kinematics of the centroid frame in the world frame.
+  /// @details It includes the linear and angular position and
+  /// velocity but not the accelerations by default. To get the acceleration call estimateAccelerations(). This
+  /// method does NOT update the estimation, for this use update().
+  ///
+  /// @return Kinematics
   Kinematics getGlobalCentroidKinematics() const;
 
   /// @brief gets the Kinematics that include the linear and angular accelerations.
