@@ -11,6 +11,13 @@
 
 using namespace stateObservation::kine;
 
+/*
+This benchmark tests the computation speed of several methods for the multiplication of matrices with symmetry
+properties. More specifically, here we test the multiplication A*P*A.transpose() involved in the Kalman Filter because
+it appeared that this operation is extremely computationally expensive even for average-sized matrices (like 50 rows x
+columns).
+*/
+
 const int sizeState = 100;
 
 class MyFixture : public benchmark::Fixture
