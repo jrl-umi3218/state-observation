@@ -139,6 +139,15 @@ public:
 
   void setExplicitX1(const Vector3 & x1);
 
+  /// @brief informs the estimator that x1hat needs to be reset.
+  /// @copydetails checkResetX1hat()
+  void resetX1hat();
+
+  /// @brief Checks if x1hat needs to be reset and if yes, resets it with the current value of x1.
+  /// @details x1hat needs to be reset when the mode of computation of the anchor frame changed, to avoid
+  /// discontinuities.
+  void checkResetX1hat();
+
 /// prevent c++ overloaded virtual function warning
 #if defined(__clang__)
 #  pragma clang diagnostic push
@@ -163,6 +172,7 @@ public:
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
+public:
 protected:
   /// The parameters of the estimator
   double alpha_, beta_, gamma_;
@@ -184,6 +194,9 @@ protected:
 
   /// Linear velocity of the control frame
   Vector3 v_C_;
+
+  /// indicates that x1hat needs to be reset
+  bool resetX1hat_ = false;
 
   /// variables used for the computation
   Vector3 x1_;

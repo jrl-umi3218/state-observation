@@ -34,6 +34,20 @@ void TiltEstimator::setExplicitX1(const Vector3 & x1)
   x1_ = x1;
 }
 
+void TiltEstimator::resetX1hat()
+{
+  resetX1hat_ = true;
+}
+
+void TiltEstimator::checkResetX1hat()
+{
+  if(resetX1hat_)
+  {
+    x_().segment<3>(0) = x1_;
+    resetX1hat_ = false;
+  }
+}
+
 ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
 {
   TimeIndex k = this->x_.getTime();
@@ -51,6 +65,8 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
   {
     withExplicitX1_ = false;
   }
+
+  checkResetX1hat();
 
   ObserverBase::StateVector x_hat = getCurrentEstimatedState();
   x1_hat_ = x_hat.segment<3>(0);
