@@ -114,7 +114,7 @@ public:
   /// @return sets
   void setMass(double);
 
-  double getMass() const;
+  const double & getMass() const;
 
   const IndexedMatrix3 & getInertiaMatrix() const;
 
