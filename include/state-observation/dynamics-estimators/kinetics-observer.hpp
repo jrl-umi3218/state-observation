@@ -116,19 +116,19 @@ public:
 
   double getMass() const;
 
-  IndexedMatrix3 getInertiaMatrix() const;
+  const IndexedMatrix3 & getInertiaMatrix() const;
 
-  IndexedMatrix3 getInertiaMatrixDot() const;
+  const IndexedMatrix3 & getInertiaMatrixDot() const;
 
-  IndexedVector3 getAngularMomentum() const;
+  const IndexedVector3 & getAngularMomentum() const;
 
-  IndexedVector3 getAngularMomentumDot() const;
+  const IndexedVector3 & getAngularMomentumDot() const;
 
-  IndexedVector3 getCenterOfMass() const;
+  const IndexedVector3 & getCenterOfMass() const;
 
-  IndexedVector3 getCenterOfMassDot() const;
+  const IndexedVector3 & getCenterOfMassDot() const;
 
-  IndexedVector3 getCenterOfMassDotDot() const;
+  const IndexedVector3 & getCenterOfMassDotDot() const;
 
   Vector6 getAdditionalWrench() const;
 
@@ -380,40 +380,40 @@ public:
   /// @param com position
   void setCenterOfMass(const Vector3 & com);
 
-  /// @brief Set the 3x3 inertia matrix and its derivative expressed in the local frame
+  /// @brief Set the 3x3 inertia matrix and its derivative expressed in the user frame
   ///
   /// @param I Set the inertia matrix at the CoM
   /// @param I_dot Derivative of inertia matrix
   void setCoMInertiaMatrix(const Matrix3 & I, const Matrix3 & I_dot);
 
-  /// @brief Set the 3x3 inertia matrix expressed in the local frame
+  /// @brief Set the 3x3 inertia matrix expressed in the user frame
   /// @details The derivative will be computed using finite differences
   ///
   /// @param I Inertia matrix
   /// @param I_dot Derivative of inertia matrix
   void setCoMInertiaMatrix(const Matrix3 & I);
 
-  /// @brief Set the inertia matrix and its derivative as a Vector6 expressed in the local frame
+  /// @brief Set the inertia matrix and its derivative as a Vector6 expressed in the user frame
   ///
   /// @param I Inertia matrix as a vector containing the diagonal and the three non
   /// diagonal values concatenated
   /// @param I_dot Derivative of inertia matrix expressed in the same way
   void setCoMInertiaMatrix(const Vector6 & I, const Vector6 & I_dot);
 
-  /// @brief Set the inertia matrix as a Vector6 expressed in the local frame
+  /// @brief Set the inertia matrix as a Vector6 expressed in the user frame
   /// @details The derivative will be computed using finite differences
   ///
   /// @param I Inertia matrix as a vector containing the diagonal and the three non
   /// diagonal values concatenated
   void setCoMInertiaMatrix(const Vector6 & I);
 
-  /// @brief Set the Angular Momentum around the CoM and its derviative expressed in the local frame
+  /// @brief Set the Angular Momentum around the CoM and its derviative expressed in the user frame
   ///
   /// @param sigma The angular momentum
   /// @param sigma_dot The angular momentum derivative
   void setCoMAngularMomentum(const Vector3 & sigma, const Vector3 & sigma_dot);
 
-  /// @brief Set the Angular Momentum around the CoM  expressed in the local frame
+  /// @brief Set the Angular Momentum around the CoM  expressed in the user frame
   /// @details The derivative will be computed using finite differences
   ///
   /// @param sigma The angular momentum
@@ -485,14 +485,14 @@ public:
   /// @details The kinematics are linear and angular positions, velocities and optionally accelerations.
   /// @param userBodyKine
   /// @return LocalKinematics
-  LocalKinematics getLocalKinematicsOf(Kinematics userBodyKine);
+  LocalKinematics getLocalKinematicsOf(const Kinematics & userBodyKine);
 
   /// @brief Get the global kinematics of a given frame (in the user frame) in the centroid frame.
   /// @details The kinematics are linear and angular positions, velocities and optionally accelerations.
   ///
   /// @param kine
   /// @return Kinematics
-  Kinematics getGlobalKinematicsOf(Kinematics kine) const;
+  Kinematics getGlobalKinematicsOf(const Kinematics & userBodyKin) const;
 
   /// get the contact force provided by the estimator
   /// which is different from a contact sensor measurement

@@ -374,7 +374,7 @@ kine::LocalKinematics KineticsObserver::getLocalCentroidKinematics() const
   return worldCentroidStateKinematics_;
 }
 
-kine::LocalKinematics KineticsObserver::getLocalKinematicsOf(Kinematics userBodyKine)
+kine::LocalKinematics KineticsObserver::getLocalKinematicsOf(const Kinematics & userBodyKine)
 {
   Kinematics centroidBodyKine = userBodyKine;
   if(centroidBodyKine.position.isSet())
@@ -401,7 +401,7 @@ kine::Kinematics KineticsObserver::getGlobalCentroidKinematics() const
   return worldCentroidKinematics_;
 }
 
-kine::Kinematics KineticsObserver::getGlobalKinematicsOf(Kinematics userBodyKin) const
+kine::Kinematics KineticsObserver::getGlobalKinematicsOf(const Kinematics & userBodyKin) const
 {
   Kinematics centroidBodyKine = userBodyKin;
   if(centroidBodyKine.position.isSet())
@@ -749,7 +749,7 @@ void KineticsObserver::updateContactWithWrenchSensor(const Vector6 & wrenchMeasu
                                 k_data_);
     // we convert the contact's kinematics from the user frame to the centroid's frame
   }
-  else /// the contact is newlyset
+  else /// the contact is newly set
   {
     contacts_[contactNumber].userContactKine = userContactKine;
     convertUserToCentroidFrame_(contacts_[contactNumber].userContactKine, contacts_[contactNumber].centroidContactKine,
@@ -2545,37 +2545,37 @@ double KineticsObserver::getMass() const
   return mass_;
 }
 
-IndexedMatrix3 KineticsObserver::getInertiaMatrix() const
+const IndexedMatrix3 & KineticsObserver::getInertiaMatrix() const
 {
   return I_;
 }
 
-IndexedMatrix3 KineticsObserver::getInertiaMatrixDot() const
+const IndexedMatrix3 & KineticsObserver::getInertiaMatrixDot() const
 {
   return Id_;
 }
 
-IndexedVector3 KineticsObserver::getAngularMomentum() const
+const IndexedVector3 & KineticsObserver::getAngularMomentum() const
 {
   return sigma_;
 }
 
-IndexedVector3 KineticsObserver::getAngularMomentumDot() const
+const IndexedVector3 & KineticsObserver::getAngularMomentumDot() const
 {
   return sigmad_;
 }
 
-IndexedVector3 KineticsObserver::getCenterOfMass() const
+const IndexedVector3 & KineticsObserver::getCenterOfMass() const
 {
   return com_;
 }
 
-IndexedVector3 KineticsObserver::getCenterOfMassDot() const
+const IndexedVector3 & KineticsObserver::getCenterOfMassDot() const
 {
   return comd_;
 }
 
-IndexedVector3 KineticsObserver::getCenterOfMassDotDot() const
+const IndexedVector3 & KineticsObserver::getCenterOfMassDotDot() const
 {
   return comdd_;
 }
