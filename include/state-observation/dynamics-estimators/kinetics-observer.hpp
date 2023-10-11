@@ -1359,14 +1359,14 @@ protected:
   /// @param centroidKine the LocalKinematics object corresponding to the converted LocalKinematics in the centroid's
   /// frame.
 
-  inline void convertUserToCentroidFrame_(const Kinematics & userKine, Kinematics & centroidKine, TimeIndex k_data);
+  void convertUserToCentroidFrame_(const Kinematics & userKine, Kinematics & centroidKine, TimeIndex k_data);
 
   /// @brief Converts a Kinematics object from the user's frame to the centroid's frame, which is used for most of the
   /// computations
   /// @param userKine the Kinematics object expressed in the user's frame. It is likely to correspond to the contact's
   /// Kinematics, defined by the user in its frame.
 
-  inline Kinematics convertUserToCentroidFrame_(const Kinematics & userKine, TimeIndex k_data);
+  Kinematics convertUserToCentroidFrame_(const Kinematics & userKine, TimeIndex k_data);
 
   /// Getters for the indexes of the state Vector using private types
   inline unsigned contactIndex(VectorContactConstIterator i) const;
