@@ -28,15 +28,15 @@
 namespace stateObservation
 {
 
-/// @brief This observer estimated the kinematics and the external forces.
+/// @brief This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements, and the
+/// contacts forces and pose.
 
-/// @details  The provided kinematics is the position, the orientation, the velocities and even the accelerations of a
-/// frame 1 within another frame 2. The object Kinematics is the expression of these kinematics in the global frame 2,
-/// while the LocalKinematics object is their expression in the local frame 1. Our observer estimates the local
-/// kinematics of the centroid's frame within the world frame. The reason to choose the centroid's frame is that it
-/// simplifies many expressions, for example the expressions of the accelerations. This estimation is based on the
-/// assumption of viscoelastic contacts and using three kinds of measurements: IMUs, Force/Torque measurements (contact
-/// and other ones) and any absolute position measurements.
+/// @details  Our observer estimates the localkinematics of the centroid's frame within the world frame. The reason to
+/// choose the centroid's frame is that it simplifies many expressions, for example the expressions of the
+/// accelerations. This estimation is based on the assumption of viscoelastic contacts and using three kinds of
+/// measurements: IMUs, Force/Torque measurements (contact and other ones) and any absolute position measurements.
+/// Inputs are given in a frame whose choice is at the user's discretion, we therefore call it the user frame.
+
 ///
 class STATE_OBSERVATION_DLLAPI KineticsObserver : protected DynamicalSystemFunctorBase, protected StateVectorArithmetics
 {
@@ -114,22 +114,49 @@ public:
   /// @return sets
   void setMass(double);
 
+  /// @brief Returns the mass of the robot
+  ///
+  /// @return the mass of the robot.
   const double & getMass() const;
 
+  /// @brief Returns the global inertia matrix of the robot at the center of mass.
+  ///
+  /// @return The global inertia matrix of the robot at the center of mass.
   const IndexedMatrix3 & getInertiaMatrix() const;
 
+  /// @brief Returns the derivative of the global inertia matrix of the robot at the center of mass.
+  ///
+  /// @return The derivative of the global inertia matrix of the robot at the center of mass.
   const IndexedMatrix3 & getInertiaMatrixDot() const;
 
+  /// @brief Returns the angular momentum of the robot at the center of mass.
+  ///
+  /// @return The angular momentum of the robot at the center of mass.
   const IndexedVector3 & getAngularMomentum() const;
 
+  /// @brief Returns the derivative of the angular momentum of the robot at the center of mass.
+  ///
+  /// @return The derivative of the angular momentum of the robot at the center of mass.
   const IndexedVector3 & getAngularMomentumDot() const;
 
+  /// @brief Returns the position of the CoM of the robot in the user frame
+  ///
+  /// @return The position of the center of mass of the robot in the user frame.
   const IndexedVector3 & getCenterOfMass() const;
 
+  /// @brief Returns the linear velocity of the CoM of the robot in the user frame
+  ///
+  /// @return The linear velocity of the center of mass of the robot in the user frame.
   const IndexedVector3 & getCenterOfMassDot() const;
 
+  /// @brief Returns the linear acceleration of the CoM of the robot in the user frame
+  ///
+  /// @return The linear acceleration of the center of mass of the robot in the user frame.
   const IndexedVector3 & getCenterOfMassDotDot() const;
 
+  /// @brief Returns the input additional wrench, expressed in the centroid frame
+  ///
+  /// @return The input additional wrench, expressed in the centroid frame.
   Vector6 getAdditionalWrench() const;
 
   /// @}
@@ -337,21 +364,21 @@ public:
   /// ////////////////////////////////////////////////
 
   /// @{
-  /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
+  /// @brief Set the Center Of Mass kinematics expressed in the user frame
   ///
   /// @param com position
   /// @param com_dot velocity
   /// @param com_dot_dot acceleration
   void setCenterOfMass(const Vector3 & com, const Vector3 & com_dot, const Vector3 & com_dot_dot);
 
-  /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
+  /// @brief Set the Center Of Mass kinematics expressed in the user frame
   /// @details The acceleration will be computed through finite differences
   ///
   /// @param com position
   /// @param com_dot velocity
   void setCenterOfMass(const Vector3 & com, const Vector3 & com_dot);
 
-  /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
+  /// @brief Set the Center Of Mass kinematics expressed in the user frame
   /// @details The velocity and acceleration will be computed through finite differences
   ///
   /// @param com position
