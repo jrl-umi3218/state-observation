@@ -429,9 +429,4 @@ void KalmanFilterBase::setStateArithmetics(StateVectorArithmetics * a)
   arithm_ = a;
 }
 
-void KalmanFilterBase::resetPrediction()
-{
-  xbar_.set(false);
-}
-
 } // namespace stateObservation
