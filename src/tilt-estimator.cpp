@@ -28,13 +28,13 @@ void TiltEstimator::setMeasurement(const Vector3 ya_k, const Vector3 yg_k, TimeI
   ZeroDelayObserver::setMeasurement(y_k, k);
 }
 
-void TiltEstimator::setExplicitX1(const Vector3 & x1)
+void TiltEstimator::setExplicitImuLocVel(const Vector3 & x1)
 {
   withExplicitX1_ = true;
   x1_ = x1;
 }
 
-void TiltEstimator::resetX1hat()
+void TiltEstimator::resetImuLocVelHat()
 {
   resetX1hat_ = true;
 }

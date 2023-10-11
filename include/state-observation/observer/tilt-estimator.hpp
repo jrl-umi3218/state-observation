@@ -141,16 +141,15 @@ public:
     return v_C_;
   }
 
-  void setExplicitX1(const Vector3 & x1);
+  /// @brief Sets x1 (the local linear velocity of the IMU in the world) explicitely for the next iteration. Otherwise
+  /// it is computed from the input variables.
+  /// @param x1 the input local linear velocity of the IMU in the world.
+  void setExplicitImuLocVel(const Vector3 & x1);
 
-  /// @brief informs the estimator that x1hat needs to be reset.
+  /// @brief informs the estimator that x1hat (the estimate of the local linear velocity of the IMU in the world) needs
+  /// to be reset.
   /// @copydetails checkResetX1hat()
-  void resetX1hat();
-
-  /// @brief Checks if x1hat needs to be reset and if yes, resets it with the current value of x1.
-  /// @details x1hat needs to be reset when the mode of computation of the anchor frame changed, to avoid
-  /// discontinuities.
-  void checkResetX1hat();
+  void resetImuLocVelHat();
 
 /// prevent c++ overloaded virtual function warning
 #if defined(__clang__)
@@ -213,6 +212,11 @@ protected:
 
   /// The tilt estimator loop
   StateVector oneStepEstimation_();
+
+  /// @brief Checks if x1hat needs to be reset and if yes, resets it with the current value of x1.
+  /// @details x1hat needs to be reset when the mode of computation of the anchor frame changed, to avoid
+  /// discontinuities.
+  void checkResetX1hat();
 };
 
 } // namespace stateObservation
