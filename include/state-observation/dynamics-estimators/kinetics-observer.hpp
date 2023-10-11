@@ -461,8 +461,8 @@ public:
                                        Vector3 & forceCentroidFrame,
                                        Vector3 & momentCentroidFrame);
 
-  /// @brief Get the estimated local Kinematics of the centroid frame in the world frame (local, so expressed in the
-  /// centroid frame).
+  /// @brief Get the estimated local Kinematics of the centroid frame in the world frame (local, which means expressed
+  /// in the centroid frame).
   /// @details the kinematics are the main output of this observer. It includes the linear and angular position and
   /// velocity but not the accelerations by default. To get the acceleration call estimateAccelerations(). This
   /// method does NOT update the estimation, for this use update().
@@ -542,7 +542,6 @@ public:
                                        bool resetContactWrenches = true,
                                        bool resetCovariance = true);
 
-  /// @{
   /// @brief Set the State Kinematics
   /// @details Sets a value for the kinematics part of the state
   ///
@@ -551,8 +550,15 @@ public:
   /// @param resetCovariance set if the covariance of the state should be reset
   void setWorldCentroidStateKinematics(const Kinematics & kine, bool resetCovariance = true);
 
+  /// @brief Set the state contact kinematics and wrench.
+  /// @details Sets a value for the contact part of the state. Might be useful to reset this state for instance.
+  ///
+  /// @param index index of the contact
+  /// @param worldContactRestPose new state rest pose of the contact
+  /// @param wrench new state wrench of the contact
+  /// @param resetCovariance set if the associated part of the state covariance matrix should be reset
   void setStateContact(const int & index,
-                       Kinematics worldContactRestKine,
+                       Kinematics worldContactRestPose,
                        const Vector6 & wrench,
                        bool resetCovariance = true);
 

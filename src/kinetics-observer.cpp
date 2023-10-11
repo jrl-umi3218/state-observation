@@ -1498,7 +1498,7 @@ void KineticsObserver::useFiniteDifferencesJacobians(bool b)
 }
 
 void KineticsObserver::setStateContact(const int & index,
-                                       Kinematics worldContactRestKine,
+                                       Kinematics worldContactRestPose,
                                        const Vector6 & wrench,
                                        bool resetCovariance)
 {
@@ -1506,7 +1506,7 @@ void KineticsObserver::setStateContact(const int & index,
 
   BOOST_ASSERT(contact.isSet && "The contact is currently not set");
   worldCentroidStateVector_.segment<sizePose>(contactPosIndex(index)) =
-      worldContactRestKine.toVector().segment<sizePose>(0);
+      worldContactRestPose.toVector().segment<sizePose>(0);
 
   worldCentroidStateVector_.segment<sizeWrench>(contactWrenchIndex(index)) = wrench;
 
