@@ -341,6 +341,8 @@ private:
   T b_;
 };
 
+/// @brief This structure is used as an AdditionalChecker for a CheckedItem that doesn't require additional tests.
+/// @details This structure's check operations are always true.
 template<typename T>
 struct EmptyChecker
 {
