@@ -309,6 +309,7 @@ public:
   /// get the last predicted measurement
   MeasureVector getLastPredictedMeasurement() const;
 
+  /// get the last measurement
   MeasureVector getLastMeasurement() const;
 
   /// get the last Kalman gain matrix
