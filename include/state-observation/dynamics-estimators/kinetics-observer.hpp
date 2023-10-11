@@ -329,29 +329,6 @@ public:
   /// @param wrenchSensorCovMat the new default covariance matrix
   void setContactWrenchSensorDefaultCovarianceMatrix(const Matrix6 & wrenchSensorCovMat);
 
-  /// @brief Initializes the state vector.
-  /// @param initStateVector the initial state vector.
-  void setInitWorldCentroidStateVector(const Vector & initStateVector);
-
-  void setAllCovariances(const Matrix3 & statePositionInitCovariance,
-                         const Matrix3 & stateOriInitCovariance,
-                         const Matrix3 & stateLinVelInitCovariance,
-                         const Matrix3 & stateAngVelInitCovariance,
-                         const Matrix3 & gyroBiasInitCovariance,
-                         const Matrix6 & unmodeledWrenchInitCovariance,
-                         const Matrix12 & contactInitCovariance,
-                         const Matrix3 & statePositionProcessCovariance,
-                         const Matrix3 & stateOriProcessCovariance,
-                         const Matrix3 & stateLinVelProcessCovariance,
-                         const Matrix3 & stateAngVelProcessCovariance,
-                         const Matrix3 & gyroBiasProcessCovariance,
-                         const Matrix6 & unmodeledWrenchProcessCovariance,
-                         const Matrix12 & contactProcessCovariance,
-                         const Matrix3 & positionSensorCovariance,
-                         const Matrix3 & orientationSensorCoVariance,
-                         const Matrix3 & acceleroSensorCovariance,
-                         const Matrix3 & gyroSensorCovariance,
-                         const Matrix6 & contactSensorCovariance);
   /// @}
 
   // /////////////////////////////////////////////
@@ -579,9 +556,9 @@ public:
   // /////////////////////////////////////////////////////////////
   /// @{
 
-  /// @brief Reset the default values for the covariance matrix
+  /// @brief Reset the default values for the sensors covariance matrices
   /// @details this is useful in case of misbehavior of the estimator or the sensors
-  void resetSensorsDefaultCovMat();
+  void resetSensorsDefaultCovMats();
 
   /// @brief  reset all the sensor inputs and provided contact information but keeps the contacts themselves
   void resetInputs();
@@ -592,14 +569,29 @@ public:
   // /////////////////////////////////////////////////////////////
   /// @{
 
-  /// @brief Set the Kinematics State Covariance
-  void setKinematicsStateCovariance(const Matrix &);
-
   /// @brief Set the Default value for Kinematics Init Covariance
   void setKinematicsInitCovarianceDefault(const Matrix &);
+  /// @brief Set the Default value for Kinematics Init Covariance
+  void setKinematicsInitCovarianceDefault(const Matrix3 & P_pos,
+                                          const Matrix3 & P_ori,
+                                          const Matrix3 & P_linVel,
+                                          const Matrix3 & P_angVel);
 
-  /// @brief Set the Kinematics Process Covariance
-  void setKinematicsProcessCovariance(const Matrix &);
+  /// @brief Set the Default value for Gyro Bias Init Covariance
+  void setGyroBiasInitCovarianceDefault(const Matrix3 & covMat);
+
+  /// @brief Set the default value for init Unmodeled Wrench covariance matrix
+  ///
+  /// @param initCovMat
+  void setUnmodeledWrenchInitCovMatDefault(const Matrix6 & initCovMat);
+
+  /// @brief Set the default valut for the Initial Covariance Matrix of the contact in the state
+  ///
+  /// @param contactCovMat
+  void setContactInitCovMatDefault(const Matrix12 & contactCovMat);
+
+  /// @brief Set the Kinematics State Covariance
+  void setKinematicsStateCovariance(const Matrix &);
 
   /// @brief Set the Gyro Bias State Covariance
   ///
@@ -607,29 +599,10 @@ public:
   /// @param imuNumber  the number id of the IMU
   void setGyroBiasStateCovariance(const Matrix3 & covMat, unsigned imuNumber);
 
-  /// @brief Set the Default value for Gyro Bias Init Covariance
-  void setGyroBiasInitCovarianceDefault(const Matrix3 & covMat);
-
-  /// @brief Set the Gyro Bias Process Covariance
-  ///
-  /// @param covMat the new process covariance matrix
-  /// @param imuNumber the number id of the IMU
-  void setGyroBiasProcessCovariance(const Matrix3 & covMat, unsigned imuNumber);
-
   /// @brief Set the Unmodeled Wrench State Cov Mat
   ///
   /// @param newCovMat
   void setUnmodeledWrenchStateCovMat(const Matrix6 & newCovMat);
-
-  /// @brief Set the default value for init Unmodeled Wrench covariance matrix
-  ///
-  /// @param initCovMat
-  void setUnmodeledWrenchInitCovMatDefault(const Matrix6 & initCovMat);
-
-  /// @brief Set the Unmodeled Wrench Process Covariance Mattix
-  ///
-  /// @param processCovMat
-  void setUnmodeledWrenchProcessCovMat(const Matrix6 & processCovMat);
 
   /// @brief Set the Contact State Covariance Matrix
   ///
@@ -637,10 +610,37 @@ public:
   /// @param contactCovMat the contact number id
   void setContactStateCovMat(int contactNbr, const Matrix12 & contactCovMat);
 
-  /// @brief Set the default valut for the Initial Covariance Matrix of the contact in the state
+  /// @brief Set the default Kinematics Process Covariance
+  void setKinematicsProcessCovarianceDefault(const Matrix12 &);
+
+  /// @brief Set the default Kinematics Process Covariance
+  void setKinematicsProcessCovarianceDefault(const Matrix3 & P_pos,
+                                             const Matrix3 & P_ori,
+                                             const Matrix3 & P_linVel,
+                                             const Matrix3 & P_angVel);
+
+  /// @brief Set the default Gyro Bias Process Covariance
+  void setGyroBiasProcessCovarianceDefault(const Matrix3 & covMat);
+
+  /// @brief Set the default Unmodeled Wrench Process Covariance
+  void setUnmodeledWrenchProcessCovarianceDefault(const Matrix6 & covMat);
+
+  /// @brief Set the default contact Process Covariance
+  void setContactProcessCovarianceDefault(const Matrix12 & covMat);
+
+  /// @brief Set the Kinematics Process Covariance
+  void setKinematicsProcessCovariance(const Matrix12 &);
+
+  /// @brief Set the Gyro Bias Process Covariance
   ///
-  /// @param contactCovMat
-  void setContactInitCovMatDefault(const Matrix12 & contactCovMat);
+  /// @param covMat the new process covariance matrix
+  /// @param imuNumber the number id of the IMU
+  void setGyroBiasProcessCovariance(const Matrix3 & covMat, unsigned imuNumber);
+
+  /// @brief Set the Unmodeled Wrench Process Covariance Mattix
+  ///
+  /// @param processCovMat
+  void setUnmodeledWrenchProcessCovMat(const Matrix6 & processCovMat);
 
   /// @brief Set the Contact Process Covariance Matrix
   ///
@@ -662,7 +662,7 @@ public:
   void resetProcessUnmodeledWrenchCovMat();
   void resetProcessContactsCovMat();
   void resetProcessContactCovMat(unsigned contactNbr);
-  /// @}
+  /// @
 
   // /////////////////////////////////////////////////////////////
   /// @name State vector representation operations (advanced use)
@@ -723,6 +723,10 @@ public:
   ///
   /// @return TimeIndex
   TimeIndex getStateVectorTimeIndex() const;
+
+  /// @brief Initializes the state vector.
+  /// @param initStateVector the initial state vector.
+  void setInitWorldCentroidStateVector(const Vector & initStateVector);
 
   /// @brief Set a value of the state x_k provided from another source
   /// @details can be used for initialization of the estimator
