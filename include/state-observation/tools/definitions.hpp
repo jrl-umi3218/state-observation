@@ -343,14 +343,15 @@ private:
 
 /// @brief This structure is used as an AdditionalChecker for a CheckedItem that doesn't require additional tests.
 /// @details This structure's check operations are always true.
-template<typename T>
 struct EmptyChecker
 {
-  static inline bool check(const T &)
+  template<typename T>
+  static bool check(const T &)
   {
     return true;
   }
-  static inline bool checkAssert(const T &)
+  template<typename T>
+  static bool checkAssert(const T &)
   {
     return true;
   }
@@ -373,7 +374,7 @@ template<typename T,
          bool alwaysCheck = false,
          bool assertion = true,
          bool eigenAlignedNew = false,
-         typename additionalChecker = EmptyChecker<T>>
+         typename additionalChecker = EmptyChecker>
 class CheckedItem
 {
 public:
@@ -431,41 +432,28 @@ public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW_IF(eigenAlignedNew)
 };
 
-template<typename MatrixType, bool doTest = true>
 struct CheckNaN
 {
-  static inline bool check(const MatrixType & m)
+  template<typename T>
+  static bool check(const T & m)
   {
-    if(doTest)
-    {
-      return !m.hasNaN(); // returns false if m has a NaN : test failed
-    }
-    else
-    {
-      return true;
-    }
+    return !m.hasNaN();
   }
-  static inline bool checkAssert(const MatrixType & m)
+  template<typename T>
+  static bool checkAssert(const T & m)
   {
-    if(doTest)
-    {
-      BOOST_ASSERT(!m.hasNaN() && "Matrix contains a NaN.");
-      return !m.hasNaN(); // returns false if m has a NaN : test failed
-    }
-    else
-    {
-      return true;
-    }
+    BOOST_ASSERT(check(m) && errorMessage);
+    return check(m);
   }
   static constexpr char errorMessage[] = "Matrix contains a NaN.";
-  static constexpr std::exception * exception = 0x0;
+  static constexpr std::exception * exception = nullptr;
 };
 
-typedef CheckedItem<Matrix3, false, false, true, true, CheckNaN<Matrix3, isDebug>> CheckedMatrix3;
-typedef CheckedItem<Matrix6, false, false, true, true, CheckNaN<Matrix6, isDebug>> CheckedMatrix6;
-typedef CheckedItem<Matrix12, false, false, true, true, CheckNaN<Matrix12, isDebug>> CheckedMatrix12;
-typedef CheckedItem<Vector3, false, false, true, true, CheckNaN<Vector3, isDebug>> CheckedVector3;
-typedef CheckedItem<Vector6, false, false, true, true, CheckNaN<Vector6, isDebug>> CheckedVector6;
+typedef CheckedItem<Matrix3, false, false, true, true, CheckNaN> CheckedMatrix3;
+typedef CheckedItem<Matrix6, false, false, true, true, CheckNaN> CheckedMatrix6;
+typedef CheckedItem<Matrix12, false, false, true, true, CheckNaN> CheckedMatrix12;
+typedef CheckedItem<Vector3, false, false, true, true, CheckNaN> CheckedVector3;
+typedef CheckedItem<Vector6, false, false, true, true, CheckNaN> CheckedVector6;
 typedef CheckedItem<Quaternion, false, false, true, true> CheckedQuaternion;
 
 /**
