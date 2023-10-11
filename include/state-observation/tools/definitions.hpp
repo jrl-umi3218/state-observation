@@ -432,7 +432,7 @@ public:
 };
 
 template<typename MatrixType, bool doTest = true>
-struct checkNaN
+struct CheckNaN
 {
   static inline bool check(const MatrixType & m)
   {
@@ -461,11 +461,11 @@ struct checkNaN
   static constexpr std::exception * exception = 0x0;
 };
 
-typedef CheckedItem<Matrix3, false, false, true, true, checkNaN<Matrix3, isDebug>> CheckedMatrix3;
-typedef CheckedItem<Matrix6, false, false, true, true, checkNaN<Matrix6, isDebug>> CheckedMatrix6;
-typedef CheckedItem<Matrix12, false, false, true, true, checkNaN<Matrix12, isDebug>> CheckedMatrix12;
-typedef CheckedItem<Vector3, false, false, true, true, checkNaN<Vector3, isDebug>> CheckedVector3;
-typedef CheckedItem<Vector6, false, false, true, true, checkNaN<Vector6, isDebug>> CheckedVector6;
+typedef CheckedItem<Matrix3, false, false, true, true, CheckNaN<Matrix3, isDebug>> CheckedMatrix3;
+typedef CheckedItem<Matrix6, false, false, true, true, CheckNaN<Matrix6, isDebug>> CheckedMatrix6;
+typedef CheckedItem<Matrix12, false, false, true, true, CheckNaN<Matrix12, isDebug>> CheckedMatrix12;
+typedef CheckedItem<Vector3, false, false, true, true, CheckNaN<Vector3, isDebug>> CheckedVector3;
+typedef CheckedItem<Vector6, false, false, true, true, CheckNaN<Vector6, isDebug>> CheckedVector6;
 typedef CheckedItem<Quaternion, false, false, true, true> CheckedQuaternion;
 
 /**

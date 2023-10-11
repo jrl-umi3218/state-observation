@@ -1026,12 +1026,12 @@ inline Vector3 Orientation::operator*(const Vector3 & v) const
   return m_() * v;
 }
 
-inline CheckedMatrix3 & Orientation::getMatrixRefUnsafe() const
+inline CheckedMatrix3 & Orientation::getMatrixRefUnsafe()
 {
   return m_;
 }
 
-inline CheckedQuaternion & Orientation::getQuaternionRefUnsafe() const
+inline CheckedQuaternion & Orientation::getQuaternionRefUnsafe()
 {
   return q_;
 }

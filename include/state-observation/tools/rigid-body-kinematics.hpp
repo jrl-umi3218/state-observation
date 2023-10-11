@@ -451,8 +451,8 @@ public:
 
   /// no checks are performed for these functions, use with caution
 
-  inline CheckedMatrix3 & getMatrixRefUnsafe() const;
-  inline CheckedQuaternion & getQuaternionRefUnsafe() const;
+  inline CheckedMatrix3 & getMatrixRefUnsafe();
+  inline CheckedQuaternion & getQuaternionRefUnsafe();
 
   /// synchronizes the representations (quaternion and rotation matrix)
   inline void synchronize();
