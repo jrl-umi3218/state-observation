@@ -353,7 +353,7 @@ struct EmptyChecker
     return true;
   }
   static constexpr char errorMessage[] = "";
-  static constexpr std::exception * exception = 0x0;
+  static constexpr std::exception * exception = nullptr;
 };
 
 /// @brief this is a structure allowing for automatically verifying that the item has been initialized or not. The
