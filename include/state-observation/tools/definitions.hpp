@@ -341,7 +341,7 @@ private:
   T b_;
 };
 
-/// @brief This structure is used as an AdditionalChecker for a CheckedItem that doesn't require additional tests.
+/// @brief This structure is used as an additionalChecker for a CheckedItem that doesn't require additional tests.
 /// @details This structure's check operations are always true.
 struct EmptyChecker
 {
@@ -432,6 +432,7 @@ public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW_IF(eigenAlignedNew)
 };
 
+/// @brief Additional checker that allows to check for the presence of NaN values in the item.
 struct CheckNaN
 {
   template<typename T>
