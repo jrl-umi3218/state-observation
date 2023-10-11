@@ -1022,31 +1022,30 @@ protected:
     }
     virtual ~Contact() {}
 
-    struct Temp
-    {
-      Kinematics worldContactPose; // the pose of the contact in the world frane obtained by forward kinematics from the
-                                   // centroid's frame. This is a temporary variable used for convenience. It must be
-                                   // called with care as it is called in several functions in the code.
-    };
-    int num;
-    Temp temp;
-
+    /// State ///
     Kinematics worldRestPose; // the rest pose of the contact in the world frame
 
+    /// Measurements ///
     Vector6 wrenchMeasurement; /// Describes the measured wrench (forces + torques) at the contact in the sensor's frame
-    CheckedMatrix6 sensorCovMatrix;
 
-    Matrix3 linearStiffness;
-    Matrix3 linearDamping;
-    Matrix3 angularStiffness;
-    Matrix3 angularDamping;
+    /// Input ///
+    Kinematics userContactKine; /// Describes the kinematics of the contact point in the centroid's frame.
+    Kinematics centroidContactKine; /// Describes the kinematics of the contact point in the centroid's frame.
+    CheckedMatrix6 sensorCovMatrix; /// measurement covariance matrix of the wrench sensor attached to the contact.
+
+    Matrix3 linearStiffness; /// linear stiffness associated to the contact, used in the visco-elastic model
+    Matrix3 linearDamping; /// linear damping associated to the contact, used in the visco-elastic model
+    Matrix3 angularStiffness; /// angular stiffness associated to the contact, used in the visco-elastic model
+    Matrix3 angularDamping; /// angular damping associated to the contact, used in the visco-elastic model
+
+    /// Status ///
+    int num;
 
     bool isSet;
     bool withRealSensor;
     int stateIndex;
     int stateIndexTangent;
-    Kinematics userContactKine; /// Describes the kinematics of the contact point in the centroid's frame.
-    Kinematics centroidContactKine; /// Describes the kinematics of the contact point in the centroid's frame.
+
     static const Kinematics::Flags::Byte contactKineFlags = /// flags for the components of the kinematics
         Kinematics::Flags::position | Kinematics::Flags::orientation | Kinematics::Flags::linVel
         | Kinematics::Flags::angVel;

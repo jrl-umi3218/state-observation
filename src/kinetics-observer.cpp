@@ -2160,20 +2160,20 @@ void KineticsObserver::computeContactForce_(VectorContactIterator i,
 
   // the kinematics of the contact in the centroid's frame, expressed in the centroid's frame
   Kinematics & centroidContactKine = contact.centroidContactKine;
-  // the kinematics of the contact in the world frame, expressed in the contact's frame
-  Kinematics & worldContactPose = contact.temp.worldContactPose;
-  worldContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics), centroidContactKine);
+  // the kinematics of the contact in the world frame, expressed in the world frame
+  Kinematics worldFkContactPose;
+  worldFkContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics), centroidContactKine);
 
   contactForce = worldCentroidStateKinematics.orientation.toMatrix3().transpose()
-                 * (contact.linearStiffness * (worldRestContactPose.position() - worldContactPose.position())
-                    - contact.linearDamping * worldContactPose.linVel());
+                 * (contact.linearStiffness * (worldRestContactPose.position() - worldFkContactPose.position())
+                    - contact.linearDamping * worldFkContactPose.linVel());
 
-  contactTorque =
-      worldCentroidStateKinematics.orientation.toMatrix3().transpose()
-      * (-0.5 * contact.angularStiffness
-             * (worldContactPose.orientation.toQuaternion() * worldRestContactPose.orientation.toQuaternion().inverse())
-                   .vec()
-         - contact.angularDamping * worldContactPose.angVel());
+  contactTorque = worldCentroidStateKinematics.orientation.toMatrix3().transpose()
+                  * (-0.5 * contact.angularStiffness
+                         * (worldFkContactPose.orientation.toQuaternion()
+                            * worldRestContactPose.orientation.toQuaternion().inverse())
+                               .vec()
+                     - contact.angularDamping * worldFkContactPose.angVel());
 }
 
 void KineticsObserver::computeContactForces_(LocalKinematics & worldCentroidStateKinematics,
@@ -2191,25 +2191,25 @@ void KineticsObserver::computeContactForces_(LocalKinematics & worldCentroidStat
 
       // the kinematics of the contact in the centroid's frame, expressed in the centroid's frame
       Kinematics & centroidContactKine = contact.centroidContactKine;
-      // the kinematics of the contact in the world frame, expressed in the contact's frame
-      Kinematics & worldContactPose = contact.temp.worldContactPose;
-      // the rest kinematics of the contact in the world frame, expressed in the contact's frame
+      // the kinematics of the contact in the world frame, expressed in the world frame
+      Kinematics worldFkContactPose;
+      // the rest kinematics of the contact in the world frame, expressed in the world frame
       Kinematics & worldRestContactPose = contact.worldRestPose;
 
-      worldContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics), centroidContactKine);
+      worldFkContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics), centroidContactKine);
 
       Vector3 centroidContactForce =
           worldCentroidStateKinematics.orientation.toMatrix3().transpose()
-          * (contact.linearStiffness * (worldRestContactPose.position() - worldContactPose.position())
-             - contact.linearDamping * worldContactPose.linVel());
+          * (contact.linearStiffness * (worldRestContactPose.position() - worldFkContactPose.position())
+             - contact.linearDamping * worldFkContactPose.linVel());
       contactForce += centroidContactForce;
 
       Vector3 centroidContactTorque = worldCentroidStateKinematics.orientation.toMatrix3().transpose()
                                       * (-0.5 * contact.angularStiffness
-                                             * (worldContactPose.orientation.toQuaternion()
+                                             * (worldFkContactPose.orientation.toQuaternion()
                                                 * worldRestContactPose.orientation.toQuaternion().inverse())
                                                    .vec()
-                                         - contact.angularDamping * worldContactPose.angVel());
+                                         - contact.angularDamping * worldFkContactPose.angVel());
 
       contactTorque += centroidContactTorque + centroidContactKine.position().cross(centroidContactForce);
     }
@@ -2386,17 +2386,19 @@ Vector KineticsObserver::stateDynamics(const Vector & xInput, const Vector & /*u
       Matrix3 & Kdr = i->angularDamping;
 
       // the pose of the contact in the world frame, expressed in the contact's frame
-      Kinematics & worldContactPose = i->temp.worldContactPose;
-      worldContactPose.setToProductNoAlias(globWorldCentroidStateKinematics, centroidContactKine);
+      Kinematics worldFkContactPose;
+
+      worldFkContactPose.setToProductNoAlias(globWorldCentroidStateKinematics, centroidContactKine);
 
       x.segment<sizeForce>(contactForceIndex(i)) =
-          -(worldContactPose.orientation.toMatrix3().transpose()
-            * (Kpt * (worldContactPose.position() - worldContactRefPose.position()) + Kdt * worldContactPose.linVel()));
+          -(worldFkContactPose.orientation.toMatrix3().transpose()
+            * (Kpt * (worldFkContactPose.position() - worldContactRefPose.position())
+               + Kdt * worldFkContactPose.linVel()));
 
-      Matrix R = worldContactPose.orientation.toMatrix3() * worldContactRefPose.orientation.toMatrix3().transpose();
+      Matrix R = worldFkContactPose.orientation.toMatrix3() * worldContactRefPose.orientation.toMatrix3().transpose();
       x.segment<sizeTorque>(contactTorqueIndex(i)) =
-          -worldContactPose.orientation.toMatrix3().transpose()
-          * (0.5 * Kpr * kine::skewSymmetricToRotationVector(R - R.transpose()) + Kdr * worldContactPose.angVel());
+          -worldFkContactPose.orientation.toMatrix3().transpose()
+          * (0.5 * Kpr * kine::skewSymmetricToRotationVector(R - R.transpose()) + Kdr * worldFkContactPose.angVel());
     }
   }
 
@@ -2507,10 +2509,10 @@ kine::Kinematics KineticsObserver::getCentroidContactInputPose(const int & numCo
 
 kine::Kinematics KineticsObserver::getWorldContactPoseFromCentroid(const int & numContact) const
 {
-  Kinematics worldContactPose;
-  worldContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics_),
-                                       contacts_.at(numContact).centroidContactKine);
-  return worldContactPose;
+  Kinematics worldFkContactPose;
+  worldFkContactPose.setToProductNoAlias(Kinematics(worldCentroidStateKinematics_),
+                                         contacts_.at(numContact).centroidContactKine);
+  return worldFkContactPose;
 }
 
 kine::Kinematics KineticsObserver::getContactStateRestKinematics(const int & numContact) const
