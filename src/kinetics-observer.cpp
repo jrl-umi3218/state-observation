@@ -1028,7 +1028,6 @@ int KineticsObserver::addContact(const Kinematics & worldContactRefKine,
 
   Contact & contact = contacts_[contactNumber]; /// reference
 
-  contact.num = contactNumber;
   contact.isSet = true; /// set the contacts
   contact.stateIndex = contactsIndex() + contactNumber * sizeContact;
   contact.stateIndexTangent = contactsIndexTangent() + contactNumber * sizeContactTangent;
@@ -1588,10 +1587,14 @@ Matrix KineticsObserver::computeAMatrix()
   estimateAccelerations();
 
   const Vector & statePrediction = ekf_.updateStatePrediction();
+  // position of the centroid frame in the world frame, predicted with the state-transition model
   const Vector3 & predictedWorldCentroidStatePos = statePrediction.segment<sizePos>(posIndex());
+  // orientation of the centroid frame in the world frame, predicted with the state-transition model
   Orientation predictedWorldCentroidStateOri;
   predictedWorldCentroidStateOri.fromVector4(statePrediction.segment<sizeOri>(oriIndex())).toMatrix3();
+  // linear velocity of the centroid frame in the world frame, predicted with the state-transition model
   const Vector3 & predictedWorldCentroidStateLinVel = statePrediction.segment<sizeLinVel>(linVelIndex());
+  // angular velocity of the centroid frame in the world frame, predicted with the state-transition model
   const Vector3 & predictedWorldCentroidStateAngVel = statePrediction.segment<sizeAngVel>(angVelIndex());
 
   Matrix A = Matrix::Zero(stateTangentSize_, stateTangentSize_);
@@ -1615,28 +1618,36 @@ Matrix KineticsObserver::computeAMatrix()
       -cst::gravityConstant
       * (worldCentroidStateKinematics_.orientation.toMatrix3().transpose() * kine::skewSymmetric(Vector3(0, 0, 1)));
 
-  // creation of the variables linked to the unmodeled wrench. Initialized after if required.
-  Matrix3 J_al_ext_force;
-  Matrix3 J_pl_ext_force;
-  Matrix3 J_pl_ext_torque;
-  Matrix3 J_R_ext_torque;
-  Matrix3 J_vl_ext_force;
-  Matrix3 J_omega_ext_torque;
+  //// creation of the variables linked to the unmodeled wrench. Initialized after if required. ////
 
-  // Jacobians of the centroid's position
+  // jacobian matrix of the linear acceleration's state-transition wrt the external force
+  Matrix3 J_al_ext_force;
+  // jacobian matrix of the linear velocity's state-transition wrt the external force
+  Matrix3 J_vl_ext_force;
+  // jacobian matrix of the angular velocity's state-transition wrt the external torque
+  Matrix3 J_omega_ext_torque;
+  // jacobian matrix of the local position's state-transition wrt the external force
+  Matrix3 J_pl_ext_force;
+  // jacobian matrix of the local position's state-transition wrt the external torque
+  Matrix3 J_pl_ext_torque;
+  // jacobian matrix of the orientation's state-transition wrt the external torque
+  Matrix3 J_R_ext_torque;
+
+  //// Jacobian matrices of the local position's state transition ////
+
+  // Jacobians of the position's state-transition wrt to itself
   Matrix3 J_pl_pl = Matrix::Identity(sizePosTangent, sizePosTangent)
                     - dt_ * kine::skewSymmetric(worldCentroidStateKinematics_.angVel())
                     + dt2_2
                           * (kine::skewSymmetric2(worldCentroidStateKinematics_.angVel())
                              - kine::skewSymmetric(worldCentroidStateKinematics_.angAcc()));
 
-  A.block<sizePosTangent, sizePosTangent>(posIndexTangent(), posIndexTangent()) =
-      J_pl_pl; // For optimization, we can merge the two last operations into one
+  // jacobian matrix of the local position's state-transition wrt the orientation
   Matrix3 J_pl_R = dt2_2 * J_al_R;
-  A.block<sizePosTangent, sizeOriTangent>(posIndexTangent(), oriIndexTangent()) = J_pl_R;
+  // jacobian matrix of the local position's state-transition wrt the linear velocity
   Matrix3 J_pl_vl = dt_ * Matrix::Identity(sizePosTangent, sizeLinVelTangent)
                     - 2.0 * dt2_2 * kine::skewSymmetric(worldCentroidStateKinematics_.angVel());
-  A.block<sizePosTangent, sizeLinVelTangent>(posIndexTangent(), linVelIndexTangent()) = J_pl_vl;
+  // jacobian matrix of the local position's state-transition wrt the angular velocity
   Matrix3 J_pl_omega = kine::skewSymmetric(dt_ * worldCentroidStateKinematics_.position()
                                            + 2.0 * dt2_2 * worldCentroidStateKinematics_.linVel())
                        + dt2_2
@@ -1645,14 +1656,20 @@ Matrix KineticsObserver::computeAMatrix()
                                                       * worldCentroidStateKinematics_.angVel())
                                 - kine::skewSymmetric(worldCentroidStateKinematics_.angVel())
                                       * kine::skewSymmetric(worldCentroidStateKinematics_.position()));
+
+  A.block<sizePosTangent, sizePosTangent>(posIndexTangent(), posIndexTangent()) = J_pl_pl;
+  A.block<sizePosTangent, sizeOriTangent>(posIndexTangent(), oriIndexTangent()) = J_pl_R;
+  A.block<sizePosTangent, sizeLinVelTangent>(posIndexTangent(), linVelIndexTangent()) = J_pl_vl;
   A.block<sizePosTangent, sizeAngVelTangent>(posIndexTangent(), angVelIndexTangent()) = J_pl_omega;
 
-  // Jacobians of the orientation
+  //// Jacobian matrices of the orientation's state transition ////
+
   Vector delta = dt_ * worldCentroidStateKinematics_.angVel() + dt2_2 * worldCentroidStateKinematics_.angAcc();
   double sq_norm_delta = delta.squaredNorm();
   double norm_delta = delta.norm();
   double sin_delta_2 = sin(0.5 * norm_delta);
 
+  // jacobian matrix of the orientation's state-transition wrt delta
   Matrix3 J_R_delta;
   if(norm_delta > cst::epsilonAngle)
   {
@@ -1669,31 +1686,43 @@ Matrix KineticsObserver::computeAMatrix()
         worldCentroidStateKinematics_.orientation.toMatrix3() * kine::rotationVectorToRotationMatrix(0.5 * delta);
   }
 
-  // the intermediate jacobian used to compute the ones with respect to the angular velocity and acceleration
+  // R wrt omegadot. The intermediate jacobian used to compute the ones with respect to the angular velocity and
+  // acceleration
   Matrix3 J_R_omegadot = J_R_delta * dt2_2; // used in other Jacobians
 
+  // jacobian matrix of the orientation's state-transition wrt itself
   Matrix3 J_R_R = Matrix::Identity(sizeOriTangent, sizeOriTangent);
-  A.block<sizeOriTangent, sizeOriTangent>(oriIndexTangent(), oriIndexTangent()) = J_R_R;
+  // jacobian matrix of the orientation's state-transition wrt the local angular velocity
   Matrix3 J_R_omega =
       J_R_delta * (dt_ * Matrix::Identity(sizeAngVelTangent, sizeAngVelTangent) + dt2_2 * J_omegadot_omega);
+
+  A.block<sizeOriTangent, sizeOriTangent>(oriIndexTangent(), oriIndexTangent()) = J_R_R;
   A.block<sizeOriTangent, sizeAngVelTangent>(oriIndexTangent(), angVelIndexTangent()) = J_R_omega;
 
-  // Jacobians of the linear velocity
+  //// Jacobian matrices of the local linear velocity's state transition ////
+
+  // jacobian matrix of the local linear velocity's state-transition wrt the orientation
   Matrix3 J_vl_R = dt_ * J_al_R;
-  A.block<sizeLinVelTangent, sizeOriTangent>(linVelIndexTangent(), oriIndexTangent()) = J_vl_R;
+  // jacobian matrix of the local linear velocity's state-transition wrt itself
   Matrix3 J_vl_vl = Matrix::Identity(sizeLinVelTangent, sizeLinVelTangent)
                     - dt_ * kine::skewSymmetric(worldCentroidStateKinematics_.angVel());
-  A.block<sizeLinVelTangent, sizeLinVelTangent>(linVelIndexTangent(), linVelIndexTangent()) = J_vl_vl;
+  // jacobian matrix of the local linear velocity's state-transition wrt the local angular velocity
   Matrix3 J_vl_omega = dt_ * kine::skewSymmetric(worldCentroidStateKinematics_.linVel());
+
+  A.block<sizeLinVelTangent, sizeOriTangent>(linVelIndexTangent(), oriIndexTangent()) = J_vl_R;
+  A.block<sizeLinVelTangent, sizeLinVelTangent>(linVelIndexTangent(), linVelIndexTangent()) = J_vl_vl;
   A.block<sizeLinVelTangent, sizeAngVelTangent>(linVelIndexTangent(), angVelIndexTangent()) = J_vl_omega;
 
-  // Jacobians of the angular velocity
+  //// Jacobian matrices of the local angular velocity's state transition ////
+
+  // jacobian matrix of the local angular velocity's state-transition wrt itself
   Matrix3 J_omega_omega = Matrix3::Identity() + dt_ * J_omegadot_omega;
   A.block<sizeAngVelTangent, sizeAngVelTangent>(angVelIndexTangent(), angVelIndexTangent()) = J_omega_omega;
 
-  // Jacobians of the gyrometer bias
+  //// Jacobian matrices of the local angular velocity's state transition ////
   if(withGyroBias_)
   {
+    // jacobian matrix of the gyrometer bias' state-transition wrt itself
     Matrix3 J_gyrobias_gyrobias = Matrix::Identity(sizeGyroBiasTangent, sizeGyroBiasTangent);
     for(unsigned i = 0; i < imuSensors_.size(); ++i)
     {
@@ -1702,37 +1731,41 @@ Matrix KineticsObserver::computeAMatrix()
     }
   }
 
-  // Jacobians of the unmodeled wrench external force
+  //// Jacobian matrices wrt the unmodeled wrench ////
   if(withUnmodeledWrench_)
   {
-    // Jacobians of the unmodeled external force
+    // jacobian matrix of the external force's state-transition wrt itself
     Matrix3 J_ext_force_ext_force = Matrix::Identity(sizeForceTangent, sizeForceTangent);
+    // jacobian matrix of the linear acceleration wrt the external force
+    J_al_ext_force = Matrix::Identity(sizeLinAccTangent, sizeTorqueTangent) / mass_;
+    // jacobian matrix of the local position's state-transition wrt the external force
+    J_pl_ext_force = dt2_2 / mass_ * Matrix::Identity(sizePosTangent, sizeForceTangent);
+    // jacobian matrix of the local linear velocity's state-transition wrt the external force
+    J_vl_ext_force = dt_ * J_al_ext_force;
+    // jacobian matrix of the external torque's state-transition wrt itself
+    Matrix3 J_ext_torque_ext_torque = Matrix::Identity(sizeTorqueTangent, sizeTorqueTangent);
+    // jacobian matrix of the local position's state-transition wrt the external torque
+    J_pl_ext_torque = dt2_2_Sp * J_omegadot_ext_torque;
+    // jacobian matrix of the orientation's state-transition wrt the external torque
+    J_R_ext_torque = J_R_omegadot * J_omegadot_ext_torque;
+    // jacobian matrix of the local angular velocity's state-transition wrt the external torque
+    J_omega_ext_torque = dt_ * J_omegadot_ext_torque;
+
     A.block<sizeForceTangent, sizeForceTangent>(unmodeledForceIndexTangent(), unmodeledForceIndexTangent()) =
         J_ext_force_ext_force;
-
-    // Jacobians with respect to the unmodeled external force
-    J_al_ext_force = Matrix::Identity(sizeLinAccTangent, sizeTorqueTangent) / mass_;
-    J_pl_ext_force = dt2_2 / mass_ * Matrix::Identity(sizePosTangent, sizeForceTangent);
     A.block<sizePosTangent, sizeForceTangent>(posIndexTangent(), unmodeledForceIndexTangent()) = J_pl_ext_force;
-    J_vl_ext_force = dt_ * J_al_ext_force;
     A.block<sizeLinVelTangent, sizeAngVelTangent>(linVelIndexTangent(), unmodeledForceIndexTangent()) = J_vl_ext_force;
-
-    // Jacobians of the unmodeled external torque
-    Matrix3 J_ext_torque_ext_torque = Matrix::Identity(sizeTorqueTangent, sizeTorqueTangent);
     A.block<sizeTorqueTangent, sizeTorqueTangent>(unmodeledTorqueIndexTangent(), unmodeledTorqueIndexTangent()) =
         J_ext_torque_ext_torque;
-
-    // Jacobians with respect to the unmodeled external torque
-    J_pl_ext_torque = dt2_2_Sp * J_omegadot_ext_torque;
     A.block<sizePosTangent, sizeForceTangent>(posIndexTangent(), unmodeledTorqueIndexTangent()) = J_pl_ext_torque;
-    J_R_ext_torque = J_R_omegadot * J_omegadot_ext_torque;
     A.block<sizeOriTangent, sizeTorqueTangent>(oriIndexTangent(), unmodeledTorqueIndexTangent()) = J_R_ext_torque;
-    J_omega_ext_torque = dt_ * J_omegadot_ext_torque;
     A.block<sizeAngVelTangent, sizeTorqueTangent>(angVelIndexTangent(), unmodeledTorqueIndexTangent()) =
         J_omega_ext_torque;
   }
 
-  // Jacobians with respect to contacts
+  //// Jacobian matrices with respect to contacts ////
+
+  // jacobian matrix of the contact position's state-transition wrt itself
   Matrix3 J_poscontact_poscontact =
       Matrix::Identity(sizePosTangent, sizePosTangent); // out of the loop as it is constant
                                                         // but then creates a useless variable if there is no contact
@@ -1742,61 +1775,72 @@ Matrix KineticsObserver::computeAMatrix()
     {
       const Contact & contact = *i;
 
+      // predicted rest position of the contact
+      Vector3 predictedWorldContactRestPosition = statePrediction.segment<sizePos>(contactPosIndex(i));
+      // predicted rest orientation of the contact
       Orientation predictedWorldContactRestOri;
       predictedWorldContactRestOri.fromVector4(statePrediction.segment<sizeOri>(contactOriIndex(i))).toMatrix3();
-      Vector3 predictedWorldContactRestPosition = statePrediction.segment<sizePos>(contactPosIndex(i));
 
       // input kinematics of the contact in the centroid frame
       const Kinematics & centroidContactKine = contact.centroidContactKine;
 
-      // Jacobian of the linar acceleration with respect to the contact force
+      // Jacobian matrix of the local linear acceleration with respect to the contact force
       Matrix3 J_linAcc_Fcis = (1 / mass_) * centroidContactKine.orientation.toMatrix3();
-      // Jacobian of the angular acceleration with respect to the contact force
+      // jacobian matrix of the local angular acceleration with respect to the contact force
       Matrix3 J_omegadot_Fcis =
           (I_inv * kine::skewSymmetric(centroidContactKine.position())) * centroidContactKine.orientation.toMatrix3();
-      // Jacobian of the angular acceleration with respect to the contact torque
+      // jacobian matrix of the local angular acceleration with respect to the contact torque
       Matrix3 J_omegadot_Tcis = I_inv * centroidContactKine.orientation.toMatrix3();
 
-      // Jacobian of the centroid's position with respect to the contact force
+      //// Jacobian matrices of the contact kinematics state transition ////
+
+      // jacobian matrix of the local position's state-transition wrt the contact force
       Matrix3 J_pl_contactForce = dt2_2_Sp * J_omegadot_Fcis + dt2_2 * J_linAcc_Fcis;
-      A.block<sizePosTangent, sizeForceTangent>(posIndexTangent(), contactForceIndexTangent(i)) = J_pl_contactForce;
+      // jacobian matrix of the local position's state-transition wrt the contact torque
       Matrix3 J_pl_contactTorque = dt2_2_Sp * J_omegadot_Tcis;
-      A.block<sizePosTangent, sizeTorqueTangent>(posIndexTangent(), contactTorqueIndexTangent(i)) = J_pl_contactTorque;
-      // Jacobians of the orientation with respect to the contact force and torque
+      // jacobian matrix of the orientatiob's state-transition wrt the contact force
       Matrix3 J_R_contactForce = J_R_omegadot * J_omegadot_Fcis;
-      A.block<sizeOriTangent, sizeForceTangent>(oriIndexTangent(), contactForceIndexTangent(i)) = J_R_contactForce;
+      // jacobian matrix of the orientation's state-transition wrt the contact torque
       Matrix3 J_R_contactTorque = J_R_omegadot * J_omegadot_Tcis;
-      A.block<sizeOriTangent, sizeTorqueTangent>(oriIndexTangent(), contactTorqueIndexTangent(i)) = J_R_contactTorque;
-      // Jacobian of the linear velocity with respect to the contact force
+      // jacobian matrix of the local linear velocity's state-transition wrt the contact force
       Matrix3 J_vl_contactForce = dt_ * J_linAcc_Fcis;
-      A.block<sizeLinVelTangent, sizeForceTangent>(linVelIndexTangent(), contactForceIndexTangent(i)) =
-          J_vl_contactForce;
-      // Jacobian of the angular velocity with respect to the contact force and torque
+      J_vl_contactForce;
+      // jacobian matrix of the local angular velocity's state-transition wrt the contact force
       Matrix3 J_omega_contactForce = dt_ * J_omegadot_Fcis;
-      A.block<sizeAngVelTangent, sizeForceTangent>(angVelIndexTangent(), contactForceIndexTangent(i)) =
-          J_omega_contactForce;
+      // jacobian matrix of the local angular velocity's state-transition wrt the contact torque
       Matrix3 J_omega_contactTorque = dt_ * J_omegadot_Tcis;
+      // jacobian matrix of the contact orientation's state-transition wrt itself
+      Matrix3 J_contactOri_contactOri = J_poscontact_poscontact;
+
+      A.block<sizePosTangent, sizeForceTangent>(posIndexTangent(), contactForceIndexTangent(i)) = J_pl_contactForce;
+      A.block<sizePosTangent, sizeTorqueTangent>(posIndexTangent(), contactTorqueIndexTangent(i)) = J_pl_contactTorque;
+      A.block<sizeOriTangent, sizeForceTangent>(oriIndexTangent(), contactForceIndexTangent(i)) = J_R_contactForce;
+      A.block<sizeOriTangent, sizeTorqueTangent>(oriIndexTangent(), contactTorqueIndexTangent(i)) = J_R_contactTorque;
+      A.block<sizeLinVelTangent, sizeForceTangent>(linVelIndexTangent(), contactForceIndexTangent(i)) =
+          A.block<sizeAngVelTangent, sizeForceTangent>(angVelIndexTangent(), contactForceIndexTangent(i)) =
+              J_omega_contactForce;
       A.block<sizeAngVelTangent, sizeTorqueTangent>(angVelIndexTangent(), contactTorqueIndexTangent(i)) =
           J_omega_contactTorque;
-
-      // Jacobian of the contact position and orientation with respect to themselves
       A.block<sizePosTangent, sizePosTangent>(contactPosIndexTangent(i), contactPosIndexTangent(i)) =
           J_poscontact_poscontact;
-      Matrix3 J_contactOri_contactOri = J_poscontact_poscontact;
       A.block<sizeOriTangent, sizeOriTangent>(contactOriIndexTangent(i), contactOriIndexTangent(i)) =
           J_contactOri_contactOri;
+      //// Jacobian matrices of the contact force ////
 
+      // orientation of the world frame in the contact frame.
       Orientation contactWorldOri(
           Matrix3(centroidContactKine.orientation.toMatrix3().transpose()
                   * predictedWorldCentroidStateOri.toMatrix3()
                         .transpose())); // better to compute it now as it is used in several expressions
-      // Jacobians of the contacts force
+
+      // jacobian matrix of the contact force wrt the local position
       Matrix3 J_contactForce_pl_at_same_time =
           -(contactWorldOri.toMatrix3() * contact.linearStiffness * predictedWorldCentroidStateOri.toMatrix3());
       Vector3 sumVelContact = centroidContactKine.linVel()
                               + predictedWorldCentroidStateAngVel.cross(centroidContactKine.position())
                               + predictedWorldCentroidStateLinVel;
 
+      // jacobian matrix of the contact force wrt the orientation
       Matrix3 J_contactForce_R_at_same_time =
           contactWorldOri.toMatrix3()
           * (contact.linearStiffness
@@ -1809,12 +1853,14 @@ Matrix KineticsObserver::computeAMatrix()
                                    + contact.linearDamping
                                          * (predictedWorldCentroidStateOri.toMatrix3() * sumVelContact)
                                    - contact.linearStiffness * predictedWorldContactRestPosition));
-
+      // jacobian matrix of the contact force wrt the linear velocity
       Matrix3 J_contactForce_vl_at_same_time =
           -(contactWorldOri.toMatrix3() * contact.linearDamping * predictedWorldCentroidStateOri.toMatrix3());
+      // jacobian matrix of the contact force wrt the angular velocity
       Matrix3 J_contactForce_omega_at_same_time =
           contactWorldOri.toMatrix3() * contact.linearDamping
           * (predictedWorldCentroidStateOri.toMatrix3() * kine::skewSymmetric(centroidContactKine.position()));
+      // jacobian matrix of the contact force wrt the contact position
       Matrix3 J_contactForce_contactPosition_at_same_time = contactWorldOri.toMatrix3() * contact.linearStiffness;
 
       A.block<sizeForceTangent, sizePosTangent>(contactForceIndexTangent(i), posIndexTangent()) =
@@ -1837,47 +1883,53 @@ Matrix KineticsObserver::computeAMatrix()
           J_contactForce_pl_at_same_time * J_pl_contactTorque + J_contactForce_R_at_same_time * J_R_contactTorque
           + J_contactForce_omega_at_same_time * J_omega_contactTorque;
 
-      // Jacobians of the contacts torque
+      //// Jacobian matrices of the contact torque ////
       Vector3 angVelSum =
           predictedWorldCentroidStateOri * (centroidContactKine.angVel() + predictedWorldCentroidStateAngVel);
-      Vector3 ex = Vector3(1, 0, 0);
-      Vector3 ey = Vector3(0, 1, 0);
-      Vector3 ez = Vector3(0, 0, 1);
-      Orientation RRefContactToWorld =
-          predictedWorldCentroidStateOri * centroidContactKine.orientation * predictedWorldContactRestOri.inverse();
-      Orientation RWorldToRefContact = RRefContactToWorld.inverse();
+      Vector3 ex = Vector3::UnitX();
+      Vector3 ey = Vector3::UnitY();
+      Vector3 ez = Vector3::UnitZ();
 
+      // difference between the rest orientation of the contact and the one obtained by forward kinematics from the
+      // centroid, expressed in the world frame.
+      Orientation world_restOriVsFk =
+          predictedWorldCentroidStateOri * centroidContactKine.orientation * predictedWorldContactRestOri.inverse();
+      Orientation invWorld_restOriVsFk = world_restOriVsFk.inverse();
+
+      // intermediary terms for the jacobian computation
       Matrix3 Vk = -ex * ez.transpose()
-                       * (kine::skewSymmetric(RRefContactToWorld.toMatrix3() * ey)
-                          + RWorldToRefContact.toMatrix3() * kine::skewSymmetric(ey))
+                       * (kine::skewSymmetric(world_restOriVsFk.toMatrix3() * ey)
+                          + invWorld_restOriVsFk.toMatrix3() * kine::skewSymmetric(ey))
                    - ey * ex.transpose()
-                         * (kine::skewSymmetric(RRefContactToWorld.toMatrix3() * ez)
-                            + RWorldToRefContact.toMatrix3() * kine::skewSymmetric(ez))
+                         * (kine::skewSymmetric(world_restOriVsFk.toMatrix3() * ez)
+                            + invWorld_restOriVsFk.toMatrix3() * kine::skewSymmetric(ez))
                    - ez * ey.transpose()
-                         * (kine::skewSymmetric(RRefContactToWorld.toMatrix3() * ex)
-                            + RWorldToRefContact.toMatrix3() * kine::skewSymmetric(ex));
+                         * (kine::skewSymmetric(world_restOriVsFk.toMatrix3() * ex)
+                            + invWorld_restOriVsFk.toMatrix3() * kine::skewSymmetric(ex));
 
       Matrix3 Vk2 = -ex * ez.transpose()
-                        * (kine::skewSymmetric(RWorldToRefContact.toMatrix3() * ey)
-                           + RRefContactToWorld.toMatrix3() * kine::skewSymmetric(ey))
+                        * (kine::skewSymmetric(invWorld_restOriVsFk.toMatrix3() * ey)
+                           + world_restOriVsFk.toMatrix3() * kine::skewSymmetric(ey))
                     - ey * ex.transpose()
-                          * (kine::skewSymmetric(RWorldToRefContact.toMatrix3() * ez)
-                             + RRefContactToWorld.toMatrix3() * kine::skewSymmetric(ez))
+                          * (kine::skewSymmetric(invWorld_restOriVsFk.toMatrix3() * ez)
+                             + world_restOriVsFk.toMatrix3() * kine::skewSymmetric(ez))
                     - ez * ey.transpose()
-                          * (kine::skewSymmetric(RWorldToRefContact.toMatrix3() * ex)
-                             + RRefContactToWorld.toMatrix3() * kine::skewSymmetric(ex));
+                          * (kine::skewSymmetric(invWorld_restOriVsFk.toMatrix3() * ex)
+                             + world_restOriVsFk.toMatrix3() * kine::skewSymmetric(ex));
 
+      // jacobian matrix of the contact torque wrt the orientation
       Matrix3 J_contactTorque_R_at_same_time =
           -(contactWorldOri.toMatrix3()
             * (kine::skewSymmetric(0.5 * contact.angularStiffness
-                                       * (kine::skewSymmetricToRotationVector(RRefContactToWorld.toMatrix3()
-                                                                              - RWorldToRefContact.toMatrix3()))
+                                       * (kine::skewSymmetricToRotationVector(world_restOriVsFk.toMatrix3()
+                                                                              - invWorld_restOriVsFk.toMatrix3()))
                                    + contact.angularDamping * angVelSum)
                + 0.5 * contact.angularStiffness * Vk - contact.angularDamping * kine::skewSymmetric(angVelSum)));
 
+      // jacobian matrix of the contact torque wrt the local angular velocity
       Matrix3 J_contactTorque_omega_at_same_time =
           -(contactWorldOri.toMatrix3() * contact.angularDamping * predictedWorldCentroidStateOri.toMatrix3());
-
+      // jacobian matrix of the contact torque wrt the contact orientation
       Matrix3 J_contactTorque_contactOri_at_same_time =
           0.5 * (contactWorldOri.toMatrix3() * contact.angularStiffness * Vk2);
 
@@ -2018,6 +2070,10 @@ void KineticsObserver::convertUserToCentroidFrame_(const Kinematics & userKine,
                                                    Kinematics & centroidKine,
                                                    TimeIndex k_data)
 {
+  /*
+  Our centroid frame has the same orientation than the user frame, so the conversion from the user to the centroid frame
+  simply depends on the linear kinematics of the center of mass in the user frame.
+  */
   BOOST_ASSERT((com_.getTime() == k_data && com_.getTime() == comd_.getTime() && com_.getTime() == comdd_.getTime())
                && "The Center of Mass must be actualized before the conversion");
   centroidKine.position = userKine.position() - com_();
@@ -2046,6 +2102,11 @@ void KineticsObserver::convertUserToCentroidFrame_(const Kinematics & userKine,
 KineticsObserver::Kinematics KineticsObserver::convertUserToCentroidFrame_(const Kinematics & userKine,
                                                                            TimeIndex k_data)
 {
+  /*
+  Our centroid frame has the same orientation than the user frame, so the conversion from the user to the centroid frame
+  simply depends on the linear kinematics of the center of mass in the user frame.
+  */
+
   Kinematics centroidKine;
   BOOST_ASSERT((com_.getTime() == k_data && com_.getTime() == comd_.getTime() && com_.getTime() == comdd_.getTime())
                && "The Center of Mass must be actualized before the conversion");
@@ -2104,12 +2165,14 @@ void KineticsObserver::addUnmodeledAndContactWrench_(const Vector & worldCentroi
     const Contact & contact = *i;
     if(contact.isSet)
     {
+      // input kinematics of the contact in the centroid frame.
       const Kinematics & centroidContactKinei = contact.centroidContactKine;
+      // contact force expressed at the centroid
       Vector3 centroidContactForcei =
           centroidContactKinei.orientation * worldCentroidStateVector.segment<sizeForce>(contactForceIndex(i));
 
       force += centroidContactForcei;
-
+      // contact torque expressed at the centroid
       torque += centroidContactKinei.orientation * worldCentroidStateVector.segment<sizeTorque>(contactTorqueIndex(i))
                 + centroidContactKinei.position().cross(centroidContactForcei);
     }

@@ -1039,7 +1039,6 @@ protected:
     Matrix3 angularDamping; /// angular damping associated to the contact, used in the visco-elastic model
 
     /// Status ///
-    int num;
 
     bool isSet;
     bool withRealSensor;
