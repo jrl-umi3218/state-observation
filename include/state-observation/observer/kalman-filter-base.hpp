@@ -318,7 +318,7 @@ public:
   /// (used for the case of multiplicative Kalman filter)
   void setStateArithmetics(StateVectorArithmetics * arith);
 
-  virtual void resetPrediction();
+  void resetPrediction();
 
 protected:
   /// the size of tangent space of the state space
