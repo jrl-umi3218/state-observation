@@ -38,7 +38,11 @@ public:
   ///  \li gamma : parameter related to the orthogonality
   TiltEstimator(double alpha, double beta, double gamma);
 
-  void initEstimator(Vector3 x1 = Vector3::Zero(), Vector3 x2_ = Vector3::Zero(), Vector3 x2 = Vector3::Zero());
+  /// @brief initializes the state vector.
+  /// @param x1 The initial local linear velocity of the IMU.
+  /// @param x2_p The initial value of the intermediate estimate of the IMU's tilt.
+  /// @param x2 The initial tilt of the IMU.
+  void initEstimator(Vector3 x1 = Vector3::Zero(), Vector3 x2_prime = Vector3::UnitZ(), Vector3 x2 = Vector3::UnitZ());
 
   /// set the gain of x1_hat variable
   void setAlpha(const double alpha)

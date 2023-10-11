@@ -385,7 +385,7 @@ public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 
-/*inline*/ const Vector & KalmanFilterBase::updateStatePrediction()
+inline const Vector & KalmanFilterBase::updateStatePrediction()
 {
   prediction_(this->x_.getTime() + 1);
   return xbar_();
