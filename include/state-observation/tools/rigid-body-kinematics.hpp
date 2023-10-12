@@ -426,22 +426,40 @@ public:
   /// local frame. Which gives R_{k+1}=R_k*exp(S(dtxomega))
   inline const Orientation & integrateRightSide(Vector3 dt_x_omega);
 
-  /// gives the log (rotation vector) of the difference of orientation
-  /// gives log of R_k1*(*this).inverse().
-  /// This function is also used to differentiate two Orientations expressed in the same frame at the same time k, even
-  /// for the LocalKinematics (the integration of the orientation is different and therefore the associated
+  /// @brief gives the log (rotation vector) of the "left-side" difference of orientation: log of
+  /// R_k1*(*this).inverse().
+  /// @details This function is also used to differentiate two Orientations expressed in the same frame at the same time
+  /// k, even for the LocalKinematics (the integration of the orientation is different and therefore the associated
   /// differentiation also is, but the difference remains the same)
+  /// @param R_k1 the other orientation with which we compute the difference.
+  /// @return Vector3
   inline Vector3 differentiate(Orientation R_k1) const;
 
+  /// @brief gives the log (rotation vector) of the "right-side" difference of orientation: log of (*this).inverse() *
+  /// R_k1.
+  /// @details This function is also used to differentiate two Orientations expressed in the same frame at the same time
+  /// k, even for the LocalKinematics (the integration of the orientation is different and therefore the associated
+  /// differentiation also is, but the difference remains the same)
+  /// @param R_k1 the other orientation with which we compute the difference.
+  /// @return Vector3
   inline Vector3 differentiateRightSide(Orientation R_k1) const;
 
   /// Rotate a vector
   inline Vector3 operator*(const Vector3 & v) const;
 
+  /// @brief checks that the orientation has been assigned a value.
+  /// @return bool
   inline bool isSet() const;
+
+  /// @brief resets the Orientation object.
+  /// @details The orientation is then considered as outdated and cannot be used until it is assigned a value.
   inline void reset();
 
+  /// @brief checks that the matrix representation of the orientation has been assigned a value.
+  /// @return bool
   inline bool isMatrixSet() const;
+  /// @brief checks that the quaternion representation of the orientation has been assigned a value.
+  /// @return bool
   inline bool isQuaternionSet() const;
 
   /// switch the state of the Matrix or quaternion to set or not
@@ -451,7 +469,13 @@ public:
 
   /// no checks are performed for these functions, use with caution
 
+  /// @brief get a reference to the matrix representation of the orientation without calling the check functions.
+  /// @details Has to be used with care as this function doesn't check that the matrix has been assigned values.
+  /// @return CheckedMatrix3
   inline CheckedMatrix3 & getMatrixRefUnsafe();
+  /// @brief get a reference to the quaternion representation of the orientation without calling the check functions.
+  /// @details Has to be used with care as this function doesn't check that the quaternion has been assigned values.
+  /// @return CheckedQuaternion
   inline CheckedQuaternion & getQuaternionRefUnsafe();
 
   /// synchronizes the representations (quaternion and rotation matrix)
@@ -543,10 +567,26 @@ struct Kinematics
 
   Kinematics & setZero(Flags::Byte = Flags::all);
 
+  /// @brief integrates the current kinematics over the timestep dt.
+  /// @details can be used to predict the future kinematics from the current ones.
+  /// @param dt the timestep used for the integration
+  /// @return const Kinematics &
   inline const Kinematics & integrate(double dt);
 
+  /// @brief updates the current kinematics (k) with the new ones (k+1).
+  /// @details flags allow to chose what variables must be contained in the new kinematics. If a variable is not given
+  /// in the updated Kinematics object, it computed using either integration or finite differences depending on the
+  /// available information.
+  /// @param newValue the new values of the kinematics
+  /// @param dt the time ellapsed between the current kinematics and the new ones.
+  /// @param Flags the flags indicating which variables are desired in the updated kinematics.
+  /// @return const Kinematics &
   inline const Kinematics & update(const Kinematics & newValue, double dt, Flags::Byte = Flags::all);
 
+  /// @brief returns the inverse of the current kinematics.
+  /// @details if the current object represents the kinematics of a frame 1 in a frame 2, will return the kinematics of
+  /// the frame 2 in 1.
+  /// @return Kinematics
   inline Kinematics getInverse() const;
 
   /// converts the object to a vector
@@ -561,7 +601,7 @@ struct Kinematics
 
   inline Kinematics setToProductNoAlias(const Kinematics & operand1, const Kinematics & operand2);
 
-  /// Allows to compute the difference between two Kinematics objects. Has the same effect that calling
+  /// Allows to compute the difference between two Kinematics objects. Has the same effect than calling
   /// setToProductNoAlias(operand1, operand2.getInverse()) but is computationally faster
   inline Kinematics setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2);
 
@@ -647,11 +687,26 @@ struct LocalKinematics
 
   LocalKinematics & setZero(Flags::Byte = Flags::all);
 
+  /// @brief integrates the current local kinematics over the timestep dt.
+  /// @details can be used to predict the future local kinematics from the current ones.
+  /// @param dt the timestep used for the integration
+  /// @return const LocalKinematics &
   inline const LocalKinematics & integrate(double dt);
 
-  /// updates the LocalKinematics given its new values
+  /// @brief updates the current local kinematics (k) with the new ones (k+1).
+  /// @details flags allow to chose what variables must be contained in the new local kinematics. If a variable is not
+  /// given in the updated LocalKinematics object, it computed using either integration or finite differences depending
+  /// on the available information.
+  /// @param newValue the new values of the local kinematics
+  /// @param dt the time ellapsed between the current kinematics and the new ones.
+  /// @param Flags the flags indicating which variables are desired in the updated local kinematics.
+  /// @return const LocalKinematics &
   inline const LocalKinematics & update(const LocalKinematics & newValue, double dt, Flags::Byte = Flags::all);
 
+  /// @brief returns the inverse of the current local kinematics.
+  /// @details if the current object represents the local kinematics of a frame 1 in a frame 2, will return the local
+  /// kinematics of the frame 2 in 1.
+  /// @return LocalKinematics
   inline LocalKinematics getInverse() const;
 
   /// converts the object to a vector
