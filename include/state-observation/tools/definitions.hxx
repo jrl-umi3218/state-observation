@@ -120,6 +120,11 @@ inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additi
     {
       throw(*(exceptionPtr_.get()));
     }
+    if(!additionalChecker::check(v_))
+    {
+      using ExceptionT = typename additionalChecker::ExceptionT;
+      throw ExceptionT(additionalChecker::errorMessage);
+    }
   }
   return (isSet());
 }

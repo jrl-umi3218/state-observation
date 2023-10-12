@@ -355,8 +355,8 @@ struct EmptyChecker
   {
     return true;
   }
-  static constexpr char errorMessage[] = "";
-  static constexpr std::exception * exception = nullptr;
+  inline static constexpr char errorMessage[] = "";
+  using ExceptionT = std::runtime_error;
 };
 
 /// @brief this is a structure allowing for automatically verifying that the item has been initialized or not. The
@@ -446,8 +446,8 @@ struct CheckNaN
     BOOST_ASSERT(check(m) && errorMessage);
     return check(m);
   }
-  static constexpr char errorMessage[] = "Matrix contains a NaN.";
-  static constexpr std::exception * exception = nullptr;
+  inline static constexpr char errorMessage[] = "Matrix contains a NaN.";
+  using ExceptionT = std::runtime_error;
 };
 
 typedef CheckedItem<Matrix3, false, false, true, true, CheckNaN> CheckedMatrix3;
