@@ -525,9 +525,9 @@ struct Kinematics
     static const Byte angAcc = BOOST_BINARY(100000);
 
     static const Byte pose = position | orientation;
-    static const Byte vels = linVel | angVel;
-    static const Byte accs = linAcc | angAcc;
-    static const Byte all = position | orientation | linVel | angVel | linAcc | angAcc;
+    static const Byte vel = linVel | angVel;
+    static const Byte acc = linAcc | angAcc;
+    static const Byte all = pose | vel | acc;
   };
 
   Kinematics() {}
