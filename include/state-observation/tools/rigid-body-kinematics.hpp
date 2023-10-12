@@ -539,6 +539,13 @@ struct Kinematics
   /// use the flags to define the structure of the vector
   Kinematics(const Vector & v, Flags::Byte = Flags::all);
 
+  /// @brief constructor of a Kinematics object given each variable independently.
+  /// @param position the position composing the kinematics
+  /// @param linVel the linear velocity composing the kinematics
+  /// @param linAcc the linear acceleration composing the kinematics
+  /// @param orientation the orientation composing the kinematics
+  /// @param angVel the angular velocity composing the kinematics
+  /// @param angAcc the angular acceleration composing the kinematics
   Kinematics(const CheckedVector3 & position,
              const CheckedVector3 & linVel,
              const CheckedVector3 & linAcc,
@@ -546,10 +553,19 @@ struct Kinematics
              const CheckedVector3 & angVel,
              const CheckedVector3 & angAcc);
 
+  /// @brief constructor of a Kinematics object resulting from the composition of two others.
+  /// @param multiplier1 the first Kinematics object used for the composition
+  /// @param multiplier2 the second Kinematics object used for the composition
   Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2);
 
+  /// @brief constructor of a Kinematics object given its equivalent in the local frame.
+  /// @details performs the conversion from the local to the global expression of the kinematics.
+  /// @param locK the local kinematics to convert
   explicit inline Kinematics(const LocalKinematics & locK);
 
+  /// @brief fills the Kinematics object given its equivalent in the local frame.
+  /// @details performs the conversion from the local to the global expression of the kinematics.
+  /// @param locK the local kinematics to convert
   inline Kinematics & operator=(const LocalKinematics & locK);
 
   /// Fills from vector
@@ -666,10 +682,19 @@ struct LocalKinematics
   /// use the flags to define the structure of the vector
   inline LocalKinematics(const Vector & v, LocalKinematics::Flags::Byte flags);
 
+  /// @brief constructor of a LocalKinematics object resulting from the composition of two others.
+  /// @param multiplier1 the first LocalKinematics object used for the composition
+  /// @param multiplier2 the second LocalKinematics object used for the composition
   inline LocalKinematics(const LocalKinematics & multiplier1, const LocalKinematics & multiplier2);
 
+  /// @brief constructor of a LocalKinematics object given its equivalent in the global frame.
+  /// @details performs the conversion from the global to the local expression of the kinematics.
+  /// @param locK the global kinematics to convert
   explicit inline LocalKinematics(const Kinematics & kin);
 
+  /// @brief fills the LocalKinematics object given its equivalent in the global frame.
+  /// @details performs the conversion from the global to the local expression of the kinematics.
+  /// @param locK the global kinematics to convert
   inline LocalKinematics & operator=(const Kinematics & kine);
 
   /// Fills from vector
