@@ -24,6 +24,8 @@ KalmanFilterBase::KalmanFilterBase(Index n, Index m, Index p)
 {
   oc_.pbar.resize(nt_, nt_);
   pr_.resize(nt_, nt_);
+  oc_.inoMeasCov.resize(mt_, mt_);
+  oc_.inoMeasCovInverse.resize(mt_, mt_);
 }
 
 KalmanFilterBase::KalmanFilterBase(Index n, Index nt, Index m, Index mt, Index p)
@@ -31,6 +33,8 @@ KalmanFilterBase::KalmanFilterBase(Index n, Index nt, Index m, Index mt, Index p
 {
   oc_.pbar.resize(nt_, nt_);
   pr_.resize(nt_, nt_);
+  oc_.inoMeasCov.resize(mt_, mt_);
+  oc_.inoMeasCovInverse.resize(mt_, mt_);
 }
 
 void KalmanFilterBase::setA(const Amatrix & A)
@@ -135,14 +139,12 @@ ObserverBase::StateVector KalmanFilterBase::oneStepEstimation_()
   // innovation Measurements
   arithm_->measurementDifference(this->y_[k + 1], ybar_(), oc_.inoMeas);
 
-  oc_.inoMeasCov.resize(mt_, mt_);
   oc_.inoMeasCov.triangularView<Eigen::Upper>() = r_;
   oc_.inoMeasCov.triangularView<Eigen::Upper>() += c_ * oc_.pbar.selfadjointView<Eigen::Upper>() * c_.transpose();
 
-  Index & measurementTangentSize = mt_;
   // inversing innovation measurement covariance matrix
   oc_.inoMeasCovLLT.compute(oc_.inoMeasCov.selfadjointView<Eigen::Upper>());
-  oc_.inoMeasCovInverse.resize(measurementTangentSize, measurementTangentSize);
+
   oc_.inoMeasCovInverse.setIdentity();
   oc_.inoMeasCovLLT.matrixL().solveInPlace(oc_.inoMeasCovInverse);
   oc_.inoMeasCovLLT.matrixL().transpose().solveInPlace(oc_.inoMeasCovInverse);
@@ -376,6 +378,9 @@ void KalmanFilterBase::setStateSize(Index n, Index nt)
     clearC();
     clearQ();
     clearStateCovariance();
+
+    oc_.pbar.resize(nt_, nt_);
+    pr_.resize(nt_, nt_);
   }
 }
 
@@ -392,6 +397,8 @@ void KalmanFilterBase::setMeasureSize(Index m, Index mt)
     ZeroDelayObserver::setMeasureSize(m);
     clearC();
     clearR();
+    oc_.inoMeasCov.resize(mt_, mt_);
+    oc_.inoMeasCovInverse.resize(mt_, mt_);
   }
 }
 
