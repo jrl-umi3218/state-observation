@@ -642,8 +642,6 @@ struct Kinematics
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 protected:
-  inline const Kinematics & update_deprecated(const Kinematics & newValue, double dt, Flags::Byte = Flags::all);
-
   Vector3 tempVec_;
 };
 
@@ -771,10 +769,6 @@ struct LocalKinematics
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 protected:
-  inline const LocalKinematics & update_deprecated(const LocalKinematics & newValue,
-                                                   double dt,
-                                                   Flags::Byte = Flags::all);
-
   Vector3 tempVec_;
   Vector3 tempVec_2;
   Vector3 tempVec_3;
