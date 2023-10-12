@@ -13,16 +13,24 @@
 namespace stateObservation
 {
 
-KalmanFilterBase::KalmanFilterBase() : nt_(0), arithm_(this) {}
+KalmanFilterBase::KalmanFilterBase() : nt_(0), arithm_(this)
+{
+  oc_.pbar.resize(nt_, nt_);
+  pr_.resize(nt_, nt_);
+}
 
 KalmanFilterBase::KalmanFilterBase(Index n, Index m, Index p)
 : ZeroDelayObserver(n, m, p), nt_(n), mt_(m), arithm_(this)
 {
+  oc_.pbar.resize(nt_, nt_);
+  pr_.resize(nt_, nt_);
 }
 
 KalmanFilterBase::KalmanFilterBase(Index n, Index nt, Index m, Index mt, Index p)
 : ZeroDelayObserver(n, m, p), nt_(nt), mt_(mt), arithm_(this)
 {
+  oc_.pbar.resize(nt_, nt_);
+  pr_.resize(nt_, nt_);
 }
 
 void KalmanFilterBase::setA(const Amatrix & A)
@@ -121,7 +129,6 @@ ObserverBase::StateVector KalmanFilterBase::oneStepEstimation_()
   // prediction
   updateStateAndMeasurementPrediction(); // runs also updatePrediction_();
 
-  oc_.pbar.resize(nt_, nt_);
   oc_.pbar.triangularView<Eigen::Upper>() = q_;
   oc_.pbar.triangularView<Eigen::Upper>() += a_ * pr_.selfadjointView<Eigen::Upper>() * a_.transpose();
 
@@ -175,7 +182,6 @@ ObserverBase::StateVector KalmanFilterBase::oneStepEstimation_()
   oc_.mKc.noalias() = -oc_.kGain * c_;
   oc_.mKc.diagonal().array() += 1;
 
-  pr_.resize(nt_, nt_);
   pr_.triangularView<Eigen::Upper>() = (oc_.mKc * oc_.pbar.selfadjointView<Eigen::Upper>()).eval();
 
   return oc_.xhat;
