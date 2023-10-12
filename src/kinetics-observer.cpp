@@ -620,7 +620,9 @@ int KineticsObserver::setIMU(const Vector3 & accelero,
 
   BOOST_ASSERT(imu.time < k_data_ && "The IMU has been already set, use another number");
 
-  imu.num = num;
+  imu.stateIndex = angVelIndex() + sizeAngVel + sizeGyroBias * num;
+  imu.stateIndexTangent = angVelIndexTangent() + sizeAngVelTangent + sizeGyroBiasTangent * num;
+
   imu.acceleroGyro.head<3>() = accelero;
   imu.acceleroGyro.tail<3>() = gyrometer;
   if(imuSensors_[num].time == 0) /// this is the first value for the IMU
@@ -687,7 +689,9 @@ int KineticsObserver::setIMU(const Vector3 & accelero,
 
   BOOST_ASSERT(imu.time < k_data_ && "The IMU has been already set, use another number");
 
-  imu.num = num;
+  imu.stateIndex = angVelIndex() + sizeAngVel + sizeGyroBias * num;
+  imu.stateIndexTangent = angVelIndexTangent() + sizeAngVelTangent + sizeGyroBiasTangent * num;
+
   imu.acceleroGyro.head<3>() = accelero;
   imu.acceleroGyro.tail<3>() = gyrometer;
   imu.covMatrixAccelero = acceleroCov;
@@ -1029,6 +1033,7 @@ int KineticsObserver::addContact(const Kinematics & worldContactRefKine,
   Contact & contact = contacts_[contactNumber]; /// reference
 
   contact.isSet = true; /// set the contacts
+
   contact.stateIndex = contactsIndex() + contactNumber * sizeContact;
   contact.stateIndexTangent = contactsIndexTangent() + contactNumber * sizeContactTangent;
   contact.worldRestPose = worldContactRefKine;
@@ -2036,7 +2041,7 @@ Matrix KineticsObserver::computeCMatrix()
 
       if(withGyroBias_)
       {
-        C.block<sizeGyroSignal, sizeAngVelTangent>(imu.measIndex + sizeAcceleroSignal, gyroBiasIndexTangent(imu.num)) =
+        C.block<sizeGyroSignal, sizeAngVelTangent>(imu.measIndex + sizeAcceleroSignal, gyroBiasIndexTangent(i)) =
             Matrix3::Identity();
       }
     }
@@ -2440,7 +2445,7 @@ Vector KineticsObserver::stateDynamics(const Vector & xInput, const Vector & /*u
   {
     for(VectorIMUIterator i = imuSensors_.begin(), ie = imuSensors_.end(); i != ie; ++i)
     {
-      x.segment<sizeGyroBias>(gyroBiasIndex(i->num)).setZero();
+      x.segment<sizeGyroBias>(gyroBiasIndex(i)).setZero();
     }
   }
   if(!withUnmodeledWrench_)
@@ -2530,7 +2535,7 @@ Vector KineticsObserver::measureDynamics(const Vector & x_bar, const Vector & /*
       if(withGyroBias_)
       {
         y.segment<sizeGyroSignal>(imu.measIndex + sizeAcceleroSignal).noalias() =
-            worldImuKinematics.angVel() + x_bar.segment<sizeGyroBias>(gyroBiasIndex(imu.num));
+            worldImuKinematics.angVel() + x_bar.segment<sizeGyroBias>(gyroBiasIndex(i));
       }
       else
       {

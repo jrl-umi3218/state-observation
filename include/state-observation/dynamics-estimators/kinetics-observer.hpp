@@ -1000,12 +1000,15 @@ protected:
   {
     ~IMU() {}
     IMU() : Sensor(sizeIMUSignal) {}
-    int num;
+
     Kinematics userImuKinematics; // the kinematics of the IMU in the user's frame
     LocalKinematics centroidImuKinematics; // the kinematics of the IMU in the IMU's frame
     Vector6 acceleroGyro;
     Matrix3 covMatrixAccelero;
     Matrix3 covMatrixGyro;
+
+    int stateIndex;
+    int stateIndexTangent;
 
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   };
@@ -1369,6 +1372,10 @@ protected:
   Kinematics convertUserToCentroidFrame_(const Kinematics & userKine, TimeIndex k_data);
 
   /// Getters for the indexes of the state Vector using private types
+
+  inline unsigned gyroBiasIndex(VectorIMUConstIterator i) const;
+  inline unsigned gyroBiasIndexTangent(VectorIMUConstIterator i) const;
+
   inline unsigned contactIndex(VectorContactConstIterator i) const;
   inline unsigned contactKineIndex(VectorContactConstIterator i) const;
   inline unsigned contactPosIndex(VectorContactConstIterator i) const;

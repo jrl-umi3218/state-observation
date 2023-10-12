@@ -18,11 +18,20 @@ inline unsigned KineticsObserver::angVelIndex() const
 {
   return linVelIndex() + sizeLinVel;
 }
+
 inline unsigned KineticsObserver::gyroBiasIndex(unsigned numberOfIMU) const
 {
   BOOST_ASSERT(numberOfIMU < maxImuNumber_ && "The requested IMU number is higher than the maximum");
   return angVelIndex() + sizeAngVel + sizeGyroBias * numberOfIMU;
 }
+
+inline unsigned KineticsObserver::gyroBiasIndex(VectorIMUConstIterator i) const
+{
+  BOOST_ASSERT(i->stateIndex > 0 && "The requested imu is not set yet. The iterator may be wrong");
+
+  return unsigned(i->stateIndex);
+}
+
 inline unsigned KineticsObserver::unmodeledWrenchIndex() const
 {
   return gyroBiasIndex(0) + sizeGyroBias * maxImuNumber_;
@@ -72,7 +81,7 @@ inline unsigned KineticsObserver::contactTorqueIndex(unsigned contactNbr) const
 
 inline unsigned KineticsObserver::contactIndex(VectorContactConstIterator i) const
 {
-  BOOST_ASSERT(i->stateIndex > 0 && "The requested contact is not set yet. The iteratot may be wrong");
+  BOOST_ASSERT(i->stateIndex > 0 && "The requested contact is not set yet. The iterator may be wrong");
 
   return unsigned(i->stateIndex);
 }
@@ -126,6 +135,14 @@ inline unsigned KineticsObserver::gyroBiasIndexTangent(unsigned numberOfIMU) con
   BOOST_ASSERT(numberOfIMU < maxImuNumber_ && "The requested IMU number is higher than the maximum");
   return angVelIndexTangent() + sizeAngVel + sizeGyroBias * numberOfIMU;
 }
+
+inline unsigned KineticsObserver::gyroBiasIndexTangent(VectorIMUConstIterator i) const
+{
+  BOOST_ASSERT(i->stateIndexTangent > 0 && "The requested imu is not set yet. The iterator may be wrong");
+
+  return unsigned(i->stateIndexTangent);
+}
+
 inline unsigned KineticsObserver::unmodeledWrenchIndexTangent() const
 {
   return gyroBiasIndexTangent(0) + sizeGyroBias * maxImuNumber_;
