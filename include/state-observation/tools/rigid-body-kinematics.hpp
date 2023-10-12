@@ -615,12 +615,19 @@ struct Kinematics
   /// composition of transformation
   inline Kinematics operator*(const Kinematics &) const;
 
+  /// @brief computes the composition of two Kinematics object.
+  /// @param operand1 the first Kinematics object used in the composition
+  /// @param operand2 the second Kinematics object used in the composition
+  /// @return Kinematics
   inline Kinematics setToProductNoAlias(const Kinematics & operand1, const Kinematics & operand2);
 
   /// Allows to compute the difference between two Kinematics objects. Has the same effect than calling
   /// setToProductNoAlias(operand1, operand2.getInverse()) but is computationally faster
   inline Kinematics setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2);
 
+  /// @brief returns a Kinematics object corresponding to zero kinematics on the desired variables.
+  /// @param Flags defines of which variables the new Kinematics object must be filled.
+  /// @return Kinematics
   static inline Kinematics zeroKinematics(Flags::Byte = Flags::all);
 
   inline void reset();
@@ -744,6 +751,10 @@ struct LocalKinematics
   /// composition of transformation
   inline LocalKinematics operator*(const LocalKinematics &) const;
 
+  /// @brief computes the composition of two LocalKinematics object.
+  /// @param operand1 the first LocalKinematics object used in the composition
+  /// @param operand2 the second LocalKinematics object used in the composition
+  /// @return LocalKinematics
   inline LocalKinematics setToProductNoAlias(const LocalKinematics & operand1, const LocalKinematics & operand2);
 
   /// Allows to compute the difference between two LocalKinematics objects. Has the same effect that calling
