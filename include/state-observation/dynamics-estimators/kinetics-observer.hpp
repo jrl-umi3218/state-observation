@@ -984,7 +984,7 @@ protected:
   struct Sensor
   {
     Sensor(int signalSize) : measIndex(-1), measIndexTangent(-1), size(signalSize), time(0) {}
-    virtual ~Sensor() {}
+    ~Sensor() {}
     int measIndex;
     int measIndexTangent;
     int size;
@@ -998,7 +998,7 @@ protected:
 
   struct IMU : public Sensor
   {
-    virtual ~IMU() {}
+    ~IMU() {}
     IMU() : Sensor(sizeIMUSignal) {}
     int num;
     Kinematics userImuKinematics; // the kinematics of the IMU in the user's frame
@@ -1020,7 +1020,7 @@ protected:
     {
       worldRestPose.angVel = worldRestPose.linVel = Vector3::Zero();
     }
-    virtual ~Contact() {}
+    ~Contact() {}
 
     /// State ///
     Kinematics worldRestPose; // the rest pose of the contact in the world frame
