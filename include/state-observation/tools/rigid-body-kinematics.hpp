@@ -388,7 +388,7 @@ public:
 
   inline Orientation & setRandom();
 
-  template<typename t>
+  template<typename t = Quaternion>
   inline Orientation & setZeroRotation();
 
   inline Orientation & setZeroRotation();
@@ -578,9 +578,7 @@ struct Kinematics
   /// initializes at zero all the flagged fields
   /// the typename allows to set if the prefered type for rotation
   /// is a Matrix3 or a Quaternion (Quaternion by default)
-  template<typename t>
-  Kinematics & setZero(Flags::Byte = Flags::all);
-
+  template<typename t = Quaternion>
   Kinematics & setZero(Flags::Byte = Flags::all);
 
   /// @brief integrates the current kinematics over the timestep dt.
@@ -714,9 +712,7 @@ struct LocalKinematics
   /// initializes at zero all the flagged fields
   /// the typename allows to set if the prefered type for rotation
   /// is a Matrix3 or a Quaternion (Quaternion by default)
-  template<typename t>
-  LocalKinematics & setZero(Flags::Byte = Flags::all);
-
+  template<typename t = Quaternion>
   LocalKinematics & setZero(Flags::Byte = Flags::all);
 
   /// @brief integrates the current local kinematics over the timestep dt.

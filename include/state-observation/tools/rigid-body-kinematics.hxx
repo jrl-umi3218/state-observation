@@ -1245,11 +1245,6 @@ inline Kinematics & Kinematics::setZero(Kinematics::Flags::Byte flags)
   return *this;
 }
 
-inline Kinematics & Kinematics::setZero(Kinematics::Flags::Byte flags)
-{
-  return setZero<Quaternion>(flags);
-}
-
 inline const Kinematics & Kinematics::integrate(double dt)
 {
   if(angVel.isSet())
@@ -2482,11 +2477,6 @@ inline LocalKinematics & LocalKinematics::setZero(LocalKinematics::Flags::Byte f
   }
 
   return *this;
-}
-
-inline LocalKinematics & LocalKinematics::setZero(LocalKinematics::Flags::Byte flags)
-{
-  return setZero<Quaternion>(flags);
 }
 
 inline const LocalKinematics & LocalKinematics::integrate(double dt)
