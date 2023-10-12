@@ -504,46 +504,6 @@ int main()
 
   std::cout << std::endl << "Tests with 1 contact and 1 gyrometer: " << std::endl << std::endl;
 
-  /*
-  for(int i = 0; i < stateVector_.size(); i++)
-  {
-    dx_.segment<ko_.sizePosTangent>(ko_.posIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizePos>(ko_.posIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeOriTangent>(ko_.oriIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeOri>(ko_.oriIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeLinVelTangent>(ko_.linVelIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeLinVel>(ko_.linVelIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeAngVelTangent>(ko_.angVelIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeAngVel>(ko_.angVelIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeGyroBiasTangent>(ko_.gyroBiasIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeGyroBias>(ko_.gyroBiasIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeForceTangent>(ko_.unmodeledForceIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeForce>(ko_.unmodeledForceIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizePosTangent>(ko_.unmodeledTorqueIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeTorque>(ko_.unmodeledTorqueIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizePosTangent>(ko_.contactPosIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizePos>(ko_.contactPosIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeOriTangent>(ko_.contactOriIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeOri>(ko_.contactOriIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeForceTangent>(ko_.contactForceIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeForce>(ko_.contactForceIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeTorqueTangent>(ko_.contactTorqueIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeTorque>(ko_.contactTorqueIndex(0)).norm() * 1e-8);
-    if(secondContactAndGyro_)
-    {
-      dx_.segment<ko_.sizeGyroBiasTangent>(ko_.gyroBiasIndexTangent(1))
-          .setConstant(stateVector_.segment<ko_.sizeGyroBias>(ko_.gyroBiasIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizePosTangent>(ko_.contactPosIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizePos>(ko_.contactPosIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizeOriTangent>(ko_.contactOriIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizeOri>(ko_.contactOriIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizeForceTangent>(ko_.contactForceIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizeForce>(ko_.contactForceIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizeTorqueTangent>(ko_.contactTorqueIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizeTorque>(ko_.contactTorqueIndex(1)).norm() * 1e-8);
-    }
-  }
-  */
   std::cout << "Starting testAccelerationsJacobians." << std::endl;
   if((returnVal = testAccelerationsJacobians(ko_1_, ++errorcode, 0.1, 5e-11)))
   {
@@ -567,7 +527,7 @@ int main()
   }
 
   std::cout << "Starting testAnalyticalAJacobianVsFD." << std::endl;
-  if((returnVal = testAnalyticalAJacobianVsFD(ko_1_, ++errorcode, 2.5, 0.005)))
+  if((returnVal = testAnalyticalAJacobianVsFD(ko_1_, ++errorcode, 3, 0.005)))
   {
     std::cout << "testAnalyticalAJacobianVsFD Failed, error code: " << returnVal << std::endl;
     return returnVal;
@@ -651,47 +611,6 @@ int main()
   ko_2_.getEKF().updateStatePrediction();
 
   std::cout << std::endl << "Tests with 2 contacts and 2 gyrometers: " << std::endl << std::endl;
-
-  /*
-  for(int i = 0; i < stateVector_.size(); i++)
-  {
-    dx_.segment<ko_.sizePosTangent>(ko_.posIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizePos>(ko_.posIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeOriTangent>(ko_.oriIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeOri>(ko_.oriIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeLinVelTangent>(ko_.linVelIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeLinVel>(ko_.linVelIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeAngVelTangent>(ko_.angVelIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeAngVel>(ko_.angVelIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizeGyroBiasTangent>(ko_.gyroBiasIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeGyroBias>(ko_.gyroBiasIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeForceTangent>(ko_.unmodeledForceIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeForce>(ko_.unmodeledForceIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizePosTangent>(ko_.unmodeledTorqueIndexTangent())
-        .setConstant(stateVector_.segment<ko_.sizeTorque>(ko_.unmodeledTorqueIndex()).norm() * 1e-8);
-    dx_.segment<ko_.sizePosTangent>(ko_.contactPosIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizePos>(ko_.contactPosIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeOriTangent>(ko_.contactOriIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeOri>(ko_.contactOriIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeForceTangent>(ko_.contactForceIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeForce>(ko_.contactForceIndex(0)).norm() * 1e-8);
-    dx_.segment<ko_.sizeTorqueTangent>(ko_.contactTorqueIndexTangent(0))
-        .setConstant(stateVector_.segment<ko_.sizeTorque>(ko_.contactTorqueIndex(0)).norm() * 1e-8);
-    if(secondContactAndGyro_)
-    {
-      dx_.segment<ko_.sizeGyroBiasTangent>(ko_.gyroBiasIndexTangent(1))
-          .setConstant(stateVector_.segment<ko_.sizeGyroBias>(ko_.gyroBiasIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizePosTangent>(ko_.contactPosIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizePos>(ko_.contactPosIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizeOriTangent>(ko_.contactOriIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizeOri>(ko_.contactOriIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizeForceTangent>(ko_.contactForceIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizeForce>(ko_.contactForceIndex(1)).norm() * 1e-8);
-      dx_.segment<ko_.sizeTorqueTangent>(ko_.contactTorqueIndexTangent(0))
-          .setConstant(stateVector_.segment<ko_.sizeTorque>(ko_.contactTorqueIndex(1)).norm() * 1e-8);
-    }
-  }
-  */
 
   std::cout << "Starting testAccelerationsJacobians." << std::endl;
   if((returnVal = testAccelerationsJacobians(ko_2_, ++errorcode, 0.1, 4.95e-11)))

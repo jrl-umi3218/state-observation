@@ -2333,26 +2333,26 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
         }
       }
     }
-    /*
-    Angular part
-    */
+  }
+  /*
+  Angular part
+  */
 
-    if(angVel.isSet())
+  if(angVel.isSet())
+  {
+    if(angAcc.isSet())
     {
-      if(angAcc.isSet())
+      if(orientation.isSet())
       {
-        if(orientation.isSet())
-        {
-          orientation.integrateRightSide(angVel() * dt + angAcc() * 0.5 * dt * dt);
-        }
-        angVel() += angAcc() * dt;
+        orientation.integrateRightSide(angVel() * dt + angAcc() * 0.5 * dt * dt);
       }
-      else
+      angVel() += angAcc() * dt;
+    }
+    else
+    {
+      if(orientation.isSet())
       {
-        if(orientation.isSet())
-        {
-          orientation.integrateRightSide(angVel() * dt);
-        }
+        orientation.integrateRightSide(angVel() * dt);
       }
     }
   }

@@ -1804,7 +1804,6 @@ Matrix KineticsObserver::computeAMatrix()
       Matrix3 J_R_contactTorque = J_R_omegadot * J_omegadot_Tcis;
       // jacobian matrix of the local linear velocity's state-transition wrt the contact force
       Matrix3 J_vl_contactForce = dt_ * J_linAcc_Fcis;
-      J_vl_contactForce;
       // jacobian matrix of the local angular velocity's state-transition wrt the contact force
       Matrix3 J_omega_contactForce = dt_ * J_omegadot_Fcis;
       // jacobian matrix of the local angular velocity's state-transition wrt the contact torque
@@ -1817,8 +1816,9 @@ Matrix KineticsObserver::computeAMatrix()
       A.block<sizeOriTangent, sizeForceTangent>(oriIndexTangent(), contactForceIndexTangent(i)) = J_R_contactForce;
       A.block<sizeOriTangent, sizeTorqueTangent>(oriIndexTangent(), contactTorqueIndexTangent(i)) = J_R_contactTorque;
       A.block<sizeLinVelTangent, sizeForceTangent>(linVelIndexTangent(), contactForceIndexTangent(i)) =
-          A.block<sizeAngVelTangent, sizeForceTangent>(angVelIndexTangent(), contactForceIndexTangent(i)) =
-              J_omega_contactForce;
+          J_vl_contactForce;
+      A.block<sizeAngVelTangent, sizeForceTangent>(angVelIndexTangent(), contactForceIndexTangent(i)) =
+          J_omega_contactForce;
       A.block<sizeAngVelTangent, sizeTorqueTangent>(angVelIndexTangent(), contactTorqueIndexTangent(i)) =
           J_omega_contactTorque;
       A.block<sizePosTangent, sizePosTangent>(contactPosIndexTangent(i), contactPosIndexTangent(i)) =
@@ -1828,11 +1828,10 @@ Matrix KineticsObserver::computeAMatrix()
       //// Jacobian matrices of the contact force ////
 
       // orientation of the world frame in the contact frame.
-      Orientation contactWorldOri(
-          Matrix3(centroidContactKine.orientation.toMatrix3().transpose()
-                  * predictedWorldCentroidStateOri.toMatrix3()
-                        .transpose())); // better to compute it now as it is used in several expressions
 
+      Orientation contactWorldOri(
+          Matrix3((predictedWorldCentroidStateOri.toMatrix3() * centroidContactKine.orientation.toMatrix3())
+                      .transpose())); // better to compute it now as it is used in several expressions
       // jacobian matrix of the contact force wrt the local position
       Matrix3 J_contactForce_pl_at_same_time =
           -(contactWorldOri.toMatrix3() * contact.linearStiffness * predictedWorldCentroidStateOri.toMatrix3());
