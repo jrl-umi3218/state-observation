@@ -1,4 +1,3 @@
-#include <iostream>
 #include <state-observation/observer/extended-kalman-filter.hpp>
 
 namespace stateObservation
