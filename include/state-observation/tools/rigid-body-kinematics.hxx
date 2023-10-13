@@ -1726,7 +1726,7 @@ inline Kinematics Kinematics::operator*(const Kinematics & multiplier) const
   return Kinematics(*this, multiplier);
 }
 
-inline Kinematics Kinematics::setToProductNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2)
+inline Kinematics & Kinematics::setToProductNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2)
 {
   BOOST_ASSERT(multiplier1.orientation.isSet()
                && "The multiplier 1 orientation is not initialized, the multiplication is not possible.");
@@ -1830,7 +1830,15 @@ inline Kinematics Kinematics::zeroKinematics(Flags::Byte flags)
   return kine;
 }
 
-inline Kinematics Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2)
+inline Kinematics & Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2)
+{
+  setToDiffNoAliasLinPart(multiplier1, multiplier2);
+  setToDiffNoAliasAngPart(multiplier1, multiplier2);
+
+  return *this;
+}
+
+inline Kinematics & Kinematics::setToDiffNoAliasLinPart(const Kinematics & multiplier1, const Kinematics & multiplier2)
 {
   BOOST_ASSERT(multiplier1.orientation.isSet()
                && "The multiplier 1 orientation is not initialized, the multiplication is not possible.");
@@ -1842,102 +1850,117 @@ inline Kinematics Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, c
                && "The multiplier 2 kinematics is not initialized, the multiplication is not possible.");
 
   Orientation R2t = multiplier2.orientation.inverse();
-  if(multiplier2.position.isSet() && multiplier1.position.isSet())
-  {
-    Vector3 & R1p2 = position.set(); /// reference ( Vector3&  )
-    R1p2.noalias() = -(
-        multiplier1.orientation
-        * (R2t
-           * multiplier2.position())); // -(R2t * multiplier2.position()) is the inverse of the position of multiplier 2
 
-    if(multiplier2.linVel.isSet() && multiplier1.linVel.isSet() && multiplier1.angVel.isSet()
-       && multiplier2.angVel.isSet())
-    {
-      Vector3 & R1p2d = tempVec_; /// reference
-      Vector3 omegaxp2 = multiplier2.angVel().cross(multiplier2.position());
-      R1p2d.noalias() =
-          multiplier1.orientation
-          * (R2t
-             * (omegaxp2
-                - multiplier2.linVel())); // R2t * (multiplier2.angVel().cross(multiplier2.position()) -
-                                          // multiplier2.linVel()) is the inverse of the linear velocity of multiplier 2
-
-      Vector3 & w1xR1p2 = linVel.set(); /// reference
-      w1xR1p2.noalias() = multiplier1.angVel().cross(R1p2);
-
-      Vector3 & w1xR1p2_R1p2d = w1xR1p2; ///  reference ( =linVel() )
-      w1xR1p2_R1p2d += R1p2d;
-
-      if(multiplier2.linAcc.isSet() && multiplier1.linAcc.isSet() && multiplier1.angAcc.isSet()
-         && multiplier2.angAcc.isSet())
-      {
-        linAcc.set().noalias() = multiplier1.orientation
-                                 * (R2t
-                                    * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2)
-                                       - multiplier2.linAcc() + multiplier2.angAcc().cross(multiplier2.position())));
-        // R2t * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2) - multiplier2.linAcc() +
-        // multiplier2.angAcc().cross(multiplier2.position())) is the inverse of the linear velocity of multiplier 2
-        linAcc().noalias() += multiplier1.angAcc().cross(R1p2);
-        linAcc().noalias() += multiplier1.angVel().cross(w1xR1p2_R1p2d + R1p2d);
-        linAcc() += multiplier1.linAcc();
-      }
-      else
-      {
-        linAcc.reset();
-      }
-
-      linVel() += multiplier1.linVel();
-    }
-    else
-    {
-      linVel.reset();
-      linAcc.reset();
-    }
-
-    position() += multiplier1.position();
-  }
-  else
+  if(!multiplier2.position.isSet() || !multiplier1.position.isSet())
   {
     position.reset();
     linVel.reset();
     linAcc.reset();
+    return *this;
   }
 
-  if(multiplier2.orientation.isSet())
+  Vector3 & R1p2 = position.set(); /// reference ( Vector3&  )
+  R1p2.noalias() =
+      -(multiplier1.orientation
+        * (R2t
+           * multiplier2.position())); // -(R2t * multiplier2.position()) is the inverse of the position of multiplier 2
+
+  if(!multiplier2.linVel.isSet() || !multiplier1.linVel.isSet() || !multiplier1.angVel.isSet()
+     || !multiplier2.angVel.isSet())
   {
-    orientation.setToProductNoAlias(multiplier1.orientation, R2t);
+    linVel.reset();
+    linAcc.reset();
 
-    if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
-    {
-      Vector3 & R1w2 = angVel.set(); /// reference
-      R1w2.noalias() = -(multiplier1.orientation * (R2t * multiplier2.angVel()));
+    position() += multiplier1.position();
 
-      if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
-      {
-        auto & aAcc = angAcc.set();
-        aAcc.noalias() = -(multiplier1.orientation * (R2t * multiplier2.angAcc()));
-        aAcc.noalias() += multiplier1.angVel().cross(R1w2);
-        aAcc += multiplier1.angAcc();
-      }
-      else
-      {
-        angAcc.reset();
-      }
-
-      angVel() += multiplier1.angVel();
-    }
-    else
-    {
-      angVel.reset();
-      angAcc.reset();
-    }
+    return *this;
   }
-  else
+
+  Vector3 & R1p2d = tempVec_; /// reference
+  Vector3 omegaxp2 = multiplier2.angVel().cross(multiplier2.position());
+  R1p2d.noalias() =
+      multiplier1.orientation
+      * (R2t
+         * (omegaxp2
+            - multiplier2.linVel())); // R2t * (multiplier2.angVel().cross(multiplier2.position()) -
+                                      // multiplier2.linVel()) is the inverse of the linear velocity of multiplier 2
+
+  Vector3 & w1xR1p2 = linVel.set(); /// reference
+  w1xR1p2.noalias() = multiplier1.angVel().cross(R1p2);
+
+  Vector3 & w1xR1p2_R1p2d = w1xR1p2; ///  reference ( =linVel() )
+  w1xR1p2_R1p2d += R1p2d;
+
+  if(multiplier2.linAcc.isSet() || multiplier1.linAcc.isSet() || multiplier1.angAcc.isSet()
+     || multiplier2.angAcc.isSet())
+  {
+    linAcc.reset();
+
+    linVel() += multiplier1.linVel();
+    position() += multiplier1.position();
+
+    return *this;
+  }
+
+  linAcc.set().noalias() = multiplier1.orientation
+                           * (R2t
+                              * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2) - multiplier2.linAcc()
+                                 + multiplier2.angAcc().cross(multiplier2.position())));
+  // R2t * (multiplier2.angVel().cross(2 * multiplier2.linVel() - omegaxp2) - multiplier2.linAcc() +
+  // multiplier2.angAcc().cross(multiplier2.position())) is the inverse of the linear velocity of multiplier 2
+  linAcc().noalias() += multiplier1.angAcc().cross(R1p2);
+  linAcc().noalias() += multiplier1.angVel().cross(w1xR1p2_R1p2d + R1p2d);
+  linAcc() += multiplier1.linAcc();
+
+  linVel() += multiplier1.linVel();
+
+  position() += multiplier1.position();
+
+  return *this;
+}
+
+inline Kinematics & Kinematics::setToDiffNoAliasAngPart(const Kinematics & multiplier1, const Kinematics & multiplier2)
+{
+  BOOST_ASSERT(multiplier1.orientation.isSet()
+               && "The multiplier 1 orientation is not initialized, the multiplication is not possible.");
+
+  BOOST_ASSERT(multiplier2.orientation.isSet()
+               && "The multiplier 2 orientation is not initialized, the multiplication is not possible.");
+
+  Orientation R2t = multiplier2.orientation.inverse();
+
+  if(!multiplier2.orientation.isSet())
   {
     orientation.reset();
     angVel.reset();
     angAcc.reset();
+    return *this;
   }
+  orientation.setToProductNoAlias(multiplier1.orientation, R2t);
+
+  if(!multiplier2.angVel.isSet() || !multiplier1.angVel.isSet())
+  {
+    angVel.reset();
+    angAcc.reset();
+    return *this;
+  }
+
+  Vector3 & R1w2 = angVel.set(); /// reference
+  R1w2.noalias() = -(multiplier1.orientation * (R2t * multiplier2.angVel()));
+
+  if(!multiplier2.angAcc.isSet() || !multiplier1.angAcc.isSet())
+  {
+    angAcc.reset();
+    angVel() += multiplier1.angVel();
+    return *this;
+  }
+
+  auto & aAcc = angAcc.set();
+  aAcc.noalias() = -(multiplier1.orientation * (R2t * multiplier2.angAcc()));
+  aAcc.noalias() += multiplier1.angVel().cross(R1w2);
+  aAcc += multiplier1.angAcc();
+
+  angVel() += multiplier1.angVel();
 
   return *this;
 }
@@ -3199,8 +3222,8 @@ inline LocalKinematics LocalKinematics::operator*(const LocalKinematics & multip
   return LocalKinematics(*this, multiplier);
 }
 
-inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematics & multiplier1,
-                                                            const LocalKinematics & multiplier2)
+inline LocalKinematics & LocalKinematics::setToProductNoAlias(const LocalKinematics & multiplier1,
+                                                              const LocalKinematics & multiplier2)
 {
   BOOST_ASSERT(multiplier1.orientation.isSet()
                && "The multiplier 1 orientation is not initialized, the multiplication is not possible.");
@@ -3211,32 +3234,32 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
                && "The multiplier 2 kinematics is not initialized, the multiplication is not possible.");
 
   Orientation R1t = multiplier1.orientation.inverse();
-  Orientation R2t = multiplier2.orientation.inverse();
+  Orientation R2 = multiplier2.orientation.inverse();
 
   if(multiplier2.position.isSet() && multiplier1.position.isSet())
   {
-    Vector3 & R2tp1 = position.set(); /// reference ( Vector3&  )
-    R2tp1.noalias() = R2t * multiplier1.position();
+    Vector3 & R2p1 = position.set(); /// reference ( Vector3&  )
+    R2p1.noalias() = R2 * multiplier1.position();
 
     if(multiplier2.linVel.isSet() && multiplier1.linVel.isSet() && multiplier1.angVel.isSet())
     {
-      Vector3 & R2tp1d = tempVec_; /// reference
-      R2tp1d.noalias() = R2t * multiplier1.linVel();
+      Vector3 & R2p1d = tempVec_; /// reference
+      R2p1d.noalias() = R2 * multiplier1.linVel();
 
-      Vector3 & R2tw1 = tempVec_2; /// reference
-      R2tw1.noalias() = R2t * multiplier1.angVel();
+      Vector3 & R2w1 = tempVec_2; /// reference
+      R2w1.noalias() = R2 * multiplier1.angVel();
 
-      Vector3 & R2tw1p2 = linVel.set(); /// reference
-      R2tw1p2.noalias() = R2tw1.cross(multiplier2.position());
+      Vector3 & R2w1p2 = linVel.set(); /// reference
+      R2w1p2.noalias() = R2w1.cross(multiplier2.position());
 
-      Vector3 & R2tw1p2_p2d = R2tw1p2; ///  reference ( =linVel() )
-      R2tw1p2_p2d += multiplier2.linVel();
+      Vector3 & R2w1p2_p2d = R2w1p2; ///  reference ( =linVel() )
+      R2w1p2_p2d += multiplier2.linVel();
 
       if(multiplier2.linAcc.isSet() && multiplier1.linAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        linAcc.set().noalias() = R2t * multiplier1.linAcc();
-        linAcc().noalias() += (R2t * multiplier1.angAcc()).cross(multiplier2.position());
-        linAcc().noalias() += R2tw1.cross(R2tw1p2_p2d + multiplier2.linVel());
+        linAcc.set().noalias() = R2 * multiplier1.linAcc();
+        linAcc().noalias() += (R2 * multiplier1.angAcc()).cross(multiplier2.position());
+        linAcc().noalias() += R2w1.cross(R2w1p2_p2d + multiplier2.linVel());
         linAcc() += multiplier2.linAcc();
       }
       else
@@ -3244,7 +3267,7 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
         linAcc.reset();
       }
 
-      linVel() += R2tp1d;
+      linVel() += R2p1d;
     }
     else
     {
@@ -3267,13 +3290,13 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
 
     if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
     {
-      Vector3 & R2tw1 = angVel.set(); /// reference
-      R2tw1.noalias() = R2t * multiplier1.angVel();
+      Vector3 & R2w1 = angVel.set(); /// reference
+      R2w1.noalias() = R2 * multiplier1.angVel();
 
       if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
       {
-        angAcc.set().noalias() = R2t * multiplier1.angAcc();
-        angAcc().noalias() += R2tw1.cross(multiplier2.angVel());
+        angAcc.set().noalias() = R2 * multiplier1.angAcc();
+        angAcc().noalias() += R2w1.cross(multiplier2.angVel());
         angAcc() += multiplier2.angAcc();
       }
       else
@@ -3299,125 +3322,150 @@ inline LocalKinematics LocalKinematics::setToProductNoAlias(const LocalKinematic
   return *this;
 }
 
-inline LocalKinematics LocalKinematics::setToDiffNoAlias(const LocalKinematics & multiplier1,
-                                                         const LocalKinematics & multiplier2)
+inline LocalKinematics & LocalKinematics::setToDiffNoAlias(const LocalKinematics & multiplier1,
+                                                           const LocalKinematics & multiplier2)
+{
+  setToDiffNoAliasAngPart(multiplier1, multiplier2);
+  setToDiffNoAliasLinPart(multiplier1, multiplier2);
+
+  return *this;
+}
+
+inline LocalKinematics & LocalKinematics::setToDiffNoAliasLinPart(const LocalKinematics & multiplier1,
+                                                                  const LocalKinematics & multiplier2)
+{
+  BOOST_ASSERT(multiplier2.orientation.isSet()
+               && "The multiplier 2 orientation is not initialized, the multiplication is not possible.");
+
+  BOOST_ASSERT((multiplier2.position.isSet())
+               && "The multiplier 2 kinematics is not initialized, the multiplication is not possible.");
+  BOOST_ASSERT((multiplier1.position.isSet())
+               && "The multiplier 1 kinematics is not initialized, the multiplication is not possible.");
+
+  const Orientation & R2 = multiplier2.orientation; // transpose of the inversed orientation of multiplier 2
+
+  // check if we can compute the position
+  if(!multiplier2.position.isSet() || !multiplier1.position.isSet())
+  {
+    position.reset();
+    linVel.reset();
+    linAcc.reset();
+
+    return *this;
+  }
+
+  Vector3 & R2p1 = position.set(); /// reference ( Vector3&  )
+
+  Vector3 & inv_pos2 = tempVec_3; // inversed position of multiplier 2
+  inv_pos2.noalias() = -(multiplier2.orientation * multiplier2.position());
+  R2p1.noalias() = R2 * multiplier1.position();
+
+  if(!multiplier1.linVel.isSet() || !multiplier2.linVel.isSet() || !multiplier1.angVel.isSet()
+     || !multiplier2.angVel.isSet())
+  {
+    linVel.reset();
+    linAcc.reset();
+
+    position() += inv_pos2;
+
+    return *this;
+  }
+
+  Vector3 & R2p1d = tempVec_; /// reference
+  R2p1d.noalias() = R2 * multiplier1.linVel();
+
+  Vector3 & R2w1 = tempVec_2; /// reference
+  R2w1.noalias() = R2 * multiplier1.angVel();
+
+  Vector3 & R2w1p2 = linVel.set(); /// reference
+  R2w1p2.noalias() = R2w1.cross(inv_pos2);
+
+  Vector3 & R2w1p2_p2d = R2w1p2; ///  reference ( =linVel() )
+
+  Vector3 & inv_linVel2 = tempVec_4; // inversed linear velocity of multiplier 2
+  inv_linVel2.noalias() =
+      multiplier2.orientation * (multiplier2.angVel().cross(multiplier2.position()) - multiplier2.linVel());
+
+  R2w1p2_p2d += inv_linVel2;
+
+  if(!multiplier1.linAcc.isSet() || !multiplier2.linAcc.isSet() || !multiplier1.angAcc.isSet()
+     || !multiplier2.angAcc.isSet())
+  {
+    linAcc.reset();
+
+    linVel() += R2p1d;
+    position() += inv_pos2;
+
+    return *this;
+  }
+  linAcc.set().noalias() = R2 * multiplier1.linAcc();
+  linAcc().noalias() += (R2 * multiplier1.angAcc()).cross(inv_pos2);
+  linAcc().noalias() += R2w1.cross(R2w1p2_p2d + inv_linVel2);
+
+  Vector3 & inv_linAcc2 = tempVec_5; // inversed linear acceleration of multiplier 2
+  inv_linAcc2.noalias() =
+      multiplier2.orientation
+      * (multiplier2.angVel().cross(2 * multiplier2.linVel() - multiplier2.angVel().cross(multiplier2.position()))
+         - multiplier2.linAcc() + multiplier2.angAcc().cross(multiplier2.position()));
+
+  linAcc() += inv_linAcc2;
+
+  linVel() += R2p1d;
+
+  position() += inv_pos2;
+
+  return *this;
+}
+
+inline LocalKinematics & LocalKinematics::setToDiffNoAliasAngPart(const LocalKinematics & multiplier1,
+                                                                  const LocalKinematics & multiplier2)
 {
   BOOST_ASSERT(multiplier1.orientation.isSet()
                && "The multiplier 1 orientation is not initialized, the multiplication is not possible.");
   BOOST_ASSERT(multiplier2.orientation.isSet()
                && "The multiplier 2 orientation is not initialized, the multiplication is not possible.");
 
-  BOOST_ASSERT((multiplier2.position.isSet())
-               && "The multiplier 2 kinematics is not initialized, the multiplication is not possible.");
+  const Orientation & R2 = multiplier2.orientation; // transpose of the inversed orientation of multiplier 2
 
-  Orientation R1t = multiplier1.orientation.inverse();
-  Orientation R2t = multiplier2.orientation; // transpose of the inversed orientation of multiplier 2
-
-  if(multiplier2.position.isSet() && multiplier1.position.isSet())
-  {
-    Vector3 & R2tp1 = position.set(); /// reference ( Vector3&  )
-
-    Vector3 & inv_pos2 = tempVec_3; // inversed position of multiplier 2
-    inv_pos2.noalias() = -(multiplier2.orientation * multiplier2.position());
-    R2tp1.noalias() = R2t * multiplier1.position();
-
-    if(multiplier1.linVel.isSet() && multiplier2.linVel.isSet() && multiplier1.angVel.isSet()
-       && multiplier2.angVel.isSet())
-    {
-      Vector3 & R2tp1d = tempVec_; /// reference
-      R2tp1d.noalias() = R2t * multiplier1.linVel();
-
-      Vector3 & R2tw1 = tempVec_2; /// reference
-      R2tw1.noalias() = R2t * multiplier1.angVel();
-
-      Vector3 & R2tw1p2 = linVel.set(); /// reference
-      R2tw1p2.noalias() = R2tw1.cross(inv_pos2);
-
-      Vector3 & R2tw1p2_p2d = R2tw1p2; ///  reference ( =linVel() )
-
-      Vector3 & inv_linVel2 = tempVec_4; // inversed linear velocity of multiplier 2
-      inv_linVel2.noalias() =
-          multiplier2.orientation * (multiplier2.angVel().cross(multiplier2.position()) - multiplier2.linVel());
-
-      R2tw1p2_p2d += inv_linVel2;
-
-      if(multiplier1.linAcc.isSet() && multiplier2.linAcc.isSet() && multiplier1.angAcc.isSet()
-         && multiplier2.angAcc.isSet())
-      {
-        linAcc.set().noalias() = R2t * multiplier1.linAcc();
-        linAcc().noalias() += (R2t * multiplier1.angAcc()).cross(inv_pos2);
-        linAcc().noalias() += R2tw1.cross(R2tw1p2_p2d + inv_linVel2);
-
-        Vector3 & inv_linAcc2 = tempVec_5; // inversed linear acceleration of multiplier 2
-        inv_linAcc2.noalias() =
-            multiplier2.orientation
-            * (multiplier2.angVel().cross(2 * multiplier2.linVel() - multiplier2.angVel().cross(multiplier2.position()))
-               - multiplier2.linAcc() + multiplier2.angAcc().cross(multiplier2.position()));
-
-        linAcc() += inv_linAcc2;
-      }
-      else
-      {
-        linAcc.reset();
-      }
-
-      linVel() += R2tp1d;
-    }
-    else
-    {
-      linVel.reset();
-      linAcc.reset();
-    }
-
-    position() += inv_pos2;
-  }
-  else
-  {
-    position.reset();
-    linVel.reset();
-    linAcc.reset();
-  }
-
-  if(multiplier2.orientation.isSet())
-  {
-    orientation.setToProductNoAlias(multiplier1.orientation, multiplier2.orientation.inverse());
-
-    if(multiplier2.angVel.isSet() && multiplier1.angVel.isSet())
-    {
-      Vector3 & R2tw1 = angVel.set(); /// reference
-      R2tw1.noalias() = R2t * multiplier1.angVel();
-
-      if(multiplier2.angAcc.isSet() && multiplier1.angAcc.isSet())
-      {
-        angAcc.set().noalias() = R2t * multiplier1.angAcc();
-        angAcc().noalias() -= R2tw1.cross(
-            multiplier2.orientation * multiplier2.angVel()); // multiplier2.orientation * multiplier2.angVel() is the
-                                                             // inverse of the angular velocity of multiplier 2
-        angAcc().noalias() -=
-            multiplier2.orientation * multiplier2.angAcc(); // multiplier2.orientation * multiplier2.angAcc() is the
-                                                            // inverse of the angular acceleration of multiplier 2
-      }
-      else
-      {
-        angAcc.reset();
-      }
-
-      angVel().noalias() -=
-          multiplier2.orientation * multiplier2.angVel(); // multiplier2.orientation * multiplier2.angVel() is the
-                                                          // inverse of the angular velocity of multiplier 2
-    }
-    else
-    {
-      angVel.reset();
-      angAcc.reset();
-    }
-  }
-  else
+  if(!multiplier2.orientation.isSet())
   {
     orientation.reset();
     angVel.reset();
     angAcc.reset();
+    return *this;
   }
+
+  orientation.setToProductNoAlias(multiplier1.orientation, multiplier2.orientation.inverse());
+
+  if(!multiplier2.angVel.isSet() || !multiplier1.angVel.isSet())
+  {
+    angVel.reset();
+    angAcc.reset();
+    return *this;
+  }
+  Vector3 & R2w1 = angVel.set(); /// reference
+  R2w1.noalias() = R2 * multiplier1.angVel();
+
+  if(!multiplier2.angAcc.isSet() || !multiplier1.angAcc.isSet())
+  {
+    angVel().noalias() -=
+        multiplier2.orientation * multiplier2.angVel(); // multiplier2.orientation * multiplier2.angVel() is the
+                                                        // inverse of the angular velocity of multiplier 2
+    angAcc.reset();
+    return *this;
+  }
+
+  angAcc.set().noalias() = R2 * multiplier1.angAcc();
+  angAcc().noalias() -=
+      R2w1.cross(multiplier2.orientation * multiplier2.angVel()); // multiplier2.orientation * multiplier2.angVel() is
+                                                                  // the inverse of the angular velocity of multiplier 2
+  angAcc().noalias() -=
+      multiplier2.orientation * multiplier2.angAcc(); // multiplier2.orientation * multiplier2.angAcc() is the
+                                                      // inverse of the angular acceleration of multiplier 2
+
+  angVel().noalias() -=
+      multiplier2.orientation * multiplier2.angVel(); // multiplier2.orientation * multiplier2.angVel() is the
+                                                      // inverse of the angular velocity of multiplier 2
 
   return *this;
 }

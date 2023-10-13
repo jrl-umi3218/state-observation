@@ -617,11 +617,17 @@ struct Kinematics
   /// @param operand1 the first Kinematics object used in the composition
   /// @param operand2 the second Kinematics object used in the composition
   /// @return Kinematics
-  inline Kinematics setToProductNoAlias(const Kinematics & operand1, const Kinematics & operand2);
+  inline Kinematics & setToProductNoAlias(const Kinematics & operand1, const Kinematics & operand2);
 
   /// Allows to compute the difference between two Kinematics objects. Has the same effect than calling
   /// setToProductNoAlias(operand1, operand2.getInverse()) but is computationally faster
-  inline Kinematics setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2);
+  inline Kinematics & setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2);
+
+  /// Linear part of the setToDiffNoAlias(const Kinematics &, const Kinematics &) function.
+  inline Kinematics & setToDiffNoAliasLinPart(const Kinematics & multiplier1, const Kinematics & multiplier2);
+
+  /// Angular part of the setToDiffNoAlias(const Kinematics &, const Kinematics &) function.
+  inline Kinematics & setToDiffNoAliasAngPart(const Kinematics & multiplier1, const Kinematics & multiplier2);
 
   /// @brief returns a Kinematics object corresponding to zero kinematics on the desired variables.
   /// @param Flags defines of which variables the new Kinematics object must be filled.
@@ -749,11 +755,19 @@ struct LocalKinematics
   /// @param operand1 the first LocalKinematics object used in the composition
   /// @param operand2 the second LocalKinematics object used in the composition
   /// @return LocalKinematics
-  inline LocalKinematics setToProductNoAlias(const LocalKinematics & operand1, const LocalKinematics & operand2);
+  inline LocalKinematics & setToProductNoAlias(const LocalKinematics & operand1, const LocalKinematics & operand2);
 
   /// Allows to compute the difference between two LocalKinematics objects. Has the same effect that calling
   /// setToProductNoAlias(operand1, operand2.getInverse()) but is computationally faster
-  inline LocalKinematics setToDiffNoAlias(const LocalKinematics & multiplier1, const LocalKinematics & multiplier2);
+  inline LocalKinematics & setToDiffNoAlias(const LocalKinematics & multiplier1, const LocalKinematics & multiplier2);
+
+  /// Linear part of the setToDiffNoAlias(const LocalKinematics &, const LocalKinematics &) function.
+  inline LocalKinematics & setToDiffNoAliasLinPart(const LocalKinematics & multiplier1,
+                                                   const LocalKinematics & multiplier2);
+
+  /// Angular part of the setToDiffNoAlias(const LocalKinematics &, const LocalKinematics &) function.
+  inline LocalKinematics & setToDiffNoAliasAngPart(const LocalKinematics & multiplier1,
+                                                   const LocalKinematics & multiplier2);
   inline void reset();
 
   CheckedVector3 position; // position of the frame in the destination frame of the Kinematic object, expressed in the
