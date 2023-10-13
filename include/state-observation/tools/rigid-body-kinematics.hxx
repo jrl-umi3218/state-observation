@@ -1891,8 +1891,8 @@ inline Kinematics & Kinematics::setToDiffNoAliasLinPart(const Kinematics & multi
   Vector3 & w1xR1p2_R1p2d = w1xR1p2; ///  reference ( =linVel() )
   w1xR1p2_R1p2d += R1p2d;
 
-  if(multiplier2.linAcc.isSet() || multiplier1.linAcc.isSet() || multiplier1.angAcc.isSet()
-     || multiplier2.angAcc.isSet())
+  if(!multiplier2.linAcc.isSet() || !multiplier1.linAcc.isSet() || !multiplier1.angAcc.isSet()
+     || !multiplier2.angAcc.isSet())
   {
     linAcc.reset();
 
