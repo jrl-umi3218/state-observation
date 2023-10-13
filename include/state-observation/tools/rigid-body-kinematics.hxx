@@ -1247,42 +1247,55 @@ inline Kinematics & Kinematics::setZero(Kinematics::Flags::Byte flags)
 
 inline const Kinematics & Kinematics::integrate(double dt)
 {
-  if(angVel.isSet())
+  enum AreSet
   {
-    if(angAcc.isSet())
-    {
-      if(orientation.isSet())
-      {
-        orientation.integrate(angVel() * dt + angAcc() * dt * dt * 0.5);
-      }
-      angVel() += angAcc() * dt;
-    }
-    else
-    {
-      if(orientation.isSet())
-      {
-        orientation.integrate(angVel() * dt);
-      }
-    }
+    Position = 1 << 0,
+    LinVel = 1 << 1,
+    LinAcc = 1 << 2,
+    Orientation = 1 << 3,
+    AngVel = 1 << 4,
+    AngAcc = 1 << 5
+  };
+  AreSet areSet =
+      AreSet((position.isSet() ? Position : 0) | (linVel.isSet() ? LinVel : 0) | (linAcc.isSet() ? LinAcc : 0)
+             | (orientation.isSet() ? Orientation : 0) | (angVel.isSet() ? AngVel : 0) | (angAcc.isSet() ? AngAcc : 0));
+
+  /** Position update */
+  switch(areSet ^ (Orientation | AngVel | AngAcc))
+  {
+    case Position | LinVel | LinAcc:
+      position() += linVel() * dt + linAcc() * dt * dt * 0.5;
+      break;
+    case Position | LinVel:
+      position() += linVel() * dt;
+      break;
+    default:
+      break;
   }
 
-  if(linVel.isSet())
+  /** LinVel update */
+  if(areSet & (LinVel | LinAcc) != 0)
   {
-    if(linAcc.isSet())
-    {
-      if(position.isSet())
-      {
-        position() += linVel() * dt + linAcc() * dt * dt * 0.5;
-      }
-      linVel() += linAcc() * dt;
-    }
-    else
-    {
-      if(position.isSet())
-      {
-        position() += linVel() * dt;
-      }
-    }
+    linVel() += linAcc() * dt;
+  }
+
+  /** Orientation update */
+  switch(areSet ^ (Position | LinVel | LinAcc))
+  {
+    case Orientation | AngVel | AngAcc:
+      orientation.integrate(angVel() * dt + angAcc() * dt * dt * 0.5);
+      break;
+    case Orientation | AngVel:
+      orientation.integrate(angVel() * dt);
+      break;
+    default:
+      break;
+  }
+
+  /** AngVel update */
+  if(areSet & (AngVel | AngAcc) != 0)
+  {
+    angVel() += angAcc() * dt;
   }
 
   return *this;
@@ -2278,108 +2291,88 @@ inline LocalKinematics & LocalKinematics::setZero(LocalKinematics::Flags::Byte f
 
   return *this;
 }
-
 inline const LocalKinematics & LocalKinematics::integrate(double dt)
 {
-  /*
-  Linear part
-  */
-
-  if(linVel.isSet())
+  enum AreSet
   {
-    if(linAcc.isSet())
-    {
-      if(position.isSet())
-      {
-        if(angVel.isSet())
-        {
-
-          if(angAcc.isSet())
-          {
-            position() += dt
-                          * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel()
-                             + 0.5 * dt * (linAcc() - angAcc().cross(position())));
-          }
-          else
-          {
-            position() += dt
-                          * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel()
-                             + 0.5 * dt * linAcc());
-          }
-          linVel() += dt * (-angVel().cross(linVel()) + linAcc());
-        }
-        else
-        {
-
-          if(angAcc.isSet())
-          {
-            position() += dt * (linVel() + 0.5 * dt * (linAcc() - angAcc().cross(position())));
-          }
-          else
-          {
-            position() += dt * (linVel() + 0.5 * dt * linAcc());
-          }
-          linVel() += dt * linAcc();
-        }
-      }
-    }
-    else
-    {
-
-      if(position.isSet())
-      {
-        if(angVel.isSet())
-        {
-          linVel() -= angVel().cross(linVel());
-          if(angAcc.isSet())
-          {
-            position() += dt
-                          * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel()
-                             - 0.5 * dt * angAcc().cross(position()));
-          }
-          else
-          {
-            position() +=
-                dt * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel());
-          }
-        }
-        else
-        {
-          if(angAcc.isSet())
-          {
-            position() += dt * (linVel() - 0.5 * dt * angAcc().cross(position()));
-          }
-          else
-          {
-            position() += dt * linVel();
-          }
-        }
-      }
-    }
-  }
-  /*
-  Angular part
-  */
-
-  if(angVel.isSet())
+    Position = 1 << 0,
+    LinVel = 1 << 1,
+    LinAcc = 1 << 2,
+    Orientation = 1 << 3,
+    AngVel = 1 << 4,
+    AngAcc = 1 << 5
+  };
+  AreSet areSet =
+      AreSet((position.isSet() ? Position : 0) | (linVel.isSet() ? LinVel : 0) | (linAcc.isSet() ? LinAcc : 0)
+             | (orientation.isSet() ? Orientation : 0) | (angVel.isSet() ? AngVel : 0) | (angAcc.isSet() ? AngAcc : 0));
+  /** Position update */
+  switch(areSet & ~Orientation)
   {
-    if(angAcc.isSet())
-    {
-      if(orientation.isSet())
-      {
-        orientation.integrateRightSide(angVel() * dt + angAcc() * 0.5 * dt * dt);
-      }
-      angVel() += angAcc() * dt;
-    }
-    else
-    {
-      if(orientation.isSet())
-      {
-        orientation.integrateRightSide(angVel() * dt);
-      }
-    }
+    case Position | LinVel | LinAcc | AngVel | AngAcc:
+      position() += dt
+                    * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel()
+                       + 0.5 * dt * (linAcc() - angAcc().cross(position())));
+      break;
+    case Position | LinVel | LinAcc | AngVel:
+      position() += dt
+                    * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel()
+                       + 0.5 * dt * linAcc());
+      break;
+    case Position | LinVel | LinAcc | AngAcc:
+      position() += dt * (linVel() + 0.5 * dt * (linAcc() - angAcc().cross(position())));
+      break;
+    case Position | LinVel | LinAcc:
+      position() += dt * (linVel() + 0.5 * dt * linAcc());
+      break;
+    case Position | LinVel | AngVel | AngAcc:
+      position() += dt
+                    * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel()
+                       - 0.5 * dt * angAcc().cross(position()));
+      break;
+    case Position | LinVel | AngVel:
+      position() += dt * (-angVel().cross(position() + dt * (linVel() - 0.5 * angVel().cross(position()))) + linVel());
+      break;
+    case Position | LinVel | AngAcc:
+      position() += dt * (linVel() - 0.5 * dt * angAcc().cross(position()));
+      break;
+    case Position | LinVel:
+      position() += dt * linVel();
+      break;
+    default:
+      break;
   }
-
+  /** Linear velocity update (Position and AngAcc don't matter here) */
+  switch(areSet & ~(Position | AngAcc))
+  {
+    case LinVel | LinAcc | AngVel:
+      linVel() += dt * (-angVel().cross(linVel()) + linAcc());
+      break;
+    case LinVel | LinAcc:
+      linVel() += dt * linAcc();
+      break;
+    case LinVel | AngVel:
+      linVel() -= angVel().cross(linVel());
+      break;
+    default:
+      break;
+  }
+  /** Orientation */
+  switch(areSet & ~(Position | LinVel | LinAcc))
+  {
+    case Orientation | AngVel | AngAcc:
+      orientation.integrateRightSide(angVel() * dt + angAcc() * 0.5 * dt * dt);
+      break;
+    case Orientation | AngVel:
+      orientation.integrateRightSide(angVel() * dt);
+      break;
+    default:
+      break;
+  };
+  /** Angular velocity */
+  if(areSet & (AngVel | AngAcc) != 0)
+  {
+    angVel() += angAcc() * dt;
+  }
   return *this;
 }
 

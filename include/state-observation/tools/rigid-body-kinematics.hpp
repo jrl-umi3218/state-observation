@@ -499,11 +499,6 @@ protected:
   mutable CheckedMatrix3 m_;
 };
 
-/// @brief Class facilitating the manipulation of the local kinematics of a frame within another and the associated
-/// operations.
-/// @details  The Kinematics object contains the position, the orientation, the velocities and the accelerations of a
-/// frame 1 within another frame 2. The object Kinematics is the expression of these kinematics in the global frame 2,
-/// while the LocalKinematics object is their expression in the local frame 1.
 struct LocalKinematics;
 
 /// @brief Class facilitating the manipulation of the kinematics of a frame within another and the associated
@@ -651,12 +646,13 @@ protected:
   Vector3 tempVec_;
 };
 
+/// @brief Class facilitating the manipulation of the local kinematics of a frame within another and the associated
+/// operations.
+/// @details  The Kinematics object contains the position, the orientation, the velocities and the accelerations of a
+/// frame 1 within another frame 2. The object Kinematics is the expression of these kinematics in the global frame 2,
+/// while the LocalKinematics object is their expression in the local frame 1.
 struct LocalKinematics
 {
-  /*
-  This structure is similar to the Kinematics one, but all the state variables are expressed in the local frame.
-  (They correspond to the kinematics of the local frame in the global frame, but expressed in this local frame)
-  */
   struct Flags
   {
     typedef unsigned char Byte;
