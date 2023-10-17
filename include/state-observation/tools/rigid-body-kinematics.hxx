@@ -1261,7 +1261,7 @@ inline const Kinematics & Kinematics::integrate(double dt)
              | (orientation.isSet() ? Orientation : 0) | (angVel.isSet() ? AngVel : 0) | (angAcc.isSet() ? AngAcc : 0));
 
   /** Position update */
-  switch(areSet & ~(Orientation | AngVel | AngAcc))
+  switch(areSet ^ (Orientation | AngVel | AngAcc))
   {
     case Position | LinVel | LinAcc:
       position() += linVel() * dt + linAcc() * dt * dt * 0.5;
@@ -1280,7 +1280,7 @@ inline const Kinematics & Kinematics::integrate(double dt)
   }
 
   /** Orientation update */
-  switch(areSet & ~(Position | LinVel | LinAcc))
+  switch(areSet ^ (Position | LinVel | LinAcc))
   {
     case Orientation | AngVel | AngAcc:
       orientation.integrate(angVel() * dt + angAcc() * dt * dt * 0.5);
@@ -2342,8 +2342,7 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
       break;
   }
   /** Linear velocity update (Position and AngAcc don't matter here) */
-
-  switch(areSet & ~(Position | Orientation | AngAcc))
+  switch(areSet & ~(Position | AngAcc))
   {
     case LinVel | LinAcc | AngVel:
       linVel() += dt * (-angVel().cross(linVel()) + linAcc());
@@ -2357,7 +2356,6 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
     default:
       break;
   }
-
   /** Orientation */
   switch(areSet & ~(Position | LinVel | LinAcc))
   {

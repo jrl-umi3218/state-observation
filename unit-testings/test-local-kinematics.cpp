@@ -1358,12 +1358,12 @@ int testKinematics(int errcode)
                 + dt * (l.linVel() + 0.5 * dt * (l.linAcc() - l.angAcc().cross(l.position()))) - k0.position())
                    .squaredNorm();
       }
-      std::cout << "Error after pos : " << err << std::endl;
+      // std::cout << "Error after pos : " << err << std::endl;
     }
     if(k0.orientation.isSet())
     {
       err += (k0.orientation.differentiateRightSide(k.orientation)).squaredNorm();
-      std::cout << "Error after ori : " << err << std::endl;
+      // std::cout << "Error after ori : " << err << std::endl;
     }
     if(k0.linVel.isSet())
     {
@@ -1382,7 +1382,7 @@ int testKinematics(int errcode)
         err += ((k.position() - l.position()) / dt + tempAngVel.cross(k.position()) - k0.linVel()).squaredNorm();
       }
 
-      std::cout << "Error after linVel : " << err << std::endl;
+      // std::cout << "Error after linVel : " << err << std::endl;
     }
     if(k0.angVel.isSet())
     {
@@ -1394,7 +1394,7 @@ int testKinematics(int errcode)
       {
         err += (l.orientation.differentiateRightSide(k.orientation) / dt - k0.angVel()).squaredNorm();
       }
-      std::cout << "Error after angVel : " << err << std::endl;
+      // std::cout << "Error after angVel : " << err << std::endl;
     }
     if(k0.linAcc.isSet())
     {
@@ -1417,7 +1417,7 @@ int testKinematics(int errcode)
         err += (k.angVel().cross(tempLinVel) + (tempLinVel - l.linVel()) / dt - k0.linAcc()).squaredNorm();
       }
 
-      std::cout << "Error after linAcc : " << err << std::endl;
+      // std::cout << "Error after linAcc : " << err << std::endl;
     }
     if(k0.angAcc.isSet())
     {
@@ -1430,7 +1430,7 @@ int testKinematics(int errcode)
         err += (k.angAcc() - 2 * k0.angAcc()).squaredNorm();
       }
 
-      std::cout << "Error after angAcc : " << err << std::endl;
+      // std::cout << "Error after angAcc : " << err << std::endl;
     }
 
     //        std::cout<< i<<" "<<err << std::endl;
