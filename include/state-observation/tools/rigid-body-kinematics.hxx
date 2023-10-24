@@ -3602,20 +3602,6 @@ inline void LocalKinematics::reset()
   angAcc.reset();
 }
 
-///////////////////////////////////////////////////////////////////////
-/// -------------------Derivative structure implementation-------------
-///////////////////////////////////////////////////////////////////////
-
-inline LocalKinematics::Derivative & LocalKinematics::Derivative::operator=(const LocalKinematics & locKine)
-{
-  positionDot = locKine.linVel() - locKine.angVel().cross(locKine.position());
-  angVel = locKine.angVel();
-  linVelDot = locKine.linAcc() - locKine.angVel().cross(locKine.linVel());
-  angAcc = locKine.angAcc();
-
-  return *this;
-}
-
 } // namespace kine
 
 } // namespace stateObservation
@@ -3764,19 +3750,6 @@ inline std::ostream & operator<<(std::ostream & os, const stateObservation::kine
       os << "angAcc:" << std::endl;
     }
   }
-
-  return os;
-}
-
-inline std::ostream & operator<<(std::ostream & os, const stateObservation::kine::LocalKinematics::Derivative & d)
-{
-  os << "positionDot   : " << d.positionDot.transpose() << "   ";
-
-  os << "angVel: " << d.angVel.transpose() << std::endl;
-
-  os << "linVelDot: " << d.linVelDot.transpose() << "   ";
-
-  os << "angAcc: " << d.angAcc.transpose() << std::endl;
 
   return os;
 }

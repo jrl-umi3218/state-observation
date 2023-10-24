@@ -667,17 +667,6 @@ struct LocalKinematics
     static const Byte all = position | orientation | linVel | angVel | linAcc | angAcc;
   };
 
-  struct Derivative
-  {
-    Vector3 positionDot;
-    Vector3 angVel; // the rotation remains the same from local to global so the variable doesn't need to be renamed
-
-    Vector3 linVelDot;
-    Vector3 angAcc;
-
-    inline Derivative & operator=(const LocalKinematics & locKine);
-  };
-
   LocalKinematics() {}
 
   /// Constructor from a vector
@@ -792,8 +781,6 @@ protected:
 inline std::ostream & operator<<(std::ostream & os, const stateObservation::kine::Kinematics & k);
 
 inline std::ostream & operator<<(std::ostream & os, const stateObservation::kine::LocalKinematics & k);
-
-inline std::ostream & operator<<(std::ostream & os, const stateObservation::kine::LocalKinematics::Derivative & d);
 
 #include <state-observation/tools/rigid-body-kinematics.hxx>
 
