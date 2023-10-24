@@ -499,15 +499,28 @@ protected:
   mutable CheckedMatrix3 m_;
 };
 
-struct LocalKinematics;
-
-/// @brief Class facilitating the manipulation of the kinematics of a frame within another and the associated
-/// operations.
-/// @details  The Kinematics object contains the position, the orientation, the velocities and the accelerations of a
-/// frame 1 within another frame 2. The object Kinematics is the expression of these kinematics in the global frame 2,
-/// while the LocalKinematics object is their expression in the local frame 1.
-struct Kinematics
+namespace internal
 {
+
+template<class T>
+class KinematicsInternal
+{
+public:
+  KinematicsInternal() {}
+
+  /// @brief constructor of a Kinematics object given each variable independently.
+  /// @param position the position composing the kinematics
+  /// @param linVel the linear velocity composing the kinematics
+  /// @param linAcc the linear acceleration composing the kinematics
+  /// @param orientation the orientation composing the kinematics
+  /// @param angVel the angular velocity composing the kinematics
+  /// @param angAcc the angular acceleration composing the kinematics
+  KinematicsInternal(const CheckedVector3 & position,
+                     const CheckedVector3 & linVel,
+                     const CheckedVector3 & linAcc,
+                     const Orientation & orientation,
+                     const CheckedVector3 & angVel,
+                     const CheckedVector3 & angAcc);
   struct Flags
   {
     typedef unsigned char Byte;
@@ -525,6 +538,27 @@ struct Kinematics
     static const Byte all = pose | vel | acc;
   };
 
+  CheckedVector3 position;
+  Orientation orientation;
+
+  CheckedVector3 linVel;
+  CheckedVector3 angVel;
+
+  CheckedVector3 linAcc;
+  CheckedVector3 angAcc;
+};
+} // namespace internal
+
+struct LocalKinematics;
+
+/// @brief Class facilitating the manipulation of the kinematics of a frame within another and the associated
+/// operations.
+/// @details  The Kinematics object contains the position, the orientation, the velocities and the accelerations of a
+/// frame 1 within another frame 2. The object Kinematics is the expression of these kinematics in the global frame 2,
+/// while the LocalKinematics object is their expression in the local frame 1.
+struct Kinematics : public internal::KinematicsInternal<Kinematics>
+{
+
   Kinematics() {}
 
   /// Constructor from a vector
@@ -533,6 +567,11 @@ struct Kinematics
   /// position orientation (quaternion) linevel angvel linAcc angAcc
   /// use the flags to define the structure of the vector
   Kinematics(const Vector & v, Flags::Byte = Flags::all);
+
+  /// @brief constructor of a Kinematics object resulting from the composition of two others.
+  /// @param multiplier1 the first Kinematics object used for the composition
+  /// @param multiplier2 the second Kinematics object used for the composition
+  Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2);
 
   /// @brief constructor of a Kinematics object given each variable independently.
   /// @param position the position composing the kinematics
@@ -547,11 +586,6 @@ struct Kinematics
              const Orientation & orientation,
              const CheckedVector3 & angVel,
              const CheckedVector3 & angAcc);
-
-  /// @brief constructor of a Kinematics object resulting from the composition of two others.
-  /// @param multiplier1 the first Kinematics object used for the composition
-  /// @param multiplier2 the second Kinematics object used for the composition
-  Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2);
 
   /// @brief constructor of a Kinematics object given its equivalent in the local frame.
   /// @details performs the conversion from the local to the global expression of the kinematics.
@@ -631,15 +665,6 @@ struct Kinematics
 
   inline void reset();
 
-  CheckedVector3 position;
-  Orientation orientation;
-
-  CheckedVector3 linVel;
-  CheckedVector3 angVel;
-
-  CheckedVector3 linAcc;
-  CheckedVector3 angAcc;
-
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 protected:
@@ -651,22 +676,8 @@ protected:
 /// @details  The Kinematics object contains the position, the orientation, the velocities and the accelerations of a
 /// frame 1 within another frame 2. The object Kinematics is the expression of these kinematics in the global frame 2,
 /// while the LocalKinematics object is their expression in the local frame 1.
-struct LocalKinematics
+struct LocalKinematics : public internal::KinematicsInternal<LocalKinematics>
 {
-  struct Flags
-  {
-    typedef unsigned char Byte;
-
-    static const Byte position = BOOST_BINARY(000001);
-    static const Byte orientation = BOOST_BINARY(000010);
-    static const Byte linVel = BOOST_BINARY(000100);
-    static const Byte angVel = BOOST_BINARY(001000);
-    static const Byte linAcc = BOOST_BINARY(010000);
-    static const Byte angAcc = BOOST_BINARY(100000);
-
-    static const Byte all = position | orientation | linVel | angVel | linAcc | angAcc;
-  };
-
   LocalKinematics() {}
 
   /// Constructor from a vector
@@ -680,6 +691,20 @@ struct LocalKinematics
   /// @param multiplier1 the first LocalKinematics object used for the composition
   /// @param multiplier2 the second LocalKinematics object used for the composition
   inline LocalKinematics(const LocalKinematics & multiplier1, const LocalKinematics & multiplier2);
+
+  /// @brief constructor of a Kinematics object given each variable independently.
+  /// @param position the position composing the kinematics
+  /// @param linVel the linear velocity composing the kinematics
+  /// @param linAcc the linear acceleration composing the kinematics
+  /// @param orientation the orientation composing the kinematics
+  /// @param angVel the angular velocity composing the kinematics
+  /// @param angAcc the angular acceleration composing the kinematics
+  LocalKinematics(const CheckedVector3 & position,
+                  const CheckedVector3 & linVel,
+                  const CheckedVector3 & linAcc,
+                  const Orientation & orientation,
+                  const CheckedVector3 & angVel,
+                  const CheckedVector3 & angAcc);
 
   /// @brief constructor of a LocalKinematics object given its equivalent in the global frame.
   /// @details performs the conversion from the global to the local expression of the kinematics.
@@ -754,16 +779,6 @@ struct LocalKinematics
   inline LocalKinematics & setToDiffNoAliasAngPart(const LocalKinematics & multiplier1,
                                                    const LocalKinematics & multiplier2);
   inline void reset();
-
-  CheckedVector3 position; // position of the frame in the destination frame of the Kinematic object, expressed in the
-                           // original frame
-  Orientation orientation;
-
-  CheckedVector3 linVel;
-  CheckedVector3 angVel;
-
-  CheckedVector3 linAcc;
-  CheckedVector3 angAcc;
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 

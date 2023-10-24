@@ -1063,6 +1063,20 @@ inline Orientation Orientation::randomRotation()
   return o;
 }
 
+namespace internal
+{
+template<class T>
+inline KinematicsInternal<T>::KinematicsInternal(const CheckedVector3 & position,
+                                                 const CheckedVector3 & linVel,
+                                                 const CheckedVector3 & linAcc,
+                                                 const Orientation & orientation,
+                                                 const CheckedVector3 & angVel,
+                                                 const CheckedVector3 & angAcc)
+: position(position), linVel(linVel), linAcc(linAcc), orientation(orientation), angVel(angVel), angAcc(angAcc)
+{
+}
+} // namespace internal
+
 ///////////////////////////////////////////////////////////////////////
 /// -------------------Kinematics structure implementation-------------
 ///////////////////////////////////////////////////////////////////////
@@ -1072,19 +1086,19 @@ inline Kinematics::Kinematics(const Vector & v, Kinematics::Flags::Byte flags)
   Kinematics::fromVector(v, flags);
 }
 
+inline Kinematics::Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2)
+{
+  setToProductNoAlias(multiplier1, multiplier2);
+}
+
 inline Kinematics::Kinematics(const CheckedVector3 & position,
                               const CheckedVector3 & linVel,
                               const CheckedVector3 & linAcc,
                               const Orientation & orientation,
                               const CheckedVector3 & angVel,
                               const CheckedVector3 & angAcc)
-: position(position), linVel(linVel), linAcc(linAcc), orientation(orientation), angVel(angVel), angAcc(angAcc)
+: internal::KinematicsInternal<Kinematics>(position, linVel, linAcc, orientation, angVel, angAcc)
 {
-}
-
-inline Kinematics::Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2)
-{
-  setToProductNoAlias(multiplier1, multiplier2);
 }
 
 inline Kinematics::Kinematics(const LocalKinematics & locK)
@@ -2129,6 +2143,16 @@ inline LocalKinematics::LocalKinematics(const Vector & v, LocalKinematics::Flags
 inline LocalKinematics::LocalKinematics(const LocalKinematics & multiplier1, const LocalKinematics & multiplier2)
 {
   setToProductNoAlias(multiplier1, multiplier2);
+}
+
+inline LocalKinematics::LocalKinematics(const CheckedVector3 & position,
+                                        const CheckedVector3 & linVel,
+                                        const CheckedVector3 & linAcc,
+                                        const Orientation & orientation,
+                                        const CheckedVector3 & angVel,
+                                        const CheckedVector3 & angAcc)
+: internal::KinematicsInternal<LocalKinematics>(position, linVel, linAcc, orientation, angVel, angAcc)
+{
 }
 
 inline LocalKinematics::LocalKinematics(const Kinematics & kin) // we consider we can modify directly the globalKine
