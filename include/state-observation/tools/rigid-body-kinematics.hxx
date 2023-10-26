@@ -1355,7 +1355,7 @@ inline T & KinematicsInternal<T>::setZero(typename KinematicsInternal::Flags::By
 /// -------------------Kinematics structure implementation-------------
 ///////////////////////////////////////////////////////////////////////
 
-inline Kinematics::Kinematics(const Vector & v, Kinematics::Flags::Byte flags)
+inline Kinematics::Kinematics(const Vector & v, Flags::Byte flags)
 {
   Kinematics::fromVector(v, flags);
 }
@@ -2145,7 +2145,7 @@ inline Kinematics & Kinematics::setToDiffNoAliasAngPart(const Kinematics & multi
 /// -------------------LocalKinematics structure implementation-------------
 ///////////////////////////////////////////////////////////////////////
 
-inline LocalKinematics::LocalKinematics(const Vector & v, LocalKinematics::Flags::Byte flags)
+inline LocalKinematics::LocalKinematics(const Vector & v, Flags::Byte flags)
 {
   LocalKinematics::fromVector(v, flags);
 }

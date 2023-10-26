@@ -685,7 +685,7 @@ struct LocalKinematics : public internal::KinematicsInternal<LocalKinematics>
   /// the order of the vector is
   /// position orientation (quaternion) linevel angvel linAcc angAcc
   /// use the flags to define the structure of the vector
-  inline LocalKinematics(const Vector & v, LocalKinematics::Flags::Byte flags);
+  inline LocalKinematics(const Vector & v, Flags::Byte flags);
 
   /// @brief constructor of a LocalKinematics object resulting from the composition of two others.
   /// @param multiplier1 the first LocalKinematics object used for the composition
