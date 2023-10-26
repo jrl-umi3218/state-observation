@@ -1,11 +1,13 @@
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::CheckedItem(bool initialize)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::CheckedItem(bool initialize)
 {
   if(initialize) isSet_ = false;
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::CheckedItem(const CheckedItem & c) : v_(c.v_)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::CheckedItem(
+    const CheckedItem & c)
+: v_(c.v_)
 {
   if(do_check_)
   {
@@ -23,21 +25,22 @@ inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::CheckedIte
   }
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::CheckedItem(const T & v) : isSet_(true), v_(v)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::CheckedItem(const T & v)
+: isSet_(true), v_(v)
 {
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator=(const T & v)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::operator=(const T & v)
 {
   isSet_.set(true);
   return v_ = v;
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew> &
-    CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator=(const CheckedItem & c)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker> &
+    CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::operator=(const CheckedItem & c)
 {
   v_ = c.v_;
 
@@ -59,14 +62,14 @@ inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew> &
   return *this;
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator T() const
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::operator T() const
 {
   return (*this)();
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator const T &() const
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::operator const T &() const
 {
   return (*this)();
 }
@@ -78,15 +81,15 @@ inline const T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, a
   return (*this)();
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline const T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator()() const
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline const T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::operator()() const
 {
   chckitm_check_();
   return v_;
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::operator()()
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::operator()()
 {
   chckitm_check_();
   return v_;
@@ -110,7 +113,7 @@ inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additi
 {
   if(assertion)
   {
-    BOOST_ASSERT_MSG(isSet(),assertMsg_.get());
+    BOOST_ASSERT_MSG(isSet(), assertMsg_.get());
     additionalChecker::checkAssert(v_);
   }
 
@@ -129,39 +132,41 @@ inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additi
   return (isSet());
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::isSet() const
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline bool CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::isSet() const
 {
   return isSet_.get();
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::reset()
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::reset()
 {
   isSet_.set(false);
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::set()
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline T & CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::set()
 {
   isSet_.set(true);
   return v_;
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::set(bool value)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::set(bool value)
 {
   isSet_.set(value);
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::setAssertMessage(std::string s)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::setAssertMessage(
+    std::string s)
 {
   assertMsg_.set(s);
 }
 
-template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew>
-inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew>::setExceptionPtr(std::exception * e)
+template<typename T, bool lazy, bool alwaysCheck, bool assertion, bool eigenAlignedNew, typename additionalChecker>
+inline void CheckedItem<T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker>::setExceptionPtr(
+    std::exception * e)
 {
   exceptionPtr_.set(e);
 }
@@ -214,15 +219,15 @@ inline bool IndexedMatrixT<MatrixType, lazy>::check_() const
 {
   BOOST_ASSERT(isSet() && "Error: Matrix not initialized, if you are initializing it, \
                             use set() function.");
-    if(isSet())
-    {
+  if(isSet())
+  {
     BOOST_ASSERT(!v_.hasNaN() && "Error: Matrix has NaN.");
     return !v_.hasNaN(); // returns false if v has a NaN : test failed
-    }
-    else
-    {
+  }
+  else
+  {
     return isSet();
-    }
+  }
 }
 
 template<typename MatrixType, bool lazy>
