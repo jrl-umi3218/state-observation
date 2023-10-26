@@ -12,7 +12,7 @@ using namespace kine;
 /// @param errorCode
 /// @return int
 
-int testPositionByIntegration(int errcode)
+int testPositionByIntegration()
 {
 
   double dt = 0.001;
@@ -1456,7 +1456,7 @@ int main()
   int returnVal;
   int errorcode = 0;
 
-  if((returnVal = testPositionByIntegration(++errorcode)))
+  if((returnVal = testPositionByIntegration()))
   {
     std::cout << "testPositionByIntegration Failed, error code: " << returnVal << std::endl;
     return returnVal;

@@ -546,6 +546,33 @@ public:
 
   CheckedVector3 linAcc;
   CheckedVector3 angAcc;
+
+  inline void reset();
+
+  /// Fills from vector
+  /// the flags show which parts of the kinematics to be loaded from the vector
+  /// the order of the vector is
+  /// position orientation (quaternion) linevel angvel linAcc angAcc
+  /// use the flags to define the structure of the vector
+  T & fromVector(const Vector & v, typename Flags::Byte = Flags::all);
+
+  /// initializes at zero all the flagged fields
+  /// the typename allows to set if the prefered type for rotation
+  /// is a Matrix3 or a Quaternion (Quaternion by default)
+  template<typename t = Quaternion>
+  T & setZero(typename Flags::Byte = Flags::all);
+
+  /// @brief returns an object corresponding to zero kinematics on the desired variables.
+  /// @param Flags defines of which variables the new object must be filled.
+  /// @return Kinematics
+  static inline T zeroKinematics(typename Flags::Byte = Flags::all);
+
+  /// converts the object to a vector
+  /// the order of the vector is
+  /// position orientation (quaternion) linevel angvel linAcc angAcc
+  /// use the flags to define the structure of the vector
+  inline Vector toVector(typename Flags::Byte) const;
+  inline Vector toVector() const;
 };
 } // namespace internal
 
@@ -597,19 +624,6 @@ struct Kinematics : public internal::KinematicsInternal<Kinematics>
   /// @param locK the local kinematics to convert
   inline Kinematics & operator=(const LocalKinematics & locK);
 
-  /// Fills from vector
-  /// the flags show which parts of the kinematics to be loaded from the vector
-  /// the order of the vector is
-  /// position orientation (quaternion) linevel angvel linAcc angAcc
-  /// use the flags to define the structure of the vector
-  Kinematics & fromVector(const Vector & v, Flags::Byte = Flags::all);
-
-  /// initializes at zero all the flagged fields
-  /// the typename allows to set if the prefered type for rotation
-  /// is a Matrix3 or a Quaternion (Quaternion by default)
-  template<typename t = Quaternion>
-  Kinematics & setZero(Flags::Byte = Flags::all);
-
   /// @brief integrates the current kinematics over the timestep dt.
   /// @details can be used to predict the future kinematics from the current ones.
   /// @param dt the timestep used for the integration
@@ -632,13 +646,6 @@ struct Kinematics : public internal::KinematicsInternal<Kinematics>
   /// @return Kinematics
   inline Kinematics getInverse() const;
 
-  /// converts the object to a vector
-  /// the order of the vector is
-  /// position orientation (quaternion) linevel angvel linAcc angAcc
-  /// use the flags to define the structure of the vector
-  inline Vector toVector(Flags::Byte) const;
-  inline Vector toVector() const;
-
   /// composition of transformation
   inline Kinematics operator*(const Kinematics &) const;
 
@@ -657,13 +664,6 @@ struct Kinematics : public internal::KinematicsInternal<Kinematics>
 
   /// Angular part of the setToDiffNoAlias(const Kinematics &, const Kinematics &) function.
   inline Kinematics & setToDiffNoAliasAngPart(const Kinematics & multiplier1, const Kinematics & multiplier2);
-
-  /// @brief returns a Kinematics object corresponding to zero kinematics on the desired variables.
-  /// @param Flags defines of which variables the new Kinematics object must be filled.
-  /// @return Kinematics
-  static inline Kinematics zeroKinematics(Flags::Byte = Flags::all);
-
-  inline void reset();
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
@@ -716,13 +716,6 @@ struct LocalKinematics : public internal::KinematicsInternal<LocalKinematics>
   /// @param locK the global kinematics to convert
   inline LocalKinematics & operator=(const Kinematics & kine);
 
-  /// Fills from vector
-  /// the flags show which parts of the kinematics to be loaded from the vector
-  /// the order of the vector is
-  /// position orientation (quaternion) linevel angvel linAcc angAcc
-  /// use the flags to define the structure of the vector
-  LocalKinematics & fromVector(const Vector & v, Flags::Byte = Flags::all);
-
   /// initializes at zero all the flagged fields
   /// the typename allows to set if the prefered type for rotation
   /// is a Matrix3 or a Quaternion (Quaternion by default)
@@ -751,13 +744,6 @@ struct LocalKinematics : public internal::KinematicsInternal<LocalKinematics>
   /// @return LocalKinematics
   inline LocalKinematics getInverse() const;
 
-  /// converts the object to a vector
-  /// the order of the vector is
-  /// position orientation (quaternion) linevel angvel linAcc angAcc
-  /// use the flags to define the structure of the vector
-  inline Vector toVector(Flags::Byte) const;
-  inline Vector toVector() const;
-
   /// composition of transformation
   inline LocalKinematics operator*(const LocalKinematics &) const;
 
@@ -778,8 +764,6 @@ struct LocalKinematics : public internal::KinematicsInternal<LocalKinematics>
   /// Angular part of the setToDiffNoAlias(const LocalKinematics &, const LocalKinematics &) function.
   inline LocalKinematics & setToDiffNoAliasAngPart(const LocalKinematics & multiplier1,
                                                    const LocalKinematics & multiplier2);
-  inline void reset();
-
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 protected:

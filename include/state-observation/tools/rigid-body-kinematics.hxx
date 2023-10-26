@@ -7,6 +7,9 @@
 
 #include <cmath>
 
+#pragma once
+#include <state-observation/tools/rigid-body-kinematics.hpp>
+
 namespace stateObservation
 {
 namespace kine
@@ -1072,75 +1075,162 @@ inline KinematicsInternal<T>::KinematicsInternal(const CheckedVector3 & position
                                                  const Orientation & orientation,
                                                  const CheckedVector3 & angVel,
                                                  const CheckedVector3 & angAcc)
-: position(position), linVel(linVel), linAcc(linAcc), orientation(orientation), angVel(angVel), angAcc(angAcc)
-{
-}
-} // namespace internal
-
-///////////////////////////////////////////////////////////////////////
-/// -------------------Kinematics structure implementation-------------
-///////////////////////////////////////////////////////////////////////
-
-inline Kinematics::Kinematics(const Vector & v, Kinematics::Flags::Byte flags)
-{
-  Kinematics::fromVector(v, flags);
-}
-
-inline Kinematics::Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2)
-{
-  setToProductNoAlias(multiplier1, multiplier2);
-}
-
-inline Kinematics::Kinematics(const CheckedVector3 & position,
-                              const CheckedVector3 & linVel,
-                              const CheckedVector3 & linAcc,
-                              const Orientation & orientation,
-                              const CheckedVector3 & angVel,
-                              const CheckedVector3 & angAcc)
-: internal::KinematicsInternal<Kinematics>(position, linVel, linAcc, orientation, angVel, angAcc)
+: position(position), orientation(orientation), linVel(linVel), angVel(angVel), linAcc(linAcc), angAcc(angAcc)
 {
 }
 
-inline Kinematics::Kinematics(const LocalKinematics & locK)
+template<class T>
+inline T KinematicsInternal<T>::zeroKinematics(typename KinematicsInternal::Flags::Byte flags)
 {
-  *this = locK;
+  Kinematics kine;
+  kine.setZero(flags);
+  return kine;
 }
 
-inline Kinematics & Kinematics::operator=(const LocalKinematics & locK)
+template<class T>
+inline void KinematicsInternal<T>::reset()
 {
-  BOOST_ASSERT(locK.orientation.isSet() && "The transformation to the local frame requires the orientation");
+  position.reset();
+  orientation.reset();
+  linVel.reset();
+  angVel.reset();
+  linAcc.reset();
+  angAcc.reset();
+}
 
-  locK.orientation.toMatrix3();
+template<class T>
+inline Vector KinematicsInternal<T>::toVector(typename KinematicsInternal::Flags::Byte flags) const
+{
+  int size = 0;
 
-  orientation = locK.orientation;
-
-  if(locK.position.isSet())
+  if(flags & Flags::position)
   {
-    position = orientation * locK.position();
+    size += 3;
+  }
+  if(flags & Flags::orientation)
+  {
+    size += 4;
+  }
+  if(flags & Flags::linVel)
+  {
+    size += 3;
+  }
+  if(flags & Flags::angVel)
+  {
+    size += 3;
+  }
+  if(flags & Flags::linAcc)
+  {
+    size += 3;
+  }
+  if(flags & Flags::angAcc)
+  {
+    size += 3;
   }
 
-  if(locK.linVel.isSet())
+  Vector output(size);
+
+  int curIndex = 0;
+  if((flags & Flags::position))
   {
-    linVel = orientation * locK.linVel();
+    output.segment<3>(curIndex) = position();
+    curIndex += 3;
+  }
+  if((flags & Flags::orientation))
+  {
+    output.segment<4>(curIndex) = orientation.toVector4();
+    curIndex += 4;
+  }
+  if((flags & Flags::linVel))
+  {
+    output.segment<3>(curIndex) = linVel();
+    curIndex += 3;
+  }
+  if((flags & Flags::angVel))
+  {
+    output.segment<3>(curIndex) = angVel();
+    curIndex += 3;
+  }
+  if((flags & Flags::linAcc))
+  {
+    output.segment<3>(curIndex) = linAcc();
+    curIndex += 3;
+  }
+  if((flags & Flags::angAcc))
+  {
+    output.segment<3>(curIndex) = angAcc();
   }
 
-  if(locK.linAcc.isSet())
-  {
-    linAcc = orientation * locK.linAcc();
-  }
-
-  if(locK.angVel.isSet())
-  {
-    angVel = orientation * locK.angVel();
-  }
-
-  if(locK.angAcc.isSet())
-  {
-    angAcc = orientation * locK.angAcc();
-  }
+  return output;
 }
 
-inline Kinematics & Kinematics::fromVector(const Vector & v, Kinematics::Flags::Byte flags)
+template<class T>
+inline Vector KinematicsInternal<T>::toVector() const
+{
+  int size = 0;
+  if(position.isSet())
+  {
+    size += 3;
+  }
+  if(orientation.isSet())
+  {
+    size += 4;
+  }
+  if(linVel.isSet())
+  {
+    size += 3;
+  }
+  if(angVel.isSet())
+  {
+    size += 3;
+  }
+  if(linAcc.isSet())
+  {
+    size += 3;
+  }
+  if(angAcc.isSet())
+  {
+    size += 3;
+  }
+
+  Vector output(size);
+
+  int curIndex = 0;
+  if(position.isSet())
+  {
+    output.segment<3>(curIndex) = position();
+    curIndex += 3;
+  }
+  if(orientation.isSet())
+  {
+    output.segment<4>(curIndex) = orientation.toQuaternion().coeffs();
+    curIndex += 4;
+  }
+  if(linVel.isSet())
+  {
+    output.segment<3>(curIndex) = linVel();
+    curIndex += 3;
+  }
+  if(angVel.isSet())
+  {
+    output.segment<3>(curIndex) = angVel();
+    curIndex += 3;
+  }
+  if(linAcc.isSet())
+  {
+    output.segment<3>(curIndex) = linAcc();
+    curIndex += 3;
+  }
+  if(angAcc.isSet())
+  {
+    output.segment<3>(curIndex) = angAcc();
+  }
+
+  return output;
+}
+
+template<class T>
+inline T & KinematicsInternal<T>::fromVector(const Vector & v, typename KinematicsInternal::Flags::Byte flags)
 {
   int index = 0;
   reset();
@@ -1212,11 +1302,12 @@ inline Kinematics & Kinematics::fromVector(const Vector & v, Kinematics::Flags::
     }
   }
 
-  return *this;
+  return static_cast<T &>(*this);
 }
 
+template<class T>
 template<typename t>
-inline Kinematics & Kinematics::setZero(Kinematics::Flags::Byte flags)
+inline T & KinematicsInternal<T>::setZero(typename KinematicsInternal::Flags::Byte flags)
 {
 
   bool flagPos = flags & Flags::position;
@@ -1256,6 +1347,71 @@ inline Kinematics & Kinematics::setZero(Kinematics::Flags::Byte flags)
     angAcc.set().setZero();
   }
 
+  return static_cast<T &>(*this);
+}
+} // namespace internal
+
+///////////////////////////////////////////////////////////////////////
+/// -------------------Kinematics structure implementation-------------
+///////////////////////////////////////////////////////////////////////
+
+inline Kinematics::Kinematics(const Vector & v, Kinematics::Flags::Byte flags)
+{
+  Kinematics::fromVector(v, flags);
+}
+
+inline Kinematics::Kinematics(const Kinematics & multiplier1, const Kinematics & multiplier2)
+{
+  setToProductNoAlias(multiplier1, multiplier2);
+}
+
+inline Kinematics::Kinematics(const CheckedVector3 & position,
+                              const CheckedVector3 & linVel,
+                              const CheckedVector3 & linAcc,
+                              const Orientation & orientation,
+                              const CheckedVector3 & angVel,
+                              const CheckedVector3 & angAcc)
+: internal::KinematicsInternal<Kinematics>(position, linVel, linAcc, orientation, angVel, angAcc)
+{
+}
+
+inline Kinematics::Kinematics(const LocalKinematics & locK)
+{
+  *this = locK;
+}
+
+inline Kinematics & Kinematics::operator=(const LocalKinematics & locK)
+{
+  BOOST_ASSERT(locK.orientation.isSet() && "The transformation to the local frame requires the orientation");
+
+  locK.orientation.toMatrix3();
+
+  orientation = locK.orientation;
+
+  if(locK.position.isSet())
+  {
+    position = orientation * locK.position();
+  }
+
+  if(locK.linVel.isSet())
+  {
+    linVel = orientation * locK.linVel();
+  }
+
+  if(locK.linAcc.isSet())
+  {
+    linAcc = orientation * locK.linAcc();
+  }
+
+  if(locK.angVel.isSet())
+  {
+    angVel = orientation * locK.angVel();
+  }
+
+  if(locK.angAcc.isSet())
+  {
+    angAcc = orientation * locK.angAcc();
+  }
   return *this;
 }
 
@@ -1288,7 +1444,7 @@ inline const Kinematics & Kinematics::integrate(double dt)
   }
 
   /** LinVel update */
-  if(areSet & (LinVel | LinAcc) != 0)
+  if((areSet & (LinVel | LinAcc)) != 0)
   {
     linVel() += linAcc() * dt;
   }
@@ -1307,7 +1463,7 @@ inline const Kinematics & Kinematics::integrate(double dt)
   }
 
   /** AngVel update */
-  if(areSet & (AngVel | AngAcc) != 0)
+  if((areSet & (AngVel | AngAcc)) != 0)
   {
     angVel() += angAcc() * dt;
   }
@@ -1850,13 +2006,6 @@ inline Kinematics & Kinematics::setToProductNoAlias(const Kinematics & multiplie
   return *this;
 }
 
-inline Kinematics Kinematics::zeroKinematics(Flags::Byte flags)
-{
-  Kinematics kine;
-  kine.setZero(flags);
-  return kine;
-}
-
 inline Kinematics & Kinematics::setToDiffNoAlias(const Kinematics & multiplier1, const Kinematics & multiplier2)
 {
   setToDiffNoAliasLinPart(multiplier1, multiplier2);
@@ -1992,145 +2141,6 @@ inline Kinematics & Kinematics::setToDiffNoAliasAngPart(const Kinematics & multi
   return *this;
 }
 
-inline Vector Kinematics::toVector(Flags::Byte flags) const
-{
-  int size = 0;
-
-  if(flags & Flags::position)
-  {
-    size += 3;
-  }
-  if(flags & Flags::orientation)
-  {
-    size += 4;
-  }
-  if(flags & Flags::linVel)
-  {
-    size += 3;
-  }
-  if(flags & Flags::angVel)
-  {
-    size += 3;
-  }
-  if(flags & Flags::linAcc)
-  {
-    size += 3;
-  }
-  if(flags & Flags::angAcc)
-  {
-    size += 3;
-  }
-
-  Vector output(size);
-
-  int curIndex = 0;
-  if((flags & Flags::position))
-  {
-    output.segment<3>(curIndex) = position();
-    curIndex += 3;
-  }
-  if((flags & Flags::orientation))
-  {
-    output.segment<4>(curIndex) = orientation.toVector4();
-    curIndex += 4;
-  }
-  if((flags & Flags::linVel))
-  {
-    output.segment<3>(curIndex) = linVel();
-    curIndex += 3;
-  }
-  if((flags & Flags::angVel))
-  {
-    output.segment<3>(curIndex) = angVel();
-    curIndex += 3;
-  }
-  if((flags & Flags::linAcc))
-  {
-    output.segment<3>(curIndex) = linAcc();
-    curIndex += 3;
-  }
-  if((flags & Flags::angAcc))
-  {
-    output.segment<3>(curIndex) = angAcc();
-  }
-
-  return output;
-}
-
-inline Vector Kinematics::toVector() const
-{
-  int size = 0;
-  if(position.isSet())
-  {
-    size += 3;
-  }
-  if(orientation.isSet())
-  {
-    size += 4;
-  }
-  if(linVel.isSet())
-  {
-    size += 3;
-  }
-  if(angVel.isSet())
-  {
-    size += 3;
-  }
-  if(linAcc.isSet())
-  {
-    size += 3;
-  }
-  if(angAcc.isSet())
-  {
-    size += 3;
-  }
-
-  Vector output(size);
-
-  int curIndex = 0;
-  if(position.isSet())
-  {
-    output.segment<3>(curIndex) = position();
-    curIndex += 3;
-  }
-  if(orientation.isSet())
-  {
-    output.segment<4>(curIndex) = orientation.toQuaternion().coeffs();
-    curIndex += 4;
-  }
-  if(linVel.isSet())
-  {
-    output.segment<3>(curIndex) = linVel();
-    curIndex += 3;
-  }
-  if(angVel.isSet())
-  {
-    output.segment<3>(curIndex) = angVel();
-    curIndex += 3;
-  }
-  if(linAcc.isSet())
-  {
-    output.segment<3>(curIndex) = linAcc();
-    curIndex += 3;
-  }
-  if(angAcc.isSet())
-  {
-    output.segment<3>(curIndex) = angAcc();
-  }
-
-  return output;
-}
-
-inline void Kinematics::reset()
-{
-  position.reset();
-  orientation.reset();
-  linVel.reset();
-  angVel.reset();
-  linAcc.reset();
-  angAcc.reset();
-}
-
 ///////////////////////////////////////////////////////////////////////
 /// -------------------LocalKinematics structure implementation-------------
 ///////////////////////////////////////////////////////////////////////
@@ -2197,124 +2207,6 @@ inline LocalKinematics & LocalKinematics::operator=(const Kinematics & kin)
   }
 }
 
-inline LocalKinematics & LocalKinematics::fromVector(const Vector & v, LocalKinematics::Flags::Byte flags)
-{
-  int index = 0;
-  reset();
-
-  bool flagPos = flags & Flags::position;
-  bool flagLinVel = flags & Flags::linVel;
-  bool flagLinAcc = flags & Flags::linAcc;
-  bool flagOri = flags & Flags::orientation;
-  bool flagAngVel = flags & Flags::angVel;
-  bool flagAngAcc = flags & Flags::angAcc;
-
-  if(flagPos)
-  {
-    BOOST_ASSERT(v.size() >= index + 3 && "The kinematics vector size is incorrect (loading position)");
-    if(v.size() >= index + 3)
-    {
-      position = v.segment<3>(index);
-      index += 3;
-    }
-  }
-
-  if(flagOri)
-  {
-    BOOST_ASSERT(v.size() >= index + 4 && "The kinematics vector size is incorrect (loading orientaTion)");
-    if(v.size() >= index + 4)
-    {
-      orientation.fromVector4(v.segment<4>(index));
-      index += 4;
-    }
-  }
-
-  if(flagLinVel)
-  {
-    BOOST_ASSERT(v.size() >= index + 3 && "The kinematics vector size is incorrect (loading linear velocity)");
-    if(v.size() >= index + 3)
-    {
-      linVel = v.segment<3>(index);
-      index += 3;
-    }
-  }
-
-  if(flagAngVel)
-  {
-    BOOST_ASSERT(v.size() >= index + 3 && "The kinematics vector size is incorrect (loading angular velocity)");
-    if(v.size() >= index + 3)
-    {
-      angVel = v.segment<3>(index);
-      index += 3;
-    }
-  }
-
-  if(flagLinAcc)
-  {
-    BOOST_ASSERT(v.size() >= index + 3 && "The kinematics vector size is incorrect (loading linear acceleration)");
-    if(v.size() >= index + 3)
-    {
-      linAcc = v.segment<3>(index);
-      index += 3;
-    }
-  }
-
-  if(flagAngAcc)
-  {
-    BOOST_ASSERT(v.size() >= index + 3 && "The kinematics vector size is incorrect (loading angular acceleration)");
-    if(v.size() >= index + 3)
-    {
-      angAcc = v.segment<3>(index);
-      // index+=3; ///useless
-    }
-  }
-
-  return *this;
-}
-
-template<typename t>
-inline LocalKinematics & LocalKinematics::setZero(LocalKinematics::Flags::Byte flags)
-{
-
-  bool flagPos = flags & Flags::position;
-  bool flagLinVel = flags & Flags::linVel;
-  bool flagLinAcc = flags & Flags::linAcc;
-  bool flagOri = flags & Flags::orientation;
-  bool flagAngVel = flags & Flags::angVel;
-  bool flagAngAcc = flags & Flags::angAcc;
-
-  if(flagPos)
-  {
-    position.set().setZero();
-  }
-
-  if(flagOri)
-  {
-    orientation.setZeroRotation<t>();
-  }
-
-  if(flagLinVel)
-  {
-    linVel.set().setZero();
-  }
-
-  if(flagAngVel)
-  {
-    angVel.set().setZero();
-  }
-
-  if(flagLinAcc)
-  {
-    linAcc.set().setZero();
-  }
-
-  if(flagAngAcc)
-  {
-    angAcc.set().setZero();
-  }
-
-  return *this;
-}
 inline const LocalKinematics & LocalKinematics::integrate(double dt)
 {
   enum AreSet
@@ -2393,7 +2285,7 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
       break;
   };
   /** Angular velocity */
-  if(areSet & (AngVel | AngAcc) != 0)
+  if((areSet & (AngVel | AngAcc)) != 0)
   {
     angVel() += angAcc() * dt;
   }
@@ -3485,145 +3377,6 @@ inline LocalKinematics & LocalKinematics::setToDiffNoAliasAngPart(const LocalKin
                                                       // inverse of the angular velocity of multiplier 2
 
   return *this;
-}
-
-inline Vector LocalKinematics::toVector(Flags::Byte flags) const
-{
-  int size = 0;
-
-  if(flags & Flags::position)
-  {
-    size += 3;
-  }
-  if(flags & Flags::orientation)
-  {
-    size += 4;
-  }
-  if(flags & Flags::linVel)
-  {
-    size += 3;
-  }
-  if(flags & Flags::angVel)
-  {
-    size += 3;
-  }
-  if(flags & Flags::linAcc)
-  {
-    size += 3;
-  }
-  if(flags & Flags::angAcc)
-  {
-    size += 3;
-  }
-
-  Vector output(size);
-
-  int curIndex = 0;
-  if((flags & Flags::position))
-  {
-    output.segment<3>(curIndex) = position();
-    curIndex += 3;
-  }
-  if((flags & Flags::orientation))
-  {
-    output.segment<4>(curIndex) = orientation.toVector4();
-    curIndex += 4;
-  }
-  if((flags & Flags::linVel))
-  {
-    output.segment<3>(curIndex) = linVel();
-    curIndex += 3;
-  }
-  if((flags & Flags::angVel))
-  {
-    output.segment<3>(curIndex) = angVel();
-    curIndex += 3;
-  }
-  if((flags & Flags::linAcc))
-  {
-    output.segment<3>(curIndex) = linAcc();
-    curIndex += 3;
-  }
-  if((flags & Flags::angAcc))
-  {
-    output.segment<3>(curIndex) = angAcc();
-  }
-
-  return output;
-}
-
-inline Vector LocalKinematics::toVector() const
-{
-  int size = 0;
-  if(position.isSet())
-  {
-    size += 3;
-  }
-  if(orientation.isSet())
-  {
-    size += 4;
-  }
-  if(linVel.isSet())
-  {
-    size += 3;
-  }
-  if(angVel.isSet())
-  {
-    size += 3;
-  }
-  if(linAcc.isSet())
-  {
-    size += 3;
-  }
-  if(angAcc.isSet())
-  {
-    size += 3;
-  }
-
-  Vector output(size);
-
-  int curIndex = 0;
-  if(position.isSet())
-  {
-    output.segment<3>(curIndex) = position();
-    curIndex += 3;
-  }
-  if(orientation.isSet())
-  {
-    output.segment<4>(curIndex) = orientation.toQuaternion().coeffs();
-    curIndex += 4;
-  }
-  if(linVel.isSet())
-  {
-    output.segment<3>(curIndex) = linVel();
-    curIndex += 3;
-  }
-  if(angVel.isSet())
-  {
-    output.segment<3>(curIndex) = angVel();
-    curIndex += 3;
-  }
-  if(linAcc.isSet())
-  {
-    output.segment<3>(curIndex) = linAcc();
-    curIndex += 3;
-  }
-  if(angAcc.isSet())
-  {
-    output.segment<3>(curIndex) = angAcc();
-  }
-
-  return output;
-}
-
-inline void LocalKinematics::reset()
-{
-  position.reset();
-  orientation.reset();
-  linVel.reset();
-  angVel.reset();
-  linAcc.reset();
-  angAcc.reset();
 }
 
 } // namespace kine
