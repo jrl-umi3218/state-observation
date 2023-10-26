@@ -2205,6 +2205,7 @@ inline LocalKinematics & LocalKinematics::operator=(const Kinematics & kin)
   {
     angAcc = orientation_T * kin.angAcc();
   }
+  return *this;
 }
 
 inline const LocalKinematics & LocalKinematics::integrate(double dt)
