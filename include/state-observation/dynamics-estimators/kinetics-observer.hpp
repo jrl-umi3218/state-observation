@@ -1394,55 +1394,58 @@ protected:
   inline unsigned contactWrenchIndexTangent(VectorContactConstIterator i) const;
 
 public: ///////////SIZE OF VECTORS
-  static const unsigned sizeAcceleroSignal = 3;
-  static const unsigned sizeGyroSignal = 3;
-  static const unsigned sizeIMUSignal = sizeAcceleroSignal + sizeGyroSignal;
+  inline static constexpr unsigned sizeAcceleroSignal = 3;
+  inline static constexpr unsigned sizeGyroSignal = 3;
+  inline static constexpr unsigned sizeIMUSignal = sizeAcceleroSignal + sizeGyroSignal;
 
-  static const unsigned sizePos = 3;
-  static const unsigned sizePosTangent = 3;
-  static const unsigned sizeOri = 4;
-  static const unsigned sizeOriTangent = 3;
-  static const unsigned sizeLinVel = sizePos;
-  static const unsigned sizeLinVelTangent = sizeLinVel;
-  static const unsigned sizeLinAccTangent = sizeLinVelTangent;
-  static const unsigned sizeAngVel = sizeOriTangent;
-  static const unsigned sizeAngVelTangent = sizeAngVel;
-  static const unsigned sizeGyroBias = sizeGyroSignal;
-  static const unsigned sizeGyroBiasTangent = sizeGyroBias;
+  inline static constexpr unsigned sizePos = 3;
+  inline static constexpr unsigned sizePosTangent = 3;
+  inline static constexpr unsigned sizeOri = 4;
+  inline static constexpr unsigned sizeOriTangent = 3;
+  inline static constexpr unsigned sizeLinVel = sizePos;
+  inline static constexpr unsigned sizeLinVelTangent = sizeLinVel;
+  inline static constexpr unsigned sizeLinAccTangent = sizeLinVelTangent;
+  inline static constexpr unsigned sizeAngVel = sizeOriTangent;
+  inline static constexpr unsigned sizeAngVelTangent = sizeAngVel;
+  inline static constexpr unsigned sizeGyroBias = sizeGyroSignal;
+  inline static constexpr unsigned sizeGyroBiasTangent = sizeGyroBias;
 
-  static const unsigned sizeForce = 3;
-  static const unsigned sizeForceTangent = sizeForce;
-  static const unsigned sizeTorque = 3;
-  static const unsigned sizeTorqueTangent = sizeTorque;
+  inline static constexpr unsigned sizeForce = 3;
+  inline static constexpr unsigned sizeForceTangent = sizeForce;
+  inline static constexpr unsigned sizeTorque = 3;
+  inline static constexpr unsigned sizeTorqueTangent = sizeTorque;
 
-  static const unsigned sizeWrench = sizeForce + sizeTorque;
+  inline static constexpr unsigned sizeWrench = sizeForce + sizeTorque;
 
-  static const unsigned sizeStateKine = sizePos + sizeOri + sizeLinVel + sizeAngVel;
-  static const unsigned sizeStateBase = sizeStateKine + sizeForce + sizeTorque;
-  static const unsigned sizeStateKineTangent = sizePos + sizeOriTangent + sizeLinVel + sizeAngVel;
-  static const unsigned sizeStateTangentBase = sizeStateKineTangent + sizeForce + sizeTorque;
+  inline static constexpr unsigned sizeStateKine = sizePos + sizeOri + sizeLinVel + sizeAngVel;
+  inline static constexpr unsigned sizeStateBase = sizeStateKine + sizeForce + sizeTorque;
+  inline static constexpr unsigned sizeStateKineTangent = sizePos + sizeOriTangent + sizeLinVel + sizeAngVel;
+  inline static constexpr unsigned sizeStateTangentBase = sizeStateKineTangent + sizeForce + sizeTorque;
 
-  static const unsigned sizePose = sizePos + sizeOri;
-  static const unsigned sizePoseTangent = sizePos + sizeOriTangent;
+  inline static constexpr unsigned sizePose = sizePos + sizeOri;
+  inline static constexpr unsigned sizePoseTangent = sizePos + sizeOriTangent;
 
-  static const unsigned sizeContactKine = sizePose;
-  static const unsigned sizeContactKineTangent = sizePoseTangent;
+  inline static constexpr unsigned sizeContactKine = sizePose;
+  inline static constexpr unsigned sizeContactKineTangent = sizePoseTangent;
 
-  static const unsigned sizeContact = sizeContactKine + sizeWrench;
-  static const unsigned sizeContactTangent = sizeContactKineTangent + sizeWrench;
+  inline static constexpr unsigned sizeContact = sizeContactKine + sizeWrench;
+  inline static constexpr unsigned sizeContactTangent = sizeContactKineTangent + sizeWrench;
 
-  static const Kinematics::Flags::Byte flagsStateKine = Kinematics::Flags::position | Kinematics::Flags::orientation
-                                                        | Kinematics::Flags::linVel | Kinematics::Flags::angVel;
+  inline static constexpr Kinematics::Flags::Byte flagsStateKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation | Kinematics::Flags::linVel
+      | Kinematics::Flags::angVel;
 
-  static const Kinematics::Flags::Byte flagsContactKine = Kinematics::Flags::position | Kinematics::Flags::orientation;
+  inline static constexpr Kinematics::Flags::Byte flagsContactKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation;
 
-  static const Kinematics::Flags::Byte flagsPoseKine = Kinematics::Flags::position | Kinematics::Flags::orientation;
+  inline static constexpr Kinematics::Flags::Byte flagsPoseKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation;
 
-  static const Kinematics::Flags::Byte flagsPosKine = Kinematics::Flags::position;
+  inline static constexpr Kinematics::Flags::Byte flagsPosKine = Kinematics::Flags::position;
 
-  static const Kinematics::Flags::Byte flagsIMUKine = Kinematics::Flags::position | Kinematics::Flags::orientation
-                                                      | Kinematics::Flags::linVel | Kinematics::Flags::angVel
-                                                      | Kinematics::Flags::linAcc | Kinematics::Flags::angAcc;
+  inline static constexpr Kinematics::Flags::Byte flagsIMUKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation | Kinematics::Flags::linVel
+      | Kinematics::Flags::angVel | Kinematics::Flags::linAcc | Kinematics::Flags::angAcc;
 
   ////////////DEFAULT VALUES //////
   static const double defaultMass;
