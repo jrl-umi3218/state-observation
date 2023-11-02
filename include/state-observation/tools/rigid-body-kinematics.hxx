@@ -246,7 +246,7 @@ inline Matrix3 orthogonalizeRotationMatrix(const Matrix3 & M)
 }
 
 /// transform a skew symmetric 3x3 matrix into a 3d vector
-inline Vector3 skewSymmetricToRotationVector(const Matrix3 & R, Vector3 & v)
+inline void skewSymmetricToRotationVector(const Matrix3 & R, Vector3 & v)
 {
   v(0) = R(2, 1);
   v(1) = R(0, 2);
@@ -254,8 +254,6 @@ inline Vector3 skewSymmetricToRotationVector(const Matrix3 & R, Vector3 & v)
   // R <<     0, -v[2],  v[1],
   //      v[2],     0, -v[0],
   //     -v[1],  v[0],     0;
-
-  return v;
 }
 
 /// transform a skew symmetric 3x3 matrix into a 3d vector
