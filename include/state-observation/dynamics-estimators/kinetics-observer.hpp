@@ -117,7 +117,7 @@ public:
   /// @brief Returns the mass of the robot
   ///
   /// @return the mass of the robot.
-  const double & getMass() const;
+  double getMass() const;
 
   /// @brief Returns the global inertia matrix of the robot at the center of mass.
   ///
