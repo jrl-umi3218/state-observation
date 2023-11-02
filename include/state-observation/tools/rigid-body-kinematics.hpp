@@ -391,8 +391,6 @@ public:
   template<typename t = Quaternion>
   inline Orientation & setZeroRotation();
 
-  inline Orientation & setZeroRotation();
-
   /// get a const reference on the matrix or the quaternion
   inline const Matrix3 & toMatrix3() const;
   inline const Quaternion & toQuaternion() const;

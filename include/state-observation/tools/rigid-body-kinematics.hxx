@@ -790,11 +790,6 @@ inline Orientation & Orientation::setZeroRotation<Matrix3>()
   return (*this) = Matrix3(Matrix3::Identity());
 }
 
-inline Orientation & Orientation::setZeroRotation()
-{
-  return setZeroRotation<Quaternion>();
-}
-
 inline Vector4 Orientation::toVector4() const
 {
   return toQuaternion().coeffs();

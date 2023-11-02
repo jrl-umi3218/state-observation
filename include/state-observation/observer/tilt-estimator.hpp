@@ -26,6 +26,10 @@ namespace stateObservation
  *         use getEstimatedState to obtain the state vector
  *         the tilt R.transpose()*e_z is constituted
  *         with the last three components of the state vector.
+
+           This estimator is based on the work detailed in:
+            Benallegue, Mehdi, et al. "Lyapunov-stable orientation estimator for humanoid robots." IEEE Robotics and
+            Automation Letters 5.4 (2020): 6371-637
  *
  */
 class STATE_OBSERVATION_DLLAPI TiltEstimator : public ZeroDelayObserver
@@ -84,31 +88,11 @@ public:
     return dt_;
   }
 
-  /// prevent c++ overloaded virtual function warning
-  // #if defined(__clang__)
-  // #  pragma clang diagnostic push
-  // #  pragma clang diagnostic ignored "-Woverloaded-virtual"
-  // #else
-  // #  if defined(__GNUC__)
-  // #    pragma GCC diagnostic push
-  // #    pragma GCC diagnostic ignored "-Woverloaded-virtual"
-  // #  endif
-  // #endif
-
   /// sets ths measurement (accelero and gyro stacked in one vector)
   void setMeasurement(const Vector3 & yv_k, const Vector3 & ya_k, const Vector3 & yg_k, TimeIndex k);
 
-  // #if defined(__clang__)
-  // #  pragma clang diagnostic pop
-  // #else
-  // #  if defined(__GNUC__)
-  // #    pragma GCC diagnostic pop
-  // #  endif
-  // #endif
-
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
-public:
 protected:
   /// The parameters of the estimator
   double alpha_, beta_, gamma_;

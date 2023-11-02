@@ -1173,23 +1173,17 @@ void KineticsObserver::clearContacts()
   numberOfContactRealSensors_ = 0;
 }
 
-Index KineticsObserver::getNumberOfContacts() const
-{
-  return contacts_.size();
-}
-
 Index KineticsObserver::getNumberOfSetContacts() const
 {
-  std::vector<int> v;
-
-  for(unsigned i = 0; i < contacts_.size(); ++i)
+  Index out;
+  for(const auto & c : contacts_)
   {
-    if(contacts_[i].isSet)
+    if(c.isSet)
     {
-      v.push_back(i);
+      out += 1;
     }
   }
-  return v.size();
+  return out;
 }
 
 std::vector<int> KineticsObserver::getListOfContacts() const

@@ -233,14 +233,14 @@ public:
   /// @param measurement The measurement in the form of an Orientation object
   void setAbsoluteOriSensor(const Orientation & measurement);
 
-  /// @brief @copybrief setAbsolutePoseSensor(const Orientation &)
+  /// @brief @copybrief setAbsoluteOriSensor(const Orientation &)
   ///
   /// @details This version sets the Covariance matrix explicitely.
   /// @copydetails setAbsoluteOriSensor(const Orientation &)
   /// @param CovarianceMatrix the covariance matrix
   void setAbsoluteOriSensor(const Orientation & measurement, const Matrix3 & CovarianceMatrix);
 
-  /// @brief Set the Absolute Pose Sensor Default Covariance Matrix
+  /// @brief Set the Absolute Orientation Sensor Default Covariance Matrix
   /// @param covMat
   void setAbsoluteOriSensorDefaultCovarianceMatrix(const Matrix3 & covMat);
 
@@ -315,11 +315,6 @@ public:
 
   /// @brief remove all the contacts
   void clearContacts();
-
-  /// @brief Get the Number Of Contacts
-  ///
-  /// @return Index The number of contacts
-  Index getNumberOfContacts() const;
 
   /// @brief Get the Current Number Of Contacts
   ///

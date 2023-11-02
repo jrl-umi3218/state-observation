@@ -21,12 +21,7 @@ namespace stateObservation
 
 /**
  * \class  TiltEstimatorHumanoid
- * \brief
- *         Description is pending
- *
- *         use getEstimatedState to obtain the state vector
- *         the tilt R.transpose()*e_z is constituted
- *         with the last three components of the state vector.
+ * \brief  Version of the Tilt Estimator for humanoid robots.
  *
  */
 class STATE_OBSERVATION_DLLAPI TiltEstimatorHumanoid : public TiltEstimator
@@ -125,8 +120,6 @@ public:
 #    pragma GCC diagnostic pop
 #  endif
 #endif
-
-  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 public:
 protected:
