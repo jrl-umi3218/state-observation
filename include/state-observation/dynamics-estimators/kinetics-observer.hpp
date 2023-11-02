@@ -227,6 +227,23 @@ public:
   /// @param covMat
   void setAbsolutePoseSensorDefaultCovarianceMatrix(const Matrix6 & covMat);
 
+  /// @brief Set an Absolute Orientation Sensor measurement
+  /// The measurement is the orientation of the observed frame in the global frame.
+  /// @details The overload with the measurement only uses default covariance  matrix.
+  /// @param measurement The measurement in the form of an Orientation object
+  void setAbsoluteOriSensor(const Orientation & measurement);
+
+  /// @brief @copybrief setAbsolutePoseSensor(const Orientation &)
+  ///
+  /// @details This version sets the Covariance matrix explicitely.
+  /// @copydetails setAbsoluteOriSensor(const Orientation &)
+  /// @param CovarianceMatrix the covariance matrix
+  void setAbsoluteOriSensor(const Orientation & measurement, const Matrix3 & CovarianceMatrix);
+
+  /// @brief Set the Absolute Pose Sensor Default Covariance Matrix
+  /// @param covMat
+  void setAbsoluteOriSensorDefaultCovarianceMatrix(const Matrix3 & covMat);
+
   /// @}
 
   // ///////////////////////////////////////////////////////////
@@ -1068,6 +1085,14 @@ protected:
     CheckedMatrix6 covMatrix;
   };
 
+  struct AbsoluteOriSensor : public Sensor
+  {
+    AbsoluteOriSensor() : Sensor(sizePose) {}
+
+    Orientation ori;
+    CheckedMatrix3 covMatrix;
+  };
+
 protected:
   ///////////// DYNAMICAL SYSTEM IMPLEMENTATION
   /// @brief Applies the state-transition model to the given state vector using the given input to predict the future
@@ -1303,6 +1328,7 @@ protected:
   unsigned maxImuNumber_;
 
   AbsolutePoseSensor absPoseSensor_;
+  AbsoluteOriSensor absOriSensor_;
   VectorContact contacts_;
   VectorIMU imuSensors_;
 
@@ -1499,6 +1525,7 @@ protected:
   Matrix3 gyroCovMatDefault_;
   Matrix6 contactWrenchSensorCovMatDefault_;
   Matrix6 absPoseSensorCovMatDefault_;
+  Matrix3 absOriSensorCovMatDefault_;
 
   Matrix3 statePosInitCovMat_;
   Matrix3 stateOriInitCovMat_;

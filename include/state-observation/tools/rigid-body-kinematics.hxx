@@ -1583,7 +1583,7 @@ inline const Kinematics & Kinematics::update(const Kinematics & newValue, double
             {
               BOOST_ASSERT(thisAcc.isSet() && "The linear accleration cannot be updated without initial value");
             }
-          }bool flagOri = flags & Flags::orientation;
+          }
         }
       }
     }

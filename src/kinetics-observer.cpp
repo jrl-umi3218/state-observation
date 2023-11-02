@@ -111,6 +111,7 @@ KineticsObserver::KineticsObserver(unsigned maxContacts, unsigned maxNumberOfIMU
                                         Matrix3::Zero(),
                                         Matrix3::Zero(),
                                         Matrix3::Identity() * orientationSensorVarianceDefault)),
+  absOriSensorCovMatDefault_(Matrix3::Identity() * orientationSensorVarianceDefault),
   statePosInitCovMat_(Matrix3::Identity() * statePoseInitVarianceDefault),
   stateOriInitCovMat_(Matrix3::Identity() * stateOriInitVarianceDefault),
   stateLinVelInitCovMat_(Matrix3::Identity() * stateLinVelInitVarianceDefault),
@@ -211,6 +212,11 @@ Index KineticsObserver::getMeasurementSize() const
     size += sizePose;
   }
 
+  if(absOriSensor_.time == k_data_)
+  {
+    size += sizeOri;
+  }
+
   return size;
 }
 
@@ -264,6 +270,12 @@ void KineticsObserver::updateMeasurements()
     measurementTangentSize_ += sizePoseTangent;
   }
 
+  if(absOriSensor_.time == k_data_)
+  {
+    measurementSize_ += sizeOri;
+    measurementTangentSize_ += sizeOriTangent;
+  }
+
   measurementVector_.resize(measurementSize_);
   measurementCovMatrix_.resize(measurementTangentSize_, measurementTangentSize_);
   measurementCovMatrix_.setZero();
@@ -306,6 +318,15 @@ void KineticsObserver::updateMeasurements()
     measurementVector_.segment<sizePose>(curMeasIndex) = absPoseSensor_.pose.toVector(flagsPoseKine);
     measurementCovMatrix_.block<sizePoseTangent, sizePoseTangent>(curMeasIndex, curMeasIndex) =
         absPoseSensor_.covMatrix();
+    curMeasIndex += sizePos;
+  }
+
+  if(absOriSensor_.time == k_data_)
+  {
+    absOriSensor_.measIndex = curMeasIndex;
+    BOOST_ASSERT(absOriSensor_.ori.isSet() && "The absolute orientation is not set");
+    measurementVector_.segment<sizeOri>(curMeasIndex) = absOriSensor_.ori.toVector4();
+    measurementCovMatrix_.block<sizeOriTangent, sizeOriTangent>(curMeasIndex, curMeasIndex) = absOriSensor_.covMatrix();
   }
 
   ekf_.setMeasureSize(measurementSize_, measurementTangentSize_);
@@ -887,6 +908,36 @@ void KineticsObserver::setAbsolutePoseSensorDefaultCovarianceMatrix(const Matrix
   absPoseSensorCovMatDefault_ = newdefault;
 }
 
+void KineticsObserver::setAbsoluteOriSensor(const Orientation & ori)
+{
+  /// ensure the measuements are labeled with the good time stamp
+  startNewIteration_();
+
+  absOriSensor_.time = k_data_;
+  absOriSensor_.ori = ori;
+
+  if(!(absOriSensor_.covMatrix.isSet()))
+  {
+    absOriSensor_.covMatrix = absOriSensorCovMatDefault_;
+  }
+}
+
+void KineticsObserver::setAbsoluteOriSensor(const Orientation & ori, const Matrix3 & CovarianceMatrix)
+{
+  /// ensure the measuements are labeled with the good time stamp
+  startNewIteration_();
+
+  absOriSensor_.time = k_data_;
+  absOriSensor_.ori = ori;
+
+  absOriSensor_.covMatrix = CovarianceMatrix;
+}
+
+void KineticsObserver::setAbsoluteOriSensorDefaultCovarianceMatrix(const Matrix3 & newdefault)
+{
+  absOriSensorCovMatDefault_ = newdefault;
+}
+
 void KineticsObserver::setCoMInertiaMatrix(const Matrix3 & I, const Matrix3 & I_dot)
 {
   startNewIteration_();
@@ -1342,6 +1393,10 @@ Vector KineticsObserver::getMeasurementVector()
       measurement.segment<sizePose>(currIndex) = absPoseSensor_.pose.toVector(flagsPoseKine);
       currIndex += sizePose;
     }
+    if(absOriSensor_.time == k_data_)
+    {
+      measurement.segment<sizeOri>(currIndex) = absOriSensor_.ori.toVector4();
+    }
   }
   return measurement;
 }
@@ -1478,6 +1533,7 @@ void KineticsObserver::resetSensorsDefaultCovMats()
                                                 Matrix3::Zero(), Matrix3::Identity() * torqueSensorVarianceDefault);
   absPoseSensorCovMatDefault_ = blockMat6(Matrix3::Identity() * positionSensorVarianceDefault, Matrix3::Zero(),
                                           Matrix3::Zero(), Matrix3::Identity() * orientationSensorVarianceDefault);
+  absOriSensorCovMatDefault_ = Matrix3::Identity() * orientationSensorVarianceDefault;
 }
 
 void KineticsObserver::resetInputs()
@@ -1493,6 +1549,7 @@ void KineticsObserver::resetInputs()
   }
 
   absPoseSensor_.time = k_est_;
+  absOriSensor_.time = k_est_;
 }
 
 void KineticsObserver::setFiniteDifferenceStep(const Vector & v)
@@ -2067,6 +2124,11 @@ Matrix KineticsObserver::computeCMatrix()
         Matrix3::Identity();
   }
 
+  if(absOriSensor_.time == k_data_)
+  {
+    C.block<sizeOriTangent, sizeOriTangent>(absOriSensor_.measIndex, oriIndexTangent()) = Matrix3::Identity();
+  }
+
   return C;
 }
 
@@ -2410,6 +2472,14 @@ void KineticsObserver::measurementDifference(const Vector & measureVector1,
     o1.fromVector4(measureVector1.segment<sizeOri>(currentMeasurementSize));
     o2.fromVector4(measureVector2.segment<sizeOri>(currentMeasurementSize));
     difference.segment<sizeOriTangent>(currentMeasurementSize) = o2.differentiate(o1);
+
+    currentMeasurementSize += sizeOri;
+  }
+  if(absOriSensor_.time == k_data_)
+  {
+    o1.fromVector4(measureVector1.segment<sizeOri>(currentMeasurementSize));
+    o2.fromVector4(measureVector2.segment<sizeOri>(currentMeasurementSize));
+    difference.segment<sizeOriTangent>(currentMeasurementSize) = o2.differentiate(o1);
   }
 }
 
@@ -2557,6 +2627,11 @@ Vector KineticsObserver::measureDynamics(const Vector & x_bar, const Vector & /*
     y.segment<sizePos>(absPoseSensor_.measIndex) =
         worldCentroidStateKinematics.orientation.toMatrix3() * worldCentroidStateKinematics.toVector(flagsPosKine);
     y.segment<sizeOri>(absPoseSensor_.measIndex + sizePos) = worldCentroidStateKinematics.orientation.toVector4();
+  }
+
+  if(absOriSensor_.time == k)
+  {
+    y.segment<sizeOri>(absOriSensor_.measIndex) = worldCentroidStateKinematics.orientation.toVector4();
   }
 
   if(measurementNoise_ != 0x0)
