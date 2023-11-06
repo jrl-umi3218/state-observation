@@ -407,27 +407,27 @@ Vector KalmanFilterBase::getSimulatedMeasurement(TimeIndex k)
   return simulateSensor_(getEstimatedState(k), k);
 }
 
-Vector KalmanFilterBase::getInnovation()
+const Vector & KalmanFilterBase::getInnovation()
 {
   return innovation_;
 }
 
-Vector KalmanFilterBase::getLastPrediction() const
+const Vector & KalmanFilterBase::getLastPrediction() const
 {
   return xbar_();
 }
 
-Vector KalmanFilterBase::getLastPredictedMeasurement() const
+const Vector & KalmanFilterBase::getLastPredictedMeasurement() const
 {
   return ybar_();
 }
 
-Vector KalmanFilterBase::getLastMeasurement() const
+const Vector & KalmanFilterBase::getLastMeasurement() const
 {
   return y_.back();
 }
 
-Matrix KalmanFilterBase::getLastGain() const
+const Matrix & KalmanFilterBase::getLastGain() const
 {
   return oc_.kGain;
 }

@@ -289,7 +289,7 @@ public:
   virtual MeasureVector getSimulatedMeasurement(TimeIndex k);
 
   /// Get the last vector of innovation of the Kalman filter
-  virtual StateVector getInnovation();
+  virtual const StateVector & getInnovation();
 
   /// A function that gives the prediction (this is NOT the estimation of the state),
   /// for the estimation call getEstimateState method
@@ -304,16 +304,16 @@ public:
   inline MeasureVector updateStateAndMeasurementPrediction();
 
   /// get the last predicted state
-  StateVector getLastPrediction() const;
+  const StateVector & getLastPrediction() const;
 
   /// get the last predicted measurement
-  MeasureVector getLastPredictedMeasurement() const;
+  const MeasureVector & getLastPredictedMeasurement() const;
 
   /// get the last measurement
-  MeasureVector getLastMeasurement() const;
+  const MeasureVector & getLastMeasurement() const;
 
   /// get the last Kalman gain matrix
-  Matrix getLastGain() const;
+  const Matrix & getLastGain() const;
 
   /// set update functions for sum and difference for the state vector
   /// (used for the case of multiplicative Kalman filter)
