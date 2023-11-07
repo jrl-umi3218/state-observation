@@ -45,8 +45,6 @@ int testKineticsObserverCodeAccessor(int errorcode)
   contactKine.position.set() << 0, 0.1, 0;
   contactKine.orientation.setZeroRotation();
 
-  Vector6 initContactWrench = Vector6::Zero();
-
   o.addContact(contactKine, 0);
 
   Matrix3 linStiffness, angStiffness, linDamping, angDamping;
@@ -73,7 +71,7 @@ int testKineticsObserverCodeAccessor(int errorcode)
   processCov.diagonal().setConstant(0.0001);
 
   contactKine.position.set() << 1, 0.1, 0;
-  int i = o.addContact(contactKine, initialCov, processCov);
+  Index i = o.addContact(contactKine, initialCov, processCov);
 
   (void)i; /// avoid warning in release mode
   assert(i == 1);
