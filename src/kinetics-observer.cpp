@@ -623,66 +623,7 @@ Index KineticsObserver::setIMU(const Vector3 & accelero,
                                const Kinematics & userImuKinematics,
                                Index num)
 {
-  /// ensure the measurements are labeled with the good time stamp
-  startNewIteration_();
-
-  if(num < 0)
-  {
-    num = 0;
-    while(imuSensors_[static_cast<size_t>(num)].time != k_data_ && unsigned(num) < imuSensors_.size())
-    {
-      ++num;
-    }
-  }
-
-  BOOST_ASSERT(unsigned(num) < maxImuNumber_ && "The inserted IMU number exceeds the maximum number");
-
-  IMU & imu = imuSensors_[static_cast<size_t>(num)]; /// reference
-
-  BOOST_ASSERT(imu.time < k_data_ && "The IMU has been already set, use another number");
-
-  imu.stateIndex = angVelIndex() + sizeAngVel + sizeGyroBias * num;
-  imu.stateIndexTangent = angVelIndexTangent() + sizeAngVelTangent + sizeGyroBiasTangent * num;
-
-  imu.acceleroGyro.head<3>() = accelero;
-  imu.acceleroGyro.tail<3>() = gyrometer;
-  if(imu.time == 0) /// this is the first value for the IMU
-  {
-    imu.userImuKinematics = userImuKinematics;
-    imu.centroidImuKinematics = LocalKinematics(convertUserToCentroidFrame_(imu.userImuKinematics, k_data_));
-
-    imu.covMatrixAccelero = acceleroCovMatDefault_;
-    imu.covMatrixGyro = gyroCovMatDefault_;
-
-    BOOST_ASSERT(imu.centroidImuKinematics.position.isSet() && imu.centroidImuKinematics.orientation.isSet()
-                 && "The kinematics of the IMU is incorrectly initialized");
-    if(!imu.centroidImuKinematics.linVel.isSet())
-    {
-      imu.centroidImuKinematics.linVel.set().setZero();
-    }
-    if(!imu.centroidImuKinematics.angVel.isSet())
-    {
-      imu.centroidImuKinematics.angVel.set().setZero();
-    }
-    if(!imu.centroidImuKinematics.linAcc.isSet())
-    {
-      imu.centroidImuKinematics.linAcc.set().setZero();
-    }
-    if(!imu.centroidImuKinematics.angAcc.isSet())
-    {
-      imu.centroidImuKinematics.angAcc.set().setZero();
-    }
-  }
-  else
-  {
-    imu.userImuKinematics.update(userImuKinematics, dt_ * static_cast<double>(k_data_ - imu.time), flagsIMUKine);
-    imu.centroidImuKinematics = LocalKinematics(convertUserToCentroidFrame_(imu.userImuKinematics, k_data_));
-  }
-
-  imu.time = k_data_;
-  ++currentIMUSensorNumber_;
-
-  return num;
+  return setIMU(accelero, gyrometer, userImuKinematics, num, nullptr, nullptr);
 }
 
 Index KineticsObserver::setIMU(const Vector3 & accelero,
@@ -692,6 +633,18 @@ Index KineticsObserver::setIMU(const Vector3 & accelero,
                                const Kinematics & userImuKinematics,
                                Index num)
 {
+  return setIMU(accelero, gyrometer, userImuKinematics, num, &acceleroCov, &gyroCov);
+}
+
+Index KineticsObserver::setIMU(const Vector3 & accelero,
+                               const Vector3 & gyrometer,
+                               const Kinematics & userImuKinematics,
+                               Index num,
+                               const Matrix3 * acceleroCov,
+                               const Matrix3 * gyroCov)
+{
+  BOOST_ASSERT((acceleroCov == nullptr || (acceleroCov != nullptr && gyroCov != nullptr))
+               && "Wrong usage of internal setIMU");
   /// ensure the measuements are labeled with the good time stamp
   startNewIteration_();
 
@@ -715,13 +668,21 @@ Index KineticsObserver::setIMU(const Vector3 & accelero,
 
   imu.acceleroGyro.head<3>() = accelero;
   imu.acceleroGyro.tail<3>() = gyrometer;
-  imu.covMatrixAccelero = acceleroCov;
-  imu.covMatrixGyro = gyroCov;
+  if(acceleroCov)
+  {
+    imu.covMatrixAccelero = *acceleroCov;
+    imu.covMatrixGyro = *gyroCov;
+  }
 
   if(imu.time == 0) /// this is the first value for the IMU
   {
     imu.userImuKinematics = userImuKinematics;
     imu.centroidImuKinematics = LocalKinematics(convertUserToCentroidFrame_(imu.userImuKinematics, k_data_));
+    if(!acceleroCov)
+    {
+      imu.covMatrixAccelero = acceleroCovMatDefault_;
+      imu.covMatrixGyro = gyroCovMatDefault_;
+    }
     BOOST_ASSERT(imu.centroidImuKinematics.position.isSet() && imu.centroidImuKinematics.orientation.isSet()
                  && "The kinematics of the IMU is incorrectly initialized");
     if(!imu.centroidImuKinematics.linVel.isSet())

@@ -1562,6 +1562,14 @@ protected:
     Orientation & ori1;
     Orientation & ori2;
   } opt_;
+
+private:
+  Index setIMU(const Vector3 & accelero,
+               const Vector3 & gyrometer,
+               const Kinematics & userImuKinematics,
+               Index num,
+               const Matrix3 * acceleroCov,
+               const Matrix3 * gyroCov);
 };
 
 #include <state-observation/dynamics-estimators/kinetics-observer.hxx>
