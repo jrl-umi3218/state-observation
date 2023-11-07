@@ -90,7 +90,7 @@ void ZmpTrackingGainEstimator::setMinimumGain(const double & minGain)
   minimumGain_ = minGain;
 }
 
-void ZmpTrackingGainEstimator::setZMPProcesError(const Vector2 & zmpprocesserrorstd) {}
+void ZmpTrackingGainEstimator::setZMPProcesError(const Vector2 & /*zmpprocesserrorstd*/) {}
 
 /// @brief Set the Zmp Measurement Error Stamdard deviation
 ///
@@ -113,7 +113,7 @@ Matrix2 ZmpTrackingGainEstimator::getEstimatedLocalGain() const
 /// @param zmperr  measurement of the DCM in the world frame
 /// @param zmp  mesaurement of the ZMP in the world frame
 /// @param R    the 2x2 Matrix'representing the yaw angle i.e. bias_global == R * bias*local
-void ZmpTrackingGainEstimator::setInputs(const Vector2 & zmpErr, const Vector2 & zmp, const Matrix2 & R) {}
+void ZmpTrackingGainEstimator::setInputs(const Vector2 & /*zmpErr*/, const Vector2 & /*zmp*/, const Matrix2 & /*R*/) {}
 
 /// @brief Runs the estimation. Needs to be called every timestep
 ///

@@ -13,16 +13,28 @@
 namespace stateObservation
 {
 
-KalmanFilterBase::KalmanFilterBase() : nt_(0), arithm_(this) {}
+KalmanFilterBase::KalmanFilterBase() : nt_(0), arithm_(this)
+{
+  oc_.pbar.resize(nt_, nt_);
+  pr_.resize(nt_, nt_);
+}
 
 KalmanFilterBase::KalmanFilterBase(Index n, Index m, Index p)
 : ZeroDelayObserver(n, m, p), nt_(n), mt_(m), arithm_(this)
 {
+  oc_.pbar.resize(nt_, nt_);
+  pr_.resize(nt_, nt_);
+  oc_.inoMeasCov.resize(mt_, mt_);
+  oc_.inoMeasCovInverse.resize(mt_, mt_);
 }
 
 KalmanFilterBase::KalmanFilterBase(Index n, Index nt, Index m, Index mt, Index p)
 : ZeroDelayObserver(n, m, p), nt_(nt), mt_(mt), arithm_(this)
 {
+  oc_.pbar.resize(nt_, nt_);
+  pr_.resize(nt_, nt_);
+  oc_.inoMeasCov.resize(mt_, mt_);
+  oc_.inoMeasCovInverse.resize(mt_, mt_);
 }
 
 void KalmanFilterBase::setA(const Amatrix & A)
@@ -120,22 +132,27 @@ ObserverBase::StateVector KalmanFilterBase::oneStepEstimation_()
 
   // prediction
   updateStateAndMeasurementPrediction(); // runs also updatePrediction_();
-  oc_.pbar.noalias() = q_ + a_ * (pr_ * a_.transpose());
+
+  oc_.pbar.triangularView<Eigen::Upper>() = q_;
+  oc_.pbar.triangularView<Eigen::Upper>() += a_ * pr_.selfadjointView<Eigen::Upper>() * a_.transpose();
 
   // innovation Measurements
   arithm_->measurementDifference(this->y_[k + 1], ybar_(), oc_.inoMeas);
-  oc_.inoMeasCov.noalias() = r_ + c_ * (oc_.pbar * c_.transpose());
 
-  Index & measurementTangentSize = mt_;
+  oc_.inoMeasCov.triangularView<Eigen::Upper>() = r_;
+  oc_.inoMeasCov.triangularView<Eigen::Upper>() += c_ * oc_.pbar.selfadjointView<Eigen::Upper>() * c_.transpose();
+
   // inversing innovation measurement covariance matrix
-  oc_.inoMeasCovLLT.compute(oc_.inoMeasCov);
-  oc_.inoMeasCovInverse.resize(measurementTangentSize, measurementTangentSize);
+  oc_.inoMeasCovLLT.compute(oc_.inoMeasCov.selfadjointView<Eigen::Upper>());
+
   oc_.inoMeasCovInverse.setIdentity();
   oc_.inoMeasCovLLT.matrixL().solveInPlace(oc_.inoMeasCovInverse);
   oc_.inoMeasCovLLT.matrixL().transpose().solveInPlace(oc_.inoMeasCovInverse);
 
   // innovation
-  oc_.kGain.noalias() = oc_.pbar * (c_.transpose() * oc_.inoMeasCovInverse);
+
+  oc_.kGain.noalias() = oc_.pbar.selfadjointView<Eigen::Upper>() * (c_.transpose() * oc_.inoMeasCovInverse);
+
   innovation_.noalias() = oc_.kGain * oc_.inoMeas;
 
   // update
@@ -147,8 +164,10 @@ ObserverBase::StateVector KalmanFilterBase::oneStepEstimation_()
   std::cout << "A" << std::endl << a_.format(CleanFmt) << std::endl;
   std::cout << "C" << std::endl << c_.format(CleanFmt) << std::endl;
   std::cout << "P" << std::endl << pr_.format(CleanFmt) << std::endl;
+  std::cout << "Q" << std::endl << q_.format(CleanFmt) << std::endl;
+  std::cout << "R" << std::endl << r_.format(CleanFmt) << std::endl;
   std::cout << "K" << std::endl << oc_.kGain.format(CleanFmt) << std::endl;
-  std::cout << "Xbar" << std::endl << xbar().transpose().format(CleanFmt) << std::endl;
+  std::cout << "Xbar" << std::endl << xbar_().transpose().format(CleanFmt) << std::endl;
   std::cout << "inoMeasCov" << std::endl << oc_.inoMeasCov.format(CleanFmt) << std::endl;
   std::cout << "oc_.pbar" << std::endl << (oc_.pbar).format(CleanFmt) << std::endl;
   std::cout << "c_ * (oc_.pbar * c_.transpose())" << std::endl
@@ -156,24 +175,23 @@ ObserverBase::StateVector KalmanFilterBase::oneStepEstimation_()
   std::cout << "inoMeasCovInverse" << std::endl << oc_.inoMeasCovInverse.format(CleanFmt) << std::endl;
   std::cout << "predictedMeasurement " << std::endl << ybar_().transpose().format(CleanFmt) << std::endl;
   std::cout << "inoMeas" << std::endl << oc_.inoMeas.transpose().format(CleanFmt) << std::endl;
-  std::cout << "inovation_" << std::endl << inovation_.transpose().format(CleanFmt) << std::endl;
+  std::cout << "inovation_" << std::endl << innovation_.transpose().format(CleanFmt) << std::endl;
   std::cout << "Xhat" << std::endl << oc_.xhat.transpose().format(CleanFmt) << std::endl;
 #endif // VERBOUS_KALMANFILTER
 
   this->x_.set(oc_.xhat, k + 1);
-  pr_.noalias() = -oc_.kGain * c_;
-  pr_.diagonal().array() += 1;
-  pr_ *= oc_.pbar;
 
-  // simmetrize the pr_ matrix
-  pr_ = (pr_ + pr_.transpose()) * 0.5;
+  oc_.mKc.noalias() = -oc_.kGain * c_;
+  oc_.mKc.diagonal().array() += 1;
+
+  pr_.triangularView<Eigen::Upper>() = (oc_.mKc * oc_.pbar.selfadjointView<Eigen::Upper>()).eval();
 
   return oc_.xhat;
 }
 
 KalmanFilterBase::Pmatrix KalmanFilterBase::getStateCovariance() const
 {
-  return pr_;
+  return pr_.selfadjointView<Eigen::Upper>();
 }
 
 void KalmanFilterBase::reset()
@@ -360,6 +378,9 @@ void KalmanFilterBase::setStateSize(Index n, Index nt)
     clearC();
     clearQ();
     clearStateCovariance();
+
+    oc_.pbar.resize(nt_, nt_);
+    pr_.resize(nt_, nt_);
   }
 }
 
@@ -376,6 +397,8 @@ void KalmanFilterBase::setMeasureSize(Index m, Index mt)
     ZeroDelayObserver::setMeasureSize(m);
     clearC();
     clearR();
+    oc_.inoMeasCov.resize(mt_, mt_);
+    oc_.inoMeasCovInverse.resize(mt_, mt_);
   }
 }
 
@@ -384,22 +407,27 @@ Vector KalmanFilterBase::getSimulatedMeasurement(TimeIndex k)
   return simulateSensor_(getEstimatedState(k), k);
 }
 
-Vector KalmanFilterBase::getInnovation()
+const Vector & KalmanFilterBase::getInnovation()
 {
   return innovation_;
 }
 
-Vector KalmanFilterBase::getLastPrediction() const
+const Vector & KalmanFilterBase::getLastPrediction() const
 {
   return xbar_();
 }
 
-Vector KalmanFilterBase::getLastPredictedMeasurement() const
+const Vector & KalmanFilterBase::getLastPredictedMeasurement() const
 {
   return ybar_();
 }
 
-Matrix KalmanFilterBase::getLastGain() const
+const Vector & KalmanFilterBase::getLastMeasurement() const
+{
+  return y_.back();
+}
+
+const Matrix & KalmanFilterBase::getLastGain() const
 {
   return oc_.kGain;
 }

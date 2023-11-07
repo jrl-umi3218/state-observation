@@ -341,17 +341,40 @@ private:
   T b_;
 };
 
-/// this is simply a structure allowing for automatically verifying that
-/// the item has been initialized or not. The chckitm_reset() function allows to
-/// set it back to "not initialized" state.
-/// -lazy means that the "set" value is true all the time if NDEBUG is defined
-/// -alwaysCheck means that the check is always performed and throws exception
-/// if it fails. Otherwise, the check is performed only for debug.
-/// warning, this has no effect if lazy is set to true
-/// - assertion means that an assertion will be introduced for the check.
-/// - eigenAlignedNew should be set to true if any alignment is required for the
-/// new operator (see eigen documentation)
-template<typename T, bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false>
+/// @brief This structure is used as an additionalChecker for a CheckedItem that doesn't require additional tests.
+/// @details This structure's check operations are always true.
+struct EmptyChecker
+{
+  template<typename T>
+  static bool check(const T &)
+  {
+    return true;
+  }
+  template<typename T>
+  static bool checkAssert(const T &)
+  {
+    return true;
+  }
+  inline static constexpr char errorMessage[] = "";
+  using ExceptionT = std::runtime_error;
+};
+
+/// @brief this is a structure allowing for automatically verifying that the item has been initialized or not. The
+/// chckitm_reset() function allows to set it back to "not initialized" state.
+/// @tparam T is the contained type
+/// @tparam lazy means that the "set" value is true all the time if NDEBUG is defined
+/// @tparam alwaysCheck means that the check is always performed and throws exception if it fails. Otherwise, the check
+/// is performed only for debug warning, this has no effect if lazy is set to true
+/// @tparam assertion means that an assertion will be introduced for the check.
+/// @tparam eigenAlignedNew should be set to true if any alignment is required for the new operator (see eigen
+/// documentation)
+/// @tparam additionalChecker defines a check function that is called in addition to the initialization check
+template<typename T,
+         bool lazy = false,
+         bool alwaysCheck = false,
+         bool assertion = true,
+         bool eigenAlignedNew = false,
+         typename additionalChecker = EmptyChecker>
 class CheckedItem
 {
 public:
@@ -366,10 +389,13 @@ public:
   inline operator T() const;
   inline operator const T &() const;
 
-  inline T chckitm_getValue() const;
+  inline const T & chckitm_getValue() const;
 
   inline T & operator()();
   inline const T & operator()() const;
+
+  inline T & getRefUnchecked();
+  inline const T & getRefUnchecked() const;
 
   inline bool isSet() const;
   inline void reset();
@@ -406,11 +432,29 @@ public:
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW_IF(eigenAlignedNew)
 };
 
-typedef CheckedItem<Matrix3, false, false, true, true> CheckedMatrix3;
-typedef CheckedItem<Matrix6, false, false, true, true> CheckedMatrix6;
-typedef CheckedItem<Matrix12, false, false, true, true> CheckedMatrix12;
-typedef CheckedItem<Vector3, false, false, true, true> CheckedVector3;
-typedef CheckedItem<Vector6, false, false, true, true> CheckedVector6;
+/// @brief Additional checker that allows to check for the presence of NaN values in the item.
+struct CheckNaN
+{
+  template<typename T>
+  static bool check(const T & m)
+  {
+    return !m.hasNaN();
+  }
+  template<typename T>
+  static bool checkAssert(const T & m)
+  {
+    BOOST_ASSERT(check(m) && errorMessage);
+    return check(m);
+  }
+  inline static constexpr char errorMessage[] = "Matrix contains a NaN.";
+  using ExceptionT = std::runtime_error;
+};
+
+typedef CheckedItem<Matrix3, false, false, true, true, CheckNaN> CheckedMatrix3;
+typedef CheckedItem<Matrix6, false, false, true, true, CheckNaN> CheckedMatrix6;
+typedef CheckedItem<Matrix12, false, false, true, true, CheckNaN> CheckedMatrix12;
+typedef CheckedItem<Vector3, false, false, true, true, CheckNaN> CheckedVector3;
+typedef CheckedItem<Vector6, false, false, true, true, CheckNaN> CheckedVector6;
 typedef CheckedItem<Quaternion, false, false, true, true> CheckedQuaternion;
 
 /**

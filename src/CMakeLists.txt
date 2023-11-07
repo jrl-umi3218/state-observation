@@ -16,6 +16,7 @@ set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME})
 
 set(HEADERS
     ${PROJECT_INCLUDE_DIR}/observer/tilt-estimator.hpp
+    ${PROJECT_INCLUDE_DIR}/observer/tilt-estimator-humanoid.hpp
     ${PROJECT_INCLUDE_DIR}/observer/extended-kalman-filter.hpp
     ${PROJECT_INCLUDE_DIR}/observer/kalman-filter-base.hpp
     ${PROJECT_INCLUDE_DIR}/observer/linear-kalman-filter.hpp
@@ -69,6 +70,7 @@ set(HEADERS
 
 set(SRC
     tilt-estimator.cpp
+    tilt-estimator-humanoid.cpp
     kalman-filter-base.cpp
     observer-base.cpp
     extended-kalman-filter.cpp

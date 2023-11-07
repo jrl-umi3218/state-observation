@@ -26,6 +26,10 @@ namespace stateObservation
  *         use getEstimatedState to obtain the state vector
  *         the tilt R.transpose()*e_z is constituted
  *         with the last three components of the state vector.
+
+           This estimator is based on the work detailed in:
+            Benallegue, Mehdi, et al. "Lyapunov-stable orientation estimator for humanoid robots." IEEE Robotics and
+            Automation Letters 5.4 (2020): 6371-637
  *
  */
 class STATE_OBSERVATION_DLLAPI TiltEstimator : public ZeroDelayObserver
@@ -37,6 +41,12 @@ public:
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma : parameter related to the orthogonality
   TiltEstimator(double alpha, double beta, double gamma);
+
+  /// @brief initializes the state vector.
+  /// @param x1 The initial local linear velocity of the IMU.
+  /// @param x2_p The initial value of the intermediate estimate of the IMU's tilt.
+  /// @param x2 The initial tilt of the IMU.
+  void initEstimator(Vector3 x1 = Vector3::Zero(), Vector3 x2_prime = Vector3::UnitZ(), Vector3 x2 = Vector3::UnitZ());
 
   /// set the gain of x1_hat variable
   void setAlpha(const double alpha)
@@ -78,78 +88,8 @@ public:
     return dt_;
   }
 
-  /// sets the position of the IMU sensor in the control frame
-  void setSensorPositionInC(const Vector3 & p)
-  {
-    p_S_C_ = p;
-  }
-  Vector3 getSensorPositionInC()
-  {
-    return p_S_C_;
-  }
-
-  /// sets the oriantation of the IMU sensor in the control frame
-  void setSensorOrientationInC(const Matrix3 & R)
-  {
-    R_S_C_ = R;
-  }
-  Matrix3 getSensorOrientationInC()
-  {
-    return R_S_C_;
-  }
-
-  /// sets teh linear velocity of the IMU sensor in the control frame
-  void setSensorLinearVelocityInC(const Vector3 & v)
-  {
-    v_S_C_ = v;
-  }
-  Vector3 getSensorLinearVelocityInC()
-  {
-    return v_S_C_;
-  }
-
-  /// sets the angular velocity of the IMU sensor in the control frame
-  void setSensorAngularVelocityInC(const Vector3 & w)
-  {
-    w_S_C_ = w;
-  }
-  Vector3 getSensorAngularVelocityInC()
-  {
-    return w_S_C_;
-  }
-
-  /// sets the velocity of the control origin in the world frame
-  /// this velocity has to be expressed in the control frame.
-  void setControlOriginVelocityInW(const Vector3 & v)
-  {
-    v_C_ = v;
-  }
-  Vector3 getControlOriginVelocityInW()
-  {
-    return v_C_;
-  }
-
-/// prevent c++ overloaded virtual function warning
-#if defined(__clang__)
-#  pragma clang diagnostic push
-#  pragma clang diagnostic ignored "-Woverloaded-virtual"
-#else
-#  if defined(__GNUC__)
-#    pragma GCC diagnostic push
-#    pragma GCC diagnostic ignored "-Woverloaded-virtual"
-#  endif
-#endif
-
   /// sets ths measurement (accelero and gyro stacked in one vector)
-  void setMeasurement(const Vector3 ya_k, const Vector3 yg_k, TimeIndex k);
-
-#if defined(__clang__)
-#  pragma clang diagnostic pop
-#else
-#  if defined(__GNUC__)
-#    pragma GCC diagnostic pop
-#  endif
-#endif
+  void setMeasurement(const Vector3 & yv_k, const Vector3 & ya_k, const Vector3 & yg_k, TimeIndex k);
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
@@ -159,21 +99,6 @@ protected:
 
   /// Sampling time
   double dt_;
-
-  /// Position of the IMU in the control frame
-  Vector3 p_S_C_;
-
-  /// Orientation of the IMU in the control frame
-  Matrix3 R_S_C_;
-
-  /// Linear velocity of the IMU in the control frame
-  Vector3 v_S_C_;
-
-  /// Angular velocity of the IMU in the control frame
-  Vector3 w_S_C_;
-
-  /// Linear velocity of the control frame
-  Vector3 v_C_;
 
   /// variables used for the computation
   Vector3 x1_;

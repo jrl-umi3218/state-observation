@@ -12,7 +12,6 @@
 #ifndef KINETICSOBSERVER_HPP
 #define KINETICSOBSERVER_HPP
 
-#include <map>
 #include <set>
 
 #include <boost/utility.hpp>
@@ -29,19 +28,21 @@
 namespace stateObservation
 {
 
-/// @brief This observer estimated the kinematics and the external forces.
+/// @brief This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements, and the
+/// contacts forces and pose.
 
-/// @details  The provided kinematics is the position, the orientation, the velocities and even the accelerations of a
-/// local frame, called also observed frame in the global frame. This local frame can be any frame that is attached to
-/// the robot with a known transformation. It could be attached to the CoM, to the base link of the robot or the control
-/// frame that is supposed to be attached to the world frame but that actually is not. This estimation is based on the
-/// assumption of viscoelastic contacts and using three kinds of measurements: IMUs, Force/Torque measurements (contact
-/// and other ones) and any absolute position measurements.
+/// @details  Our observer estimates the localkinematics of the centroid's frame within the world frame. The reason to
+/// choose the centroid's frame is that it simplifies many expressions, for example the expressions of the
+/// accelerations. This estimation is based on the assumption of viscoelastic contacts and using three kinds of
+/// measurements: IMUs, Force/Torque measurements (contact and other ones) and any absolute position measurements.
+/// Inputs are given in a frame whose choice is at the user's discretion, we therefore call it the user frame.
+
 ///
 class STATE_OBSERVATION_DLLAPI KineticsObserver : protected DynamicalSystemFunctorBase, protected StateVectorArithmetics
 {
 public:
   typedef kine::Kinematics Kinematics;
+  typedef kine::LocalKinematics LocalKinematics;
   typedef kine::Orientation Orientation;
 
   // ////////////////////////////////////////////////////////////
@@ -97,6 +98,11 @@ public:
   /// @param b
   void setWithAccelerationEstimation(bool b = true);
 
+  /// @brief Returns if the estimation computes also the accelerations
+  ///
+  /// @return True if the acceleration is also estimated. Returns false otherwise.
+  bool getWithAccelerationEstimation() const;
+
   /// @brief Set if the gyrometers bias is computed or not.
   ///        This parameter is global for all the IMUs.
   ///
@@ -108,6 +114,51 @@ public:
   /// @return sets
   void setMass(double);
 
+  /// @brief Returns the mass of the robot
+  ///
+  /// @return the mass of the robot.
+  double getMass() const;
+
+  /// @brief Returns the global inertia matrix of the robot at the center of mass.
+  ///
+  /// @return The global inertia matrix of the robot at the center of mass.
+  const IndexedMatrix3 & getInertiaMatrix() const;
+
+  /// @brief Returns the derivative of the global inertia matrix of the robot at the center of mass.
+  ///
+  /// @return The derivative of the global inertia matrix of the robot at the center of mass.
+  const IndexedMatrix3 & getInertiaMatrixDot() const;
+
+  /// @brief Returns the angular momentum of the robot at the center of mass.
+  ///
+  /// @return The angular momentum of the robot at the center of mass.
+  const IndexedVector3 & getAngularMomentum() const;
+
+  /// @brief Returns the derivative of the angular momentum of the robot at the center of mass.
+  ///
+  /// @return The derivative of the angular momentum of the robot at the center of mass.
+  const IndexedVector3 & getAngularMomentumDot() const;
+
+  /// @brief Returns the position of the CoM of the robot in the user frame
+  ///
+  /// @return The position of the center of mass of the robot in the user frame.
+  const IndexedVector3 & getCenterOfMass() const;
+
+  /// @brief Returns the linear velocity of the CoM of the robot in the user frame
+  ///
+  /// @return The linear velocity of the center of mass of the robot in the user frame.
+  const IndexedVector3 & getCenterOfMassDot() const;
+
+  /// @brief Returns the linear acceleration of the CoM of the robot in the user frame
+  ///
+  /// @return The linear acceleration of the center of mass of the robot in the user frame.
+  const IndexedVector3 & getCenterOfMassDotDot() const;
+
+  /// @brief Returns the input additional wrench, expressed in the centroid frame
+  ///
+  /// @return The input additional wrench, expressed in the centroid frame.
+  Vector6 getAdditionalWrench() const;
+
   /// @}
 
   // ///////////////////////////////////////////////////////////
@@ -118,26 +169,26 @@ public:
 
   /// @{
 
-  /// @brief Set the measurements of an IMU and give the Kinematic of the IMU
+  /// @brief Set the measurements of an IMU and give the Kinematic of the IMU in the user frame.
   ///
   /// @details The overload that does not have the covariance matrices as an
   /// inputs uses default ones.
   ///
   /// The IMU is located in a sensor frame. We suppose we know the kinematics of
-  /// this sensor frame in the local frame (for example the base frame or the
-  /// control frame).
+  /// this sensor frame in the centroid's frame
   ///
   /// @return the number of the IMU (useful in case there are several ones)
   /// @param accelero measured value
   /// @param gyrometer measured gyro value
-  /// @param localKine sets the kinematics of the IMU expressed in the observed local
-  /// frame. The best is to provide the position, the orientation,
-  /// the angular and linear velocities and the linear acceleration
-  /// Nevertheless if velocities or accelerations are not available they will be
-  /// automatically computed through finite differences
+  /// @param userImuKinematics sets the kinematics of the IMU in the user frame. The best is to provide the position,
+  /// the orientation, the angular and linear velocities and the linear acceleration Nevertheless if velocities or
+  /// accelerations are not available they will be automatically computed through finite differences
   /// @param num the number of the IMU (useful in case there are several ones).
   ///           If not set it will be generated automatically.
-  int setIMU(const Vector3 & accelero, const Vector3 & gyrometer, const Kinematics & localKine, int num = -1);
+  Index setIMU(const Vector3 & accelero,
+               const Vector3 & gyrometer,
+               const Kinematics & userImuKinematics,
+               Index num = -1);
 
   /// @brief @copybrief setIMU(const Vector3&,const Vector3&,const Kinematics &,int)
   /// Provides also the associated covariance matrices
@@ -146,12 +197,12 @@ public:
   /// @copydetails setIMU(const Vector3&,const Vector3&,const Kinematics &,int)
   /// @param acceleroCov The covariance matrix of the accelerometer
   /// @param gyroCov The covariance matrix of the gyrometer
-  int setIMU(const Vector3 & accelero,
-             const Vector3 & gyrometer,
-             const Matrix3 & acceleroCov,
-             const Matrix3 & gyroCov,
-             const Kinematics & localKine,
-             int num = -1);
+  Index setIMU(const Vector3 & accelero,
+               const Vector3 & gyrometer,
+               const Matrix3 & acceleroCov,
+               const Matrix3 & gyroCov,
+               const Kinematics & userImuKinematics,
+               Index num = -1);
 
   /// @brief set the default covariance matrix for IMU.
   /// @details this is used to set the covariances wgen not given explicitely
@@ -179,6 +230,23 @@ public:
   /// @param covMat
   void setAbsolutePoseSensorDefaultCovarianceMatrix(const Matrix6 & covMat);
 
+  /// @brief Set an Absolute Orientation Sensor measurement
+  /// The measurement is the orientation of the observed frame in the global frame.
+  /// @details The overload with the measurement only uses default covariance  matrix.
+  /// @param measurement The measurement in the form of an Orientation object
+  void setAbsoluteOriSensor(const Orientation & measurement);
+
+  /// @brief @copybrief setAbsoluteOriSensor(const Orientation &)
+  ///
+  /// @details This version sets the Covariance matrix explicitely.
+  /// @copydetails setAbsoluteOriSensor(const Orientation &)
+  /// @param CovarianceMatrix the covariance matrix
+  void setAbsoluteOriSensor(const Orientation & measurement, const Matrix3 & CovarianceMatrix);
+
+  /// @brief Set the Absolute Orientation Sensor Default Covariance Matrix
+  /// @param covMat
+  void setAbsoluteOriSensorDefaultCovarianceMatrix(const Matrix3 & covMat);
+
   /// @}
 
   // ///////////////////////////////////////////////////////////
@@ -191,11 +259,9 @@ public:
 
   /// @brief Set a new contact with the environment
   ///
-  /// @param pose  is the initial guess on the position of the contact. Only position and orientation are enough. If the
-  /// contact is compliant, you need to set the "rest" pose of the contact (i.e. the pose that gives zero reaction
-  /// force)
-  /// @param contactWrench  is the initial wrench on the contact expressed in the local frame of the contact frame
-  /// (e.g. the force-sensor measurement)
+  /// @param pose  is the initial guess on the position of the contact in the WORLD frame. Only position and orientation
+  /// are enough. If the contact is compliant, you need to set the "rest" pose of the contact (i.e. the pose that gives
+  /// zero reaction force)
   /// @param initialCovarianceMatrix is the covariance matrix expressing the uncertainty in the pose of the initial
   /// guess in the 6x6 upper left corner ( if no good initial guess is available give a rough position with a high
   /// initial covariance matrix, if the position is certain, set it to zero.) and the initial wrench in the 6x6 lower
@@ -214,19 +280,19 @@ public:
   /// @param angularDamping the angular damping of the contact viscoelastic model, if unknown, set to
   /// Matrix3::Constant(-1) (default) to use the default one
   /// @return int the id number of the contact just added (returns contactNumber if it is positive)
-  int addContact(const Kinematics & pose,
-                 const Vector6 & contactWrench,
-                 const Matrix12 & initialCovarianceMatrix,
-                 const Matrix12 & processCovarianceMatrix,
-                 int contactNumber = -1,
-                 const Matrix3 & linearStiffness = Matrix3::Constant(-1),
-                 const Matrix3 & linearDamping = Matrix3::Constant(-1),
-                 const Matrix3 & angularStiffness = Matrix3::Constant(-1),
-                 const Matrix3 & angularDamping = Matrix3::Constant(-1));
+  Index addContact(const Kinematics & pose,
+                   const Matrix12 & initialCovarianceMatrix,
+                   const Matrix12 & processCovarianceMatrix,
+                   Index contactNumber = -1,
+                   const Matrix3 & linearStiffness = Matrix3::Constant(-1),
+                   const Matrix3 & linearDamping = Matrix3::Constant(-1),
+                   const Matrix3 & angularStiffness = Matrix3::Constant(-1),
+                   const Matrix3 & angularDamping = Matrix3::Constant(-1));
 
   /// @brief Set a new contact with the environment (use default covariance matrices)
   ///
-  /// @param pose  is the initial guess on the position of the contact. Only position and orientation are enough
+  /// @param pose  is the initial guess on the position of the contact in the WORLD frame. Only position and orientation
+  /// are enough
   /// @param contactNumber the number id of the contact to add. If no predefined id, use -1 (default) in order to set
   /// the number automatically
   /// @param linearStiffness the linear stiffness of the contact viscoelastic model, if unknown, set to
@@ -238,18 +304,17 @@ public:
   /// @param angularDamping the angular damping of the contact viscoelastic model, if unknown, set to
   /// Matrix3:::Constant(-1) (default) to use the default one
   /// @return int the id number of the contact just added (returns contactNumber if it is positive)
-  int addContact(const Kinematics & pose,
-                 const Vector6 & contactWrench = Vector6::Zero(),
-                 int contactNumber = -1,
-                 const Matrix3 & linearStiffness = Matrix3::Constant(-1),
-                 const Matrix3 & linearDamping = Matrix3::Constant(-1),
-                 const Matrix3 & angularStiffness = Matrix3::Constant(-1),
-                 const Matrix3 & angularDamping = Matrix3::Constant(-1));
+  Index addContact(const Kinematics & pose,
+                   Index contactNumber = -1,
+                   const Matrix3 & linearStiffness = Matrix3::Constant(-1),
+                   const Matrix3 & linearDamping = Matrix3::Constant(-1),
+                   const Matrix3 & angularStiffness = Matrix3::Constant(-1),
+                   const Matrix3 & angularDamping = Matrix3::Constant(-1));
 
   /// @brief Remove a contact
   ///
   /// @param contactnbr the number of the contact to remove
-  void removeContact(int contactnbr);
+  void removeContact(Index contactnbr);
 
   /// @brief remove all the contacts
   void clearContacts();
@@ -257,12 +322,12 @@ public:
   /// @brief Get the Current Number Of Contacts
   ///
   /// @return Index The current number of contacts
-  Index getNumberOfContacts() const;
+  Index getNumberOfSetContacts() const;
 
   /// @brief Get the List Of Contact ids
   ///
   /// @return std::vector<int> a vector listing the contact ids
-  std::vector<int> getListOfContacts() const;
+  std::vector<Index> getListOfContacts() const;
 
   /// @}
 
@@ -277,7 +342,7 @@ public:
   /// @{
 
   /// @brief Update the contact when it is NOT equipped with wrench sensor
-  /// @param localKine the new kinematics of the contact expressed in the local observed frame
+  /// @param localKine the new kinematics of the contact expressed in the centroid's frame frame
   ///                  the best is to provide the position, the orientation, the angular and the linear velocities.
   ///                  Otherwise they will be computed automatically
   /// @param contactNumber The number id of the contact
@@ -314,64 +379,64 @@ public:
   /// ////////////////////////////////////////////////
 
   /// @{
-  /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
+  /// @brief Set the Center Of Mass kinematics expressed in the user frame
   ///
   /// @param com position
   /// @param com_dot velocity
   /// @param com_dot_dot acceleration
   void setCenterOfMass(const Vector3 & com, const Vector3 & com_dot, const Vector3 & com_dot_dot);
 
-  /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
+  /// @brief Set the Center Of Mass kinematics expressed in the user frame
   /// @details The acceleration will be computed through finite differences
   ///
   /// @param com position
   /// @param com_dot velocity
   void setCenterOfMass(const Vector3 & com, const Vector3 & com_dot);
 
-  /// @brief Set the Center Of Mass kinematics expressed in the local estimated frame
+  /// @brief Set the Center Of Mass kinematics expressed in the user frame
   /// @details The velocity and acceleration will be computed through finite differences
   ///
   /// @param com position
   void setCenterOfMass(const Vector3 & com);
 
-  /// @brief Set the 3x3 inertia matrix and its derivative expressed in the local frame
+  /// @brief Set the 3x3 inertia matrix and its derivative expressed in the user frame
   ///
-  /// @param I Inertia matrix
+  /// @param I Set the inertia matrix at the CoM
   /// @param I_dot Derivative of inertia matrix
-  void setInertiaMatrix(const Matrix3 & I, const Matrix3 & I_dot);
+  void setCoMInertiaMatrix(const Matrix3 & I, const Matrix3 & I_dot);
 
-  /// @brief Set the 3x3 inertia matrix expressed in the local frame
+  /// @brief Set the 3x3 inertia matrix expressed in the user frame
   /// @details The derivative will be computed using finite differences
   ///
   /// @param I Inertia matrix
   /// @param I_dot Derivative of inertia matrix
-  void setInertiaMatrix(const Matrix3 & I);
+  void setCoMInertiaMatrix(const Matrix3 & I);
 
-  /// @brief Set the inertia matrix and its derivative as a Vector6 expressed in the local frame
+  /// @brief Set the inertia matrix and its derivative as a Vector6 expressed in the user frame
   ///
   /// @param I Inertia matrix as a vector containing the diagonal and the three non
   /// diagonal values concatenated
   /// @param I_dot Derivative of inertia matrix expressed in the same way
-  void setInertiaMatrix(const Vector6 & I, const Vector6 & I_dot);
+  void setCoMInertiaMatrix(const Vector6 & I, const Vector6 & I_dot);
 
-  /// @brief Set the inertia matrix as a Vector6 expressed in the local frame
+  /// @brief Set the inertia matrix as a Vector6 expressed in the user frame
   /// @details The derivative will be computed using finite differences
   ///
   /// @param I Inertia matrix as a vector containing the diagonal and the three non
   /// diagonal values concatenated
-  void setInertiaMatrix(const Vector6 & I);
+  void setCoMInertiaMatrix(const Vector6 & I);
 
-  /// @brief Set the Angular Momentum and its derviative expressed in the local frame
+  /// @brief Set the Angular Momentum around the CoM and its derviative expressed in the user frame
   ///
   /// @param sigma The angular momentum
   /// @param sigma_dot The angular momentum derivative
-  void setAngularMomentum(const Vector3 & sigma, const Vector3 & sigma_dot);
+  void setCoMAngularMomentum(const Vector3 & sigma, const Vector3 & sigma_dot);
 
-  /// @brief Set the Angular Momentum expressed in the local frame
+  /// @brief Set the Angular Momentum around the CoM  expressed in the user frame
   /// @details The derivative will be computed using finite differences
   ///
   /// @param sigma The angular momentum
-  void setAngularMomentum(const Vector3 & sigma);
+  void setCoMAngularMomentum(const Vector3 & sigma);
 
   /// @brief Set any Additional resultant known wrench (e.g. measured external forces and moments but no contact ones)
   /// expressed in the local estimated frame.
@@ -388,6 +453,10 @@ public:
   /// /////////////////////////////////////////////////////////
   /// @{
 
+  /// @brief Updates the measurements.
+  /// @details Updates the measurement sensors and the associated vectors and covariance matrices
+  void updateMeasurements();
+
   /// @brief Runs the estimation.
   /// @details This is the function that allows to
   /// 1- compute the estimation
@@ -396,29 +465,53 @@ public:
   /// @return const Vector& The state vector
   const Vector & update();
 
-  /// @brief Get the Kinematics of the observed local frame
-  /// @details the kinemactics are the main output of this observer. It includes the linear and angular position and
+  /// @brief Returns the predicted Kinematics object of the centroid in the world frame at the time of the measurement
+  /// predictions
+
+  /// @brief Converts a given wrench from the user to the centroid frame
+  /// @details Performs the conversion of a wrench {force, torque} from the user frame to the centroid frame.
+  ///
+  void convertWrenchFromUserToCentroid(const Vector3 & forceUserFrame,
+                                       const Vector3 & momentUserFrame,
+                                       Vector3 & forceCentroidFrame,
+                                       Vector3 & momentCentroidFrame);
+
+  /// @brief Get the estimated local Kinematics of the centroid frame in the world frame (local, which means expressed
+  /// in the centroid frame).
+  /// @details the kinematics are the main output of this observer. It includes the linear and angular position and
   /// velocity but not the accelerations by default. To get the acceleration call estimateAccelerations(). This
   /// method does NOT update the estimation, for this use update().
   ///
   /// @return Kinematics
-  Kinematics getKinematics() const;
+  LocalKinematics getLocalCentroidKinematics() const;
+
+  /// @brief Get the estimated Kinematics of the centroid frame in the world frame.
+  /// @details It includes the linear and angular position and
+  /// velocity but not the accelerations by default. To get the acceleration call estimateAccelerations(). This
+  /// method does NOT update the estimation, for this use update().
+  ///
+  /// @return Kinematics
+  Kinematics getGlobalCentroidKinematics() const;
 
   /// @brief gets the Kinematics that include the linear and angular accelerations.
   /// @details This method computes the estimated accelerations from the observed state of the robot. It means this
   /// acceleration is filtered by the model
   ///
   /// @return Kinematics
-  Kinematics estimateAccelerations();
+  LocalKinematics estimateAccelerations();
 
-  /// @brief Get the global-frame kinematics of a local-frame defined kinematics
-  /// @details The kinematics are linear and angular positions, velocities and optionally accalerations. This method
-  /// translates these kinematics from the local frame to the global frame.
-  /// To enable accelerations, run estimateAccelerations() beforehand.
+  /// @brief Get the local kinematics of a given frame (in the user frame) in the centroid frame.
+  /// @details The kinematics are linear and angular positions, velocities and optionally accelerations.
+  /// @param userBodyKine
+  /// @return LocalKinematics
+  LocalKinematics getLocalKinematicsOf(const Kinematics & userBodyKine);
+
+  /// @brief Get the global kinematics of a given frame (in the user frame) in the centroid frame.
+  /// @details The kinematics are linear and angular positions, velocities and optionally accelerations.
   ///
-  /// @param localKinematics
+  /// @param kine
   /// @return Kinematics
-  Kinematics getKinematicsOf(const Kinematics & localKinematics) const;
+  Kinematics getGlobalKinematicsOf(const Kinematics & userBodyKin) const;
 
   /// get the contact force provided by the estimator
   /// which is different from a contact sensor measurement
@@ -428,7 +521,7 @@ public:
   ///
   /// @param contactNbr
   /// @return Vector6 Wrench
-  Vector6 getContactWrench(int contactNbr) const;
+  Vector6 getContactWrench(Index contactNbr) const;
 
   /// @brief Get the Contact 6D pose n in the global frame
   /// @details The contact position may be uncertain, this estimator uses the input data, the kinematic and the dynamic
@@ -438,7 +531,7 @@ public:
   ///
   /// @param contactNbr The contact number id
   /// @return Kinematics The pose
-  Kinematics getContactPosition(int contactNbr) const;
+  Kinematics getContactPosition(Index contactNbr) const;
 
   /// @brief Get the Unmodeled External Wrench (requires setWithUnmodeledWrench() to true before to update())
   /// @details In the presence of unmodeled and unmeasured external forces and moments, the dynamics of the robot
@@ -457,10 +550,32 @@ public:
   /// @brief Set the State Kinematics
   /// @details Sets a value for the kinematics part of the state
   ///
-  /// @param kine is the new kinematics of the state
+  /// @param localKine are the new local kinematics of the state
   /// @param resetContactWrenches set if the contact wrenches should be reset
   /// @param resetCovariance set if the covariance of the state should be reset
-  void setStateKinematics(const Kinematics & kine, bool resetContactWrenches = true, bool resetCovariance = true);
+  void setWorldCentroidStateKinematics(const LocalKinematics & localKine,
+                                       bool resetContactWrenches = true,
+                                       bool resetCovariance = true);
+
+  /// @brief Set the State Kinematics
+  /// @details Sets a value for the kinematics part of the state
+  ///
+  /// @param localKine are the new kinematics of the state
+  /// @param resetContactWrenches set if the contact wrenches should be reset
+  /// @param resetCovariance set if the covariance of the state should be reset
+  void setWorldCentroidStateKinematics(const Kinematics & kine, bool resetCovariance = true);
+
+  /// @brief Set the state contact kinematics and wrench.
+  /// @details Sets a value for the contact part of the state. Might be useful to reset this state for instance.
+  ///
+  /// @param index index of the contact
+  /// @param worldContactRestPose new state rest pose of the contact
+  /// @param wrench new state wrench of the contact
+  /// @param resetCovariance set if the associated part of the state covariance matrix should be reset
+  void setStateContact(Index index,
+                       Kinematics worldContactRestPose,
+                       const Vector6 & wrench,
+                       bool resetCovariance = true);
 
   // TODO
   // void setVelocityGuess(const Kinematics)
@@ -489,9 +604,9 @@ public:
   // /////////////////////////////////////////////////////////////
   /// @{
 
-  /// @brief Reset the default values for the covariance matrix
+  /// @brief Reset the default values for the sensors covariance matrices
   /// @details this is useful in case of misbehavior of the estimator or the sensors
-  void resetSensorsDefaultCovMat();
+  void resetSensorsDefaultCovMats();
 
   /// @brief  reset all the sensor inputs and provided contact information but keeps the contacts themselves
   void resetInputs();
@@ -502,14 +617,29 @@ public:
   // /////////////////////////////////////////////////////////////
   /// @{
 
-  /// @brief Set the Kinematics State Covariance
-  void setKinematicsStateCovariance(const Matrix &);
-
   /// @brief Set the Default value for Kinematics Init Covariance
   void setKinematicsInitCovarianceDefault(const Matrix &);
+  /// @brief Set the Default value for Kinematics Init Covariance
+  void setKinematicsInitCovarianceDefault(const Matrix3 & P_pos,
+                                          const Matrix3 & P_ori,
+                                          const Matrix3 & P_linVel,
+                                          const Matrix3 & P_angVel);
 
-  /// @brief Set the Kinematics Process Covariance
-  void setKinematicsProcessCovariance(const Matrix &);
+  /// @brief Set the Default value for Gyro Bias Init Covariance
+  void setGyroBiasInitCovarianceDefault(const Matrix3 & covMat);
+
+  /// @brief Set the default value for init Unmodeled Wrench covariance matrix
+  ///
+  /// @param initCovMat
+  void setUnmodeledWrenchInitCovMatDefault(const Matrix6 & initCovMat);
+
+  /// @brief Set the default valut for the Initial Covariance Matrix of the contact in the state
+  ///
+  /// @param contactCovMat
+  void setContactInitCovMatDefault(const Matrix12 & contactCovMat);
+
+  /// @brief Set the Kinematics State Covariance
+  void setKinematicsStateCovariance(const Matrix &);
 
   /// @brief Set the Gyro Bias State Covariance
   ///
@@ -517,8 +647,37 @@ public:
   /// @param imuNumber  the number id of the IMU
   void setGyroBiasStateCovariance(const Matrix3 & covMat, unsigned imuNumber);
 
-  /// @brief Set the Default value for Gyro Bias Init Covariance
-  void setGyroBiasInitCovarianceDefault(const Matrix3 & covMat);
+  /// @brief Set the Unmodeled Wrench State Cov Mat
+  ///
+  /// @param newCovMat
+  void setUnmodeledWrenchStateCovMat(const Matrix6 & newCovMat);
+
+  /// @brief Set the Contact State Covariance Matrix
+  ///
+  /// @param contactNbr
+  /// @param contactCovMat the contact number id
+  void setContactStateCovMat(Index contactNbr, const Matrix12 & contactCovMat);
+
+  /// @brief Set the default Kinematics Process Covariance
+  void setKinematicsProcessCovarianceDefault(const Matrix12 &);
+
+  /// @brief Set the default Kinematics Process Covariance
+  void setKinematicsProcessCovarianceDefault(const Matrix3 & P_pos,
+                                             const Matrix3 & P_ori,
+                                             const Matrix3 & P_linVel,
+                                             const Matrix3 & P_angVel);
+
+  /// @brief Set the default Gyro Bias Process Covariance
+  void setGyroBiasProcessCovarianceDefault(const Matrix3 & covMat);
+
+  /// @brief Set the default Unmodeled Wrench Process Covariance
+  void setUnmodeledWrenchProcessCovarianceDefault(const Matrix6 & covMat);
+
+  /// @brief Set the default contact Process Covariance
+  void setContactProcessCovarianceDefault(const Matrix12 & covMat);
+
+  /// @brief Set the Kinematics Process Covariance
+  void setKinematicsProcessCovariance(const Matrix12 &);
 
   /// @brief Set the Gyro Bias Process Covariance
   ///
@@ -526,53 +685,32 @@ public:
   /// @param imuNumber the number id of the IMU
   void setGyroBiasProcessCovariance(const Matrix3 & covMat, unsigned imuNumber);
 
-  /// @brief Set the Unmodeled Wrench State Cov Mat
-  ///
-  /// @param newCovMat
-  void setUnmodeledWrenchStateCovMat(const Matrix6 & newCovMat);
-
-  /// @brief Set the default value for init Unmodeled Wrench covariance matrix
-  ///
-  /// @param initCovMat
-  void setUnmodeledWrenchInitCovMatDefault(const Matrix6 & initCovMat);
-
   /// @brief Set the Unmodeled Wrench Process Covariance Mattix
   ///
   /// @param processCovMat
   void setUnmodeledWrenchProcessCovMat(const Matrix6 & processCovMat);
 
-  /// @brief Set the Contact State Covariance Matrix
-  ///
-  /// @param contactNbr
-  /// @param contactCovMat the contact number id
-  void setContactStateCovMat(int contactNbr, const Matrix12 & contactCovMat);
-
-  /// @brief Set the default valut for the Initial Covariance Matrix of the contact in the state
-  ///
-  /// @param contactCovMat
-  void setContactInitCovMatDefault(const Matrix12 & contactCovMat);
-
   /// @brief Set the Contact Process Covariance Matrix
   ///
   /// @param contactNbr
   /// @param contactCovMat the contact number id
-  void setContactProcessCovMat(int contactNbr, const Matrix12 & contactCovMat);
+  void setContactProcessCovMat(Index contactNbr, const Matrix12 & contactCovMat);
 
   /// Resets the covariance matrices to their original values
   void resetStateCovarianceMat();
   void resetStateKinematicsCovMat();
-  void resetStateGyroBiasCovMat(unsigned i);
+  void resetStateGyroBiasCovMat(Index i);
   void resetStateUnmodeledWrenchCovMat();
   void resetStateContactsCovMat();
-  void resetStateContactCovMat(unsigned contactNbr);
+  void resetStateContactCovMat(Index contactNbr);
 
   void resetProcessCovarianceMat();
   void resetProcessKinematicsCovMat();
-  void resetProcessGyroBiasCovMat(unsigned i);
+  void resetProcessGyroBiasCovMat(Index i);
   void resetProcessUnmodeledWrenchCovMat();
   void resetProcessContactsCovMat();
-  void resetProcessContactCovMat(unsigned contactNbr);
-  /// @}
+  void resetProcessContactCovMat(Index contactNbr);
+  /// @
 
   // /////////////////////////////////////////////////////////////
   /// @name State vector representation operations (advanced use)
@@ -591,6 +729,12 @@ public:
   ///
   /// @return Index
   Index getStateSize() const;
+
+  /// @{
+  /// @brief Get the State Vector Tangent Size.
+  ///
+  /// @return Index
+  Index getStateTangentSize() const;
 
   /// @brief Get the Measurement vector Size.
   ///
@@ -628,11 +772,15 @@ public:
   /// @return TimeIndex
   TimeIndex getStateVectorTimeIndex() const;
 
+  /// @brief Initializes the state vector.
+  /// @param initStateVector the initial state vector.
+  void setInitWorldCentroidStateVector(const Vector & initStateVector);
+
   /// @brief Set a value of the state x_k provided from another source
   /// @details can be used for initialization of the estimator
   ///
   /// @param newvalue The new value for the state vector
-  /// @param resetCovariance set if the state covariaance should be reset
+  /// @param resetCovariance set if the state covariance should be reset
   void setStateVector(const Vector & newvalue, bool resetCovariance = true);
 
   /// @brief Get the Measurement Vector
@@ -647,94 +795,94 @@ public:
   /// @brief Get the kinematics index of the state vector
   ///
   /// @return unsigned
-  inline unsigned kineIndex() const;
+  inline Index kineIndex() const;
 
   /// @brief Get the position index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned posIndex() const;
+  /// @return Index
+  inline Index posIndex() const;
 
   /// @brief Get the orientation index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned oriIndex() const;
+  /// @return Index
+  inline Index oriIndex() const;
 
   /// @brief Get the linear velocity index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned linVelIndex() const;
+  /// @return Index
+  inline Index linVelIndex() const;
 
   /// @brief Get the angular velocity index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned angVelIndex() const;
+  /// @return Index
+  inline Index angVelIndex() const;
 
   /// @brief Get the gyro bias index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned gyroBiasIndex(unsigned IMUNumber) const;
+  /// @return Index
+  inline Index gyroBiasIndex(Index IMUNumber) const;
 
   /// @brief Get the unmodeled external wrench index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned unmodeledWrenchIndex() const;
+  /// @return Index
+  inline Index unmodeledWrenchIndex() const;
 
   /// @brief Get the unmodeled external linear force  index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned unmodeledForceIndex() const;
+  /// @return Index
+  inline Index unmodeledForceIndex() const;
 
   /// @brief Get the unmodeled external torque force  index of the state vector
   ///
-  /// @return unsigned
-  inline unsigned unmodeledTorqueIndex() const;
+  /// @return Index
+  inline Index unmodeledTorqueIndex() const;
 
   /// @brief Get the index for the contact segment in the state vector
   ///
-  /// @return unsigned
-  inline unsigned contactsIndex() const;
+  /// @return Index
+  inline Index contactsIndex() const;
 
   /// @brief Get the index of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactIndex(Index contactNbr) const;
 
   /// @brief Get the index of the kinematics of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactKineIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactKineIndex(Index contactNbr) const;
 
   /// @brief Get the index of the position of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactPosIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactPosIndex(Index contactNbr) const;
 
   /// @brief Get the index of the orientation of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactOriIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactOriIndex(Index contactNbr) const;
 
   /// @brief Get the index of the linear force of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactForceIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactForceIndex(Index contactNbr) const;
 
   /// @brief Get the index of the toraue of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactTorqueIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactTorqueIndex(Index contactNbr) const;
 
   /// @brief Get the index of the wrench of a specific contact in the sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactWrenchIndex(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactWrenchIndex(Index contactNbr) const;
 
   // ///////////////////////////////////////////////////////////
   /// Getters for the indexes of the tangent state Vector
@@ -742,95 +890,95 @@ public:
 
   /// @brief Get the kinematics index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned kineIndexTangent() const;
+  /// @return Index
+  inline Index kineIndexTangent() const;
 
   /// @brief Get the position index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned posIndexTangent() const;
+  /// @return Index
+  inline Index posIndexTangent() const;
 
   /// @brief Get the orientation index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned oriIndexTangent() const;
+  /// @return Index
+  inline Index oriIndexTangent() const;
 
   /// @brief Get the linear velocity index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned linVelIndexTangent() const;
+  /// @return Index
+  inline Index linVelIndexTangent() const;
 
   /// @brief Get the angular velocity index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned angVelIndexTangent() const;
+  /// @return Index
+  inline Index angVelIndexTangent() const;
 
   /// @brief Get the gyro bias index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned gyroBiasIndexTangent(unsigned IMUNumber) const;
+  /// @return Index
+  inline Index gyroBiasIndexTangent(Index IMUNumber) const;
 
   /// @brief Get the unmodeled external wrench index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned unmodeledWrenchIndexTangent() const;
+  /// @return Index
+  inline Index unmodeledWrenchIndexTangent() const;
 
   /// @brief Get the unmodeled external linear force index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned unmodeledForceIndexTangent() const;
+  /// @return Index
+  inline Index unmodeledForceIndexTangent() const;
 
   /// @brief Get the unmodeled external torque force  index of the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned unmodeledTorqueIndexTangent() const;
+  /// @return Index
+  inline Index unmodeledTorqueIndexTangent() const;
 
   /// @brief Get the index for the contact segment in the tangent state vector
   ///
-  /// @return unsigned
-  inline unsigned contactsIndexTangent() const;
+  /// @return Index
+  inline Index contactsIndexTangent() const;
 
   /// @brief Get the index of a specific contact in the tangent sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactIndexTangent(Index contactNbr) const;
 
   /// @brief Get the index of the kinematics of a specific contact in the tangent sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactKineIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactKineIndexTangent(Index contactNbr) const;
 
   /// @brief Get the index of the position of a specific contact in the tangent sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactPosIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactPosIndexTangent(Index contactNbr) const;
 
   /// @brief Get the index of the orientation of a specific contact in the tangent sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactOriIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactOriIndexTangent(Index contactNbr) const;
 
   /// @brief Get the index of the linear force of a specific contact in the tangent sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactForceIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactForceIndexTangent(Index contactNbr) const;
 
   /// @brief Get the index of the toraue of a specific contact in the tangent sate vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactTorqueIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactTorqueIndexTangent(Index contactNbr) const;
 
   /// @brief Get the index of the wrench of a specific contact in the sate tangent vector
   ///
   /// @param contactNbr The contact number id
-  /// @return unsigned
-  inline unsigned contactWrenchIndexTangent(unsigned contactNbr) const;
+  /// @return Index
+  inline Index contactWrenchIndexTangent(Index contactNbr) const;
 
   /// @}
 
@@ -850,11 +998,11 @@ public:
 protected:
   struct Sensor
   {
-    Sensor(int signalSize) : measIndex(-1), measIndexTangent(-1), size(signalSize), time(0) {}
-    virtual ~Sensor() {}
-    int measIndex;
-    int measIndexTangent;
-    int size;
+    Sensor(Index signalSize) : measIndex(-1), measIndexTangent(-1), size(signalSize), time(0) {}
+    ~Sensor() {}
+    Index measIndex;
+    Index measIndexTangent;
+    Index size;
     TimeIndex time;
 
     inline Vector extractFromVector(const Vector & v)
@@ -865,12 +1013,17 @@ protected:
 
   struct IMU : public Sensor
   {
-    virtual ~IMU() {}
+    ~IMU() {}
     IMU() : Sensor(sizeIMUSignal) {}
-    Kinematics kinematics;
+
+    Kinematics userImuKinematics; // the kinematics of the IMU in the user's frame
+    LocalKinematics centroidImuKinematics; // the kinematics of the IMU in the IMU's frame
     Vector6 acceleroGyro;
     Matrix3 covMatrixAccelero;
     Matrix3 covMatrixGyro;
+
+    Index stateIndex;
+    Index stateIndexTangent;
 
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   };
@@ -881,25 +1034,36 @@ protected:
 
   struct Contact : public Sensor
   {
-    Contact() : Sensor(sizeWrench), isSet(false), withRealSensor(false), stateIndex(-1), stateIndexTangent(-1) {}
-    virtual ~Contact() {}
+    Contact() : Sensor(sizeWrench), isSet(false), withRealSensor(false), stateIndex(-1), stateIndexTangent(-1)
+    {
+      worldRestPose.angVel = worldRestPose.linVel = Vector3::Zero();
+    }
+    ~Contact() {}
 
-    Kinematics absPose;
-    Vector6 wrench;
-    CheckedMatrix6 sensorCovMatrix;
+    /// State ///
+    Kinematics worldRestPose; // the rest pose of the contact in the world frame
 
-    Matrix3 linearStiffness;
-    Matrix3 linearDamping;
-    Matrix3 angularStiffness;
-    Matrix3 angularDamping;
+    /// Measurements ///
+    Vector6 wrenchMeasurement; /// Describes the measured wrench (forces + torques) at the contact in the sensor's frame
+
+    /// Input ///
+    Kinematics userContactKine; /// Describes the kinematics of the contact point in the centroid's frame.
+    Kinematics centroidContactKine; /// Describes the kinematics of the contact point in the centroid's frame.
+    CheckedMatrix6 sensorCovMatrix; /// measurement covariance matrix of the wrench sensor attached to the contact.
+
+    Matrix3 linearStiffness; /// linear stiffness associated to the contact, used in the visco-elastic model
+    Matrix3 linearDamping; /// linear damping associated to the contact, used in the visco-elastic model
+    Matrix3 angularStiffness; /// angular stiffness associated to the contact, used in the visco-elastic model
+    Matrix3 angularDamping; /// angular damping associated to the contact, used in the visco-elastic model
+
+    /// Status ///
 
     bool isSet;
     bool withRealSensor;
-    int stateIndex;
-    int stateIndexTangent;
+    Index stateIndex;
+    Index stateIndexTangent;
 
-    Kinematics localKine; /// describes the kinematics of the contact point in the local frame
-    static const Kinematics::Flags::Byte localKineFlags = /// flags for the components of the kinematics
+    static const Kinematics::Flags::Byte contactKineFlags = /// flags for the components of the kinematics
         Kinematics::Flags::position | Kinematics::Flags::orientation | Kinematics::Flags::linVel
         | Kinematics::Flags::angVel;
 
@@ -919,26 +1083,96 @@ protected:
     CheckedMatrix6 covMatrix;
   };
 
+  struct AbsoluteOriSensor : public Sensor
+  {
+    AbsoluteOriSensor() : Sensor(sizePose) {}
+
+    Orientation ori;
+    CheckedMatrix3 covMatrix;
+  };
+
 protected:
   ///////////// DYNAMICAL SYSTEM IMPLEMENTATION
+  /// @brief Applies the state-transition model to the given state vector using the given input to predict the future
+  /// state.
+  /// @param x The current state vector
+  /// @param u The current input vector
+  /// @param k The current time index
+  /// @return Vector&
   virtual Vector stateDynamics(const Vector & x, const Vector & u, TimeIndex k);
 
+  /// @brief Applies the measurement model to the given state vector using the given input to predict the sensor
+  /// measurements.
+  /// @param x The current state vector
+  /// @param u The current input vector
+  /// @param k The current time index
+  /// @return Vector&
   virtual Vector measureDynamics(const Vector & x, const Vector & u, TimeIndex k);
 
-  void addUnmodeledAndContactWrench_(const Vector & stateVector, Vector3 & force, Vector3 & torque);
+  /// @brief Adds the unmodeled and contact wrenches from the state to the given wrench.
+  /// @param centroidStateVector The current state vector
+  /// @param force The force we want to add the forces to. Must be expressed in the centroid frame.
+  /// @param torque The torque we want to add the torques to. Must be expressed in the centroid frame.
+  void addUnmodeledAndContactWrench_(const Vector & centroidStateVector, Vector3 & force, Vector3 & torque);
 
-  void computeAccelerations_(Kinematics & stateKine,
-                             const Vector3 & totalForceLocal,
-                             const Vector3 & totalMomentLocal,
-                             Vector3 & linAcc,
-                             Vector3 & angAcc);
+  /// @brief Adds the unmodeled wrench from the state to the given wrench.
+  /// @param centroidStateVector The current state vector
+  /// @param force The force we want to add the unmodeled force to. Must be expressed in the centroid frame.
+  /// @param torque The torque we want to add the unmodeled torque to. Must be expressed in the centroid frame.
+  void addUnmodeledWrench_(const Vector & centroidStateVector, Vector3 & force, Vector3 & torque);
 
-  /// the kinematics is not const to allow more optimized non const operators to work
-  void computeContactForces_(VectorContactIterator i,
-                             Kinematics & stateKine,
-                             Kinematics & contactPose,
-                             Vector3 & Force,
-                             Vector3 torque);
+  /// @brief adds the contribution of a contact wrench at the centroid to the total wrench
+  ///
+  /// @param centroidContactKine The Kinematics of the current contact at the centroid
+  /// @param centroidContactForce The contact force at the centroid to add to the total force
+  /// @param centroidContactTorque The contact torque at the centroid to add to the total torque
+  /// @param totalCentroidForce The total force exerced at the centroid, that will be completed with the contact's force
+  /// @param totalCentroidTorque The total torque exerced at the centroid, that will be completed with the contact's
+  /// torque
+  void addContactWrench_(const Kinematics & centroidContactKine,
+                         const Vector3 & centroidContactForce,
+                         const Vector3 & centroidContactTorque,
+                         Vector3 & totalCentroidForce,
+                         Vector3 & totalCentroidTorque);
+
+  /// @brief Computes the local accelerations of the centroid frame in the world frame and adds them to its local
+  /// kinematics.
+  ///
+  /// @param localStateKine The local kinematics of the centroid frame in the world frame that still don't contain the
+  /// accelerations.
+  /// @param centroidContactForce The contact force at the centroid to add to the total force
+  /// @param totalForceLocal Total force exerted on the centroid.
+  /// @param totalMomentLocal Total torque exerted on the centroid.
+  /// @param linAcc The empty vector of the linear acceleration we want to compute.
+  /// @param angAcc The empty vector of the angular acceleration we want to compute.
+
+  void computeLocalAccelerations_(LocalKinematics & localStateKine,
+                                  const Vector3 & totalForceLocal,
+                                  const Vector3 & totalMomentLocal,
+                                  Vector3 & linAcc,
+                                  Vector3 & angAcc);
+
+  /// @brief Computes the force exerted at a contact using the visco-elastic model on the given state vector.
+  /// @param i Contact to estimate
+  /// @param worldCentroidStateKinematics State vector used in the visco-elastic model
+  /// @param worldRestContactPose Rest pose of the contact
+  /// @param contactForce Empty vector of the contact force to estimate
+  /// @param contactTorque Empty vector of the contact force to estimate
+  void computeContactForce_(VectorContactIterator i,
+                            LocalKinematics & worldCentroidStateKinematics,
+                            Kinematics & worldRestContactPose,
+                            Vector3 & contactForce,
+                            Vector3 & contactTorque);
+
+  /// @brief @copybrief computeContactForce_(VectorContactIterator i, LocalKinematics & worldCentroidStateKinematics,
+  /// Kinematics & worldRestContactPose, Vector3 & contactForce, Vector3 & contactTorque). Compute the resulting wrench
+  /// for all currently set contacts.
+  /// @param worldCentroidStateKinematics State vector used in the visco-elastic model
+  /// @param contactForce Empty vector of the contact force to estimate
+  /// @param contactTorque Empty vector of the contact force to estimate
+  void computeContactForces_(LocalKinematics & worldCentroidStateKinematics,
+                             Vector3 & contactForce,
+                             Vector3 & contactTorque);
 
   /// Sets a noise which disturbs the state dynamics
   virtual void setProcessNoise(NoiseBase *);
@@ -959,6 +1193,39 @@ protected:
   virtual Index getInputSize() const;
 
 public:
+  /// @{
+  /// @brief Returns the wrench exerted at the contact, expressed in the frame of the centroid
+  /// @return Vector6
+  Vector6 getCentroidContactWrench(Index numContact) const;
+
+  /// @brief Returns the pose of the contact in the centroid frame, given as an input when updating the contact
+  /// (obtained from its pose in the user frame).
+  /// @return Kinematics
+  Kinematics getCentroidContactInputPose(Index numContact) const;
+
+  /// @brief Returns the pose of the contact in the world frame, obtained from the state pose of the centroid in the
+  /// world frame.
+  /// @return Kinematics
+  Kinematics getWorldContactPoseFromCentroid(Index numContact) const;
+
+  /// @brief Returns the estimated rest pose of the contact in the world frame.
+  /// @return Kinematics
+  Kinematics getContactStateRestKinematics(Index numContact) const;
+
+  /// @brief Returns the pose of the contact in the user frame, given as an input when updating the contact.
+  /// @return Kinematics
+  Kinematics getUserContactInputPose(Index numContact) const;
+
+  /// @brief Get the measurement index of the required IMU : allows to access its corresponding measurements in the
+  /// measurement vector for example
+  ///
+  /// @return Index
+  Index getIMUMeasIndexByNum(Index num) const;
+
+  Index getContactMeasIndexByNum(Index num) const;
+
+  bool getContactIsSetByNum(Index num) const;
+
   ///////////////////////////////////////////////////////////////
   /// @name State vector representation arithmetics and derivation (advanced use)
   ///////////////////////////////////////////////////////////////
@@ -1009,19 +1276,57 @@ public:
   /// @param dx the timestep
   virtual void setFiniteDifferenceStep(const Vector & dx);
 
+  virtual Matrix computeAMatrix();
+
+  virtual Matrix computeCMatrix();
+
+  /// @brief computes the local acceleration from the given state vector
+  void computeLocalAccelerations(const Vector & x, Vector & acceleration);
+
+  /// @brief Comparison between the Jacobians of the linear and angular accelerations with respect to the state,
+  /// obtained with finite differences and analyticially.
+  friend int testAccelerationsJacobians(KineticsObserver & ko,
+                                        int errcode,
+                                        double relativeErrorThreshold,
+                                        double threshold); // declared out of namespace state-observation
+
+  /// @brief Comparison between the analytical Jacobian matrix A and the one obtained by finite differences. Used to
+  /// test the analytical method.
+  /// @param threshold Threshold on the relative error between both Jacobians (in percentage)
+  friend int testAnalyticalAJacobianVsFD(KineticsObserver & ko,
+                                         int errcode,
+                                         double relativeErrorThreshold,
+                                         double threshold); // declared out of namespace state-observation
+
+  friend int testAnalyticalCJacobianVsFD(KineticsObserver & ko,
+                                         int errcode,
+                                         double relativeErrorThreshold,
+                                         double threshold); // declared out of namespace state-observation
+
+  /// @brief Comparison between the Jacobians of orientation integration with respect to an increment vector delta,
+  /// obtained with finite differences and analyticially.
+  friend int testOrientationsJacobians(KineticsObserver & ko,
+                                       int errcode,
+                                       double relativeErrorThreshold,
+                                       double threshold); // declared out of namespace state-observation
   /// @}
 
 protected:
-  Vector stateNaNCorrection_();
+  void stateNaNCorrection_();
 
-  /// updates stateKine_ from the stateVector
-  void updateKine_();
+  /// @brief update of the state kinematics worldCentroidStateKinematics_ and of the contacts pose with the newly
+  /// estimated state
+  void updateLocalKineAndContacts_();
+
+  /// updates the global kinematics of the centroid from the local ones, that can be more interpretable
+  void updateGlobalKine_();
 
 protected:
   unsigned maxContacts_;
   unsigned maxImuNumber_;
 
   AbsolutePoseSensor absPoseSensor_;
+  AbsoluteOriSensor absOriSensor_;
   VectorContact contacts_;
   VectorIMU imuSensors_;
 
@@ -1030,14 +1335,18 @@ protected:
   Index measurementSize_;
   Index measurementTangentSize_;
 
-  Kinematics stateKinematics_;
+  Vector worldCentroidStateVector_;
+  Vector worldCentroidStateVectorDx_;
+  Vector oldWorldCentroidStateVector_;
 
-  Vector stateVector_;
-  Vector stateVectorDx_;
-  Vector oldStateVector_;
+  LocalKinematics worldCentroidStateKinematics_;
+  Kinematics worldCentroidKinematics_;
 
   Vector3 additionalForce_;
   Vector3 additionalTorque_;
+
+  Vector3 initTotalCentroidForce_; // Initial total force used in the state prediction
+  Vector3 initTotalCentroidTorque_; // Initial total torque used in the state prediction
 
   Vector measurementVector_;
   Matrix measurementCovMatrix_;
@@ -1052,8 +1361,8 @@ protected:
   IndexedVector3 sigma_, sigmad_;
   IndexedMatrix3 I_, Id_;
 
-  TimeIndex k_est_;
-  TimeIndex k_data_;
+  TimeIndex k_est_; // time index of the last estimation
+  TimeIndex k_data_; // time index of the current measurements
 
   double mass_;
 
@@ -1062,78 +1371,105 @@ protected:
   NoiseBase * processNoise_;
   NoiseBase * measurementNoise_;
 
-  int numberOfContactRealSensors_;
-  int currentIMUSensorNumber_;
+  Index numberOfContactRealSensors_;
+  Index currentIMUSensorNumber_;
 
   /// function to call before adding any measurement
   /// detects if there is a new estimation beginning and then
   /// calls the reset of the iteration
   void startNewIteration_();
 
-  virtual Matrix computeAMatrix_();
-  virtual Matrix computeCMatrix_();
+  /// @brief Converts a LocalKinematics object from the user's frame to the centroid's frame, which is used for most of
+  /// the computations
+  /// @param userKine the LocalKinematics object expressed in the user's frame. It is likely to correspond to the IMU's
+  /// LocalKinematics, defined by the user in its frame.
+  /// @param centroidKine the LocalKinematics object corresponding to the converted LocalKinematics in the centroid's
+  /// frame.
+
+  void convertUserToCentroidFrame_(const Kinematics & userKine, Kinematics & centroidKine, TimeIndex k_data);
+
+  /// @brief Converts a Kinematics object from the user's frame to the centroid's frame, which is used for most of the
+  /// computations
+  /// @param userKine the Kinematics object expressed in the user's frame. It is likely to correspond to the contact's
+  /// Kinematics, defined by the user in its frame.
+
+  Kinematics convertUserToCentroidFrame_(const Kinematics & userKine, TimeIndex k_data);
 
   /// Getters for the indexes of the state Vector using private types
-  inline unsigned contactIndex(VectorContactConstIterator i) const;
-  inline unsigned contactKineIndex(VectorContactConstIterator i) const;
-  inline unsigned contactPosIndex(VectorContactConstIterator i) const;
-  inline unsigned contactOriIndex(VectorContactConstIterator i) const;
-  inline unsigned contactForceIndex(VectorContactConstIterator i) const;
-  inline unsigned contactTorqueIndex(VectorContactConstIterator i) const;
-  inline unsigned contactWrenchIndex(VectorContactConstIterator i) const;
+
+  inline Index gyroBiasIndex(VectorIMUConstIterator i) const;
+  inline Index gyroBiasIndexTangent(VectorIMUConstIterator i) const;
+
+  inline Index contactIndex(VectorContactConstIterator i) const;
+  inline Index contactKineIndex(VectorContactConstIterator i) const;
+  inline Index contactPosIndex(VectorContactConstIterator i) const;
+  inline Index contactOriIndex(VectorContactConstIterator i) const;
+  inline Index contactForceIndex(VectorContactConstIterator i) const;
+  inline Index contactTorqueIndex(VectorContactConstIterator i) const;
+  inline Index contactWrenchIndex(VectorContactConstIterator i) const;
 
   /// Getters for the indexes of the state Vector using private types
-  inline unsigned contactIndexTangent(VectorContactConstIterator i) const;
-  inline unsigned contactKineIndexTangent(VectorContactConstIterator i) const;
-  inline unsigned contactPosIndexTangent(VectorContactConstIterator i) const;
-  inline unsigned contactOriIndexTangent(VectorContactConstIterator i) const;
-  inline unsigned contactForceIndexTangent(VectorContactConstIterator i) const;
-  inline unsigned contactTorqueIndexTangent(VectorContactConstIterator i) const;
-  inline unsigned contactWrenchIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactKineIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactPosIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactOriIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactForceIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactTorqueIndexTangent(VectorContactConstIterator i) const;
+  inline Index contactWrenchIndexTangent(VectorContactConstIterator i) const;
 
-public:
-  ///////////SIZE OF VECTORS
+public: ///////////SIZE OF VECTORS
+  inline static constexpr Index sizeAcceleroSignal = 3;
+  inline static constexpr Index sizeGyroSignal = 3;
+  inline static constexpr Index sizeIMUSignal = sizeAcceleroSignal + sizeGyroSignal;
 
-  static const unsigned sizeAcceleroSignal = 3;
-  static const unsigned sizeGyroSignal = 3;
-  static const unsigned sizeIMUSignal = sizeAcceleroSignal + sizeGyroSignal;
+  inline static constexpr Index sizePos = 3;
+  inline static constexpr Index sizePosTangent = 3;
+  inline static constexpr Index sizeOri = 4;
+  inline static constexpr Index sizeOriTangent = 3;
+  inline static constexpr Index sizeLinVel = sizePos;
+  inline static constexpr Index sizeLinVelTangent = sizeLinVel;
+  inline static constexpr Index sizeLinAccTangent = sizeLinVelTangent;
+  inline static constexpr Index sizeAngVel = sizeOriTangent;
+  inline static constexpr Index sizeAngVelTangent = sizeAngVel;
+  inline static constexpr Index sizeGyroBias = sizeGyroSignal;
+  inline static constexpr Index sizeGyroBiasTangent = sizeGyroBias;
 
-  static const unsigned sizePos = 3;
-  static const unsigned sizeOri = 4;
-  static const unsigned sizeOriTangent = 3;
-  static const unsigned sizeLinVel = sizePos;
-  static const unsigned sizeAngVel = sizeOriTangent;
-  static const unsigned sizeGyroBias = sizeGyroSignal;
+  inline static constexpr Index sizeForce = 3;
+  inline static constexpr Index sizeForceTangent = sizeForce;
+  inline static constexpr Index sizeTorque = 3;
+  inline static constexpr Index sizeTorqueTangent = sizeTorque;
 
-  static const unsigned sizeForce = 3;
-  static const unsigned sizeTorque = 3;
+  inline static constexpr Index sizeWrench = sizeForce + sizeTorque;
 
-  static const unsigned sizeWrench = sizeForce + sizeTorque;
+  inline static constexpr Index sizeStateKine = sizePos + sizeOri + sizeLinVel + sizeAngVel;
+  inline static constexpr Index sizeStateBase = sizeStateKine + sizeForce + sizeTorque;
+  inline static constexpr Index sizeStateKineTangent = sizePos + sizeOriTangent + sizeLinVel + sizeAngVel;
+  inline static constexpr Index sizeStateTangentBase = sizeStateKineTangent + sizeForce + sizeTorque;
 
-  static const unsigned sizeStateKine = sizePos + sizeOri + sizeLinVel + sizeAngVel;
-  static const unsigned sizeStateBase = sizeStateKine + sizeForce + sizeTorque;
-  static const unsigned sizeStateKineTangent = sizePos + sizeOriTangent + sizeLinVel + sizeAngVel;
-  static const unsigned sizeStateTangentBase = sizeStateKineTangent + sizeForce + sizeTorque;
+  inline static constexpr Index sizePose = sizePos + sizeOri;
+  inline static constexpr Index sizePoseTangent = sizePos + sizeOriTangent;
 
-  static const unsigned sizePose = sizePos + sizeOri;
-  static const unsigned sizePoseTangent = sizePos + sizeOriTangent;
+  inline static constexpr Index sizeContactKine = sizePose;
+  inline static constexpr Index sizeContactKineTangent = sizePoseTangent;
 
-  static const unsigned sizeContactKine = sizePose;
-  static const unsigned sizeContactKineTangent = sizePoseTangent;
+  inline static constexpr Index sizeContact = sizeContactKine + sizeWrench;
+  inline static constexpr Index sizeContactTangent = sizeContactKineTangent + sizeWrench;
 
-  static const unsigned sizeContact = sizeContactKine + sizeWrench;
-  static const unsigned sizeContactTangent = sizeContactKineTangent + sizeWrench;
+  inline static constexpr Kinematics::Flags::Byte flagsStateKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation | Kinematics::Flags::linVel
+      | Kinematics::Flags::angVel;
 
-  static const Kinematics::Flags::Byte flagsStateKine = Kinematics::Flags::position | Kinematics::Flags::orientation
-                                                        | Kinematics::Flags::linVel | Kinematics::Flags::angVel;
+  inline static constexpr Kinematics::Flags::Byte flagsContactKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation;
 
-  static const Kinematics::Flags::Byte flagsContactKine = Kinematics::Flags::position | Kinematics::Flags::orientation;
+  inline static constexpr Kinematics::Flags::Byte flagsPoseKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation;
 
-  static const Kinematics::Flags::Byte flagsPoseKine = Kinematics::Flags::position | Kinematics::Flags::orientation;
+  inline static constexpr Kinematics::Flags::Byte flagsPosKine = Kinematics::Flags::position;
 
-  static const Kinematics::Flags::Byte flagsIMUKine = Kinematics::Flags::position | Kinematics::Flags::orientation
-                                                      | Kinematics::Flags::linVel | Kinematics::Flags::angVel
-                                                      | Kinematics::Flags::linAcc;
+  inline static constexpr Kinematics::Flags::Byte flagsIMUKine =
+      Kinematics::Flags::position | Kinematics::Flags::orientation | Kinematics::Flags::linVel
+      | Kinematics::Flags::angVel | Kinematics::Flags::linAcc | Kinematics::Flags::angAcc;
 
   ////////////DEFAULT VALUES //////
   static const double defaultMass;
@@ -1171,6 +1507,8 @@ public:
   static const double angularDampingDefault;
 
   ////////////
+
+  bool nanDetected_ = false;
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 protected:
@@ -1185,6 +1523,7 @@ protected:
   Matrix3 gyroCovMatDefault_;
   Matrix6 contactWrenchSensorCovMatDefault_;
   Matrix6 absPoseSensorCovMatDefault_;
+  Matrix3 absOriSensorCovMatDefault_;
 
   Matrix3 statePosInitCovMat_;
   Matrix3 stateOriInitCovMat_;
@@ -1215,14 +1554,22 @@ protected:
   /// a structure to optimize computations
   struct Opt
   {
-    Opt() : kine(kine1), ori(kine.orientation), ori1(kine1.orientation), ori2(kine2.orientation) {}
+    Opt() : locKine(locKine1), ori(locKine.orientation), ori1(locKine1.orientation), ori2(locKine2.orientation) {}
 
-    Kinematics kine1, kine2;
-    Kinematics & kine;
+    LocalKinematics locKine1, locKine2;
+    LocalKinematics & locKine;
     Orientation & ori;
     Orientation & ori1;
     Orientation & ori2;
   } opt_;
+
+private:
+  Index setIMU(const Vector3 & accelero,
+               const Vector3 & gyrometer,
+               const Kinematics & userImuKinematics,
+               Index num,
+               const Matrix3 * acceleroCov,
+               const Matrix3 * gyroCov);
 };
 
 #include <state-observation/dynamics-estimators/kinetics-observer.hxx>
