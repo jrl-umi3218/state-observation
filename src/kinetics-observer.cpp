@@ -2089,7 +2089,7 @@ Matrix KineticsObserver::computeCMatrix()
 
 void KineticsObserver::convertUserToCentroidFrame_(const Kinematics & userKine,
                                                    Kinematics & centroidKine,
-                                                   TimeIndex /*k_data*/)
+                                                   [[maybe_unused]] TimeIndex k_data)
 {
   /*
   Our centroid frame has the same orientation than the user frame, so the conversion from the user to the centroid frame
@@ -2121,7 +2121,7 @@ void KineticsObserver::convertUserToCentroidFrame_(const Kinematics & userKine,
 }
 
 KineticsObserver::Kinematics KineticsObserver::convertUserToCentroidFrame_(const Kinematics & userKine,
-                                                                           TimeIndex /*k_data*/)
+                                                                           [[maybe_unused]] TimeIndex k_data)
 {
   /*
   Our centroid frame has the same orientation than the user frame, so the conversion from the user to the centroid frame
