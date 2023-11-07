@@ -81,8 +81,7 @@ $(document).ready(function(){initNavTree('kinetics-observer_8hpp.html',''); init
 
 <p>Unified Kinetics estimator.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;map&gt;</code><br />
-<code>#include &lt;set&gt;</code><br />
+<div class="textblock"><code>#include &lt;set&gt;</code><br />
 <code>#include &lt;boost/utility.hpp&gt;</code><br />
 <code>#include &lt;state-observation/api.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="dynamical-system-functor-base_8hpp_source.html">state-observation/dynamical-system/dynamical-system-functor-base.hpp</a>&gt;</code><br />
@@ -104,7 +103,7 @@ Include dependency graph for kinetics-observer.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html">stateObservation::KineticsObserver</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This observer estimated the kinematics and the external forces.  <a href="classstateObservation_1_1KineticsObserver.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements, and the contacts forces and pose.  <a href="classstateObservation_1_1KineticsObserver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1KineticsObserver_1_1Sensor.html">stateObservation::KineticsObserver::Sensor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,6 +112,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1KineticsObserver_1_1Contact.html">stateObservation::KineticsObserver::Contact</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor.html">stateObservation::KineticsObserver::AbsolutePoseSensor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1KineticsObserver_1_1AbsoluteOriSensor.html">stateObservation::KineticsObserver::AbsoluteOriSensor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1KineticsObserver_1_1Opt.html">stateObservation::KineticsObserver::Opt</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a structure to optimize computations  <a href="structstateObservation_1_1KineticsObserver_1_1Opt.html#details">More...</a><br /></td></tr>

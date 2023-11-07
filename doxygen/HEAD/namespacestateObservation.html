@@ -115,6 +115,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class is an implementation of the dynamical system defined by a 2D inverted pendulum with an elastic joint. The input is the horizontal acceleration.  <a href="classstateObservation_1_1BidimElasticInvPendulum.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">this is a structure allowing for automatically verifying that the item has been initialized or not. The chckitm_reset() function allows to set it back to "not initialized" state.  <a href="classstateObservation_1_1CheckedItem.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional checker that allows to check for the presence of NaN values in the item.  <a href="structstateObservation_1_1CheckNaN.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,6 +134,9 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class gives a small encapsulation of the dynamics functor, which enables the simulation of the dynamics and the storage of states, inputs and measurements.  <a href="classstateObservation_1_1DynamicalSystemSimulator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1EigenType.html">EigenType</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1EmptyChecker.html">EmptyChecker</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This structure is used as an additionalChecker for a <a class="el" href="classstateObservation_1_1CheckedItem.html" title="this is a structure allowing for automatically verifying that the item has been initialized or not....">CheckedItem</a> that doesn't require additional tests.  <a href="structstateObservation_1_1EmptyChecker.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1ExtendedKalmanFilter.html">ExtendedKalmanFilter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,7 +180,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incases of Linear, linearized and extended Kalman filtering. It may be derived to unscented Kalman filtering, but non-straighforwardly because the state vector is modified. This class requires to be derived to overload the update routine and the measurements simulation routine.  <a href="classstateObservation_1_1KalmanFilterBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1KineticsObserver.html">KineticsObserver</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This observer estimated the kinematics and the external forces.  <a href="classstateObservation_1_1KineticsObserver.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements, and the contacts forces and pose.  <a href="classstateObservation_1_1KineticsObserver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1LinearKalmanFilter.html">LinearKalmanFilter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The class of a Linear Kalman filter.  <a href="classstateObservation_1_1LinearKalmanFilter.html#details">More...</a><br /></td></tr>
@@ -196,6 +203,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1TiltEstimator.html">TiltEstimator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Description is pending.  <a href="classstateObservation_1_1TiltEstimator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1TiltEstimatorHumanoid.html">TiltEstimatorHumanoid</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version of the Tilt Estimator for humanoid robots.  <a href="classstateObservation_1_1TiltEstimatorHumanoid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1UnidimLipmDcmEstimator.html">UnidimLipmDcmEstimator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">1D version of the estimation of a bias betweeen the divergent component of motion and the corresponding zero moment point for a linearized inverted pendulum model.  <a href="classstateObservation_1_1UnidimLipmDcmEstimator.html#details">More...</a><br /></td></tr>
@@ -277,16 +287,16 @@ Typedefs</h2></td></tr>
 <tr class="separator:a2d28b2a56e2f031d42c908ac185542c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5199554e1288134514be0c55502cb72d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="namespacestateObservation.html#ac015d2857a6b9b16a16f1376d0df622c">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a5199554e1288134514be0c55502cb72d">TimeSize</a></td></tr>
 <tr class="separator:a5199554e1288134514be0c55502cb72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63a017136b64195f9dc51a0fc3afbc00"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a></td></tr>
-<tr class="separator:a63a017136b64195f9dc51a0fc3afbc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1a04a4da1d52eecc1941ade109be16f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#aa4856a065f88d780a5c575335fbf81ee">Matrix6</a>, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#ae1a04a4da1d52eecc1941ade109be16f">CheckedMatrix6</a></td></tr>
-<tr class="separator:ae1a04a4da1d52eecc1941ade109be16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d975775077bb6d31aa43a555636b172"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a>, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a2d975775077bb6d31aa43a555636b172">CheckedMatrix12</a></td></tr>
-<tr class="separator:a2d975775077bb6d31aa43a555636b172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af10af27eb55087df9786c0f0c4688fac"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#af10af27eb55087df9786c0f0c4688fac">CheckedVector3</a></td></tr>
-<tr class="separator:af10af27eb55087df9786c0f0c4688fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a087bf1641ad9fb513ae1b60eb38b69c0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a>, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a087bf1641ad9fb513ae1b60eb38b69c0">CheckedVector6</a></td></tr>
-<tr class="separator:a087bf1641ad9fb513ae1b60eb38b69c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7d764f0de6c89bd63b44dd8e4fed882"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#ac7d764f0de6c89bd63b44dd8e4fed882">CheckedMatrix3</a></td></tr>
+<tr class="separator:ac7d764f0de6c89bd63b44dd8e4fed882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd151897a8f17e690f252a810810c3b1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#aa4856a065f88d780a5c575335fbf81ee">Matrix6</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#acd151897a8f17e690f252a810810c3b1">CheckedMatrix6</a></td></tr>
+<tr class="separator:acd151897a8f17e690f252a810810c3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c8a0cc478645851922d36a8b5f72932"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a6c8a0cc478645851922d36a8b5f72932">CheckedMatrix12</a></td></tr>
+<tr class="separator:a6c8a0cc478645851922d36a8b5f72932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb71ec60ba8bf8ab3c084c90a8e9be17"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#abb71ec60ba8bf8ab3c084c90a8e9be17">CheckedVector3</a></td></tr>
+<tr class="separator:abb71ec60ba8bf8ab3c084c90a8e9be17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41306ce3ee68e4603e6a92f0e80b88f5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a41306ce3ee68e4603e6a92f0e80b88f5">CheckedVector6</a></td></tr>
+<tr class="separator:a41306ce3ee68e4603e6a92f0e80b88f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3771fcbd17321c96ddc17e2b1f1a7da"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; <a class="el" href="namespacestateObservation.html#a1d5e7448fab378f14e92403b1c2ef5b2">Quaternion</a>, false, false, true, true &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#aa3771fcbd17321c96ddc17e2b1f1a7da">CheckedQuaternion</a></td></tr>
 <tr class="separator:aa3771fcbd17321c96ddc17e2b1f1a7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26c2c64efe6f012a7b85a9f6892686b2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1IndexedMatrixT.html">IndexedMatrixT</a>&lt; <a class="el" href="namespacestateObservation.html#a8075b3a5e1c85f87c8e5c05b60100f1d">Matrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html#a26c2c64efe6f012a7b85a9f6892686b2">IndexedMatrix</a></td></tr>
@@ -348,42 +358,42 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2d975775077bb6d31aa43a555636b172"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d975775077bb6d31aa43a555636b172">&#9670;&nbsp;</a></span>CheckedMatrix12</h2>
+<a id="a6c8a0cc478645851922d36a8b5f72932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c8a0cc478645851922d36a8b5f72932">&#9670;&nbsp;</a></span>CheckedMatrix12</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a>, false, false, true, true&gt; <a class="el" href="namespacestateObservation.html#a2d975775077bb6d31aa43a555636b172">stateObservation::CheckedMatrix12</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#ace58e23991b2cf49ccb62997ec08aeb2">Matrix12</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a>&gt; <a class="el" href="namespacestateObservation.html#a6c8a0cc478645851922d36a8b5f72932">stateObservation::CheckedMatrix12</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a63a017136b64195f9dc51a0fc3afbc00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63a017136b64195f9dc51a0fc3afbc00">&#9670;&nbsp;</a></span>CheckedMatrix3</h2>
+<a id="ac7d764f0de6c89bd63b44dd8e4fed882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7d764f0de6c89bd63b44dd8e4fed882">&#9670;&nbsp;</a></span>CheckedMatrix3</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>, false, false, true, true&gt; <a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">stateObservation::CheckedMatrix3</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a>&gt; <a class="el" href="namespacestateObservation.html#ac7d764f0de6c89bd63b44dd8e4fed882">stateObservation::CheckedMatrix3</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae1a04a4da1d52eecc1941ade109be16f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1a04a4da1d52eecc1941ade109be16f">&#9670;&nbsp;</a></span>CheckedMatrix6</h2>
+<a id="acd151897a8f17e690f252a810810c3b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd151897a8f17e690f252a810810c3b1">&#9670;&nbsp;</a></span>CheckedMatrix6</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#aa4856a065f88d780a5c575335fbf81ee">Matrix6</a>, false, false, true, true&gt; <a class="el" href="namespacestateObservation.html#ae1a04a4da1d52eecc1941ade109be16f">stateObservation::CheckedMatrix6</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#aa4856a065f88d780a5c575335fbf81ee">Matrix6</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a>&gt; <a class="el" href="namespacestateObservation.html#acd151897a8f17e690f252a810810c3b1">stateObservation::CheckedMatrix6</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -404,28 +414,28 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af10af27eb55087df9786c0f0c4688fac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af10af27eb55087df9786c0f0c4688fac">&#9670;&nbsp;</a></span>CheckedVector3</h2>
+<a id="abb71ec60ba8bf8ab3c084c90a8e9be17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb71ec60ba8bf8ab3c084c90a8e9be17">&#9670;&nbsp;</a></span>CheckedVector3</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>, false, false, true, true&gt; <a class="el" href="namespacestateObservation.html#af10af27eb55087df9786c0f0c4688fac">stateObservation::CheckedVector3</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a>&gt; <a class="el" href="namespacestateObservation.html#abb71ec60ba8bf8ab3c084c90a8e9be17">stateObservation::CheckedVector3</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a087bf1641ad9fb513ae1b60eb38b69c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a087bf1641ad9fb513ae1b60eb38b69c0">&#9670;&nbsp;</a></span>CheckedVector6</h2>
+<a id="a41306ce3ee68e4603e6a92f0e80b88f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41306ce3ee68e4603e6a92f0e80b88f5">&#9670;&nbsp;</a></span>CheckedVector6</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a>, false, false, true, true&gt; <a class="el" href="namespacestateObservation.html#a087bf1641ad9fb513ae1b60eb38b69c0">stateObservation::CheckedVector6</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt;<a class="el" href="namespacestateObservation.html#a9d339a150bf05286eca83bc588349afe">Vector6</a>, false, false, true, true, <a class="el" href="structstateObservation_1_1CheckNaN.html">CheckNaN</a>&gt; <a class="el" href="namespacestateObservation.html#a41306ce3ee68e4603e6a92f0e80b88f5">stateObservation::CheckedVector6</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

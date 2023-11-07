@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::Checked\lItem\< T, lazy, alwaysCheck,\l assertion, eigenAlignedNew \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip=" "];
+  Node0 [label="stateObservation::Checked\lItem\< T, lazy, alwaysCheck,\l assertion, eigenAlignedNew,\l additionalChecker \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip="this is a structure allowing for automatically verifying that the item has been initialized or not...."];
 }

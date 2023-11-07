@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt; Class Template Reference</title>
+<title>stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 <script type="text/x-mathjax-config">
@@ -79,113 +79,128 @@ $(document).ready(function(){initNavTree('classstateObservation_1_1CheckedItem.h
 <a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classstateObservation_1_1CheckedItem-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt; Class Template Reference</div>  </div>
+<div class="title">stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>this is a structure allowing for automatically verifying that the item has been initialized or not. The chckitm_reset() function allows to set it back to "not initialized" state.  
+ <a href="classstateObservation_1_1CheckedItem.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="definitions_8hpp_source.html">state-observation/tools/definitions.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;:</div>
+Collaboration diagram for stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classstateObservation_1_1CheckedItem__coll__graph.png" border="0" usemap="#stateObservation_1_1CheckedItem_3_01T_00_01lazy_00_01alwaysCheck_00_01assertion_00_01eigenAlignedNew_01_4_coll__map" alt="Collaboration graph"/></div>
+<div class="center"><img src="classstateObservation_1_1CheckedItem__coll__graph.png" border="0" usemap="#stateObservation_1_1CheckedItem_3_01T_00_01lazy_00_01alwaysCheck_00_01assertion_00_01eigenAlignedNew_00_01additionalChecker_01_4_coll__map" alt="Collaboration graph"/></div>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af7153a2215fc5b650a14e6f0e9355c24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#af7153a2215fc5b650a14e6f0e9355c24">CheckedItem</a> (bool initialize=true)</td></tr>
-<tr class="memdesc:af7153a2215fc5b650a14e6f0e9355c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter initialize sets whether the <a class="el" href="classstateObservation_1_1CheckedItem.html#ad5c080e32c963db9a85e437a34b573a5">isSet()</a> parameter is initialized to false.  <a href="classstateObservation_1_1CheckedItem.html#af7153a2215fc5b650a14e6f0e9355c24">More...</a><br /></td></tr>
-<tr class="separator:af7153a2215fc5b650a14e6f0e9355c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72f4a8987431c3b461c2a21ea42a46de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a72f4a8987431c3b461c2a21ea42a46de">CheckedItem</a> (const T &amp;)</td></tr>
-<tr class="separator:a72f4a8987431c3b461c2a21ea42a46de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7321df3bd6b424ab54f940f3473beaa4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7321df3bd6b424ab54f940f3473beaa4">CheckedItem</a> (const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> &amp;)</td></tr>
-<tr class="separator:a7321df3bd6b424ab54f940f3473beaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cce79029c1cc90f5de556c678b9e65f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a0cce79029c1cc90f5de556c678b9e65f">~CheckedItem</a> ()</td></tr>
-<tr class="separator:a0cce79029c1cc90f5de556c678b9e65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281fc028eb3ad1b0dd8b3ed63df68700"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a281fc028eb3ad1b0dd8b3ed63df68700">operator=</a> (const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> &amp;)</td></tr>
-<tr class="separator:a281fc028eb3ad1b0dd8b3ed63df68700"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa28bd184628a8dd3f5ee9a2c4c3063f"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#aaa28bd184628a8dd3f5ee9a2c4c3063f">operator=</a> (const T &amp;)</td></tr>
-<tr class="separator:aaa28bd184628a8dd3f5ee9a2c4c3063f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bce8364ab5313411bb365b58272facb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a5bce8364ab5313411bb365b58272facb">operator T</a> () const</td></tr>
-<tr class="separator:a5bce8364ab5313411bb365b58272facb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af359019731aae1de7f2f75ea2a638d39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#af359019731aae1de7f2f75ea2a638d39">operator const T &amp;</a> () const</td></tr>
-<tr class="separator:af359019731aae1de7f2f75ea2a638d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7caf729949a22fd433331f319afd6865"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7caf729949a22fd433331f319afd6865">chckitm_getValue</a> () const</td></tr>
-<tr class="separator:a7caf729949a22fd433331f319afd6865"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c163b6634806f484344936026040d44"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a0c163b6634806f484344936026040d44">operator()</a> ()</td></tr>
-<tr class="separator:a0c163b6634806f484344936026040d44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab957732a108376eac60d28bb4bc30bfa"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ab957732a108376eac60d28bb4bc30bfa">operator()</a> () const</td></tr>
-<tr class="separator:ab957732a108376eac60d28bb4bc30bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5c080e32c963db9a85e437a34b573a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ad5c080e32c963db9a85e437a34b573a5">isSet</a> () const</td></tr>
-<tr class="separator:ad5c080e32c963db9a85e437a34b573a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fa842cac87229eb793137ed2e8bc43b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a4fa842cac87229eb793137ed2e8bc43b">reset</a> ()</td></tr>
-<tr class="separator:a4fa842cac87229eb793137ed2e8bc43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37c50a4f2e4ff48a930ba2fc1fc8ab35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a37c50a4f2e4ff48a930ba2fc1fc8ab35">set</a> (bool value)</td></tr>
-<tr class="memdesc:a37c50a4f2e4ff48a930ba2fc1fc8ab35"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the value of the initialization check boolean  <a href="classstateObservation_1_1CheckedItem.html#a37c50a4f2e4ff48a930ba2fc1fc8ab35">More...</a><br /></td></tr>
-<tr class="separator:a37c50a4f2e4ff48a930ba2fc1fc8ab35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6a4661ff12e5e64490ed28e1c49a30c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ae6a4661ff12e5e64490ed28e1c49a30c">setAssertMessage</a> (std::string s)</td></tr>
-<tr class="separator:ae6a4661ff12e5e64490ed28e1c49a30c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb85bf0c1c6431ce4715644d765b3452"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#abb85bf0c1c6431ce4715644d765b3452">setExceptionPtr</a> (std::exception *e)</td></tr>
-<tr class="separator:abb85bf0c1c6431ce4715644d765b3452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9eb20a621e732465dac4e11de094c7c5"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a9eb20a621e732465dac4e11de094c7c5">set</a> ()</td></tr>
-<tr class="separator:a9eb20a621e732465dac4e11de094c7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f52effec8ceeab930873a78da77c93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a11f52effec8ceeab930873a78da77c93">CheckedItem</a> (bool initialize=true)</td></tr>
+<tr class="memdesc:a11f52effec8ceeab930873a78da77c93"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parameter initialize sets whether the <a class="el" href="classstateObservation_1_1CheckedItem.html#ad0f3ef9840f7a577b0244dd4575d12b3">isSet()</a> parameter is initialized to false.  <a href="classstateObservation_1_1CheckedItem.html#a11f52effec8ceeab930873a78da77c93">More...</a><br /></td></tr>
+<tr class="separator:a11f52effec8ceeab930873a78da77c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5008e79b11a61f591d3c6287082a74bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a5008e79b11a61f591d3c6287082a74bb">CheckedItem</a> (const T &amp;)</td></tr>
+<tr class="separator:a5008e79b11a61f591d3c6287082a74bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f27a14fde9460b4a85a6ca2a60fac32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a2f27a14fde9460b4a85a6ca2a60fac32">CheckedItem</a> (const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> &amp;)</td></tr>
+<tr class="separator:a2f27a14fde9460b4a85a6ca2a60fac32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8213886193329e417970bedf76d84942"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a8213886193329e417970bedf76d84942">~CheckedItem</a> ()</td></tr>
+<tr class="separator:a8213886193329e417970bedf76d84942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b213048359dc32a0dc726c23e9d150"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a93b213048359dc32a0dc726c23e9d150">operator=</a> (const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> &amp;)</td></tr>
+<tr class="separator:a93b213048359dc32a0dc726c23e9d150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa22ecc244787559e7bd797f466bf19d2"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#aa22ecc244787559e7bd797f466bf19d2">operator=</a> (const T &amp;)</td></tr>
+<tr class="separator:aa22ecc244787559e7bd797f466bf19d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae501fd0cefd015b47ddd8bd9f731cb36"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ae501fd0cefd015b47ddd8bd9f731cb36">operator T</a> () const</td></tr>
+<tr class="separator:ae501fd0cefd015b47ddd8bd9f731cb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ce347832a64c0f281dcc8f0441714c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7ce347832a64c0f281dcc8f0441714c2">operator const T &amp;</a> () const</td></tr>
+<tr class="separator:a7ce347832a64c0f281dcc8f0441714c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb23ec40472ae9c3a18235eeeeab56aa"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#afb23ec40472ae9c3a18235eeeeab56aa">chckitm_getValue</a> () const</td></tr>
+<tr class="separator:afb23ec40472ae9c3a18235eeeeab56aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04a0c284f7c97f6a4d85660b640bc015"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a04a0c284f7c97f6a4d85660b640bc015">operator()</a> ()</td></tr>
+<tr class="separator:a04a0c284f7c97f6a4d85660b640bc015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f4787aaa59f4a2e5bc758ebe319ed2"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#aa7f4787aaa59f4a2e5bc758ebe319ed2">operator()</a> () const</td></tr>
+<tr class="separator:aa7f4787aaa59f4a2e5bc758ebe319ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7464209694af17bb02f569f8f044a0d9"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7464209694af17bb02f569f8f044a0d9">getRefUnchecked</a> ()</td></tr>
+<tr class="separator:a7464209694af17bb02f569f8f044a0d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288d55b8d63b6123d935752db2e8abff"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a288d55b8d63b6123d935752db2e8abff">getRefUnchecked</a> () const</td></tr>
+<tr class="separator:a288d55b8d63b6123d935752db2e8abff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f3ef9840f7a577b0244dd4575d12b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ad0f3ef9840f7a577b0244dd4575d12b3">isSet</a> () const</td></tr>
+<tr class="separator:ad0f3ef9840f7a577b0244dd4575d12b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8db099b5470a05e8d05388271259301"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ae8db099b5470a05e8d05388271259301">reset</a> ()</td></tr>
+<tr class="separator:ae8db099b5470a05e8d05388271259301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa14c699d55f6644089272d56b29a4f77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#aa14c699d55f6644089272d56b29a4f77">set</a> (bool value)</td></tr>
+<tr class="memdesc:aa14c699d55f6644089272d56b29a4f77"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the value of the initialization check boolean  <a href="classstateObservation_1_1CheckedItem.html#aa14c699d55f6644089272d56b29a4f77">More...</a><br /></td></tr>
+<tr class="separator:aa14c699d55f6644089272d56b29a4f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aaad7e874bd473088435e48fd68b4bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a8aaad7e874bd473088435e48fd68b4bc">setAssertMessage</a> (std::string s)</td></tr>
+<tr class="separator:a8aaad7e874bd473088435e48fd68b4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dea1d6754ee5711bfa208cf0b6badae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a8dea1d6754ee5711bfa208cf0b6badae">setExceptionPtr</a> (std::exception *e)</td></tr>
+<tr class="separator:a8dea1d6754ee5711bfa208cf0b6badae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06fc22f405e01b35c5fa346b700d908"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ae06fc22f405e01b35c5fa346b700d908">set</a> ()</td></tr>
+<tr class="separator:ae06fc22f405e01b35c5fa346b700d908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a1d1cb05f76bebc68d8703b39eb62051e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt; bool, <a class="el" href="namespacestateObservation_1_1detail.html#a2eb6dfdac5cd9b966267523389964f47">detail::defaultTrue</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a1d1cb05f76bebc68d8703b39eb62051e">IsSet</a></td></tr>
-<tr class="separator:a1d1cb05f76bebc68d8703b39eb62051e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bacb9583ec80cec7b1754706047d116"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt; const char *, <a class="el" href="namespacestateObservation_1_1detail.html#ac2df386962ec3fd0001208c9eb801c3b">detail::defaultErrorMSG</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#aa1290ff1e7ac6a25c5c6faabe3e96f22">do_assert_</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7bacb9583ec80cec7b1754706047d116">AssertMsg</a></td></tr>
-<tr class="separator:a7bacb9583ec80cec7b1754706047d116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d60a9634b6f4b1f6c0ece9aed55535e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt; const std::exception *, <a class="el" href="namespacestateObservation_1_1detail.html#a900210535ad9242cb78f3f14e6cb537f">detail::defaultExceptionAddr</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a9f6d3c18eaefede4c15fbde61e12fc3a">do_exception_</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a0d60a9634b6f4b1f6c0ece9aed55535e">ExceptionPtr</a></td></tr>
-<tr class="separator:a0d60a9634b6f4b1f6c0ece9aed55535e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d105585d6ffb672575799bff4594a2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt; bool, <a class="el" href="namespacestateObservation_1_1detail.html#a2eb6dfdac5cd9b966267523389964f47">detail::defaultTrue</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a69d105585d6ffb672575799bff4594a2">IsSet</a></td></tr>
+<tr class="separator:a69d105585d6ffb672575799bff4594a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430a01c5e1bada9356bb1acd3f115c68"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt; const char *, <a class="el" href="namespacestateObservation_1_1detail.html#ac2df386962ec3fd0001208c9eb801c3b">detail::defaultErrorMSG</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#ad45da5ba0a52d5c6452cd6ca6fed491e">do_assert_</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a430a01c5e1bada9356bb1acd3f115c68">AssertMsg</a></td></tr>
+<tr class="separator:a430a01c5e1bada9356bb1acd3f115c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9561af80c071ec78ac049e2f082f29cc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt; const std::exception *, <a class="el" href="namespacestateObservation_1_1detail.html#a900210535ad9242cb78f3f14e6cb537f">detail::defaultExceptionAddr</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a6f7ec8a0e1c07e50987df595b3e9e23d">do_exception_</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a9561af80c071ec78ac049e2f082f29cc">ExceptionPtr</a></td></tr>
+<tr class="separator:a9561af80c071ec78ac049e2f082f29cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a68fd02e1bd5cb800316014f75619ebcc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a68fd02e1bd5cb800316014f75619ebcc">chckitm_check_</a> () const</td></tr>
-<tr class="separator:a68fd02e1bd5cb800316014f75619ebcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6797d4f77c9c0672a6bd85b6cf3316a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a6797d4f77c9c0672a6bd85b6cf3316a2">chckitm_check_</a> () const</td></tr>
+<tr class="separator:a6797d4f77c9c0672a6bd85b6cf3316a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ac155961f6f9dc3fd3a37603fae7ad386"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html#a1d1cb05f76bebc68d8703b39eb62051e">IsSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ac155961f6f9dc3fd3a37603fae7ad386">isSet_</a></td></tr>
-<tr class="separator:ac155961f6f9dc3fd3a37603fae7ad386"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e45084f120d6f782aec4929e93a4844"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7bacb9583ec80cec7b1754706047d116">AssertMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a8e45084f120d6f782aec4929e93a4844">assertMsg_</a></td></tr>
-<tr class="separator:a8e45084f120d6f782aec4929e93a4844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bc1982ecd9ce069a304eabc8e5b6a58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html#a0d60a9634b6f4b1f6c0ece9aed55535e">ExceptionPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a4bc1982ecd9ce069a304eabc8e5b6a58">exceptionPtr_</a></td></tr>
-<tr class="separator:a4bc1982ecd9ce069a304eabc8e5b6a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abda5712a0eadc461a7475bed36eaa8d8"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#abda5712a0eadc461a7475bed36eaa8d8">v_</a></td></tr>
-<tr class="memdesc:abda5712a0eadc461a7475bed36eaa8d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">this can throw(std::exception)  <a href="classstateObservation_1_1CheckedItem.html#abda5712a0eadc461a7475bed36eaa8d8">More...</a><br /></td></tr>
-<tr class="separator:abda5712a0eadc461a7475bed36eaa8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f5b6df3b4f57f8f5350a93b317ac8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html#a69d105585d6ffb672575799bff4594a2">IsSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a95f5b6df3b4f57f8f5350a93b317ac8e">isSet_</a></td></tr>
+<tr class="separator:a95f5b6df3b4f57f8f5350a93b317ac8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a568f8d29c07a924e9bb40fd42d854e1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html#a430a01c5e1bada9356bb1acd3f115c68">AssertMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a568f8d29c07a924e9bb40fd42d854e1e">assertMsg_</a></td></tr>
+<tr class="separator:a568f8d29c07a924e9bb40fd42d854e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba3f0ef35197d9c0dbcb78510cb0a3d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1CheckedItem.html#a9561af80c071ec78ac049e2f082f29cc">ExceptionPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#aba3f0ef35197d9c0dbcb78510cb0a3d6">exceptionPtr_</a></td></tr>
+<tr class="separator:aba3f0ef35197d9c0dbcb78510cb0a3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfdf60680434b82e4739b730afab2dc6"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#abfdf60680434b82e4739b730afab2dc6">v_</a></td></tr>
+<tr class="memdesc:abfdf60680434b82e4739b730afab2dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">this can throw(std::exception)  <a href="classstateObservation_1_1CheckedItem.html#abfdf60680434b82e4739b730afab2dc6">More...</a><br /></td></tr>
+<tr class="separator:abfdf60680434b82e4739b730afab2dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a873f1d6d12f25223ce80b9cb68bc17bd"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a> = !lazy || isDebug</td></tr>
-<tr class="separator:a873f1d6d12f25223ce80b9cb68bc17bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1290ff1e7ac6a25c5c6faabe3e96f22"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#aa1290ff1e7ac6a25c5c6faabe3e96f22">do_assert_</a> = <a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a> &amp;&amp; assertion</td></tr>
-<tr class="separator:aa1290ff1e7ac6a25c5c6faabe3e96f22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f6d3c18eaefede4c15fbde61e12fc3a"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a9f6d3c18eaefede4c15fbde61e12fc3a">do_exception_</a> = <a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a> &amp;&amp; !assertion</td></tr>
-<tr class="separator:a9f6d3c18eaefede4c15fbde61e12fc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204c9f045d2f55d724f39a1d11fed70e"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a> = !lazy || isDebug</td></tr>
+<tr class="separator:a204c9f045d2f55d724f39a1d11fed70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45da5ba0a52d5c6452cd6ca6fed491e"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#ad45da5ba0a52d5c6452cd6ca6fed491e">do_assert_</a> = <a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a> &amp;&amp; assertion</td></tr>
+<tr class="separator:ad45da5ba0a52d5c6452cd6ca6fed491e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f7ec8a0e1c07e50987df595b3e9e23d"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1CheckedItem.html#a6f7ec8a0e1c07e50987df595b3e9e23d">do_exception_</a> = <a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a> &amp;&amp; !assertion</td></tr>
+<tr class="separator:a6f7ec8a0e1c07e50987df595b3e9e23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt;<br />
-class stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T, bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker = EmptyChecker&gt;<br />
+class stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;</h3>
 
-<p>this is simply a structure allowing for automatically verifying that the item has been initialized or not. The chckitm_reset() function allows to set it back to "not initialized" state. -lazy means that the "set" value is true all the time if NDEBUG is defined -alwaysCheck means that the check is always performed and throws exception if it fails. Otherwise, the check is performed only for debug. warning, this has no effect if lazy is set to true</p><ul>
-<li>assertion means that an assertion will be introduced for the check.</li>
-<li>eigenAlignedNew should be set to true if any alignment is required for the new operator (see eigen documentation) </li>
-</ul>
+<p>this is a structure allowing for automatically verifying that the item has been initialized or not. The chckitm_reset() function allows to set it back to "not initialized" state. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>is the contained type </td></tr>
+    <tr><td class="paramname">lazy</td><td>means that the "set" value is true all the time if NDEBUG is defined </td></tr>
+    <tr><td class="paramname">alwaysCheck</td><td>means that the check is always performed and throws exception if it fails. Otherwise, the check is performed only for debug warning, this has no effect if lazy is set to true </td></tr>
+    <tr><td class="paramname">assertion</td><td>means that an assertion will be introduced for the check. </td></tr>
+    <tr><td class="paramname">eigenAlignedNew</td><td>should be set to true if any alignment is required for the new operator (see eigen documentation) </td></tr>
+    <tr><td class="paramname">additionalChecker</td><td>defines a check function that is called in addition to the initialization check </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a7bacb9583ec80cec7b1754706047d116"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bacb9583ec80cec7b1754706047d116">&#9670;&nbsp;</a></span>AssertMsg</h2>
+<a id="a430a01c5e1bada9356bb1acd3f115c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430a01c5e1bada9356bb1acd3f115c68">&#9670;&nbsp;</a></span>AssertMsg</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt;const char *, <a class="el" href="namespacestateObservation_1_1detail.html#ac2df386962ec3fd0001208c9eb801c3b">detail::defaultErrorMSG</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#aa1290ff1e7ac6a25c5c6faabe3e96f22">do_assert_</a>&gt; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html#a7bacb9583ec80cec7b1754706047d116">AssertMsg</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt;const char *, <a class="el" href="namespacestateObservation_1_1detail.html#ac2df386962ec3fd0001208c9eb801c3b">detail::defaultErrorMSG</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#ad45da5ba0a52d5c6452cd6ca6fed491e">do_assert_</a>&gt; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html#a430a01c5e1bada9356bb1acd3f115c68">AssertMsg</a></td>
         </tr>
       </table>
   </td>
@@ -197,19 +212,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a0d60a9634b6f4b1f6c0ece9aed55535e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d60a9634b6f4b1f6c0ece9aed55535e">&#9670;&nbsp;</a></span>ExceptionPtr</h2>
+<a id="a9561af80c071ec78ac049e2f082f29cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9561af80c071ec78ac049e2f082f29cc">&#9670;&nbsp;</a></span>ExceptionPtr</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt;const std::exception *, <a class="el" href="namespacestateObservation_1_1detail.html#a900210535ad9242cb78f3f14e6cb537f">detail::defaultExceptionAddr</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a9f6d3c18eaefede4c15fbde61e12fc3a">do_exception_</a>&gt; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html#a0d60a9634b6f4b1f6c0ece9aed55535e">ExceptionPtr</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt;const std::exception *, <a class="el" href="namespacestateObservation_1_1detail.html#a900210535ad9242cb78f3f14e6cb537f">detail::defaultExceptionAddr</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a6f7ec8a0e1c07e50987df595b3e9e23d">do_exception_</a>&gt; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html#a9561af80c071ec78ac049e2f082f29cc">ExceptionPtr</a></td>
         </tr>
       </table>
   </td>
@@ -221,19 +236,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a1d1cb05f76bebc68d8703b39eb62051e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d1cb05f76bebc68d8703b39eb62051e">&#9670;&nbsp;</a></span>IsSet</h2>
+<a id="a69d105585d6ffb672575799bff4594a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d105585d6ffb672575799bff4594a2">&#9670;&nbsp;</a></span>IsSet</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt;bool, <a class="el" href="namespacestateObservation_1_1detail.html#a2eb6dfdac5cd9b966267523389964f47">detail::defaultTrue</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a>&gt; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html#a1d1cb05f76bebc68d8703b39eb62051e">IsSet</a></td>
+          <td class="memname">typedef <a class="el" href="classstateObservation_1_1DebugItem.html">DebugItem</a>&lt;bool, <a class="el" href="namespacestateObservation_1_1detail.html#a2eb6dfdac5cd9b966267523389964f47">detail::defaultTrue</a>, <a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a>&gt; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html#a69d105585d6ffb672575799bff4594a2">IsSet</a></td>
         </tr>
       </table>
   </td>
@@ -246,16 +261,16 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af7153a2215fc5b650a14e6f0e9355c24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7153a2215fc5b650a14e6f0e9355c24">&#9670;&nbsp;</a></span>CheckedItem() <span class="overload">[1/3]</span></h2>
+<a id="a11f52effec8ceeab930873a78da77c93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f52effec8ceeab930873a78da77c93">&#9670;&nbsp;</a></span>CheckedItem() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>initialize</em> = <code>true</code></td><td>)</td>
@@ -264,23 +279,23 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
       </table>
 </div><div class="memdoc">
 
-<p>The parameter initialize sets whether the <a class="el" href="classstateObservation_1_1CheckedItem.html#ad5c080e32c963db9a85e437a34b573a5">isSet()</a> parameter is initialized to false. </p>
+<p>The parameter initialize sets whether the <a class="el" href="classstateObservation_1_1CheckedItem.html#ad0f3ef9840f7a577b0244dd4575d12b3">isSet()</a> parameter is initialized to false. </p>
 
 </div>
 </div>
-<a id="a72f4a8987431c3b461c2a21ea42a46de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72f4a8987431c3b461c2a21ea42a46de">&#9670;&nbsp;</a></span>CheckedItem() <span class="overload">[2/3]</span></h2>
+<a id="a5008e79b11a61f591d3c6287082a74bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5008e79b11a61f591d3c6287082a74bb">&#9670;&nbsp;</a></span>CheckedItem() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -296,18 +311,18 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a7321df3bd6b424ab54f940f3473beaa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7321df3bd6b424ab54f940f3473beaa4">&#9670;&nbsp;</a></span>CheckedItem() <span class="overload">[3/3]</span></h2>
+<a id="a2f27a14fde9460b4a85a6ca2a60fac32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f27a14fde9460b4a85a6ca2a60fac32">&#9670;&nbsp;</a></span>CheckedItem() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -316,19 +331,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a0cce79029c1cc90f5de556c678b9e65f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cce79029c1cc90f5de556c678b9e65f">&#9670;&nbsp;</a></span>~CheckedItem()</h2>
+<a id="a8213886193329e417970bedf76d84942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8213886193329e417970bedf76d84942">&#9670;&nbsp;</a></span>~CheckedItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::~<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
+          <td class="memname">virtual <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::~<a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -344,19 +359,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a68fd02e1bd5cb800316014f75619ebcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68fd02e1bd5cb800316014f75619ebcc">&#9670;&nbsp;</a></span>chckitm_check_()</h2>
+<a id="a6797d4f77c9c0672a6bd85b6cf3316a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6797d4f77c9c0672a6bd85b6cf3316a2">&#9670;&nbsp;</a></span>chckitm_check_()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::chckitm_check_ </td>
+          <td class="memname">bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::chckitm_check_ </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -371,19 +386,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a7caf729949a22fd433331f319afd6865"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7caf729949a22fd433331f319afd6865">&#9670;&nbsp;</a></span>chckitm_getValue()</h2>
+<a id="afb23ec40472ae9c3a18235eeeeab56aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb23ec40472ae9c3a18235eeeeab56aa">&#9670;&nbsp;</a></span>chckitm_getValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::chckitm_getValue </td>
+          <td class="memname">const T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::chckitm_getValue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -398,100 +413,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="ad5c080e32c963db9a85e437a34b573a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5c080e32c963db9a85e437a34b573a5">&#9670;&nbsp;</a></span>isSet()</h2>
+<a id="a7464209694af17bb02f569f8f044a0d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7464209694af17bb02f569f8f044a0d9">&#9670;&nbsp;</a></span>getRefUnchecked() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::isSet </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af359019731aae1de7f2f75ea2a638d39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af359019731aae1de7f2f75ea2a638d39">&#9670;&nbsp;</a></span>operator const T &amp;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::operator const T &amp; </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5bce8364ab5313411bb365b58272facb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bce8364ab5313411bb365b58272facb">&#9670;&nbsp;</a></span>operator T()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::operator T </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0c163b6634806f484344936026040d44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c163b6634806f484344936026040d44">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::operator() </td>
+          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::getRefUnchecked </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -506,19 +440,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="ab957732a108376eac60d28bb4bc30bfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab957732a108376eac60d28bb4bc30bfa">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="a288d55b8d63b6123d935752db2e8abff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288d55b8d63b6123d935752db2e8abff">&#9670;&nbsp;</a></span>getRefUnchecked() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::operator() </td>
+          <td class="memname">const T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::getRefUnchecked </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -533,21 +467,101 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a281fc028eb3ad1b0dd8b3ed63df68700"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a281fc028eb3ad1b0dd8b3ed63df68700">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ad0f3ef9840f7a577b0244dd4575d12b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f3ef9840f7a577b0244dd4575d12b3">&#9670;&nbsp;</a></span>isSet()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::operator= </td>
+          <td class="memname">bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::isSet </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ce347832a64c0f281dcc8f0441714c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ce347832a64c0f281dcc8f0441714c2">&#9670;&nbsp;</a></span>operator const T &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::operator const T &amp; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae501fd0cefd015b47ddd8bd9f731cb36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae501fd0cefd015b47ddd8bd9f731cb36">&#9670;&nbsp;</a></span>operator T()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::operator T </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a04a0c284f7c97f6a4d85660b640bc015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a0c284f7c97f6a4d85660b640bc015">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::operator() </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -561,19 +575,74 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="aaa28bd184628a8dd3f5ee9a2c4c3063f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa28bd184628a8dd3f5ee9a2c4c3063f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="aa7f4787aaa59f4a2e5bc758ebe319ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f4787aaa59f4a2e5bc758ebe319ed2">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::operator= </td>
+          <td class="memname">const T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93b213048359dc32a0dc726c23e9d150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b213048359dc32a0dc726c23e9d150">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classstateObservation_1_1CheckedItem.html">CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa22ecc244787559e7bd797f466bf19d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa22ecc244787559e7bd797f466bf19d2">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::operator= </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -589,19 +658,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a4fa842cac87229eb793137ed2e8bc43b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fa842cac87229eb793137ed2e8bc43b">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="ae8db099b5470a05e8d05388271259301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8db099b5470a05e8d05388271259301">&#9670;&nbsp;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::reset </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -616,19 +685,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a9eb20a621e732465dac4e11de094c7c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eb20a621e732465dac4e11de094c7c5">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
+<a id="ae06fc22f405e01b35c5fa346b700d908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae06fc22f405e01b35c5fa346b700d908">&#9670;&nbsp;</a></span>set() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::set </td>
+          <td class="memname">T&amp; <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::set </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -644,19 +713,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a37c50a4f2e4ff48a930ba2fc1fc8ab35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37c50a4f2e4ff48a930ba2fc1fc8ab35">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
+<a id="aa14c699d55f6644089272d56b29a4f77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa14c699d55f6644089272d56b29a4f77">&#9670;&nbsp;</a></span>set() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::set </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::set </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -674,16 +743,16 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="ae6a4661ff12e5e64490ed28e1c49a30c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6a4661ff12e5e64490ed28e1c49a30c">&#9670;&nbsp;</a></span>setAssertMessage()</h2>
+<a id="a8aaad7e874bd473088435e48fd68b4bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aaad7e874bd473088435e48fd68b4bc">&#9670;&nbsp;</a></span>setAssertMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::setAssertMessage </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::setAssertMessage </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -694,16 +763,16 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="abb85bf0c1c6431ce4715644d765b3452"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb85bf0c1c6431ce4715644d765b3452">&#9670;&nbsp;</a></span>setExceptionPtr()</h2>
+<a id="a8dea1d6754ee5711bfa208cf0b6badae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dea1d6754ee5711bfa208cf0b6badae">&#9670;&nbsp;</a></span>setExceptionPtr()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::setExceptionPtr </td>
+          <td class="memname">void <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::setExceptionPtr </td>
           <td>(</td>
           <td class="paramtype">std::exception *&#160;</td>
           <td class="paramname"><em>e</em></td><td>)</td>
@@ -715,19 +784,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8e45084f120d6f782aec4929e93a4844"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e45084f120d6f782aec4929e93a4844">&#9670;&nbsp;</a></span>assertMsg_</h2>
+<a id="a568f8d29c07a924e9bb40fd42d854e1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568f8d29c07a924e9bb40fd42d854e1e">&#9670;&nbsp;</a></span>assertMsg_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html#a7bacb9583ec80cec7b1754706047d116">AssertMsg</a> <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::assertMsg_</td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html#a430a01c5e1bada9356bb1acd3f115c68">AssertMsg</a> <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::assertMsg_</td>
         </tr>
       </table>
   </td>
@@ -739,19 +808,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="aa1290ff1e7ac6a25c5c6faabe3e96f22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1290ff1e7ac6a25c5c6faabe3e96f22">&#9670;&nbsp;</a></span>do_assert_</h2>
+<a id="ad45da5ba0a52d5c6452cd6ca6fed491e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad45da5ba0a52d5c6452cd6ca6fed491e">&#9670;&nbsp;</a></span>do_assert_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::do_assert_ = <a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a> &amp;&amp; assertion</td>
+          <td class="memname">const bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::do_assert_ = <a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a> &amp;&amp; assertion</td>
         </tr>
       </table>
   </td>
@@ -763,19 +832,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a873f1d6d12f25223ce80b9cb68bc17bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a873f1d6d12f25223ce80b9cb68bc17bd">&#9670;&nbsp;</a></span>do_check_</h2>
+<a id="a204c9f045d2f55d724f39a1d11fed70e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204c9f045d2f55d724f39a1d11fed70e">&#9670;&nbsp;</a></span>do_check_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::do_check_ = !lazy || isDebug</td>
+          <td class="memname">const bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::do_check_ = !lazy || isDebug</td>
         </tr>
       </table>
   </td>
@@ -787,19 +856,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a9f6d3c18eaefede4c15fbde61e12fc3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f6d3c18eaefede4c15fbde61e12fc3a">&#9670;&nbsp;</a></span>do_exception_</h2>
+<a id="a6f7ec8a0e1c07e50987df595b3e9e23d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f7ec8a0e1c07e50987df595b3e9e23d">&#9670;&nbsp;</a></span>do_exception_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::do_exception_ = <a class="el" href="classstateObservation_1_1CheckedItem.html#a873f1d6d12f25223ce80b9cb68bc17bd">do_check_</a> &amp;&amp; !assertion</td>
+          <td class="memname">const bool <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::do_exception_ = <a class="el" href="classstateObservation_1_1CheckedItem.html#a204c9f045d2f55d724f39a1d11fed70e">do_check_</a> &amp;&amp; !assertion</td>
         </tr>
       </table>
   </td>
@@ -811,19 +880,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="a4bc1982ecd9ce069a304eabc8e5b6a58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bc1982ecd9ce069a304eabc8e5b6a58">&#9670;&nbsp;</a></span>exceptionPtr_</h2>
+<a id="aba3f0ef35197d9c0dbcb78510cb0a3d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba3f0ef35197d9c0dbcb78510cb0a3d6">&#9670;&nbsp;</a></span>exceptionPtr_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html#a0d60a9634b6f4b1f6c0ece9aed55535e">ExceptionPtr</a> <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::exceptionPtr_</td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html#a9561af80c071ec78ac049e2f082f29cc">ExceptionPtr</a> <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::exceptionPtr_</td>
         </tr>
       </table>
   </td>
@@ -835,19 +904,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="ac155961f6f9dc3fd3a37603fae7ad386"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac155961f6f9dc3fd3a37603fae7ad386">&#9670;&nbsp;</a></span>isSet_</h2>
+<a id="a95f5b6df3b4f57f8f5350a93b317ac8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f5b6df3b4f57f8f5350a93b317ac8e">&#9670;&nbsp;</a></span>isSet_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html#a1d1cb05f76bebc68d8703b39eb62051e">IsSet</a> <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::isSet_</td>
+          <td class="memname"><a class="el" href="classstateObservation_1_1CheckedItem.html#a69d105585d6ffb672575799bff4594a2">IsSet</a> <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::isSet_</td>
         </tr>
       </table>
   </td>
@@ -859,19 +928,19 @@ template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool asser
 
 </div>
 </div>
-<a id="abda5712a0eadc461a7475bed36eaa8d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abda5712a0eadc461a7475bed36eaa8d8">&#9670;&nbsp;</a></span>v_</h2>
+<a id="abfdf60680434b82e4739b730afab2dc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfdf60680434b82e4739b730afab2dc6">&#9670;&nbsp;</a></span>v_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false&gt; </div>
+template&lt;typename T , bool lazy = false, bool alwaysCheck = false, bool assertion = true, bool eigenAlignedNew = false, typename additionalChecker  = EmptyChecker&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;::v_</td>
+          <td class="memname">T <a class="el" href="classstateObservation_1_1CheckedItem.html">stateObservation::CheckedItem</a>&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;::v_</td>
         </tr>
       </table>
   </td>

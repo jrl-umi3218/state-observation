@@ -6,6 +6,7 @@ var dir_cda5fc5be0e10eb55ab46f5ba25ddf36 =
       [ "IMU", "structstateObservation_1_1KineticsObserver_1_1IMU.html", "structstateObservation_1_1KineticsObserver_1_1IMU" ],
       [ "Contact", "structstateObservation_1_1KineticsObserver_1_1Contact.html", "structstateObservation_1_1KineticsObserver_1_1Contact" ],
       [ "AbsolutePoseSensor", "structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor.html", "structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor" ],
+      [ "AbsoluteOriSensor", "structstateObservation_1_1KineticsObserver_1_1AbsoluteOriSensor.html", "structstateObservation_1_1KineticsObserver_1_1AbsoluteOriSensor" ],
       [ "Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", "structstateObservation_1_1KineticsObserver_1_1Opt" ]
     ] ],
     [ "lipm-dcm-estimator.hpp", "lipm-dcm-estimator_8hpp.html", [

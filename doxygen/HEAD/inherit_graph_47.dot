@@ -4,5 +4,7 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::kine\l::Orientation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1kine_1_1Orientation.html",tooltip=" "];
+  Node0 [label="stateObservation::kine\l::internal::KinematicsInternal\l\< Kinematics \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="stateObservation::kine\l::Kinematics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structstateObservation_1_1kine_1_1Kinematics.html",tooltip="Class facilitating the manipulation of the kinematics of a frame within another and the associated op..."];
 }

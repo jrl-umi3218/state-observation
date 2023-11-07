@@ -20,5 +20,5 @@ digraph "stateObservation::DynamicalSystemFunctorBase"
   Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node8 [label="stateObservation::IMUMltpctive\lDynamicalSystem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1IMUMltpctiveDynamicalSystem.html",tooltip="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..."];
   Node1 -> Node9 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html",tooltip="This observer estimated the kinematics and the external forces."];
+  Node9 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html",tooltip="This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements,..."];
 }

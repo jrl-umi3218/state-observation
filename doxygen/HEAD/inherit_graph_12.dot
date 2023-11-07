@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="stateObservation::DebugItem\lDefaultValue\< T, defaultValue \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItemDefaultValue.html",tooltip=" "];
+  Node0 [label="stateObservation::DebugItem\l\< T, defaultValue, false \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html",tooltip="this specialization contains no object"];
 }

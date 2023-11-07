@@ -6,7 +6,7 @@ digraph "stateObservation::kine::Orientation"
   rankdir="LR";
   Node1 [label="stateObservation::kine\l::Orientation",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_" ,fontname="Helvetica"];
-  Node2 [label="stateObservation::Checked\lItem\< Matrix3, false, false,\l true, true \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip=" "];
+  Node2 [label="stateObservation::Checked\lItem\< Matrix3, false, false,\l true, true, CheckNaN \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1CheckedItem.html",tooltip=" "];
   Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
   Node3 [label="stateObservation::DebugItem\l\< const std::exception *,\l detail::defaultExceptionAddr,\l do_exception_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
   Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];

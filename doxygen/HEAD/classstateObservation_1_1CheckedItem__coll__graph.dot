@@ -1,10 +1,10 @@
-digraph "stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew &gt;"
+digraph "stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node1 [label="stateObservation::Checked\lItem\< T, lazy, alwaysCheck,\l assertion, eigenAlignedNew \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="stateObservation::Checked\lItem\< T, lazy, alwaysCheck,\l assertion, eigenAlignedNew,\l additionalChecker \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="this is a structure allowing for automatically verifying that the item has been initialized or not...."];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" exceptionPtr_" ,fontname="Helvetica"];
   Node2 [label="stateObservation::DebugItem\l\< const std::exception *,\l detail::defaultExceptionAddr,\l do_exception_ \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
   Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" isSet_" ,fontname="Helvetica"];

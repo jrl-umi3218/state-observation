@@ -4,7 +4,7 @@ digraph "stateObservation::KineticsObserver"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node1 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This observer estimated the kinematics and the external forces."];
+  Node1 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements,..."];
   Node2 -> Node1 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="stateObservation::Dynamical\lSystemFunctorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DynamicalSystemFunctorBase.html",tooltip="This is the base class of any functor that describes the dynamics of the state and the measurement...."];
   Node3 -> Node1 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];

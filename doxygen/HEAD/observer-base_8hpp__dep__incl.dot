@@ -35,5 +35,8 @@ digraph "include/state-observation/observer/observer-base.hpp"
   Node13 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node16 [label="include/state-observation\l/dynamics-estimators/zmp\l-tracking-gain-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$zmp-tracking-gain-estimator_8hpp.html",tooltip=" "];
   Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node17 [label="include/state-observation\l/observer/tilt-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tilt-estimator_8hpp.html",tooltip="Defines the class for the tilt estimator."];
+  Node17 [label="include/state-observation\l/observer/tilt-estimator.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tilt-estimator_8hpp.html",tooltip="Version of the Tilt Estimator that implements all the necessary functions to perform the estimation f..."];
+  Node17 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="include/state-observation\l/observer/tilt-estimator\l-humanoid.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$tilt-estimator-humanoid_8hpp.html",tooltip=" "];
+  Node2 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

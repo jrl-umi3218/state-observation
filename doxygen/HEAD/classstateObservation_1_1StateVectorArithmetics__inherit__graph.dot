@@ -14,5 +14,5 @@ digraph "stateObservation::StateVectorArithmetics"
   Node3 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="stateObservation::Linear\lKalmanFilter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1LinearKalmanFilter.html",tooltip="The class of a Linear Kalman filter."];
   Node1 -> Node6 [dir="back",color="darkgreen",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html",tooltip="This observer estimated the kinematics and the external forces."];
+  Node6 [label="stateObservation::Kinetics\lObserver",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1KineticsObserver.html",tooltip="This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements,..."];
 }

@@ -14,6 +14,9 @@ var dir_c4c28657b08aec13789223b1c69a0431 =
     [ "observer-base.hpp", "observer-base_8hpp.html", [
       [ "ObserverBase", "classstateObservation_1_1ObserverBase.html", "classstateObservation_1_1ObserverBase" ]
     ] ],
+    [ "tilt-estimator-humanoid.hpp", "tilt-estimator-humanoid_8hpp.html", [
+      [ "TiltEstimatorHumanoid", "classstateObservation_1_1TiltEstimatorHumanoid.html", "classstateObservation_1_1TiltEstimatorHumanoid" ]
+    ] ],
     [ "tilt-estimator.hpp", "tilt-estimator_8hpp.html", [
       [ "TiltEstimator", "classstateObservation_1_1TiltEstimator.html", "classstateObservation_1_1TiltEstimator" ]
     ] ],

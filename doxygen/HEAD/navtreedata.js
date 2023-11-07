@@ -49,7 +49,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -66,13 +67,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "accelerometer-gyrometer-magnetometer_8hpp.html",
-"classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#ac56845ec6b4efe006f52dd926a080251",
-"classstateObservation_1_1KineticsObserver.html#a5e066c733993fd2c225d4bb57c23e9a8",
-"classstateObservation_1_1ObserverBase.html#aa393736477ffce4ef0a9346e9e13f716",
-"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#a17993408f08ef4411ad2a7da058a5696",
-"classstateObservation_1_1kine_1_1Orientation.html#a542e5c23cb070dfc1a43f099ab2a0c0f",
-"imu-multiplicative-attitude-reconstruction_8hpp.html#a1c59a4bf9cc0402e665e5eb35811642f",
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a3284f832edb1db7899717a6cb9b3f352"
+"classstateObservation_1_1IMUMagnetometerDynamicalSystem.html#ab5f8da3e86a2362132389aa5037f35fb",
+"classstateObservation_1_1KineticsObserver.html#a3f9acccff5060103ed26ff50b71195fc",
+"classstateObservation_1_1LipmDcmEstimator.html#a3d37c23836d259b96c1b3a10d313cbcf",
+"classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a505abc5a6738b71f2656bc08f64069f7",
+"classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#ab8d60113a7e1f97431f67e10529f9f1c",
+"functions_func_v.html",
+"structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html#aae39b1d3c3893c96cfcd0286b6540db5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -113,9 +113,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">stateObservation::kine::Orientation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1kine_1_1Kinematics.html">stateObservation::kine::Kinematics</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html">stateObservation::kine::internal::KinematicsInternal&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1kine_1_1Kinematics_1_1Flags.html">stateObservation::kine::Kinematics::Flags</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1kine_1_1internal_1_1KinematicsInternal_1_1Flags.html">stateObservation::kine::internal::KinematicsInternal&lt; T &gt;::Flags</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1kine_1_1Kinematics.html">stateObservation::kine::Kinematics</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class facilitating the manipulation of the kinematics of a frame within another and the associated operations.  <a href="structstateObservation_1_1kine_1_1Kinematics.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstateObservation_1_1kine_1_1LocalKinematics.html">stateObservation::kine::LocalKinematics</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class facilitating the manipulation of the local kinematics of a frame within another and the associated operations.  <a href="structstateObservation_1_1kine_1_1LocalKinematics.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -123,6 +129,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacestateObservation"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation.html">stateObservation</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacestateObservation_1_1kine"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html">stateObservation::kine</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacestateObservation_1_1kine_1_1internal"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine_1_1internal.html">stateObservation::kine::internal</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -161,22 +169,22 @@ Functions</h2></td></tr>
 <tr class="memitem:a0287a3944705f372e2ac2ac31bac4bb8"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a0287a3944705f372e2ac2ac31bac4bb8">stateObservation::kine::regulateRotationVector</a> (const Vector3 &amp;v)</td></tr>
 <tr class="separator:a0287a3944705f372e2ac2ac31bac4bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="memItemLeft" align="right" valign="top">AngleAxis&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a6df5915c78e5e7d5cf388ca1a299a0e1">stateObservation::kine::rotationVectorToAngleAxis</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform the rotation vector into angle axis.  <a href="namespacestateObservation_1_1kine.html#a6df5915c78e5e7d5cf388ca1a299a0e1">More...</a><br /></td></tr>
+<tr class="memdesc:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the rotation vector into angle axis.  <a href="namespacestateObservation_1_1kine.html#a6df5915c78e5e7d5cf388ca1a299a0e1">More...</a><br /></td></tr>
 <tr class="separator:a6df5915c78e5e7d5cf388ca1a299a0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a863a3b576b3e9f738e4363df6a626417"><td class="memItemLeft" align="right" valign="top">Matrix3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a863a3b576b3e9f738e4363df6a626417">stateObservation::kine::rotationVectorToRotationMatrix</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a863a3b576b3e9f738e4363df6a626417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform the rotation vector into rotation matrix.  <a href="namespacestateObservation_1_1kine.html#a863a3b576b3e9f738e4363df6a626417">More...</a><br /></td></tr>
+<tr class="memdesc:a863a3b576b3e9f738e4363df6a626417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the rotation vector into rotation matrix.  <a href="namespacestateObservation_1_1kine.html#a863a3b576b3e9f738e4363df6a626417">More...</a><br /></td></tr>
 <tr class="separator:a863a3b576b3e9f738e4363df6a626417"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f5d46cdaa166617af8af94aa26961ea"><td class="memItemLeft" align="right" valign="top">Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a1f5d46cdaa166617af8af94aa26961ea">stateObservation::kine::rotationVectorToQuaternion</a> (const Vector3 &amp;v)</td></tr>
-<tr class="memdesc:a1f5d46cdaa166617af8af94aa26961ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform the rotation vector into quaternion.  <a href="namespacestateObservation_1_1kine.html#a1f5d46cdaa166617af8af94aa26961ea">More...</a><br /></td></tr>
+<tr class="memdesc:a1f5d46cdaa166617af8af94aa26961ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the rotation vector into quaternion.  <a href="namespacestateObservation_1_1kine.html#a1f5d46cdaa166617af8af94aa26961ea">More...</a><br /></td></tr>
 <tr class="separator:a1f5d46cdaa166617af8af94aa26961ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a85b273f5ee7241b3632c70f1fc3d76ed">stateObservation::kine::rotationMatrixToRotationVector</a> (const Matrix3 &amp;R)</td></tr>
-<tr class="memdesc:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform the rotation matrix into rotation vector.  <a href="namespacestateObservation_1_1kine.html#a85b273f5ee7241b3632c70f1fc3d76ed">More...</a><br /></td></tr>
+<tr class="memdesc:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the rotation matrix into rotation vector.  <a href="namespacestateObservation_1_1kine.html#a85b273f5ee7241b3632c70f1fc3d76ed">More...</a><br /></td></tr>
 <tr class="separator:a85b273f5ee7241b3632c70f1fc3d76ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac19d92086c08887462ed02c7fc6807b9"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#ac19d92086c08887462ed02c7fc6807b9">stateObservation::kine::quaternionToRotationVector</a> (const Quaternion &amp;q)</td></tr>
 <tr class="memdesc:ac19d92086c08887462ed02c7fc6807b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform a quaternion into rotation vector.  <a href="namespacestateObservation_1_1kine.html#ac19d92086c08887462ed02c7fc6807b9">More...</a><br /></td></tr>
 <tr class="separator:ac19d92086c08887462ed02c7fc6807b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#acfd9b69aa25ea3efaf35c7dc20a900b7">stateObservation::kine::quaternionToRotationVector</a> (const Vector4 &amp;v)</td></tr>
-<tr class="memdesc:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tranbsform a quaternion into rotation vector.  <a href="namespacestateObservation_1_1kine.html#acfd9b69aa25ea3efaf35c7dc20a900b7">More...</a><br /></td></tr>
+<tr class="memdesc:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a quaternion into rotation vector.  <a href="namespacestateObservation_1_1kine.html#acfd9b69aa25ea3efaf35c7dc20a900b7">More...</a><br /></td></tr>
 <tr class="separator:acfd9b69aa25ea3efaf35c7dc20a900b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e5c5e4498da6d68a70a9fb8dfdc8ada"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestateObservation_1_1kine.html#a9e5c5e4498da6d68a70a9fb8dfdc8ada">stateObservation::kine::scalarComponent</a> (const Quaternion &amp;q)</td></tr>
 <tr class="memdesc:a9e5c5e4498da6d68a70a9fb8dfdc8ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">scalar component of a quaternion  <a href="namespacestateObservation_1_1kine.html#a9e5c5e4498da6d68a70a9fb8dfdc8ada">More...</a><br /></td></tr>
@@ -290,6 +298,8 @@ Functions</h2></td></tr>
 <tr class="separator:a11103e044b5db4b8ba4857f88ee82504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61601d32684f4f130ec6a54939f27ea"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rigid-body-kinematics_8hpp.html#ae61601d32684f4f130ec6a54939f27ea">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structstateObservation_1_1kine_1_1Kinematics.html">stateObservation::kine::Kinematics</a> &amp;k)</td></tr>
 <tr class="separator:ae61601d32684f4f130ec6a54939f27ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df81e15302604b989a1d6a02fbab691"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rigid-body-kinematics_8hpp.html#a6df81e15302604b989a1d6a02fbab691">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structstateObservation_1_1kine_1_1LocalKinematics.html">stateObservation::kine::LocalKinematics</a> &amp;k)</td></tr>
+<tr class="separator:a6df81e15302604b989a1d6a02fbab691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -303,7 +313,7 @@ Variables</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2013 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ae61601d32684f4f130ec6a54939f27ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae61601d32684f4f130ec6a54939f27ea">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae61601d32684f4f130ec6a54939f27ea">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,6 +331,42 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structstateObservation_1_1kine_1_1Kinematics.html">stateObservation::kine::Kinematics</a> &amp;&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6df81e15302604b989a1d6a02fbab691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df81e15302604b989a1d6a02fbab691">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structstateObservation_1_1kine_1_1LocalKinematics.html">stateObservation::kine::LocalKinematics</a> &amp;&#160;</td>
           <td class="paramname"><em>k</em>&#160;</td>
         </tr>
         <tr>

@@ -122,11 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2b7268a380f3abcbae274b4d7e89ded2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae53d6484d365b6379c831b53b88bc59e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ae53d6484d365b6379c831b53b88bc59e">setRandom</a> ()</td></tr>
 <tr class="separator:ae53d6484d365b6379c831b53b88bc59e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada01e21079c6c974cb66c1a93975a2fa"><td class="memTemplParams" colspan="2">template&lt;typename t &gt; </td></tr>
+<tr class="memitem:ada01e21079c6c974cb66c1a93975a2fa"><td class="memTemplParams" colspan="2">template&lt;typename t  = Quaternion&gt; </td></tr>
 <tr class="memitem:ada01e21079c6c974cb66c1a93975a2fa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ada01e21079c6c974cb66c1a93975a2fa">setZeroRotation</a> ()</td></tr>
 <tr class="separator:ada01e21079c6c974cb66c1a93975a2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2ddd1129cd514fff97b8afa60db7e3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ab2ddd1129cd514fff97b8afa60db7e3e">setZeroRotation</a> ()</td></tr>
-<tr class="separator:ab2ddd1129cd514fff97b8afa60db7e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a379f6965e80ce38659897d674ba873a3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespacestateObservation.html#a76df2159abbf28e45b50358d0edab068">Matrix3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a379f6965e80ce38659897d674ba873a3">toMatrix3</a> () const</td></tr>
 <tr class="memdesc:a379f6965e80ce38659897d674ba873a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a const reference on the matrix or the quaternion  <a href="classstateObservation_1_1kine_1_1Orientation.html#a379f6965e80ce38659897d674ba873a3">More...</a><br /></td></tr>
 <tr class="separator:a379f6965e80ce38659897d674ba873a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,27 +151,38 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a646ff5149dde1439e24df0679627eda2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae82f88440eb0c6b8d1a2ce26b1e03002"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ae82f88440eb0c6b8d1a2ce26b1e03002">integrate</a> (<a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> dt_x_omega)</td></tr>
 <tr class="separator:ae82f88440eb0c6b8d1a2ce26b1e03002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47ed885c726f88fd7f744545b511dbc1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a47ed885c726f88fd7f744545b511dbc1">integrateRightSide</a> (<a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> dt_x_omega)</td></tr>
+<tr class="separator:a47ed885c726f88fd7f744545b511dbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab13ad728aa393e8b0e9169e716a7cd7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ab13ad728aa393e8b0e9169e716a7cd7b">differentiate</a> (<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> R_k1) const</td></tr>
+<tr class="memdesc:ab13ad728aa393e8b0e9169e716a7cd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the log (rotation vector) of the "left-side" difference of orientation: log of R_k1*(*this).<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2">inverse()</a>.  <a href="classstateObservation_1_1kine_1_1Orientation.html#ab13ad728aa393e8b0e9169e716a7cd7b">More...</a><br /></td></tr>
 <tr class="separator:ab13ad728aa393e8b0e9169e716a7cd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa878678519485e2ec02e3cb466285033"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#aa878678519485e2ec02e3cb466285033">differentiateRightSide</a> (<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> R_k1) const</td></tr>
+<tr class="memdesc:aa878678519485e2ec02e3cb466285033"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the log (rotation vector) of the "right-side" difference of orientation: log of (*this).<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2">inverse()</a> * R_k1.  <a href="classstateObservation_1_1kine_1_1Orientation.html#aa878678519485e2ec02e3cb466285033">More...</a><br /></td></tr>
+<tr class="separator:aa878678519485e2ec02e3cb466285033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71c7081947248dcebcd8c4fb47a45269"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a71c7081947248dcebcd8c4fb47a45269">operator*</a> (const <a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> &amp;v) const</td></tr>
 <tr class="memdesc:a71c7081947248dcebcd8c4fb47a45269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a vector.  <a href="classstateObservation_1_1kine_1_1Orientation.html#a71c7081947248dcebcd8c4fb47a45269">More...</a><br /></td></tr>
 <tr class="separator:a71c7081947248dcebcd8c4fb47a45269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35d453bd78ff88e3fbb99007da56bdd5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a35d453bd78ff88e3fbb99007da56bdd5">isSet</a> () const</td></tr>
+<tr class="memdesc:a35d453bd78ff88e3fbb99007da56bdd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that the orientation has been assigned a value.  <a href="classstateObservation_1_1kine_1_1Orientation.html#a35d453bd78ff88e3fbb99007da56bdd5">More...</a><br /></td></tr>
 <tr class="separator:a35d453bd78ff88e3fbb99007da56bdd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28915092485c252bacf8859646d26ea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a28915092485c252bacf8859646d26ea0">reset</a> ()</td></tr>
+<tr class="memdesc:a28915092485c252bacf8859646d26ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets the <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> object.  <a href="classstateObservation_1_1kine_1_1Orientation.html#a28915092485c252bacf8859646d26ea0">More...</a><br /></td></tr>
 <tr class="separator:a28915092485c252bacf8859646d26ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a32585a464a53febabebdfad3f636a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3">isMatrixSet</a> () const</td></tr>
+<tr class="memdesc:a7a32585a464a53febabebdfad3f636a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that the matrix representation of the orientation has been assigned a value.  <a href="classstateObservation_1_1kine_1_1Orientation.html#a7a32585a464a53febabebdfad3f636a3">More...</a><br /></td></tr>
 <tr class="separator:a7a32585a464a53febabebdfad3f636a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae77c280eb8b7766267f21b7ebb638245"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#ae77c280eb8b7766267f21b7ebb638245">isQuaternionSet</a> () const</td></tr>
+<tr class="memdesc:ae77c280eb8b7766267f21b7ebb638245"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks that the quaternion representation of the orientation has been assigned a value.  <a href="classstateObservation_1_1kine_1_1Orientation.html#ae77c280eb8b7766267f21b7ebb638245">More...</a><br /></td></tr>
 <tr class="separator:ae77c280eb8b7766267f21b7ebb638245"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a271765bcecc81357dbaa358faf5bd824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a271765bcecc81357dbaa358faf5bd824">setMatrix</a> (bool b=true)</td></tr>
 <tr class="separator:a271765bcecc81357dbaa358faf5bd824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e3e79e808dba3844bf7d0740114dfd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a3e3e79e808dba3844bf7d0740114dfd2">setQuaternion</a> (bool b=true)</td></tr>
 <tr class="separator:a3e3e79e808dba3844bf7d0740114dfd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b4e887b17e8ad5f2bfdcd2c80f4c045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a1b4e887b17e8ad5f2bfdcd2c80f4c045">getMatrixRefUnsafe</a> ()</td></tr>
+<tr class="memitem:a1b4e887b17e8ad5f2bfdcd2c80f4c045"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#ac7d764f0de6c89bd63b44dd8e4fed882">CheckedMatrix3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a1b4e887b17e8ad5f2bfdcd2c80f4c045">getMatrixRefUnsafe</a> ()</td></tr>
 <tr class="memdesc:a1b4e887b17e8ad5f2bfdcd2c80f4c045"><td class="mdescLeft">&#160;</td><td class="mdescRight">no checks are performed for these functions, use with caution  <a href="classstateObservation_1_1kine_1_1Orientation.html#a1b4e887b17e8ad5f2bfdcd2c80f4c045">More...</a><br /></td></tr>
 <tr class="separator:a1b4e887b17e8ad5f2bfdcd2c80f4c045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6086d1c76532450603e70d0ebe6e1f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#aa3771fcbd17321c96ddc17e2b1f1a7da">CheckedQuaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#aa6086d1c76532450603e70d0ebe6e1f5">getQuaternionRefUnsafe</a> ()</td></tr>
+<tr class="memdesc:aa6086d1c76532450603e70d0ebe6e1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a reference to the quaternion representation of the orientation without calling the check functions.  <a href="classstateObservation_1_1kine_1_1Orientation.html#aa6086d1c76532450603e70d0ebe6e1f5">More...</a><br /></td></tr>
 <tr class="separator:aa6086d1c76532450603e70d0ebe6e1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7264fb8bc4eb37a6284c2a5b78b991f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a7264fb8bc4eb37a6284c2a5b78b991f0">synchronize</a> ()</td></tr>
 <tr class="memdesc:a7264fb8bc4eb37a6284c2a5b78b991f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">synchronizes the representations (quaternion and rotation matrix)  <a href="classstateObservation_1_1kine_1_1Orientation.html#a7264fb8bc4eb37a6284c2a5b78b991f0">More...</a><br /></td></tr>
@@ -201,7 +210,7 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a496f9b46c94c0da2d948f06887a16f2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#aa3771fcbd17321c96ddc17e2b1f1a7da">CheckedQuaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a496f9b46c94c0da2d948f06887a16f2e">q_</a></td></tr>
 <tr class="separator:a496f9b46c94c0da2d948f06887a16f2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc5d2e99b7aa0f80112664b8565abc8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#afc5d2e99b7aa0f80112664b8565abc8a">m_</a></td></tr>
+<tr class="memitem:afc5d2e99b7aa0f80112664b8565abc8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacestateObservation.html#ac7d764f0de6c89bd63b44dd8e4fed882">CheckedMatrix3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#afc5d2e99b7aa0f80112664b8565abc8a">m_</a></td></tr>
 <tr class="separator:afc5d2e99b7aa0f80112664b8565abc8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -477,7 +486,50 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>gives the log (rotation vector) of the difference of orientation gives log of (*this).<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2">inverse()</a>*R_k1 </p>
+
+<p>gives the log (rotation vector) of the "left-side" difference of orientation: log of R_k1*(*this).<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2">inverse()</a>. </p>
+<p>This function is also used to differentiate two Orientations expressed in the same frame at the same time k, even for the <a class="el" href="structstateObservation_1_1kine_1_1LocalKinematics.html" title="Class facilitating the manipulation of the local kinematics of a frame within another and the associa...">LocalKinematics</a> (the integration of the orientation is different and therefore the associated differentiation also is, but the difference remains the same) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">R_k1</td><td>the other orientation with which we compute the difference. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 </dd></dl>
+
+</div>
+</div>
+<a id="aa878678519485e2ec02e3cb466285033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa878678519485e2ec02e3cb466285033">&#9670;&nbsp;</a></span>differentiateRightSide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a> stateObservation::kine::Orientation::differentiateRightSide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a>&#160;</td>
+          <td class="paramname"><em>R_k1</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>gives the log (rotation vector) of the "right-side" difference of orientation: log of (*this).<a class="el" href="classstateObservation_1_1kine_1_1Orientation.html#a646ff5149dde1439e24df0679627eda2">inverse()</a> * R_k1. </p>
+<p>This function is also used to differentiate two Orientations expressed in the same frame at the same time k, even for the <a class="el" href="structstateObservation_1_1kine_1_1LocalKinematics.html" title="Class facilitating the manipulation of the local kinematics of a frame within another and the associa...">LocalKinematics</a> (the integration of the orientation is different and therefore the associated differentiation also is, but the difference remains the same) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">R_k1</td><td>the other orientation with which we compute the difference. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector3 </dd></dl>
 
 </div>
 </div>
@@ -517,7 +569,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a>&amp; stateObservation::kine::Orientation::getMatrixRefUnsafe </td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#ac7d764f0de6c89bd63b44dd8e4fed882">CheckedMatrix3</a>&amp; stateObservation::kine::Orientation::getMatrixRefUnsafe </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -531,6 +583,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>no checks are performed for these functions, use with caution </p>
+<p>get a reference to the matrix representation of the orientation without calling the check functions.</p>
+<p>Has to be used with care as this function doesn't check that the matrix has been assigned values. </p><dl class="section return"><dt>Returns</dt><dd>CheckedMatrix3 </dd></dl>
 
 </div>
 </div>
@@ -557,6 +611,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>get a reference to the quaternion representation of the orientation without calling the check functions. </p>
+<p>Has to be used with care as this function doesn't check that the quaternion has been assigned values. </p><dl class="section return"><dt>Returns</dt><dd>CheckedQuaternion </dd></dl>
+
 </div>
 </div>
 <a id="ae82f88440eb0c6b8d1a2ce26b1e03002"></a>
@@ -582,7 +639,34 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>use the vector dt_x_omega as the increment of rotation expressed in the world frame. Which gives R_{k+1}=\exp(S(dtxomega))R_k </p>
+<p>uses the vector dt_x_omega as the increment of rotation expressed in the world frame. Which gives R_{k+1}=\exp(S(dtxomega))R_k. This function is also used to sum two Orientations expressed in the same frame at the same time k, even for the <a class="el" href="structstateObservation_1_1kine_1_1LocalKinematics.html" title="Class facilitating the manipulation of the local kinematics of a frame within another and the associa...">LocalKinematics</a> (the integration of the orientation is different but not the sum) </p>
+
+</div>
+</div>
+<a id="a47ed885c726f88fd7f744545b511dbc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47ed885c726f88fd7f744545b511dbc1">&#9670;&nbsp;</a></span>integrateRightSide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a>&amp; stateObservation::kine::Orientation::integrateRightSide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacestateObservation.html#a48b631a657b372795575083586eed2b7">Vector3</a>&#160;</td>
+          <td class="paramname"><em>dt_x_omega</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>use the vector dt_x_omega as the increment of rotation expressed in the local frame. Which gives R_{k+1}=R_k*exp(S(dtxomega)) </p>
 
 </div>
 </div>
@@ -634,6 +718,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>checks that the matrix representation of the orientation has been assigned a value. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
 </div>
 </div>
 <a id="ae77c280eb8b7766267f21b7ebb638245"></a>
@@ -659,6 +746,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>checks that the quaternion representation of the orientation has been assigned a value. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
 </div>
 </div>
 <a id="a35d453bd78ff88e3fbb99007da56bdd5"></a>
@@ -683,6 +773,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>checks that the orientation has been assigned a value. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -995,6 +1088,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>resets the <a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a> object. </p>
+<p>The orientation is then considered as outdated and cannot be used until it is assigned a value. </p>
+
 </div>
 </div>
 <a id="a271765bcecc81357dbaa358faf5bd824"></a>
@@ -1150,37 +1246,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ada01e21079c6c974cb66c1a93975a2fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada01e21079c6c974cb66c1a93975a2fa">&#9670;&nbsp;</a></span>setZeroRotation() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada01e21079c6c974cb66c1a93975a2fa">&#9670;&nbsp;</a></span>setZeroRotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename t &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classstateObservation_1_1kine_1_1Orientation.html">Orientation</a>&amp; stateObservation::kine::Orientation::setZeroRotation </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab2ddd1129cd514fff97b8afa60db7e3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ddd1129cd514fff97b8afa60db7e3e">&#9670;&nbsp;</a></span>setZeroRotation() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
+template&lt;typename t  = Quaternion&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1418,7 +1489,7 @@ template&lt;typename t &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacestateObservation.html#a63a017136b64195f9dc51a0fc3afbc00">CheckedMatrix3</a> stateObservation::kine::Orientation::m_</td>
+          <td class="memname"><a class="el" href="namespacestateObservation.html#ac7d764f0de6c89bd63b44dd8e4fed882">CheckedMatrix3</a> stateObservation::kine::Orientation::m_</td>
         </tr>
       </table>
   </td>
