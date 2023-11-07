@@ -1561,7 +1561,7 @@ void KineticsObserver::setStateContact(const int & index,
                                        const Vector6 & wrench,
                                        bool resetCovariance)
 {
-  Contact contact = contacts_[index];
+  Contact & contact = contacts_[index];
 
   BOOST_ASSERT(contact.isSet && "The contact is currently not set");
   worldCentroidStateVector_.segment<sizePose>(contactPosIndex(index)) =
