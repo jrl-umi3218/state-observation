@@ -40,7 +40,8 @@ public:
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma : parameter related to the orthogonality
-  TiltEstimator(double alpha, double beta, double gamma);
+  ///  \li dt    : sampling time
+  TiltEstimator(double alpha, double beta, double gamma, double dt);
 
   /// @brief initializes the state vector.
   /// @param x1 The initial local linear velocity of the IMU.
@@ -90,6 +91,8 @@ public:
 
   /// sets ths measurement (accelero and gyro stacked in one vector)
   void setMeasurement(const Vector3 & yv_k, const Vector3 & ya_k, const Vector3 & yg_k, TimeIndex k);
+
+  using ZeroDelayObserver::setMeasurement;
 
   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
