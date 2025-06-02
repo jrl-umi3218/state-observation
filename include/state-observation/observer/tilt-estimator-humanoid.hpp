@@ -33,7 +33,8 @@ public:
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma : parameter related to the orthogonality
-  TiltEstimatorHumanoid(double alpha, double beta, double gamma);
+  ///  \li dt : sampling time
+  TiltEstimatorHumanoid(double alpha, double beta, double gamma, double dt);
 
   /// sets the position of the IMU sensor in the control frame
   void setSensorPositionInC(const Vector3 & p)
