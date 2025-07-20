@@ -48,7 +48,7 @@ public:
 
   /// @brief Get the map of all the contacts
   ///
-  /// @return std::unordered_map<std::string, contactsWithSensorT>&
+  /// @return std::unordered_map<std::string, ContactT>&
   inline std::unordered_map<std::string, ContactT> & contacts()
   {
     return listContacts_;

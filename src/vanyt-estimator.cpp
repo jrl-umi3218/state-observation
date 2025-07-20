@@ -172,7 +172,7 @@ Eigen::Matrix<double, 12, 1> VanytEstimator::IterInfos::computeStateDerivatives(
   dx_hat.segment<3>(6) = (x1_hat - posCorrFromContactPos); // using p_dot = R(v_l) = R(x1 - delta)
 
   sigma_ = rho_ * (initPose_.orientation.toMatrix3().transpose() * Vector3::UnitZ()).cross(x2_hat_prime)
-           + oriCorrFromContactPos + oriCorrFromOriMeas;
+           + oriCorrFromOriMeas + oriCorrFromContactPos;
 
   dx_hat.segment<3>(9) = (yg - sigma_); // using R_dot = RS(w_l) = RS(yg-sigma)
 

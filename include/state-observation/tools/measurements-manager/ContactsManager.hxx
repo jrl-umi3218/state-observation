@@ -40,7 +40,7 @@ void ContactsManager<ContactT>::updateContacts(const std::unordered_set<std::str
   }
   for(auto prevContactName : currentContactsList_)
   {
-    if(currentContactsList_.find(prevContactName) == currentContactsList_.end())
+    if(latestContactList.find(prevContactName) == latestContactList.end())
     {
       onRemovedContact(*findContact(prevContactName));
       if(!removed_contact_set.empty())

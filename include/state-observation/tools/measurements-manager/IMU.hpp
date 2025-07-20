@@ -19,7 +19,7 @@ public:
 
 public:
   Eigen::Vector3d gyroBias = Eigen::Vector3d::Zero();
-  stateObservation::kine::Kinematics fbImuKine;
+  stateObservation::kine::Kinematics bodyImuKine;
 };
 } // namespace measurements
 } // namespace stateObservation

@@ -20,11 +20,11 @@ void LeggedOdometryManager::initLoop(const std::unordered_set<std::string> & lat
 
   if(linVel != nullptr)
   {
-    fbKine_.linVel = *linVel;
+    bodyKine_.linVel = *linVel;
   }
   if(angVel != nullptr)
   {
-    fbKine_.angVel = *angVel;
+    bodyKine_.angVel = *angVel;
   }
   k_data_ = k_iter_;
 }
@@ -39,9 +39,9 @@ void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string>
                                                                         OnRemovedContactObserver,
                                                                         OnAddedContactObserver> & updateFunctions)
 {
-  // If the position and orientation of the floating base can be updated using contacts (that were already set on the
+  // If the position and orientation of the body can be updated using contacts (that were already set on the
   // previous iteration), they are updated, else we keep the previous estimation. Then we estimate the pose of new
-  // contacts using the obtained pose of the floating base.
+  // contacts using the obtained pose of the body.
   double sumLambdas_position = 0.0;
   posUpdatable_ = false;
   newContacts_.clear();
@@ -61,7 +61,7 @@ void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string>
     maintainedContacts_.push_back(&maintainedContact);
     maintainedContact.lifeTimeIncrement(ctl_dt_);
 
-    maintainedContact.worldFbKineFromRef_ = maintainedContact.worldRefKine_ * maintainedContact.contactFbKine_;
+    maintainedContact.worldBodyKineFromRef_ = maintainedContact.worldRefKine_ * maintainedContact.contactBodyKine_;
 
     if constexpr(!std::is_same_v<OnMaintainedContactObserver, std::nullptr_t>)
     {
