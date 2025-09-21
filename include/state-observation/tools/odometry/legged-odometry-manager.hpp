@@ -89,7 +89,8 @@ public:
   // current estimation of the kinematics of the contact in the world. Avoids recomputations.
   Kinematics currentWorldKine_;
   // kinematics of the frame of the body in the frame of the contact, obtained by forward kinematics.
-  Kinematics contactBodyKine_;
+  // Kinematics contactBodyKine_;
+  Kinematics bodyContactKine_;
 
   // weighing coefficient for the anchor point computation
   double lambda_;
@@ -171,12 +172,13 @@ public:
 
   struct ContactInputData
   {
-    ContactInputData(const Kinematics & contactBodyKine, double lambda)
-    : contactBodyKine_(contactBodyKine), lambda_(lambda)
+    ContactInputData(const Kinematics & bodyContactKine, double lambda)
+    : bodyContactKine_(bodyContactKine), lambda_(lambda)
     {
     }
 
-    Kinematics contactBodyKine_;
+    // Kinematics contactBodyKine_;
+    Kinematics bodyContactKine_;
     double lambda_;
   };
 
@@ -441,6 +443,13 @@ public:
   /// apply this translation to the reference position of the anchor frame in the world to obtain the new position of
   /// the body in the word. We do the same for the orientation.
   Kinematics getWorldBodyKineFromAnchor(bool withPos, bool withOri);
+
+  /// @brief Updates the local kinematics of the body in the world.
+  /// @details For each maintained contact, we compute the position of the body in the contact frame, we
+  /// then compute their weighted average and obtain the estimated translation from the anchor point to the body.  We
+  /// apply this translation to the reference position of the anchor frame in the world to obtain the new position of
+  /// the body in the word. We do the same for the orientation.
+  LocalKinematics getWorldBodyLocalKineFromAnchor(bool withPos, bool withOri);
 
   /// @brief Changes the type of the odometry
   /// @details Version meant to be called by the observer using the odometry during the run through the gui.

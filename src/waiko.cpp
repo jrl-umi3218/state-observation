@@ -55,7 +55,7 @@ void Waiko::computeCorrectionTerms(StateIterator it)
     const Eigen::Ref<Vector3> posMeasurement = posMeas.head(3);
     const Eigen::Ref<Vector3> imuContactPos = posMeas.tail(3);
     posCorrection_ += gainDelta * (imuContactPos - initOri_inv * (posMeasurement - initPos));
-    oriCorrection_ += gainSigma * (initOri_inv * (posMeasurement - initPos)).cross(imuContactPos);
+    // oriCorrection_ += gainSigma * (initOri_inv * (posMeasurement - initPos)).cross(imuContactPos);
   }
 
   for(auto & [oriMeas, gain] : input.ori_measurements_)

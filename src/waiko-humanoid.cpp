@@ -105,7 +105,7 @@ void WaikoHumanoid::addCorrectionTerms()
 
   for(const InputWaiko::ContactInput & contactInput : input.contact_inputs_)
   {
-    Vector3 meas_pl = contactInput.ori_.transpose() * contactInput.pos_;
+    Vector3 meas_pl = contactInput.pos_;
     Vector3 meas_tilt = contactInput.ori_.transpose() * Vector3::UnitZ();
     Matrix3 R_tilde = contactInput.ori_ * state_ori_.toMatrix3().transpose();
     Vector3 R_tilde_vec = kine::skewSymmetricToRotationVector(R_tilde - R_tilde.transpose()) / 2.0;

@@ -84,11 +84,11 @@ void VanytEstimator::IterInfos::addOrientationMeasurement(const Matrix3 & oriMea
 {
   startNewIteration();
 
-  Matrix3 rot_diff = oriMeasurement * initPose_.orientation.toMatrix3().transpose();
-  Vector3 rot_diff_vec = kine::skewSymmetricToRotationVector(rot_diff - rot_diff.transpose()) / 2.0;
+  // Matrix3 rot_diff = oriMeasurement * initPose_.orientation.toMatrix3().transpose();
+  // Vector3 rot_diff_vec = kine::skewSymmetricToRotationVector(rot_diff - rot_diff.transpose()) / 2.0;
 
-  oriCorrFromOriMeas_ -= gain * initPose_.orientation.toMatrix3().transpose() * Vector3::UnitZ()
-                         * (Vector3::UnitZ()).transpose() * rot_diff_vec;
+  // oriCorrFromOriMeas_ -= gain * initPose_.orientation.toMatrix3().transpose() * Vector3::UnitZ()
+  //                        * (Vector3::UnitZ()).transpose() * rot_diff_vec;
 }
 
 void VanytEstimator::addContactPosMeasurement(const Vector3 & posMeasurement,

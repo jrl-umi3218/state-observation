@@ -119,8 +119,9 @@ double LeggedOdometryManager::selectForOrientationOdometry()
 
     sumLambdas += oriOdomContact.lambda();
 
-    oriOdomContact.worldBodyKineFromRef_.orientation = Matrix3(
-        oriOdomContact.worldRefKine_.orientation.toMatrix3() * oriOdomContact.contactBodyKine_.orientation.toMatrix3());
+    oriOdomContact.worldBodyKineFromRef_.orientation =
+        Matrix3(oriOdomContact.worldRefKine_.orientation.toMatrix3()
+                * oriOdomContact.bodyContactKine_.orientation.toMatrix3().transpose());
   }
   return sumLambdas;
 }
@@ -143,9 +144,85 @@ Kinematics LeggedOdometryManager::getWorldBodyKineFromAnchor(bool withPos, bool 
 
     for(auto * mContact : maintainedContacts_)
     {
-      bodyAnchorPos_ += mContact->contactBodyKine_.getInverse().position() * mContact->lambda();
+      bodyAnchorPos_ += mContact->bodyContactKine_.position() * mContact->lambda();
     }
     worldBodyKineFromAnchor.position = getWorldRefAnchorPos() - bodyKine_.orientation * bodyAnchorPos_;
+  }
+
+  if(withOri)
+  {
+    BOOST_ASSERT_MSG(maintainedContacts_.size() > 0,
+                     "No contact is detected, cannot compute the anchor frame orientation.");
+
+    // indicates if the orientation can be updated from the current contacts or not
+
+    // selects the contacts to use for the yaw odometry. We cannot call it in the onMaintainedContact function as it is
+    // looping over all the maintained contact and not used on each contact separately
+    double sumLambdas_orientation = selectForOrientationOdometry();
+
+    // the orientation can be updated using contacts, it will use at most the two most suitable contacts.
+    // We merge the obtained yaw with the tilt estimated by the previous observers
+    if(contactsManager_.oriOdometryContacts_.size() == 1)
+    {
+      // the orientation can be updated using 1 contact
+      worldBodyKineFromAnchor.orientation =
+          Matrix3(contactsManager_.oriOdometryContacts_.begin()->get().worldBodyKineFromRef_.orientation);
+    }
+    if(contactsManager_.oriOdometryContacts_.size() == 2) // the orientation can be updated using 2 contacts
+    {
+      const auto & contact1 = (*contactsManager_.oriOdometryContacts_.begin()).get();
+      const auto & contact2 = (*std::next(contactsManager_.oriOdometryContacts_.begin(), 1)).get();
+
+      const auto & R1 = contact1.worldBodyKineFromRef_.orientation.toMatrix3();
+      const auto & R2 = contact2.worldBodyKineFromRef_.orientation.toMatrix3();
+
+      double u;
+      u = contact2.lambda() / sumLambdas_orientation;
+
+      /*
+      \tilde{\boldsymbol{R}} = \boldsymbol{R}^{T}_{\mathcal{I}, 1} \boldsymbol{R}_{\mathcal{I}, 2}
+      \boldsymbol{R}_{\mathcal{I}, \text{avg}} =
+       \boldsymbol{R}_{\mathcal{I}, 1} \text{exp} \left( \lambda_{2} \text{vec}\left(\text{log} \left(
+      \tilde{\boldsymbol{R}}\right)\right)  \right)
+      */
+      Matrix3 diffRot = R1.transpose() * R2;
+
+      Vector3 diffRotVector = kine::skewSymmetricToRotationVector(diffRot - diffRot.transpose());
+
+      worldBodyKineFromAnchor.orientation =
+          Matrix3(R1 * rotationVectorToRotationMatrix(u / 2.0 * diffRotVector)); // = R1 * exp( (1 - u) * log(R1^T R2) )
+    }
+  }
+
+  return worldBodyKineFromAnchor;
+}
+
+LocalKinematics LeggedOdometryManager::getWorldBodyLocalKineFromAnchor(bool withPos, bool withOri)
+{
+  /* For each maintained contact, we compute the position of the body in the contact frame, we then compute the
+   * weighted average wrt to the measured forces at the contact and obtain the estimated translation from the anchor
+   * point to the body.  We apply this translation to the reference position of the anchor frame in the world
+   * to obtain the new position of the body in the word. */
+
+  LocalKinematics worldBodyKineFromAnchor;
+
+  if(withPos)
+  {
+    BOOST_ASSERT_MSG(maintainedContacts_.size() > 0,
+                     "No contact is detected, cannot compute the anchor frame position.");
+
+    bodyAnchorPos_.setZero();
+    worldBodyKineFromAnchor.position.set().setZero();
+    for(auto * mContact : maintainedContacts_)
+    {
+      worldBodyKineFromAnchor.position() +=
+          mContact->lambda()
+          * (mContact->bodyContactKine_.orientation.toMatrix3()
+                 * mContact->worldRefKine_.orientation.toMatrix3().transpose() * mContact->worldRefKine_.position()
+             - mContact->bodyContactKine_.position());
+      // bodyAnchorPos_ += mContact->contactBodyKine_.getInverse().position() * mContact->lambda();
+    }
+    // worldBodyKineFromAnchor.position = getWorldRefAnchorPos() - bodyKine_.orientation * bodyAnchorPos_;
   }
 
   if(withOri)
@@ -224,7 +301,7 @@ const Kinematics & LeggedOdometryManager::getContactKinematics(LoContact & conta
   // the world still have not changed, we don't need to recompute the kinematics of the contact in the world.
   if(k_data_ != k_est_)
   {
-    contact.currentWorldKine_ = bodyKine_ * contact.contactBodyKine_.getInverse();
+    contact.currentWorldKine_ = bodyKine_ * contact.bodyContactKine_;
   };
   return contact.currentWorldKine_;
 }

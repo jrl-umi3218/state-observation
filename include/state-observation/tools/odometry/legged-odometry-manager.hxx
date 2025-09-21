@@ -61,7 +61,8 @@ void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string>
     maintainedContacts_.push_back(&maintainedContact);
     maintainedContact.lifeTimeIncrement(ctl_dt_);
 
-    maintainedContact.worldBodyKineFromRef_ = maintainedContact.worldRefKine_ * maintainedContact.contactBodyKine_;
+    maintainedContact.worldBodyKineFromRef_ =
+        maintainedContact.worldRefKine_ * maintainedContact.bodyContactKine_.getInverse();
 
     if constexpr(!std::is_same_v<OnMaintainedContactObserver, std::nullptr_t>)
     {
