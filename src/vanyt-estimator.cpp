@@ -3,12 +3,12 @@
 
 namespace stateObservation
 {
-VanytEstimator::VanytEstimator(double alpha, double beta, double rho, double dt)
-: ZeroDelayObserver(13, 9, std::make_shared<IndexedInputArrayT<>>()), iterInfos_(alpha, beta, rho, dt)
+VanytEstimator::VanytEstimator(double alpha, double beta, double gamma, double dt)
+: ZeroDelayObserver(13, 9, std::make_shared<IndexedInputArrayT<>>()), iterInfos_(alpha, beta, gamma, dt)
 {
   iterInfos_.alpha_ = alpha;
   iterInfos_.beta_ = beta;
-  iterInfos_.rho_ = rho;
+  iterInfos_.gamma_ = gamma;
   iterInfos_.dt_ = dt;
 }
 
@@ -171,7 +171,7 @@ Eigen::Matrix<double, 12, 1> VanytEstimator::IterInfos::computeStateDerivatives(
 
   dx_hat.segment<3>(6) = (x1_hat - posCorrFromContactPos); // using p_dot = R(v_l) = R(x1 - delta)
 
-  sigma_ = rho_ * (initPose_.orientation.toMatrix3().transpose() * Vector3::UnitZ()).cross(x2_hat_prime)
+  sigma_ = gamma_ * (initPose_.orientation.toMatrix3().transpose() * Vector3::UnitZ()).cross(x2_hat_prime)
            + oriCorrFromOriMeas + oriCorrFromContactPos;
 
   dx_hat.segment<3>(9) = (yg - sigma_); // using R_dot = RS(w_l) = RS(yg-sigma)

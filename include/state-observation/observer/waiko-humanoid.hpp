@@ -77,10 +77,10 @@ public:
   ///  \li alpha : parameter related to the convergence of the linear velocity
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
-  ///  \li rho  : parameter related to the orthogonality
-  ///  \li lambda  : parameter related to the correction of the position by the position measurement
+  ///  \li gamma  : parameter related to the orthogonality
+  ///  \li rho  : parameter related to the correction of the position by the position measurement
   ///  \li mu  : parameter related to the correction of the orientation by the orientation measurement
-  WaikoHumanoid(double dt, double alpha, double beta, double rho, double lambda, double mu);
+  WaikoHumanoid(double dt, double alpha, double beta, double gamma, double rho, double mu);
 
   /// @brief Destroys the observer
   ///
@@ -156,13 +156,13 @@ public:
   }
 
   /// set lambda
-  void setLambda(const double lambda)
+  void setGamma(const double gamma)
   {
-    lambda_ = lambda;
+    gamma_ = gamma;
   }
-  double geLambda()
+  double getGamma()
   {
-    return lambda_;
+    return gamma_;
   }
 
   /// set mu
@@ -243,10 +243,10 @@ protected:
   ///  \li alpha : parameter related to the convergence of the linear velocity
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
-  ///  \li rho  : parameter related to the orthogonality
-  ///  \li lambda  : parameter related to the correction of the position by the position measurement
+  ///  \li gamma_  : parameter related to the orthogonality
+  ///  \li rho  : parameter related to the correction of the position by the position measurement
   ///  \li mu  : parameter related to the correction of the orientation by the orientation measurement
-  double alpha_, beta_, rho_, lambda_, mu_;
+  double alpha_, beta_, gamma_, rho_, mu_;
   Vector dx_hat_;
   kine::Orientation state_ori_;
   // kine::LocalKinematics state_kine_;

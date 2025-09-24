@@ -427,8 +427,8 @@ public:
   /// @brief Gives the kinematics (position and linear velocity) of the anchor point in the desired frame.
   /// @details If the velocity of the target frame in the world frame is given, the velocity of the anchor point in the
   /// target frame will also be contained in the returned Kinematics object.
-  /// @param worldTargetKine Kinematics of the target frame in the world frame.
-  Kinematics getAnchorKineIn(Kinematics & worldTargetKine);
+  /// @param bodyTargetKine Kinematics of the target frame in the body frame.
+  Kinematics getAnchorKineIn(Kinematics & bodyTargetKine);
 
   /**
    * @brief Returns the position of the anchor point in the world from the current contacts reference position.
@@ -510,8 +510,8 @@ private:
   /// @brief Gives the kinematics of the contact in the desired frame.
   /// @details If the velocity of the target frame in the world frame is given, the velocity of the anchor point in the
   /// target frame will also be contained in the returned Kinematics object.
-  /// @param worldTargetKine Kinematics of the target frame in the world frame.
-  Kinematics getContactKineIn(LoContact & contact, Kinematics & worldTargetKine);
+  /// @param bodyTargetKine Kinematics of the target frame in the body frame.
+  Kinematics getContactKineIn(LoContact & contact, Kinematics & bodyTargetKine);
 
   /// @brief Selects which contacts to use for the orientation odometry and computes the orientation of the body
   ///  for each of them

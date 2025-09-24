@@ -33,7 +33,9 @@ class STATE_OBSERVATION_DLLAPI VanytEstimator : public ZeroDelayObserver // : pu
 protected:
   struct IterInfos
   {
-    IterInfos(double alpha, double beta, double rho, double dt) : dt_(dt), alpha_(alpha), beta_(beta), rho_(rho) {}
+    IterInfos(double alpha, double beta, double gamma, double dt) : dt_(dt), alpha_(alpha), beta_(beta), gamma_(gamma)
+    {
+    }
 
     // add an orientation measurement of the IMU's frame in the world frame to the correction
     void addOrientationMeasurement(const Matrix3 & meas, double gain);
@@ -63,7 +65,7 @@ protected:
     /// Sampling time
     double dt_;
     /// The parameters of the estimator
-    double alpha_, beta_, rho_;
+    double alpha_, beta_, gamma_;
     /// Estimated pose of the IMU at the beginning of the iteration
     kine::Kinematics initPose_;
     // state at time k-1
@@ -97,9 +99,9 @@ public:
   ///  \li alpha : parameter related to the convergence of the linear velocity
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
-  ///  \li rho  : parameter related to the orthogonality
+  ///  \li gamma  : parameter related to the orthogonality
   ///  \li dt  : timestep between each iteration
-  VanytEstimator(double alpha, double beta, double rho, double dt);
+  VanytEstimator(double alpha, double beta, double gamma, double dt);
 
   /// The constructor
   ///  \li alpha : parameter related to the convergence of the linear velocity
@@ -108,7 +110,7 @@ public:
   ///  \li rho  : parameter related to the orthogonality
   ///  \li dt  : timestep between each iteration
   ///  \li dt  : capacity of the iteration buffer
-  VanytEstimator(double alpha, double beta, double rho, double dt, unsigned long bufferCapacity);
+  VanytEstimator(double alpha, double beta, double gamma, double dt, unsigned long bufferCapacity);
 
   inline IterInfos & getCurrentIter()
   {
@@ -213,13 +215,13 @@ public:
   }
 
   /// set rho
-  void setRho(const double rho)
+  void setGamma(const double gamma)
   {
-    getCurrentIter().rho_ = rho;
+    getCurrentIter().gamma_ = gamma;
   }
-  double getRho()
+  double getGamma()
   {
-    return getCurrentIter().rho_;
+    return getCurrentIter().gamma_;
   }
 
   inline const boost::circular_buffer<IterInfos> & getIterationsBuffer() const

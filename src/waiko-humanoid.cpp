@@ -3,9 +3,9 @@
 #include <state-observation/tools/definitions.hpp>
 namespace stateObservation
 {
-WaikoHumanoid::WaikoHumanoid(double dt, double alpha, double beta, double rho, double lambda, double mu)
-: ZeroDelayObserver(9, 0, std::make_shared<IndexedInputArrayT<InputWaiko>>()), alpha_(alpha), beta_(beta), rho_(rho),
-  lambda_(lambda), mu_(mu), dt_(dt)
+WaikoHumanoid::WaikoHumanoid(double dt, double alpha, double beta, double gamma, double rho, double mu)
+: ZeroDelayObserver(9, 0, std::make_shared<IndexedInputArrayT<InputWaiko>>()), alpha_(alpha), beta_(beta),
+  gamma_(gamma), rho_(rho), mu_(mu), dt_(dt)
 {
   dx_hat_.resize(12);
 }
@@ -75,7 +75,7 @@ ObserverBase::StateVector & WaikoHumanoid::computeStateDynamics_()
   x1_hat_dot = x1_hat.cross(yg) - cst::gravityConstant * x2_hat + ya + alpha_ * (yv - x1_hat); // x1
   x2_hat_dot = x2_hat.cross(yg) - beta_ * (yv - x1_hat); // x2
   // using R_dot = RS(w_l) and w_l = yg - gamma * S(R_hat^T ez) x2_hat
-  w_l = yg + rho_ * x2_hat.cross(state_ori_.toMatrix3().transpose() * Vector3::UnitZ());
+  w_l = yg + gamma_ * x2_hat.cross(state_ori_.toMatrix3().transpose() * Vector3::UnitZ());
   // using pl_dot = -S(yg) pl + x1
   v_l = x1_hat + pl_hat.cross(yg);
 
@@ -113,7 +113,7 @@ void WaikoHumanoid::addCorrectionTerms()
     oriCorrFromOriMeas_ +=
         mu_ * state_ori_.toMatrix3().transpose() * Vector3::UnitZ() * Vector3::UnitZ().transpose() * R_tilde_vec;
 
-    posCorrFromContactPos_ += lambda_ * (meas_pl - pl_hat);
+    posCorrFromContactPos_ += rho_ * (meas_pl - pl_hat);
   }
 
   w_l += oriCorrFromOriMeas_ + oriCorrFromContactPos_;

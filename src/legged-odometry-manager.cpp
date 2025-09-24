@@ -215,14 +215,17 @@ LocalKinematics LeggedOdometryManager::getWorldBodyLocalKineFromAnchor(bool with
     worldBodyKineFromAnchor.position.set().setZero();
     for(auto * mContact : maintainedContacts_)
     {
+      // worldBodyKineFromAnchor.position() +=
+      //     mContact->lambda()
+      //     * (mContact->bodyContactKine_.orientation.toMatrix3()
+      //            * mContact->worldRefKine_.orientation.toMatrix3().transpose() * mContact->worldRefKine_.position()
+      //        - mContact->bodyContactKine_.position());
+
       worldBodyKineFromAnchor.position() +=
           mContact->lambda()
-          * (mContact->bodyContactKine_.orientation.toMatrix3()
-                 * mContact->worldRefKine_.orientation.toMatrix3().transpose() * mContact->worldRefKine_.position()
+          * (bodyKine_.orientation.toMatrix3().transpose() * mContact->worldRefKine_.position()
              - mContact->bodyContactKine_.position());
-      // bodyAnchorPos_ += mContact->contactBodyKine_.getInverse().position() * mContact->lambda();
     }
-    // worldBodyKineFromAnchor.position = getWorldRefAnchorPos() - bodyKine_.orientation * bodyAnchorPos_;
   }
 
   if(withOri)
@@ -339,20 +342,20 @@ void LeggedOdometryManager::correctContactsRef()
   k_correct_ = k_data_;
 }
 
-Kinematics LeggedOdometryManager::getContactKineIn(LoContact & contact, Kinematics & worldTargetKine)
+Kinematics LeggedOdometryManager::getContactKineIn(LoContact & contact, Kinematics & bodyTargetKine)
 {
-  Kinematics targetContactKine = worldTargetKine.getInverse() * getContactKinematics(contact);
+  Kinematics targetContactKine = bodyTargetKine.getInverse() * contact.bodyContactKine_;
   return targetContactKine;
 }
 
-Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & worldTargetKine)
+Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & bodyTargetKine)
 {
   BOOST_ASSERT_MSG(k_data_ != k_est_, "Please call initLoop before this function");
 
   Kinematics targetAnchorKine;
   targetAnchorKine.position.set().setZero();
 
-  if(worldTargetKine.linVel.isSet())
+  if(bodyTargetKine.linVel.isSet())
   {
     BOOST_ASSERT_MSG(
         bodyKine_.linVel.isSet() && bodyKine_.angVel.isSet(),
@@ -363,13 +366,13 @@ Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & worldTargetKine)
 
   for(auto * mContact : maintainedContacts_)
   {
-    Kinematics targetContactKine = getContactKineIn(*mContact, worldTargetKine);
+    Kinematics targetContactKine = getContactKineIn(*mContact, bodyTargetKine);
     targetAnchorKine.position() += targetContactKine.position() * mContact->lambda();
     if(targetContactKine.linVel.isSet())
     {
       BOOST_ASSERT_MSG(targetContactKine.linVel.isSet(),
                        "The velocity of the contact in the target frame cannot be computed. "
-                       "Please add the velocity of the contact to contactBodyKine_.");
+                       "Please add the velocity of the contact to bodyContactKine_.");
 
       targetAnchorKine.linVel() += targetContactKine.linVel() * mContact->lambda();
     }
