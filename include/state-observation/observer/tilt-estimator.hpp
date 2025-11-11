@@ -115,6 +115,13 @@ protected:
 
   /// The tilt estimator loop
   virtual StateVector oneStepEstimation_();
+
+public:
+  double & getIterTime()
+  {
+    return iterTime_;
+  }
+  double iterTime_;
 };
 
 } // namespace stateObservation

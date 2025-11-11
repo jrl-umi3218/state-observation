@@ -33,6 +33,7 @@ class STATE_OBSERVATION_DLLAPI VanytEstimator : public ZeroDelayObserver // : pu
 protected:
   struct IterInfos
   {
+
     IterInfos(double alpha, double beta, double gamma, double dt) : dt_(dt), alpha_(alpha), beta_(beta), gamma_(gamma)
     {
     }
@@ -89,6 +90,9 @@ protected:
     TimeIndex k_est_ = 0; // time index of the last estimation
     TimeIndex k_data_ = 0; // time index of the current measurements
     TimeIndex k_contacts_ = 0; // time index of the contact measurements
+
+  public:
+    double iterTime_;
   };
 
 private:
@@ -222,6 +226,11 @@ public:
   double getGamma()
   {
     return getCurrentIter().gamma_;
+  }
+
+  double & getIterTime()
+  {
+    return getCurrentIter().iterTime_;
   }
 
   inline const boost::circular_buffer<IterInfos> & getIterationsBuffer() const

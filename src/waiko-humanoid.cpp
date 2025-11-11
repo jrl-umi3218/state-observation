@@ -72,12 +72,18 @@ ObserverBase::StateVector & WaikoHumanoid::computeStateDynamics_()
       dx_hat_.segment<sizeOriTangent>(oriIndexTangent); // using R_dot = RS(w_l)
   Eigen::VectorBlock<Vector, sizePosTangent> v_l = dx_hat_.segment<sizePosTangent>(posIndexTangent);
 
+  auto start = std::chrono::high_resolution_clock::now();
+
   x1_hat_dot = x1_hat.cross(yg) - cst::gravityConstant * x2_hat + ya + alpha_ * (yv - x1_hat); // x1
   x2_hat_dot = x2_hat.cross(yg) - beta_ * (yv - x1_hat); // x2
   // using R_dot = RS(w_l) and w_l = yg - gamma * S(R_hat^T ez) x2_hat
   w_l = yg + gamma_ * x2_hat.cross(state_ori_.toMatrix3().transpose() * Vector3::UnitZ());
   // using pl_dot = -S(yg) pl + x1
   v_l = x1_hat + pl_hat.cross(yg);
+
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   return dx_hat_;
 }
@@ -103,9 +109,12 @@ void WaikoHumanoid::addCorrectionTerms()
   Eigen::Ref<Vector3> w_l = dx_hat_.segment<sizeOriTangent>(oriIndexTangent); // using R_dot = RS(w_l * dt)
   Eigen::Ref<Vector3> v_l = dx_hat_.segment<sizePosTangent>(posIndexTangent);
 
+  auto start = std::chrono::high_resolution_clock::now();
+
   for(const InputWaiko::ContactInput & contactInput : input.contact_inputs_)
   {
     Vector3 meas_pl = contactInput.pos_;
+
     Vector3 meas_tilt = contactInput.ori_.transpose() * Vector3::UnitZ();
     Matrix3 R_tilde = contactInput.ori_ * state_ori_.toMatrix3().transpose();
     Vector3 R_tilde_vec = kine::skewSymmetricToRotationVector(R_tilde - R_tilde.transpose()) / 2.0;
@@ -118,6 +127,10 @@ void WaikoHumanoid::addCorrectionTerms()
 
   w_l += oriCorrFromOriMeas_ + oriCorrFromContactPos_;
   v_l += posCorrFromContactPos_;
+
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 }
 
 void WaikoHumanoid::integrateState_()
@@ -134,6 +147,8 @@ void WaikoHumanoid::integrateState_()
   const auto & w_l = dx_hat_.segment<sizeOriTangent>(oriIndexTangent);
   const auto & v_l = dx_hat_.segment<sizePosTangent>(posIndexTangent);
 
+  auto start = std::chrono::high_resolution_clock::now();
+
   // discrete-time integration of x1_hat, x2_hat and b_hat
   x1_hat += x1_hat_dot * dt_;
   x2_hat += x2_hat_dot * dt_;
@@ -141,6 +156,10 @@ void WaikoHumanoid::integrateState_()
 
   // discrete-time integration of R
   state_ori_.integrateRightSide(w_l * dt_);
+
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   setState(x_hat, getCurrentTime() + 1);
 }

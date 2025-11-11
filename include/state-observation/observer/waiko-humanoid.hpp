@@ -259,6 +259,13 @@ protected:
   Vector3 posCorrFromContactPos_ = Vector3::Zero();
   // correction of the orientation coming from the contact positions, passed as a local angular velocity.
   Vector3 oriCorrFromContactPos_ = Vector3::Zero();
+
+public:
+  double & getIterTime()
+  {
+    return iterTime_;
+  }
+  double iterTime_;
 };
 
 } // namespace stateObservation

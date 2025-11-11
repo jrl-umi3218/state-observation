@@ -575,6 +575,13 @@ public:
   // Indicates if the desired odometry must be a flat or a 6D odometry.
   using OdometryType = measurements::OdometryType;
   measurements::OdometryType odometryType_;
+
+public:
+  double & getIterTime()
+  {
+    return iterTime_;
+  }
+  double iterTime_;
 };
 
 } // namespace odometry

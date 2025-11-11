@@ -110,6 +110,7 @@ void VanytEstimator::IterInfos::addContactPosMeasurement(const Vector3 & posMeas
                                                          double gainSigma)
 {
   startNewIteration();
+  auto start = std::chrono::high_resolution_clock::now();
 
   oriCorrFromContactPos_ +=
       gainSigma
@@ -118,6 +119,10 @@ void VanytEstimator::IterInfos::addContactPosMeasurement(const Vector3 & posMeas
   posCorrFromContactPos_ +=
       gainDelta
       * (imuContactPos - initPose_.orientation.toMatrix3().transpose() * (posMeasurement - initPose_.position()));
+
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 }
 
 ObserverBase::StateVector VanytEstimator::oneStepEstimation_()
@@ -166,6 +171,9 @@ Eigen::Matrix<double, 12, 1> VanytEstimator::IterInfos::computeStateDerivatives(
   const Eigen::Ref<Vector3> x2_hat_prime = initState_.segment<3>(3);
 
   Eigen::Matrix<double, 12, 1> dx_hat;
+
+  auto start = std::chrono::high_resolution_clock::now();
+
   dx_hat.segment<3>(0) = x1_hat.cross(yg) - cst::gravityConstant * x2_hat_prime + ya + alpha_ * (yv - x1_hat); // x1
   dx_hat.segment<3>(3) = x2_hat_prime.cross(yg) - beta_ * (yv - x1_hat); // x2_prime
 
@@ -175,6 +183,10 @@ Eigen::Matrix<double, 12, 1> VanytEstimator::IterInfos::computeStateDerivatives(
            + oriCorrFromOriMeas + oriCorrFromContactPos;
 
   dx_hat.segment<3>(9) = (yg - sigma_); // using R_dot = RS(w_l) = RS(yg-sigma)
+
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   return dx_hat;
 }
@@ -187,6 +199,7 @@ void VanytEstimator::IterInfos::integrateState(const Eigen::Matrix<double, 12, 1
   updatedState_ = initState_;
   updatedPose_ = initPose_;
 
+  auto start = std::chrono::high_resolution_clock::now();
   // discrete-time integration of x1 and x2
   updatedState_.segment<6>(0) += dx_hat.segment<6>(0) * dt_;
 
@@ -195,6 +208,9 @@ void VanytEstimator::IterInfos::integrateState(const Eigen::Matrix<double, 12, 1
 
   updatedState_.segment<3>(6) = updatedPose_.position();
   updatedState_.tail(4) = updatedPose_.orientation.toVector4();
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 }
 
 ObserverBase::StateVector VanytEstimator::replayIterationWithDelayedOri(unsigned long delay,

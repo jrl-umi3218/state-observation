@@ -55,6 +55,8 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
   Eigen::VectorBlock<ObserverBase::StateVector, 3> x2_hat_ = x_hat.segment<3>(6);
 
   Vector dx_hat(9);
+  auto start = std::chrono::high_resolution_clock::now();
+
   dx_hat.segment<3>(0) = x1_hat_.cross(yg) - cst::gravityConstant * x2_hat_prime_ + ya + alpha_ * (yv - x1_hat_);
   dx_hat.segment<3>(3) = x2_hat_prime_.cross(yg) - beta_ * (yv - x1_hat_);
   dx_hat.segment<3>(6) = x2_hat_.cross(yg - gamma_ * x2_hat_.cross(x2_hat_prime_));
@@ -62,6 +64,10 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
   x_hat += dx_hat * dt_;
 
   x_hat.tail<3>() /= x_hat.tail<3>().norm();
+
+  auto end = std::chrono::high_resolution_clock::now();
+
+  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   setState(x_hat, k + 1);
 

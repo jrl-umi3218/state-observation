@@ -1716,6 +1716,14 @@ protected:
     Orientation & ori2;
   } opt_;
 
+public:
+  double & getIterTime()
+  {
+    return iterTime_;
+  }
+
+  double iterTime_;
+
 private:
   Index setIMU(const Vector3 & accelero,
                const Vector3 & gyrometer,
