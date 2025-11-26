@@ -163,7 +163,7 @@ Traj traj;
 
 int testWithoutPosAndOriMeasurement(int errorcode, double threshold)
 {
-  double simTime = 3.00;
+  double simTime = 5.00;
   double dt = 0.005;
   int nbIters = int(std::round(simTime / dt));
 
@@ -171,8 +171,7 @@ int testWithoutPosAndOriMeasurement(int errorcode, double threshold)
   WaikoHumanoid waiko(dt, 1, 1, 1, 1, false);
 
   Traj::Iteration & firstIter = traj.getFirstIter();
-  waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), Vector3::Zero(), firstIter.getOriQuat(),
-                      firstIter.getPos());
+  waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
 
   for(int i = 0; i < nbIters; i++)
   {
@@ -182,11 +181,9 @@ int testWithoutPosAndOriMeasurement(int errorcode, double threshold)
 
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX1> x1_hat = waiko.getEstimatedLocLinVel();
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX2> x2_hat = waiko.getEstimatedTilt();
-    Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeOri> q_hat = waiko.getEstimatedOrientation();
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizePos> pl_hat = waiko.getEstimatedLocPosition();
 
-    Orientation finalOri_hat;
-    finalOri_hat.fromVector4(q_hat);
+    Orientation finalOri_hat(waiko.getEstimatedOrientation());
 
     Matrix3 oriError = finalOri_hat.toMatrix3() * currentIter.getOri().transpose();
     Vector3 oriErrorVector = kine::skewSymmetricToRotationVector(oriError - oriError.transpose()) / 2.0;
@@ -244,8 +241,7 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
   WaikoHumanoid waiko(dt, 1, 1, 1, 1, false);
   Traj::Iteration & firstIter = traj.getFirstIter();
 
-  waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), Vector3::Zero(), firstIter.getOriQuat(),
-                      firstIter.getPos());
+  waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
 
   for(int i = 0; i < nbIters; i++)
   {
@@ -256,17 +252,14 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
     Vector3 yg = currentIter.getYg() + Vector3::Random() / 1000;
 
     waiko.setInput(yv, ya, yg, i);
-    waiko.addContactInput(
-        WaikoHumanoid::InputWaiko::ContactInput(currentIter.getOri(), currentIter.getPos(), 1, 1, 1, 1), i);
+    waiko.addContactInput(WaikoHumanoid::InputWaiko::ContactInput(currentIter.getOri(), currentIter.getPos()), i);
     waiko.getEstimatedState(i + 1);
 
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX1> x1_hat = waiko.getEstimatedLocLinVel();
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX2> x2_hat = waiko.getEstimatedTilt();
-    Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeOri> q_hat = waiko.getEstimatedOrientation();
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizePos> pl_hat = waiko.getEstimatedLocPosition();
 
-    Orientation finalOri_hat;
-    finalOri_hat.fromVector4(q_hat);
+    Orientation finalOri_hat(waiko.getEstimatedOrientation());
 
     Matrix3 oriError = finalOri_hat.toMatrix3() * currentIter.getOri().transpose();
     Vector3 oriErrorVector = kine::skewSymmetricToRotationVector(oriError - oriError.transpose()) / 2.0;
@@ -318,95 +311,6 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
   return 0;
 }
 
-int testWithGyroBias(int errorcode, double threshold)
-{
-  double simTime = 5.00;
-  double dt = 0.0001;
-  int nbIters = int(std::round(simTime / dt));
-
-  double err;
-  WaikoHumanoid waiko(dt, 1, 1, 1, 1, true);
-
-  Traj::Iteration & firstIter = traj.getFirstIter();
-
-  waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), Vector3::Zero(), firstIter.getOriQuat(),
-                      firstIter.getPos());
-
-  Vector3 gyroBias = Vector3::Random() / 100;
-
-  for(int i = 0; i < nbIters; i++)
-  {
-    const Traj::Iteration & currentIter = traj.getIter(i * dt);
-
-    Vector3 yv = currentIter.getYv();
-    Vector3 ya = currentIter.getYa();
-    Vector3 yg = currentIter.getYg() + gyroBias;
-
-    waiko.setInput(yv, ya, yg, i);
-
-    waiko.addContactInput(
-        WaikoHumanoid::InputWaiko::ContactInput(currentIter.getOri(), currentIter.getPos(), 1, 1, 1, 1), i);
-    waiko.getEstimatedState(i + 1);
-
-    Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX1> x1_hat = waiko.getEstimatedLocLinVel();
-    Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX2> x2_hat = waiko.getEstimatedTilt();
-    // Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeGyroBias> b_hat = waiko.getEstimatedGyroBias();
-    Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeOri> q_hat = waiko.getEstimatedOrientation();
-    Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizePos> pl_hat = waiko.getEstimatedLocPosition();
-
-    Orientation finalOri_hat;
-    finalOri_hat.fromVector4(q_hat);
-
-    if(i > 4 * nbIters / 5)
-    {
-      Matrix3 oriError = finalOri_hat.toMatrix3() * currentIter.getOri().transpose();
-      Vector3 oriErrorVector = kine::skewSymmetricToRotationVector(oriError - oriError.transpose()) / 2.0;
-
-      err = (x1_hat - currentIter.getYv()).squaredNorm();
-      if(err > threshold)
-      {
-        std::cout << std::endl << "The local velocity estimate is incorrect." << std::endl;
-        std::cout << std::endl << "Estimated: " << x1_hat.transpose() << std::endl;
-        std::cout << std::endl << "Simulated: " << currentIter.getYv().transpose() << std::endl;
-        return errorcode;
-      }
-
-      err = (x2_hat - currentIter.getX2()).squaredNorm();
-      if(err > threshold)
-      {
-        std::cout << std::endl << "The tilt estimate is incorrect." << std::endl;
-        std::cout << std::endl << "Estimated: " << x2_hat.transpose() << std::endl;
-        std::cout << std::endl << "Simulated: " << currentIter.getX2().transpose() << std::endl;
-
-        return errorcode;
-      }
-
-      err = (oriErrorVector).squaredNorm();
-      if(err > threshold)
-      {
-        std::cout << std::endl << "The orientation estimate is incorrect." << std::endl;
-        std::cout << std::endl << "Error vector: " << oriErrorVector.transpose() << std::endl;
-        std::cout << std::endl
-                  << "Estimated: " << kine::rotationMatrixToYawAxisAgnostic(finalOri_hat.toMatrix3()) << std::endl;
-        std::cout << std::endl
-                  << "Simulated: " << kine::rotationMatrixToYawAxisAgnostic(currentIter.getOri()) << std::endl;
-        return errorcode;
-      }
-
-      err = (pl_hat - currentIter.getPl()).squaredNorm();
-      if(err > 1e-3)
-      {
-        std::cout << std::endl << "The position estimate is incorrect." << std::endl;
-        std::cout << std::endl << "Estimated: " << pl_hat.transpose() << std::endl;
-        std::cout << std::endl << "Simulated: " << currentIter.getPl().transpose() << std::endl;
-        return errorcode;
-      }
-    }
-  }
-
-  return 0;
-}
-
 int main()
 {
   int returnVal;
@@ -436,19 +340,6 @@ int main()
   else
   {
     std::cout << "testWithPosAndOriMeasurement succeeded" << std::endl;
-  }
-  errorcode++;
-  traj.reset();
-
-  std::cout << "Starting testWithGyroBias" << std::endl;
-  if((returnVal = testWithGyroBias(errorcode, 1e-4)))
-  {
-    std::cout << "testWithGyroBias failed!" << errorcode << std::endl;
-    return returnVal;
-  }
-  else
-  {
-    std::cout << "testWithGyroBias succeeded" << std::endl;
   }
   errorcode++;
   traj.reset();

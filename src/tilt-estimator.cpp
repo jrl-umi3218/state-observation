@@ -45,9 +45,9 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
 
   BOOST_ASSERT(this->y_.size() > 0 && this->y_.checkIndex(k + 1) && "ERROR: The measurement vector is not set");
 
-  Vector3 yv = getMeasurement(k + 1).head<3>();
-  Vector3 ya = getMeasurement(k + 1).segment<3>(3);
-  Vector3 yg = getMeasurement(k + 1).tail<3>();
+  Eigen::Ref<const Vector3> yv = getMeasurement(k + 1).head<3>();
+  Eigen::Ref<const Vector3> ya = getMeasurement(k + 1).segment<3>(3);
+  Eigen::Ref<const Vector3> yg = getMeasurement(k + 1).tail<3>();
 
   ObserverBase::StateVector & x_hat = getCurrentEstimatedState();
   Eigen::VectorBlock<ObserverBase::StateVector, 3> x1_hat_ = x_hat.segment<3>(0);
@@ -55,7 +55,6 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
   Eigen::VectorBlock<ObserverBase::StateVector, 3> x2_hat_ = x_hat.segment<3>(6);
 
   Vector dx_hat(9);
-  auto start = std::chrono::high_resolution_clock::now();
 
   dx_hat.segment<3>(0) = x1_hat_.cross(yg) - cst::gravityConstant * x2_hat_prime_ + ya + alpha_ * (yv - x1_hat_);
   dx_hat.segment<3>(3) = x2_hat_prime_.cross(yg) - beta_ * (yv - x1_hat_);
@@ -64,10 +63,6 @@ ObserverBase::StateVector TiltEstimator::oneStepEstimation_()
   x_hat += dx_hat * dt_;
 
   x_hat.tail<3>() /= x_hat.tail<3>().norm();
-
-  auto end = std::chrono::high_resolution_clock::now();
-
-  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   setState(x_hat, k + 1);
 

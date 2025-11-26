@@ -33,11 +33,11 @@ public:
     /// @brief Input coming from a contact: IMU pose with the associated correction gains
     struct ContactInput
     {
-      /// @param pos position measurement.
-      /// @param ori orientation measurement.
-      ContactInput(const Matrix3 & ori, const Vector3 & pos) : ori_(ori), pos_(pos) {}
-      Matrix3 ori_;
-      Vector3 pos_;
+      /// @param pl_y_ local position measurement.
+      /// @param r_y_ orientation measurement.
+      ContactInput(const Matrix3 & ori, const Vector3 & pos_loc) : r_y_(ori), pl_y_(pos_loc) {}
+      Matrix3 r_y_;
+      Vector3 pl_y_;
       // double eta_;
     };
     InputWaiko(const Vector3 & yv, const Vector3 & ya, const Vector3 & yg) : yv_(yv), ya_(ya), yg_(yg) {}
@@ -259,13 +259,6 @@ protected:
   Vector3 posCorrFromContactPos_ = Vector3::Zero();
   // correction of the orientation coming from the contact positions, passed as a local angular velocity.
   Vector3 oriCorrFromContactPos_ = Vector3::Zero();
-
-public:
-  double & getIterTime()
-  {
-    return iterTime_;
-  }
-  double iterTime_;
 };
 
 } // namespace stateObservation

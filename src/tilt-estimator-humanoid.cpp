@@ -20,12 +20,7 @@ void TiltEstimatorHumanoid::setMeasurement(const Vector3 & imuControlPos,
                                            const Vector3 & yg_k,
                                            TimeIndex k)
 {
-  auto start = std::chrono::high_resolution_clock::now();
   x1_ = -yg_k.cross(imuControlPos) - imuControlLinVel;
-
-  auto end = std::chrono::high_resolution_clock::now();
-
-  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   TiltEstimator::setMeasurement(x1_, ya_k, yg_k, k);
 }

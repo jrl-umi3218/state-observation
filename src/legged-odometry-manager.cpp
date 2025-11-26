@@ -20,8 +20,6 @@ void LeggedOdometryManager::init(const Configuration & odomConfig, const Vector7
 
 void LeggedOdometryManager::run(KineParams & kineParams)
 {
-  iterTime_ = 0.0;
-
   BOOST_ASSERT_MSG(k_data_ != k_est_, "Please call initLoop before this function");
   BOOST_ASSERT_MSG(kineParams.tiltOrAttitudeMeas != nullptr, "Need a full orientation or at least a tilt estimate.");
 
@@ -313,7 +311,6 @@ const Kinematics & LeggedOdometryManager::getContactKinematics(LoContact & conta
 
 void LeggedOdometryManager::correctContactsRef()
 {
-  auto start = std::chrono::high_resolution_clock::now();
   for(auto * mContact : maintainedContacts_)
   {
     // we store the pose of the contact before it is corrected
@@ -342,8 +339,6 @@ void LeggedOdometryManager::correctContactsRef()
     }
   }
 
-  auto end = std::chrono::high_resolution_clock::now();
-  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
   k_correct_ = k_data_;
 }
 

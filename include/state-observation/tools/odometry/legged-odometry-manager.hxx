@@ -16,13 +16,7 @@ void LeggedOdometryManager::initLoop(const std::unordered_set<std::string> & lat
                                      const Vector3 * angVel)
 {
   k_iter_++;
-  auto start = std::chrono::high_resolution_clock::now();
-
   updateContacts(latestContactList, updateFunctions);
-
-  auto end = std::chrono::high_resolution_clock::now();
-
-  iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
   if(linVel != nullptr)
   {

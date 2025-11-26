@@ -394,7 +394,6 @@ const Vector & KineticsObserver::update()
   {
 
     updateMeasurements();
-    auto start = std::chrono::high_resolution_clock::now();
 
     updateContactCovariances();
 
@@ -412,10 +411,6 @@ const Vector & KineticsObserver::update()
     }
 
     worldCentroidStateVector_ = ekf_.getEstimatedState(k_data_);
-
-    auto end = std::chrono::high_resolution_clock::now();
-
-    iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
 
     if(worldCentroidStateVector_.hasNaN())
     {
@@ -435,12 +430,8 @@ const Vector & KineticsObserver::update()
     updateLocalKineAndContacts_();
     if(withAccelerationEstimation_)
     {
-      auto start = std::chrono::high_resolution_clock::now();
       // update of worldCentroidStateKinematics_ with the accelerations
       estimateAccelerations();
-      end = std::chrono::high_resolution_clock::now();
-
-      iterTime_ += std::chrono::duration<double, std::micro>(end - start).count();
     }
     updateGlobalKine_();
 
