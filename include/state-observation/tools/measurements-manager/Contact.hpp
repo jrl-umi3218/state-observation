@@ -14,12 +14,7 @@ namespace stateObservation::measurements
 struct Contact
 {
   // constructor if the contact is not associated to a surface
-  inline Contact(unsigned id, std::string_view name) : id_(id), name_(name) {}
-  // constructor if the contact is associated to a surface
-  inline Contact(unsigned id, std::string_view name, std::string_view surface) : Contact(id, name)
-  {
-    setSurface(surface);
-  }
+  inline Contact(unsigned id, std::string_view surfaceName) : id_(id), surface_(surfaceName) {}
 
 protected:
   inline Contact() = default;
@@ -34,14 +29,23 @@ public:
     wasAlreadySet_ = false;
     isSet_ = false;
   }
-
+  inline void forceSensor(std::string_view fsName)
+  {
+    fsName_ = fsName;
+  }
   inline unsigned id() const noexcept
   {
     return id_;
   }
-  inline const std::string & name() const noexcept
+
+  inline const std::string & forceSensor() const
   {
-    return name_;
+    BOOST_ASSERT(!fsName_.empty() && "The contact is not associated with a force sensor.");
+    return fsName_;
+  }
+  inline const std::string & surfaceName() const noexcept
+  {
+    return surface_;
   }
   inline bool isSet() const noexcept
   {
@@ -51,16 +55,7 @@ public:
   {
     return wasAlreadySet_;
   }
-  inline const std::string & surface() const
-  {
-    BOOST_ASSERT(!surface_.empty() && "The contact was created without a surface.");
-    return surface_;
-  }
 
-  inline void setSurface(std::string_view surfaceName)
-  {
-    surface_ = surfaceName;
-  }
   inline void isSet(bool isSet)
   {
     isSet_ = isSet;
@@ -72,11 +67,12 @@ public:
 
 protected:
   unsigned id_;
-  std::string name_;
 
   bool isSet_ = false;
   bool wasAlreadySet_ = false;
   std::string surface_;
+  // name of the force sensor associated with the surface
+  std::string fsName_;
 };
 } // namespace stateObservation::measurements
 

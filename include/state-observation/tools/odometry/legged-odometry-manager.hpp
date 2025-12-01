@@ -4,12 +4,58 @@
 #include <set>
 #include <state-observation/api.h>
 #include <state-observation/tools/measurements-manager/ContactsManager.hpp>
-#include <state-observation/tools/measurements-manager/measurements.hpp>
+
+#include <state-observation/tools/definitions.hpp>
+#include <state-observation/tools/rigid-body-kinematics.hpp>
 
 namespace stateObservation
 {
 namespace odometry
 {
+
+// allowed odometry types
+enum class OdometryType
+{
+  Odometry6d,
+  Flat,
+  None
+};
+namespace internal
+{
+// map allowing to get the OdometryType value associated to the given string
+inline static const std::unordered_map<std::string, OdometryType> strToOdometryType_ = {
+    {"6D", OdometryType::Odometry6d},
+    {"Flat", OdometryType::Flat},
+    {"None", OdometryType::None}};
+// map allowing to get the string value associated to the given OdometryType object
+inline static const std::unordered_map<OdometryType, std::string> odometryTypToStr_ = {{OdometryType::Odometry6d, "6D"},
+                                                                                       {OdometryType::Flat, "Flat"},
+                                                                                       {OdometryType::None, "None"}};
+} // namespace internal
+
+/// @brief Returns an OdometryType object corresponding to the given string
+/// @details Allows to set the odometry type directly from a string, most likely obtained from a configuration file.
+/// @param str The string naming the desired odometry
+/// @return OdometryType
+inline static OdometryType stringToOdometryType(const std::string & str)
+{
+  auto it = internal::strToOdometryType_.find(str);
+  BOOST_ASSERT_MSG(it != internal::strToOdometryType_.end(),
+                   (": No known OdometryType value for " + str + ".").c_str());
+
+  return it->second;
+}
+
+/// @brief Returns the string value associated to the given OdometryType object
+/// @details This can be used to display the name of the method in the gui for example. This function assumes the given
+/// type is valid.
+/// @param odometryType The current odometry type
+/// @return std::string
+inline static std::string odometryTypeToString(OdometryType odometryType)
+{
+  return internal::odometryTypToStr_.at(odometryType);
+}
+
 using namespace kine;
 typedef Eigen::Vector<double, 7> Vector7;
 
@@ -335,19 +381,19 @@ public:
     /// configuration file.
     inline Configuration(const std::string & odometryTypeString) noexcept
     {
-      odometryType_ = measurements::stringToOdometryType(odometryTypeString);
+      odometryType_ = stringToOdometryType(odometryTypeString);
       BOOST_ASSERT_MSG(
-          odometryType_ == measurements::OdometryType::Flat || odometryType_ == measurements::OdometryType::Odometry6d,
+          odometryType_ == OdometryType::Flat || odometryType_ == OdometryType::Odometry6d,
           "Odometry type not allowed. Please pick among : [Odometry6d, Flat] or use the other Configuration "
           "constructor for an estimator that can run without odometry.");
     }
 
     /// @brief Configuration's constructor
     /// @details This versions allows to initialize the type of odometry directly with an OdometryType object.
-    inline Configuration(measurements::OdometryType odometryType) noexcept : odometryType_(odometryType) {}
+    inline Configuration(OdometryType odometryType) noexcept : odometryType_(odometryType) {}
 
     // Desired kind of odometry (6D or flat)
-    measurements::OdometryType odometryType_;
+    OdometryType odometryType_;
 
     // Indicates if the orientation must be estimated by this odometry.
     bool withYaw_ = true;
@@ -454,7 +500,7 @@ public:
   /// @brief Changes the type of the odometry
   /// @details Version meant to be called by the observer using the odometry during the run through the gui.
   /// @param newOdometryType The string naming the new type of odometry to use.
-  void setOdometryType(measurements::OdometryType newOdometryType);
+  void setOdometryType(OdometryType newOdometryType);
 
   inline void kappa(double kappa) noexcept
   {
@@ -573,8 +619,7 @@ protected:
 
 public:
   // Indicates if the desired odometry must be a flat or a 6D odometry.
-  using OdometryType = measurements::OdometryType;
-  measurements::OdometryType odometryType_;
+  OdometryType odometryType_;
 };
 
 } // namespace odometry

@@ -58,7 +58,7 @@ int testLeggedOdometry(int errorcode)
 
   stateObservation::odometry::LeggedOdometryManager odometryManager_(dt); // manager for the legged odometry
 
-  odometry::LeggedOdometryManager::Configuration odomConfig(measurements::stringToOdometryType("6D"));
+  odometry::LeggedOdometryManager::Configuration odomConfig(stateObservation::odometry::stringToOdometryType("6D"));
   odometryManager_.init(odomConfig, traj.kine.toVector(Kinematics::Flags::pose));
 
   Kinematics kine;

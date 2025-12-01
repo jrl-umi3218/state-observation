@@ -1,5 +1,5 @@
-#include "state-observation/tools/rigid-body-kinematics.hpp"
 #include <state-observation/tools/odometry/legged-odometry-manager.hpp>
+#include <state-observation/tools/rigid-body-kinematics.hpp>
 
 namespace stateObservation::odometry
 {
@@ -288,7 +288,7 @@ void LeggedOdometryManager::setNewContact(LoContact & contact)
 
   contact.worldRefKine_ = getContactKinematics(contact);
 
-  if(odometryType_ == measurements::OdometryType::Flat)
+  if(odometryType_ == OdometryType::Flat)
   {
     contact.worldRefKine_.position()(2) = 0.0;
   }
@@ -333,7 +333,7 @@ void LeggedOdometryManager::correctContactsRef()
         mContact->worldRefKine_.position()
         + mContact->correctionWeightingCoeff()
               * (mContact->newIncomingWorldRefKine_.position() - mContact->worldRefKine_.position());
-    if(odometryType_ == measurements::OdometryType::Flat)
+    if(odometryType_ == OdometryType::Flat)
     {
       mContact->worldRefKine_.position()(2) = 0.0;
     }
@@ -345,6 +345,7 @@ void LeggedOdometryManager::correctContactsRef()
 Kinematics LeggedOdometryManager::getContactKineIn(LoContact & contact, Kinematics & bodyTargetKine)
 {
   Kinematics targetContactKine = bodyTargetKine.getInverse() * contact.bodyContactKine_;
+
   return targetContactKine;
 }
 
@@ -354,6 +355,8 @@ Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & bodyTargetKine)
 
   Kinematics targetAnchorKine;
   targetAnchorKine.position.set().setZero();
+
+  targetAnchorKine.position = Vector3::Zero();
 
   if(bodyTargetKine.linVel.isSet())
   {
@@ -367,6 +370,7 @@ Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & bodyTargetKine)
   for(auto * mContact : maintainedContacts_)
   {
     Kinematics targetContactKine = getContactKineIn(*mContact, bodyTargetKine);
+
     targetAnchorKine.position() += targetContactKine.position() * mContact->lambda();
     if(targetContactKine.linVel.isSet())
     {
@@ -400,7 +404,7 @@ void LeggedOdometryManager::replaceRobotPose(const Vector7 & newPose)
     contact->worldRefKine_ = newPoseKine * bodyWorldRefKine;
     contact->worldRefKineBeforeCorrection_ = newPoseKine * bodyWorldRefKineBeforeCorrection;
 
-    if(odometryType_ == measurements::OdometryType::Flat)
+    if(odometryType_ == OdometryType::Flat)
     {
       contact->worldRefKineBeforeCorrection_.position()(2) = 0.0;
       contact->worldRefKine_.position()(2) = 0.0;

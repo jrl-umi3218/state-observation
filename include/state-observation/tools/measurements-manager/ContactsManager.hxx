@@ -38,7 +38,7 @@ void ContactsManager<ContactT>::updateContacts(const std::unordered_set<std::str
       new_contact_set += contactName;
     }
   }
-  for(auto prevContactName : currentContactsList_)
+  for(auto & prevContactName : currentContactsList_)
   {
     if(latestContactList.find(prevContactName) == latestContactList.end())
     {

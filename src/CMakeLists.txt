@@ -50,8 +50,7 @@ set(HEADERS
     ${PROJECT_INCLUDE_DIR}/tools/measurements-manager/ContactsManager.hpp
     ${PROJECT_INCLUDE_DIR}/tools/measurements-manager/ContactsManager.hxx
     ${PROJECT_INCLUDE_DIR}/tools/measurements-manager/IMU.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/measurements-manager/Sensor.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/measurements-manager/measurements.hpp
+    ${PROJECT_INCLUDE_DIR}/tools/measurements-manager/Sensor.hpp 
     ${PROJECT_INCLUDE_DIR}/tools/state-vector-arithmetics.hpp
     ${PROJECT_INCLUDE_DIR}/dynamical-system/dynamical-system-functor-base.hpp
     ${PROJECT_INCLUDE_DIR}/dynamical-system/dynamical-system-simulator.hpp
