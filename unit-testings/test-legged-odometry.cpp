@@ -84,7 +84,7 @@ int testLeggedOdometry(int errorcode)
                               stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions<>());
 
     odometryManager_.run(
-        odometry::LeggedOdometryManager::KineParams(kine).attitudeMeas(traj.kine.orientation.toMatrix3()));
+        odometry::LeggedOdometryManager::KineParams(kine).attitudeMeasurement(traj.kine.orientation.toMatrix3()));
   }
 
   return 0;

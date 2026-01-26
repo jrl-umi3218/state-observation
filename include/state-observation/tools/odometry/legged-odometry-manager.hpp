@@ -160,10 +160,10 @@ public:
 
     /// @var Kinematics & pose /* Pose of the body of the robot in the world that we want to update with
     /// the odometry */
-    /// @var bool oriIsAttitude /* Informs if the rotation matrix ContactUpdateFunctions#tiltOrAttitude stored in this
-    /// structure is a tilt or an attitude (full orientation). */
-    /// @var Eigen::Matrix3d* tiltOrAttitude /* Input orientation of the body in the world, used to perform the
-    /// legged odometry. If only a tilt is provided, the yaw will come from the yaw of the contacts. */
+    /// @var Eigen::Matrix3d* attitude /* Input orientation of the body in the world, used to perform the
+    /// legged odometry.  */
+    /// @var Eigen::Vector3d* tilt /* Input tilt of the body in the world, used to perform the
+    /// legged odometry. As only a tilt is provided, the yaw will come from the yaw of the contacts. */
 
     KineParams & positionMeas(const Eigen::Vector3d & worldPosMeas)
     {
@@ -171,27 +171,26 @@ public:
       return *this;
     }
 
-    KineParams & tiltMeas(const Eigen::Matrix3d & tiltMeas)
+    KineParams & tiltMeasurement(const Eigen::Vector3d & tilt)
     {
-      BOOST_ASSERT_MSG(!tiltOrAttitudeMeas, "An input attitude is already set");
-      oriIsAttitude = false;
-      tiltOrAttitudeMeas = &tiltMeas;
+      BOOST_ASSERT_MSG(attitudeMeas == nullptr, "An input attitude is already set");
+      tiltMeas = &tilt;
       return *this;
     }
 
-    KineParams & attitudeMeas(const Eigen::Matrix3d & oriMeas)
+    KineParams & attitudeMeasurement(const Eigen::Matrix3d & oriMeas)
     {
-      BOOST_ASSERT_MSG(!tiltOrAttitudeMeas, "An input tilt is already set");
-      oriIsAttitude = true;
-      tiltOrAttitudeMeas = &oriMeas;
+      BOOST_ASSERT_MSG(tiltMeas == nullptr, "An input tilt is already set");
+      attitudeMeas = &oriMeas;
       return *this;
     }
 
     static KineParams fromOther(const KineParams & other)
     {
       KineParams out(*other.kineToUpdate);
-      out.oriIsAttitude = other.oriIsAttitude;
-      out.tiltOrAttitudeMeas = other.tiltOrAttitudeMeas;
+      out.attitudeMeas = other.attitudeMeas;
+      out.tiltMeas = other.tiltMeas;
+      out.worldPosMeas = other.worldPosMeas;
       return out;
     }
 
@@ -207,13 +206,13 @@ public:
 
     // Input position of the body in the world, used to perform the
     // legged odometry.
-    const Eigen::Vector3d * worldPosMeas = nullptr;
-    // Informs if the rotation matrix tiltOrAttitude stored in this structure
-    // is a tilt or an attitude (full orientation).
-    bool oriIsAttitude = false;
+    const Vector3 * worldPosMeas = nullptr;
     // Input orientation of the body in the world, used to perform the
     // legged odometry. If only a tilt is provided, the yaw will come from the yaw of the contacts.
-    const Eigen::Matrix3d * tiltOrAttitudeMeas = nullptr;
+    const Matrix3 * attitudeMeas = nullptr;
+    // Input orientation of the body in the world, used to perform the
+    // legged odometry. If only a tilt is provided, the yaw will come from the yaw of the contacts.
+    const Vector3 * tiltMeas = nullptr;
   };
 
   struct ContactInputData
@@ -464,11 +463,12 @@ public:
   /// see the documentation of the KineParams class).
   void run(KineParams & kineParams);
 
-  /// @brief Replaces the current pose of the odometry robot by the given one.
+  /// @brief Replaces the current pose of the odometry robot (that of the body used for the odometry !) by the given
+  /// one.
   /// @details Also changes the reference pose of the contacts. Updates the velocity and acceleration with the new
   /// orientation if required.
   /// @param newPose New pose of the odometry robot.
-  void replaceRobotPose(const Vector7 & newPose);
+  void replaceOdomBodyPose(const Vector7 & newPose);
 
   /// @brief Gives the kinematics (position and linear velocity) of the anchor point in the desired frame.
   /// @details If the velocity of the target frame in the world frame is given, the velocity of the anchor point in the

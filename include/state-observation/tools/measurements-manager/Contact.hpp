@@ -29,20 +29,12 @@ public:
     wasAlreadySet_ = false;
     isSet_ = false;
   }
-  inline void forceSensor(std::string_view fsName)
-  {
-    fsName_ = fsName;
-  }
+
   inline unsigned id() const noexcept
   {
     return id_;
   }
 
-  inline const std::string & forceSensor() const
-  {
-    BOOST_ASSERT(!fsName_.empty() && "The contact is not associated with a force sensor.");
-    return fsName_;
-  }
   inline const std::string & surfaceName() const noexcept
   {
     return surface_;
@@ -71,8 +63,6 @@ protected:
   bool isSet_ = false;
   bool wasAlreadySet_ = false;
   std::string surface_;
-  // name of the force sensor associated with the surface
-  std::string fsName_;
 };
 } // namespace stateObservation::measurements
 

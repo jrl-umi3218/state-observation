@@ -21,7 +21,8 @@ void LeggedOdometryManager::init(const Configuration & odomConfig, const Vector7
 void LeggedOdometryManager::run(KineParams & kineParams)
 {
   BOOST_ASSERT_MSG(k_data_ != k_est_, "Please call initLoop before this function");
-  BOOST_ASSERT_MSG(kineParams.tiltOrAttitudeMeas != nullptr, "Need a full orientation or at least a tilt estimate.");
+  BOOST_ASSERT_MSG((kineParams.tiltMeas != nullptr) || (kineParams.attitudeMeas != nullptr),
+                   "Need a full orientation or at least a tilt estimate.");
 
   // updates the contacts and the resulting body kinematics
   updateBodyAndContacts(kineParams);
@@ -39,26 +40,25 @@ void LeggedOdometryManager::updateBodyAndContacts(const KineParams & params)
   // contacts using the obtained pose of the body.
 
   // if the given orientation is only a tilt, we compute the yaw using the one of the contacts
-  if(!params.oriIsAttitude)
+  if(params.attitudeMeas == nullptr)
   {
-    const Matrix3 & tilt = *(params.tiltOrAttitudeMeas);
+    const Vector3 & tilt = *(params.tiltMeas);
 
     if(maintainedContacts_.size() > 0)
     {
       Kinematics worldBodyKineFromAnchor = getWorldBodyKineFromAnchor(false, true);
 
-      bodyKine_.orientation =
-          kine::mergeRoll1Pitch1WithYaw2AxisAgnostic(tilt, worldBodyKineFromAnchor.orientation.toMatrix3());
+      bodyKine_.orientation = kine::mergeTiltWithYawAxisAgnostic(tilt, worldBodyKineFromAnchor.orientation.toMatrix3());
     }
     else
     {
       // If no contact is detected, the yaw will not be updated but the tilt will.
-      bodyKine_.orientation = kine::mergeRoll1Pitch1WithYaw2AxisAgnostic(tilt, bodyKine_.orientation.toMatrix3());
+      bodyKine_.orientation = kine::mergeTiltWithYawAxisAgnostic(tilt, bodyKine_.orientation.toMatrix3());
     }
   }
   else
   {
-    const Matrix3 & attitude = *(params.tiltOrAttitudeMeas);
+    const Matrix3 & attitude = *(params.attitudeMeas);
     bodyKine_.orientation = attitude;
   }
 
@@ -385,7 +385,7 @@ Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & bodyTargetKine)
   return targetAnchorKine;
 }
 
-void LeggedOdometryManager::replaceRobotPose(const Vector7 & newPose)
+void LeggedOdometryManager::replaceOdomBodyPose(const Vector7 & newPose)
 {
   Kinematics prevPoseKine = bodyKine_;
   Kinematics & newPoseKine = bodyKine_;
