@@ -619,7 +619,7 @@ protected:
 
 public:
   // Indicates if the desired odometry must be a flat or a 6D odometry.
-  OdometryType odometryType_;
+  OdometryType odometryType_ = OdometryType::None;
 };
 
 } // namespace odometry
