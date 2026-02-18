@@ -57,7 +57,7 @@ inline static std::string odometryTypeToString(OdometryType odometryType)
 }
 
 using namespace kine;
-typedef Eigen::Vector<double, 7> Vector7;
+typedef Eigen::Matrix<double, 7, 1> Vector7;
 
 /**
  * Interface for the implementation of legged odometry. This odometry is based on the tracking of successive contacts

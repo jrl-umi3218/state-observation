@@ -107,7 +107,6 @@ void WaikoHumanoid::addCorrectionTerms()
   {
     Vector3 meas_pl = contactInput.pl_y_;
 
-    Vector3 meas_tilt = contactInput.r_y_.transpose() * Vector3::UnitZ();
     Matrix3 R_tilde = contactInput.r_y_ * state_ori_.toMatrix3().transpose();
     Vector3 R_tilde_vec = kine::skewSymmetricToRotationVector(R_tilde - R_tilde.transpose()) / 2.0;
 
