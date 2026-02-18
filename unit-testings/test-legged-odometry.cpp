@@ -92,10 +92,9 @@ int testLeggedOdometry(int errorcode)
       maintainedContact.lambda(0.5);
     };
 
-    stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions contactUpdateFunctions =
-        stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions()
-            .onNewContact(onNewContactOdom)
-            .onMaintainedContact(onMaintainedContactOdom);
+    auto contactUpdateFunctions = stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions()
+                                      .onNewContact(onNewContactOdom)
+                                      .onMaintainedContact(onMaintainedContactOdom);
 
     odometryManager_.initLoop(contactList, contactUpdateFunctions);
 
