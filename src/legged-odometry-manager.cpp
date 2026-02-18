@@ -284,6 +284,7 @@ void LeggedOdometryManager::updateBodyKinematicsPvt(Kinematics & pose)
 
 void LeggedOdometryManager::setNewContact(LoContact & contact)
 {
+  BOOST_ASSERT_MSG(contact.bodyContactKine_.position.isSet(), "Please provide bodyContactKine_.");
   contact.resetLifeTime();
 
   contact.worldRefKine_ = getContactKinematics(contact);

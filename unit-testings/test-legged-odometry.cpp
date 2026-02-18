@@ -80,8 +80,24 @@ int testLeggedOdometry(int errorcode)
       contactList.insert("Contact2");
     }
 
-    odometryManager_.initLoop(contactList,
-                              stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions<>());
+    auto onNewContactOdom = [](stateObservation::odometry::LoContact & newContact)
+    {
+      newContact.bodyContactKine_ = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+      newContact.lambda(0.5);
+    };
+
+    auto onMaintainedContactOdom = [](stateObservation::odometry::LoContact & maintainedContact)
+    {
+      maintainedContact.bodyContactKine_ = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+      maintainedContact.lambda(0.5);
+    };
+
+    stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions contactUpdateFunctions =
+        stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions()
+            .onNewContact(onNewContactOdom)
+            .onMaintainedContact(onMaintainedContactOdom);
+
+    odometryManager_.initLoop(contactList, contactUpdateFunctions);
 
     odometryManager_.run(
         odometry::LeggedOdometryManager::KineParams(kine).attitudeMeasurement(traj.kine.orientation.toMatrix3()));
