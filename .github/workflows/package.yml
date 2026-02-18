@@ -24,7 +24,7 @@ jobs:
       deps: '["jrl-umi3218/mc_rtc"]'
       matrix: |
           {
-            "dist": ["bionic", "focal", "jammy"],
+            "dist": ["focal", "jammy", "noble"],
             "arch": ["amd64"]
           }
     secrets:
