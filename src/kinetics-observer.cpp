@@ -2861,7 +2861,7 @@ Vector KineticsObserver::stateDynamics(const Vector & xInput, const InputBase & 
 
 Vector6 KineticsObserver::getCurrentViscoElasticWrench(Index numContact)
 {
-  BOOST_ASSERT(!input_.contacts_[numContact].isSet
+  BOOST_ASSERT(input_.contacts_[numContact].isSet
                && "The contact doesn't exist, the associated visco-elastic wrench cannot be computed.");
 
   const Input::Contact & contact = input_.contacts_.at(static_cast<size_t>(numContact));
