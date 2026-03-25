@@ -7,7 +7,7 @@ template<typename OnNewContactObserver,
          typename OnMaintainedContactObserver,
          typename OnRemovedContactObserver,
          typename OnAddedContactObserver>
-void LeggedOdometryManager::initLoop(const std::unordered_set<std::string> & latestContactList,
+bool LeggedOdometryManager::initLoop(const std::unordered_set<std::string> & latestContactList,
                                      const ContactUpdateFunctions<OnNewContactObserver,
                                                                   OnMaintainedContactObserver,
                                                                   OnRemovedContactObserver,
@@ -16,7 +16,7 @@ void LeggedOdometryManager::initLoop(const std::unordered_set<std::string> & lat
                                      const Vector3 * angVel)
 {
   k_iter_++;
-  updateContacts(latestContactList, updateFunctions);
+  bool contactsChanged = updateContacts(latestContactList, updateFunctions);
 
   if(linVel != nullptr)
   {
@@ -27,13 +27,15 @@ void LeggedOdometryManager::initLoop(const std::unordered_set<std::string> & lat
     bodyKine_.angVel = *angVel;
   }
   k_data_ = k_iter_;
+
+  return contactsChanged;
 }
 
 template<typename OnNewContactObserver,
          typename OnMaintainedContactObserver,
          typename OnRemovedContactObserver,
          typename OnAddedContactObserver>
-void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string> & latestContactList,
+bool LeggedOdometryManager::updateContacts(const std::unordered_set<std::string> & latestContactList,
                                            const ContactUpdateFunctions<OnNewContactObserver,
                                                                         OnMaintainedContactObserver,
                                                                         OnRemovedContactObserver,
@@ -46,14 +48,16 @@ void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string>
   posUpdatable_ = false;
   newContacts_.clear();
   maintainedContacts_.clear();
+  bool contactsChanged = false;
 
-  auto onNewContact = [this, &updateFunctions](LoContact & newContact)
+  auto onNewContact = [this, &contactsChanged, &updateFunctions](LoContact & newContact)
   {
     newContacts_.push_back(&newContact);
     if constexpr(!std::is_same_v<OnNewContactObserver, std::nullptr_t>)
     {
       (*updateFunctions.onNewContactFn)(newContact);
     }
+    contactsChanged = true;
   };
 
   auto onMaintainedContact = [this, &updateFunctions, &sumLambdas_position](LoContact & maintainedContact)
@@ -61,24 +65,25 @@ void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string>
     maintainedContacts_.push_back(&maintainedContact);
     maintainedContact.lifeTimeIncrement(ctl_dt_);
 
-    maintainedContact.worldBodyKineFromRef_ =
-        maintainedContact.worldRefKine_ * maintainedContact.bodyContactKine_.getInverse();
-
     if constexpr(!std::is_same_v<OnMaintainedContactObserver, std::nullptr_t>)
     {
       (*updateFunctions.onMaintainedContactFn)(maintainedContact);
     }
 
+    maintainedContact.worldBodyKineFromRef_ =
+        maintainedContact.worldRefKine_ * maintainedContact.bodyContactKine_.getInverse();
+
     sumLambdas_position += maintainedContact.lambda();
     posUpdatable_ = true;
   };
 
-  auto onRemovedContact = [this, &updateFunctions](LoContact & removedContact)
+  auto onRemovedContact = [this, &contactsChanged, &updateFunctions](LoContact & removedContact)
   {
     if constexpr(!std::is_same_v<OnRemovedContactObserver, std::nullptr_t>)
     {
       (*updateFunctions.onRemovedContactFn)(removedContact);
     }
+    contactsChanged = true;
   };
 
   // detects the contacts currently set with the environment
@@ -89,6 +94,7 @@ void LeggedOdometryManager::updateContacts(const std::unordered_set<std::string>
   {
     mContact->lambda(mContact->lambda() / sumLambdas_position);
   }
+  return contactsChanged;
 }
 
 } // namespace odometry

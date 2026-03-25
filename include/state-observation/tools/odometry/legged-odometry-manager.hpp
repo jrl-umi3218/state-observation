@@ -429,7 +429,7 @@ public:
    *
    * @return const std::vector<LoContact *>&
    */
-  inline const std::vector<LoContact *> & maintainedContacts()
+  inline const std::vector<LoContact *> & maintainedContacts() const
   {
     return maintainedContacts_;
   }
@@ -449,7 +449,7 @@ public:
            typename OnMaintainedContactObserver = std::nullptr_t,
            typename OnRemovedContactObserver = std::nullptr_t,
            typename OnAddedContactObserver = std::nullptr_t>
-  void initLoop(const std::unordered_set<std::string> & latestContactList,
+  bool initLoop(const std::unordered_set<std::string> & latestContactList,
                 const ContactUpdateFunctions<OnNewContactObserver,
                                              OnMaintainedContactObserver,
                                              OnRemovedContactObserver,
@@ -495,7 +495,7 @@ public:
   /// then compute their weighted average and obtain the estimated translation from the anchor point to the body.  We
   /// apply this translation to the reference position of the anchor frame in the world to obtain the new position of
   /// the body in the word. We do the same for the orientation.
-  LocalKinematics getWorldBodyLocalKineFromAnchor(bool withPos, bool withOri);
+  LocalKinematics getWorldBodyLocalKineFromAnchor();
 
   /// @brief Changes the type of the odometry
   /// @details Version meant to be called by the observer using the odometry during the run through the gui.
@@ -525,7 +525,7 @@ private:
            typename OnMaintainedContactObserver = std::nullptr_t,
            typename OnRemovedContactObserver = std::nullptr_t,
            typename OnAddedContactObserver = std::nullptr_t>
-  void updateContacts(const std::unordered_set<std::string> & latestContactList,
+  bool updateContacts(const std::unordered_set<std::string> & latestContactList,
                       const ContactUpdateFunctions<OnNewContactObserver,
                                                    OnMaintainedContactObserver,
                                                    OnRemovedContactObserver,
