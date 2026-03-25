@@ -12,6 +12,7 @@
 #define WaikoHumanoidHPP
 
 #include "state-observation/observer/zero-delay-observer.hpp"
+#include <optional>
 #include <state-observation/observer/delayed-measurements-complem-filter.hpp>
 #include <state-observation/tools/rigid-body-kinematics.hpp>
 
@@ -30,16 +31,6 @@ class STATE_OBSERVATION_DLLAPI WaikoHumanoid : public ZeroDelayObserver
 public:
   struct InputWaiko : public InputBase
   {
-    /// @brief Input coming from a contact: IMU pose with the associated correction gains
-    struct ContactInput
-    {
-      /// @param pl_y_ local position measurement.
-      /// @param r_y_ orientation measurement.
-      ContactInput(const Matrix3 & ori, const Vector3 & pos_loc) : r_y_(ori), pl_y_(pos_loc) {}
-      Matrix3 r_y_;
-      Vector3 pl_y_;
-      // double eta_;
-    };
     InputWaiko(const Vector3 & yv, const Vector3 & ya, const Vector3 & yg) : yv_(yv), ya_(ya), yg_(yg) {}
 
     // local linear velocity measurement
@@ -48,8 +39,10 @@ public:
     Vector3 ya_;
     // gyrometer measurement
     Vector3 yg_;
-    // IMU position measurements from contacts
-    std::vector<ContactInput> contact_inputs_;
+    // IMU position measurements
+    std::vector<Vector3> pos_inputs_;
+    // IMU orientation measurements measurements
+    std::vector<Matrix3> ori_inputs_;
   };
 
   inline static constexpr Index sizeX1 = 3;
@@ -120,8 +113,10 @@ public:
                 TimeIndex k,
                 bool resetImuLocVelHat = false);
 
-  /// @brief sets the input from a contact
-  void addContactInput(const InputWaiko::ContactInput & contactInput, TimeIndex k);
+  /// @brief set position, orientation, or pose inputs
+  void addPosInput(const Vector3 & poseInput, TimeIndex k);
+  void addOriInput(const Matrix3 & oriInput, TimeIndex k);
+  void addPoseInput(const Matrix3 & oriInput, const Vector3 & posInput, TimeIndex k);
 
   using ZeroDelayObserver::setInput;
 
@@ -208,7 +203,7 @@ public:
     return posCorrFromContactPos_;
   }
   // correction of the orientation coming from the contact positions, passed as a local angular velocity.
-  inline const stateObservation::Vector3 & geOriCorrectionFromContactPos()
+  inline const stateObservation::Vector3 & getOriCorrectionFromContactPos()
   {
     return oriCorrFromContactPos_;
   }

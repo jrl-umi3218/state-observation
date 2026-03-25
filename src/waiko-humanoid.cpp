@@ -38,10 +38,24 @@ void WaikoHumanoid::setInput(const Vector3 & yv_k,
   }
 }
 
-void WaikoHumanoid::addContactInput(const InputWaiko::ContactInput & contactInput, TimeIndex k)
+void WaikoHumanoid::addPosInput(const Vector3 & posInput, TimeIndex k)
 {
   InputWaiko & input = convert_input<InputWaiko>(getInput(k));
-  input.contact_inputs_.push_back(contactInput);
+  input.pos_inputs_.push_back(posInput);
+}
+
+void WaikoHumanoid::addOriInput(const Matrix3 & oriInput, TimeIndex k)
+{
+  InputWaiko & input = convert_input<InputWaiko>(getInput(k));
+  input.ori_inputs_.push_back(oriInput);
+}
+
+void WaikoHumanoid::addPoseInput(const Matrix3 & oriInput, const Vector3 & posInput, TimeIndex k)
+{
+  InputWaiko & input = convert_input<InputWaiko>(getInput(k));
+
+  input.ori_inputs_.push_back(oriInput);
+  input.pos_inputs_.push_back(posInput);
 }
 
 void WaikoHumanoid::startNewIteration_() {}
@@ -103,17 +117,18 @@ void WaikoHumanoid::addCorrectionTerms()
   Eigen::Ref<Vector3> w_l = dx_hat_.segment<sizeOriTangent>(oriIndexTangent); // using R_dot = RS(w_l * dt)
   Eigen::Ref<Vector3> v_l = dx_hat_.segment<sizePosTangent>(posIndexTangent);
 
-  for(const InputWaiko::ContactInput & contactInput : input.contact_inputs_)
+  for(const Matrix3 & oriInput : input.ori_inputs_)
   {
-    Vector3 meas_pl = contactInput.pl_y_;
-
-    Matrix3 R_tilde = contactInput.r_y_ * state_ori_.toMatrix3().transpose();
+    Matrix3 R_tilde = oriInput * state_ori_.toMatrix3().transpose();
     Vector3 R_tilde_vec = kine::skewSymmetricToRotationVector(R_tilde - R_tilde.transpose()) / 2.0;
 
     oriCorrFromOriMeas_ +=
         mu_ * state_ori_.toMatrix3().transpose() * Vector3::UnitZ() * Vector3::UnitZ().transpose() * R_tilde_vec;
+  }
 
-    posCorrFromContactPos_ += rho_ * (meas_pl - pl_hat);
+  for(const Vector3 & posInput : input.pos_inputs_)
+  {
+    posCorrFromContactPos_ += rho_ * (posInput - pl_hat);
   }
 
   w_l += oriCorrFromOriMeas_ + oriCorrFromContactPos_;
