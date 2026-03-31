@@ -351,14 +351,8 @@ Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & bodyTargetKine)
   Kinematics targetAnchorKine;
   targetAnchorKine.position.set().setZero();
 
-  targetAnchorKine.position = Vector3::Zero();
-
   if(bodyTargetKine.linVel.isSet())
   {
-    BOOST_ASSERT_MSG(
-        bodyKine_.linVel.isSet() && bodyKine_.angVel.isSet(),
-        "The velocity of the anchor frame cannot be computed without the linear and angular velocities of the "
-        "body. Please add them to initLoop().");
     targetAnchorKine.linVel.set().setZero();
   }
 
@@ -378,6 +372,37 @@ Kinematics LeggedOdometryManager::getAnchorKineIn(Kinematics & bodyTargetKine)
   }
 
   return targetAnchorKine;
+}
+
+Kinematics LeggedOdometryManager::getAnchorKineInBody(bool withVel)
+{
+  BOOST_ASSERT_MSG(k_data_ != k_est_, "Please call initLoop before this function");
+
+  Kinematics bodyAnchorKine;
+  bodyAnchorKine.position.set().setZero();
+
+  if(withVel)
+  {
+    bodyAnchorKine.linVel.set().setZero();
+  }
+
+  for(auto * mContact : maintainedContacts_)
+  {
+    bodyAnchorKine.position() += mContact->bodyContactKine_.position() * mContact->lambda();
+
+    if(withVel)
+    {
+      BOOST_ASSERT_MSG(mContact->bodyContactKine_.linVel.isSet(),
+                       (std::string("The velocity of the contact in the target frame cannot be computed. "
+                                    "Please add the velocity of the contact ")
+                        + mContact->surfaceName() + " to bodyContactKine_.")
+                           .c_str());
+
+      bodyAnchorKine.linVel() += mContact->bodyContactKine_.linVel() * mContact->lambda();
+    }
+  }
+
+  return bodyAnchorKine;
 }
 
 void LeggedOdometryManager::replaceOdomBodyPose(const Vector7 & newPose)

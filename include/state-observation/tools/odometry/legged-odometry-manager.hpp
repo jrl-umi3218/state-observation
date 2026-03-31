@@ -411,10 +411,6 @@ public:
     }
   };
 
-  inline LeggedOdometryManager(double dt)
-  {
-    ctl_dt_ = dt;
-  }
   /**
    * @brief  Returns a list of pointers to the contacts maintained during the current iteration.
    *
@@ -476,6 +472,10 @@ public:
   /// @param bodyTargetKine Kinematics of the target frame in the body frame.
   Kinematics getAnchorKineIn(Kinematics & bodyTargetKine);
 
+  /// @brief Gives the kinematics (position and linear velocity) of the anchor point in the body frame.
+  /// @param withVel Indicates if the velocity of the anchor point in the body must be computed.
+  Kinematics getAnchorKineInBody(bool withVel);
+
   /**
    * @brief Returns the position of the anchor point in the world from the current contacts reference position.
    *
@@ -501,6 +501,11 @@ public:
   /// @details Version meant to be called by the observer using the odometry during the run through the gui.
   /// @param newOdometryType The string naming the new type of odometry to use.
   void setOdometryType(OdometryType newOdometryType);
+
+  void setSamplingTime(double dt)
+  {
+    ctl_dt_ = dt;
+  }
 
   inline void kappa(double kappa) noexcept
   {
@@ -587,7 +592,7 @@ protected:
   // contact's lifetime.
   double lambdaInf_ = 0.02;
   // timestep used in the controller
-  double ctl_dt_;
+  double ctl_dt_ = 0.0;
 
   // indicates whether we want to update the yaw using this method or not
   bool withYawEstimation_;
