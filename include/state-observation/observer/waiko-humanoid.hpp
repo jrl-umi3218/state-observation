@@ -31,7 +31,12 @@ class STATE_OBSERVATION_DLLAPI WaikoHumanoid : public ZeroDelayObserver
 public:
   struct InputWaiko : public InputBase
   {
-    InputWaiko(const Vector3 & yv, const Vector3 & ya, const Vector3 & yg) : yv_(yv), ya_(ya), yg_(yg) {}
+    InputWaiko(double dt, const Vector3 & yv, const Vector3 & ya, const Vector3 & yg)
+    : dt_(dt), yv_(yv), ya_(ya), yg_(yg)
+    {
+    }
+    // sampling time
+    double dt_;
 
     // local linear velocity measurement
     Vector3 yv_;
@@ -73,7 +78,7 @@ public:
   ///  \li gamma  : parameter related to the orthogonality
   ///  \li rho  : parameter related to the correction of the position by the position measurement
   ///  \li mu  : parameter related to the correction of the orientation by the orientation measurement
-  WaikoHumanoid(double dt, double alpha, double beta, double gamma, double rho, double mu);
+  WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu);
 
   /// @brief Destroys the observer
   ///
@@ -87,13 +92,16 @@ public:
 
   /// @brief sets the input
   /// @details version that computes yv from the kinematics of the anchor frame in the IMU frame
-  /// @param yv_k
-  /// @param ya_k.
-  /// @param yg_k
-  /// @param k
+  /// @param dt sampling time
+  /// @param imuAnchorPos position of the anchor point in the IMU
+  /// @param imuAnchorPos linear velocity of the anchor point in the IMU
+  /// @param ya_k accelerometer measurement
+  /// @param yg_k gryometer measurement
+  /// @param k time index
   /// @param resetImuLocVelHat Resets x1hat (the estimate of the local linear velocity of the IMU in the world). Avoid
   /// discontinuities when the computation mode of the anchor point changes
-  void setInput(const Vector3 & imuAnchorPos,
+  void setInput(double dt,
+                const Vector3 & imuAnchorPos,
                 const Vector3 & imuAnchorLinVel,
                 const Vector3 & ya_k,
                 const Vector3 & yg_k,
@@ -101,13 +109,15 @@ public:
                 bool resetImuLocVelHat = false);
 
   /// @brief sets the input
-  /// @param yv_k
-  /// @param ya_k.
-  /// @param yg_k
-  /// @param k
+  /// @param dt sampling time
+  /// @param yv_k local linear velocity measurement
+  /// @param ya_k accelerometer measurement
+  /// @param yg_k gryometer measurement
+  /// @param k time index
   /// @param resetImuLocVelHat Resets x1hat (the estimate of the local linear velocity of the IMU in the world). Avoid
   /// discontinuities when the computation mode of the anchor point changes
-  void setInput(const Vector3 & yv_k,
+  void setInput(double dt,
+                const Vector3 & yv_k,
                 const Vector3 & ya_k,
                 const Vector3 & yg_k,
                 TimeIndex k,
@@ -168,16 +178,6 @@ public:
   double getMu()
   {
     return mu_;
-  }
-
-  /// set the sampling time of the measurements
-  void setSamplingTime(double dt)
-  {
-    dt_ = dt;
-  }
-  double getSamplingTime() const
-  {
-    return dt_;
   }
 
   const Eigen::VectorBlock<ObserverBase::StateVector, sizeX1> getEstimatedLocLinVel()
@@ -244,9 +244,6 @@ protected:
   double alpha_, beta_, gamma_, rho_, mu_;
   Vector dx_hat_;
   kine::Orientation state_ori_;
-  // kine::LocalKinematics state_kine_;
-  //  sampling time
-  double dt_;
 
   // correction of the orientation coming from the contact orientations, passed as a local angular velocity.
   Vector3 oriCorrFromOriMeas_ = Vector3::Zero();

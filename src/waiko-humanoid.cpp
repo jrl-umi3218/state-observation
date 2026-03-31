@@ -3,16 +3,17 @@
 #include <state-observation/tools/definitions.hpp>
 namespace stateObservation
 {
-WaikoHumanoid::WaikoHumanoid(double dt, double alpha, double beta, double gamma, double rho, double mu)
+WaikoHumanoid::WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu)
 : ZeroDelayObserver(9, 0, std::make_shared<IndexedInputArrayT<InputWaiko>>()), alpha_(alpha), beta_(beta),
-  gamma_(gamma), rho_(rho), mu_(mu), dt_(dt)
+  gamma_(gamma), rho_(rho), mu_(mu)
 {
   dx_hat_.resize(12);
 }
 
 WaikoHumanoid::~WaikoHumanoid() {}
 
-void WaikoHumanoid::setInput(const Vector3 & imuAnchorPos,
+void WaikoHumanoid::setInput(double dt,
+                             const Vector3 & imuAnchorPos,
                              const Vector3 & imuAnchorLinVel,
                              const Vector3 & ya_k,
                              const Vector3 & yg_k,
@@ -21,16 +22,17 @@ void WaikoHumanoid::setInput(const Vector3 & imuAnchorPos,
 {
   Vector3 yv = -yg_k.cross(imuAnchorPos) - imuAnchorLinVel;
 
-  WaikoHumanoid::setInput(yv, ya_k, yg_k, k, resetImuLocVelHat);
+  WaikoHumanoid::setInput(dt, yv, ya_k, yg_k, k, resetImuLocVelHat);
 }
 
-void WaikoHumanoid::setInput(const Vector3 & yv_k,
+void WaikoHumanoid::setInput(double dt,
+                             const Vector3 & yv_k,
                              const Vector3 & ya_k,
                              const Vector3 & yg_k,
                              TimeIndex k,
                              bool resetImuLocVelHat)
 {
-  setInput(InputWaiko(yv_k, ya_k, yg_k), k);
+  setInput(InputWaiko(dt, yv_k, ya_k, yg_k), k);
 
   if(resetImuLocVelHat)
   {
@@ -112,8 +114,6 @@ void WaikoHumanoid::addCorrectionTerms()
   Eigen::VectorBlock<const ObserverBase::StateVector, sizePos> pl_hat = x_hat.segment<sizePos>(posIndex);
 
   // we add the correction terms compute the state dynamics
-  Eigen::Ref<Vector3> x1_hat_dot = dx_hat_.segment<sizeX1Tangent>(x1IndexTangent);
-  Eigen::Ref<Vector3> x2_hat_dot = dx_hat_.segment<sizeX2Tangent>(x2IndexTangent);
   Eigen::Ref<Vector3> w_l = dx_hat_.segment<sizeOriTangent>(oriIndexTangent); // using R_dot = RS(w_l * dt)
   Eigen::Ref<Vector3> v_l = dx_hat_.segment<sizePosTangent>(posIndexTangent);
 
@@ -137,6 +137,10 @@ void WaikoHumanoid::addCorrectionTerms()
 
 void WaikoHumanoid::integrateState_()
 {
+  TimeIndex k = this->x_.getTime();
+  BOOST_ASSERT(u_ && u_->checkIndex(k) && "ERROR: The input is not set");
+  const InputWaiko & input = convert_input<InputWaiko>(getInput(k));
+
   ObserverBase::StateVector & x_hat = getCurrentEstimatedState();
 
   Eigen::VectorBlock<ObserverBase::StateVector, sizeX1> x1_hat = x_hat.segment<sizeX1>(x1Index);
@@ -150,12 +154,12 @@ void WaikoHumanoid::integrateState_()
   const auto & v_l = dx_hat_.segment<sizePosTangent>(posIndexTangent);
 
   // discrete-time integration of x1_hat, x2_hat and b_hat
-  x1_hat += x1_hat_dot * dt_;
-  x2_hat += x2_hat_dot * dt_;
-  pl_hat += v_l * dt_;
+  x1_hat += x1_hat_dot * input.dt_;
+  x2_hat += x2_hat_dot * input.dt_;
+  pl_hat += v_l * input.dt_;
 
   // discrete-time integration of R
-  state_ori_.integrateRightSide(w_l * dt_);
+  state_ori_.integrateRightSide(w_l * input.dt_);
 
   setState(x_hat, getCurrentTime() + 1);
 }
