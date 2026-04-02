@@ -12,7 +12,7 @@ struct Traj
   struct Iteration
   {
   protected:
-    Iteration() {};
+    Iteration(){};
 
   public:
     Iteration(int id, double t, LocalKinematics kine) : id_(id), t_(t), kine_(kine) {}
@@ -79,7 +79,7 @@ struct Traj
     LocalKinematics kine_;
   };
 
-  Traj() {};
+  Traj(){};
   void init(double dt, double duration)
   {
     dt_ = dt;
@@ -168,7 +168,7 @@ int testWithoutPosAndOriMeasurement(int errorcode, double threshold)
   int nbIters = int(std::round(simTime / dt));
 
   double err;
-  WaikoHumanoid waiko(dt, 1, 1, 1, 1, false);
+  WaikoHumanoid waiko(1, 1, 1, 1, false);
 
   Traj::Iteration & firstIter = traj.getFirstIter();
   waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
@@ -176,7 +176,7 @@ int testWithoutPosAndOriMeasurement(int errorcode, double threshold)
   for(int i = 0; i < nbIters; i++)
   {
     const Traj::Iteration & currentIter = traj.getIter(i * dt);
-    waiko.setInput(currentIter.getYv(), currentIter.getYa(), currentIter.getYg(), i);
+    waiko.setInput(dt, currentIter.getYv(), currentIter.getYa(), currentIter.getYg(), i);
     waiko.getEstimatedState(i + 1);
 
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX1> x1_hat = waiko.getEstimatedLocLinVel();
@@ -238,7 +238,7 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
   int nbIters = int(std::round(simTime / dt));
 
   double err;
-  WaikoHumanoid waiko(dt, 1, 1, 1, 1, false);
+  WaikoHumanoid waiko(1, 1, 1, 1, false);
   Traj::Iteration & firstIter = traj.getFirstIter();
 
   waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
@@ -251,8 +251,8 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
     Vector3 ya = currentIter.getYa() + Vector3::Random() / 1000;
     Vector3 yg = currentIter.getYg() + Vector3::Random() / 1000;
 
-    waiko.setInput(yv, ya, yg, i);
-    waiko.addContactInput(WaikoHumanoid::InputWaiko::ContactInput(currentIter.getOri(), currentIter.getPos()), i);
+    waiko.setInput(dt, yv, ya, yg, i);
+    waiko.addPoseInput(currentIter.getOri(), currentIter.getPos(), i);
     waiko.getEstimatedState(i + 1);
 
     Eigen::VectorBlock<ObserverBase::StateVector, WaikoHumanoid::sizeX1> x1_hat = waiko.getEstimatedLocLinVel();

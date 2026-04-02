@@ -56,10 +56,11 @@ int testLeggedOdometry(int errorcode)
   int nbIters = int(simTime / dt);
   Traj traj;
 
-  stateObservation::odometry::LeggedOdometryManager odometryManager_(dt); // manager for the legged odometry
-
+  stateObservation::odometry::LeggedOdometryManager odometryManager =
+      stateObservation::odometry::LeggedOdometryManager(); // manager for the legged odometry
+  odometryManager.setSamplingTime(dt);
   odometry::LeggedOdometryManager::Configuration odomConfig(stateObservation::odometry::stringToOdometryType("6D"));
-  odometryManager_.init(odomConfig, traj.kine.toVector(Kinematics::Flags::pose));
+  odometryManager.init(odomConfig, traj.kine.toVector(Kinematics::Flags::pose));
 
   Kinematics kine;
   kine.position = Vector3(0.0, 0.0, 0.8);
@@ -96,9 +97,9 @@ int testLeggedOdometry(int errorcode)
                                       .onNewContact(onNewContactOdom)
                                       .onMaintainedContact(onMaintainedContactOdom);
 
-    odometryManager_.initLoop(contactList, contactUpdateFunctions);
+    odometryManager.initLoop(contactList, contactUpdateFunctions);
 
-    odometryManager_.run(
+    odometryManager.run(
         odometry::LeggedOdometryManager::KineParams(kine).attitudeMeasurement(traj.kine.orientation.toMatrix3()));
   }
 
