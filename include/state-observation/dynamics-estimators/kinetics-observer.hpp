@@ -1508,7 +1508,7 @@ protected:
 
   // indicates if a contact has been added or removed since the last iteration
   // bool contactsChanged_;
-  unsigned nb_prevContacts_;
+  unsigned nb_prevContacts_ = 0;
   // indicates if a contact's process covariance on the rest position has been modified since the last iteration
   bool contactRestPosProcessChanged_;
   // indicates if a contact's process covariance on the rest orientation has been modified since the last iteration
