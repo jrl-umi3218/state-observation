@@ -7,4 +7,4 @@
 TMP = $(CURDIR)/debian/tmp
 
 %:
-	dh $@ --parallel
+  dh $@ --parallel  -- -DFETCHCONTENT_FULLY_DISCONNECTED=OFF
