@@ -47,8 +47,9 @@ jrl_option(
   INSTALL_DOCUMENTATION
   FALLBACK
   OFF)
-#jrl_find_package(Doxygen REQUIRED COMPONENTS dot)
-jrl_find_package(Doxygen REQUIRED)
+if(BUILD_DOCUMENTATION)
+  jrl_find_package(Doxygen REQUIRED COMPONENTS dot)
+endif()
 
 # For MSVC, set local environment variable to enable finding the built dll
 # of the main library when launching ctest with RUN_TESTS
