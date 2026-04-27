@@ -15,58 +15,58 @@
 set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME})
 
 set(HEADERS
-    ${PROJECT_INCLUDE_DIR}/observer/tilt-estimator.hpp
-    ${PROJECT_INCLUDE_DIR}/observer/tilt-estimator-humanoid.hpp
-    ${PROJECT_INCLUDE_DIR}/observer/extended-kalman-filter.hpp
-    ${PROJECT_INCLUDE_DIR}/observer/kalman-filter-base.hpp
-    ${PROJECT_INCLUDE_DIR}/observer/linear-kalman-filter.hpp
-    ${PROJECT_INCLUDE_DIR}/observer/observer-base.hpp
-    ${PROJECT_INCLUDE_DIR}/observer/zero-delay-observer.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/sensor-base.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/algebraic-sensor.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/accelerometer-gyrometer.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/accelerometer-gyrometer-magnetometer.hpp
-    ${PROJECT_INCLUDE_DIR}/noise/noise-base.hpp
-    ${PROJECT_INCLUDE_DIR}/noise/gaussian-white-noise.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/algorithm/rotation-velocity.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/algorithm/linear-acceleration.hpp
-    ${PROJECT_INCLUDE_DIR}/sensors-simulation/algorithm/magnetic-field.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/definitions.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/definitions.hxx
-    ${PROJECT_INCLUDE_DIR}/tools/hrp2.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/probability-law-simulation.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/miscellaneous-algorithms.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/rigid-body-kinematics.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/rigid-body-kinematics.hxx
-    ${PROJECT_INCLUDE_DIR}/tools/logger.hpp
-    ${PROJECT_INCLUDE_DIR}/tools/logger.hxx
-    ${PROJECT_INCLUDE_DIR}/tools/state-vector-arithmetics.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamical-system/dynamical-system-functor-base.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamical-system/dynamical-system-simulator.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamical-system/imu-dynamical-system.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamical-system/imu-mltpctive-dynamical-system.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamical-system/imu-magnetometer-dynamical-system.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamical-system/bidim-elastic-inv-pendulum-dyn-sys.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/flexibility-estimator-base.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/ekf-flexibility-estimator-base.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/fixed-contact-ekf-flex-estimator-imu.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/model-base-ekf-flex-estimator-imu.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/imu-fixed-contact-dynamical-system.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/stable-imu-fixed-contact-dynamical-system.hpp
-    ${PROJECT_INCLUDE_DIR}/flexibility-estimation/imu-elastic-local-frame-dynamical-system.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamics-estimators/kinetics-observer.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamics-estimators/kinetics-observer.hxx
-    ${PROJECT_INCLUDE_DIR}/dynamics-estimators/lipm-dcm-estimator.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamics-estimators/unidim-lipm-dcm-estimator.hpp
-    ${PROJECT_INCLUDE_DIR}/dynamics-estimators/zmp-tracking-gain-estimator.hpp
-    ${PROJECT_INCLUDE_DIR}/examples/imu-attitude-trajectory-reconstruction.hpp
-    ${PROJECT_INCLUDE_DIR}/examples/imu-attitude-trajectory-reconstruction.hxx
-    ${PROJECT_INCLUDE_DIR}/examples/imu-multiplicative-attitude-reconstruction.hpp
-    ${PROJECT_INCLUDE_DIR}/examples/imu-multiplicative-attitude-reconstruction.hxx
-    ${PROJECT_INCLUDE_DIR}/examples/offline-ekf-flexibility-estimation.hpp
-    ${PROJECT_INCLUDE_DIR}/examples/offline-ekf-flexibility-estimation.hxx
-    ${PROJECT_INCLUDE_DIR}/examples/offline-model-base-flex-estimation.hpp
-    ${PROJECT_INCLUDE_DIR}/examples/offline-model-base-flex-estimation.hxx)
+    include/state-observation/observer/tilt-estimator.hpp
+    include/state-observation/observer/tilt-estimator-humanoid.hpp
+    include/state-observation/observer/extended-kalman-filter.hpp
+    include/state-observation/observer/kalman-filter-base.hpp
+    include/state-observation/observer/linear-kalman-filter.hpp
+    include/state-observation/observer/observer-base.hpp
+    include/state-observation/observer/zero-delay-observer.hpp
+    include/state-observation/sensors-simulation/sensor-base.hpp
+    include/state-observation/sensors-simulation/algebraic-sensor.hpp
+    include/state-observation/sensors-simulation/accelerometer-gyrometer.hpp
+    include/state-observation/sensors-simulation/accelerometer-gyrometer-magnetometer.hpp
+    include/state-observation/noise/noise-base.hpp
+    include/state-observation/noise/gaussian-white-noise.hpp
+    include/state-observation/sensors-simulation/algorithm/rotation-velocity.hpp
+    include/state-observation/sensors-simulation/algorithm/linear-acceleration.hpp
+    include/state-observation/sensors-simulation/algorithm/magnetic-field.hpp
+    include/state-observation/tools/definitions.hpp
+    include/state-observation/tools/definitions.hxx
+    include/state-observation/tools/hrp2.hpp
+    include/state-observation/tools/probability-law-simulation.hpp
+    include/state-observation/tools/miscellaneous-algorithms.hpp
+    include/state-observation/tools/rigid-body-kinematics.hpp
+    include/state-observation/tools/rigid-body-kinematics.hxx
+    include/state-observation/tools/logger.hpp
+    include/state-observation/tools/logger.hxx
+    include/state-observation/tools/state-vector-arithmetics.hpp
+    include/state-observation/dynamical-system/dynamical-system-functor-base.hpp
+    include/state-observation/dynamical-system/dynamical-system-simulator.hpp
+    include/state-observation/dynamical-system/imu-dynamical-system.hpp
+    include/state-observation/dynamical-system/imu-mltpctive-dynamical-system.hpp
+    include/state-observation/dynamical-system/imu-magnetometer-dynamical-system.hpp
+    include/state-observation/dynamical-system/bidim-elastic-inv-pendulum-dyn-sys.hpp
+    include/state-observation/flexibility-estimation/flexibility-estimator-base.hpp
+    include/state-observation/flexibility-estimation/ekf-flexibility-estimator-base.hpp
+    include/state-observation/flexibility-estimation/fixed-contact-ekf-flex-estimator-imu.hpp
+    include/state-observation/flexibility-estimation/model-base-ekf-flex-estimator-imu.hpp
+    include/state-observation/flexibility-estimation/imu-fixed-contact-dynamical-system.hpp
+    include/state-observation/flexibility-estimation/stable-imu-fixed-contact-dynamical-system.hpp
+    include/state-observation/flexibility-estimation/imu-elastic-local-frame-dynamical-system.hpp
+    include/state-observation/dynamics-estimators/kinetics-observer.hpp
+    include/state-observation/dynamics-estimators/kinetics-observer.hxx
+    include/state-observation/dynamics-estimators/lipm-dcm-estimator.hpp
+    include/state-observation/dynamics-estimators/unidim-lipm-dcm-estimator.hpp
+    include/state-observation/dynamics-estimators/zmp-tracking-gain-estimator.hpp
+    include/state-observation/examples/imu-attitude-trajectory-reconstruction.hpp
+    include/state-observation/examples/imu-attitude-trajectory-reconstruction.hxx
+    include/state-observation/examples/imu-multiplicative-attitude-reconstruction.hpp
+    include/state-observation/examples/imu-multiplicative-attitude-reconstruction.hxx
+    include/state-observation/examples/offline-ekf-flexibility-estimation.hpp
+    include/state-observation/examples/offline-ekf-flexibility-estimation.hxx
+    include/state-observation/examples/offline-model-base-flex-estimation.hpp
+    include/state-observation/examples/offline-model-base-flex-estimation.hxx)
 
 set(SRC
     tilt-estimator.cpp
@@ -106,30 +106,15 @@ set(SRC
     unidim-lipm-dcm-estimator.cpp
     zmp-tracking-gain-estimator.cpp)
 
-set(LIBRARY_NAME ${PROJECT_NAME})
-add_library(${LIBRARY_NAME} SHARED ${SRC} ${HEADERS})
-set_target_properties(${LIBRARY_NAME} PROPERTIES COMPILE_FLAGS "-DSTATE_OBSERVATION_EXPORTS")
-set_target_properties(${LIBRARY_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR} VERSION ${PROJECT_VERSION})
+add_library(state-observation SHARED ${SRC})
+jrl_target_headers(state-observation PUBLIC HEADERS ${HEADERS} BASE_DIRS include)
+set_target_properties(state-observation PROPERTIES COMPILE_FLAGS "-DSTATE_OBSERVATION_EXPORTS")
+set_target_properties(state-observation PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR} VERSION ${PROJECT_VERSION})
 target_include_directories(
-  ${LIBRARY_NAME}
-  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include> $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/$<CONFIG>/include>
-         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+  state-observation PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>/include
+                           $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>/$<CONFIG>/include $<INSTALL_INTERFACE:include>)
 
-target_link_libraries(${LIBRARY_NAME} PUBLIC Boost::timer Boost::disable_autolinking)
-if(TARGET Eigen3::Eigen)
-  target_link_libraries(${LIBRARY_NAME} PUBLIC Eigen3::Eigen)
-else()
-  target_include_directories(${LIBRARY_NAME} PUBLIC "${EIGEN3_INCLUDE_DIR}")
-endif()
-set_target_properties(${LIBRARY_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR} VERSION ${PROJECT_VERSION})
+target_link_libraries(state-observation PUBLIC Boost::timer Boost::disable_autolinking)
+target_link_libraries(state-observation PUBLIC Eigen3::Eigen)
 
-install(
-  TARGETS ${LIBRARY_NAME}
-  EXPORT "${TARGETS_EXPORT_NAME}"
-  LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib
-  RUNTIME DESTINATION bin)
-
-install(DIRECTORY ${PROJECT_INCLUDE_DIR}/ DESTINATION ${INCLUDE_INSTALL_DESTINATION})
-
-pkg_config_append_libs(${PROJECT_NAME})
+jrl_add_export_component(NAME state-observation TARGETS state-observation)
