@@ -8,10 +8,12 @@
     inputs.mc-rtc-nix.lib.mkFlakoboros inputs (
       { lib, ... }:
       {
-        overrideAttrs.state-observation = {drv-prev, pkgs-final, ...}: {
-          src = lib.cleanSource ./.;
-          nativeBuildInputs = [ pkgs-final.jrl-cmakemodules ] ++ drv-prev.nativeBuildInputs;
-        };
+        overrideAttrs.state-observation =
+          { drv-prev, pkgs-final, ... }:
+          {
+            src = lib.cleanSource ./.;
+            nativeBuildInputs = [ pkgs-final.jrl-cmakemodules ] ++ drv-prev.nativeBuildInputs;
+          };
       }
     );
 }
