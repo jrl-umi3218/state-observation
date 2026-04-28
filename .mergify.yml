@@ -1,10 +1,6 @@
 pull_request_rules:
   - name: merge [bot] PRs when CI pass
     conditions:
-      - check-success = "check-macos-linux-nix"
-      - check-success = "check-build"
-      - check-success = "check-package"
-      - check-success = "pre-commit.ci - pr"
       - or:
           - author = dependabot[bot]
           - author = gepetto-flake-updater[bot]
@@ -12,13 +8,17 @@ pull_request_rules:
           - author = github-actions[bot]
           - author = pre-commit-ci[bot]
     actions:
-      merge:
+      queue:
 
-  - name: queue PRs with merge-queue label when all CI checks pass
+  - name: queue PRs with "queue" label when all CI checks pass
+    conditions:
+      - label = queued
+    actions:
+      queue:
+
+queue_rules:
+  - name: default
     conditions:
       - check-success = "check-macos-linux-nix"
       - check-success = "check-build"
       - check-success = "check-package"
-      - label = queued
-    actions:
-      queue:
