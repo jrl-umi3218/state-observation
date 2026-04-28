@@ -5,7 +5,7 @@ var classstateObservation_1_1SensorBase =
     [ "checkStateVector", "classstateObservation_1_1SensorBase.html#a156904f2a867a1ed0212a5b2f8e2b01a", null ],
     [ "getMeasurements", "classstateObservation_1_1SensorBase.html#a7c4c2ee7b7dd9f1fe0de705e8b9fe7e3", null ],
     [ "getMeasurementSize", "classstateObservation_1_1SensorBase.html#a725d7f1317d86e578babddf0a0c11f29", null ],
-    [ "getNoise", "classstateObservation_1_1SensorBase.html#aee999cbc583f4d8d0d4dffca1f32ac01", null ],
+    [ "getNoise", "classstateObservation_1_1SensorBase.html#a6f944e97c4f5f8094181b206057d6d7d", null ],
     [ "getStateSize", "classstateObservation_1_1SensorBase.html#a78a1a76497eed4c226026a4a6412ddc9", null ],
     [ "getTime", "classstateObservation_1_1SensorBase.html#ad58dcd2f5f50a5629a40af3bcab262d1", null ],
     [ "resetNoise", "classstateObservation_1_1SensorBase.html#af148ffe92047891e1871efa7cc6225cc", null ],

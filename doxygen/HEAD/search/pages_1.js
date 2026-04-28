@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_2dobservation_2839',['State-Observation',['../index.html',1,'']]]
+  ['details_0',['Theoretical details',['../theory.html',1,'']]]
 ];

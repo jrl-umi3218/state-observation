@@ -1,8 +1,8 @@
 var structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization =
 [
     [ "Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a21f490cbfcf822a114aaa2c4efd2699d", null ],
-    [ "curRotation", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#abfc998e975cd002fce0e59b4ec287068", null ],
-    [ "orientationVector", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#aac93624a17aadddbc49f10b5ba9544f0", null ],
+    [ "curRotation", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a89273a447d403dc3f7357c95d008f4cf", null ],
+    [ "orientationVector", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a010f4c0c907b6c2858668c7a2da41c29", null ],
     [ "_2wxRv", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a6ea779470be45b804c2b23d1973920a1", null ],
     [ "aatotal", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#ad1253cc682c9ecda38211d9c73860328", null ],
     [ "accelerationCom", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#add9ae34f53c38188cf4e52aa8174293f", null ],

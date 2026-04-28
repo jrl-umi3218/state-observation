@@ -1,6 +1,6 @@
 var classstateObservation_1_1TiltEstimatorHumanoid =
 [
-    [ "TiltEstimatorHumanoid", "classstateObservation_1_1TiltEstimatorHumanoid.html#ad607f6f45978184235eb4a628ffbb6f6", null ],
+    [ "TiltEstimatorHumanoid", "classstateObservation_1_1TiltEstimatorHumanoid.html#a9368c78cc987a18e95142c0b80e35e1d", null ],
     [ "checkResetX1hat", "classstateObservation_1_1TiltEstimatorHumanoid.html#a103915e1af413953f18e2f19f4ba045a", null ],
     [ "getControlOriginVelocityInW", "classstateObservation_1_1TiltEstimatorHumanoid.html#a55681bf6f291bfb9b08a82acf5cd3d3b", null ],
     [ "getSensorAngularVelocityInC", "classstateObservation_1_1TiltEstimatorHumanoid.html#a92b2caa26c738f717d623ef2b0aca2d4", null ],

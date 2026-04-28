@@ -4,7 +4,7 @@ var classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimat
     [ "FixedContactEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a4afcfbfcfba8df718766ac694815f2a5", null ],
     [ "~FixedContactEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a14b958c9ff0ab2b61cac6b051954af2b", null ],
     [ "getFlexibility", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a98cb219cd2a2db079d1310c06cb15218", null ],
-    [ "getFlexibilityVector", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a2de82e1db3a9dcb5f52f4e241258271b", null ],
+    [ "getFlexibilityVector", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a09d913ab1442c6e04adc3e61fe9e6a1d", null ],
     [ "getInputSize", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#af8c85e9541eed126a1af033fae9fceff", null ],
     [ "getMeasurementNoiseCovariance", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#a18a4d3557b23f96ae076edc022a6c38c", null ],
     [ "getMeasurementSize", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html#ac349a55e96b61d9043fd96e0411588c0", null ],

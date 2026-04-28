@@ -1,8 +1,17 @@
 digraph "Graphical Class Hierarchy"
 {
  // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [label="stateObservation::DebugItem\l\< T, defaultValue, false \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html",tooltip="this specialization contains no object"];
+  Node0 [id="Node000000",label="stateObservation::DebugItem\l\< T, defaultValue, debug \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classstateObservation_1_1DebugItem.html",tooltip=" "];
+  Node0 -> Node1 [id="edge9_Node000000_Node000001",dir="back",color="darkgreen",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="stateObservation::Indexed\lMatrixT\< Vector \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html",tooltip=" "];
+  Node0 -> Node2 [id="edge10_Node000000_Node000002",dir="back",color="darkgreen",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="stateObservation::Indexed\lMatrixT\< Vector3 \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html",tooltip=" "];
+  Node0 -> Node3 [id="edge11_Node000000_Node000003",dir="back",color="darkgreen",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="stateObservation::Indexed\lMatrixT\< Matrix3 \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html",tooltip=" "];
+  Node0 -> Node4 [id="edge12_Node000000_Node000004",dir="back",color="darkgreen",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="stateObservation::Indexed\lMatrixT\< MatrixType, lazy \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classstateObservation_1_1IndexedMatrixT.html",tooltip="This class describes a structure composed by a matrix of a given size and a time-index parameter...."];
 }

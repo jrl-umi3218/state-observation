@@ -1,6 +1,6 @@
 var classstateObservation_1_1TiltEstimator =
 [
-    [ "TiltEstimator", "classstateObservation_1_1TiltEstimator.html#a764e43d16527304859315209dd86412a", null ],
+    [ "TiltEstimator", "classstateObservation_1_1TiltEstimator.html#a60ced3bcfd4660760e487b6d881d7a6e", null ],
     [ "getAlpha", "classstateObservation_1_1TiltEstimator.html#a90d91dc9449b2e7ccd3f33233bf40921", null ],
     [ "getBeta", "classstateObservation_1_1TiltEstimator.html#af38645fdf2e465535bd27b51715238a0", null ],
     [ "getGamma", "classstateObservation_1_1TiltEstimator.html#aaae527a5739d14b2e15662720e332d34", null ],
@@ -10,6 +10,7 @@ var classstateObservation_1_1TiltEstimator =
     [ "setAlpha", "classstateObservation_1_1TiltEstimator.html#a53e8f509cd310de1f32c7f9e92736a39", null ],
     [ "setBeta", "classstateObservation_1_1TiltEstimator.html#aa81f4b84217c16f98b33aa5b2d2c9bc8", null ],
     [ "setGamma", "classstateObservation_1_1TiltEstimator.html#a49fd789d325d86bb3e8b6e9beb9a42f7", null ],
+    [ "setMeasurement", "classstateObservation_1_1TiltEstimator.html#a812f3b37b333be2bc9e3dac78e80b241", null ],
     [ "setMeasurement", "classstateObservation_1_1TiltEstimator.html#aa32948c8bce2362585859702eab661bd", null ],
     [ "setSamplingTime", "classstateObservation_1_1TiltEstimator.html#a139a168126159cbc438e0375eb8e0d5b", null ],
     [ "alpha_", "classstateObservation_1_1TiltEstimator.html#a31062b541f436cf9e344ef8c3b614254", null ],

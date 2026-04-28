@@ -9,8 +9,8 @@ var miscellaneous_algorithms_8hpp =
     [ "finiteTimeAccControl", "miscellaneous-algorithms_8hpp.html#a775c0537bef8c115ee3b650a55f45f74", null ],
     [ "normalizedLazy", "miscellaneous-algorithms_8hpp.html#a20db4201d4820f97f29dd40047790cce", null ],
     [ "signum", "miscellaneous-algorithms_8hpp.html#a5ca4451c967158d629bfef5cc715431d", null ],
-    [ "sqrt", "miscellaneous-algorithms_8hpp.html#a9c8876dd95e6c5e1ba3285c5b840c343", null ],
-    [ "sqrtNewtonRaphson", "miscellaneous-algorithms_8hpp.html#a13dac97fc67b707058810bb260581840", null ],
+    [ "sqrt", "miscellaneous-algorithms_8hpp.html#a00e4ac40ec193298c29e83b9473f1511", null ],
+    [ "sqrtNewtonRaphson", "miscellaneous-algorithms_8hpp.html#a991167aefd5a767c8946f84a8158b699", null ],
     [ "square", "miscellaneous-algorithms_8hpp.html#afb78ab184cc498aa2d5c6058daced3ac", null ],
     [ "toString", "miscellaneous-algorithms_8hpp.html#ac3ea701cb1ea4ed3b1ce1fb439addbbe", null ]
 ];

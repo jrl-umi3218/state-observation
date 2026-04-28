@@ -1,17 +1,9 @@
 digraph "Graphical Class Hierarchy"
 {
  // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node61 [label="stateObservation::flexibility\lEstimation::FlexibilityEstimatorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html",tooltip="This class is the base class of the flexibility estimators."];
-  Node61 -> Node62 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node62 [label="stateObservation::flexibility\lEstimation::EKFFlexibilityEstimatorBase",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html",tooltip="This class is the base class of the flexibility estimators that use an extended Kalman Filter...."];
-  Node62 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 [label="stateObservation::flexibility\lEstimation::FixedContactEKFFlexEstimatorIMU",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html",tooltip="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..."];
-  Node62 -> Node38 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node38 [label="stateObservation::flexibility\lEstimation::ModelBaseEKFFlexEstimatorIMU",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html",tooltip="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..."];
-  Node36 [label="noncopyable",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node36 -> Node0 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
-  Node36 -> Node38 [dir="back",color="firebrick4",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [id="Node000000",label="stateObservation::FixOrDyn\lMatrixToolsBySize\<-1, compileTime\lCols \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01compileTimeCols_01_4.html",tooltip=" "];
 }

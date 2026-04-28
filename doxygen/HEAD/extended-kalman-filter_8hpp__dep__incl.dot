@@ -1,23 +1,24 @@
 digraph "include/state-observation/observer/extended-kalman-filter.hpp"
 {
  // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="include/state-observation\l/observer/extended-kalman\l-filter.hpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
-  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="include/state-observation\l/dynamics-estimators/kinetics\l-observer.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$kinetics-observer_8hpp.html",tooltip="Unified Kinetics estimator."];
-  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="include/state-observation\l/examples/imu-attitude\l-trajectory-reconstruction.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$imu-attitude-trajectory-reconstruction_8hpp.html",tooltip="Gives an implementation of attitude estimation for IMU reconstruction with or without given input...."];
-  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="include/state-observation\l/examples/imu-multiplicative\l-attitude-reconstruction.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$imu-multiplicative-attitude-reconstruction_8hpp.html",tooltip=" "];
-  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="include/state-observation\l/flexibility-estimation\l/ekf-flexibility-estimator\l-base.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ekf-flexibility-estimator-base_8hpp.html",tooltip="Declare the class of the flexibility estimation using the extended Kalman Filter."];
-  Node5 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="include/state-observation\l/flexibility-estimation\l/fixed-contact-ekf-flex\l-estimator-imu.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fixed-contact-ekf-flex-estimator-imu_8hpp.html",tooltip="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..."];
-  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="include/state-observation\l/examples/offline-ekf-flexibility\l-estimation.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$offline-ekf-flexibility-estimation_8hpp.html",tooltip="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..."];
-  Node5 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="include/state-observation\l/flexibility-estimation\l/model-base-ekf-flex-estimator\l-imu.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$model-base-ekf-flex-estimator-imu_8hpp.html",tooltip="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..."];
-  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="include/state-observation\l/examples/offline-model\l-base-flex-estimation.hpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$offline-model-base-flex-estimation_8hpp.html",tooltip=" "];
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="include/state-observation\l/observer/extended-kalman\l-filter.hpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="include/state-observation\l/dynamics-estimators/kinetics\l-observer.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$kinetics-observer_8hpp.html",tooltip="Unified Kinetics estimator."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="include/state-observation\l/examples/imu-attitude\l-trajectory-reconstruction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$imu-attitude-trajectory-reconstruction_8hpp.html",tooltip="Gives an implementation of attitude estimation for IMU reconstruction with or without given input...."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="include/state-observation\l/examples/imu-multiplicative\l-attitude-reconstruction.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$imu-multiplicative-attitude-reconstruction_8hpp.html",tooltip=" "];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="include/state-observation\l/flexibility-estimation\l/ekf-flexibility-estimator\l-base.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ekf-flexibility-estimator-base_8hpp.html",tooltip="Declare the class of the flexibility estimation using the extended Kalman Filter."];
+  Node5 -> Node6 [id="edge5_Node000005_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="include/state-observation\l/flexibility-estimation\l/fixed-contact-ekf-flex\l-estimator-imu.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$fixed-contact-ekf-flex-estimator-imu_8hpp.html",tooltip="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..."];
+  Node6 -> Node7 [id="edge6_Node000006_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="include/state-observation\l/examples/offline-ekf-flexibility\l-estimation.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$offline-ekf-flexibility-estimation_8hpp.html",tooltip="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..."];
+  Node5 -> Node8 [id="edge7_Node000005_Node000008",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="include/state-observation\l/flexibility-estimation\l/model-base-ekf-flex-estimator\l-imu.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$model-base-ekf-flex-estimator-imu_8hpp.html",tooltip="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..."];
+  Node8 -> Node9 [id="edge8_Node000008_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="include/state-observation\l/examples/offline-model\l-base-flex-estimation.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$offline-model-base-flex-estimation_8hpp.html",tooltip=" "];
 }
