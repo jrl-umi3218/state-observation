@@ -90,7 +90,7 @@ if(BUILD_STATE_OBSERVATION_TOOLS)
 endif()
 
 # Export the package files (headers, targets, config files, etc.)
-jrl_export_package()
+jrl_export_package(PACKAGE_CONFIG_TEMPLATE cmake/config-components.cmake.in)
 # Print summaries
 jrl_print_dependencies_summary()
 jrl_print_options_summary()
