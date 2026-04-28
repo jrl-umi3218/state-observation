@@ -12,9 +12,8 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with state-observation.  If not, see <http://www.gnu.org/licenses/>.
 
-set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME})
-
 add_library(state-observation SHARED)
+target_compile_features(state-observation PUBLIC cxx_std_17)
 target_sources(
   state-observation
   PRIVATE tilt-estimator.cpp
@@ -117,12 +116,11 @@ jrl_target_headers(
 
 set_target_properties(state-observation PROPERTIES COMPILE_FLAGS "-DSTATE_OBSERVATION_EXPORTS")
 set_target_properties(state-observation PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR} VERSION ${PROJECT_VERSION})
-target_include_directories(
-  state-observation
-  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>/include $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>/$<CONFIG>/include
-         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-
 target_link_libraries(state-observation PUBLIC Boost::timer Boost::disable_autolinking)
 target_link_libraries(state-observation PUBLIC Eigen3::Eigen)
+target_include_directories(
+  state-observation
+  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include> $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/$<CONFIG>/include>
+         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 jrl_add_export_component(NAME state-observation TARGETS state-observation)

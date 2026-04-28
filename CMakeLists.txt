@@ -31,8 +31,6 @@ project(
 
 jrl_configure_defaults()
 
-set(CMAKE_CXX_STANDARD 17)
-set(CXX_DISABLE_WERROR TRUE)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 jrl_option(BUILD_STATE_OBSERVATION_BENCHMARKS "Build state-observation benchmarks" ON)
@@ -90,7 +88,7 @@ if(BUILD_STATE_OBSERVATION_TOOLS)
 endif()
 
 # Export the package files (headers, targets, config files, etc.)
-jrl_export_package(PACKAGE_CONFIG_TEMPLATE cmake/config-components.cmake.in)
+jrl_export_package()
 # Print summaries
 jrl_print_dependencies_summary()
 jrl_print_options_summary()
