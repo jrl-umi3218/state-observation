@@ -2,6 +2,8 @@ pull_request_rules:
   - name: merge [bot] PRs when CI pass
     conditions:
       - check-success = "check-macos-linux-nix"
+      - check-success = "check-build"
+      - check-success = "check-package"
       - check-success = "pre-commit.ci - pr"
       - or:
           - author = dependabot[bot]
@@ -11,3 +13,12 @@ pull_request_rules:
           - author = pre-commit-ci[bot]
     actions:
       merge:
+
+  - name: queue PRs with merge-queue label when all CI checks pass
+    conditions:
+      - check-success = "check-macos-linux-nix"
+      - check-success = "check-build"
+      - check-success = "check-package"
+      - label = queued
+    actions:
+      queue:
