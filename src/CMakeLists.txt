@@ -57,7 +57,6 @@ jrl_target_headers(
   state-observation
   PUBLIC
   HEADERS
-  include/state-observation/api.h
   include/state-observation/observer/tilt-estimator.hpp
   include/state-observation/observer/tilt-estimator-humanoid.hpp
   include/state-observation/observer/extended-kalman-filter.hpp
@@ -114,10 +113,9 @@ jrl_target_headers(
   BASE_DIRS
   include)
 
-set_target_properties(state-observation PROPERTIES COMPILE_FLAGS "-DSTATE_OBSERVATION_EXPORTS")
-set_target_properties(state-observation PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR} VERSION ${PROJECT_VERSION})
 target_link_libraries(state-observation PUBLIC Boost::timer Boost::disable_autolinking)
 target_link_libraries(state-observation PUBLIC Eigen3::Eigen)
+jrl_target_generate_config_header(state-observation PUBLIC VERSION ${PROJECT_VERSION} FILENAME state-observation/api.h)
 target_include_directories(
   state-observation
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include> $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/$<CONFIG>/include>
