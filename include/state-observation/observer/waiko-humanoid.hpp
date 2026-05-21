@@ -3,7 +3,8 @@
  * \author    Arnaud Demont, Mehdi Benallegue, Abdelaziz Benallegue
  * \date       2025
  *
- * \details Implementation of waiko for humanoid robots (with contact orientations)
+ * \details Implementation of waiko for humanoid robots (with contact
+ * orientations)
  *
  *
  */
@@ -31,6 +32,14 @@ class STATE_OBSERVATION_DLLAPI WaikoHumanoid : public ZeroDelayObserver
 public:
   struct InputWaiko : public InputBase
   {
+    struct ContactPosInput
+    {
+      // IMU position measurement from contacts
+      Vector3 pos_meas_from_contacts_ = Vector3::Zero();
+      double numerator = 0.0;
+      double denominator = 1e-6;
+    };
+
     InputWaiko(double dt, const Vector3 & yv, const Vector3 & ya, const Vector3 & yg)
     : dt_(dt), yv_(yv), ya_(ya), yg_(yg)
     {
@@ -44,6 +53,8 @@ public:
     Vector3 ya_;
     // gyrometer measurement
     Vector3 yg_;
+    // IMU position measurements coming from contacts
+    std::optional<ContactPosInput> contact_pos_input_;
     // IMU position measurements
     std::vector<Vector3> pos_inputs_;
     // IMU orientation measurements measurements
@@ -76,8 +87,9 @@ public:
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma  : parameter related to the orthogonality
-  ///  \li rho  : parameter related to the correction of the position by the position measurement
-  ///  \li mu  : parameter related to the correction of the orientation by the orientation measurement
+  ///  \li rho  : parameter related to the correction of the position by the
+  ///  position measurement \li mu  : parameter related to the correction of the
+  ///  orientation by the orientation measurement
   WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu);
 
   /// @brief Destroys the observer
@@ -86,20 +98,23 @@ public:
 
   /// @brief initializes the state vector.
   /// @param x1 The initial local linear velocity of the IMU.
-  /// @param x2_p The initial value of the intermediate estimate of the IMU's tilt.
+  /// @param x2_p The initial value of the intermediate estimate of the IMU's
+  /// tilt.
   /// @param x2 The initial tilt of the IMU.
   void initEstimator(const Vector3 & x1, const Vector3 & x2, const Vector4 & ori, const Vector3 & pos);
 
   /// @brief sets the input
-  /// @details version that computes yv from the kinematics of the anchor frame in the IMU frame
+  /// @details version that computes yv from the kinematics of the anchor frame
+  /// in the IMU frame
   /// @param dt sampling time
   /// @param imuAnchorPos position of the anchor point in the IMU
   /// @param imuAnchorPos linear velocity of the anchor point in the IMU
   /// @param ya_k accelerometer measurement
   /// @param yg_k gryometer measurement
   /// @param k time index
-  /// @param resetImuLocVelHat Resets x1hat (the estimate of the local linear velocity of the IMU in the world). Avoid
-  /// discontinuities when the computation mode of the anchor point changes
+  /// @param resetImuLocVelHat Resets x1hat (the estimate of the local linear
+  /// velocity of the IMU in the world). Avoid discontinuities when the
+  /// computation mode of the anchor point changes
   void setInput(double dt,
                 const Vector3 & imuAnchorPos,
                 const Vector3 & imuAnchorLinVel,
@@ -114,8 +129,9 @@ public:
   /// @param ya_k accelerometer measurement
   /// @param yg_k gryometer measurement
   /// @param k time index
-  /// @param resetImuLocVelHat Resets x1hat (the estimate of the local linear velocity of the IMU in the world). Avoid
-  /// discontinuities when the computation mode of the anchor point changes
+  /// @param resetImuLocVelHat Resets x1hat (the estimate of the local linear
+  /// velocity of the IMU in the world). Avoid discontinuities when the
+  /// computation mode of the anchor point changes
   void setInput(double dt,
                 const Vector3 & yv_k,
                 const Vector3 & ya_k,
@@ -127,6 +143,15 @@ public:
   void addPosInput(const Vector3 & poseInput, TimeIndex k);
   void addOriInput(const Matrix3 & oriInput, TimeIndex k);
   void addPoseInput(const Matrix3 & oriInput, const Vector3 & posInput, TimeIndex k);
+  /// @brief adds a position measurement coming from contacts
+  /// @details this measurement is also used to compute a correction term for
+  /// the orientation
+  /// @param refPose reference position of the contact
+  /// @param imuContactPos position of the contact in the imu frame.
+  /// @param lambda contribution gain of the contact. the lambdas of all
+  /// contacts must sum up to 1.
+  /// @param k time index
+  void addContactPosInput(const Vector3 & refPose, const Vector3 & imuContactPos, double lambda, TimeIndex k);
 
   using ZeroDelayObserver::setInput;
 
@@ -180,6 +205,16 @@ public:
     return mu_;
   }
 
+  /// set mu
+  void setWithOriCorrectFromContactPos(bool withCorrection)
+  {
+    withOriCorrectFromContactPos_ = withCorrection;
+  }
+  bool getWithOriCorrectFromContactPos()
+  {
+    return withOriCorrectFromContactPos_;
+  }
+
   const Eigen::VectorBlock<ObserverBase::StateVector, sizeX1> getEstimatedLocLinVel()
   {
     return x_().segment<sizeX1>(x1Index);
@@ -197,17 +232,20 @@ public:
     return x_().segment<sizePos>(posIndex);
   }
 
-  // correction of the position coming from the contact positions, passed as a local linear velocity.
+  // correction of the position coming from the contact positions, passed as a
+  // local linear velocity.
   inline const stateObservation::Vector3 & getPosCorrectionFromContactPos()
   {
     return posCorrFromContactPos_;
   }
-  // correction of the orientation coming from the contact positions, passed as a local angular velocity.
+  // correction of the orientation coming from the contact positions, passed as
+  // a local angular velocity.
   inline const stateObservation::Vector3 & getOriCorrectionFromContactPos()
   {
     return oriCorrFromContactPos_;
   }
-  // correction of the orientation coming from direct orientation measurements, passed as a local angular velocity.
+  // correction of the orientation coming from direct orientation measurements,
+  // passed as a local angular velocity.
   inline const stateObservation::Vector3 & getOriCorrFromOriMeas()
   {
     return oriCorrFromOriMeas_;
@@ -216,20 +254,24 @@ public:
 protected:
   /// @brief Runs one loop of the estimator.
   /// @details Calls \ref computeStateDynamics_ then \ref integrateState_
-  /// @param it Iterator that points to the updated state. Points to x_{k} = f(x_{k-1}, u_{k-1})
+  /// @param it Iterator that points to the updated state. Points to x_{k} =
+  /// f(x_{k-1}, u_{k-1})
   StateVector oneStepEstimation_() override;
 
   /// @brief Computes the dynamics of the state at the desired iteration.
   /// @details Computes x^{dot}_{k-1}
-  /// @param it Iterator that points to the updated state. Points to x_{k} = f(x_{k-1}, u_{k-1})
+  /// @param it Iterator that points to the updated state. Points to x_{k} =
+  /// f(x_{k-1}, u_{k-1})
   StateVector & computeStateDynamics_();
 
   /// @brief Integrates the computed state dynamics
   /// @details Computes x_{k} = x_{k-1} + x^{dot}_{k-1} * dt
-  /// @param it Iterator that points to the updated state. Points to x_{k} = f(x_{k-1}, u_{k-1})
+  /// @param it Iterator that points to the updated state. Points to x_{k} =
+  /// f(x_{k-1}, u_{k-1})
   void integrateState_();
 
-  /// @brief Add the correction terms coming from the input to the computed state dynamics
+  /// @brief Add the correction terms coming from the input to the computed
+  /// state dynamics
   void addCorrectionTerms();
   void startNewIteration_();
 
@@ -239,18 +281,24 @@ protected:
   ///              of the IMU expressed in the control frame
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma_  : parameter related to the orthogonality
-  ///  \li rho  : parameter related to the correction of the position by the position measurement
-  ///  \li mu  : parameter related to the correction of the orientation by the orientation measurement
+  ///  \li rho  : parameter related to the correction of the position by the
+  ///  position measurement \li mu  : parameter related to the correction of the
+  ///  orientation by the orientation measurement
   double alpha_, beta_, gamma_, rho_, mu_;
   Vector dx_hat_;
   kine::Orientation state_ori_;
 
-  // correction of the orientation coming from the contact orientations, passed as a local angular velocity.
+  // correction of the orientation coming from the contact orientations, passed
+  // as a local angular velocity.
   Vector3 oriCorrFromOriMeas_ = Vector3::Zero();
-  // correction of the position coming from the contact positions, passed as a local linear velocity.
+  // correction of the position coming from the contact positions, passed as a
+  // local linear velocity.
   Vector3 posCorrFromContactPos_ = Vector3::Zero();
-  // correction of the orientation coming from the contact positions, passed as a local angular velocity.
+  // correction of the orientation coming from the contact positions, passed as
+  // a local angular velocity.
   Vector3 oriCorrFromContactPos_ = Vector3::Zero();
+
+  bool withOriCorrectFromContactPos_ = false;
 };
 
 } // namespace stateObservation
