@@ -34,10 +34,10 @@ public:
   {
     struct ContactPosInput
     {
-      // IMU position measurement from contacts
       Vector3 pos_meas_from_contacts_ = Vector3::Zero();
-      double numerator = 0.0;
-      double denominator = 1e-6;
+      std::vector<Vector3> pos_meas_;
+      std::vector<Vector3> jacobians_;
+      std::vector<double> lambdas_;
     };
 
     InputWaiko(double dt, const Vector3 & yv, const Vector3 & ya, const Vector3 & yg)
