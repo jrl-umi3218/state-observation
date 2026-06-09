@@ -88,9 +88,10 @@ public:
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma  : parameter related to the orthogonality
   ///  \li rho  : parameter related to the correction of the position by the
-  ///  position measurement \li mu  : parameter related to the correction of the
-  ///  orientation by the orientation measurement
-  WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu);
+  ///  position measurement
+  ///  \li mu  : parameter related to the correction of the orientation by the orientation measurement
+  ///  \li psi : gain of the yaw correction from contact positions.
+  WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu, double psi);
 
   /// @brief Destroys the observer
   ///
@@ -205,7 +206,16 @@ public:
     return mu_;
   }
 
-  /// set mu
+  /// set psi
+  void setPsi(const double psi)
+  {
+    psi_ = psi;
+  }
+  double getPsi()
+  {
+    return psi_;
+  }
+
   void setWithOriCorrectFromContactPos(bool withCorrection)
   {
     withOriCorrectFromContactPos_ = withCorrection;
@@ -282,9 +292,10 @@ protected:
   ///  \li beta  : parameter related to the fast convergence of the tilt
   ///  \li gamma_  : parameter related to the orthogonality
   ///  \li rho  : parameter related to the correction of the position by the
-  ///  position measurement \li mu  : parameter related to the correction of the
-  ///  orientation by the orientation measurement
-  double alpha_, beta_, gamma_, rho_, mu_;
+  ///  position measurement
+  ///  \li mu  : parameter related to the correction of the  orientation by the orientation measurement
+  ///  \li psi : gain of the yaw correction from contact positions.
+  double alpha_, beta_, gamma_, rho_, mu_, psi_;
   Vector dx_hat_;
   kine::Orientation state_ori_;
 

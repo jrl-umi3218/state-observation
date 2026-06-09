@@ -5,9 +5,9 @@
 
 namespace stateObservation
 {
-WaikoHumanoid::WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu)
+WaikoHumanoid::WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu, double psi)
 : ZeroDelayObserver(9, 0, std::make_shared<IndexedInputArrayT<InputWaiko>>()), alpha_(alpha), beta_(beta),
-  gamma_(gamma), rho_(rho), mu_(mu)
+  gamma_(gamma), rho_(rho), mu_(mu), psi_(psi)
 {
   dx_hat_.resize(12);
 }
@@ -180,11 +180,10 @@ void WaikoHumanoid::addCorrectionTerms()
 
       const double contactPosYawEps = 1e-6;
       const double contactPosYawInfoThreshold = 1e-8;
-      const double contactPosYawGain = 0.1;
 
       if(denominator > contactPosYawInfoThreshold)
       {
-        oriCorrFromContactPos_ += -contactPosYawGain * state_ori_.toMatrix3().transpose() * Vector3::UnitZ() * numerator
+        oriCorrFromContactPos_ += -psi_ * state_ori_.toMatrix3().transpose() * Vector3::UnitZ() * numerator
                                   / (contactPosYawEps + denominator);
       }
     }
