@@ -552,7 +552,7 @@ public:
   /// method does NOT update the estimation, for this use update().
   ///
   /// @return Kinematics
-  LocalKinematics getLocalCentroidKinematics() const;
+  const LocalKinematics & getLocalCentroidKinematics() const;
 
   /// @brief Get the estimated Kinematics of the centroid frame in the world frame.
   /// @details It includes the linear and angular position and
