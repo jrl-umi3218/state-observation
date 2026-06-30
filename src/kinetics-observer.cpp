@@ -451,7 +451,7 @@ stateObservation::TimeIndex KineticsObserver::getStateVectorTimeIndex() const
   return ekf_.getCurrentTime();
 }
 
-kine::LocalKinematics KineticsObserver::getLocalCentroidKinematics() const
+const kine::LocalKinematics & KineticsObserver::getLocalCentroidKinematics() const
 {
   return worldCentroidStateKinematics_;
 }

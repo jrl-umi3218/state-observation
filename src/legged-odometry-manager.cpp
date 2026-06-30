@@ -44,7 +44,7 @@ void LeggedOdometryManager::updateBodyAndContacts(const KineParams & params)
   {
     const Vector3 & tilt = *(params.tiltMeas);
 
-    if(maintainedContacts_.size() > 0)
+    if(maintainedContacts_.size() > 0 && withYawEstimation_)
     {
       Kinematics worldBodyKineFromAnchor = getWorldBodyKineFromAnchor(false, true);
 
@@ -66,6 +66,7 @@ void LeggedOdometryManager::updateBodyAndContacts(const KineParams & params)
   if(params.worldPosMeas != nullptr)
   {
     /* If exceptionally the position in the world is given, we use it directly */
+
     bodyKine_.position = *(params.worldPosMeas);
   }
   else
@@ -100,8 +101,11 @@ double LeggedOdometryManager::selectForOrientationOdometry()
   contactsManager_.oriOdometryContacts_.clear();
   for(auto * mContact : maintainedContacts_)
   {
-    mContact->useForOrientation_ = true;
-    contactsManager_.oriOdometryContacts_.insert(*mContact);
+    if(mContact->bodyContactKine_.orientation.isSet() && mContact->worldRefKine_.orientation.isSet())
+    {
+      mContact->useForOrientation_ = true;
+      contactsManager_.oriOdometryContacts_.insert(*mContact);
+    }
   }
 
   // contacts are sorted from the lowest force to the highest force
@@ -206,7 +210,8 @@ LocalKinematics LeggedOdometryManager::getWorldBodyLocalKineFromAnchor()
 
   LocalKinematics worldBodyKineFromAnchor;
 
-  BOOST_ASSERT_MSG(maintainedContacts_.size() > 0, "No contact is detected, cannot compute the anchor frame position.");
+  BOOST_ASSERT_MSG(maintainedContacts_.size() > 0,
+                   "No contact is detected, cannot compute the anchor frame kinematics.");
 
   bodyAnchorPos_.setZero();
   worldBodyKineFromAnchor.position.set().setZero();
@@ -217,11 +222,6 @@ LocalKinematics LeggedOdometryManager::getWorldBodyLocalKineFromAnchor()
         * (bodyKine_.orientation.toMatrix3().transpose() * mContact->worldRefKine_.position()
            - mContact->bodyContactKine_.position());
   }
-
-  BOOST_ASSERT_MSG(maintainedContacts_.size() > 0,
-                   "No contact is detected, cannot compute the anchor frame orientation.");
-
-  // indicates if the orientation can be updated from the current contacts or not
 
   // selects the contacts to use for the yaw odometry. We cannot call it in the onMaintainedContact function as it is
   // looping over all the maintained contact and not used on each contact separately
@@ -316,18 +316,25 @@ void LeggedOdometryManager::correctContactsRef()
     // double tau = ctl_dt_ / (kappa_ * mContact->lifeTime());
     mContact->correctionWeightingCoeff((1 - lambdaInf_) * exp(-kappa_ * mContact->lifeTime()) + lambdaInf_);
 
-    Orientation Rtilde(Matrix3(mContact->worldRefKineBeforeCorrection_.orientation.toMatrix3().transpose()
-                               * mContact->newIncomingWorldRefKine_.orientation.toMatrix3()));
+    if(mContact->newIncomingWorldRefKine_.orientation.isSet())
+    {
+      Orientation Rtilde(Matrix3(mContact->worldRefKineBeforeCorrection_.orientation.toMatrix3().transpose()
+                                 * mContact->newIncomingWorldRefKine_.orientation.toMatrix3()));
 
-    Vector3 logRtilde = skewSymmetricToRotationVector(Rtilde.toMatrix3() - Rtilde.toMatrix3().transpose());
-    mContact->worldRefKine_.orientation =
-        Matrix3(mContact->worldRefKineBeforeCorrection_.orientation.toMatrix3()
-                * rotationVectorToRotationMatrix(mContact->correctionWeightingCoeff() / 2.0 * logRtilde));
+      Vector3 logRtilde = skewSymmetricToRotationVector(Rtilde.toMatrix3() - Rtilde.toMatrix3().transpose());
+      mContact->worldRefKine_.orientation =
+          Matrix3(mContact->worldRefKineBeforeCorrection_.orientation.toMatrix3()
+                  * rotationVectorToRotationMatrix(mContact->correctionWeightingCoeff() / 2.0 * logRtilde));
+    }
 
-    mContact->worldRefKine_.position =
-        mContact->worldRefKine_.position()
-        + mContact->correctionWeightingCoeff()
-              * (mContact->newIncomingWorldRefKine_.position() - mContact->worldRefKine_.position());
+    if(mContact->newIncomingWorldRefKine_.position.isSet())
+    {
+      mContact->worldRefKine_.position =
+          mContact->worldRefKine_.position()
+          + mContact->correctionWeightingCoeff()
+                * (mContact->newIncomingWorldRefKine_.position() - mContact->worldRefKine_.position());
+    }
+
     if(odometryType_ == OdometryType::Flat)
     {
       mContact->worldRefKine_.position()(2) = 0.0;

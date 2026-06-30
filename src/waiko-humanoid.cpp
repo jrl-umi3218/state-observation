@@ -1,11 +1,13 @@
 #include "state-observation/tools/rigid-body-kinematics.hpp"
+#include <cmath>
 #include <state-observation/observer/waiko-humanoid.hpp>
 #include <state-observation/tools/definitions.hpp>
+
 namespace stateObservation
 {
-WaikoHumanoid::WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu)
+WaikoHumanoid::WaikoHumanoid(double alpha, double beta, double gamma, double rho, double mu, double psi)
 : ZeroDelayObserver(9, 0, std::make_shared<IndexedInputArrayT<InputWaiko>>()), alpha_(alpha), beta_(beta),
-  gamma_(gamma), rho_(rho), mu_(mu)
+  gamma_(gamma), rho_(rho), mu_(mu), psi_(psi)
 {
   dx_hat_.resize(12);
 }
@@ -60,6 +62,29 @@ void WaikoHumanoid::addPoseInput(const Matrix3 & oriInput, const Vector3 & posIn
   input.pos_inputs_.push_back(posInput);
 }
 
+void WaikoHumanoid::addContactPosInput(const Vector3 & refPose,
+                                       const Vector3 & imuContactPos,
+                                       double lambda,
+                                       TimeIndex k)
+{
+  InputWaiko & input = convert_input<InputWaiko>(getInput(k));
+
+  if(!input.contact_pos_input_)
+  {
+    input.contact_pos_input_ = InputWaiko::ContactPosInput();
+  }
+
+  const Matrix3 R_hat = state_ori_.toMatrix3();
+  const Vector3 posMeas = R_hat.transpose() * refPose - imuContactPos;
+  const Vector3 jacobian = -R_hat.transpose() * Vector3::UnitZ().cross(refPose);
+
+  input.contact_pos_input_->pos_meas_.push_back(posMeas);
+  input.contact_pos_input_->jacobians_.push_back(jacobian);
+  input.contact_pos_input_->lambdas_.push_back(lambda);
+
+  input.contact_pos_input_->pos_meas_from_contacts_ += lambda * posMeas;
+}
+
 void WaikoHumanoid::startNewIteration_() {}
 
 ObserverBase::StateVector & WaikoHumanoid::computeStateDynamics_()
@@ -109,7 +134,7 @@ void WaikoHumanoid::addCorrectionTerms()
 
   // we fetch the estimated state from the previous iteration
   const ObserverBase::StateVector & x_hat = getCurrentEstimatedState();
-  const InputWaiko & input = convert_input<InputWaiko>(getInput(k));
+  InputWaiko & input = convert_input<InputWaiko>(getInput(k));
 
   Eigen::VectorBlock<const ObserverBase::StateVector, sizePos> pl_hat = x_hat.segment<sizePos>(posIndex);
 
@@ -124,6 +149,44 @@ void WaikoHumanoid::addCorrectionTerms()
 
     oriCorrFromOriMeas_ +=
         mu_ * state_ori_.toMatrix3().transpose() * Vector3::UnitZ() * Vector3::UnitZ().transpose() * R_tilde_vec;
+  }
+
+  if(input.contact_pos_input_)
+  {
+    input.pos_inputs_.push_back(input.contact_pos_input_->pos_meas_from_contacts_);
+
+    if(withOriCorrectFromContactPos_)
+    {
+      Vector3 posMeasAvg = Vector3::Zero();
+      Vector3 jacobianAvg = Vector3::Zero();
+
+      for(std::size_t i = 0; i < input.contact_pos_input_->lambdas_.size(); ++i)
+      {
+        posMeasAvg += input.contact_pos_input_->lambdas_[i] * input.contact_pos_input_->pos_meas_[i];
+        jacobianAvg += input.contact_pos_input_->lambdas_[i] * input.contact_pos_input_->jacobians_[i];
+      }
+
+      double numerator = 0.0;
+      double denominator = 0.0;
+
+      for(std::size_t i = 0; i < input.contact_pos_input_->lambdas_.size(); ++i)
+      {
+        const Vector3 posMeasCentered = input.contact_pos_input_->pos_meas_[i] - posMeasAvg;
+        const Vector3 jacobianCentered = input.contact_pos_input_->jacobians_[i] - jacobianAvg;
+
+        numerator += input.contact_pos_input_->lambdas_[i] * jacobianCentered.dot(posMeasCentered);
+        denominator += input.contact_pos_input_->lambdas_[i] * jacobianCentered.squaredNorm();
+      }
+
+      const double contactPosYawEps = 1e-6;
+      const double contactPosYawInfoThreshold = 1e-8;
+
+      if(denominator > contactPosYawInfoThreshold)
+      {
+        oriCorrFromContactPos_ += -psi_ * state_ori_.toMatrix3().transpose() * Vector3::UnitZ() * numerator
+                                  / (contactPosYawEps + denominator);
+      }
+    }
   }
 
   for(const Vector3 & posInput : input.pos_inputs_)
