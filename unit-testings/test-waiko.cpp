@@ -12,7 +12,7 @@ struct Traj
   struct Iteration
   {
   protected:
-    Iteration(){};
+    Iteration() {};
 
   public:
     Iteration(int id, double t, LocalKinematics kine) : id_(id), t_(t), kine_(kine) {}
@@ -79,7 +79,7 @@ struct Traj
     LocalKinematics kine_;
   };
 
-  Traj(){};
+  Traj() {};
   void init(double dt, double duration)
   {
     dt_ = dt;
@@ -168,7 +168,7 @@ int testWithoutPosAndOriMeasurement(int errorcode, double threshold)
   int nbIters = int(std::round(simTime / dt));
 
   double err;
-  WaikoHumanoid waiko(1, 1, 1, 1, false);
+  WaikoHumanoid waiko(1, 1, 1, 1, 1, 1);
 
   Traj::Iteration & firstIter = traj.getFirstIter();
   waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
@@ -238,7 +238,7 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
   int nbIters = int(std::round(simTime / dt));
 
   double err;
-  WaikoHumanoid waiko(1, 1, 1, 1, false);
+  WaikoHumanoid waiko(1, 1, 1, 1, 1, 1);
   Traj::Iteration & firstIter = traj.getFirstIter();
 
   waiko.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
