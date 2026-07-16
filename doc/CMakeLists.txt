@@ -52,7 +52,7 @@ set(DOXYGEN_DOT_IMAGE_FORMAT SVG)
 set(DOXYGEN_DOT_TRANSPARENT YES)
 
 # Configure Doxygen
-doxygen_add_docs(doc ${PROJECT_SOURCE_DIR}/doc ${PROJECT_SOURCE_DIR}/include
+doxygen_add_docs(doc ${PROJECT_SOURCE_DIR}/doc ${PROJECT_SOURCE_DIR}/include ALL
                  COMMENT "Generating API documentation with Doxygen")
 
 if(INSTALL_DOCUMENTATION)

@@ -1,6 +1,7 @@
 # Copyright 2013-2026, CNRS
 #
 # Author: Mehdi Benallegue
+# Author: Arnaud Tanguy
 #
 # This file is part of state-observation.
 # state-observation is free software: you can redistribute it and/or
@@ -37,15 +38,8 @@ jrl_option(BUILD_STATE_OBSERVATION_BENCHMARKS "Build state-observation benchmark
 jrl_option(BUILD_STATE_OBSERVATION_TOOLS "Build state-observation tools" OFF)
 jrl_option(BUILD_TESTING "Build and run unit tests" ON)
 jrl_option(INSTALL_DOCUMENTATION "Generate and install the documentation" OFF)
-jrl_option(
-  BUILD_DOCUMENTATION
-  "Whether doxygen documentation should be built"
-  OFF
-  CONDITION
-  INSTALL_DOCUMENTATION
-  FALLBACK
-  OFF)
-if(BUILD_DOCUMENTATION)
+
+if(INSTALL_DOCUMENTATION)
   jrl_find_package(Doxygen REQUIRED COMPONENTS dot)
 endif()
 
@@ -55,7 +49,14 @@ if(MSVC)
   set(CMAKE_MSVCIDE_RUN_PATH "\$(SolutionDir)/src/\$(Configuration)")
 endif(MSVC)
 
-jrl_find_package(Boost REQUIRED COMPONENTS timer)
+jrl_find_package(
+  Boost
+  REQUIRED
+  COMPONENTS
+  timer
+  EXPECTED_TARGETS
+  Boost::timer
+  Boost::disable_autolinking)
 jrl_find_package(Eigen3 REQUIRED)
 
 set(TEST_COMPUTATION_TIME "OFF")
@@ -79,7 +80,7 @@ if(BUILD_TESTING)
   add_subdirectory(unit-testings)
 endif()
 
-if(BUILD_DOCUMENTATION)
+if(INSTALL_DOCUMENTATION)
   add_subdirectory(doc)
 endif()
 
