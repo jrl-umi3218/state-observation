@@ -32,7 +32,7 @@ jobs:
       - run: nix build -L
       - run: nix build -L .#state-observation.doc
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master' && github.repository == 'jrl-umi3218/mc_state_observation'
+        if: github.ref == 'refs/heads/master' && github.repository == 'jrl-umi3218/state-observation'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_PAGES_TOKEN }}
