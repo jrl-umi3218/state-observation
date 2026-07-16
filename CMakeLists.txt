@@ -57,7 +57,7 @@ jrl_find_package(
   EXPECTED_TARGETS
   Boost::timer
   Boost::disable_autolinking)
-jrl_find_package(Eigen3 REQUIRED)
+jrl_find_package(Eigen3 REQUIRED EXPECTED_TARGETS Eigen3::Eigen)
 
 set(TEST_COMPUTATION_TIME "OFF")
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/include/state-observation/config.h.in"

@@ -23,7 +23,10 @@
               pkgs-final.jrl-cmakemodulesv2
             ]
             ++ drv-prev.nativeBuildInputs;
-            cmakeFlags = drv-prev.cmakeFlags ++ [ (lib.cmakeBool "INSTALL_DOCUMENTATION" true) ];
+            cmakeFlags = drv-prev.cmakeFlags ++ [
+              (lib.cmakeBool "INSTALL_DOCUMENTATION" true)
+              (lib.cmakeBool "BUILD_TESTING" true)
+            ];
             doCheck = true;
           };
       }
