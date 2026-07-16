@@ -27,6 +27,8 @@
               (lib.cmakeBool "INSTALL_DOCUMENTATION" true)
               (lib.cmakeBool "BUILD_TESTING" true)
             ];
+            # Fontconfig error: Cannot load default config file: No such file: (null)
+            env.FONTCONFIG_FILE = "${pkgs-final.fontconfig.out}/etc/fonts/fonts.conf";
             doCheck = true;
           };
       }
