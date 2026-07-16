@@ -56,8 +56,6 @@ jobs:
           github:
             - path: eigen-mirror/eigen
               ref: 3.4.1
-            - path: google/benchmark
-              ref: v1.9.5
     - name: Build and test
       if: matrix.build-type != 'script'
       uses: jrl-umi3218/github-actions/build-cmake-project@master

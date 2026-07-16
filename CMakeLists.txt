@@ -34,8 +34,8 @@ jrl_configure_defaults()
 
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
-jrl_option(BUILD_STATE_OBSERVATION_BENCHMARKS "Build state-observation benchmarks" ON)
-jrl_option(BUILD_STATE_OBSERVATION_TOOLS "Build state-observation tools" OFF)
+jrl_option(BUILD_STATE_OBSERVATION_BENCHMARKS "Build state-observation benchmarks" OFF)
+jrl_option(BUILD_STATE_OBSERVATION_TOOLS "Build state-observation tools" ON)
 jrl_option(BUILD_TESTING "Build and run unit tests" ON)
 jrl_option(INSTALL_DOCUMENTATION "Generate and install the documentation" OFF)
 
