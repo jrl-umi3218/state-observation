@@ -8,6 +8,10 @@ set(DOXYGEN_QUIET YES)
 set(DOXYGEN_WARN_IF_UNDOCUMENTED NO)
 set(DOXYGEN_WARN_NO_PARAMDOC NO)
 set(DOXYGEN_USE_MATHJAX YES)
+# debian packaging disallows external cdns
+if(EXISTS "/usr/share/javascript/mathjax")
+  set(DOXYGEN_MATHJAX_RELPATH "/usr/share/javascript/mathjax")
+endif()
 
 # Set Doxygen options
 set(DOXYGEN_FILE_PATTERNS
@@ -57,7 +61,7 @@ doxygen_add_docs(doc ${PROJECT_SOURCE_DIR}/doc ${PROJECT_SOURCE_DIR}/include ALL
 
 if(INSTALL_DOCUMENTATION)
   install(
-    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/state-observation
+    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html/
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/state-observation/doxygen-html
     COMPONENT doc)
 endif()

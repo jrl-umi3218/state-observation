@@ -120,5 +120,6 @@ target_include_directories(
   state-observation
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include> $<BUILD_INTERFACE:${CMAKE_BINARY_DIR}/$<CONFIG>/include>
          $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+set_target_properties(state-observation PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 
 jrl_add_export_component(NAME state-observation TARGETS state-observation)

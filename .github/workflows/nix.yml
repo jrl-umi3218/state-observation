@@ -36,8 +36,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_PAGES_TOKEN }}
-          publish_dir: ./result-doc/share/doc/state-observation/html
-          destination_dir: v2
+          publish_dir: ./result-doc/share/doc/state-observation/doxygen-html
+          destination_dir: doxygen/HEAD
   check:
     if: always()
     name: check-macos-linux-nix
