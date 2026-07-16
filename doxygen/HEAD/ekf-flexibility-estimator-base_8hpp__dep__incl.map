@@ -1,0 +1,11 @@
+<map id="/build/source/include/state&#45;observation/flexibility&#45;estimation/ekf&#45;flexibility&#45;estimator&#45;base.hpp" name="/build/source/include/state&#45;observation/flexibility&#45;estimation/ekf&#45;flexibility&#45;estimator&#45;base.hpp">
+<area shape="rect" id="Node000001" title="Declare the class of the flexibility estimation using the extended Kalman Filter." alt="" coords="124,5,329,84"/>
+<area shape="rect" id="Node000002" href="$fixed-contact-ekf-flex-estimator-imu_8hpp.html" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="5,132,216,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="182,98,148,133,145,130,178,94"/>
+<area shape="rect" id="Node000004" href="$model-base-ekf-flex-estimator-imu_8hpp.html" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="240,132,445,211"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="275,94,308,130,305,133,271,98"/>
+<area shape="rect" id="Node000003" href="$offline-ekf-flexibility-estimation_8hpp.html" title="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..." alt="" coords="6,259,215,337"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,226,113,258,108,258,108,226"/>
+<area shape="rect" id="Node000005" href="$offline-model-base-flex-estimation_8hpp_source.html" title=" " alt="" coords="238,259,447,337"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="345,226,345,258,340,258,340,226"/>
+</map>

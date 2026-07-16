@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pmatrix_0',['Pmatrix',['../classstateObservation_1_1KalmanFilterBase.html#a309c3b0ea98e315825d02cfd08f02d79',1,'stateObservation::KalmanFilterBase']]]
+  ['statevector_0',['StateVector',['../classstateObservation_1_1ObserverBase.html#a1f4384e4ec12cd4da2dc984688e345c1',1,'stateObservation::ObserverBase']]],
+  ['statevectortan_1',['StateVectorTan',['../classstateObservation_1_1KalmanFilterBase.html#ac32430cd8d19a118508c90ef0d42e118',1,'stateObservation::KalmanFilterBase']]]
 ];

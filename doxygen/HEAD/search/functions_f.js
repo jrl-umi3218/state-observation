@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['quaterniontomatrix_5f_0',['quaternionToMatrix_',['../classstateObservation_1_1kine_1_1Orientation.html#aafc4390bf52f3ff7176c8a16480ab3b0',1,'stateObservation::kine::Orientation']]],
-  ['quaterniontorotationvector_1',['quaterniontorotationvector',['../namespacestateObservation_1_1kine.html#ac19d92086c08887462ed02c7fc6807b9',1,'stateObservation::kine::quaternionToRotationVector(const Quaternion &amp;q)'],['../namespacestateObservation_1_1kine.html#acfd9b69aa25ea3efaf35c7dc20a900b7',1,'stateObservation::kine::quaternionToRotationVector(const Vector4 &amp;v)']]]
+  ['quaterniontorotationvector_0',['quaternionToRotationVector',['../rigid-body-kinematics_8hpp.html#ac19d92086c08887462ed02c7fc6807b9',1,'stateObservation::kine::quaternionToRotationVector(const Quaternion &amp;q)'],['../rigid-body-kinematics_8hpp.html#acfd9b69aa25ea3efaf35c7dc20a900b7',1,'stateObservation::kine::quaternionToRotationVector(const Vector4 &amp;v)']]]
 ];

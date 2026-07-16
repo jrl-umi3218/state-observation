@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['b_5f_0',['b_',['../classstateObservation_1_1LipmDcmEstimator.html#af725f41070c6cf7ee0130e20c74da50a',1,'stateObservation::LipmDcmEstimator::B_'],['../classstateObservation_1_1LinearKalmanFilter.html#af81ee626839283e30e3c3ad676dc2fb7',1,'stateObservation::LinearKalmanFilter::b_']]],
-  ['beta_5f_1',['beta_',['../classstateObservation_1_1TiltEstimator.html#a8a7e5599f72e8c07caaa801bb81a32f5',1,'stateObservation::TiltEstimator']]],
-  ['bias_5f_2',['bias_',['../classstateObservation_1_1GaussianWhiteNoise.html#a4ebf7520b205a5821cb1aab570fa0652',1,'stateObservation::GaussianWhiteNoise']]],
-  ['biasdriftstd_5f_3',['biasDriftStd_',['../classstateObservation_1_1LipmDcmEstimator.html#ad241df8fa0470fc39d845980a5554359',1,'stateObservation::LipmDcmEstimator']]],
-  ['biaslimit_5f_4',['biasLimit_',['../classstateObservation_1_1LipmDcmEstimator.html#a44fe9b76cf5f2f3f0f7eaf16f769c908',1,'stateObservation::LipmDcmEstimator']]]
+  ['c_5f_0',['C_',['../classstateObservation_1_1LipmDcmEstimator.html#a29461894cbc14d7a12fc5a3fb9f6c62f',1,'stateObservation::LipmDcmEstimator::C_'],['../classstateObservation_1_1ZmpTrackingGainEstimator.html#a9618dbda385cec4555e33366594cca29',1,'stateObservation::ZmpTrackingGainEstimator::C_']]],
+  ['c_5f_1',['c_',['../classstateObservation_1_1KalmanFilterBase.html#a107a753056cab5d90146cd55df1a4033',1,'stateObservation::KalmanFilterBase']]],
+  ['centroidcontactkine_2',['centroidContactKine',['../structstateObservation_1_1KineticsObserver_1_1Contact.html#af2819856fd482090aa064a39a903a10b',1,'stateObservation::KineticsObserver::Contact']]]
 ];

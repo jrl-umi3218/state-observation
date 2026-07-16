@@ -1,0 +1,36 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classstateObservation_1_1DynamicalSystemFunctorBase.html" title="This is the base class of any functor that describes the dynamics of the state and the measurement...." alt="" coords="288,264,500,309"/>
+<area shape="rect" id="Node000001" href="$classstateObservation_1_1BidimElasticInvPendulum.html" title="The class is an implementation of the dynamical system defined by a 2D inverted pendulum with an elas..." alt="" coords="578,5,801,50"/>
+<area shape="poly" id="edge14_Node000000_Node000001" title=" " alt="" coords="408,249,430,205,461,154,500,103,548,60,577,45,579,50,552,65,504,107,465,157,434,207,413,251"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1IMUDynamicalSystem.html" title="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..." alt="" coords="571,75,808,119"/>
+<area shape="poly" id="edge15_Node000000_Node000002" title=" " alt="" coords="419,250,474,188,509,156,549,129,574,118,576,122,551,134,513,160,478,192,423,253"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1IMUMagnetometerDynamicalSystem.html" title="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..." alt="" coords="558,144,821,189"/>
+<area shape="poly" id="edge16_Node000000_Node000003" title=" " alt="" coords="442,253,493,225,549,199,583,187,585,192,551,203,495,229,444,258"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1IMUMltpctiveDynamicalSystem.html" title="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..." alt="" coords="576,469,804,514"/>
+<area shape="poly" id="edge17_Node000000_Node000004" title=" " alt="" coords="420,320,474,389,511,425,551,455,576,467,574,472,549,459,507,429,470,393,415,323"/>
+<area shape="rect" id="Node000013" href="$classstateObservation_1_1KineticsObserver.html" title="This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements,..." alt="" coords="593,539,786,583"/>
+<area shape="poly" id="edge18_Node000000_Node000013" title=" " alt="" coords="411,322,432,369,462,424,502,478,526,503,551,524,594,545,591,549,549,529,522,507,498,482,458,427,427,371,406,324"/>
+<area shape="rect" id="Node000014" href="$classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html" title="This class describes the dynamics of a robot&#39;s flexibility this dynamics with elastic forces to bring..." alt="" coords="568,213,811,274"/>
+<area shape="poly" id="edge19_Node000000_Node000014" title=" " alt="" coords="515,266,567,259,568,264,515,272"/>
+<area shape="rect" id="Node000015" href="$classstateObservation_1_1flexibilityEstimation_1_1IMUFixedContactDynamicalSystem.html" title="This class describes the dynamics of a robot&#39;s flexibility this dynamics is the simplest possible sys..." alt="" coords="550,298,829,360"/>
+<area shape="poly" id="edge20_Node000000_Node000015" title=" " alt="" coords="515,301,550,306,549,311,514,306"/>
+<area shape="rect" id="Node000016" href="$classstateObservation_1_1flexibilityEstimation_1_1StableIMUFixedContactDynamicalSystem.html" title="This class describes the dynamics of a robot&#39;s flexibility this dynamics is the simplest possible sys..." alt="" coords="564,384,815,445"/>
+<area shape="poly" id="edge21_Node000000_Node000016" title=" " alt="" coords="446,315,496,343,551,369,580,380,578,385,549,374,494,347,443,319"/>
+<area shape="rect" id="Node000012" href="$classstateObservation_1_1ObserverBase.html" title="The base class for observers. The observer is destinated to any dynamical system with a vector state ..." alt="" coords="5,646,238,674"/>
+<area shape="rect" id="Node000009" href="$classstateObservation_1_1ZeroDelayObserver.html" title="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..." alt="" coords="289,637,498,682"/>
+<area shape="poly" id="edge22_Node000012_Node000009" title=" " alt="" coords="253,657,289,657,289,662,253,662"/>
+<area shape="rect" id="Node000006" href="$classstateObservation_1_1KalmanFilterBase.html" title="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..." alt="" coords="594,608,785,653"/>
+<area shape="poly" id="edge23_Node000009_Node000006" title=" " alt="" coords="514,645,593,637,594,642,514,650"/>
+<area shape="rect" id="Node000010" href="$classstateObservation_1_1TiltEstimator.html" title="Description is pending." alt="" coords="577,680,802,708"/>
+<area shape="poly" id="edge26_Node000009_Node000010" title=" " alt="" coords="514,671,577,678,576,684,514,676"/>
+<area shape="rect" id="Node000007" href="$classstateObservation_1_1ExtendedKalmanFilter.html" title=" " alt="" coords="889,608,1091,653"/>
+<area shape="poly" id="edge24_Node000006_Node000007" title=" " alt="" coords="801,628,889,628,889,633,801,633"/>
+<area shape="rect" id="Node000008" href="$classstateObservation_1_1LinearKalmanFilter.html" title="The class of a Linear Kalman filter." alt="" coords="899,539,1081,583"/>
+<area shape="poly" id="edge25_Node000006_Node000008" title=" " alt="" coords="800,602,898,579,899,585,801,607"/>
+<area shape="rect" id="Node000011" href="$classstateObservation_1_1TiltEstimatorHumanoid.html" title="Version of the Tilt Estimator for humanoid robots." alt="" coords="877,677,1103,722"/>
+<area shape="poly" id="edge27_Node000010_Node000011" title=" " alt="" coords="818,694,877,695,877,700,818,699"/>
+<area shape="rect" id="Node000005" href="$classstateObservation_1_1StateVectorArithmetics.html" title="This class is used to customize the way the difference between measurements, the state update functio..." alt="" coords="286,539,502,583"/>
+<area shape="poly" id="edge28_Node000005_Node000004" title=" " alt="" coords="507,532,591,512,592,517,508,537"/>
+<area shape="poly" id="edge30_Node000005_Node000013" title=" " alt="" coords="518,558,592,558,592,564,518,564"/>
+<area shape="poly" id="edge29_Node000005_Node000006" title=" " alt="" coords="508,585,594,605,593,610,506,590"/>
+</map>

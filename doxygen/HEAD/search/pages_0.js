@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['contents_0',['Table of contents',['../toc.html',1,'']]]
+  ['04_0',['Ubuntu LTS (22.04, 24.04, 26.04)',['../md_2-Installing.html#autotoc_md7',1,'']]],
+  ['04_2024_2004_2026_2004_1',['Ubuntu LTS (22.04, 24.04, 26.04)',['../md_2-Installing.html#autotoc_md7',1,'']]],
+  ['04_2026_2004_2',['Ubuntu LTS (22.04, 24.04, 26.04)',['../md_2-Installing.html#autotoc_md7',1,'']]]
 ];

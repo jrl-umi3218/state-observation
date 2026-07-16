@@ -1,0 +1,24 @@
+<map id="stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem" name="stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem">
+<area shape="rect" id="Node000001" title="This class describes the dynamics of a robot&#39;s flexibility this dynamics with elastic forces to bring..." alt="" coords="1382,172,1625,233"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1DynamicalSystemFunctorBase.html" title="This is the base class of any functor that describes the dynamics of the state and the measurement...." alt="" coords="985,5,1196,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1212,29,1286,41,1324,52,1359,67,1396,89,1429,115,1480,169,1476,173,1425,119,1393,93,1357,71,1322,57,1285,47,1211,34"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1AccelerometerGyrometer.html" title="Implements the accelerometer&#45;gyrometer measurements." alt="" coords="972,180,1208,225"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="1224,200,1381,200,1381,205,1224,205"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1AlgebraicSensor.html" title="The base class for algebraic sensors. Algebraic sensors are sensors which depend only on the state va..." alt="" coords="581,136,784,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="799,168,972,187,971,192,799,173"/>
+<area shape="rect" id="Node000005" href="$classstateObservation_1_1SensorBase.html" title="The base class for sensors. This must be derived to implement a sensor." alt="" coords="314,130,531,158"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="547,148,581,150,581,155,546,153"/>
+<area shape="rect" id="Node000006" href="$classstateObservation_1_1NoiseBase.html" title=" " alt="" coords="5,102,216,130"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="231,97,324,89,421,85,1092,85,1139,87,1187,93,1280,114,1365,141,1435,168,1433,173,1363,146,1279,119,1186,99,1139,93,1092,90,421,90,324,94,231,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="232,128,240,129,313,135,313,140,239,134,231,133"/>
+<area shape="rect" id="Node000007" href="$classstateObservation_1_1algorithm_1_1LinearAcceleration.html" title="Implements the measurements given by an accelerometer." alt="" coords="580,205,785,250"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="800,218,971,207,972,212,800,223"/>
+<area shape="rect" id="Node000008" href="$classstateObservation_1_1algorithm_1_1RotationVelocity.html" title="Implements the gyrometer measurement algorithm." alt="" coords="580,275,785,319"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="796,268,990,223,991,228,797,273"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1000,249,1181,310"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="1196,259,1358,230,1381,225,1382,231,1358,235,1197,265"/>
+<area shape="rect" id="Node000010" href="$structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html" title=" " alt="" coords="969,337,1212,398"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="1225,329,1291,308,1357,282,1407,258,1452,231,1455,236,1409,262,1359,287,1293,313,1227,335"/>
+<area shape="rect" id="Node000011" href="$classstateObservation_1_1IndexedMatrixArrayT.html" title=" " alt="" coords="586,391,779,435"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="794,417,868,416,944,409,999,396,1000,402,945,414,869,421,794,422"/>
+</map>

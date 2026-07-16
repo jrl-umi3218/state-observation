@@ -1,0 +1,13 @@
+<map id="stateObservation::TiltEstimator" name="stateObservation::TiltEstimator">
+<area shape="rect" id="Node000001" title="Description is pending." alt="" coords="830,60,1055,88"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1ZeroDelayObserver.html" title="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..." alt="" coords="571,52,781,96"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="796,71,830,71,830,76,796,76"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1ObserverBase.html" title="The base class for observers. The observer is destinated to any dynamical system with a vector state ..." alt="" coords="268,5,500,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="494,34,548,43,573,48,572,54,547,48,493,39"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1IndexedMatrixT.html" title=" " alt="" coords="288,57,480,102"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="496,74,571,73,571,78,496,80"/>
+<area shape="rect" id="Node000005" href="$classstateObservation_1_1DebugItem.html" title=" " alt="" coords="5,48,219,110"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="234,76,287,76,287,82,234,82"/>
+<area shape="rect" id="Node000006" href="$classstateObservation_1_1IndexedMatrixArrayT.html" title=" " alt="" coords="288,130,480,175"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="495,138,547,127,590,112,629,94,631,99,592,117,548,132,497,143"/>
+</map>

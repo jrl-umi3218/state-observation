@@ -1,0 +1,5 @@
+<map id="stateObservation::IMUDynamicalSystem" name="stateObservation::IMUDynamicalSystem">
+<area shape="rect" id="Node000001" title="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..." alt="" coords="5,98,243,143"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1DynamicalSystemFunctorBase.html" title="This is the base class of any functor that describes the dynamics of the state and the measurement...." alt="" coords="18,5,230,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,66,127,98,121,98,121,66"/>
+</map>

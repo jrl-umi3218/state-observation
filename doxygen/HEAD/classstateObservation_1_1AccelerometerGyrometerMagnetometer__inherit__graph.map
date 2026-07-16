@@ -1,0 +1,13 @@
+<map id="stateObservation::AccelerometerGyrometerMagnetometer" name="stateObservation::AccelerometerGyrometerMagnetometer">
+<area shape="rect" id="Node000001" title="Implements the accelerometer&#45;gyrometer&#45;magnetometer measurements." alt="" coords="523,109,759,154"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1AlgebraicSensor.html" title="The base class for algebraic sensors. Algebraic sensors are sensors which depend only on the state va..." alt="" coords="272,5,474,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="458,53,476,60,589,106,587,111,474,65,456,58"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1SensorBase.html" title="The base class for sensors. This must be derived to implement a sensor." alt="" coords="5,14,223,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="239,25,271,25,271,30,239,30"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1algorithm_1_1LinearAcceleration.html" title="Implements the measurements given by an accelerometer." alt="" coords="271,75,475,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="491,110,523,114,522,119,490,115"/>
+<area shape="rect" id="Node000005" href="$classstateObservation_1_1algorithm_1_1RotationVelocity.html" title="Implements the gyrometer measurement algorithm." alt="" coords="271,144,475,189"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="490,149,522,144,523,150,491,154"/>
+<area shape="rect" id="Node000006" href="$classstateObservation_1_1algorithm_1_1MagneticField.html" title="Implements the measurements given by an magnetometer." alt="" coords="271,213,475,258"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="456,205,474,199,587,152,589,157,476,203,458,210"/>
+</map>

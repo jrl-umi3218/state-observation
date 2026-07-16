@@ -1,0 +1,5 @@
+<map id="stateObservation::SensorBase" name="stateObservation::SensorBase">
+<area shape="rect" id="Node000001" title="The base class for sensors. This must be derived to implement a sensor." alt="" coords="5,106,223,134"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1NoiseBase.html" title=" " alt="" coords="9,5,219,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,49,117,105,111,105,111,49"/>
+</map>

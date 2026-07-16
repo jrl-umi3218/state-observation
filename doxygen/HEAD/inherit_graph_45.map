@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classstateObservation_1_1NoiseBase.html" title=" " alt="" coords="5,14,216,42"/>
+<area shape="rect" id="Node000001" href="$classstateObservation_1_1GaussianWhiteNoise.html" title="The class derivates the NoiseBase class to implement a gaussian white noise with a given covariance m..." alt="" coords="264,5,465,50"/>
+<area shape="poly" id="edge44_Node000000_Node000001" title=" " alt="" coords="231,25,263,25,263,30,231,30"/>
+</map>

@@ -1,0 +1,47 @@
+<map id="/build/source/include/state&#45;observation/observer/linear&#45;kalman&#45;filter.hpp" name="/build/source/include/state&#45;observation/observer/linear&#45;kalman&#45;filter.hpp">
+<area shape="rect" id="Node000001" title="Defines the class of a Linear Kalman filter." alt="" coords="10,5,211,67"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,494,178,522"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,69,62,140,50,184,45,229,45,324,49,367,58,409,82,479,77,481,53,411,43,368,40,324,40,229,45,183,57,138,90,66"/>
+<area shape="rect" id="Node000003" href="$kalman-filter-base_8hpp.html" title="Defines the base class of a Kalman filter." alt="" coords="105,115,302,160"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,66,175,102,171,105,137,69"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="166,162,141,183,120,209,105,244,95,280,85,356,85,425,90,478,84,479,80,426,79,356,90,279,100,242,116,206,137,179,163,158"/>
+<area shape="rect" id="Node000004" href="$zero-delay-observer_8hpp.html" title="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..." alt="" coords="130,208,328,252"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="212,159,221,192,216,194,207,161"/>
+<area shape="rect" id="Node000019" href="$state-vector-arithmetics_8hpp_source.html" title=" " alt="" coords="457,300,667,345"/>
+<area shape="poly" id="edge24_Node000003_Node000019" title=" " alt="" coords="247,158,341,205,508,291,505,295,338,210,245,162"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="220,254,107,482,102,479,216,252"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="202,494,264,522"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="229,253,226,300,227,398,233,478,227,479,222,398,221,300,224,252"/>
+<area shape="rect" id="Node000006" href="$observer-base_8hpp.html" title="Defines the base class of a state observer. The observer is destinated to any dynamical system with a..." alt="" coords="236,300,433,345"/>
+<area shape="poly" id="edge7_Node000004_Node000006" title=" " alt="" coords="256,251,299,288,296,292,252,255"/>
+<area shape="poly" id="edge10_Node000006_Node000002" title=" " alt="" coords="307,347,122,487,119,483,304,343"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="288,494,418,522"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="332,346,325,388,327,437,342,479,337,481,322,438,320,388,326,345"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="337,402,510,429"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="357,343,402,388,398,392,353,347"/>
+<area shape="rect" id="Node000009" href="$definitions_8hpp.html" title="Definitions of types and some structures." alt="" coords="585,393,758,438"/>
+<area shape="poly" id="edge11_Node000006_Node000009" title=" " alt="" coords="416,343,577,386,575,391,414,348"/>
+<area shape="poly" id="edge21_Node000009_Node000002" title=" " alt="" coords="585,437,567,440,461,455,378,464,296,473,191,488,164,493,163,488,190,483,295,467,378,459,460,450,566,435,584,432"/>
+<area shape="poly" id="edge13_Node000009_Node000005" title=" " alt="" coords="585,437,567,440,485,452,420,458,357,468,278,488,271,490,270,485,276,483,356,462,420,453,484,447,566,435,584,432"/>
+<area shape="poly" id="edge16_Node000009_Node000007" title=" " alt="" coords="596,441,415,492,413,487,594,436"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="442,494,507,522"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="625,441,521,488,517,490,515,485,518,483,622,436"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="532,494,617,522"/>
+<area shape="poly" id="edge14_Node000009_Node000011" title=" " alt="" coords="650,440,601,485,598,481,647,436"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="640,494,703,522"/>
+<area shape="poly" id="edge15_Node000009_Node000012" title=" " alt="" coords="674,438,674,479,669,479,669,438"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="726,494,889,522"/>
+<area shape="poly" id="edge17_Node000009_Node000013" title=" " alt="" coords="706,436,777,483,774,488,703,440"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="912,494,1004,522"/>
+<area shape="poly" id="edge18_Node000009_Node000014" title=" " alt="" coords="748,436,902,483,910,486,909,491,900,488,746,441"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1028,494,1155,522"/>
+<area shape="poly" id="edge19_Node000009_Node000015" title=" " alt="" coords="759,430,1016,483,1032,487,1031,492,1015,488,758,435"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1178,486,1341,530"/>
+<area shape="poly" id="edge20_Node000009_Node000016" title=" " alt="" coords="758,424,941,447,1164,483,1163,488,940,453,758,429"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1365,494,1437,522"/>
+<area shape="poly" id="edge22_Node000009_Node000017" title=" " alt="" coords="758,414,877,418,1026,429,1191,449,1273,464,1354,483,1362,486,1360,491,1352,488,1272,470,1190,455,1026,434,877,424,758,420"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="1461,486,1634,530"/>
+<area shape="poly" id="edge23_Node000009_Node000018" title=" " alt="" coords="758,418,1059,439,1250,458,1446,483,1446,488,1249,463,1058,444,758,424"/>
+<area shape="poly" id="edge25_Node000019_Node000002" title=" " alt="" coords="564,346,554,394,542,419,524,440,495,455,457,466,362,477,265,482,191,488,165,493,164,488,190,483,265,477,362,472,456,461,493,450,520,436,537,416,549,392,558,345"/>
+<area shape="poly" id="edge26_Node000019_Node000009" title=" " alt="" coords="590,343,636,381,632,385,586,347"/>
+</map>

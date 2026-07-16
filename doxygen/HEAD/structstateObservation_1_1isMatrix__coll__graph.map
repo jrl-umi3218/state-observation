@@ -1,0 +1,5 @@
+<map id="stateObservation::isMatrix&lt; T &gt;" name="stateObservation::isMatrix&lt; T &gt;">
+<area shape="rect" id="Node000001" title="Checks if a class is a specialization of Eigen::Matrix." alt="" coords="5,81,238,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="63,5,180,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,49,124,81,119,81,119,49"/>
+</map>

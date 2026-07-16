@@ -1,0 +1,5 @@
+<map id="stateObservation::GaussianWhiteNoise" name="stateObservation::GaussianWhiteNoise">
+<area shape="rect" id="Node000001" title="The class derivates the NoiseBase class to implement a gaussian white noise with a given covariance m..." alt="" coords="10,81,211,126"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1NoiseBase.html" title=" " alt="" coords="5,5,216,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,49,113,80,108,80,108,49"/>
+</map>

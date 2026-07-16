@@ -1,0 +1,29 @@
+<map id="/build/source/include/state&#45;observation/observer/kalman&#45;filter&#45;base.hpp" name="/build/source/include/state&#45;observation/observer/kalman&#45;filter&#45;base.hpp">
+<area shape="rect" id="Node000001" title="Defines the base class of a Kalman filter." alt="" coords="748,5,949,67"/>
+<area shape="rect" id="Node000002" href="$extended-kalman-filter_8hpp_source.html" title=" " alt="" coords="505,115,706,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="767,76,675,117,673,112,765,71"/>
+<area shape="rect" id="Node000011" href="$linear-kalman-filter_8hpp.html" title="Defines the class of a Linear Kalman filter." alt="" coords="1121,115,1322,177"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="965,68,1121,113,1120,118,963,73"/>
+<area shape="rect" id="Node000003" href="$kinetics-observer_8hpp.html" title="Unified Kinetics estimator." alt="" coords="5,233,246,295"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="490,174,258,227,228,235,227,230,257,222,489,169"/>
+<area shape="rect" id="Node000004" href="$imu-attitude-trajectory-reconstruction_8hpp.html" title="Gives an implementation of attitude estimation for IMU reconstruction with or without given input...." alt="" coords="269,225,478,303"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="533,186,452,226,450,222,530,182"/>
+<area shape="rect" id="Node000005" href="$imu-multiplicative-attitude-reconstruction_8hpp_source.html" title=" " alt="" coords="501,225,710,303"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="608,192,608,224,603,224,603,192"/>
+<area shape="rect" id="Node000006" href="$ekf-flexibility-estimator-base_8hpp.html" title="Declare the class of the flexibility estimation using the extended Kalman Filter." alt="" coords="734,225,939,303"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="680,182,760,222,758,226,678,186"/>
+<area shape="rect" id="Node000007" href="$fixed-contact-ekf-flex-estimator-imu_8hpp.html" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="615,351,825,430"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="792,317,758,353,754,349,788,313"/>
+<area shape="rect" id="Node000009" href="$model-base-ekf-flex-estimator-imu_8hpp.html" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="850,351,1055,430"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="885,313,918,349,914,353,881,317"/>
+<area shape="rect" id="Node000008" href="$offline-ekf-flexibility-estimation_8hpp.html" title="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..." alt="" coords="616,478,824,557"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="723,446,723,477,718,477,718,446"/>
+<area shape="rect" id="Node000010" href="$offline-model-base-flex-estimation_8hpp_source.html" title=" " alt="" coords="848,478,1056,557"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="955,446,955,477,950,477,950,446"/>
+<area shape="rect" id="Node000012" href="$lipm-dcm-estimator_8hpp.html" title=" " alt="" coords="964,233,1221,295"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1178,189,1127,235,1124,231,1175,185"/>
+<area shape="rect" id="Node000013" href="$unidim-lipm-dcm-estimator_8hpp.html" title=" " alt="" coords="1245,225,1457,303"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="1268,185,1309,222,1306,226,1265,189"/>
+<area shape="rect" id="Node000014" href="$zmp-tracking-gain-estimator_8hpp_source.html" title=" " alt="" coords="1480,225,1688,303"/>
+<area shape="poly" id="edge13_Node000011_Node000014" title=" " alt="" coords="1334,179,1470,222,1481,226,1480,231,1469,227,1333,184"/>
+</map>

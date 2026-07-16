@@ -1,0 +1,75 @@
+<map id="stateObservation::KineticsObserver" name="stateObservation::KineticsObserver">
+<area shape="rect" id="Node000001" title="This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements,..." alt="" coords="2019,630,2212,674"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1DynamicalSystemFunctorBase.html" title="This is the base class of any functor that describes the dynamics of the state and the measurement...." alt="" coords="1247,220,1458,265"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1474,254,1613,274,1766,302,1839,319,1904,339,1958,360,1996,383,2024,411,2047,442,2066,476,2082,511,2103,578,2113,629,2108,630,2098,579,2077,513,2061,479,2043,445,2020,414,1993,388,1955,365,1902,344,1838,325,1765,307,1612,279,1473,259"/>
+<area shape="rect" id="Node000018" href="$classstateObservation_1_1ExtendedKalmanFilter.html" title=" " alt="" coords="1616,184,1819,229"/>
+<area shape="poly" id="edge34_Node000018_Node000002" title=" " alt="" coords="1473,231,1583,221,1615,218,1616,223,1584,226,1474,237"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1StateVectorArithmetics.html" title="This class is used to customize the way the difference between measurements, the state update functio..." alt="" coords="779,52,995,97"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="997,46,1092,29,1208,13,1339,4,1478,6,1549,12,1619,22,1689,36,1757,57,1822,82,1885,114,1943,153,1997,200,2020,233,2040,282,2059,342,2075,407,2100,536,2114,629,2108,630,2094,537,2070,408,2054,343,2035,284,2015,236,1993,203,1940,158,1882,119,1820,87,1755,62,1687,42,1618,27,1548,17,1478,11,1339,10,1209,19,1093,34,998,51"/>
+<area shape="rect" id="Node000019" href="$classstateObservation_1_1KalmanFilterBase.html" title="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..." alt="" coords="1257,151,1448,196"/>
+<area shape="poly" id="edge30_Node000019_Node000003" title=" " alt="" coords="1011,68,1134,72,1187,80,1224,94,1234,104,1238,116,1241,127,1249,137,1266,148,1263,153,1245,141,1236,129,1233,117,1230,107,1222,98,1186,86,1134,78,1010,73"/>
+<area shape="poly" id="edge33_Node000019_Node000003" title=" " alt="" coords="976,100,1008,112,1032,124,1084,137,1126,141,1169,144,1223,150,1257,155,1256,160,1223,155,1168,149,1126,147,1083,142,1030,129,1006,117,974,105"/>
+<area shape="rect" id="Node000004" href="$structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor.html" title=" " alt="" coords="1607,826,1828,870"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="1829,818,1912,790,1993,752,2048,713,2091,673,2094,677,2051,717,1996,757,1914,795,1831,823"/>
+<area shape="rect" id="Node000005" href="$structstateObservation_1_1KineticsObserver_1_1Sensor.html" title=" " alt="" coords="314,954,508,998"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="523,976,742,978,1012,977,1270,968,1377,961,1458,950,1518,934,1576,913,1673,869,1675,874,1578,918,1519,939,1459,955,1377,966,1271,974,1012,982,742,983,523,981"/>
+<area shape="rect" id="Node000013" href="$structstateObservation_1_1KineticsObserver_1_1AbsoluteOriSensor.html" title=" " alt="" coords="783,1015,991,1060"/>
+<area shape="poly" id="edge13_Node000013_Node000005" title=" " alt="" coords="523,988,783,1021,782,1027,522,993"/>
+<area shape="rect" id="Node000006" href="$structstateObservation_1_1kine_1_1Kinematics.html" title="Class facilitating the manipulation of the kinematics of a frame within another and the associated op..." alt="" coords="1268,734,1437,778"/>
+<area shape="poly" id="edge22_Node000001_Node000006" title=" " alt="" coords="1389,722,1431,692,1482,668,1564,659,1707,653,2018,649,2018,655,1707,658,1564,664,1483,673,1434,696,1392,726"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1440,781,1483,793,1607,823,1606,828,1482,798,1438,786"/>
+<area shape="rect" id="Node000007" href="$classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html" title=" " alt="" coords="782,725,992,787"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1008,753,1268,753,1268,759,1008,759"/>
+<area shape="rect" id="Node000008" href="$classstateObservation_1_1CheckedItem.html" title=" " alt="" coords="311,628,510,690"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="471,696,510,717,552,733,610,747,669,754,782,759,781,764,669,760,609,752,550,738,508,722,468,701"/>
+<area shape="rect" id="Node000017" href="$classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html" title=" " alt="" coords="782,611,992,672"/>
+<area shape="poly" id="edge20_Node000017_Node000008" title=" " alt="" coords="514,621,551,614,605,607,647,606,744,614,782,618,781,623,743,619,647,611,605,612,551,619,516,626"/>
+<area shape="rect" id="Node000009" href="$classstateObservation_1_1kine_1_1Orientation.html" title=" " alt="" coords="326,866,496,910"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="511,874,652,856,743,840,796,815,843,785,846,790,799,820,744,845,653,861,512,879"/>
+<area shape="poly" id="edge14_Node000013_Node000009" title=" " alt="" coords="499,913,552,929,648,956,744,984,825,1012,823,1017,743,989,647,961,550,934,497,918"/>
+<area shape="poly" id="edge21_Node000017_Node000009" title=" " alt="" coords="460,855,503,833,550,815,594,809,650,808,705,803,726,798,742,790,753,773,755,754,755,734,765,712,788,689,814,671,817,675,791,693,770,715,761,735,760,755,758,775,745,794,728,803,706,808,650,813,594,815,552,820,505,838,463,860"/>
+<area shape="rect" id="Node000030" href="$structstateObservation_1_1KineticsObserver_1_1Opt.html" title="a structure to optimize computations" alt="" coords="1621,719,1814,764"/>
+<area shape="poly" id="edge43_Node000030_Node000009" title=" " alt="" coords="511,883,1108,860,1410,842,1519,832,1582,820,1628,797,1682,762,1685,766,1630,801,1584,825,1519,837,1411,847,1108,866,511,888"/>
+<area shape="rect" id="Node000010" href="$classstateObservation_1_1CheckedItem.html" title=" " alt="" coords="14,857,210,919"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="226,885,326,885,326,891,226,891"/>
+<area shape="rect" id="Node000011" href="$classstateObservation_1_1CheckedItem.html" title=" " alt="" coords="12,977,212,1039"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="204,969,352,909,354,913,206,974"/>
+<area shape="poly" id="edge15_Node000013_Node000011" title=" " alt="" coords="228,1026,295,1033,426,1040,558,1043,782,1039,782,1044,558,1048,426,1046,294,1038,228,1031"/>
+<area shape="rect" id="Node000012" href="$classstateObservation_1_1CheckedItem.html" title=" " alt="" coords="1252,879,1453,940"/>
+<area shape="poly" id="edge11_Node000004_Node000012" title=" " alt="" coords="1468,898,1583,883,1642,869,1643,874,1584,888,1469,904"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="1007,1035,1128,1031,1273,1021,1429,1003,1583,975,1706,948,1802,924,1846,908,1891,886,1939,856,1993,817,2029,783,2060,744,2101,673,2106,676,2064,747,2033,786,1996,821,1942,860,1893,890,1848,912,1803,929,1707,953,1584,980,1429,1008,1273,1026,1128,1036,1007,1040"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1627,1021,1808,1083"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="1823,1066,1867,1067,1912,1061,1955,1048,1993,1026,2030,988,2059,943,2080,893,2094,842,2104,792,2109,745,2112,675,2117,675,2115,746,2109,793,2100,843,2085,895,2063,945,2034,991,1996,1030,1957,1053,1913,1066,1868,1072,1823,1072"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1611,1107,1824,1152"/>
+<area shape="poly" id="edge17_Node000001_Node000015" title=" " alt="" coords="1839,1143,1880,1141,1920,1134,1959,1120,1993,1098,2016,1067,2037,1020,2056,962,2071,897,2095,768,2109,675,2114,675,2101,769,2077,898,2061,963,2042,1022,2021,1070,1996,1102,1961,1125,1922,1139,1880,1146,1839,1148"/>
+<area shape="rect" id="Node000016" href="$structstateObservation_1_1kine_1_1LocalKinematics.html" title="Class facilitating the manipulation of the local kinematics of a frame within another and the associa..." alt="" coords="1268,619,1437,664"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="1452,629,1607,619,1801,615,1886,620,1995,631,2019,634,2018,639,1994,636,1886,625,1801,620,1607,624,1453,635"/>
+<area shape="poly" id="edge42_Node000030_Node000016" title=" " alt="" coords="1452,666,1634,716,1633,721,1451,671"/>
+<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="1008,639,1268,639,1268,644,1008,644"/>
+<area shape="poly" id="edge23_Node000001_Node000018" title=" " alt="" coords="1835,222,1877,235,1920,252,1961,275,1997,305,2028,344,2054,387,2074,433,2089,480,2108,566,2115,629,2110,630,2103,567,2084,481,2069,435,2049,389,2024,347,1993,309,1958,280,1918,257,1875,240,1833,227"/>
+<area shape="poly" id="edge24_Node000018_Node000019" title=" " alt="" coords="1464,181,1616,195,1615,200,1463,186"/>
+<area shape="rect" id="Node000020" href="$classstateObservation_1_1ZeroDelayObserver.html" title="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..." alt="" coords="782,286,992,330"/>
+<area shape="poly" id="edge25_Node000019_Node000020" title=" " alt="" coords="1007,301,1060,293,1115,281,1171,262,1221,237,1229,230,1233,222,1245,206,1266,194,1269,199,1249,210,1237,225,1233,233,1225,241,1173,267,1117,286,1061,299,1008,306"/>
+<area shape="rect" id="Node000021" href="$classstateObservation_1_1ObserverBase.html" title="The base class for observers. The observer is destinated to any dynamical system with a vector state ..." alt="" coords="295,337,527,365"/>
+<area shape="poly" id="edge26_Node000020_Node000021" title=" " alt="" coords="542,336,782,315,782,320,542,342"/>
+<area shape="rect" id="Node000022" href="$classstateObservation_1_1IndexedMatrixT.html" title=" " alt="" coords="315,195,507,240"/>
+<area shape="poly" id="edge31_Node000019_Node000022" title=" " alt="" coords="522,191,551,187,747,171,943,165,1119,165,1257,167,1257,173,1119,170,943,170,747,177,551,192,523,196"/>
+<area shape="poly" id="edge27_Node000020_Node000022" title=" " alt="" coords="522,216,649,224,705,232,745,244,753,251,758,258,769,271,791,283,789,288,766,276,753,261,749,255,742,249,704,237,649,229,522,221"/>
+<area shape="rect" id="Node000023" href="$classstateObservation_1_1DebugItem.html" title=" " alt="" coords="5,371,219,432"/>
+<area shape="poly" id="edge28_Node000022_Node000023" title=" " alt="" coords="154,358,217,305,293,254,328,238,331,243,296,258,221,309,158,362"/>
+<area shape="rect" id="Node000027" href="$classstateObservation_1_1IndexedMatrixT.html" title=" " alt="" coords="551,379,743,424"/>
+<area shape="poly" id="edge37_Node000027_Node000023" title=" " alt="" coords="234,399,550,399,550,404,234,404"/>
+<area shape="rect" id="Node000028" href="$classstateObservation_1_1IndexedMatrixT.html" title=" " alt="" coords="1031,451,1223,496"/>
+<area shape="poly" id="edge39_Node000028_Node000023" title=" " alt="" coords="234,408,551,431,1031,464,1030,470,551,436,234,413"/>
+<area shape="rect" id="Node000024" href="$classstateObservation_1_1IndexedMatrixArrayT.html" title=" " alt="" coords="315,268,507,313"/>
+<area shape="poly" id="edge29_Node000020_Node000024" title=" " alt="" coords="523,292,782,302,782,307,523,298"/>
+<area shape="rect" id="Node000025" href="$structstateObservation_1_1KalmanFilterBase_1_1optimizationContainer.html" title=" " alt="" coords="767,216,1007,261"/>
+<area shape="poly" id="edge32_Node000019_Node000025" title=" " alt="" coords="1022,232,1121,224,1222,209,1283,194,1285,199,1224,214,1121,229,1022,237"/>
+<area shape="rect" id="Node000026" href="$structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html" title=" " alt="" coords="1252,82,1454,126"/>
+<area shape="poly" id="edge35_Node000018_Node000026" title=" " alt="" coords="1450,129,1636,181,1635,187,1449,134"/>
+<area shape="poly" id="edge36_Node000001_Node000027" title=" " alt="" coords="759,398,920,401,1126,410,1355,428,1584,458,1703,477,1795,497,1885,525,1996,571,2045,598,2087,627,2084,632,2042,603,1994,576,1883,530,1794,502,1702,483,1583,463,1354,433,1126,415,920,406,759,404"/>
+<area shape="poly" id="edge38_Node000001_Node000028" title=" " alt="" coords="1239,481,1390,498,1579,524,1788,559,1995,606,2060,627,2058,632,1994,611,1787,564,1579,529,1389,503,1238,486"/>
+<area shape="rect" id="Node000029" href="$classstateObservation_1_1NoiseBase.html" title=" " alt="" coords="1612,1185,1823,1213"/>
+<area shape="poly" id="edge40_Node000001_Node000029" title=" " alt="" coords="1776,1215,1827,1226,1885,1230,1914,1228,1942,1222,1969,1212,1993,1196,2008,1181,2021,1159,2045,1100,2065,1027,2080,946,2101,787,2110,675,2115,675,2106,787,2085,947,2070,1028,2050,1102,2026,1161,2012,1184,1996,1200,1971,1216,1944,1227,1915,1233,1885,1235,1826,1231,1775,1220"/>
+<area shape="poly" id="edge41_Node000001_Node000030" title=" " alt="" coords="1829,725,1910,712,1994,693,2057,672,2059,678,1995,698,1911,717,1829,731"/>
+</map>

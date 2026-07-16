@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['linear_2dacceleration_2ehpp_0',['linear-acceleration.hpp',['../linear-acceleration_8hpp.html',1,'']]],
-  ['linear_2dkalman_2dfilter_2ehpp_1',['linear-kalman-filter.hpp',['../linear-kalman-filter_8hpp.html',1,'']]],
-  ['lipm_2ddcm_2destimator_2ehpp_2',['lipm-dcm-estimator.hpp',['../lipm-dcm-estimator_8hpp.html',1,'']]],
-  ['logger_2ehpp_3',['logger.hpp',['../logger_8hpp.html',1,'']]]
+  ['magnetic_2dfield_2ehpp_0',['magnetic-field.hpp',['../magnetic-field_8hpp.html',1,'']]],
+  ['miscellaneous_2dalgorithms_2ehpp_1',['miscellaneous-algorithms.hpp',['../miscellaneous-algorithms_8hpp.html',1,'']]],
+  ['model_2dbase_2dekf_2dflex_2destimator_2dimu_2ehpp_2',['model-base-ekf-flex-estimator-imu.hpp',['../model-base-ekf-flex-estimator-imu_8hpp.html',1,'']]]
 ];

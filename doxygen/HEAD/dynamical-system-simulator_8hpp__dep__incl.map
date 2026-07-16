@@ -1,0 +1,7 @@
+<map id="/build/source/include/state&#45;observation/dynamical&#45;system/dynamical&#45;system&#45;simulator.hpp" name="/build/source/include/state&#45;observation/dynamical&#45;system/dynamical&#45;system&#45;simulator.hpp">
+<area shape="rect" id="Node000001" title="Provides an interface to simulate the dynamics provided by a dynamics functor." alt="" coords="79,5,372,67"/>
+<area shape="rect" id="Node000002" href="$imu-attitude-trajectory-reconstruction_8hpp.html" title="Gives an implementation of attitude estimation for IMU reconstruction with or without given input...." alt="" coords="5,115,214,194"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,80,150,117,146,113,183,76"/>
+<area shape="rect" id="Node000003" href="$imu-multiplicative-attitude-reconstruction_8hpp_source.html" title=" " alt="" coords="237,115,446,194"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="268,76,305,113,301,117,264,80"/>
+</map>

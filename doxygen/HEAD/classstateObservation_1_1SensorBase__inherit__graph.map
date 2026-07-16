@@ -1,0 +1,9 @@
+<map id="stateObservation::SensorBase" name="stateObservation::SensorBase">
+<area shape="rect" id="Node000001" title="The base class for sensors. This must be derived to implement a sensor." alt="" coords="5,48,223,76"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1AlgebraicSensor.html" title="The base class for algebraic sensors. Algebraic sensors are sensors which depend only on the state va..." alt="" coords="271,40,473,85"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,60,270,60,270,65,238,65"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1AccelerometerGyrometer.html" title="Implements the accelerometer&#45;gyrometer measurements." alt="" coords="521,5,757,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="488,45,520,40,521,46,489,50"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1AccelerometerGyrometerMagnetometer.html" title="Implements the accelerometer&#45;gyrometer&#45;magnetometer measurements." alt="" coords="521,75,757,119"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="489,75,521,79,520,84,488,80"/>
+</map>

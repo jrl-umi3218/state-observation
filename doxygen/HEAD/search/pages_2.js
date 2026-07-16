@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['estimator_0',['LIPM estimator',['../lipm_dcm_details.html',1,'theory']]]
+  ['already_0',['Convinced already?',['../index.html#autotoc_md2',1,'']]]
 ];

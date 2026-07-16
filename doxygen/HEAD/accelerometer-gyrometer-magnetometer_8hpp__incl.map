@@ -1,0 +1,57 @@
+<map id="/build/source/include/state&#45;observation/sensors&#45;simulation/accelerometer&#45;gyrometer&#45;magnetometer.hpp" name="/build/source/include/state&#45;observation/sensors&#45;simulation/accelerometer&#45;gyrometer&#45;magnetometer.hpp">
+<area shape="rect" id="Node000001" title="Implements the accelerometer&#45;gyrometer&#45;magnetometer inertial measurement unit." alt="" coords="499,5,722,84"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="26,528,155,556"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="499,49,412,55,314,70,214,95,165,113,118,134,75,156,39,177,26,189,16,204,10,222,8,246,8,349,15,397,31,442,53,482,73,514,69,517,48,485,26,444,9,398,3,350,3,246,5,221,12,201,22,185,36,172,72,151,116,130,163,108,212,90,313,65,412,50,498,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="188,528,279,556"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="499,59,407,71,311,88,226,109,193,121,170,134,141,158,122,181,112,209,109,246,109,349,112,375,119,400,144,446,176,486,207,516,203,520,172,489,140,449,114,402,107,376,104,350,104,246,107,208,118,179,137,154,166,130,191,116,225,104,310,82,406,66,498,54"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="399,528,572,556"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="613,85,613,246,613,350,611,376,603,402,578,449,546,489,515,520,511,516,542,486,574,446,598,400,605,375,608,349,608,246,608,85"/>
+<area shape="rect" id="Node000005" href="$algebraic-sensor_8hpp.html" title="Gives a base class for algebraic sensors." alt="" coords="180,132,414,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="499,87,376,129,374,124,498,82"/>
+<area shape="rect" id="Node000018" href="$linear-acceleration_8hpp.html" title="Implements the accelerometer algorithm." alt="" coords="648,317,851,379"/>
+<area shape="poly" id="edge27_Node000001_Node000018" title=" " alt="" coords="631,83,732,302,727,304,626,85"/>
+<area shape="rect" id="Node000019" href="$magnetic-field_8hpp.html" title="Implements the magnetic field algorithm." alt="" coords="876,317,1103,379"/>
+<area shape="poly" id="edge30_Node000001_Node000019" title=" " alt="" coords="661,82,942,306,938,310,657,86"/>
+<area shape="rect" id="Node000020" href="$rotation-velocity_8hpp.html" title="The implementation of the algorithm of a rotation velocity sensor." alt="" coords="1127,317,1345,379"/>
+<area shape="poly" id="edge33_Node000001_Node000020" title=" " alt="" coords="692,82,1161,308,1159,313,689,87"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="231,180,194,199,162,226,119,285,106,311,97,338,90,397,91,472,92,513,87,513,85,472,85,397,92,337,101,309,114,282,158,223,191,195,229,175"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="239,179,208,199,185,226,170,263,164,303,165,343,172,384,195,458,221,513,216,515,190,460,166,385,160,344,159,302,165,262,180,223,205,195,236,175"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="359,175,390,195,414,223,420,246,415,270,408,285,401,295,394,305,388,318,383,348,388,378,403,418,423,455,466,514,462,517,419,458,398,420,383,380,377,348,383,317,389,302,397,292,404,282,409,269,415,246,410,226,386,199,356,179"/>
+<area shape="rect" id="Node000006" href="$sensor-base_8hpp.html" title="Implements the base class of all sensors." alt="" coords="194,225,400,269"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="300,177,300,209,295,209,295,177"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="284,271,111,517,106,514,280,268"/>
+<area shape="poly" id="edge10_Node000006_Node000003" title=" " alt="" coords="295,270,242,513,237,512,290,269"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="298,270,298,311,303,364,316,420,328,446,343,470,359,486,377,500,417,520,415,525,374,504,355,490,339,473,323,449,311,421,297,365,292,311,293,270"/>
+<area shape="rect" id="Node000007" href="$noise-base_8hpp.html" title=" " alt="" coords="398,326,573,370"/>
+<area shape="poly" id="edge12_Node000006_Node000007" title=" " alt="" coords="340,268,432,316,429,321,337,272"/>
+<area shape="poly" id="edge13_Node000007_Node000004" title=" " alt="" coords="488,371,488,513,483,513,483,371"/>
+<area shape="rect" id="Node000008" href="$definitions_8hpp.html" title="Definitions of types and some structures." alt="" coords="823,427,996,472"/>
+<area shape="poly" id="edge14_Node000007_Node000008" title=" " alt="" coords="574,367,808,422,807,427,573,373"/>
+<area shape="poly" id="edge19_Node000008_Node000002" title=" " alt="" coords="823,457,535,478,356,497,176,522,154,527,153,522,176,517,355,491,535,473,823,452"/>
+<area shape="poly" id="edge21_Node000008_Node000003" title=" " alt="" coords="823,465,387,522,295,535,294,530,386,517,822,459"/>
+<area shape="poly" id="edge24_Node000008_Node000004" title=" " alt="" coords="823,472,585,522,562,527,561,522,583,517,822,466"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="595,528,661,556"/>
+<area shape="poly" id="edge15_Node000008_Node000009" title=" " alt="" coords="825,475,751,496,674,522,670,524,668,519,672,517,749,491,823,470"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="685,528,747,556"/>
+<area shape="poly" id="edge16_Node000008_Node000010" title=" " alt="" coords="862,475,760,522,757,524,754,519,758,517,860,470"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="771,528,856,556"/>
+<area shape="poly" id="edge17_Node000008_Node000011" title=" " alt="" coords="888,474,840,519,836,515,885,470"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="880,528,942,556"/>
+<area shape="poly" id="edge18_Node000008_Node000012" title=" " alt="" coords="912,472,913,513,908,513,907,472"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="966,528,1128,556"/>
+<area shape="poly" id="edge20_Node000008_Node000013" title=" " alt="" coords="944,470,1016,517,1013,522,941,474"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1152,528,1278,556"/>
+<area shape="poly" id="edge22_Node000008_Node000014" title=" " alt="" coords="983,470,1156,521,1155,526,982,475"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1302,520,1464,564"/>
+<area shape="poly" id="edge23_Node000008_Node000015" title=" " alt="" coords="996,463,1287,517,1286,522,995,468"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1488,528,1560,556"/>
+<area shape="poly" id="edge25_Node000008_Node000016" title=" " alt="" coords="996,451,1095,457,1216,469,1347,488,1477,517,1485,520,1483,525,1475,522,1346,494,1215,474,1095,462,996,456"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1584,520,1757,564"/>
+<area shape="poly" id="edge26_Node000008_Node000017" title=" " alt="" coords="996,454,1249,477,1407,494,1570,517,1569,522,1407,500,1249,482,996,459"/>
+<area shape="poly" id="edge28_Node000018_Node000004" title=" " alt="" coords="727,381,685,428,631,474,583,502,536,524,534,520,581,498,628,470,681,424,723,378"/>
+<area shape="poly" id="edge29_Node000018_Node000008" title=" " alt="" coords="800,377,863,416,860,421,797,382"/>
+<area shape="poly" id="edge31_Node000019_Node000004" title=" " alt="" coords="894,382,765,429,720,452,674,474,540,525,538,520,672,469,717,447,763,425,893,377"/>
+<area shape="poly" id="edge32_Node000019_Node000008" title=" " alt="" coords="967,381,938,416,934,413,963,378"/>
+<area shape="poly" id="edge34_Node000020_Node000004" title=" " alt="" coords="1127,379,1115,382,1029,394,961,398,894,406,812,429,790,440,775,451,760,462,738,474,658,500,555,527,554,521,657,495,736,469,757,458,772,446,788,435,810,425,893,401,960,393,1028,389,1114,376,1126,374"/>
+<area shape="poly" id="edge35_Node000020_Node000008" title=" " alt="" coords="1137,382,996,425,995,420,1135,377"/>
+</map>

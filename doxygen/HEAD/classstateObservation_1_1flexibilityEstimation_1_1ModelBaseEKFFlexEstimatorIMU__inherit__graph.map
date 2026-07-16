@@ -1,0 +1,9 @@
+<map id="stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU" name="stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU">
+<area shape="rect" id="Node000001" title="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..." alt="" coords="645,36,958,81"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html" title="This class is the base class of the flexibility estimators that use an extended Kalman Filter...." alt="" coords="313,5,597,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="613,39,645,42,645,47,612,44"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html" title="This class is the base class of the flexibility estimators." alt="" coords="5,5,265,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,25,312,25,312,30,280,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="381,74,529,102"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="544,77,644,69,645,74,545,83"/>
+</map>

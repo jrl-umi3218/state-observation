@@ -1,0 +1,9 @@
+<map id="/build/source/include/state&#45;observation/observer/linear&#45;kalman&#45;filter.hpp" name="/build/source/include/state&#45;observation/observer/linear&#45;kalman&#45;filter.hpp">
+<area shape="rect" id="Node000001" title="Defines the class of a Linear Kalman filter." alt="" coords="292,5,493,67"/>
+<area shape="rect" id="Node000002" href="$lipm-dcm-estimator_8hpp.html" title=" " alt="" coords="5,124,263,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,76,202,125,200,120,311,71"/>
+<area shape="rect" id="Node000003" href="$unidim-lipm-dcm-estimator_8hpp.html" title=" " alt="" coords="286,115,499,194"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="395,82,395,115,390,115,390,82"/>
+<area shape="rect" id="Node000004" href="$zmp-tracking-gain-estimator_8hpp_source.html" title=" " alt="" coords="522,115,730,194"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="468,72,549,112,547,117,466,77"/>
+</map>

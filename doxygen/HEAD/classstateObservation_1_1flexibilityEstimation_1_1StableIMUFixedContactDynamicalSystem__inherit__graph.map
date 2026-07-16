@@ -1,0 +1,5 @@
+<map id="stateObservation::flexibilityEstimation::StableIMUFixedContactDynamicalSystem" name="stateObservation::flexibilityEstimation::StableIMUFixedContactDynamicalSystem">
+<area shape="rect" id="Node000001" title="This class describes the dynamics of a robot&#39;s flexibility this dynamics is the simplest possible sys..." alt="" coords="5,98,256,160"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1DynamicalSystemFunctorBase.html" title="This is the base class of any functor that describes the dynamics of the state and the measurement...." alt="" coords="25,5,236,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,65,133,98,128,98,128,65"/>
+</map>

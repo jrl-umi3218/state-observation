@@ -1,0 +1,7 @@
+<map id="stateObservation::algorithm::RotationVelocity" name="stateObservation::algorithm::RotationVelocity">
+<area shape="rect" id="Node000001" title="Implements the gyrometer measurement algorithm." alt="" coords="5,40,210,85"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1AccelerometerGyrometer.html" title="Implements the accelerometer&#45;gyrometer measurements." alt="" coords="258,5,494,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,45,257,40,257,46,225,50"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1AccelerometerGyrometerMagnetometer.html" title="Implements the accelerometer&#45;gyrometer&#45;magnetometer measurements." alt="" coords="258,75,494,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,75,257,79,257,84,225,80"/>
+</map>

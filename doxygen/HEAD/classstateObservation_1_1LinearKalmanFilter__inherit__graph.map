@@ -1,0 +1,11 @@
+<map id="stateObservation::LinearKalmanFilter" name="stateObservation::LinearKalmanFilter">
+<area shape="rect" id="Node000001" title="The class of a Linear Kalman filter." alt="" coords="150,266,331,311"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1KalmanFilterBase.html" title="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..." alt="" coords="144,174,336,218"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="243,234,243,266,238,266,238,234"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1ZeroDelayObserver.html" title="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..." alt="" coords="17,81,226,126"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="163,133,213,171,210,175,160,137"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1ObserverBase.html" title="The base class for observers. The observer is destinated to any dynamical system with a vector state ..." alt="" coords="5,5,238,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="124,49,124,80,119,80,119,49"/>
+<area shape="rect" id="Node000005" href="$classstateObservation_1_1StateVectorArithmetics.html" title="This class is used to customize the way the difference between measurements, the state update functio..." alt="" coords="251,81,467,126"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="320,137,270,175,267,171,317,133"/>
+</map>

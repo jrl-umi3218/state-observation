@@ -1,0 +1,33 @@
+<map id="/build/source/include/state&#45;observation/sensors&#45;simulation/algorithm/rotation&#45;velocity.hpp" name="/build/source/include/state&#45;observation/sensors&#45;simulation/algorithm/rotation&#45;velocity.hpp">
+<area shape="rect" id="Node000001" title="The implementation of the algorithm of a rotation velocity sensor." alt="" coords="452,5,669,84"/>
+<area shape="rect" id="Node000002" href="$accelerometer-gyrometer-magnetometer_8hpp.html" title="Implements the accelerometer&#45;gyrometer&#45;magnetometer inertial measurement unit." alt="" coords="333,132,556,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="516,98,482,133,479,130,512,94"/>
+<area shape="rect" id="Node000004" href="$accelerometer-gyrometer_8hpp.html" title="Implements the accelerometer&#45;gyrometer inertial measuremen." alt="" coords="879,132,1074,211"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="685,80,880,138,878,143,684,86"/>
+<area shape="rect" id="Node000003" href="$imu-magnetometer-dynamical-system_8hpp.html" title="The file describes the dynamical system defined by an inertial measurement unit (IMU) fixed on a rigi..." alt="" coords="5,259,284,337"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="338,219,239,261,237,256,336,214"/>
+<area shape="rect" id="Node000005" href="$imu-dynamical-system_8hpp.html" title="The file describes the dynamical system defined by an inertial measurement unit (IMU) fixed on a rigi..." alt="" coords="308,267,565,329"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="865,198,578,261,547,269,546,264,577,256,864,193"/>
+<area shape="rect" id="Node000007" href="$imu-mltpctive-dynamical-system_8hpp_source.html" title=" " alt="" coords="590,259,833,337"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="881,220,795,261,792,256,879,215"/>
+<area shape="rect" id="Node000009" href="$kinetics-observer_8hpp.html" title="Unified Kinetics estimator." alt="" coords="856,267,1097,329"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="979,226,979,267,974,267,974,226"/>
+<area shape="rect" id="Node000010" href="$imu-elastic-local-frame-dynamical-system_8hpp_source.html" title=" " alt="" coords="1120,259,1340,337"/>
+<area shape="poly" id="edge9_Node000004_Node000010" title=" " alt="" coords="1070,215,1152,256,1150,261,1068,220"/>
+<area shape="rect" id="Node000013" href="$imu-fixed-contact-dynamical-system_8hpp.html" title="Definitions of the dynamical system of a robot flexibility with an IMU sensor." alt="" coords="1364,259,1578,337"/>
+<area shape="poly" id="edge12_Node000004_Node000013" title=" " alt="" coords="1089,193,1216,222,1352,256,1364,260,1363,265,1350,261,1215,227,1088,199"/>
+<area shape="rect" id="Node000016" href="$stable-imu-fixed-contact-dynamical-system_8hpp_source.html" title=" " alt="" coords="1602,259,1831,337"/>
+<area shape="poly" id="edge15_Node000004_Node000016" title=" " alt="" coords="1089,181,1321,209,1456,230,1590,256,1602,259,1601,264,1589,261,1456,235,1321,214,1089,186"/>
+<area shape="rect" id="Node000006" href="$imu-attitude-trajectory-reconstruction_8hpp.html" title="Gives an implementation of attitude estimation for IMU reconstruction with or without given input...." alt="" coords="332,385,541,464"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="439,345,439,385,434,385,434,345"/>
+<area shape="rect" id="Node000008" href="$imu-multiplicative-attitude-reconstruction_8hpp_source.html" title=" " alt="" coords="607,385,815,464"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="714,353,714,385,708,385,708,353"/>
+<area shape="rect" id="Node000011" href="$model-base-ekf-flex-estimator-imu_8hpp.html" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="1127,385,1332,464"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1232,353,1232,385,1227,385,1227,353"/>
+<area shape="rect" id="Node000012" href="$offline-model-base-flex-estimation_8hpp_source.html" title=" " alt="" coords="1126,512,1334,591"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="1232,480,1232,511,1227,511,1227,480"/>
+<area shape="rect" id="Node000014" href="$fixed-contact-ekf-flex-estimator-imu_8hpp.html" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="1366,385,1576,464"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1474,353,1474,385,1468,385,1468,353"/>
+<area shape="rect" id="Node000015" href="$offline-ekf-flexibility-estimation_8hpp.html" title="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..." alt="" coords="1367,512,1575,591"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="1474,480,1474,511,1468,511,1468,480"/>
+</map>

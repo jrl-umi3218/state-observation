@@ -1,0 +1,5 @@
+<map id="/build/source/include/state&#45;observation/flexibility&#45;estimation/fixed&#45;contact&#45;ekf&#45;flex&#45;estimator&#45;imu.hpp" name="/build/source/include/state&#45;observation/flexibility&#45;estimation/fixed&#45;contact&#45;ekf&#45;flex&#45;estimator&#45;imu.hpp">
+<area shape="rect" id="Node000001" title="Declares the class of the estimation of the flexibility using an extended Kalman filter and a fixed c..." alt="" coords="5,5,216,84"/>
+<area shape="rect" id="Node000002" href="$offline-ekf-flexibility-estimation_8hpp.html" title="Gives an implementation of flexibility estimation for IMU reconstruction with or without given input ..." alt="" coords="6,132,215,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,100,113,131,108,131,108,100"/>
+</map>

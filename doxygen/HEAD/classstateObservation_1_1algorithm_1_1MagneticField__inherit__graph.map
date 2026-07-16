@@ -1,0 +1,5 @@
+<map id="stateObservation::algorithm::MagneticField" name="stateObservation::algorithm::MagneticField">
+<area shape="rect" id="Node000001" title="Implements the measurements given by an magnetometer." alt="" coords="21,5,226,50"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1AccelerometerGyrometerMagnetometer.html" title="Implements the accelerometer&#45;gyrometer&#45;magnetometer measurements." alt="" coords="5,98,242,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,66,126,98,121,98,121,66"/>
+</map>

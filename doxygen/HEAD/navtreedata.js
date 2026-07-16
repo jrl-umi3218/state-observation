@@ -25,24 +25,26 @@
 var NAVTREE =
 [
   [ "state-observation", "index.html", [
-    [ "Installing", "index.html#autotoc_md0", null ],
-    [ "Ubuntu LTS (16.04, 18.04, 20.04)", "index.html#autotoc_md1", null ],
-    [ "Manually build from source", "index.html#autotoc_md2", [
-      [ "Building", "index.html#autotoc_md3", null ]
+    [ "What is <span class=\"tt\">state-observation</span>", "index.html#autotoc_md1", null ],
+    [ "Convinced already?", "index.html#autotoc_md2", null ],
+    [ "Installing", "md_2-Installing.html", [
+      [ "Nix", "md_2-Installing.html#autotoc_md4", [
+        [ "Build", "md_2-Installing.html#autotoc_md5", null ],
+        [ "Develop", "md_2-Installing.html#autotoc_md6", null ]
+      ] ],
+      [ "Ubuntu LTS (22.04, 24.04, 26.04)", "md_2-Installing.html#autotoc_md7", null ],
+      [ "Manually build from source", "md_2-Installing.html#autotoc_md8", [
+        [ "Building", "md_2-Installing.html#autotoc_md9", null ]
+      ] ]
     ] ],
     [ "Table of contents", "toc.html", null ],
-    [ "Theoretical details", "theory.html", [
-      [ "LIPM estimator", "lipm_dcm_details.html", null ]
-    ] ],
+    [ "Theoretical details", "theory.html", "theory" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -52,18 +54,13 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
@@ -71,22 +68,15 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "accelerometer-gyrometer-magnetometer_8hpp.html",
-"classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html#aed93d1779583def2cde25d0c2a9b7477",
-"classstateObservation_1_1IMUMltpctiveDynamicalSystem.html",
-"classstateObservation_1_1KalmanFilterBase.html#a6888cdf4fa0f3ca7ea349bf2e65a462e",
-"classstateObservation_1_1KineticsObserver.html#a46c5586b9767df36e62daef307bec991",
-"classstateObservation_1_1KineticsObserver.html#aad0a2aba4e4d21ef3ba7fdf3a3ef4770",
-"classstateObservation_1_1LipmDcmEstimator.html#a611dcf321d538eaff1549ac30d3bfe0b",
-"classstateObservation_1_1TiltEstimatorHumanoid.html#aa32948c8bce2362585859702eab661bd",
-"classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html#a6d51a6b07fe1d2154dd6424016a923fc",
-"classstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem.html#abf191d7dee0f225f77983904d49003ad",
-"classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html#ac3563410196e75c35853f95721e83f7d",
-"classstateObservation_1_1tools_1_1Logger.html#af930457b6e7ab52e2438c583739f54bc",
-"namespacemembers_func.html",
-"stable-imu-fixed-contact-dynamical-system_8hpp.html",
-"structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html#a4f62ee5d59438553fa3cb29d84c12bce",
-"tilt-estimator-humanoid_8hpp_source.html"
+"classstateObservation_1_1IMUDynamicalSystem.html#aadbece06a3272cb7eb391dda7daa872c",
+"classstateObservation_1_1KalmanFilterBase.html#a7776cbd6a7db09309fde06f1649e0328",
+"classstateObservation_1_1KineticsObserver.html#a69bf79e786c3d670853c5c24c5fbdf2a",
+"classstateObservation_1_1LipmDcmEstimator.html#a3d37c23836d259b96c1b3a10d313cbcf",
+"classstateObservation_1_1UnidimLipmDcmEstimator.html#a676f0f92bdc63f9c2d47db22d4479f9f",
+"classstateObservation_1_1flexibilityEstimation_1_1IMUFixedContactDynamicalSystem.html#aed5a4ad7ea15f5ce486dad24aef6ba3d",
+"structstateObservation_1_1CheckNaN.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

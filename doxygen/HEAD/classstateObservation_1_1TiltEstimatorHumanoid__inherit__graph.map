@@ -1,0 +1,9 @@
+<map id="stateObservation::TiltEstimatorHumanoid" name="stateObservation::TiltEstimatorHumanoid">
+<area shape="rect" id="Node000001" title="Version of the Tilt Estimator for humanoid robots." alt="" coords="9,249,234,294"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1TiltEstimator.html" title="Description is pending." alt="" coords="9,174,234,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,217,124,249,119,249,119,217"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1ZeroDelayObserver.html" title="Defines the base class of online zero delay observers. Zero delay observers are the classical state o..." alt="" coords="17,81,226,126"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,141,124,173,119,173,119,141"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1ObserverBase.html" title="The base class for observers. The observer is destinated to any dynamical system with a vector state ..." alt="" coords="5,5,238,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="124,49,124,80,119,80,119,49"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem" name="stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem">
+<area shape="rect" id="Node000001" title="This class describes the dynamics of a robot&#39;s flexibility this dynamics with elastic forces to bring..." alt="" coords="5,98,249,160"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1DynamicalSystemFunctorBase.html" title="This is the base class of any functor that describes the dynamics of the state and the measurement...." alt="" coords="21,5,233,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,65,130,98,124,98,124,65"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html" title="This class is the base class of the flexibility estimators." alt="" coords="5,8,265,53"/>
+<area shape="rect" id="Node000001" href="$classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html" title="This class is the base class of the flexibility estimators that use an extended Kalman Filter...." alt="" coords="313,8,597,53"/>
+<area shape="poly" id="edge32_Node000000_Node000001" title=" " alt="" coords="280,28,312,28,312,33,280,33"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html" title="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..." alt="" coords="645,5,970,50"/>
+<area shape="poly" id="edge33_Node000001_Node000002" title=" " alt="" coords="613,26,645,26,645,32,613,32"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html" title="This class implements the flexibility estimation of a robot with the hypothesis that the contact posi..." alt="" coords="651,75,964,119"/>
+<area shape="poly" id="edge34_Node000001_Node000004" title=" " alt="" coords="592,54,686,71,685,77,591,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="381,79,529,107"/>
+<area shape="poly" id="edge35_Node000003_Node000002" title=" " alt="" coords="544,74,683,48,684,53,545,79"/>
+<area shape="poly" id="edge36_Node000003_Node000004" title=" " alt="" coords="545,91,650,93,650,98,545,97"/>
+</map>

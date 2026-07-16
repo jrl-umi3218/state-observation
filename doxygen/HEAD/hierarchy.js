@@ -1,30 +1,24 @@
 var hierarchy =
 [
-    [ "stateObservation::CheckedItem< T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker >", "classstateObservation_1_1CheckedItem.html", null ],
-    [ "stateObservation::CheckedItem< Matrix3, false, false, true, true, CheckNaN >", "classstateObservation_1_1CheckedItem.html", null ],
-    [ "stateObservation::CheckedItem< Matrix6, false, false, true, true, CheckNaN >", "classstateObservation_1_1CheckedItem.html", null ],
-    [ "stateObservation::CheckedItem< Quaternion, false, false, true, true >", "classstateObservation_1_1CheckedItem.html", null ],
-    [ "stateObservation::CheckedItem< Vector3, false, false, true, true, CheckNaN >", "classstateObservation_1_1CheckedItem.html", null ],
+    [ "stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;", "classstateObservation_1_1CheckedItem.html", null ],
     [ "stateObservation::CheckNaN", "structstateObservation_1_1CheckNaN.html", null ],
     [ "stateObservation::hrp2::contact", "structstateObservation_1_1hrp2_1_1contact.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::contactModel", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1contactModel.html", null ],
     [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::contactModel", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1contactModel.html", null ],
-    [ "stateObservation::DebugItem< T, defaultValue, debug >", "classstateObservation_1_1DebugItem.html", [
+    [ "stateObservation::DebugItem&lt; T, defaultValue, debug &gt;", "classstateObservation_1_1DebugItem.html", null ],
+    [ "stateObservation::DebugItem&lt; bool, detail::defaultTrue, !false||isDebug &gt;", "classstateObservation_1_1DebugItem.html", [
+      [ "stateObservation::IndexedMatrixT< Matrix >", "classstateObservation_1_1IndexedMatrixT.html", null ],
       [ "stateObservation::IndexedMatrixT< Vector >", "classstateObservation_1_1IndexedMatrixT.html", null ],
       [ "stateObservation::IndexedMatrixT< Vector3 >", "classstateObservation_1_1IndexedMatrixT.html", null ],
       [ "stateObservation::IndexedMatrixT< Matrix3 >", "classstateObservation_1_1IndexedMatrixT.html", null ],
       [ "stateObservation::IndexedMatrixT< MatrixType, lazy >", "classstateObservation_1_1IndexedMatrixT.html", null ]
     ] ],
-    [ "stateObservation::DebugItem< bool, detail::defaultTrue, !false||isDebug >", "classstateObservation_1_1DebugItem.html", null ],
-    [ "stateObservation::DebugItem< bool, detail::defaultTrue, do_check_ >", "classstateObservation_1_1DebugItem.html", null ],
-    [ "stateObservation::DebugItem< const char *, detail::defaultErrorMSG, do_assert_ >", "classstateObservation_1_1DebugItem.html", null ],
-    [ "stateObservation::DebugItem< const std::exception *, detail::defaultExceptionAddr, do_exception_ >", "classstateObservation_1_1DebugItem.html", null ],
-    [ "stateObservation::DebugItem< T, defaultValue, false >", "classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< i, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< exception, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01exception_00_01dummy_01_4.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< exceptionAddr, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01exceptionAddr_00_01dummy_01_4.html", null ],
-    [ "stateObservation::detail::DebugItemDefaultError< message, dummy >", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01message_00_01dummy_01_4.html", null ],
-    [ "stateObservation::DebugItemDefaultValue< T, defaultValue >", "classstateObservation_1_1DebugItemDefaultValue.html", null ],
+    [ "stateObservation::DebugItem&lt; T, defaultValue, false &gt;", "classstateObservation_1_1DebugItem_3_01T_00_01defaultValue_00_01false_01_4.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError&lt; i, dummy &gt;", "classstateObservation_1_1detail_1_1DebugItemDefaultError.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError&lt; exception, dummy &gt;", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01exception_00_01dummy_01_4.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError&lt; exceptionAddr, dummy &gt;", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01exceptionAddr_00_01dummy_01_4.html", null ],
+    [ "stateObservation::detail::DebugItemDefaultError&lt; message, dummy &gt;", "classstateObservation_1_1detail_1_1DebugItemDefaultError_3_01message_00_01dummy_01_4.html", null ],
+    [ "stateObservation::DebugItemDefaultValue&lt; T, defaultValue &gt;", "classstateObservation_1_1DebugItemDefaultValue.html", null ],
     [ "stateObservation::DynamicalSystemFunctorBase", "classstateObservation_1_1DynamicalSystemFunctorBase.html", [
       [ "stateObservation::BidimElasticInvPendulum", "classstateObservation_1_1BidimElasticInvPendulum.html", null ],
       [ "stateObservation::IMUDynamicalSystem", "classstateObservation_1_1IMUDynamicalSystem.html", null ],
@@ -42,38 +36,37 @@ var hierarchy =
       [ "stateObservation::MatrixType< T >", "structstateObservation_1_1MatrixType.html", null ]
     ] ],
     [ "std::false_type", null, [
+      [ "stateObservation::isMatrix< Eigen::Matrix< _Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols > >", "structstateObservation_1_1isMatrix_3_01Eigen_1_1Matrix_3_01__Scalar_00_01__Rows_00_01__Cols_00_0ef6b73255092c89cac8fa5ea734359d2.html", null ],
       [ "stateObservation::isMatrix< T >", "structstateObservation_1_1isMatrix.html", null ]
     ] ],
-    [ "stateObservation::FixOrDynMatrixToolsBySize< compileTimeRows, compileTimeCols >", "classstateObservation_1_1FixOrDynMatrixToolsBySize.html", null ],
-    [ "stateObservation::FixOrDynMatrixToolsBySize< compileTimeRows, -1 >", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3_01compileTimeRows_00_01-1_01_4.html", null ],
-    [ "stateObservation::FixOrDynMatrixToolsBySize< MatrixType< MatrixT >::type::RowsAtCompileTime, MatrixType< MatrixT >::type::ColsAtCompileTime >", "classstateObservation_1_1FixOrDynMatrixToolsBySize.html", [
+    [ "stateObservation::FixOrDynMatrixToolsBySize&lt; compileTimeRows, compileTimeCols &gt;", "classstateObservation_1_1FixOrDynMatrixToolsBySize.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize&lt; compileTimeRows, -1 &gt;", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3_01compileTimeRows_00_01-1_01_4.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize&lt; MatrixType&lt; MatrixT &gt;::type::RowsAtCompileTime, MatrixType&lt; MatrixT &gt;::type::ColsAtCompileTime &gt;", "classstateObservation_1_1FixOrDynMatrixToolsBySize.html", [
       [ "stateObservation::FixOrDynMatrixTools< MatrixT >", "classstateObservation_1_1FixOrDynMatrixTools.html", null ]
     ] ],
-    [ "stateObservation::FixOrDynMatrixToolsBySize<-1, -1 >", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01-1_01_4.html", null ],
-    [ "stateObservation::FixOrDynMatrixToolsBySize<-1, compileTimeCols >", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01compileTimeCols_01_4.html", null ],
-    [ "stateObservation::kine::internal::KinematicsInternal< T >::Flags", "structstateObservation_1_1kine_1_1internal_1_1KinematicsInternal_1_1Flags.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize&lt;-1, -1 &gt;", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01-1_01_4.html", null ],
+    [ "stateObservation::FixOrDynMatrixToolsBySize&lt;-1, compileTimeCols &gt;", "classstateObservation_1_1FixOrDynMatrixToolsBySize_3-1_00_01compileTimeCols_01_4.html", null ],
+    [ "stateObservation::kine::internal::KinematicsInternal&lt; T &gt;::Flags", "structstateObservation_1_1kine_1_1internal_1_1KinematicsInternal_1_1Flags.html", null ],
     [ "stateObservation::flexibilityEstimation::FlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1FlexibilityEstimatorBase.html", [
       [ "stateObservation::flexibilityEstimation::EKFFlexibilityEstimatorBase", "classstateObservation_1_1flexibilityEstimation_1_1EKFFlexibilityEstimatorBase.html", [
         [ "stateObservation::flexibilityEstimation::FixedContactEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1FixedContactEKFFlexEstimatorIMU.html", null ],
         [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU", "classstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU.html", null ]
       ] ]
     ] ],
-    [ "stateObservation::IndexedMatrixArrayT< MatrixType, Allocator >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
-    [ "stateObservation::IndexedMatrixArrayT< Matrix >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
-    [ "stateObservation::IndexedMatrixArrayT< Vector >", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
-    [ "stateObservation::kine::indexes< rotationType >", "structstateObservation_1_1kine_1_1indexes.html", null ],
-    [ "stateObservation::kine::indexes< kine::rotationVector >", "structstateObservation_1_1kine_1_1indexes.html", [
+    [ "stateObservation::IndexedMatrixArrayT&lt; MatrixType, Allocator &gt;", "classstateObservation_1_1IndexedMatrixArrayT.html", null ],
+    [ "stateObservation::kine::indexes&lt; rotationType &gt;", "structstateObservation_1_1kine_1_1indexes.html", null ],
+    [ "stateObservation::kine::indexes&lt; kine::rotationVector &gt;", "structstateObservation_1_1kine_1_1indexes.html", [
       [ "stateObservation::IMUDynamicalSystem::indexes", "structstateObservation_1_1IMUDynamicalSystem_1_1indexes.html", null ]
     ] ],
-    [ "stateObservation::kine::indexes< quaternion >", "structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html", null ],
-    [ "stateObservation::kine::indexes< rotationVector >", "structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html", null ],
+    [ "stateObservation::kine::indexes&lt; quaternion &gt;", "structstateObservation_1_1kine_1_1indexes_3_01quaternion_01_4.html", null ],
+    [ "stateObservation::kine::indexes&lt; rotationVector &gt;", "structstateObservation_1_1kine_1_1indexes_3_01rotationVector_01_4.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::input", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1input.html", null ],
-    [ "stateObservation::isEigen< T >", "structstateObservation_1_1isEigen.html", null ],
-    [ "stateObservation::kine::internal::KinematicsInternal< T >", "classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html", null ],
-    [ "stateObservation::kine::internal::KinematicsInternal< Kinematics >", "classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html", [
+    [ "stateObservation::isEigen&lt; T &gt;", "structstateObservation_1_1isEigen.html", null ],
+    [ "stateObservation::kine::internal::KinematicsInternal&lt; T &gt;", "classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html", null ],
+    [ "stateObservation::kine::internal::KinematicsInternal&lt; Kinematics &gt;", "classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html", [
       [ "stateObservation::kine::Kinematics", "structstateObservation_1_1kine_1_1Kinematics.html", null ]
     ] ],
-    [ "stateObservation::kine::internal::KinematicsInternal< LocalKinematics >", "classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html", [
+    [ "stateObservation::kine::internal::KinematicsInternal&lt; LocalKinematics &gt;", "classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html", [
       [ "stateObservation::kine::LocalKinematics", "structstateObservation_1_1kine_1_1LocalKinematics.html", null ]
     ] ],
     [ "stateObservation::algorithm::LinearAcceleration", "classstateObservation_1_1algorithm_1_1LinearAcceleration.html", [
@@ -104,8 +97,8 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
-    [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
     [ "stateObservation::KineticsObserver::Opt", "structstateObservation_1_1KineticsObserver_1_1Opt.html", null ],
+    [ "stateObservation::IMUMltpctiveDynamicalSystem::opt", "structstateObservation_1_1IMUMltpctiveDynamicalSystem_1_1opt.html", null ],
     [ "stateObservation::ExtendedKalmanFilter::Optimization", "structstateObservation_1_1ExtendedKalmanFilter_1_1Optimization.html", null ],
     [ "stateObservation::flexibilityEstimation::IMUElasticLocalFrameDynamicalSystem::Optimization", "structstateObservation_1_1flexibilityEstimation_1_1IMUElasticLocalFrameDynamicalSystem_1_1Optimization.html", null ],
     [ "stateObservation::flexibilityEstimation::ModelBaseEKFFlexEstimatorIMU::optimization", "structstateObservation_1_1flexibilityEstimation_1_1ModelBaseEKFFlexEstimatorIMU_1_1optimization.html", null ],

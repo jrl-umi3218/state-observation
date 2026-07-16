@@ -1,0 +1,13 @@
+<map id="stateObservation::StateVectorArithmetics" name="stateObservation::StateVectorArithmetics">
+<area shape="rect" id="Node000001" title="This class is used to customize the way the difference between measurements, the state update functio..." alt="" coords="5,75,222,119"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1IMUMltpctiveDynamicalSystem.html" title="The class is an implementation of the dynamical system defined by an inertial measurement unit (IMU) ..." alt="" coords="270,5,498,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,68,293,48,295,53,219,73"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1KalmanFilterBase.html" title="It mostly implements the equations of Kalman filtering It is suitablle by derivation to be used incas..." alt="" coords="288,75,480,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="237,94,288,94,288,100,237,100"/>
+<area shape="rect" id="Node000006" href="$classstateObservation_1_1KineticsObserver.html" title="This observer estimates the kinematics, the external forces, the bias on the gyrometers measurements,..." alt="" coords="287,144,480,189"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="219,121,295,141,293,146,217,126"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1ExtendedKalmanFilter.html" title=" " alt="" coords="546,40,748,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="495,80,545,73,546,78,495,85"/>
+<area shape="rect" id="Node000005" href="$classstateObservation_1_1LinearKalmanFilter.html" title="The class of a Linear Kalman filter." alt="" coords="556,109,738,154"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="495,109,556,117,555,122,494,114"/>
+</map>

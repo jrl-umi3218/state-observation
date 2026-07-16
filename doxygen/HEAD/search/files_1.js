@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bidim_2delastic_2dinv_2dpendulum_2ddyn_2dsys_2ehpp_0',['bidim-elastic-inv-pendulum-dyn-sys.hpp',['../bidim-elastic-inv-pendulum-dyn-sys_8hpp.html',1,'']]]
+  ['definitions_2ehpp_0',['definitions.hpp',['../definitions_8hpp.html',1,'']]],
+  ['dynamical_2dsystem_2dsimulator_2ehpp_1',['dynamical-system-simulator.hpp',['../dynamical-system-simulator_8hpp.html',1,'']]]
 ];

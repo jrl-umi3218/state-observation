@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['04_2018_2004_2020_2004_0',['Ubuntu LTS (16.04, 18.04, 20.04)',['../index.html#autotoc_md1',1,'']]]
+  ['04_0',['Ubuntu LTS (22.04, 24.04, 26.04)',['../md_2-Installing.html#autotoc_md7',1,'']]],
+  ['04_2024_2004_2026_2004_1',['Ubuntu LTS (22.04, 24.04, 26.04)',['../md_2-Installing.html#autotoc_md7',1,'']]],
+  ['04_2026_2004_2',['Ubuntu LTS (22.04, 24.04, 26.04)',['../md_2-Installing.html#autotoc_md7',1,'']]]
 ];

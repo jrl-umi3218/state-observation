@@ -1,0 +1,9 @@
+<map id="stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;" name="stateObservation::CheckedItem&lt; T, lazy, alwaysCheck, assertion, eigenAlignedNew, additionalChecker &gt;">
+<area shape="rect" id="Node000001" title="this is a structure allowing for automatically verifying that the item has been initialized or not...." alt="" coords="372,82,583,161"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1DebugItem.html" title=" " alt="" coords="9,5,223,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,62,348,88,372,94,371,99,347,93,237,67"/>
+<area shape="rect" id="Node000003" href="$classstateObservation_1_1DebugItem.html" title=" " alt="" coords="5,91,227,152"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="242,119,371,119,371,124,242,124"/>
+<area shape="rect" id="Node000004" href="$classstateObservation_1_1DebugItem.html" title=" " alt="" coords="9,177,223,256"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="237,182,371,147,372,152,239,187"/>
+</map>

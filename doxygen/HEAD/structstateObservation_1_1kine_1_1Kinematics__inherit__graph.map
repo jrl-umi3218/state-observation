@@ -1,0 +1,5 @@
+<map id="stateObservation::kine::Kinematics" name="stateObservation::kine::Kinematics">
+<area shape="rect" id="Node000001" title="Class facilitating the manipulation of the kinematics of a frame within another and the associated op..." alt="" coords="26,115,195,160"/>
+<area shape="rect" id="Node000002" href="$classstateObservation_1_1kine_1_1internal_1_1KinematicsInternal.html" title=" " alt="" coords="5,5,216,67"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,83,113,115,108,115,108,83"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$structstateObservation_1_1KineticsObserver_1_1Sensor.html" title=" " alt="" coords="5,109,199,154"/>
+<area shape="rect" id="Node000001" href="$structstateObservation_1_1KineticsObserver_1_1AbsoluteOriSensor.html" title=" " alt="" coords="253,5,461,50"/>
+<area shape="poly" id="edge40_Node000000_Node000001" title=" " alt="" coords="159,100,246,60,278,48,280,53,248,65,161,104"/>
+<area shape="rect" id="Node000002" href="$structstateObservation_1_1KineticsObserver_1_1AbsolutePoseSensor.html" title=" " alt="" coords="247,75,467,119"/>
+<area shape="poly" id="edge41_Node000000_Node000002" title=" " alt="" coords="214,114,246,109,247,115,214,119"/>
+<area shape="rect" id="Node000003" href="$structstateObservation_1_1KineticsObserver_1_1Contact.html" title=" " alt="" coords="260,144,454,189"/>
+<area shape="poly" id="edge42_Node000000_Node000003" title=" " alt="" coords="215,144,260,151,260,156,214,150"/>
+<area shape="rect" id="Node000004" href="$structstateObservation_1_1KineticsObserver_1_1IMU.html" title=" " alt="" coords="260,213,454,258"/>
+<area shape="poly" id="edge43_Node000000_Node000004" title=" " alt="" coords="161,159,248,199,280,210,278,215,246,203,159,164"/>
+</map>
