@@ -55,8 +55,8 @@ public:
   /// @brief sets the measurement (accelero and gyro stacked in one vector)
   /// @details the local linear velocity of the IMU in the world is obtained from \p imuControlPos, \p imuControlLinVel
   /// and \p yg_k. The control frame is a frame whose velocity is considered zero in the world frame.
-  /// @param imuControlPos position of the IMU frame in the control frame
-  /// @param imuControlLinVel linear velocity of the IMU frame in the control frame
+  /// @param imuControlPos position of the control frame in the IMU frame
+  /// @param imuControlLinVel linear velocity of the control frame in the IMU frame
   /// @param ya_k accelerometer measurement
   /// @param yg_k gyrometer measurement
   void setMeasurement(const Vector3 & imuControlPos,

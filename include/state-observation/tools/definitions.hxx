@@ -291,7 +291,7 @@ typename IndexedMatrixArrayT<MatrixType, Allocator>::Array IndexedMatrixArrayT<M
 
   for(TimeSize i = 0; i < this->v_.size(); ++i)
   {
-    this->v.push_back(this->v_[i]);
+    v.push_back(this->v_[i]);
   }
 
   return v;
@@ -496,7 +496,7 @@ inline TimeIndex IndexedObjectArrayT<ObjectType, Allocator>::getFirstIndex() con
 template<typename ObjectType, typename Allocator>
 inline TimeIndex IndexedObjectArrayT<ObjectType, Allocator>::setLastIndex(int index)
 {
-  return k_ = index - (v_.size() + 1);
+  return k_ = index - TimeIndex(v_.size()) + 1;
 }
 
 template<typename ObjectType, typename Allocator>
@@ -704,7 +704,7 @@ inline TimeIndex IndexedInputArrayT<InputType, Allocator>::getFirstIndex() const
 template<typename InputType, typename Allocator>
 inline TimeIndex IndexedInputArrayT<InputType, Allocator>::setLastIndex(int index)
 {
-  return k_ = index - (v_.size() + 1);
+  return k_ = index - TimeIndex(v_.size()) + 1;
 }
 
 template<typename InputType, typename Allocator>

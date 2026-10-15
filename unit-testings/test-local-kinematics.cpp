@@ -1518,6 +1518,92 @@ int testSE3_Integration_vs_euler(int errcode)
   return 0;
 }
 
+/// @brief Checks the integration of a LocalKinematics whose accelerations are not set: the linear velocity must be
+/// updated with dt * (- omega x v).
+int testIntegrationWithoutAccelerations(int errcode)
+{
+  double dt = 0.005;
+  Vector3 linvel = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+  Vector3 angvel = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+  Vector3 expectedLinVel = linvel - dt * angvel.cross(linvel);
+
+  LocalKinematics k;
+  k.position = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+  k.orientation = kine::Orientation::randomRotation();
+  k.linVel = linvel;
+  k.angVel = angvel;
+
+  LocalKinematics integrated(k);
+  integrated.integrate(dt);
+  LocalKinematics se3Integrated(k);
+  se3Integrated.SE3_integration(dt);
+
+  double err = (integrated.linVel() - expectedLinVel).norm() + (se3Integrated.linVel() - expectedLinVel).norm();
+  if(err > 1e-12)
+  {
+    std::cout << "Linear velocity incorrectly integrated without accelerations, error: " << err << std::endl;
+    return errcode;
+  }
+  return 0;
+}
+
+/// @brief Checks the accuracy of the integration on SE(3) for small rotations, where the closed-form expression of
+/// the left Jacobian of SO(3) loses precision.
+int testSE3_IntegrationSmallRotations(int errcode)
+{
+  double dt = 0.005;
+  Vector3 axis = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>().normalized();
+  Vector3 linvel = tools::ProbabilityLawSimulation::getUniformMatrix<Vector3>();
+
+  for(double rotationNorm : {1e-12, 1e-9, 1e-6, 1e-3, 9.9e-3, 1.01e-2, 0.1, 1.0})
+  {
+    Vector3 rotVec = rotationNorm * axis;
+    Vector3 vl_dt = linvel * dt;
+
+    // reference value of V(r) * v: Taylor expansion with a negligible remainder for small rotations, closed form
+    // otherwise.
+    Vector3 expected;
+    if(rotationNorm < 1e-2)
+    {
+      double sqNorm = rotationNorm * rotationNorm;
+      expected = vl_dt + (0.5 - sqNorm / 24 + sqNorm * sqNorm / 720) * rotVec.cross(vl_dt)
+                 + (1.0 / 6 - sqNorm / 120 + sqNorm * sqNorm / 5040) * rotVec.cross(rotVec.cross(vl_dt));
+    }
+    else
+    {
+      expected = vl_dt + (1 - cos(rotationNorm)) / (rotationNorm * rotationNorm) * rotVec.cross(vl_dt)
+                 + (rotationNorm - sin(rotationNorm)) / pow(rotationNorm, 3) * rotVec.cross(rotVec.cross(vl_dt));
+    }
+
+    double err = (kine::SO3LeftJacobianTimes(rotVec, vl_dt) - expected).norm() / expected.norm();
+
+    // the local integration moves the position by V(-omega dt) * vl dt
+    LocalKinematics k;
+    k.position = Vector3::Zero();
+    k.orientation = kine::Orientation::randomRotation();
+    k.linVel = linvel;
+    k.angVel = rotVec / dt;
+    k.SE3_integration(dt);
+    err += (k.position() - kine::SO3LeftJacobianTimes(-rotVec, vl_dt)).norm() / expected.norm();
+
+    // the global integration moves the position by R V(omega dt) * vl dt
+    Kinematics g;
+    g.position = Vector3::Zero();
+    g.orientation = kine::Orientation::randomRotation();
+    Matrix3 R = g.orientation.toMatrix3();
+    g.SE3_integration(vl_dt, rotVec);
+    err += (g.position() - R * expected).norm() / expected.norm();
+
+    if(err > 1e-12)
+    {
+      std::cout << "Inaccurate SE(3) integration for a rotation of norm " << rotationNorm << ", relative error: " << err
+                << std::endl;
+      return errcode;
+    }
+  }
+  return 0;
+}
+
 int main()
 {
   int returnVal;
@@ -1591,6 +1677,26 @@ int main()
   else
   {
     std::cout << "SE3 integration test succeeded" << std::endl;
+  }
+
+  if((returnVal = testIntegrationWithoutAccelerations(++errorcode)))
+  {
+    std::cout << "testIntegrationWithoutAccelerations failed, error code: " << returnVal << std::endl;
+    return returnVal;
+  }
+  else
+  {
+    std::cout << "testIntegrationWithoutAccelerations succeeded" << std::endl;
+  }
+
+  if((returnVal = testSE3_IntegrationSmallRotations(++errorcode)))
+  {
+    std::cout << "testSE3_IntegrationSmallRotations failed, error code: " << returnVal << std::endl;
+    return returnVal;
+  }
+  else
+  {
+    std::cout << "testSE3_IntegrationSmallRotations succeeded" << std::endl;
   }
 
   std::cout << "test succeeded" << std::endl;

@@ -191,10 +191,10 @@ Kinematics LeggedOdometryManager::getWorldBodyKineFromAnchor(bool withPos, bool 
       */
       Matrix3 diffRot = R1.transpose() * R2;
 
-      Vector3 diffRotVector = kine::skewSymmetricToRotationVector(diffRot - diffRot.transpose());
+      Vector3 diffRotVector = kine::rotationMatrixToRotationVector(diffRot);
 
       worldBodyKineFromAnchor.orientation =
-          Matrix3(R1 * rotationVectorToRotationMatrix(u / 2.0 * diffRotVector)); // = R1 * exp( (1 - u) * log(R1^T R2) )
+          Matrix3(R1 * rotationVectorToRotationMatrix(u * diffRotVector)); // = R1 * exp( u * log(R1^T R2) )
     }
   }
 
@@ -260,10 +260,10 @@ LocalKinematics LeggedOdometryManager::getWorldBodyLocalKineFromAnchor()
       */
       Matrix3 diffRot = R1.transpose() * R2;
 
-      Vector3 diffRotVector = kine::skewSymmetricToRotationVector(diffRot - diffRot.transpose());
+      Vector3 diffRotVector = kine::rotationMatrixToRotationVector(diffRot);
 
       worldBodyKineFromAnchor.orientation =
-          Matrix3(R1 * rotationVectorToRotationMatrix(u / 2.0 * diffRotVector)); // = R1 * exp( (1 - u) * log(R1^T R2) )
+          Matrix3(R1 * rotationVectorToRotationMatrix(u * diffRotVector)); // = R1 * exp( u * log(R1^T R2) )
     }
   }
 
@@ -321,10 +321,10 @@ void LeggedOdometryManager::correctContactsRef()
       Orientation Rtilde(Matrix3(mContact->worldRefKineBeforeCorrection_.orientation.toMatrix3().transpose()
                                  * mContact->newIncomingWorldRefKine_.orientation.toMatrix3()));
 
-      Vector3 logRtilde = skewSymmetricToRotationVector(Rtilde.toMatrix3() - Rtilde.toMatrix3().transpose());
+      Vector3 logRtilde = rotationMatrixToRotationVector(Rtilde.toMatrix3());
       mContact->worldRefKine_.orientation =
           Matrix3(mContact->worldRefKineBeforeCorrection_.orientation.toMatrix3()
-                  * rotationVectorToRotationMatrix(mContact->correctionWeightingCoeff() / 2.0 * logRtilde));
+                  * rotationVectorToRotationMatrix(mContact->correctionWeightingCoeff() * logRtilde));
     }
 
     if(mContact->newIncomingWorldRefKine_.position.isSet())

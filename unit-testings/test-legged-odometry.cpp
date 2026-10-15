@@ -106,6 +106,58 @@ int testLeggedOdometry(int errorcode)
   return 0;
 }
 
+/// @brief Checks the double support with contacts of equal weights: both of them must be used for the orientation
+/// odometry. Also checks that the contacts are no longer detected once they are all removed.
+int testDoubleSupportSameWeights(int errorcode)
+{
+  double dt = 0.005;
+  int nbIters = 10;
+
+  stateObservation::odometry::LeggedOdometryManager odometryManager;
+  odometryManager.setSamplingTime(dt);
+  odometry::LeggedOdometryManager::Configuration odomConfig(stateObservation::odometry::stringToOdometryType("6D"));
+  Kinematics initPose = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+  initPose.position = Vector3(0.0, 0.0, 0.8);
+  odometryManager.init(odomConfig, initPose.toVector(Kinematics::Flags::pose));
+
+  auto setContact = [](stateObservation::odometry::LoContact & contact)
+  {
+    contact.bodyContactKine_ = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+    contact.lambda(0.5);
+  };
+  auto contactUpdateFunctions = stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions()
+                                    .onNewContact(setContact)
+                                    .onMaintainedContact(setContact);
+
+  Kinematics kine = initPose;
+  Vector3 tilt = Vector3::UnitZ();
+  for(int i = 0; i < nbIters; i++)
+  {
+    odometryManager.initLoop({"LeftFoot", "RightFoot"}, contactUpdateFunctions);
+    odometry::LeggedOdometryManager::KineParams kineParams(kine);
+    kineParams.tiltMeasurement(tilt);
+    odometryManager.run(kineParams);
+  }
+
+  auto & contactsManager = odometryManager.contactsManager();
+  if(contactsManager.oriOdometryContacts_.size() != 2)
+  {
+    std::cout << std::endl
+              << "Both contacts with the same weight should be used for the orientation odometry, but "
+              << contactsManager.oriOdometryContacts_.size() << " is used." << std::endl;
+    return errorcode;
+  }
+
+  odometryManager.initLoop({}, contactUpdateFunctions);
+  if(contactsManager.contactsDetected())
+  {
+    std::cout << std::endl << "Contacts are still detected while the contact list is empty." << std::endl;
+    return errorcode;
+  }
+
+  return 0;
+}
+
 int main()
 {
   int returnVal;
@@ -120,6 +172,18 @@ int main()
   else
   {
     std::cout << "testLeggedOdometry succeeded" << std::endl;
+  }
+  errorcode++;
+
+  std::cout << "Starting testDoubleSupportSameWeights" << std::endl;
+  if((returnVal = testDoubleSupportSameWeights(errorcode)))
+  {
+    std::cout << "testDoubleSupportSameWeights failed!" << errorcode << std::endl;
+    return returnVal;
+  }
+  else
+  {
+    std::cout << "testDoubleSupportSameWeights succeeded" << std::endl;
   }
   errorcode++;
 

@@ -162,6 +162,7 @@ inline Index KineticsObserver::unmodeledTorqueIndexTangent() const
 inline Index KineticsObserver::contactIndexTangent(Index contactNbr) const
 {
   BOOST_ASSERT(contactNbr < maxContacts_ && "The requested contact number is higher than the maximum");
+  BOOST_ASSERT(input_.contacts_[contactNbr].isSet && "The requested contact is not set yet, please add it before");
   return input_.contacts_[contactNbr].stateIndexTangent;
 }
 inline Index KineticsObserver::contactKineIndexTangent(Index contactNbr) const

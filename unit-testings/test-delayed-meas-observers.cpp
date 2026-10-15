@@ -3,6 +3,12 @@
 //     test ou async sont ajoutes pour l'iteration suivant comme les inputs normaux.
 #include <iostream>
 #include <state-observation/observer/delayed-measurements-observer.hpp>
+#include <type_traits>
+
+// Tests that the observer is not copyable, as intended
+static_assert(!std::is_copy_constructible<stateObservation::DelayedMeasurementObserver>::value
+                  && !std::is_copy_assignable<stateObservation::DelayedMeasurementObserver>::value,
+              "The delayed measurements observer must not be copyable");
 
 using namespace stateObservation;
 int testWithoutInputMeas(int errorcode)
@@ -34,6 +40,19 @@ int testWithoutInputMeas(int errorcode)
   {
     if(std::abs(obs.getEstimatedState(i + 1).x() - i - 1) > 1e-15) return errorcode;
   }
+
+  // the estimator must restart from the new initial state when it is re-initialized
+  obs.initEstimator(Vector3::Zero());
+  if(obs.getCurrentTime() != 0 || obs.getCurrentEstimatedState().x() != 0.0) return errorcode;
+  for(int i = 0; i < 5; i++)
+  {
+    if(std::abs(obs.getEstimatedState(i + 1).x() - i - 1) > 1e-15) return errorcode;
+  }
+
+  // setting the state discards the past states and the estimation restarts from it
+  obs.setState(Vector3(100.0, 0.0, 0.0), 20);
+  if(obs.getCurrentTime() != 20 || obs.getCurrentEstimatedState().x() != 100.0) return errorcode;
+  if(std::abs(obs.getEstimatedState(23).x() - 103.0) > 1e-15) return errorcode;
 
   return 0;
 }

@@ -97,6 +97,10 @@ public:
   /// Destructor
   virtual ~DelayedMeasurementObserver(){};
 
+  /// Not copyable: the copy would share the buffers of inputs and measurements
+  DelayedMeasurementObserver(const DelayedMeasurementObserver &) = delete;
+  DelayedMeasurementObserver & operator=(const DelayedMeasurementObserver &) = delete;
+
   // inline const IndexedVector & getPastState(size_t nbIters)
   // {
   //   return xBuffer_.at(nbIters);
@@ -112,8 +116,8 @@ public:
 
   /// @brief Set the value of the state vector at time index k.
   ///
-  /// @details This replaces the current state estimate. If k < current time then the measurements and the inputs
-  /// are also cleared. Otherwise only past measurements and inputs are removed.
+  /// @details This replaces the current state estimate and discards the stored past states: the estimation restarts
+  /// from x_k.
   ///
   /// @param x_k
   /// @param k

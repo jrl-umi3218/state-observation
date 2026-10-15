@@ -70,7 +70,8 @@ ObserverBase::StateVector ExtendedKalmanFilter::prediction_(TimeIndex k)
     }
     else
     {
-      xbar_.set(f_->stateDynamics(this->x_(), InputT<>(), this->x_.getTime()), k);
+      // the input is not used, we give an empty one
+      xbar_.set(f_->stateDynamics(this->x_(), VectorInput(), this->x_.getTime()), k);
     }
   }
 
@@ -103,7 +104,8 @@ must set directInputOutputFeedthrough to 'false' in the constructor");
   }
   else
   {
-    return f_->measureDynamics(x, InputT<>(), k);
+    // the input is not used, we give an empty one
+    return f_->measureDynamics(x, VectorInput(), k);
   }
 }
 
@@ -127,7 +129,8 @@ KalmanFilterBase::Amatrix // ExtendedKalmanFilter<n,m,p>::Amatrix does not work
     if(directInputStateProcessFeedthrough_)
       opt.xp_ = f_->stateDynamics(opt.x_, (*u_)[k], k);
     else
-      opt.xp_ = f_->stateDynamics(opt.x_, InputT<>(), k);
+      // the input is not used, we give an empty one
+      opt.xp_ = f_->stateDynamics(opt.x_, VectorInput(), k);
 
     arithm_->stateDifference(opt.xp_, xbar_(), opt.dx_);
 

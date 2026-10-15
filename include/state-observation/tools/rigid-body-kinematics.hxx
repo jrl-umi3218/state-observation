@@ -143,6 +143,26 @@ inline Matrix3 rotationVectorToRotationMatrix(const Vector3 & v)
   return (rotationVectorToAngleAxis(Vector3(v))).toRotationMatrix();
 }
 
+inline Vector3 SO3LeftJacobianTimes(const Vector3 & rotVec, const Vector3 & v)
+{
+  const double sqNorm = rotVec.squaredNorm();
+  double a, b;
+  if(sqNorm < 1e-4)
+  {
+    // (1 - cos)/norm^2 and (norm - sin)/norm^3 are imprecise for small rotations, we use their Taylor expansion instead
+    a = 0.5 - sqNorm / 24.0;
+    b = 1.0 / 6.0 - sqNorm / 120.0;
+  }
+  else
+  {
+    const double norm = sqrt(sqNorm);
+    a = (1.0 - cos(norm)) / sqNorm;
+    b = (norm - sin(norm)) / (sqNorm * norm);
+  }
+  const Vector3 rotVecCrossV = rotVec.cross(v);
+  return v + a * rotVecCrossV + b * rotVec.cross(rotVecCrossV);
+}
+
 /// Transform the rotation vector into rotation matrix
 inline Quaternion rotationVectorToQuaternion(const Vector3 & v)
 {
@@ -1427,20 +1447,7 @@ inline Kinematics & Kinematics::operator=(const LocalKinematics & locK)
 inline const Kinematics & Kinematics::SE3_integration(const Vector3 & vl_dt, const Vector3 & omega_l_dt)
 {
   /** Position update */
-  double omega_sqrNorm = omega_l_dt.squaredNorm();
-  Vector3 Vv;
-  if(omega_sqrNorm > cst::epsilonAngle)
-  {
-    Vector3 Vv = vl_dt
-                 + (1 / omega_l_dt.squaredNorm())
-                       * omega_l_dt.cross(vl_dt + omega_l_dt.cross(vl_dt)
-                                          - kine::rotationVectorToRotationMatrix(omega_l_dt) * vl_dt);
-    position() += orientation * Vv;
-  }
-  else
-  {
-    position() += orientation * vl_dt;
-  }
+  position() += orientation * kine::SO3LeftJacobianTimes(omega_l_dt, vl_dt);
 
   /** Orientation update */
   orientation.integrateRightSide(omega_l_dt);
@@ -2304,18 +2311,8 @@ inline const LocalKinematics & LocalKinematics::SE3_integration(double dt)
         omega_l_dt += 0.5 * dt * dt * angAcc();
       }
 
-      if(omega_l_dt.norm() > cst::epsilonAngle)
-      {
-        Vector3 Vv = vl_dt
-                     - (1 / omega_l_dt.squaredNorm())
-                           * omega_l_dt.cross(vl_dt - omega_l_dt.cross(vl_dt)
-                                              - kine::rotationVectorToRotationMatrix(-omega_l_dt) * vl_dt);
-        position = kine::rotationVectorToRotationMatrix(-omega_l_dt) * position() + Vv;
-      }
-      else
-      {
-        position() += vl_dt;
-      }
+      position = kine::rotationVectorToRotationMatrix(-omega_l_dt) * position()
+                 + kine::SO3LeftJacobianTimes(-omega_l_dt, vl_dt);
     }
     else
     {
@@ -2333,7 +2330,7 @@ inline const LocalKinematics & LocalKinematics::SE3_integration(double dt)
       linVel() += dt * linAcc();
       break;
     case LinVel | AngVel:
-      linVel() -= angVel().cross(linVel());
+      linVel() -= dt * angVel().cross(linVel());
       break;
     default:
       break;
@@ -2418,7 +2415,7 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
       linVel() += dt * linAcc();
       break;
     case LinVel | AngVel:
-      linVel() -= angVel().cross(linVel());
+      linVel() -= dt * angVel().cross(linVel());
       break;
     default:
       break;

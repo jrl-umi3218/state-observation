@@ -1376,6 +1376,12 @@ void KineticsObserver::removeContact(Index contactNbr)
   auto & c = input_.contacts_[static_cast<size_t>(contactNbr)];
   c.isSet = false;
   removedContacts_.insert(contactNbr);
+
+  // we remove the process covariance of the contact, including its correlation with the remaining contacts
+  Matrix processCovMat = ekf_.getQ();
+  processCovMat.middleRows(c.stateIndexTangent, sizeContactTangent).setZero();
+  processCovMat.middleCols(c.stateIndexTangent, sizeContactTangent).setZero();
+  ekf_.setQ(processCovMat);
   if(c.withRealSensor)
   {
     c.withRealSensor = false;
@@ -1958,9 +1964,14 @@ Matrix KineticsObserver::computeAMatrix()
   auto compute_J_rotated_V = [norm_rotVec, sq_norm_rotVec,
                               &compute_J_rotated_rotvec](const Vector3 & rotVec, const Vector3 & rotated) -> Matrix3
   {
-    if(norm_rotVec <= cst::epsilonAngle)
+    // the closed form below divides by |rotVec|^4 and loses all precision for small rotations, we use instead the
+    // derivative of the Taylor expansion V(r)x ~ x + 1/2 r x x + 1/6 r x (r x x).
+    if(norm_rotVec <= 1e-3)
     {
-      return -0.5 * kine::skewSymmetric(rotated);
+      return -0.5 * kine::skewSymmetric(rotated)
+             + 1.0 / 6.0
+                   * (rotVec.dot(rotated) * Matrix3::Identity() + rotVec * rotated.transpose()
+                      - 2.0 * rotated * rotVec.transpose());
     }
 
     Vector3 Rv = kine::rotationVectorToRotationMatrix(rotVec) * rotated;

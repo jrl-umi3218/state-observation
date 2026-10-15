@@ -13,6 +13,15 @@
 
 #include <boost/utility/binary.hpp>
 #include <state-observation/tools/probability-law-simulation.hpp>
+#include <type_traits>
+
+// Tests that the observer is not copyable, as intended
+static_assert(!std::is_copy_constructible<stateObservation::ExtendedKalmanFilter>::value
+                  && !std::is_copy_assignable<stateObservation::ExtendedKalmanFilter>::value,
+              "The extended Kalman filter must not be copyable");
+static_assert(!std::is_copy_constructible<stateObservation::LinearKalmanFilter>::value
+                  && !std::is_copy_assignable<stateObservation::LinearKalmanFilter>::value,
+              "The linear Kalman filter must not be copyable");
 
 double testExtendedKalmanFilter()
 {
@@ -706,6 +715,80 @@ double testKalmanFilterZeroInput()
   return error.norm();
 }
 
+/// @brief Checks that the functors always receive inputs of the type they expect (VectorInput), both when the input
+/// is not used (no feedthrough) and when it is stored in the default buffer of inputs.
+/// @return the number of errors
+int testInputTypes()
+{
+  using namespace stateObservation;
+
+  struct InputTypeFunctor : public DynamicalSystemFunctorBase
+  {
+    Vector stateDynamics(const Vector & x, const InputBase & u, TimeIndex) override
+    {
+      stateInputIsVector = stateInputIsVector && (dynamic_cast<const VectorInput *>(&u) != nullptr);
+      return x;
+    }
+    Vector measureDynamics(const Vector & x, const InputBase & u, TimeIndex) override
+    {
+      measureInputIsVector = measureInputIsVector && (dynamic_cast<const VectorInput *>(&u) != nullptr);
+      return x;
+    }
+    Index getStateSize() const override
+    {
+      return 2;
+    }
+    Index getMeasurementSize() const override
+    {
+      return 2;
+    }
+
+    bool stateInputIsVector = true;
+    bool measureInputIsVector = true;
+  };
+
+  int errors = 0;
+
+  // without feedthrough, the filter gives an input to the functor which does not use it
+  {
+    InputTypeFunctor functor;
+    ExtendedKalmanFilter filter(2, 2, false, false, nullptr);
+    filter.setFunctor(&functor);
+    filter.setState(Vector::Zero(2), 0);
+    filter.setStateCovariance(Matrix::Identity(2, 2));
+    filter.setA(Matrix::Identity(2, 2));
+    filter.setC(Matrix::Identity(2, 2));
+    filter.setQ(Matrix::Identity(2, 2));
+    filter.setR(Matrix::Identity(2, 2));
+    filter.setMeasurement(Vector::Ones(2), 1);
+    filter.getEstimatedState(1);
+    filter.getAMatrixFD(Vector::Constant(2, 1e-6));
+
+    if(!functor.stateInputIsVector || !functor.measureInputIsVector)
+    {
+      std::cout << "Without feedthrough, the functor received an input which is not a VectorInput" << std::endl;
+      ++errors;
+    }
+  }
+
+  // the default buffer of inputs stores VectorInput objects
+  {
+    ExtendedKalmanFilter filter(2, 2, true, true, nullptr);
+    VectorInput u(1);
+    u << 3.0;
+    filter.setInput(u, 0);
+
+    const VectorInput * storedInput = dynamic_cast<const VectorInput *>(&filter.getInput(0));
+    if(storedInput == nullptr || (*storedInput)(0) != 3.0)
+    {
+      std::cout << "The default buffer of inputs does not store the input as a VectorInput" << std::endl;
+      ++errors;
+    }
+  }
+
+  return errors;
+}
+
 int main()
 {
   short exit = 0;
@@ -757,6 +840,16 @@ int main()
     exit = exit | BOOST_BINARY(10000);
     std::cout << "Test extended Kalman filter (zero input) FAILED: estimationError = " << error << std::endl
               << std::endl;
+  }
+
+  if(testInputTypes() == 0)
+  {
+    std::cout << "Test input types SUCCEEDED" << std::endl;
+  }
+  else
+  {
+    exit = exit | BOOST_BINARY(100000);
+    std::cout << "Test input types FAILED" << std::endl;
   }
 
   std::cout << "Test exit code " << std::bitset<16>(exit) << std::endl;

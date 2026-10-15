@@ -671,6 +671,21 @@ int testContactRestPoseProcessCovariance_2contacts(int errorcode)
     return errorcode;
   }
 
+  // the removed contact must no longer be correlated with the remaining one
+  if(contact1_Q_pos.block<3, 3>(0, 3).norm() > 0 || contact1_Q_ori.block<3, 3>(0, 3).norm() > 0)
+  {
+    std::cout << std::endl << "The removed contact is still correlated with the remaining one in Q." << std::endl;
+    std::cout << std::endl << "contact1_Q_pos: " << std::endl << contact1_Q_pos.format(CleanFmt_) << std::endl;
+    std::cout << std::endl << "contact1_Q_ori: " << std::endl << contact1_Q_ori.format(CleanFmt_) << std::endl;
+    return errorcode;
+  }
+
+  if(!(ko_2_.getEKF().getQ().eigenvalues().real().array() > -1e-8).all())
+  {
+    std::cout << std::endl << "4: The process covariance matrix is no longer positive definite!" << std::endl;
+    return errorcode;
+  }
+
   return 0;
 }
 

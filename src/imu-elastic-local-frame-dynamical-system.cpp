@@ -899,7 +899,7 @@ Vector IMUElasticLocalFrameDynamicalSystem::stateDynamics(const Vector & x, cons
   }
 
   if(processNoise_ != 0x0)
-    return processNoise_->getNoisy(op_.xk1);
+    return processNoise_->getNoisy(xk1);
   else
     return xk1;
 }

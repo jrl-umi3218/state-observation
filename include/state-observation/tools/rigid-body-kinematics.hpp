@@ -88,6 +88,10 @@ inline AngleAxis rotationVectorToAngleAxis(const Vector3 & v);
 /// Transforms the rotation vector into rotation matrix
 inline Matrix3 rotationVectorToRotationMatrix(const Vector3 & v);
 
+/// @brief Computes V(rotVec) * v, where V is the left Jacobian of SO(3): V(r) = I + (1 - cos|r|)/|r|^2 [r]x + (|r| -
+/// sin|r|)/|r|^3 [r]x^2. It is used for the integration on SE(3), and remains accurate for small rotations.
+inline Vector3 SO3LeftJacobianTimes(const Vector3 & rotVec, const Vector3 & v);
+
 /// Transforms the rotation vector into quaternion
 inline Quaternion rotationVectorToQuaternion(const Vector3 & v);
 

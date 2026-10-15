@@ -139,9 +139,9 @@ public:
   Kinematics bodyContactKine_;
 
   // weighing coefficient for the anchor point computation
-  double lambda_;
+  double lambda_ = 0.0;
   // time ellapsed since the creation of the contact.
-  double lifeTime_;
+  double lifeTime_ = 0.0;
   // defines the weighting of the contribution of the newly "measured" reference pose of the contact and the current one
   double correctionWeightingCoeff_;
 };
@@ -350,12 +350,17 @@ protected:
   struct LeggedOdometryContactsManager : public ContactsManager
   {
   protected:
-    // comparison function that sorts the contacts based on their lambda.
+    // comparison function that sorts the contacts based on their lambda. Contacts with the same lambda are sorted by id
+    // so that they are not considered as duplicates by the set.
     struct sortByLambda
     {
       inline bool operator()(const LoContact & contact1, const LoContact & contact2) const noexcept
       {
-        return (contact1.lambda() < contact2.lambda());
+        if(contact1.lambda() != contact2.lambda())
+        {
+          return (contact1.lambda() < contact2.lambda());
+        }
+        return (contact1.id() < contact2.id());
       }
     };
 

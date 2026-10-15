@@ -22,7 +22,7 @@ DelayedMeasurementObserver::DelayedMeasurementObserver(double dt,
 
 void DelayedMeasurementObserver::initEstimator(const Vector & x)
 {
-  xBuffer_.push_front(IndexedVector(x, 0));
+  setState(x, 0);
 }
 
 TimeIndex DelayedMeasurementObserver::getAsynchronousFirstIndex()
@@ -150,12 +150,10 @@ void DelayedMeasurementObserver::pushAsyncInput(const AsynchronousDataBase & asy
 void DelayedMeasurementObserver::setState(const ObserverBase::StateVector & x_k, TimeIndex k)
 {
   BOOST_ASSERT(checkStateVector(x_k) && "The size of the state vector is incorrect");
-  BOOST_ASSERT(k > getCurrentTime() && "Cannot modify a past state.");
-  if(xBuffer_.empty())
-  {
 
-    xBuffer_.push_front(IndexedVector(x_k, k));
-  }
+  xBuffer_.clear();
+  currentIterIndex_ = k;
+  xBuffer_.push_front(IndexedVector(x_k, k));
 }
 
 void DelayedMeasurementObserver::setCurrentState(const ObserverBase::StateVector & x_k)

@@ -17,6 +17,7 @@ void ContactsManager<ContactT>::updateContacts(const std::set<std::string> & lat
   std::string removed_contact_set;
   std::string new_contact_set;
 
+  contactsDetected_ = false;
   for(auto & contactName : latestContactList)
   {
     ContactT & contact = addContactToManager(contactName, onAddedContact);

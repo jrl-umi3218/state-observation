@@ -58,7 +58,7 @@ public:
   }
 
 protected:
-  unsigned id_;
+  unsigned id_ = 0;
 
   bool isSet_ = false;
   bool wasAlreadySet_ = false;

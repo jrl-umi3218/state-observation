@@ -235,7 +235,26 @@ int testAnalyticalAJacobianVsFD(KineticsObserver & ko_, int errcode, double /* u
     A_FD.col(i) = difference / (2.0 * h_);
   }
 
-  return compareJacobians("A", A_analytic, A_FD) ? errcode : 0;
+  if(compareJacobians("A", A_analytic, A_FD))
+  {
+    return errcode;
+  }
+
+  // The Jacobian of the position's state-transition wrt the angular velocity is too small compared to the rest of its
+  // rows to be properly checked above, while it is the one losing precision for small rotations. We check it
+  // relatively to its own scale.
+  const Matrix3 posAngVelAnalytic = A_analytic.block<3, 3>(ko_.posIndexTangent(), ko_.angVelIndexTangent());
+  const Matrix3 posAngVelFD = A_FD.block<3, 3>(ko_.posIndexTangent(), ko_.angVelIndexTangent());
+  const double posAngVelError = (posAngVelAnalytic - posAngVelFD).norm() / posAngVelFD.norm();
+  if(!(posAngVelError < relTol_))
+  {
+    std::cout << "\033[1;31mA: Jacobian of the position wrt the angular velocity has a relative error of "
+              << posAngVelError << "\nanalytic:\n"
+              << posAngVelAnalytic << "\nFD:\n"
+              << posAngVelFD << "\033[0m" << std::endl;
+    return errcode;
+  }
+  return 0;
 }
 
 /// @brief Checks the analytical observation Jacobian matrix C against central finite
@@ -284,6 +303,9 @@ struct Scenario
   bool withWrenchSensors = true;
   bool withAbsolutePoseSensor = false;
   bool withAbsoluteOriSensor = false;
+  // robot standing still: tiny angular velocity and no wrench nor angular momentum variation creating an angular
+  // acceleration, so that the rotation vector integrated over one time step is close to zero.
+  bool still = false;
 };
 
 /// @brief Builds a Kinetics Observer in a random but valid state matching the scenario.
@@ -305,8 +327,10 @@ int runScenario(const Scenario & scenario, unsigned seed)
   inertiaMatrix = inertiaMatrix * inertiaMatrix.transpose() + 3 * Matrix3::Identity();
   Matrix3 inertiaMatrixDot = tools::ProbabilityLawSimulation::getGaussianMatrix<Matrix3>();
   inertiaMatrixDot = 0.5 * (inertiaMatrixDot + inertiaMatrixDot.transpose());
-  ko.setCoMInertiaMatrix(inertiaMatrix, inertiaMatrixDot);
-  ko.setCoMAngularMomentum(randVec3() / 10, randVec3() / 10);
+  // scale of the quantities creating an angular acceleration
+  const double angAccScale = scenario.still ? 0.0 : 1.0;
+  ko.setCoMInertiaMatrix(inertiaMatrix, angAccScale * inertiaMatrixDot);
+  ko.setCoMAngularMomentum(randVec3() / 10, angAccScale * randVec3() / 10);
 
   std::vector<Vector3> worldContactPos(size_t(scenario.nbContacts));
   std::vector<Orientation> worldContactOri(size_t(scenario.nbContacts));
@@ -381,16 +405,16 @@ int runScenario(const Scenario & scenario, unsigned seed)
   index += 4; // orientation
   stateVector.segment<3>(index) = randVec3() / 10;
   index += 3; // linear velocity
-  stateVector.segment<3>(index) = randVec3() / 10;
+  stateVector.segment<3>(index) = randVec3() * (scenario.still ? 1e-6 : 0.1);
   index += 3; // angular velocity
   for(int j = 0; j < scenario.nbIMUs; ++j)
   {
     stateVector.segment<3>(index) = randVec3() / 10;
     index += 3; // gyrometer bias
   }
-  stateVector.segment<3>(index) = randVec3() / 10;
+  stateVector.segment<3>(index) = angAccScale * randVec3() / 10;
   index += 3; // unmodeled force
-  stateVector.segment<3>(index) = randVec3() / 10;
+  stateVector.segment<3>(index) = angAccScale * randVec3() / 10;
   index += 3; // unmodeled torque
   for(int c = 0; c < scenario.nbContacts; ++c)
   {
@@ -398,9 +422,9 @@ int runScenario(const Scenario & scenario, unsigned seed)
     index += 3;
     stateVector.segment<4>(index) = worldContactOri[size_t(c)].toVector4();
     index += 4;
-    stateVector.segment<3>(index) = randVec3() * 100;
+    stateVector.segment<3>(index) = angAccScale * randVec3() * 100;
     index += 3; // contact force
-    stateVector.segment<3>(index) = randVec3() * 10;
+    stateVector.segment<3>(index) = angAccScale * randVec3() * 10;
     index += 3; // contact torque
   }
   BOOST_ASSERT(index == ko.getStateSize() && "the test builds a state vector of the wrong size");
@@ -493,6 +517,15 @@ int main()
     s.nbIMUs = 2;
     s.withAbsolutePoseSensor = true;
     s.withAbsoluteOriSensor = true;
+    scenarios.push_back(s);
+  }
+
+  {
+    // the closed-form Jacobians divide by powers of |omega * dt| and must not lose precision when the robot is still
+    Scenario s;
+    s.name = "robot standing still (near-zero rotation over a time step)";
+    s.nbContacts = 2;
+    s.still = true;
     scenarios.push_back(s);
   }
 

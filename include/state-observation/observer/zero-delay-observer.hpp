@@ -55,7 +55,7 @@ public:
     }
     else
     {
-      u_ = std::make_shared<IndexedInputArrayT<>>();
+      u_ = std::make_shared<IndexedInputArrayT<VectorInput>>();
     }
   }
 
@@ -64,7 +64,7 @@ public:
   {
     if(input == nullptr)
     {
-      u_ = std::make_shared<IndexedInputArrayT<>>();
+      u_ = std::make_shared<IndexedInputArrayT<VectorInput>>();
     }
     else
     {
@@ -74,6 +74,10 @@ public:
 
   /// Destructor
   virtual ~ZeroDelayObserver(){};
+
+  /// Not copyable: the copy would share the buffer of inputs
+  ZeroDelayObserver(const ZeroDelayObserver &) = delete;
+  ZeroDelayObserver & operator=(const ZeroDelayObserver &) = delete;
 
   /// @brief Set the value of the state vector at time index k.
   ///

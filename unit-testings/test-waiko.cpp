@@ -311,6 +311,54 @@ int testWithPosAndOriMeasurement(int errorcode, double threshold)
   return 0;
 }
 
+/// @brief Checks that the estimator gives the same result when it has to catch up several iterations at once (all the
+/// inputs are given before calling getEstimatedState) as when it is updated at every iteration.
+int testMultiStepCatchUp(int errorcode, double threshold)
+{
+  double simTime = 1.00;
+  double dt = 0.005;
+  int nbIters = int(std::round(simTime / dt));
+  int catchUpSteps = 4;
+
+  WaikoHumanoid waikoStepByStep(1, 1, 1, 1, 1, 1);
+  WaikoHumanoid waikoCatchUp(1, 1, 1, 1, 1, 1);
+
+  Traj::Iteration & firstIter = traj.getFirstIter();
+  waikoStepByStep.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
+  waikoCatchUp.initEstimator(firstIter.getYv(), firstIter.getX2(), firstIter.getOriQuat(), firstIter.getPl());
+
+  for(int i = 0; i < nbIters; i++)
+  {
+    const Traj::Iteration & currentIter = traj.getIter(i * dt);
+
+    for(WaikoHumanoid * waiko : {&waikoStepByStep, &waikoCatchUp})
+    {
+      waiko->setInput(dt, currentIter.getYv(), currentIter.getYa(), currentIter.getYg(), i);
+      waiko->addPoseInput(currentIter.getOri(), currentIter.getPos(), i);
+    }
+
+    waikoStepByStep.getEstimatedState(i + 1);
+
+    if((i + 1) % catchUpSteps == 0)
+    {
+      waikoCatchUp.getEstimatedState(i + 1);
+
+      double err = (waikoCatchUp.getCurrentEstimatedState() - waikoStepByStep.getCurrentEstimatedState()).squaredNorm();
+      if(waikoCatchUp.getCurrentTime() != i + 1 || err > threshold)
+      {
+        std::cout << std::endl
+                  << "The estimate obtained by catching up " << catchUpSteps
+                  << " iterations differs from the step-by-step one." << std::endl;
+        std::cout << "Step by step: " << waikoStepByStep.getCurrentEstimatedState().transpose() << std::endl;
+        std::cout << "Catch up:     " << waikoCatchUp.getCurrentEstimatedState().transpose() << std::endl;
+        return errorcode;
+      }
+    }
+  }
+
+  return 0;
+}
+
 int main()
 {
   int returnVal;
@@ -340,6 +388,19 @@ int main()
   else
   {
     std::cout << "testWithPosAndOriMeasurement succeeded" << std::endl;
+  }
+  errorcode++;
+  traj.reset();
+
+  std::cout << "Starting testMultiStepCatchUp" << std::endl;
+  if((returnVal = testMultiStepCatchUp(errorcode, 1e-20)))
+  {
+    std::cout << "testMultiStepCatchUp failed!" << errorcode << std::endl;
+    return returnVal;
+  }
+  else
+  {
+    std::cout << "testMultiStepCatchUp succeeded" << std::endl;
   }
   errorcode++;
   traj.reset();

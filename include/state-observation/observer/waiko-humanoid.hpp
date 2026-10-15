@@ -110,7 +110,7 @@ public:
   /// in the IMU frame
   /// @param dt sampling time
   /// @param imuAnchorPos position of the anchor point in the IMU
-  /// @param imuAnchorPos linear velocity of the anchor point in the IMU
+  /// @param imuAnchorLinVel linear velocity of the anchor point in the IMU
   /// @param ya_k accelerometer measurement
   /// @param yg_k gryometer measurement
   /// @param k time index

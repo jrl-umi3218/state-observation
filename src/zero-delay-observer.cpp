@@ -148,9 +148,10 @@ const ObserverBase::StateVector & ZeroDelayObserver::getEstimatedState(TimeIndex
   for(TimeIndex i = k0; i < k; ++i)
   {
     oneStepEstimation_();
-    if(y_.size() > 0 && y_.getFirstIndex() < k) y_.popFront();
+    // only discard the data older than the new current time
+    while(y_.size() > 0 && y_.getFirstIndex() < getCurrentTime()) y_.popFront();
 
-    if(u_->size() > 0 && u_->getFirstIndex() < k) u_->popFront();
+    while(u_->size() > 0 && u_->getFirstIndex() < getCurrentTime()) u_->popFront();
   }
 
   return x_();
