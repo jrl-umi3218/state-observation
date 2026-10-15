@@ -116,8 +116,6 @@ bool DelayedMeasurementObserver::stateIsSet() const
 
 void DelayedMeasurementObserver::pushAsyncMeasurement(const AsynchronousDataBase & asyncMeas, TimeIndex k)
 {
-  BOOST_ASSERT(y_asynchronous_ && "The delayed measurements vector has not been initialized in the constructor.");
-  BOOST_ASSERT(stateIsSet() && "The state vector has not been set");
   if(k > xBuffer_.back().getTime())
   {
     y_asynchronous_->pushValue(asyncMeas, k);
@@ -142,8 +140,6 @@ void DelayedMeasurementObserver::setMeasurement(const ObserverBase::MeasureVecto
 
 void DelayedMeasurementObserver::pushAsyncInput(const AsynchronousDataBase & asyncInput, TimeIndex k)
 {
-  BOOST_ASSERT(u_asynchronous_ && "The delayed inputs vector has not been initialized in the constructor.");
-  BOOST_ASSERT(stateIsSet() && "The state vector has not been set");
   if(k >= xBuffer_.back().getTime())
   {
     u_asynchronous_->pushValue(asyncInput, k);
