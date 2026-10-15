@@ -143,6 +143,26 @@ inline Matrix3 rotationVectorToRotationMatrix(const Vector3 & v)
   return (rotationVectorToAngleAxis(Vector3(v))).toRotationMatrix();
 }
 
+inline Vector3 SO3LeftJacobianTimes(const Vector3 & rotVec, const Vector3 & v)
+{
+  const double sqNorm = rotVec.squaredNorm();
+  double a, b;
+  if(sqNorm < 1e-4)
+  {
+    // (1 - cos)/norm^2 and (norm - sin)/norm^3 are imprecise for small rotations, we use their Taylor expansion instead
+    a = 0.5 - sqNorm / 24.0;
+    b = 1.0 / 6.0 - sqNorm / 120.0;
+  }
+  else
+  {
+    const double norm = sqrt(sqNorm);
+    a = (1.0 - cos(norm)) / sqNorm;
+    b = (norm - sin(norm)) / (sqNorm * norm);
+  }
+  const Vector3 rotVecCrossV = rotVec.cross(v);
+  return v + a * rotVecCrossV + b * rotVec.cross(rotVecCrossV);
+}
+
 /// Transform the rotation vector into rotation matrix
 inline Quaternion rotationVectorToQuaternion(const Vector3 & v)
 {
@@ -308,6 +328,22 @@ inline Matrix3 skewSymmetric2(const Vector3 & v)
   Matrix3 R;
 
   return skewSymmetric2(v, R);
+}
+
+/// computes the V matrix used for the integration of the local linear velocity into the local position using SE(3)
+/// formalism. Allows to take the evolution of the orientation over dt into account.
+inline Matrix3 v_matrix(const Vector3 & rotVec)
+{
+  double rotVec_norm = rotVec.norm();
+  if(rotVec_norm > cst::epsilonAngle)
+  {
+    return Matrix3::Identity() + (1 - cos(rotVec_norm)) / rotVec.squaredNorm() * skewSymmetric(rotVec)
+           + (rotVec_norm - sin(rotVec_norm)) / pow(rotVec_norm, 3) * skewSymmetric2(rotVec);
+  }
+  else
+  {
+    return Matrix3::Identity();
+  }
 }
 
 /// transforms a homogeneous matrix into 6d vector (position theta mu)
@@ -1075,7 +1111,7 @@ inline KinematicsInternal<T>::KinematicsInternal(const CheckedVector3 & position
 template<class T>
 inline T KinematicsInternal<T>::zeroKinematics(typename KinematicsInternal::Flags::Byte flags)
 {
-  Kinematics kine;
+  T kine;
   kine.setZero(flags);
   return kine;
 }
@@ -1408,6 +1444,17 @@ inline Kinematics & Kinematics::operator=(const LocalKinematics & locK)
   return *this;
 }
 
+inline const Kinematics & Kinematics::SE3_integration(const Vector3 & vl_dt, const Vector3 & omega_l_dt)
+{
+  /** Position update */
+  position() += orientation * kine::SO3LeftJacobianTimes(omega_l_dt, vl_dt);
+
+  /** Orientation update */
+  orientation.integrateRightSide(omega_l_dt);
+
+  return *this;
+}
+
 inline const Kinematics & Kinematics::integrate(double dt)
 {
   enum AreSet
@@ -1456,7 +1503,7 @@ inline const Kinematics & Kinematics::integrate(double dt)
   }
 
   /** AngVel update */
-  if((areSet & (AngVel | AngAcc)) != 0)
+  if((areSet & (AngVel | AngAcc)) == (AngVel | AngAcc))
   {
     angVel() += angAcc() * dt;
   }
@@ -2201,6 +2248,113 @@ inline LocalKinematics & LocalKinematics::operator=(const Kinematics & kin)
   return *this;
 }
 
+// inline const LocalKinematics & LocalKinematics::SE3_integration(const Vector3 & vl_dt, const Vector3 & omega_l_dt)
+// {
+//   /** Position update */
+//   double omega_sqrNorm = omega_l_dt.squaredNorm();
+//   Vector3 Vv;
+//   if(omega_sqrNorm > cst::epsilonAngle)
+//   {
+//     Vector3 Vv = vl_dt
+//                  - (1 / omega_l_dt.squaredNorm())
+//                        * omega_l_dt.cross(vl_dt - omega_l_dt.cross(vl_dt)
+//                                           - kine::rotationVectorToRotationMatrix(-omega_l_dt) * vl_dt);
+//     position = kine::rotationVectorToRotationMatrix(-omega_l_dt) * position() + Vv;
+//   }
+//   else
+//   {
+//     position() += vl_dt;
+//   }
+
+//   /** Orientation update */
+//   orientation.integrateRightSide(omega_l_dt);
+
+//   return *this;
+// }
+
+inline const LocalKinematics & LocalKinematics::SE3_integration(double dt)
+{
+  enum AreSet
+  {
+    Position = 1 << 0,
+    LinVel = 1 << 1,
+    LinAcc = 1 << 2,
+    Orientation = 1 << 3,
+    AngVel = 1 << 4,
+    AngAcc = 1 << 5
+  };
+  AreSet areSet =
+      AreSet((position.isSet() ? Position : 0) | (linVel.isSet() ? LinVel : 0) | (linAcc.isSet() ? LinAcc : 0)
+             | (orientation.isSet() ? Orientation : 0) | (angVel.isSet() ? AngVel : 0) | (angAcc.isSet() ? AngAcc : 0));
+  /** Position update */
+  if(areSet & Position)
+  {
+    Vector3 vl_dt = Vector3::Zero();
+    if(areSet & LinVel)
+    {
+      vl_dt += dt * linVel();
+    }
+    if(areSet & LinAcc)
+    {
+      vl_dt += 0.5 * dt * dt * linAcc();
+    }
+
+    if((areSet & AngVel) || (areSet & AngAcc))
+    {
+      Vector3 omega_l_dt = Vector3::Zero();
+      if(areSet & AngVel)
+      {
+        omega_l_dt += dt * angVel();
+      }
+      if(areSet & AngAcc)
+      {
+        omega_l_dt += 0.5 * dt * dt * angAcc();
+      }
+
+      position = kine::rotationVectorToRotationMatrix(-omega_l_dt) * position()
+                 + kine::SO3LeftJacobianTimes(-omega_l_dt, vl_dt);
+    }
+    else
+    {
+      position() += vl_dt;
+    }
+  }
+
+  /** Linear velocity update (Position and AngAcc don't matter here) */
+  switch(areSet & ~(Position | Orientation | AngAcc))
+  {
+    case LinVel | LinAcc | AngVel:
+      linVel() += dt * (-angVel().cross(linVel()) + linAcc());
+      break;
+    case LinVel | LinAcc:
+      linVel() += dt * linAcc();
+      break;
+    case LinVel | AngVel:
+      linVel() -= dt * angVel().cross(linVel());
+      break;
+    default:
+      break;
+  }
+  /** Orientation */
+  switch(areSet & ~(Position | LinVel | LinAcc))
+  {
+    case Orientation | AngVel | AngAcc:
+      orientation.integrateRightSide(angVel() * dt + angAcc() * 0.5 * dt * dt);
+      break;
+    case Orientation | AngVel:
+      orientation.integrateRightSide(angVel() * dt);
+      break;
+    default:
+      break;
+  };
+  /** Angular velocity */
+  if((areSet & (AngVel | AngAcc)) == (AngVel | AngAcc))
+  {
+    angVel() += angAcc() * dt;
+  }
+  return *this;
+}
+
 inline const LocalKinematics & LocalKinematics::integrate(double dt)
 {
   enum AreSet
@@ -2261,7 +2415,7 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
       linVel() += dt * linAcc();
       break;
     case LinVel | AngVel:
-      linVel() -= angVel().cross(linVel());
+      linVel() -= dt * angVel().cross(linVel());
       break;
     default:
       break;
@@ -2279,7 +2433,7 @@ inline const LocalKinematics & LocalKinematics::integrate(double dt)
       break;
   };
   /** Angular velocity */
-  if((areSet & (AngVel | AngAcc)) != 0)
+  if((areSet & (AngVel | AngAcc)) == (AngVel | AngAcc))
   {
     angVel() += angAcc() * dt;
   }
@@ -2313,12 +2467,12 @@ inline const LocalKinematics & LocalKinematics::update(const LocalKinematics & n
     CheckedVector3 & thisAngAcc = angAcc;
 
     CheckedVector3 currentAngVel;
-#if defined(__GNUC__) and not defined(__clang__)
+#if defined(__GNUC__) && !defined(__clang__)
 #  pragma GCC diagnostic push
 #  pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 #endif
     CheckedVector3 currentAngAcc;
-#if defined(__GNUC__) and not defined(__clang__)
+#if defined(__GNUC__) && !defined(__clang__)
 #  pragma GCC diagnostic pop
 #endif
 
@@ -2631,9 +2785,9 @@ inline const LocalKinematics & LocalKinematics::update(const LocalKinematics & n
 
         else /// velocity is not available
         {
-          BOOST_ASSERT(
-              (computAngVel && computAngAcc)
-              && "The linear accleration requires the angular velocity and the angular acceleration to be computable");
+          BOOST_ASSERT((computAngVel && computAngAcc)
+                       && "The linear accleration requires the angular velocity and the angular acceleration to be "
+                          "computable");
           BOOST_ASSERT((thisLinPos.isSet() && computPos)
                        && "The linear accleration cannot be updated with so few information");
           if(thisLinPos.isSet() && computPos && posMethod != useLinVelAndAcc && posMethod != useLinAcceleration
