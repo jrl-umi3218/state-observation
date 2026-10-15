@@ -14,14 +14,10 @@ void ContactsManager<ContactT>::updateContacts(const std::set<std::string> & lat
                                                OnRemovedContact onRemovedContact,
                                                OnAddedContact onAddedContact)
 {
-  std::string removed_contact_set;
-  std::string new_contact_set;
-
-  contactsDetected_ = false;
+  contactsDetected_ = !latestContactList.empty();
   for(auto & contactName : latestContactList)
   {
     ContactT & contact = addContactToManager(contactName, onAddedContact);
-    contactsDetected_ = true;
     contact.wasAlreadySet(contact.isSet());
     contact.isSet(true);
 
@@ -32,11 +28,6 @@ void ContactsManager<ContactT>::updateContacts(const std::set<std::string> & lat
     else
     {
       onNewContact(contact);
-      if(!new_contact_set.empty())
-      {
-        new_contact_set += ", ";
-      }
-      new_contact_set += contactName;
     }
   }
   for(auto & prevContactName : currentContactsList_)
@@ -46,11 +37,6 @@ void ContactsManager<ContactT>::updateContacts(const std::set<std::string> & lat
       ContactT & removedContact = *findContact(prevContactName);
       removedContact.isSet(false);
       onRemovedContact(removedContact);
-      if(!removed_contact_set.empty())
-      {
-        removed_contact_set += ", ";
-      }
-      removed_contact_set += prevContactName;
     }
   }
 

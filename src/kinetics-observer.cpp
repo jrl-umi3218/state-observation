@@ -93,10 +93,9 @@ KineticsObserver::KineticsObserver(unsigned maxContacts, unsigned maxNumberOfIMU
   additionalForce_(Vector3::Zero()), additionalTorque_(Vector3::Zero()),
   ekf_(stateSize_, stateTangentSize_, measurementSizeBase, measurementSizeBase, false, false, nullptr),
   finiteDifferencesJacobians_(false), withGyroBias_(true), withUnmodeledWrench_(true),
-  withAccelerationEstimation_(false), withDampingInMatrixA_(true), withAdaptativeContactProcessCov_(true), k_est_(0),
-  k_data_(0), mass_(defaultMass), dt_(defaultdx), processNoise_(0x0), measurementNoise_(0x0),
-  numberOfContactRealSensors_(0), currentIMUSensorNumber_(0),
-  linearStiffnessMatDefault_(Matrix3::Identity() * linearStiffnessDefault),
+  withAccelerationEstimation_(false), withAdaptativeContactProcessCov_(true), k_est_(0), k_data_(0), mass_(defaultMass),
+  dt_(defaultdx), processNoise_(0x0), measurementNoise_(0x0), numberOfContactRealSensors_(0),
+  currentIMUSensorNumber_(0), linearStiffnessMatDefault_(Matrix3::Identity() * linearStiffnessDefault),
   angularStiffnessMatDefault_(Matrix3::Identity() * angularStiffnessDefault),
   linearDampingMatDefault_(Matrix3::Identity() * linearDampingDefault),
   angularDampingMatDefault_(Matrix3::Identity() * angularDampingDefault),
@@ -756,11 +755,6 @@ void KineticsObserver::setWithGyroBias(bool b)
   withGyroBias_ = b;
 }
 
-void KineticsObserver::setWithDampingInMatrixA(bool b)
-{
-  withDampingInMatrixA_ = b;
-}
-
 void KineticsObserver::setWithAdaptativeContactProcessCov(bool b)
 {
   withAdaptativeContactProcessCov_ = b;
@@ -1238,7 +1232,7 @@ void KineticsObserver::setCoMAngularMomentum(const Vector3 & sigma)
   sigma_.set(sigma, k_data_);
 }
 
-Index KineticsObserver::addContact(Kinematics & worldContactKine,
+Index KineticsObserver::addContact(const Kinematics & worldContactKine,
                                    const Matrix12 & initialCovarianceMatrix,
                                    const Matrix12 & processCovarianceMatrix,
                                    Index contactNumber,
@@ -1250,9 +1244,16 @@ Index KineticsObserver::addContact(Kinematics & worldContactKine,
                                    const Vector3 & contactTorqueMeas,
                                    bool flatOdometry)
 {
-  getOdometryWorldContactRest(contactForceMeas, contactTorqueMeas, linStiffness, linDamping, angStiffness, angDamping,
-                              flatOdometry, worldContactKine);
-  return addContact(worldContactKine, initialCovarianceMatrix, processCovarianceMatrix, contactNumber, linStiffness,
+  // the -1 values indicate that the default ones must be used
+  auto valueOrDefault = [](const Matrix3 & value, const Matrix3 & defaultValue) -> const Matrix3 &
+  { return (value != Matrix3::Constant(-1)) ? value : defaultValue; };
+
+  Kinematics worldContactRestKine = worldContactKine;
+  getOdometryWorldContactRest(
+      contactForceMeas, contactTorqueMeas, valueOrDefault(linStiffness, linearStiffnessMatDefault_),
+      valueOrDefault(linDamping, linearDampingMatDefault_), valueOrDefault(angStiffness, angularStiffnessMatDefault_),
+      valueOrDefault(angDamping, angularDampingMatDefault_), flatOdometry, worldContactRestKine);
+  return addContact(worldContactRestKine, initialCovarianceMatrix, processCovarianceMatrix, contactNumber, linStiffness,
                     linDamping, angStiffness, angDamping);
 }
 
@@ -1375,7 +1376,6 @@ void KineticsObserver::removeContact(Index contactNbr)
   BOOST_ASSERT(input_.contacts_[contactNbr].isSet && "Tried to remove a non-existing contact.");
   auto & c = input_.contacts_[static_cast<size_t>(contactNbr)];
   c.isSet = false;
-  removedContacts_.insert(contactNbr);
 
   // we remove the process covariance of the contact, including its correlation with the remaining contacts
   Matrix processCovMat = ekf_.getQ();
@@ -1394,7 +1394,6 @@ void KineticsObserver::clearContacts()
   input_.contacts_.clear();
   input_.contacts_.resize(maxContacts_);
   numberOfContactRealSensors_ = 0;
-  removedContacts_.clear();
 }
 
 Index KineticsObserver::getNumberOfSetContacts() const
@@ -1841,8 +1840,6 @@ void KineticsObserver::endIteration_()
   if(k_est_ != k_data_)
   {
     ++k_est_; // the timestamp of the state we estimated
-
-    removedContacts_.clear();
   }
 }
 
@@ -2169,15 +2166,10 @@ Matrix KineticsObserver::computeAMatrix()
           contact.linearStiffness * contactWorldOri * kine::skewSymmetric(predictedWorldContactRestPosition);
 
       // jacobian matrix of the contact force wrt the linear velocity
-      Matrix3 J_contactForce_vl_at_same_time = Matrix3::Zero();
-      Matrix3 J_contactForce_omega_at_same_time = Matrix3::Zero();
-      if(withDampingInMatrixA_)
-      {
-        J_contactForce_vl_at_same_time = -(contact.linearDamping * centroidContactOri.transpose());
-        // jacobian matrix of the contact force wrt the angular velocity
-        J_contactForce_omega_at_same_time = contact.linearDamping * centroidContactOri.transpose()
-                                            * kine::skewSymmetric(centroidContactKine.position());
-      }
+      Matrix3 J_contactForce_vl_at_same_time = -(contact.linearDamping * centroidContactOri.transpose());
+      // jacobian matrix of the contact force wrt the angular velocity
+      Matrix3 J_contactForce_omega_at_same_time =
+          contact.linearDamping * centroidContactOri.transpose() * kine::skewSymmetric(centroidContactKine.position());
 
       // jacobian matrix of the contact force wrt the contact position
       Matrix3 J_contactForce_contactPosition_at_same_time = contact.linearStiffness * contactWorldOri;

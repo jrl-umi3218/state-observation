@@ -15,12 +15,12 @@ TiltEstimator::TiltEstimator(double alpha, double beta, double gamma, int n, int
 {
 }
 
-void TiltEstimator::initEstimator(Vector & x)
+void TiltEstimator::initEstimator(const Vector & x)
 {
   setState(x, 0);
 }
 
-void TiltEstimator::initEstimator(Vector3 & x1, Vector3 & x2_prime, Vector3 & x2)
+void TiltEstimator::initEstimator(const Vector3 & x1, const Vector3 & x2_prime, const Vector3 & x2)
 {
   Eigen::VectorXd initStateVector = Eigen::VectorXd::Zero(getStateSize());
 

@@ -1169,6 +1169,37 @@ int testContactRestPoseProcessCovariance_3contacts(int errorcode)
   return 0;
 }
 
+/// @brief Checks the rest pose of a contact added with the odometry, using the default stiffness (given as -1).
+int testOdometryContactRestPose(int errorcode)
+{
+  KineticsObserver ko(1, 1);
+  ko.setSamplingTime(dt_);
+
+  Kinematics worldContactKine;
+  worldContactKine.position = Vector3(0.1, -0.2, 0.0);
+  worldContactKine.orientation = Matrix3(kine::rotationVectorToRotationMatrix(Vector3(0.0, 0.0, 0.3)));
+  worldContactKine.linVel = Vector3::Zero();
+  worldContactKine.angVel = Vector3::Zero();
+  const Vector3 forceMeas(0.0, 0.0, 100.0);
+
+  ko.addContact(worldContactKine, Matrix12::Identity(), Matrix12::Identity(), 0, Matrix3::Constant(-1),
+                Matrix3::Constant(-1), Matrix3::Constant(-1), Matrix3::Constant(-1), forceMeas, Vector3::Zero(), false);
+
+  // the flexibility is removed using the default linear stiffness
+  Vector3 expectedRestPos =
+      worldContactKine.position()
+      + worldContactKine.orientation.toMatrix3() * forceMeas / KineticsObserver::linearStiffnessDefault;
+  Vector3 restPos = ko.getContactPose(0).position();
+  if(!restPos.allFinite() || (restPos - expectedRestPos).norm() > 1e-12)
+  {
+    std::cout << "Incorrect rest position of the contact: " << restPos.transpose() << " instead of "
+              << expectedRestPos.transpose() << std::endl;
+    return errorcode;
+  }
+
+  return 0;
+}
+
 int main()
 {
 
@@ -1215,6 +1246,17 @@ int main()
   else
   {
     std::cout << "testContactRestPoseProcessCovariance_3contacts succeeded" << std::endl;
+  }
+
+  std::cout << "testOdometryContactRestPose started" << std::endl;
+  if((returnVal = testOdometryContactRestPose(5)))
+  {
+    std::cout << "testOdometryContactRestPose failed, code : 5" << std::endl;
+    return returnVal;
+  }
+  else
+  {
+    std::cout << "testOdometryContactRestPose succeeded" << std::endl;
   }
 
   std::cout << "test succeeded" << std::endl;

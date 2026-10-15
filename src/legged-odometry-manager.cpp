@@ -3,6 +3,7 @@
 
 namespace stateObservation::odometry
 {
+using namespace kine;
 
 ///////////////////////////////////////////////////////////////////////
 /// -------------------------Legged Odometry---------------------------
@@ -164,6 +165,12 @@ Kinematics LeggedOdometryManager::getWorldBodyKineFromAnchor(bool withPos, bool 
     // looping over all the maintained contact and not used on each contact separately
     double sumLambdas_orientation = selectForOrientationOdometry();
 
+    // no contact gives an orientation (e.g. point contacts only), we keep the previous orientation of the body
+    if(contactsManager_.oriOdometryContacts_.size() == 0)
+    {
+      worldBodyKineFromAnchor.orientation = bodyKine_.orientation;
+    }
+
     // the orientation can be updated using contacts, it will use at most the two most suitable contacts.
     // We merge the obtained yaw with the tilt estimated by the previous observers
     if(contactsManager_.oriOdometryContacts_.size() == 1)
@@ -180,8 +187,8 @@ Kinematics LeggedOdometryManager::getWorldBodyKineFromAnchor(bool withPos, bool 
       const auto & R1 = contact1.worldBodyKineFromRef_.orientation.toMatrix3();
       const auto & R2 = contact2.worldBodyKineFromRef_.orientation.toMatrix3();
 
-      double u;
-      u = contact2.lambda() / sumLambdas_orientation;
+      // the contacts have the same weight if none of them carries a load
+      double u = (sumLambdas_orientation > 0.0) ? contact2.lambda() / sumLambdas_orientation : 0.5;
 
       /*
       \tilde{\boldsymbol{R}} = \boldsymbol{R}^{T}_{\mathcal{I}, 1} \boldsymbol{R}_{\mathcal{I}, 2}
@@ -249,8 +256,8 @@ LocalKinematics LeggedOdometryManager::getWorldBodyLocalKineFromAnchor()
       const auto & R1 = contact1.worldBodyKineFromRef_.orientation.toMatrix3();
       const auto & R2 = contact2.worldBodyKineFromRef_.orientation.toMatrix3();
 
-      double u;
-      u = contact2.lambda() / sumLambdas_orientation;
+      // the contacts have the same weight if none of them carries a load
+      double u = (sumLambdas_orientation > 0.0) ? contact2.lambda() / sumLambdas_orientation : 0.5;
 
       /*
       \tilde{\boldsymbol{R}} = \boldsymbol{R}^{T}_{\mathcal{I}, 1} \boldsymbol{R}_{\mathcal{I}, 2}
@@ -435,6 +442,21 @@ void LeggedOdometryManager::replaceOdomBodyPose(const Vector7 & newPose)
     {
       contact->worldRefKineBeforeCorrection_.position()(2) = 0.0;
       contact->worldRefKine_.position()(2) = 0.0;
+    }
+  }
+
+  // the contacts created on this iteration are also re-anchored if their reference has already been computed
+  for(auto * nContact : newContacts_)
+  {
+    if(nContact->worldRefKine_.position.isSet() && nContact->worldRefKine_.orientation.isSet())
+    {
+      Kinematics bodyWorldRefKine = prevPoseKine.getInverse() * nContact->worldRefKine_;
+      nContact->worldRefKine_ = newPoseKine * bodyWorldRefKine;
+
+      if(odometryType_ == OdometryType::Flat)
+      {
+        nContact->worldRefKine_.position()(2) = 0.0;
+      }
     }
   }
 

@@ -66,7 +66,7 @@ public:
                       TimeIndex k);
 
 protected:
-  Vector3 x1_;
+  Vector3 x1_ = Vector3::Zero();
 };
 } // namespace stateObservation
 

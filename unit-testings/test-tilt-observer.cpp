@@ -138,6 +138,15 @@ int testMultiStepCatchUp(int errorcode)
 /// frame: it must be the local linear velocity of the IMU in the world when the control frame is fixed in the world.
 int testHumanoidMeasurement(int errorcode)
 {
+  // the parameters of the default estimator are initialized
+  TiltEstimatorHumanoid defaultTilt;
+  if(defaultTilt.getAlpha() != 0.0 || defaultTilt.getBeta() != 0.0 || defaultTilt.getGamma() != 0.0
+     || defaultTilt.getSamplingTime() != 0.0)
+  {
+    std::cout << std::endl << "The parameters of the default estimator are not initialized." << std::endl;
+    return errorcode;
+  }
+
   TiltEstimatorHumanoid tilt(5, 2, 2, 0.005);
   Vector3 x1 = Vector3::Zero();
   Vector3 x2 = Vector3::UnitZ();

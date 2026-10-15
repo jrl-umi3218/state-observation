@@ -31,6 +31,7 @@ int testWithoutInputMeas(int errorcode)
       return (*it)();
     }
     void startNewIteration_() override {}
+    using DelayedMeasurementObserver::stateIsSet;
   };
 
   TestObserver obs(1.0, 3, 0, 100);
@@ -53,6 +54,10 @@ int testWithoutInputMeas(int errorcode)
   obs.setState(Vector3(100.0, 0.0, 0.0), 20);
   if(obs.getCurrentTime() != 20 || obs.getCurrentEstimatedState().x() != 100.0) return errorcode;
   if(std::abs(obs.getEstimatedState(23).x() - 103.0) > 1e-15) return errorcode;
+
+  // clearing the states leaves the estimator without state
+  obs.clearStates();
+  if(obs.stateIsSet()) return errorcode;
 
   return 0;
 }

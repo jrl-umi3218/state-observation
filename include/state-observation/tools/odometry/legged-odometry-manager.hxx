@@ -70,8 +70,12 @@ bool LeggedOdometryManager::updateContacts(const std::set<std::string> & latestC
       (*updateFunctions.onMaintainedContactFn)(maintainedContact);
     }
 
-    maintainedContact.worldBodyKineFromRef_ =
-        maintainedContact.worldRefKine_ * maintainedContact.bodyContactKine_.getInverse();
+    // cannot be computed for point contacts, which have no orientation
+    if(maintainedContact.bodyContactKine_.orientation.isSet() && maintainedContact.worldRefKine_.orientation.isSet())
+    {
+      maintainedContact.worldBodyKineFromRef_ =
+          maintainedContact.worldRefKine_ * maintainedContact.bodyContactKine_.getInverse();
+    }
 
     sumLambdas_position += maintainedContact.lambda();
     posUpdatable_ = true;
@@ -99,7 +103,15 @@ bool LeggedOdometryManager::updateContacts(const std::set<std::string> & latestC
 
   for(auto * mContact : maintainedContacts_)
   {
-    mContact->lambda(mContact->lambda() / sumLambdas_position);
+    // the contacts have the same weight if none of them carries a load
+    if(sumLambdas_position > 0.0)
+    {
+      mContact->lambda(mContact->lambda() / sumLambdas_position);
+    }
+    else
+    {
+      mContact->lambda(1.0 / double(maintainedContacts_.size()));
+    }
   }
   return contactsChanged;
 }

@@ -4,6 +4,8 @@
 #include <set>
 #include <state-observation/api.h>
 #include <state-observation/tools/measurements-manager/ContactsManager.hpp>
+#include <type_traits>
+#include <unordered_map>
 
 #include <state-observation/tools/definitions.hpp>
 #include <state-observation/tools/rigid-body-kinematics.hpp>
@@ -56,7 +58,8 @@ inline static std::string odometryTypeToString(OdometryType odometryType)
   return internal::odometryTypToStr_.at(odometryType);
 }
 
-using namespace kine;
+using kine::Kinematics;
+using kine::LocalKinematics;
 typedef Eigen::Matrix<double, 7, 1> Vector7;
 
 /**

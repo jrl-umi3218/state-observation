@@ -2,6 +2,9 @@
 #define CONTACTSMANAGERHPP
 #include <set>
 #include <state-observation/tools/measurements-manager/Contact.hpp>
+#include <string>
+#include <type_traits>
+#include <unordered_map>
 
 namespace stateObservation
 {

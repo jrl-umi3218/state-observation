@@ -115,11 +115,6 @@ public:
   /// @param b
   void setWithGyroBias(bool b = true);
 
-  /// @brief Set if the damping component of the visco-elastic contact force must be used in the annalytical A matrix.
-  ///
-  /// @param b
-  void setWithDampingInMatrixA(bool b = true);
-
   /// @brief Set if the process covariance matrix associated with the contact rest poses must be adapted such that the
   /// process variance on the average pose is zero.
   ///
@@ -324,7 +319,7 @@ public:
   /// @param contactForceMeas force measurement at the contact
   /// @param contactTorqueMeas torque measurement at the contact
   /// @return int the id number of the contact just added (returns contactNumber if it is positive)
-  Index addContact(Kinematics & worldContactKine,
+  Index addContact(const Kinematics & worldContactKine,
                    const Matrix12 & initialCovarianceMatrix,
                    const Matrix12 & processCovarianceMatrix,
                    Index contactNumber,
@@ -1467,8 +1462,6 @@ protected:
 
   Input input_;
 
-  std::set<Index> removedContacts_;
-
   Index stateSize_;
   Index stateTangentSize_;
   Index measurementSize_;
@@ -1492,7 +1485,6 @@ protected:
   bool withGyroBias_;
   bool withUnmodeledWrench_;
   bool withAccelerationEstimation_;
-  bool withDampingInMatrixA_;
   bool withAdaptativeContactProcessCov_;
 
   IndexedVector3 com_, comd_, comdd_;

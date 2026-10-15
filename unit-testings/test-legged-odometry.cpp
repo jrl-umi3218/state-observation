@@ -99,8 +99,20 @@ int testLeggedOdometry(int errorcode)
 
     odometryManager.initLoop(contactList, contactUpdateFunctions);
 
-    odometryManager.run(
-        odometry::LeggedOdometryManager::KineParams(kine).attitudeMeasurement(traj.kine.orientation.toMatrix3()));
+    Matrix3 attitude = traj.kine.orientation.toMatrix3();
+    odometryManager.run(odometry::LeggedOdometryManager::KineParams(kine).attitudeMeasurement(attitude));
+
+    if((kine.position() - Vector3(0.0, 0.0, 0.8)).norm() > 1e-12)
+    {
+      std::cout << std::endl
+                << "The position changed without maintained contact: " << kine.position().transpose() << std::endl;
+      return errorcode;
+    }
+    if((kine.orientation.toMatrix3() - attitude).norm() > 1e-12)
+    {
+      std::cout << std::endl << "The orientation differs from the attitude measurement." << std::endl;
+      return errorcode;
+    }
   }
 
   return 0;
@@ -158,6 +170,102 @@ int testDoubleSupportSameWeights(int errorcode)
   return 0;
 }
 
+/// @brief Runs the odometry over a few iterations with the given contacts, using a tilt measurement so that the yaw
+/// is estimated from the contacts.
+/// @return the estimated kinematics of the body
+Kinematics runOdometry(stateObservation::odometry::LeggedOdometryManager & odometryManager,
+                       const std::set<std::string> & contactList,
+                       const Kinematics & bodyContactKine,
+                       double lambda,
+                       int nbIters)
+{
+  auto setContact = [&bodyContactKine, lambda](stateObservation::odometry::LoContact & contact)
+  {
+    contact.bodyContactKine_ = bodyContactKine;
+    contact.lambda(lambda);
+  };
+  auto contactUpdateFunctions = stateObservation::odometry::LeggedOdometryManager::ContactUpdateFunctions()
+                                    .onNewContact(setContact)
+                                    .onMaintainedContact(setContact);
+
+  Kinematics kine = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+  kine.position = Vector3(0.0, 0.0, 0.8);
+  Vector3 tilt = Vector3::UnitZ();
+  for(int i = 0; i < nbIters; i++)
+  {
+    odometryManager.initLoop(contactList, contactUpdateFunctions);
+    odometry::LeggedOdometryManager::KineParams kineParams(kine);
+    kineParams.tiltMeasurement(tilt);
+    odometryManager.run(kineParams);
+  }
+  return kine;
+}
+
+/// @brief Checks the robustness of the odometry: unknown odometry type, contacts carrying no load, contacts without
+/// orientation, and replacement of the pose of the body with contacts created on the same iteration.
+int testOdometryRobustness(int errorcode)
+{
+  double dt = 0.005;
+  odometry::LeggedOdometryManager::Configuration odomConfig(stateObservation::odometry::stringToOdometryType("6D"));
+  Kinematics initPose = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+  initPose.position = Vector3(0.0, 0.0, 0.8);
+
+  // contacts carrying no load
+  {
+    stateObservation::odometry::LeggedOdometryManager odometryManager;
+    odometryManager.setSamplingTime(dt);
+    odometryManager.init(odomConfig, initPose.toVector(Kinematics::Flags::pose));
+    Kinematics bodyContactKine = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+    Kinematics kine = runOdometry(odometryManager, {"LeftFoot", "RightFoot"}, bodyContactKine, 0.0, 10);
+    if(!kine.orientation.toMatrix3().allFinite())
+    {
+      std::cout << std::endl << "The orientation is not finite when the contacts carry no load." << std::endl;
+      return errorcode;
+    }
+  }
+
+  // point contacts: they give no orientation
+  {
+    stateObservation::odometry::LeggedOdometryManager odometryManager;
+    odometryManager.setSamplingTime(dt);
+    odometryManager.init(odomConfig, initPose.toVector(Kinematics::Flags::pose));
+    Kinematics bodyContactKine;
+    bodyContactKine.position = Vector3(0.1, 0.0, -0.8);
+    Kinematics kine = runOdometry(odometryManager, {"LeftFoot", "RightFoot"}, bodyContactKine, 0.5, 10);
+    if(!kine.orientation.isSet() || !kine.orientation.toMatrix3().allFinite())
+    {
+      std::cout << std::endl << "The orientation is not finite with point contacts only." << std::endl;
+      return errorcode;
+    }
+  }
+
+  // the pose of the body is replaced after the creation of a contact
+  {
+    stateObservation::odometry::LeggedOdometryManager odometryManager;
+    odometryManager.setSamplingTime(dt);
+    odometryManager.init(odomConfig, initPose.toVector(Kinematics::Flags::pose));
+    Kinematics bodyContactKine = Kinematics::zeroKinematics(Kinematics::Flags::pose);
+    bodyContactKine.position = Vector3(0.1, 0.0, -0.8);
+    runOdometry(odometryManager, {"LeftFoot"}, bodyContactKine, 1.0, 1);
+
+    Kinematics newPose = initPose;
+    newPose.position = Vector3(1.0, 2.0, 0.8);
+    odometryManager.replaceOdomBodyPose(newPose.toVector(Kinematics::Flags::pose));
+
+    const Vector3 & contactRefPos =
+        odometryManager.contactsManager().contacts().at("LeftFoot").worldRefKine_.position();
+    if((contactRefPos - Vector3(1.1, 2.0, 0.0)).norm() > 1e-12)
+    {
+      std::cout << std::endl
+                << "The new contact is not re-anchored on the new pose of the body: " << contactRefPos.transpose()
+                << std::endl;
+      return errorcode;
+    }
+  }
+
+  return 0;
+}
+
 int main()
 {
   int returnVal;
@@ -184,6 +292,18 @@ int main()
   else
   {
     std::cout << "testDoubleSupportSameWeights succeeded" << std::endl;
+  }
+  errorcode++;
+
+  std::cout << "Starting testOdometryRobustness" << std::endl;
+  if((returnVal = testOdometryRobustness(errorcode)))
+  {
+    std::cout << "testOdometryRobustness failed!" << errorcode << std::endl;
+    return returnVal;
+  }
+  else
+  {
+    std::cout << "testOdometryRobustness succeeded" << std::endl;
   }
   errorcode++;
 

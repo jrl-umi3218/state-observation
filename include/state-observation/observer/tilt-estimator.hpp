@@ -54,13 +54,15 @@ protected:
 public:
   /// @brief initializes the state vector.
   /// @param xInit The initial state vector
-  virtual void initEstimator(Vector & x);
+  virtual void initEstimator(const Vector & x);
 
   /// @brief initializes the state vector.
   /// @param x1 The initial local linear velocity of the IMU.
   /// @param x2_p The initial value of the intermediate estimate of the IMU's tilt.
   /// @param x2 The initial tilt of the IMU.
-  virtual void initEstimator(Vector3 & x1, Vector3 & x2_prime, Vector3 & x2);
+  virtual void initEstimator(const Vector3 & x1 = Vector3::Zero(),
+                             const Vector3 & x2_prime = Vector3::UnitZ(),
+                             const Vector3 & x2 = Vector3::UnitZ());
 
   /// set the gain of x1_hat variable
   inline void setAlpha(const double alpha)
@@ -124,10 +126,10 @@ public:
 
 protected:
   /// The parameters of the estimator
-  double alpha_, beta_, gamma_;
+  double alpha_ = 0.0, beta_ = 0.0, gamma_ = 0.0;
 
   /// Sampling time
-  double dt_;
+  double dt_ = 0.0;
 
   /// The tilt estimator loop
   virtual StateVector oneStepEstimation_();

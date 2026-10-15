@@ -111,11 +111,13 @@ TimeIndex DelayedMeasurementObserver::getCurrentTime() const
 
 bool DelayedMeasurementObserver::stateIsSet() const
 {
-  return xBuffer_.front().isSet();
+  return !xBuffer_.empty() && xBuffer_.front().isSet();
 }
 
 void DelayedMeasurementObserver::pushAsyncMeasurement(const AsynchronousDataBase & asyncMeas, TimeIndex k)
 {
+  BOOST_ASSERT(y_asynchronous_ && "The delayed measurements vector has not been initialized in the constructor.");
+  BOOST_ASSERT(stateIsSet() && "The state vector has not been set");
   if(k > xBuffer_.back().getTime())
   {
     y_asynchronous_->pushValue(asyncMeas, k);
@@ -131,7 +133,7 @@ void DelayedMeasurementObserver::setMeasurement(const ObserverBase::MeasureVecto
     BOOST_ASSERT((y_.getNextIndex() == k || y_.checkIndex(k)) && "ERROR: The time is set incorrectly for \
                                 the measurements (order or gap)");
   else
-    BOOST_ASSERT((!xBuffer_.front().isSet() || xBuffer_.front().getTime() == k - 1)
+    BOOST_ASSERT((!stateIsSet() || xBuffer_.front().getTime() == k - 1)
                  && "ERROR: The time is set incorrectly for the measurements \
                                 (must be [current_time+1])");
 
@@ -140,6 +142,8 @@ void DelayedMeasurementObserver::setMeasurement(const ObserverBase::MeasureVecto
 
 void DelayedMeasurementObserver::pushAsyncInput(const AsynchronousDataBase & asyncInput, TimeIndex k)
 {
+  BOOST_ASSERT(u_asynchronous_ && "The delayed inputs vector has not been initialized in the constructor.");
+  BOOST_ASSERT(stateIsSet() && "The state vector has not been set");
   if(k >= xBuffer_.back().getTime())
   {
     u_asynchronous_->pushValue(asyncInput, k);
@@ -158,7 +162,7 @@ void DelayedMeasurementObserver::setState(const ObserverBase::StateVector & x_k,
 
 void DelayedMeasurementObserver::setCurrentState(const ObserverBase::StateVector & x_k)
 {
-  BOOST_ASSERT(xBuffer_.front().isSet() && "The state vector has not been set");
+  BOOST_ASSERT(stateIsSet() && "The state vector has not been set");
   BOOST_ASSERT(checkStateVector(x_k) && "The size of the state vector is incorrect");
 
   xBuffer_.front()() = x_k;
@@ -166,7 +170,7 @@ void DelayedMeasurementObserver::setCurrentState(const ObserverBase::StateVector
 
 void DelayedMeasurementObserver::clearStates()
 {
-  xBuffer_.front().reset();
+  xBuffer_.clear();
 }
 
 void DelayedMeasurementObserver::clearMeasurements()
