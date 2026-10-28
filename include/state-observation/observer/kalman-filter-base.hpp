@@ -291,6 +291,9 @@ public:
   /// Get the last vector of innovation of the Kalman filter
   virtual const StateVector & getInnovation();
 
+  /// Get the last vector of the measurement prediction error
+  virtual const MeasureVector & getMeasurementPredictionError();
+
   /// A function that gives the prediction (this is NOT the estimation of the state),
   /// for the estimation call getEstimateState method
   /// it is only an execution of the state synamics with the current state
@@ -365,12 +368,14 @@ protected:
   /// Vector containing the inovation of the Kalman filter
   Vector innovation_;
 
+  /// Vector containing the measurement error of the Kalman filter
+  Vector inoMeas_;
+
   struct optimizationContainer
   {
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
     Matrix pbar;
     Vector xhat;
-    Vector inoMeas;
     Matrix inoMeasCov;
     Matrix inoMeasCovInverse;
     LLTPMatrix inoMeasCovLLT;
