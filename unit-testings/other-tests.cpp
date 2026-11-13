@@ -122,8 +122,60 @@ int testVector6Derivation()
   return 0;
 }
 
+/// @brief Checks the index handling of the indexed arrays and their conversion into standard vectors.
+int testIndexedArrays()
+{
+  IndexedMatrixArray matrices;
+  matrices.setFirstIndex(5);
+  for(int i = 0; i < 3; ++i)
+  {
+    matrices.pushBack(Vector3::Constant(double(i)));
+  }
+
+  matrices.setLastIndex(20);
+  if(matrices.getFirstIndex() != 18 || matrices.getLastIndex() != 20)
+  {
+    std::cout << "IndexedMatrixArray::setLastIndex is incorrect: first index " << matrices.getFirstIndex()
+              << ", last index " << matrices.getLastIndex() << " instead of 18 and 20" << std::endl;
+    return 1;
+  }
+
+  IndexedMatrixArray::Array array = matrices.getArray();
+  if(array.size() != 3 || array[2] != Vector3::Constant(2.0))
+  {
+    std::cout << "IndexedMatrixArray::getArray is incorrect" << std::endl;
+    return 2;
+  }
+
+  IndexedInputArrayT<VectorInput> inputs;
+  inputs.setFirstIndex(5);
+  for(int i = 0; i < 3; ++i)
+  {
+    VectorInput u(2);
+    u << double(i), double(i);
+    inputs.pushBack(u);
+  }
+
+  inputs.setLastIndex(20);
+  if(inputs.getFirstIndex() != 18 || inputs.getLastIndex() != 20)
+  {
+    std::cout << "IndexedInputArrayT::setLastIndex is incorrect: first index " << inputs.getFirstIndex()
+              << ", last index " << inputs.getLastIndex() << " instead of 18 and 20" << std::endl;
+    return 3;
+  }
+
+  return 0;
+}
+
 int main()
 {
+  int returnVal;
+  if((returnVal = testIndexedArrays()))
+  {
+    std::cout << "testIndexedArrays failed!" << std::endl;
+    return returnVal;
+  }
+
   homoMatrixDerivationTestFromFile(const_cast<char *>("/tmp/featurecompensateR_ref-position.dat"),
                                    const_cast<char *>("/tmp/featurecompensateR_ref-velocity.dat"),
                                    const_cast<char *>("reference"));

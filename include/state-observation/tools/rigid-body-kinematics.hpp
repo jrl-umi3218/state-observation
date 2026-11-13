@@ -88,6 +88,10 @@ inline AngleAxis rotationVectorToAngleAxis(const Vector3 & v);
 /// Transforms the rotation vector into rotation matrix
 inline Matrix3 rotationVectorToRotationMatrix(const Vector3 & v);
 
+/// @brief Computes V(rotVec) * v, where V is the left Jacobian of SO(3): V(r) = I + (1 - cos|r|)/|r|^2 [r]x + (|r| -
+/// sin|r|)/|r|^3 [r]x^2. It is used for the integration on SE(3), and remains accurate for small rotations.
+inline Vector3 SO3LeftJacobianTimes(const Vector3 & rotVec, const Vector3 & v);
+
 /// Transforms the rotation vector into quaternion
 inline Quaternion rotationVectorToQuaternion(const Vector3 & v);
 
@@ -138,6 +142,10 @@ inline Matrix3 skewSymmetric2(const Vector3 & v, Matrix3 & R);
 
 /// transform a 3d vector into a squared skew symmetric 3x3 matrix
 inline Matrix3 skewSymmetric2(const Vector3 & v);
+
+/// computes the V matrix used for the integration of the local linear velocity into the local position using SE(3)
+/// formalism. Allows to take the evolution of the orientation over dt into account.
+inline Matrix3 v_matrix(const Vector3 & rotVec);
 
 /// transforms a homogeneous matrix into 6d vector (position theta mu)
 inline Vector6 homogeneousMatrixToVector6(const Matrix4 & M);
@@ -628,6 +636,14 @@ struct Kinematics : public internal::KinematicsInternal<Kinematics>
   /// @return const Kinematics &
   inline const Kinematics & integrate(double dt);
 
+  /// @brief integrates the current kinematics over the timestep dt using the SE3 integration.
+  /// @details can be used to predict the future kinematics from the current ones.
+  /// @param dt the timestep used for the integration
+  /// @param vl_dt local linear velocity times dt
+  /// @param omega_l_dt local angular velocity times dt
+  /// @return const Kinematics &
+  inline const Kinematics & SE3_integration(const Vector3 & vl_dt, const Vector3 & omega_l_dt);
+
   /// @brief updates the current kinematics (k) with the new ones (k+1).
   /// @details flags allow to chose what variables must be contained in the new kinematics. If a variable is not given
   /// in the updated Kinematics object, it computed using either integration or finite differences depending on the
@@ -714,17 +730,17 @@ struct LocalKinematics : public internal::KinematicsInternal<LocalKinematics>
   /// @param locK the global kinematics to convert
   inline LocalKinematics & operator=(const Kinematics & kine);
 
-  /// initializes at zero all the flagged fields
-  /// the typename allows to set if the prefered type for rotation
-  /// is a Matrix3 or a Quaternion (Quaternion by default)
-  template<typename t = Quaternion>
-  LocalKinematics & setZero(Flags::Byte = Flags::all);
-
   /// @brief integrates the current local kinematics over the timestep dt.
   /// @details can be used to predict the future local kinematics from the current ones.
   /// @param dt the timestep used for the integration
   /// @return const LocalKinematics &
   inline const LocalKinematics & integrate(double dt);
+
+  /// @brief integrates the current kinematics over the timestep dt using the SE3 integration.
+  /// @details can be used to predict the future kinematics from the current ones.
+  /// @param dt the timestep used for the integration
+  /// @return const Kinematics &
+  inline const LocalKinematics & SE3_integration(double dt);
 
   /// @brief updates the current local kinematics (k) with the new ones (k+1).
   /// @details flags allow to chose what variables must be contained in the new local kinematics. If a variable is not
